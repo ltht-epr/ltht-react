@@ -21,7 +21,7 @@
   "scripts": {
     "start": "start-storybook -p 9009 -s public",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "yarn test:unit",
     "test:unit": "jest",
     "eject": "react-scripts eject",
     "build-storybook": "build-storybook -s public"
