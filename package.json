@@ -1,6 +1,6 @@
 {
-  "name": "my-app",
-  "version": "0.1.0",
+  "name": "@ltht-react/monorepo",
+  "version": "0.0.0",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
@@ -36,5 +36,17 @@
       "last 1 safari version"
     ]
   },
-  "license": "MIT"
+  "license": "MIT",
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "index.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ltht-epr/ltht-react.git"
+  },
+  "author": "LTHT",
+  "bugs": {
+    "url": "https://github.com/ltht-epr/ltht-react/issues"
+  },
+  "homepage": "https://github.com/ltht-epr/ltht-react#readme"
 }
