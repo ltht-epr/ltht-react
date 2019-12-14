@@ -1,5 +1,5 @@
 import React from 'react'
-import { css } from 'emotion'
+import { css } from '@emotion/core'
 
 const styles = css`
   -webkit-appearance: none;
@@ -19,6 +19,6 @@ const styles = css`
   text-decoration: none;
 `
 
-const Button: React.FC = () => <button css={css}></button>
+const Button: React.FC = () => <button css={styles}></button>
 
 export default Button
