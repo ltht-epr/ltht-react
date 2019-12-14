@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import Button from './index'
+import Button from './button.fixtures'
 
 describe('button', () => {
   describe('basics', () => {

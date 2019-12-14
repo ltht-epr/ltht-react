@@ -19,6 +19,6 @@ const styles = css`
   text-decoration: none;
 `
 
-const Button: React.FC = () => <button css={styles}></button>
+const Button: React.FC = ({ children }) => <button css={styles}>{children}</button>
 
 export default Button
