@@ -62,6 +62,7 @@
     "@types/react-dom": "^16.9.0",
     "@types/react-test-renderer": "^16.9.1",
     "babel-loader": "^8.0.6",
+    "babel-plugin-emotion": "^10.0.23",
     "babel-preset-stage-1": "^6.24.1",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.15.1",
