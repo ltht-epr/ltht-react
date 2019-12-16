@@ -1,18 +1,54 @@
+import { css } from '@emotion/core'
 import styled from '@emotion/styled'
+import { BUTTON_BLUE, BUTTON_GREEN } from '../../../constants/colours'
 
-const Button = styled.button`
-  text-decoration: none;
-  color: black;
-  font-size: 1rem;
-  padding: 1px 7px;
-  border: 1px solid #9c9c9c;
-  margin: 2px 2px;
-  display: block;
-  background-image: -webkit-linear-gradient(#ffffff 0%, #f6f6f6 30%, #f3f3f3 45%, #ededed 60%, #eeeeee 100%);
-  border-radius: 3px;
+const Button = styled.button<ButtonType>`
+  background: transparent;
+  box-shadow: none;
+  color: ${BUTTON_BLUE};
+  border: none;
+  border-radius: 4px;
   cursor: pointer;
-  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
+  display: block;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.2;
+  margin: 2px 2px;
+  padding: 1px 7px;
+  text-decoration: none;
+  user-select: none;
   width: 100%;
+
+  &:hover {
+    background: #e5e5e5;
+  }
+
+  ${props =>
+    props.primary &&
+    css`
+      background: ${BUTTON_BLUE};
+      color: white;
+
+      &:hover {
+        background: #005bb7;
+      }
+    `}
+
+  ${props =>
+    props.workflow &&
+    css`
+      background: ${BUTTON_GREEN},
+      color: white;
+
+      &:hover: {
+        background: #00604B;
+      }
+  `}
 `
+
+interface ButtonType {
+  primary?: boolean | undefined
+  workflow?: boolean | undefined
+}
 
 export default Button
