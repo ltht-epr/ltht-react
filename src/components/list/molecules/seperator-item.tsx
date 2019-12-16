@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 
-const SeperatorItem = styled.li`
+export const SeperatorItem = styled.li`
   margin: 0;
   padding: 0.8rem;
   font-weight: 700;

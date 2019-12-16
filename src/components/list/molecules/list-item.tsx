@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 
-const ListItem = styled.li`
+export const ListItem = styled.li`
   display: flex;
   margin: 0;
   padding: 0;
@@ -10,6 +10,14 @@ const ListItem = styled.li`
   &:hover {
     background: #15398d;
     cursor: pointer;
+  }
+
+  & > div {
+    padding-left: 1rem;
+  }
+
+  & div:first-of-type {
+    padding-left: 0;
   }
 `
 

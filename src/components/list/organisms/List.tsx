@@ -1,10 +1,10 @@
 import styled from '@emotion/styled'
 
-const List = styled.ul`
+export const List = styled.ul`
+  box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
   margin: 0;
   padding: 0;
-  text-indent: 0;
   border: 1px solid grey;
 
   & > li {
