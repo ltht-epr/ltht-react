@@ -11,11 +11,11 @@
     "typescript": "^3.7.3"
   },
   "scripts": {
-    "build-storybook": "build-storybook -s public",
+    "build-storybook": "build-storybook",
     "build": "babel src --out-dir lib --extensions '.ts,.tsx'",
     "eject": "react-scripts eject",
     "prepare": "yarn build",
-    "start": "start-storybook -p 9009 -s public",
+    "start": "start-storybook -p 9009",
     "test:unit": "jest",
     "test": "yarn test:unit",
     "tsc": "tsc",
