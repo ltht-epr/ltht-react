@@ -1,24 +1,18 @@
-import React from 'react'
-import { css } from '@emotion/core'
+import styled from '@emotion/styled'
 
-const styles = css`
-  -webkit-appearance: none;
-  -webkit-font-smoothing: antialiased;
-  background-color: #00823b;
-  border: none;
-  box-shadow: 0 2px 0 #003618;
-  color: #fff;
-  cursor: pointer;
-  display: inline-block;
-  font-size: 1em;
-  line-height: 1.25;
-  outline-offset: -1px;
-  outline: 1px solid transparent;
-  padding: 0.526315em 0.789473em 0.263157em;
-  position: relative;
+const Button = styled.button`
   text-decoration: none;
+  color: black;
+  font-size: 1rem;
+  padding: 1px 7px;
+  border: 1px solid #9c9c9c;
+  margin: 2px 2px;
+  display: block;
+  background-image: -webkit-linear-gradient(#ffffff 0%, #f6f6f6 30%, #f3f3f3 45%, #ededed 60%, #eeeeee 100%);
+  border-radius: 3px;
+  cursor: pointer;
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
+  width: 100%;
 `
-
-const Button: React.FC = ({ children }) => <button css={styles}>{children}</button>
 
 export default Button
