@@ -1,0 +1,149 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`button basics matches snapshot 1`] = `
+.emotion-0 {
+  background: transparent;
+  box-shadow: none;
+  color: #0066CC;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  display: block;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.2;
+  margin: 2px 2px;
+  padding: 1px 7px;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 100%;
+}
+
+.emotion-0:hover {
+  background: #e5e5e5;
+}
+
+<button
+  className="emotion-0"
+>
+  Primary Button
+</button>
+`;
+
+exports[`button styles default 1`] = `
+.emotion-0 {
+  background: transparent;
+  box-shadow: none;
+  color: #0066CC;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  display: block;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.2;
+  margin: 2px 2px;
+  padding: 1px 7px;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 100%;
+}
+
+.emotion-0:hover {
+  background: #e5e5e5;
+}
+
+<button
+  className="emotion-0"
+>
+  Default Button
+</button>
+`;
+
+exports[`button styles primary 1`] = `
+.emotion-0 {
+  background: transparent;
+  box-shadow: none;
+  color: #0066CC;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  display: block;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.2;
+  margin: 2px 2px;
+  padding: 1px 7px;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 100%;
+  background: #0066CC;
+  color: white;
+}
+
+.emotion-0:hover {
+  background: #e5e5e5;
+}
+
+.emotion-0:hover {
+  background: #005bb7;
+}
+
+<button
+  className="emotion-0"
+>
+  Primary Button
+</button>
+`;
+
+exports[`button styles workflow 1`] = `
+.emotion-0 {
+  background: transparent;
+  box-shadow: none;
+  color: #0066CC;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  display: block;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.2;
+  margin: 2px 2px;
+  padding: 1px 7px;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 100%;
+  background: #006B54;
+  color: white;
+}
+
+.emotion-0:hover {
+  background: #e5e5e5;
+}
+
+.emotion-0:hover: {
+  background: #00604b;
+}
+
+<button
+  className="emotion-0"
+>
+  Workflow Button
+</button>
+`;

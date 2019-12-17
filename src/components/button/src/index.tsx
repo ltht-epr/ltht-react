@@ -37,13 +37,13 @@ const Button = styled.button<ButtonType>`
   ${props =>
     props.workflow &&
     css`
-      background: ${BUTTON_GREEN},
+      background: ${BUTTON_GREEN};
       color: white;
 
       &:hover: {
-        background: #00604B;
+        background: #00604b;
       }
-  `}
+    `}
 `
 
 interface ButtonType {
