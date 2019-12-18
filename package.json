@@ -1,6 +1,6 @@
 {
   "name": "@ltht-react/monorepo",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "dependencies": {
     "@emotion/core": "^10.0.22",
     "@emotion/styled": "^10.0.23",
