@@ -11,7 +11,7 @@
     "typescript": "^3.7.3"
   },
   "scripts": {
-    "build-storybook": "build-storybook",
+    "build-storybook": "build-storybook -c .storybook",
     "build": "babel src --out-dir lib --extensions '.ts,.tsx'",
     "eject": "react-scripts eject",
     "prepare": "yarn build",
@@ -20,7 +20,8 @@
     "test": "yarn test:unit",
     "tsc": "tsc",
     "watch": "babel --watch src ---out-dir lib --extensions '.ts,.tsx'",
-    "deploy-storybook": "storybook-to-ghpages --out storybook-static"
+    "deploy-storybook": "storybook-to-ghpages -e storybook-static",
+    "patch": "yarn build && yarn test && yarn build-storybook && yarn version --patch && yarn deploy-storybook"
   },
   "eslintConfig": {
     "extends": "react-app"
