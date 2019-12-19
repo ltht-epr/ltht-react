@@ -86,5 +86,10 @@
   "bugs": {
     "url": "https://github.com/ltht-epr/ltht-react/issues"
   },
-  "homepage": "https://github.com/ltht-epr/ltht-react#readme"
+  "homepage": "https://github.com/ltht-epr/ltht-react#readme",
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "components/*"
+  ]
 }
