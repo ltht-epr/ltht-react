@@ -5,12 +5,10 @@
   "author": "LTHT",
   "homepage": "https://github.com/ltht-epr/ltht-react#readme",
   "license": "MIT",
-  "main": "lib/index.js",
-  "typings": "dist/index.d.ts",
+  "main": "lib/es2015/index.js",
+  "typings": "lib/es2015/index.d.ts",
   "directories": {
-    "lib": "lib",
-    "dist": "dist",
-    "test": "__tests__"
+    "lib": "lib"
   },
   "files": [
     "lib"
@@ -24,8 +22,14 @@
   },
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1",
-    "build": "tsc",
-    "build:watch": "tsc --watch"
+    "build": "yarn build:es2015 && yarn build:esm && yarn build:cjs",
+    "build:es2015": "rimraf lib/es2015 && tsc --module es2015 --target es2015 --outDir lib/es2015",
+    "build:esm": "rimraf lib/esm && tsc --module es2015 --target es5 --outDir lib/esm",
+    "build:cjs": "rimraf lib/cjs && tsc --module commonjs --target es5 --outDir lib/cjs"
+  },
+  "dependencies": {
+    "@ltht-react/button": "0.0.0",
+    "@ltht-react/types": "0.0.0"
   },
   "devDependencies": {
     "typescript": "^3.7.3"

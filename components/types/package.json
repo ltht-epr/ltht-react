@@ -5,7 +5,8 @@
   "author": "Jonny Smith <jonny.smith@digitaljs.com>",
   "homepage": "https://github.com/ltht-epr/ltht-react/tree/master/components/ltht-types#readme",
   "license": "MIT",
-  "main": "lib/ltht-types.js",
+  "main": "lib/es2015/index.js",
+  "typings": "lib/es2015/index.d.ts",
   "directories": {
     "lib": "lib",
     "test": "__tests__"
