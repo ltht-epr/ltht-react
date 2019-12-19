@@ -12,7 +12,7 @@
   },
   "scripts": {
     "build-storybook": "build-storybook -c .storybook",
-    "build": "lerna run build",
+    "build": "lerna run build --parallel",
     "bootstrap": "lerna bootstrap",
     "eject": "react-scripts eject",
     "prepare": "yarn build",
