@@ -1,0 +1,36 @@
+{
+  "name": "ltht-react",
+  "version": "0.0.0",
+  "description": "React button component using CSSinJS",
+  "author": "LTHT",
+  "homepage": "https://github.com/ltht-epr/ltht-react#readme",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "typings": "dist/index.d.ts",
+  "directories": {
+    "lib": "lib",
+    "dist": "dist",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "registry": "https://registry.yarnpkg.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ltht-epr/ltht-react.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1",
+    "build": "tsc",
+    "build:watch": "tsc --watch"
+  },
+  "devDependencies": {
+    "typescript": "^3.7.3"
+  },
+  "bugs": {
+    "url": "https://github.com/ltht-epr/ltht-react/issues"
+  }
+}

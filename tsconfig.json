@@ -1,12 +1,21 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "moduleResolution": "node",
-    "allowJs": true,
-    "noEmit": true,
+    "sourceMap": true,
+    "removeComments": true,
     "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "noImplicitThis": true,
+    "alwaysStrict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "jsx": "react",
     "esModuleInterop": true,
-    "jsx": "react"
+    "skipLibCheck": true,
+    "types": []
   },
-  "include": ["src"]
+  "exclude": ["node_modules"]
 }

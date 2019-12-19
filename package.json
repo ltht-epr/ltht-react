@@ -12,7 +12,8 @@
   },
   "scripts": {
     "build-storybook": "build-storybook -c .storybook",
-    "build": "babel src --out-dir lib --extensions '.ts,.tsx'",
+    "build": "lerna run build",
+    "bootstrap": "lerna bootstrap",
     "eject": "react-scripts eject",
     "prepare": "yarn build",
     "start": "start-storybook -p 9009",
@@ -21,7 +22,9 @@
     "tsc": "tsc",
     "watch": "babel --watch src ---out-dir lib --extensions '.ts,.tsx'",
     "deploy-storybook": "storybook-to-ghpages -e storybook-static",
-    "patch": "yarn build && yarn test && yarn build-storybook && yarn version --patch && yarn deploy-storybook"
+    "patch": "yarn test && yarn build && yarn build-storybook && yarn version --patch && yarn deploy-storybook",
+    "new-version": "lerna version --conventional-commits --yes",
+    "diff": "lerna diff"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -73,9 +76,12 @@
     "enzyme-to-json": "^3.4.3",
     "jest": "^24.9.0",
     "jest-emotion": "^10.0.26",
+    "lerna": "^3.19.0",
     "react-docgen-typescript-loader": "^3.6.0",
     "react-test-renderer": "^16.12.0",
+    "rimraf": "^3.0.0",
     "ts-jest": "^24.2.0",
+    "ts-node": "^8.5.4",
     "webpack": "^4.41.2"
   },
   "repository": {

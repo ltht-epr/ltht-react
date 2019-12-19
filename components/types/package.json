@@ -1,0 +1,32 @@
+{
+  "name": "@ltht-react/types",
+  "version": "0.0.0",
+  "description": "> TODO: description",
+  "author": "Jonny Smith <jonny.smith@digitaljs.com>",
+  "homepage": "https://github.com/ltht-epr/ltht-react/tree/master/components/ltht-types#readme",
+  "license": "MIT",
+  "main": "lib/ltht-types.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "registry": "https://registry.yarnpkg.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ltht-epr/ltht-react.git"
+  },
+  "scripts": {
+    "build": "yarn build:es2015 && yarn build:esm && yarn build:cjs",
+    "build:es2015": "rimraf lib/es2015 && tsc --module es2015 --target es2015 --outDir lib/es2015",
+    "build:esm": "rimraf lib/esm && tsc --module es2015 --target es5 --outDir lib/esm",
+    "build:cjs": "rimraf lib/cjs && tsc --module commonjs --target es5 --outDir lib/cjs"
+  },
+  "bugs": {
+    "url": "https://github.com/ltht-epr/ltht-react/issues"
+  }
+}
