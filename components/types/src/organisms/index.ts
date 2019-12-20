@@ -1,0 +1,5 @@
+export * from './allergy-Intolerance'
+export * from './annotation'
+export * from './annotation-author'
+export * from './flag'
+export * from './resource'
