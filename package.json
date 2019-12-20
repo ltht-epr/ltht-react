@@ -13,6 +13,8 @@
   "scripts": {
     "build-storybook": "build-storybook -c .storybook",
     "build": "lerna run build --parallel",
+    "build:lib": "lerna run build:lib --parallel",
+    "build:es": "lerna run build:es --parallel",
     "build:watch": "lerna run build:watch --parallel",
     "build:definition": "lerna run build:definition --parallel",
     "bootstrap": "lerna bootstrap",
