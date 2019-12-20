@@ -1,6 +1,6 @@
 {
   "name": "ltht-react",
-  "version": "0.0.1-alpha.0",
+  "version": "0.0.1-alpha.1",
   "description": "React button component using CSSinJS",
   "author": "LTHT",
   "homepage": "https://github.com/ltht-epr/ltht-react#readme",
@@ -37,7 +37,7 @@
     "url": "https://github.com/ltht-epr/ltht-react/issues"
   },
   "dependencies": {
-    "@ltht-react/button": "^0.0.1-alpha.0",
-    "@ltht-react/types": "^0.0.1-alpha.0"
+    "@ltht-react/button": "^0.0.1-alpha.1",
+    "@ltht-react/types": "^0.0.1-alpha.1"
   }
 }
