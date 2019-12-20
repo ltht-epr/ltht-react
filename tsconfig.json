@@ -1,21 +1,19 @@
 {
   "compilerOptions": {
-    // Target latest version of ECMAScript.
-    "target": "es5",
-    // Search under node_modules for non-relative imports.
-    "moduleResolution": "node",
-    // Process & infer types from .js files.
-    "allowJs": true,
-    // Don't emit; allow Babel to transform files.
-    "noEmit": true,
-    // Enable strictest settings like strictNullChecks & noImplicitAny.
-    "strict": true,
-    // Disallow features that require cross-file information for emit.
-    // "isolatedModules": true,
-    // Import non-ES modules as default imports.
+    "module": "commonjs",
+    "declaration": true,
+    "noImplicitAny": false,
+    "removeComments": true,
+    "noLib": false,
+    "emitDecoratorMetadata": true,
     "esModuleInterop": true,
-
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
+    "target": "es6",
+    "sourceMap": true,
+    "lib": ["es5", "es6", "DOM"],
     "jsx": "react"
   },
-  "include": ["components/*/src"]
+  "exclude": ["node_modules", "**/*.spec.ts"],
+  "include": ["components/*/src", "packages/*/src"]
 }

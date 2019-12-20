@@ -21,15 +21,12 @@
     "url": "git+https://github.com/ltht-epr/ltht-react.git"
   },
   "scripts": {
-    "build": "yarn build:lib && yarn build:es",
+    "build": "yarn build:lib && yarn build:es && yarn build:definition",
     "build:lib": "rimraf lib && babel src -d lib --extensions '.ts,.tsx' --source-maps --config-file ../../babel.config.js",
     "build:es": "rimraf es && cross-env BABEL_ENV=es babel src -d es --extensions '.ts,.tsx' --source-maps --config-file ../../babel.config.js",
     "build:definition": "tsc --noEmit false --emitDeclarationOnly",
-    "build:watch": "tsc --noEmit false --emitDeclarationOnly --watch"
-  },
-  "dependencies": {
-    "@ltht-react/buttons": "0.0.0",
-    "@ltht-react/types": "0.0.0"
+    "build:watch": "tsc --noEmit false --emitDeclarationOnly --watch",
+    "type:check": "tsc"
   },
   "peerDependencies": {
     "emotion": "^10.0.23",
@@ -37,5 +34,9 @@
   },
   "bugs": {
     "url": "https://github.com/ltht-epr/ltht-react/issues"
+  },
+  "dependencies": {
+    "@ltht-react/button": "^0.0.0",
+    "@ltht-react/types": "^0.0.0"
   }
 }
