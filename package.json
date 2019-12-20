@@ -11,25 +11,22 @@
     "typescript": "^3.7.3"
   },
   "scripts": {
-    "build-storybook": "build-storybook -c .storybook",
-    "build": "lerna run build --parallel",
-    "build:lib": "lerna run build:lib --parallel",
-    "build:es": "lerna run build:es --parallel",
-    "build:watch": "lerna run build:watch --parallel",
-    "build:definition": "lerna run build:definition --parallel",
     "bootstrap": "lerna bootstrap",
-    "type:check": "lerna run type:check --parallel",
+    "build-storybook": "build-storybook -c .storybook",
+    "build:definition": "lerna run build:definition --parallel",    
+    "build": "lerna run build --parallel",
+    "clean": "yarn lerna clean && yarn lerna link && yarn lerna bootstrap",
+    "deploy-storybook": "storybook-to-ghpages -e storybook-static",
+    "diff": "lerna diff",
     "eject": "react-scripts eject",
+    "new-version": "lerna version --conventional-commits --yes",
+    "patch": "yarn test && yarn build && yarn build-storybook && yarn version --patch && yarn deploy-storybook",
     "prepare": "npm build",
     "start": "start-storybook -p 9009",
     "test:unit": "jest",
     "test": "yarn test:unit",
     "tsc": "tsc",
-    "watch": "babel --watch src ---out-dir lib --extensions '.ts,.tsx'",
-    "deploy-storybook": "storybook-to-ghpages -e storybook-static",
-    "patch": "yarn test && yarn build && yarn build-storybook && yarn version --patch && yarn deploy-storybook",
-    "new-version": "lerna version --conventional-commits --yes",
-    "diff": "lerna diff"
+    "type:check": "lerna run type:check --parallel"
   },
   "eslintConfig": {
     "extends": "react-app"
