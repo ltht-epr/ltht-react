@@ -15,7 +15,7 @@
     "lib"
   ],
   "publishConfig": {
-    "registry": "https://registry.yarnpkg.com"
+    "access": "public"
   },
   "repository": {
     "type": "git",
@@ -40,5 +40,5 @@
     "@ltht-react/button": "^0.0.1-alpha.2",
     "@ltht-react/types": "^0.0.1-alpha.2"
   },
-  "gitHead": "4b363f052431bd35738693f2a5986caa24c841cf"
+  "gitHead": "f9695b4c4178b35025ff0c91219c9646b5605ff0"
 }
