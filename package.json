@@ -18,7 +18,7 @@
     "bootstrap": "lerna bootstrap",
     "type:check": "lerna run type:check --parallel",
     "eject": "react-scripts eject",
-    "prepare": "yarn build",
+    "prepare": "npm build",
     "start": "start-storybook -p 9009",
     "test:unit": "jest",
     "test": "yarn test:unit",

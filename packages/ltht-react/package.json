@@ -8,7 +8,8 @@
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
   "directories": {
-    "lib": "lib"
+    "lib": "lib",
+    "es": "es"
   },
   "files": [
     "lib"
