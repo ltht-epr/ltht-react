@@ -5,8 +5,8 @@
   "author": "Jonny Smith <jonny.smith@digitaljs.com>",
   "homepage": "https://github.com/ltht-epr/ltht-react/tree/master/components/ltht-types#readme",
   "license": "MIT",
-  "main": "lib/es2015/index.js",
-  "typings": "lib/es2015/index.d.ts",
+  "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
   "directories": {
     "lib": "lib",
     "test": "__tests__"
@@ -22,8 +22,11 @@
     "url": "git+https://github.com/ltht-epr/ltht-react.git"
   },
   "scripts": {
-    "build": "rimraf lib && yarn build:types && babel src -d lib --extensions '.ts,.tsx' --source-maps --config-file ../../babel.config.js",
-    "build:types": "tsc --noEmit false --emitDeclarationOnly"
+    "build": "yarn build:lib && yarn build:es",
+    "build:lib": "rimraf lib && babel src -d lib --extensions '.ts,.tsx' --source-maps --config-file ../../babel.config.js",
+    "build:es": "rimraf es && cross-env BABEL_ENV=es babel src -d es --extensions '.ts,.tsx' --source-maps --config-file ../../babel.config.js",
+    "build:definition": "tsc --noEmit false --emitDeclarationOnly",
+    "build:watch": "tsc --noEmit false --emitDeclarationOnly --watch"
   },
   "bugs": {
     "url": "https://github.com/ltht-epr/ltht-react/issues"

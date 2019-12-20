@@ -3,7 +3,6 @@
   "exclude": ["node_modules"],
   "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "target": "es5",
     "module": "commonjs",
     "moduleResolution": "node",
     "rootDir": "src",

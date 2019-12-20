@@ -1,3 +1,5 @@
-const print = (input: string) => console.log('hello, ', input)
+import { PatientResource } from '@ltht-react/types'
+
+const print = (input: PatientResource) => console.log('hello, ', input.firstName)
 
 export default print

@@ -13,6 +13,7 @@
   "scripts": {
     "build-storybook": "build-storybook -c .storybook",
     "build": "lerna run build --parallel",
+    "build:watch": "lerna run build:watch --parallel",
     "bootstrap": "lerna bootstrap",
     "type-check": "tsc --noEmit false --emitDeclarationOnly",
     "eject": "react-scripts eject",
