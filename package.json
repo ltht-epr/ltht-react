@@ -23,7 +23,7 @@
     "new-version": "lerna version --conventional-commits --yes",
     "patch": "yarn test && yarn build && yarn build-storybook && yarn version --patch && yarn deploy-storybook",
     "prepare": "npm build",
-    "start": "start-storybook -p 9009",
+    "start": "cd packages/storybook && yarn start",
     "test:unit": "jest",
     "test": "yarn test:unit",
     "tsc": "tsc",

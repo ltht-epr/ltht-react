@@ -21,6 +21,7 @@
     "url": "git+https://github.com/ltht-epr/ltht-react.git"
   },
   "scripts": {
+    "start": "start-storybook -p 9009",
     "build": "yarn build:lib && yarn build:es && yarn build:definition",
     "build:lib": "rimraf lib && babel src -d lib --extensions '.ts,.tsx' --source-maps --config-file ../../babel.config.js",
     "build:es": "rimraf es && cross-env BABEL_ENV=es babel src -d es --extensions '.ts,.tsx' --source-maps --config-file ../../babel.config.js"
