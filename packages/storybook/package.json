@@ -1,0 +1,35 @@
+{
+  "name": "@ltht-react/storybook",
+  "version": "0.0.0",
+  "description": "ltht-react: react storybook",
+  "author": "Jonny Smith <jonny.smith@digitaljs.com>",
+  "homepage": "https://github.com/ltht-epr/ltht-react/tree/master/components/storybook#readme",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ltht-epr/ltht-react.git"
+  },
+  "scripts": {
+    "build": "yarn build:lib && yarn build:es && yarn build:definition",
+    "build:lib": "rimraf lib && babel src -d lib --extensions '.ts,.tsx' --source-maps --config-file ../../babel.config.js",
+    "build:es": "rimraf es && cross-env BABEL_ENV=es babel src -d es --extensions '.ts,.tsx' --source-maps --config-file ../../babel.config.js"
+  },
+  "bugs": {
+    "url": "https://github.com/ltht-epr/ltht-react/issues"
+  },
+  "dependencies": {
+    "@ltht-react/button": "^0.0.1-alpha.3",
+    "@ltht-react/types": "^0.0.1-alpha.3"
+  }
+}

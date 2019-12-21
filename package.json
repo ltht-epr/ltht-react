@@ -12,10 +12,11 @@
   },
   "scripts": {
     "bootstrap": "lerna bootstrap",
+    "rebuild": "yarn clean && yarn build",
     "build-storybook": "build-storybook -c .storybook",
-    "build:definition": "lerna run build:definition --parallel",    
+    "build:definition": "lerna run build:definition --parallel",
     "build": "lerna run build --parallel",
-    "clean": "yarn lerna clean && yarn lerna link && yarn lerna bootstrap",
+    "clean": "yarn lerna clean -y && yarn lerna link && yarn lerna bootstrap",
     "deploy-storybook": "storybook-to-ghpages -e storybook-static",
     "diff": "lerna diff",
     "eject": "react-scripts eject",
