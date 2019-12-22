@@ -21,7 +21,8 @@
   },
   "scripts": {
     "type:check": "lerna run type:check --parallel",
-    "prebuild": "yarn run lint",
+    "prebuild": "yarn run lint && yarn run type:check",
+    "postbuild": "lerna bootstrap",
     "build": "lerna run build --parallel",
     "start": "cd packages/storybook && yarn start",
     "lint": "lerna run lint --parallel"
