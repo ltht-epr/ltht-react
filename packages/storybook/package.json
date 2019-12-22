@@ -1,9 +1,9 @@
 {
   "name": "@ltht-react/storybook",
   "version": "0.0.0",
-  "description": "ltht-react: react storybook",
+  "description": "> TODO: description",
   "author": "Jonny Smith <jonny.smith@digitaljs.com>",
-  "homepage": "https://github.com/ltht-epr/ltht-react/tree/master/components/storybook#readme",
+  "homepage": "",
   "license": "MIT",
   "main": "lib/index.js",
   "directories": {
@@ -16,21 +16,18 @@
   "publishConfig": {
     "access": "public"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ltht-epr/ltht-react.git"
-  },
   "scripts": {
     "start": "start-storybook -p 9009",
-    "build": "yarn build:lib && yarn build:es && yarn build:definition",
-    "build:lib": "rimraf lib && babel src -d lib --extensions '.ts,.tsx' --source-maps --config-file ../../babel.config.js",
-    "build:es": "rimraf es && cross-env BABEL_ENV=es babel src -d es --extensions '.ts,.tsx' --source-maps --config-file ../../babel.config.js"
+    "lint": "prettylint 'src/*.{ts,tsx}'"
   },
-  "bugs": {
-    "url": "https://github.com/ltht-epr/ltht-react/issues"
+  "devDependencies": {
+    "@storybook/addon-actions": "^5.2.8",
+    "@storybook/addon-links": "^5.2.8",
+    "@storybook/addon-viewport": "^5.2.8",
+    "@storybook/react": "^5.2.8",
+    "awesome-typescript-loader": "^5.2.1"
   },
   "dependencies": {
-    "@ltht-react/button": "^0.0.1-alpha.3",
-    "@ltht-react/types": "^0.0.1-alpha.3"
+    "@ltht-react/button": "^0.0.0"
   }
 }

@@ -1,48 +1,20 @@
 {
   "name": "@ltht-react/button",
-  "version": "0.0.1-alpha.3",
-  "description": "React button component using CSSinJS",
-  "author": "LTHT",
-  "homepage": "https://github.com/ltht-epr/ltht-react/tree/master/packages/button#readme",
+  "version": "0.0.0",
+  "description": "> TODO: description",
+  "author": "Jonny Smith <jonny.smith@digitaljs.com>",
+  "homepage": "",
   "license": "MIT",
   "main": "lib/index.js",
-  "typings": "lib/index.d.ts",
-  "directories": {
-    "dist": "dist",
-    "test": "__tests__"
-  },
   "files": [
     "lib"
   ],
   "publishConfig": {
     "access": "public"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ltht-epr/ltht-react.git"
-  },
   "scripts": {
-    "build": "yarn build:lib && yarn build:es && yarn build:definition",
-    "build:lib": "rimraf lib && babel src -d lib --extensions '.ts,.tsx' --source-maps --config-file ../../babel.config.js",
-    "build:es": "rimraf es && cross-env BABEL_ENV=es babel src -d es --extensions '.ts,.tsx' --source-maps --config-file ../../babel.config.js",
-    "build:definition": "tsc --noEmit false --emitDeclarationOnly",
-    "build:watch": "tsc --noEmit false --emitDeclarationOnly --watch",
-    "type:check": "tsc"
-  },
-  "devDependencies": {
-    "@emotion/core": "^10.0.22",
-    "@emotion/styled": "^10.0.23",
-    "typescript": "^3.7.3"
-  },
-  "bugs": {
-    "url": "https://github.com/ltht-epr/ltht-react/issues"
-  },
-  "peerDependencies": {
-    "emotion": "^10.0.23",
-    "react": "^16.12.0"
-  },
-  "dependencies": {
-    "@ltht-react/types": "^0.0.1-alpha.3"
-  },
-  "gitHead": "f9695b4c4178b35025ff0c91219c9646b5605ff0"
+    "build": "rimraf lib && tsc",
+    "type:check": "tsc --noEmit",
+    "lint": "prettylint 'src/*.{ts,tsx}'"
+  }
 }

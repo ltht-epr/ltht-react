@@ -1,104 +1,31 @@
 {
-  "name": "@ltht-react/monorepo",
-  "version": "0.0.1",
+  "name": "root",
+  "private": true,
   "dependencies": {
     "@emotion/core": "^10.0.22",
     "@emotion/styled": "^10.0.23",
     "emotion": "^10.0.23",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "react-scripts": "3.3.0",
-    "typescript": "^3.7.3"
+    "typescript": "^3.7.4"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.7.7",
+    "@types/react": "^16.9.17",
+    "babel-loader": "^8.0.6",
+    "lerna": "^3.19.0",
+    "prettier": "^1.19.1",
+    "prettylint": "^1.0.0",
+    "rimraf": "^3.0.0",
+    "webpack": "^4.41.4"
   },
   "scripts": {
-    "bootstrap": "lerna bootstrap",
-    "rebuild": "yarn clean && yarn build",
-    "build-storybook": "build-storybook -c .storybook",
-    "build:definition": "lerna run build:definition --parallel",
+    "type:check": "lerna run type:check --parallel",
+    "prebuild": "yarn run lint",
     "build": "lerna run build --parallel",
-    "clean": "yarn lerna clean -y && yarn lerna link && yarn lerna bootstrap",
-    "deploy-storybook": "storybook-to-ghpages -e storybook-static",
-    "diff": "lerna diff",
-    "eject": "react-scripts eject",
-    "new-version": "lerna version --conventional-commits --yes",
-    "patch": "yarn test && yarn build && yarn build-storybook && yarn version --patch && yarn deploy-storybook",
-    "prepare": "npm build",
     "start": "cd packages/storybook && yarn start",
-    "test:unit": "jest",
-    "test": "yarn test:unit",
-    "tsc": "tsc",
-    "type:check": "lerna run type:check --parallel"
+    "lint": "lerna run lint --parallel"
   },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "license": "MIT",
-  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
-  "main": "index.js",
-  "devDependencies": {
-    "@babel/cli": "^7.7.5",
-    "@babel/core": "^7.7.5",
-    "@babel/preset-env": "^7.7.6",
-    "@babel/preset-typescript": "^7.7.4",
-    "@storybook/addon-actions": "^5.2.8",
-    "@storybook/addon-info": "^5.2.8",
-    "@storybook/addon-links": "^5.2.8",
-    "@storybook/addon-viewport": "^5.2.8",
-    "@storybook/react": "^5.2.8",
-    "@storybook/storybook-deployer": "^2.8.1",
-    "@testing-library/dom": "^6.11.0",
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
-    "@types/enzyme": "^3.10.4",
-    "@types/enzyme-adapter-react-16": "^1.0.5",
-    "@types/jest": "24.0.19",
-    "@types/node": "^12.0.0",
-    "@types/react": "^16.9.0",
-    "@types/react-dom": "^16.9.0",
-    "@types/react-test-renderer": "^16.9.1",
-    "@types/storybook__addon-info": "^5.2.1",
-    "awesome-typescript-loader": "^5.2.1",
-    "babel-loader": "^8.0.6",
-    "babel-plugin-add-module-exports": "^1.0.2",
-    "babel-plugin-emotion": "^10.0.23",
-    "babel-preset-stage-1": "^6.24.1",
-    "cross-env": "^6.0.3",
-    "enzyme": "^3.10.0",
-    "enzyme-adapter-react-16": "^1.15.1",
-    "enzyme-to-json": "^3.4.3",
-    "jest": "^24.9.0",
-    "jest-emotion": "^10.0.26",
-    "lerna": "^3.19.0",
-    "react-docgen-typescript-loader": "^3.6.0",
-    "react-test-renderer": "^16.12.0",
-    "rimraf": "^3.0.0",
-    "ts-jest": "^24.2.0",
-    "ts-node": "^8.5.4",
-    "webpack": "^4.41.2"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ltht-epr/ltht-react.git"
-  },
-  "author": "LTHT",
-  "bugs": {
-    "url": "https://github.com/ltht-epr/ltht-react/issues"
-  },
-  "homepage": "https://github.com/ltht-epr/ltht-react#readme",
-  "private": true,
   "workspaces": [
     "packages/*",
     "components/*"

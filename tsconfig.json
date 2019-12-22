@@ -1,19 +1,13 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
+    "target": "es5",
+    "module": "CommonJS",
     "declaration": true,
-    "noImplicitAny": false,
-    "removeComments": true,
-    "noLib": false,
-    "emitDecoratorMetadata": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "experimentalDecorators": true,
-    "target": "es6",
+    "strict": true,
     "sourceMap": true,
-    "lib": ["es5", "es6", "DOM"],
+    "esModuleInterop": true,
     "jsx": "react"
   },
-  "exclude": ["node_modules", "**/*.spec.ts"],
+  "exclude": ["node_modules"],
   "include": ["components/*/src", "packages/*/src"]
 }

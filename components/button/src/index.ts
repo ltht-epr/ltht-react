@@ -1,9 +1,12 @@
-import { Flag } from '@ltht-react/types'
+import styled from '@emotion/styled'
 
-const Print = (input: Flag) => console.log('hello, ', input && input.author && input.author.display)
+const Button = styled.button`
+  box-sizing: border-box;
+  background: transparent;
+  border: 1px solid #000;
+  border-radius: 4px;
+  margin: 2px 2px;
+  padding: 1px 7px;
+`
 
-const Log = (input: string) => console.log('string test', input)
-
-export default Print
-
-export { Log }
+export default Button

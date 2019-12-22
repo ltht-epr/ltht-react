@@ -1,5 +1,0 @@
-export { default as List } from './organisms/List'
-export { default as ListItem } from './molecules/list-item'
-export { default as SeperatorItem } from './molecules/seperator-item'
-export { default as Col } from './atoms/col'
-export { default as Text } from './atoms/text'
