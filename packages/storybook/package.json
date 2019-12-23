@@ -25,7 +25,10 @@
     "@storybook/addon-links": "^5.2.8",
     "@storybook/addon-viewport": "^5.2.8",
     "@storybook/react": "^5.2.8",
-    "awesome-typescript-loader": "^5.2.1"
+    "awesome-typescript-loader": "^5.2.1",
+    "@babel/core": "^7.7.7",
+    "babel-loader": "^8.0.6",
+    "core-js": "^3.6.0"
   },
   "dependencies": {
     "@ltht-react/button": "^0.0.0"

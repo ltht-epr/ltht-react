@@ -1,28 +1,25 @@
 {
-  "name": "root",
+  "name": "@ltht-react/monorepo",
   "private": true,
   "dependencies": {
-    "@emotion/core": "^10.0.22",
-    "@emotion/styled": "^10.0.23",
-    "emotion": "^10.0.23",
+    "@emotion/core": "^10.0.27",
+    "@emotion/styled": "^10.0.27",
+    "emotion": "^10.0.27",
     "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "typescript": "^3.7.4"
+    "react-dom": "^16.12.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.7.7",
     "@types/react": "^16.9.17",
-    "babel-loader": "^8.0.6",
     "lerna": "^3.19.0",
     "prettier": "^1.19.1",
     "prettylint": "^1.0.0",
     "rimraf": "^3.0.0",
+    "typescript": "^3.7.4",
     "webpack": "^4.41.4"
   },
   "scripts": {
     "type:check": "lerna run type:check --parallel",
-    "prebuild": "yarn run lint && yarn run type:check",
-    "postbuild": "lerna bootstrap",
+    "prebuild": "yarn run lint && yarn run type:check && lerna bootstrap",
     "build": "lerna run build --parallel",
     "start": "cd packages/storybook && yarn start",
     "lint": "lerna run lint --parallel"

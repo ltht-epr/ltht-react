@@ -1,12 +1,13 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "module": "CommonJS",
     "declaration": true,
-    "strict": true,
-    "sourceMap": true,
     "esModuleInterop": true,
-    "jsx": "react"
+    "jsx": "react",
+    "lib": ["DOM", "ES2015"],
+    "module": "CommonJS",
+    "sourceMap": true,
+    "strict": true,
+    "target": "es5"
   },
   "exclude": ["node_modules"],
   "include": ["components/*/src", "packages/*/src"]

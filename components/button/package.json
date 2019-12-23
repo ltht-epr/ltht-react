@@ -13,8 +13,15 @@
     "access": "public"
   },
   "scripts": {
-    "build": "rimraf lib && tsc",
+    "build": "rimraf lib && yarn build:lib",
+    "build:lib": "rimraf lib && tsc",
+    "build:es": "rimraf es && tsc -m es6 --outDir es",
     "type:check": "tsc --noEmit",
     "lint": "prettylint 'src/*.{ts,tsx}'"
+  },
+  "dependencies": {
+    "@emotion/core": "^10.0.27",
+    "@emotion/styled": "^10.0.27",
+    "emotion": "^10.0.27"
   }
 }
