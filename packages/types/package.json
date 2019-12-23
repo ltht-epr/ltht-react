@@ -1,0 +1,24 @@
+{
+  "name": "@ltht-react/types",
+  "version": "0.0.0",
+  "description": "> TODO: description",
+  "author": "Jonny Smith <jonny.smith@digitaljs.com>",
+  "homepage": "",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "rimraf lib && yarn build:lib",
+    "build:lib": "rimraf lib && tsc",
+    "type:check": "tsc --noEmit",
+    "lint": "prettylint 'src/*.{ts,tsx}'"
+  },
+  "devDependencies": {
+    "typescript": "^3.7.4"
+  }
+}
