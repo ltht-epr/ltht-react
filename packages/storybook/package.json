@@ -21,12 +21,13 @@
     "lint": "prettylint 'src/*.{ts,tsx}'"
   },
   "devDependencies": {
+    "@babel/core": "^7.7.7",
     "@storybook/addon-actions": "^5.2.8",
+    "@storybook/addon-backgrounds": "^5.2.8",
     "@storybook/addon-links": "^5.2.8",
     "@storybook/addon-viewport": "^5.2.8",
     "@storybook/react": "^5.2.8",
     "awesome-typescript-loader": "^5.2.1",
-    "@babel/core": "^7.7.7",
     "babel-loader": "^8.0.6",
     "core-js": "^3.6.0"
   },
