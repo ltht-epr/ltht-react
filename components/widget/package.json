@@ -1,5 +1,5 @@
 {
-  "name": "@ltht-react/types",
+  "name": "@ltht-react/widget",
   "version": "0.0.0",
   "description": "> TODO: description",
   "author": "Jonny Smith <jonny.smith@digitaljs.com>",
@@ -16,10 +16,13 @@
     "build": "rimraf lib && yarn build:lib",
     "build:watch": "rimraf lib && tsc -w",
     "build:lib": "rimraf lib && tsc",
+    "build:es": "rimraf es && tsc -m es6 --outDir es",
     "type:check": "tsc --noEmit",
     "lint": "prettylint 'src/*.{ts,tsx}'"
   },
-  "devDependencies": {
-    "typescript": "^3.7.4"
+  "dependencies": {
+    "@emotion/core": "^10.0.27",
+    "@emotion/styled": "^10.0.27",
+    "emotion": "^10.0.27"
   }
 }

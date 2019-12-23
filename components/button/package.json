@@ -14,6 +14,7 @@
   },
   "scripts": {
     "build": "rimraf lib && yarn build:lib",
+    "build:watch": "rimraf lib && tsc -w",
     "build:lib": "rimraf lib && tsc",
     "build:es": "rimraf es && tsc -m es6 --outDir es",
     "type:check": "tsc --noEmit",

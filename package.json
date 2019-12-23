@@ -20,6 +20,7 @@
   "scripts": {
     "type:check": "lerna run type:check --parallel",
     "prebuild": "yarn run lint && yarn run type:check && lerna bootstrap",
+    "build:watch": "lerna run build:watch --parallel",
     "build": "lerna run build --parallel",
     "start": "cd packages/storybook && yarn start",
     "lint": "lerna run lint --parallel"
