@@ -13,16 +13,17 @@
     "access": "public"
   },
   "scripts": {
-    "build": "rimraf lib && yarn build:lib",
-    "build:watch": "rimraf lib && tsc -w",
-    "build:lib": "rimraf lib && tsc",
-    "build:es": "rimraf es && tsc -m es6 --outDir es",
+    "clean": "rimraf lib",
+    "build": "yarn build:lib",
+    "build:watch": "tsc -w",
+    "build:lib": "tsc",
     "type:check": "tsc --noEmit",
     "lint": "prettylint 'src/*.{ts,tsx}'"
   },
   "dependencies": {
     "@emotion/core": "^10.0.27",
     "@emotion/styled": "^10.0.27",
+    "@ltht-react/types": "^0.0.0",
     "emotion": "^10.0.27"
   }
 }

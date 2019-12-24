@@ -1,6 +1,6 @@
 interface Period {
-  readonly start?: Date
-  readonly end?: Date
+  readonly start: Date | undefined
+  readonly end: Date | undefined
 }
 
 export { Period }

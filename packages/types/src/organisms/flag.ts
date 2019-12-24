@@ -5,9 +5,9 @@ import { Resource } from './resource'
 import { Period } from '../atoms/period'
 
 enum StatusCode {
-  Active,
-  Inactive,
-  EnteredInError,
+  ACTIVE,
+  INACTIVE,
+  ENTERED_IN_ERROR,
 }
 
 interface Flag extends Resource {
