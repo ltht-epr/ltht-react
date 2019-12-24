@@ -2,13 +2,18 @@
   "name": "@ltht-react/widget",
   "version": "0.0.0",
   "description": "> TODO: description",
-  "author": "Jonny Smith <jonny.smith@digitaljs.com>",
+  "author": "Jonny Smith <jonny.asmith@gmail.com>",
   "homepage": "",
   "license": "MIT",
   "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
   "files": [
     "lib"
   ],
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
   "publishConfig": {
     "access": "public"
   },

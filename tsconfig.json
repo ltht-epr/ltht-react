@@ -5,6 +5,10 @@
     "jsx": "react",
     "lib": ["DOM", "ES2015"],
     "module": "CommonJS",
+    "noImplicitAny": true,
+    "noLib": false,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
     "sourceMap": true,
     "strict": true,
     "target": "es5"
