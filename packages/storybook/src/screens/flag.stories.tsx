@@ -21,9 +21,7 @@ const flag: Flag = {
   period: {
     start: new Date(2019, 4, 5),
   },
-  status: StatusCode.Active,
+  status: StatusCode.ACTIVE,
 }
 
-stories
-  .addParameters({ backgrounds: [{ name: 'default', value: '#d8d8d8', default: true }] })
-  .add('Component Default', () => <FlagSummary title="Alerts" flags={[flag]} />)
+stories.add('Component Default', () => <FlagSummary title="Alerts" flags={[flag]} />)

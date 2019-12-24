@@ -20,7 +20,7 @@
   "scripts": {
     "clean": "rimraf lib",
     "build": "yarn build:lib",
-    "build:watch": "tsc -w",
+    "watch": "tsc -w",
     "build:lib": "tsc",
     "type:check": "tsc --noEmit",
     "lint": "prettylint 'src/*.{ts,tsx}'"
