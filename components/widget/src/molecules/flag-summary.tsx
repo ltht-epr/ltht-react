@@ -3,6 +3,7 @@ import React, { Fragment } from 'react'
 import { css, jsx } from '@emotion/core'
 
 import { Flag, Coding, Period } from '@ltht-react/types'
+import { ExclamationIcon } from '@ltht-react/icons'
 import { Widget } from '../atoms'
 
 const reset = css`
@@ -41,30 +42,51 @@ const mapData = (flags: Flag[] = []) => {
 }
 
 const CodingSnippet = ({ codings }: { codings?: Coding[] | null | undefined }) => {
+  const styles = css`
+    flex-grow: 1;
+    padding-left: 0.6rem;
+    font-size: 0.8rem;
+  `
   const display = codings?.map(x => x.display).join(', ')
-  return <Fragment>{display}</Fragment>
+  return (
+    <div css={styles}>
+      <div>{display}</div>
+      <div css={{ color: 'grey' }}>109006</div>
+    </div>
+  )
+}
+
+const Icon = () => {
+  const styles = css`
+    font-size: 1.2rem;
+    color: #cd000a;
+  `
+  return (
+    <div css={styles}>
+      <ExclamationIcon />
+    </div>
+  )
 }
 
 const PeriodSummary = ({ period }: { period: Period | null | undefined }) => {
   const styles = css`
     text-align: right;
-  `
-  return <div css={styles}>{period?.start?.toLocaleDateString()}</div>
-}
-
-const FlagSummaryItem = ({ flag }: { flag: Flag }) => {
-  const styles = css`
-    flex: 1;
     font-size: 0.8rem;
   `
   return (
+    <div css={styles}>
+      <div>{period?.start?.toLocaleDateString()}</div>
+      <div css={{ color: 'grey' }}>LTHT</div>
+    </div>
+  )
+}
+
+const FlagSummaryItem = ({ flag }: { flag: Flag }) => {
+  return (
     <Fragment>
-      <div css={styles}>
-        <CodingSnippet codings={flag?.code?.coding} />
-      </div>
-      <div css={styles}>
-        <PeriodSummary period={flag.period} />
-      </div>
+      <Icon />
+      <CodingSnippet codings={flag?.code?.coding} />
+      <PeriodSummary period={flag.period} />
     </Fragment>
   )
 }
@@ -90,9 +112,7 @@ const ListItem: React.FC = ({ children }) => {
     display: flex;
     border-top: 1px solid #b0b0b0;
     padding: 0.6rem 0;
-    ul & :last-child {
-      padding: 0.6rem 0 0 0;
-    }
+    justify-content: center;
   `
   return <li css={styles}>{children}</li>
 }
@@ -107,7 +127,12 @@ const FlagSummary: React.FC<FlagSummaryProps> = ({ title = 'Flag Summary', flags
     <Widget css={style}>
       <Title padding="0 0 0.6rem 0">{title}</Title>
       <UnorderedList>
-        <ListItem>{flags && flags.map((flag, index) => <FlagSummaryItem key={index} flag={flag} />)}</ListItem>
+        {flags &&
+          flags.map((flag, index) => (
+            <ListItem>
+              <FlagSummaryItem key={index} flag={flag} />
+            </ListItem>
+          ))}
       </UnorderedList>
     </Widget>
   )
