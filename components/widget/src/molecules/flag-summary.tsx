@@ -19,27 +19,10 @@ const reset = css`
   }
   & * {
     margin: 0;
+    padding: 0;
   }
   font-family: 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 `
-
-interface MapDataType {
-  id: string
-  display: string
-}
-
-const mapData = (flags: Flag[] = []) => {
-  let data: MapDataType[] = []
-  flags.forEach(flag => {
-    flag &&
-      flag.code &&
-      flag.code.coding &&
-      flag.code.coding.forEach(coding => {
-        data.push({ id: flag.id || '', display: coding.display || '' })
-      })
-  })
-  return data
-}
 
 const CodingSnippet = ({ codings }: { codings?: Coding[] | null | undefined }) => {
   const styles = css`
