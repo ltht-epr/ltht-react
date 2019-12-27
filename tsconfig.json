@@ -14,5 +14,5 @@
     "target": "es5"
   },
   "exclude": ["node_modules"],
-  "include": ["components/*/src", "packages/*/src"]
+  "include": ["components/*/src", "packages/types/src"]
 }
