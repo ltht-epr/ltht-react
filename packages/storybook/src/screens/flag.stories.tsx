@@ -2,7 +2,7 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 
 import { FlagSummary } from '@ltht-react/widget'
-import { Flag, StatusCode } from '@ltht-react/types'
+import { Flag, StatusCode } from '@ltht-react/core'
 
 const stories = storiesOf('Screens|Widgets', module)
 

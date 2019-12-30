@@ -1,5 +1,5 @@
 {
-  "name": "@ltht-react/types",
+  "name": "@ltht-react/core",
   "version": "0.0.0",
   "description": "> TODO: description",
   "author": "Jonny Smith <jonny.asmith@gmail.com>",
@@ -24,6 +24,9 @@
     "build:lib": "tsc",
     "type:check": "tsc --noEmit",
     "lint": "prettylint 'src/*.{ts,tsx}'"
+  },
+  "dependencies": {
+    "@emotion/core": "^10.0.27"
   },
   "devDependencies": {
     "typescript": "^3.7.4"

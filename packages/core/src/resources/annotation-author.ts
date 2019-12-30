@@ -1,4 +1,4 @@
-import { ResourceReference } from '../molecules/resource-reference'
+import { ResourceReference } from './resource-reference'
 
 interface AnnotationAuthor {
   readonly reference?: ResourceReference | null | undefined

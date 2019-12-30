@@ -1,11 +1,11 @@
-# `@ltht-react/types`
+# `@ltht-react/core`
 
 > TODO: description
 
 ## Usage
 
 ```
-const types = require('@ltht-react/types');
+const core = require('@ltht-react/core');
 
 // TODO: DEMONSTRATE API
 ```

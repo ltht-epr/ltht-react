@@ -1,4 +1,4 @@
-import { Coding } from '../atoms/coding'
+import { Coding } from './coding'
 
 interface Metadata {
   readonly versionId?: string | null | undefined

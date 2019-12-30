@@ -1,4 +1,4 @@
-import { Identifier } from '../atoms/identifier'
+import { Identifier } from './identifier'
 
 interface ResourceReference {
   readonly display: string | null | undefined

@@ -1,8 +1,8 @@
-import { CodeableConcept } from '../molecules/codeable-concept'
-import { Identifier } from '../atoms/identifier'
-import { ResourceReference } from '../molecules/resource-reference'
+import { CodeableConcept } from './codeable-concept'
+import { Identifier } from './identifier'
+import { ResourceReference } from './resource-reference'
 import { Resource } from './resource'
-import { Period } from '../atoms/period'
+import { Period } from './period'
 
 enum StatusCode {
   ACTIVE,

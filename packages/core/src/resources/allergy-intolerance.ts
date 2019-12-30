@@ -1,7 +1,7 @@
-import { Identifier } from '../atoms/identifier'
-import { CodeableConcept } from '../molecules/codeable-concept'
+import { Identifier } from './identifier'
+import { CodeableConcept } from './codeable-concept'
 import { Resource } from './resource'
-import { ResourceReference } from '../molecules/resource-reference'
+import { ResourceReference } from './resource-reference'
 import { Annotation } from './annotation'
 
 interface AllergyIntolerance extends Resource {

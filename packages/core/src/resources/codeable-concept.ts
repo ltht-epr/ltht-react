@@ -1,4 +1,4 @@
-import { Coding } from '../atoms/coding'
+import { Coding } from './coding'
 
 interface CodeableConcept {
   readonly coding?: Coding[] | null | undefined

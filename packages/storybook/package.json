@@ -33,7 +33,7 @@
   },
   "dependencies": {
     "@ltht-react/button": "^0.0.0",
-    "@ltht-react/types": "^0.0.0",
+    "@ltht-react/core": "^0.0.0",
     "@ltht-react/widget": "^0.0.0"
   }
 }
