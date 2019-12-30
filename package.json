@@ -9,24 +9,37 @@
     "react-dom": "^16.12.0"
   },
   "devDependencies": {
+    "@types/enzyme": "^3.10.4",
+    "@types/enzyme-adapter-react-16": "^1.0.5",
     "@types/react": "^16.9.17",
-    "lerna": "^3.19.0",
+    "@types/react-dom": "^16.9.4",
+    "@types/react-test-renderer": "^16.9.1",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.1",
+    "enzyme-to-json": "^3.4.3",
+    "jest": "^24.9.0",
+    "jest-emotion": "^10.0.26",
+    "lerna": "^3.20.1",
     "prettier": "^1.19.1",
     "prettylint": "^1.0.0",
+    "react-test-renderer": "^16.12.0",
     "rimraf": "^3.0.0",
+    "ts-jest": "^24.2.0",
     "typescript": "^3.7.4",
-    "webpack": "^4.41.4"
+    "webpack": "^4.41.5"
   },
   "scripts": {
     "type:check": "lerna run type:check --parallel",
-    "prebuild": "yarn run lint && yarn run type:check && lerna bootstrap",
+    "prebuild": "yarn run lint",
     "build:watch": "lerna run build:watch --parallel",
     "build": "lerna run build --sort",
     "start": "cd packages/storybook && yarn start",
-    "lint": "lerna run lint --parallel"
+    "start:debug": "cd packages/storybook && yarn start:debug",
+    "lint": "lerna run lint --parallel",
+    "test": "yarn test:unit",
+    "test:unit": "jest"
   },
   "workspaces": [
-    "packages/*",
-    "components/*"
+    "packages/*"
   ]
 }

@@ -4,6 +4,7 @@ import { css, jsx } from '@emotion/core'
 
 import { Flag, Coding, Period, PRIMARY_TEXT_COLOUR, SECONDARY_TEXT_COLOUR } from '@ltht-react/core'
 import { ExclamationIcon } from '@ltht-react/icon'
+import {  } from '@ltht-react/icon'
 import { Widget } from '../atoms'
 
 const reset = css`

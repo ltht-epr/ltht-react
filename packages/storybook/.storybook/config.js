@@ -1,10 +1,20 @@
-import { configure, addParameters } from '@storybook/react'
+import { configure } from '@storybook/react'
+import { setAddon, addDecorator, addParameters } from '@storybook/react'
+import JSXAddon from 'storybook-addon-jsx'
+import { withInfo } from '@storybook/addon-info'
+import { withKnobs } from '@storybook/addon-knobs/react'
+import { addReadme } from 'storybook-readme'
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport'
 
-const req = require.context('../src/', true, /.stories.tsx$/)
+addDecorator(withInfo)
+addDecorator(withKnobs)
+addDecorator(addReadme)
+setAddon(JSXAddon)
+
+const req = require.context('../../components/src', true, /.stories.tsx$/)
 
 function loadStories() {
-  req.keys().forEach(req)
+  req.keys().forEach(filename => req(filename))
 }
 
 const viewports = {

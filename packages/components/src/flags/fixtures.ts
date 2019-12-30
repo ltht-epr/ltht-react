@@ -1,12 +1,6 @@
-import React from 'react'
-import { storiesOf } from '@storybook/react'
-
-import { FlagSummary } from '@ltht-react/widget'
 import { Flag, StatusCode } from '@ltht-react/core'
 
-const stories = storiesOf('Screens|Widgets', module)
-
-const flagOne: Flag = {
+const FlagOne: Flag = {
   id: '580ca927-34e0-e911-a2c7-005056926fe4|personalertandhazard',
   author: {
     display: 'John Smith',
@@ -24,7 +18,7 @@ const flagOne: Flag = {
   status: StatusCode.ACTIVE,
 }
 
-const flagTwo: Flag = {
+const FlagTwo: Flag = {
   id: '580ca927-34e0-e911-a2c7-005056926fe4|personalertandhazard',
   author: {
     display: 'John Smith',
@@ -42,4 +36,4 @@ const flagTwo: Flag = {
   status: StatusCode.ACTIVE,
 }
 
-stories.add('Component Default', () => <FlagSummary title="Alerts" flags={[flagOne, flagTwo]} />)
+export { FlagOne, FlagTwo }

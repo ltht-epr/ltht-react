@@ -9,11 +9,8 @@ const styles = (props: TextProps) => css`
   display: block;
   ${props.primary && `color: ${PRIMARY_TEXT_COLOUR};`}
   ${props.secondary && `color: ${SECONDARY_TEXT_COLOUR};`}
-  ${props.transform === 'uppercase' && 'text-transform: uppercase;'}
-  ${props.transform === 'lowercase' && 'text-transform: lowercase;'}
-  ${props.align === 'left' && 'text-align: left;'}
-  ${props.align === 'center' && 'text-align: center;'}
-  ${props.align === 'right' && 'text-align: right;'}
+  ${props.transform && `text-transform: ${props.transform};`}
+  ${props.align && `text-align: ${props.align};`}
 `
 
 const Text: React.FC<TextProps> = props => {
