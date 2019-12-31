@@ -11,12 +11,12 @@ enum StatusCode {
 }
 
 interface Flag extends Resource {
-  readonly identifier?: Identifier[] | null | undefined
-  readonly status?: StatusCode | null | undefined
-  readonly category?: CodeableConcept | null | undefined
-  readonly code?: CodeableConcept | null | undefined
-  readonly period?: Period | null | undefined
-  readonly author?: ResourceReference | null | undefined
+  readonly identifier?: Identifier[] | undefined
+  readonly status?: StatusCode | undefined
+  readonly category?: CodeableConcept | undefined
+  readonly code?: CodeableConcept | undefined
+  readonly period?: Period | undefined
+  readonly author?: ResourceReference | undefined
 }
 
 export { Flag, StatusCode }

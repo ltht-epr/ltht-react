@@ -1,8 +1,8 @@
 interface Coding {
-  readonly system?: string | null | undefined
-  readonly version?: string | null | undefined
-  readonly code?: string | null | undefined
-  readonly display?: string | null | undefined
+  readonly system?: string | undefined
+  readonly version?: string | undefined
+  readonly code?: string | undefined
+  readonly display?: string | undefined
 }
 
 export { Coding }
