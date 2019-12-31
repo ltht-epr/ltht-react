@@ -15,7 +15,7 @@ const FlagOne: Flag = {
   period: {
     start: new Date(2019, 4, 5),
   },
-  status: StatusCode.ACTIVE,
+  status: StatusCode.INACTIVE,
 }
 
 const FlagTwo: Flag = {
@@ -28,10 +28,10 @@ const FlagTwo: Flag = {
     identifier: undefined,
   },
   code: {
-    coding: [{ display: 'Lives in Known High Risk Area', code: '109006' }],
+    coding: [{ display: 'High Risk of Violence', code: '56706' }],
   },
   period: {
-    start: new Date(2019, 4, 5),
+    start: new Date(2017, 3, 12),
   },
   status: StatusCode.ACTIVE,
 }

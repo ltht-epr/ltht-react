@@ -1,19 +1,45 @@
 /** @jsx jsx */
 import React, { Fragment } from 'react'
-import { css, jsx } from '@emotion/core'
+import { css, jsx, SerializedStyles } from '@emotion/core'
 
 import { Widget } from '../widget'
 import { ExclamationIcon } from '../icons'
-import { Flag, CodeableConcept, Period, CSS_RESET } from '@ltht-react/core'
+import {
+  CodeableConcept,
+  CSS_RESET,
+  Flag,
+  Period,
+  SECONDARY_TEXT_COLOUR,
+  StatusCode,
+  TABLET_MEDIA_QUERY,
+} from '@ltht-react/core'
 
-const CodeableConceptSnippet = ({ codeableConcept = {} }: { codeableConcept?: CodeableConcept }) => {
+const CodeableConceptSnippet = ({
+  codeableConcept = {},
+  listStyles,
+  textStyles,
+}: {
+  codeableConcept?: CodeableConcept
+  listStyles: SerializedStyles
+  textStyles: SerializedStyles
+}) => {
   const codings = codeableConcept.coding || []
-  const text = codings
+  const display = codings
     .map(coding => {
       return coding.display
     })
     .join(', ')
-  return <Fragment>{text}</Fragment>
+  const code = codings
+    .map(coding => {
+      return coding.code
+    })
+    .join(', ')
+  return (
+    <ul css={listStyles}>
+      <li>{display}</li>
+      <li css={textStyles}>{code}</li>
+    </ul>
+  )
 }
 
 const DateText = (date?: Date) => {
@@ -26,31 +52,50 @@ const DateText = (date?: Date) => {
     .join('-')
 }
 
-const PeriodSnippet = ({ period = {} }: { period?: Period }) => {
-  return <Fragment>{DateText(period.start)}</Fragment>
+const PeriodSnippet = ({
+  period = {},
+  listStyles,
+  textStyles,
+}: {
+  period?: Period
+  listStyles: SerializedStyles
+  textStyles: SerializedStyles
+}) => {
+  return (
+    <ul css={listStyles}>
+      <li>{DateText(period.start)}</li>
+      <li css={textStyles}></li>
+    </ul>
+  )
 }
 
 const FlagSummaryItem = ({ flag }: { flag: Flag }) => {
   const li_styles = css`
     display: flex;
     border-top: 1px solid #b0b0b0;
-    padding: 0.6rem 0.5rem;
+    padding: 0.2rem;
     justify-content: center;
   `
   const codeable_styles = css`
     flex-grow: 1;
-    padding-left: 0.5rem;
+  `
+  const ul_styles = css`
+    padding-left: 0.4rem;
+    list-style: none;
+  `
+  const seconday_text_style = css`
+    color: ${SECONDARY_TEXT_COLOUR};
   `
   return (
     <li css={li_styles}>
       <div>
-        <ExclamationIcon status="red" size="medium" />
+        <ExclamationIcon status={flag.status === StatusCode.ACTIVE ? 'red' : 'amber'} size="medium" />
       </div>
       <div css={codeable_styles}>
-        <CodeableConceptSnippet codeableConcept={flag.code} />
+        <CodeableConceptSnippet codeableConcept={flag.code} listStyles={ul_styles} textStyles={seconday_text_style} />
       </div>
       <div>
-        <PeriodSnippet period={flag.period} />
+        <PeriodSnippet period={flag.period} listStyles={ul_styles} textStyles={seconday_text_style} />
       </div>
     </li>
   )
@@ -58,7 +103,7 @@ const FlagSummaryItem = ({ flag }: { flag: Flag }) => {
 
 const FlagSummary: React.FC<FlagSummaryProps> = ({ title = 'Flag Summary', flags = [] }) => {
   const titleStyles = css`
-    padding: 0.5rem 0;
+    margin-bottom: 0.5rem;
   `
   return (
     <Widget>

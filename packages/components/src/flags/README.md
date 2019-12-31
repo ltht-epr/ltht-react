@@ -1,12 +1,12 @@
 # Flag Summary
 
+<!-- STORY -->
+
 ### Import
 
 ```js
 import { FlagSummary } from '@ltht-react/components'
 ```
-
-<!-- STORY -->
 
 ### Usage
 

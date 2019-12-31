@@ -1,5 +1,6 @@
 import { css } from '@emotion/core'
 import { PRIMARY_TEXT_COLOUR } from '../theme/colours'
+import { TABLET_MEDIA_QUERY, DESKOP_MEDIA_QUERY, WIDESCREEN_MEDIA_QUERY } from '../theme/media-queries'
 
 const CSS_RESET = css`
   & *,
@@ -15,6 +16,30 @@ const CSS_RESET = css`
   }
   color: ${PRIMARY_TEXT_COLOUR};
   font-family: 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.8rem;
+
+  & h3 {
+    font-size: 1rem;
+  }
+
+  ${TABLET_MEDIA_QUERY} {
+    font-size: 0.9rem;
+    & h3 {
+      font-size: 1.1rem;
+    }
+  }
+  ${DESKOP_MEDIA_QUERY} {
+    font-size: 1rem;
+    & h3 {
+      font-size: 1.2rem;
+    }
+  }
+  ${WIDESCREEN_MEDIA_QUERY} {
+    font-size: 1.1rem;
+    & h3 {
+      font-size: 1.3rem;
+    }
+  }
 `
 
 export { CSS_RESET }
