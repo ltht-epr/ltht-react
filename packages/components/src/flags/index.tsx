@@ -44,7 +44,7 @@ const FlagSummaryItem = ({ flag }: { flag: Flag }) => {
   return (
     <li css={li_styles}>
       <div>
-        <ExclamationIcon status="red" size="small" />
+        <ExclamationIcon status="red" size="medium" />
       </div>
       <div css={codeable_styles}>
         <CodeableConceptSnippet codeableConcept={flag.code} />
