@@ -30,14 +30,25 @@
   },
   "scripts": {
     "type:check": "lerna run type:check --parallel",
-    "build:watch": "lerna run build:watch --parallel",
     "build": "lerna run build --sort",
     "start": "cd packages/storybook && yarn start",
     "start:debug": "cd packages/storybook && yarn start:debug",
     "lint": "lerna run lint --parallel",
     "test": "yarn test:unit",
+    "deploy": "cd packages/storybook && yarn deploy",
+    "build:storybook": "cd packages/storybook && yarn build:storybook",
+    "deploy:storybook": "cd packages/storybook && yarn deploy:storybook",
     "test:unit": "jest"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ltht-epr/ltht-react.git"
+  },
+  "author": "LTHT",
+  "bugs": {
+    "url": "https://github.com/ltht-epr/ltht-react/issues"
+  },
+  "homepage": "https://github.com/ltht-epr/ltht-react#readme",
   "workspaces": [
     "packages/*",
     "components/*"

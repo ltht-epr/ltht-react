@@ -13,4 +13,4 @@ stories.addParameters({
   },
 })
 
-stories.addWithJSX('Exlamation Icon', () => <ExclamationIcon status="red" size="medium" />)
+stories.addWithJSX('Exclamation Icon', () => <ExclamationIcon status="red" size="medium" />)

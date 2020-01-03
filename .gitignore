@@ -13,7 +13,7 @@ node_modules
 
 lib
 
-/storybook-static
+storybook-static
 
 __snapshots__
 

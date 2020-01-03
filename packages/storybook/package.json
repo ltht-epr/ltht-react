@@ -19,6 +19,8 @@
   "scripts": {
     "start": "start-storybook -p 9009",
     "start:debug": "storybook --debug-webpack",
+    "build:storybook": "build-storybook -c .storybook",
+    "deploy:storybook": "storybook-to-ghpages -e storybook-static",
     "lint": "prettylint 'src/*.{ts,tsx}'"
   },
   "devDependencies": {
@@ -31,6 +33,7 @@
     "@storybook/addon-links": "^5.2.8",
     "@storybook/addon-viewport": "^5.2.8",
     "@storybook/react": "^5.2.8",
+    "@storybook/storybook-deployer": "^2.8.1",
     "awesome-typescript-loader": "^5.2.1",
     "babel-loader": "^8.0.6",
     "core-js": "^3.6.1",
