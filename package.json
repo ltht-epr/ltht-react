@@ -38,7 +38,8 @@
     "deploy": "cd packages/storybook && yarn deploy",
     "build:storybook": "cd packages/storybook && yarn build:storybook",
     "deploy:storybook": "cd packages/storybook && yarn deploy:storybook",
-    "deploy:npm": "lerna version --conventional-commits --yes",
+    "new:version": "lerna version --conventional-commits --yes",
+    "deploy:npm": "lerna publish from-package",
     "test:unit": "jest"
   },
   "repository": {
