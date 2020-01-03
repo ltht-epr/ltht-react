@@ -4,6 +4,7 @@ import { storiesOf } from '@storybook/react'
 import { FlagOne, FlagTwo } from './fixtures'
 import { FlagSummary } from '.'
 import ReadMe from './README.md'
+import { Flag } from '@ltht-react/core'
 
 const stories = storiesOf('Widgets|Flag|Examples', module)
 
@@ -13,4 +14,8 @@ stories.addParameters({
   },
 })
 
-stories.addWithJSX('Flag Summary', () => <FlagSummary flags={[FlagOne, FlagTwo]} />)
+const handleClick = (flag: Flag) => {
+  console.log("item clicked ", flag)
+}
+
+stories.addWithJSX('Flag Summary', () => <FlagSummary flags={[FlagOne, FlagTwo]} handleItemClick={handleClick} />)

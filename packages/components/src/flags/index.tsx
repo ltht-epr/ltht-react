@@ -69,7 +69,7 @@ const PeriodSnippet = ({
   )
 }
 
-const FlagSummaryItem = ({ flag }: { flag: Flag }) => {
+const FlagSummaryItem = ({ flag, handleClick }: { flag: Flag; handleClick: Function }) => {
   const li_styles = css`
     display: flex;
     border-top: 1px solid #b0b0b0;
@@ -87,7 +87,7 @@ const FlagSummaryItem = ({ flag }: { flag: Flag }) => {
     color: ${SECONDARY_TEXT_COLOUR};
   `
   return (
-    <li css={li_styles}>
+    <li css={li_styles} onClick={() => handleClick}>
       <div>
         <ExclamationIcon status={flag.status === StatusCode.ACTIVE ? 'red' : 'amber'} size="medium" />
       </div>
@@ -101,7 +101,7 @@ const FlagSummaryItem = ({ flag }: { flag: Flag }) => {
   )
 }
 
-const FlagSummary: React.FC<FlagSummaryProps> = ({ title = 'Flag Summary', flags = [] }) => {
+const FlagSummary: React.FC<FlagSummaryProps> = ({ title = 'Flag Summary', flags = [], handleItemClick }) => {
   const titleStyles = css`
     margin-bottom: 0.5rem;
   `
@@ -111,7 +111,7 @@ const FlagSummary: React.FC<FlagSummaryProps> = ({ title = 'Flag Summary', flags
         <h3 css={titleStyles}>{title}</h3>
         <ul>
           {flags.map((flag, index) => (
-            <FlagSummaryItem key={index} flag={flag} />
+            <FlagSummaryItem key={index} flag={flag} handleClick={() => handleItemClick(flag)} />
           ))}
         </ul>
       </div>
@@ -122,6 +122,7 @@ const FlagSummary: React.FC<FlagSummaryProps> = ({ title = 'Flag Summary', flags
 interface FlagSummaryProps {
   title?: string
   flags?: Flag[]
+  handleItemClick(flag: Flag): void
 }
 
 export { FlagSummary }
