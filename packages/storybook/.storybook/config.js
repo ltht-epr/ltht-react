@@ -11,7 +11,7 @@ addDecorator(withKnobs)
 addDecorator(addReadme)
 setAddon(JSXAddon)
 
-const req = require.context('../../components/src', true, /.stories.tsx$/)
+const req = require.context('../src', true, /.stories.tsx$/)
 
 function loadStories() {
   req.keys().forEach(filename => req(filename))

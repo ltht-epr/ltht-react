@@ -30,7 +30,6 @@
   },
   "scripts": {
     "type:check": "lerna run type:check --parallel",
-    "prebuild": "yarn run lint",
     "build:watch": "lerna run build:watch --parallel",
     "build": "lerna run build --sort",
     "start": "cd packages/storybook && yarn start",
@@ -40,6 +39,7 @@
     "test:unit": "jest"
   },
   "workspaces": [
-    "packages/*"
+    "packages/*",
+    "components/*"
   ]
 }

@@ -4,6 +4,7 @@ module.exports = ({ config }) => {
   config.module.rules.push({
     test: /\.(ts|tsx)$/,
     loader: require.resolve('awesome-typescript-loader'),
+    exclude: [/\.md$/],
   })
   config.plugins.push(new TSDocgenPlugin())
   config.resolve.extensions.push('.ts', '.tsx')
