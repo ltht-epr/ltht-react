@@ -1,0 +1,4 @@
+.storybook
+storybook-static
+**/__snapshots__
+**/src
