@@ -30,9 +30,11 @@
   },
   "scripts": {
     "type:check": "lerna run type:check --parallel",
-    "build": "lerna run build --sort",
+    "build": "lerna run build --parallel",
+    "build:sort": "lerna run build --sort",
     "start": "cd packages/storybook && yarn start",
     "start:debug": "cd packages/storybook && yarn start:debug",
+    "doc:components": "lerna run docs --parallel",
     "lint": "lerna run lint --parallel",
     "test": "yarn test:unit",
     "deploy": "cd packages/storybook && yarn deploy",
