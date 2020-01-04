@@ -31,7 +31,6 @@ function getComponentNameFromFile(file: string) {
 
 function getMarkdownForComponent(file: string) {
   const src = fs.readFileSync(path.resolve(__dirname, file))
-  console.log(parse)
   const componentInfo = parse(src)
   const componentName = getComponentNameFromFile(file)
   const componentFolderName = getComponentFolderName(file)
@@ -50,11 +49,8 @@ function libPathToSrc(libPath: string, libFolder: string = '/lib/') {
 async function generateApiForFile(file: string) {
   try {
     const componentName = getComponentNameFromFile(file)
-    console.log(chalk.yellow('componentName ', componentName))
     const src = libPathToSrc(file)
-    console.log(chalk.yellow('src ', src))
     const md = getMarkdownForComponent(src)
-    console.log(chalk.green('API Documented:'), componentName)
     return md
   } catch (e) {
     console.log(chalk.red('Skipping component:'), file, e.message)

@@ -20,5 +20,5 @@ const handleClick = (flag: Flag) => {
 }
 
 stories.addWithJSX('Flag Summary', () => (
-  <FlagSummary flags={[fixtures.FlagOne, fixtures.FlagTwo]} handleItemClick={handleClick} />
+  <FlagSummary title="Alerts" flags={[fixtures.FlagOne, fixtures.FlagTwo]} handleItemClick={handleClick} />
 ))

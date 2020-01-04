@@ -5,13 +5,19 @@
 ### Import
 
 ```js
-import { FlagSummary } from '@ltht-react/components'
+import FlagSummary from '@ltht-react/flag-summary'
 ```
 
 ### Usage
 
-Simple
-
 ```jsx
-<FlagSummary flags={flags} />
+<FlagSummary title="Alerts" flags={flags} handleItemClick={handleClick} />
 ```
+
+### Properties
+
+| Prop              | Required | Default      | Type     | Description                                                    |
+| :---------------- | :------- | :----------- | :------- | :------------------------------------------------------------- |
+| `title`           | No       | Flag Summary | string   | Header text for the widget                                     |
+| `flags`           | Yes      |              | Flag[]   | Array of flag to display in the widget                         |
+| `handleItemClick` | No       |              | Function | Callback click handler containing the flag item from the array |
