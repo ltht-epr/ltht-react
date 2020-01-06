@@ -1,6 +1,6 @@
 {
   "name": "@ltht-react/storybook",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "> TODO: description",
   "author": "Jonny Smith <jonny.asmith@gmail.com>",
   "homepage": "",
@@ -42,7 +42,7 @@
     "storybook-readme": "^5.0.8"
   },
   "dependencies": {
-    "@ltht-react/exclamation-icon": "^0.0.1",
-    "@ltht-react/flag-summary": "^0.0.1"
+    "@ltht-react/exclamation-icon": "^0.0.2",
+    "@ltht-react/flag-summary": "^0.0.2"
   }
 }
