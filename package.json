@@ -9,6 +9,8 @@
     "react-dom": "^16.12.0"
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "^1.10.0",
+    "@graphql-codegen/typescript": "^1.10.0",
     "@types/enzyme": "^3.10.4",
     "@types/enzyme-adapter-react-16": "^1.0.5",
     "@types/react": "^16.9.17",
@@ -17,6 +19,7 @@
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.1",
     "enzyme-to-json": "^3.4.3",
+    "graphql": "^14.5.8",
     "jest": "^24.9.0",
     "jest-emotion": "^10.0.26",
     "lerna": "^3.20.1",
@@ -31,8 +34,10 @@
   "scripts": {
     "type:check": "lerna run type:check --parallel",
     "build": "lerna run build --parallel",
+    "bootstrap": "lerna bootstrap && lerna run build",
     "build:sort": "lerna run build --sort",
     "start": "cd packages/storybook && yarn start",
+    "type:gen": "lerna run type:gen --scope=@ltht-react/types && yarn lerna run build --scope=@ltht-react/types",
     "start:debug": "cd packages/storybook && yarn start:debug",
     "doc:components": "lerna run docs --parallel",
     "lint": "lerna run lint --parallel",

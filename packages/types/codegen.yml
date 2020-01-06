@@ -1,0 +1,12 @@
+schema: http://localhost:5000/graphql
+config:
+  skipTypename: true
+  scalars:
+    Date: Date
+    DateTime: Date
+    Decimal: number
+    Milliseconds: number
+    Seconds: number
+generates:
+  src/index.ts:
+    - typescript

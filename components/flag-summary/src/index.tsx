@@ -2,7 +2,7 @@
 import React from 'react'
 import { css, jsx, SerializedStyles } from '@emotion/core'
 
-import { CodeableConcept, Flag, Period, StatusCode } from '@ltht-react/types'
+import { CodeableConcept, Flag, Period, FlagStatusCode, PartialDateTime } from '@ltht-react/types'
 import { CSS_RESET, SECONDARY_TEXT_COLOUR, WIDGET_STYLES } from '@ltht-react/styles'
 import ExclamationIcon from '@ltht-react/exclamation-icon'
 
@@ -18,12 +18,12 @@ const CodeableConceptSnippet = ({
   const codings = codeableConcept.coding || []
   const display = codings
     .map(coding => {
-      return coding.display
+      return coding?.display
     })
     .join(', ')
   const code = codings
     .map(coding => {
-      return coding.code
+      return coding?.code
     })
     .join(', ')
   return (
@@ -34,11 +34,11 @@ const CodeableConceptSnippet = ({
   )
 }
 
-const DateText = (date?: Date) => {
+const DateText = (date?: PartialDateTime | null) => {
   if (!date) {
     return
   }
-  return date
+  return date.value
     .toLocaleString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' })
     .split(' ')
     .join('-')
@@ -49,13 +49,13 @@ const PeriodSnippet = ({
   listStyles,
   textStyles,
 }: {
-  period?: Period
+  period?: Period | null
   listStyles: SerializedStyles
   textStyles: SerializedStyles
 }) => {
   return (
     <ul css={listStyles}>
-      <li>{DateText(period.start)}</li>
+      <li>{DateText(period?.start)}</li>
       <li css={textStyles}></li>
     </ul>
   )
@@ -75,19 +75,19 @@ const FlagSummaryItem = ({ flag, handleClick }: { flag: Flag; handleClick: Funct
     padding-left: 0.4rem;
     list-style: none;
   `
-  const seconday_text_style = css`
+  const secondary_text_style = css`
     color: ${SECONDARY_TEXT_COLOUR};
   `
   return (
     <li css={li_styles} onClick={() => handleClick}>
       <div>
-        <ExclamationIcon status={flag.status === StatusCode.ACTIVE ? 'red' : 'amber'} size="medium" />
+        <ExclamationIcon status={flag.status === FlagStatusCode.Active ? 'red' : 'amber'} size="medium" />
       </div>
       <div css={codeable_styles}>
-        <CodeableConceptSnippet codeableConcept={flag.code} listStyles={ul_styles} textStyles={seconday_text_style} />
+        <CodeableConceptSnippet codeableConcept={flag.code} listStyles={ul_styles} textStyles={secondary_text_style} />
       </div>
       <div>
-        <PeriodSnippet period={flag.period} listStyles={ul_styles} textStyles={seconday_text_style} />
+        <PeriodSnippet period={flag.period} listStyles={ul_styles} textStyles={secondary_text_style} />
       </div>
     </li>
   )

@@ -1,7 +1,16 @@
-import { Flag, StatusCode } from '@ltht-react/types'
+import { Flag, FlagStatusCode, PartialDateTimeKindCode, Metadata } from '@ltht-react/types'
+
+const mockMetadata: Metadata = {
+  dataSources: [
+    {
+      display: 'Mock',
+    },
+  ],
+}
 
 const FlagOne: Flag = {
   id: '580ca927-34e0-e911-a2c7-005056926fe4|personalertandhazard',
+  metadata: mockMetadata,
   author: {
     display: 'John Smith',
     reference:
@@ -13,13 +22,17 @@ const FlagOne: Flag = {
     coding: [{ display: 'Lives in Known High Risk Area', code: '109006' }],
   },
   period: {
-    start: new Date(2019, 4, 5),
+    start: {
+      value: new Date(2019, 4, 5),
+      kind: PartialDateTimeKindCode.Date,
+    },
   },
-  status: StatusCode.INACTIVE,
+  status: FlagStatusCode.Inactive,
 }
 
 const FlagTwo: Flag = {
   id: '580ca927-34e0-e911-a2c7-005056926fe4|personalertandhazard',
+  metadata: mockMetadata,
   author: {
     display: 'John Smith',
     reference:
@@ -31,9 +44,13 @@ const FlagTwo: Flag = {
     coding: [{ display: 'High Risk of Violence', code: '56706' }],
   },
   period: {
-    start: new Date(2017, 3, 12),
+    start: {
+      value: new Date(2017, 3, 12),
+      kind: PartialDateTimeKindCode.Date,
+    },
   },
-  status: StatusCode.ACTIVE,
+
+  status: FlagStatusCode.Active,
 }
 
 export { FlagOne, FlagTwo }

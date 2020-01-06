@@ -8,10 +8,10 @@ export type Scalars = {
   Float: number,
   DateTimeOffset: any,
   Decimal: number,
-  Date: Date,
-  DateTime: Date,
-  Milliseconds: number,
-  Seconds: number,
+  Date: any,
+  DateTime: any,
+  Milliseconds: any,
+  Seconds: any,
 };
 
 export type AllergyIntolerance = {
