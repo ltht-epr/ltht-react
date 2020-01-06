@@ -32,22 +32,22 @@
     "webpack": "^4.41.5"
   },
   "scripts": {
-    "type:check": "lerna run type:check --parallel",
-    "build": "lerna run build --parallel",
     "bootstrap": "lerna bootstrap && lerna run build",
     "build:sort": "lerna run build --sort",
-    "start": "cd packages/storybook && yarn start",
-    "type:gen": "lerna run type:gen --scope=@ltht-react/types && yarn lerna run build --scope=@ltht-react/types",
-    "start:debug": "cd packages/storybook && yarn start:debug",
+    "build:storybook": "cd packages/storybook && yarn build:storybook",
+    "build": "lerna run build --parallel",
+    "deploy:npm": "lerna publish from-package",
+    "deploy:storybook": "cd packages/storybook && yarn deploy:storybook",
+    "deploy": "cd packages/storybook && yarn deploy",
     "doc:components": "lerna run docs --parallel",
     "lint": "lerna run lint --parallel",
-    "test": "yarn test:unit",
-    "deploy": "cd packages/storybook && yarn deploy",
-    "build:storybook": "cd packages/storybook && yarn build:storybook",
-    "deploy:storybook": "cd packages/storybook && yarn deploy:storybook",
     "new:version": "lerna version --conventional-commits --yes",
-    "deploy:npm": "lerna publish from-package",
-    "test:unit": "jest"
+    "start:debug": "cd packages/storybook && yarn start:debug",
+    "start": "cd packages/storybook && yarn start",
+    "test:unit": "jest",
+    "test": "yarn test:unit",
+    "type:check": "lerna run type:check --parallel",
+    "type:gen": "lerna run type:gen --scope=@ltht-react/types && yarn lerna run build --scope=@ltht-react/types"
   },
   "repository": {
     "type": "git",
