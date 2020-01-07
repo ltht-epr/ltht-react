@@ -28,6 +28,7 @@
     "@ltht-react/exclamation-icon": "^0.0.2",
     "@ltht-react/flag-summary": "^0.0.3",
     "@ltht-react/styles": "^0.0.1",
-    "@ltht-react/types": "^0.0.2"
+    "@ltht-react/types": "^0.0.2",
+    "@ltht-react/utils": "^0.0.1"
   }
 }
