@@ -1,6 +1,6 @@
 {
   "name": "ltht-react",
-  "version": "0.0.1-alpha.1",
+  "version": "0.0.1-alpha.2",
   "description": "> TODO: description",
   "author": "Jonny Smith <jonny.asmith@gmail.com>",
   "homepage": "",
@@ -26,7 +26,7 @@
   },
   "dependencies": {
     "@ltht-react/exclamation-icon": "^0.0.2",
-    "@ltht-react/flag-summary": "^0.0.2",
+    "@ltht-react/flag-summary": "^0.0.3",
     "@ltht-react/styles": "^0.0.1",
     "@ltht-react/types": "^0.0.2"
   }
