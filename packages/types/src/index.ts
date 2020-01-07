@@ -6,10 +6,10 @@ export type Scalars = {
   Boolean: boolean,
   Int: number,
   Float: number,
-  DateTimeOffset: Date,
+  DateTimeOffset: string,
   Decimal: number,
-  Date: Date,
-  DateTime: Date,
+  Date: string,
+  DateTime: string,
   Milliseconds: number,
   Seconds: number,
 };

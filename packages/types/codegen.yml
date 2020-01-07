@@ -2,9 +2,9 @@ schema: http://localhost:5000/graphql
 config:
   skipTypename: true
   scalars:
-    Date: Date
-    DateTime: Date
-    DateTimeOffset: Date
+    Date: string
+    DateTime: string
+    DateTimeOffset: string
     Decimal: number
     Milliseconds: number
     Seconds: number

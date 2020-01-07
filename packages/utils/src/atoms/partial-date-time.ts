@@ -1,14 +1,49 @@
-import { PartialDateTime } from '@ltht-react/types'
+import { PartialDateTime, PartialDateTimeKindCode } from '@ltht-react/types'
 
-const partialDateTimeText = (date?: PartialDateTime | null): string => {
-  if (!date || !date.value) {
-    return ''
-  }
-  const result = date.value
-    .toLocaleString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' })
+const locale = 'en-GB'
+const dayFormat = '2-digit'
+const monthFormat = 'short'
+const yearFormat = 'numeric'
+const hourFormat = '2-digit'
+const minuteFormat = '2-digit'
+
+const formatDate = (date: Date): string => {
+  return date
+    .toLocaleString(locale, { day: dayFormat, month: monthFormat, year: yearFormat })
     .split(' ')
     .join('-')
-  return result
+}
+
+const formatTime = (date: Date): string => {
+  return date
+    .toLocaleString(locale, { hour: hourFormat, minute: minuteFormat })
+    .split(' ')
+    .join(':')
+}
+
+const partialDateTimeText = (partialDateTime?: PartialDateTime | null): string => {
+  if (!partialDateTime || !partialDateTime.value) {
+    return ''
+  }
+  console.log(partialDateTime)
+  switch (partialDateTime.kind) {
+    case PartialDateTimeKindCode.Date:
+      return formatDate(new Date(partialDateTime.value))
+    case PartialDateTimeKindCode.DateTime:
+      const date = new Date(partialDateTime.value)
+      return `${formatDate(date)} ${formatTime(date)}`
+    case PartialDateTimeKindCode.Year:
+      return new Date(partialDateTime.value).toLocaleString(locale, { year: yearFormat })
+    case PartialDateTimeKindCode.YearMonth:
+      return new Date(partialDateTime.value)
+        .toLocaleString(locale, { month: monthFormat, year: yearFormat })
+        .split(' ')
+        .join('-')
+    case PartialDateTimeKindCode.Time:
+      return formatTime(new Date(partialDateTime.value))
+    default:
+      return ''
+  }
 }
 
 export { partialDateTimeText }

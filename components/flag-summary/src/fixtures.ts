@@ -23,7 +23,7 @@ const FlagOne: Flag = {
   },
   period: {
     start: {
-      value: new Date('2013-01-01T00:00:00+00:00'),
+      value: '2013-01-01T00:00:00+00:00',
       kind: PartialDateTimeKindCode.Year,
     },
   },
@@ -45,7 +45,7 @@ const FlagTwo: Flag = {
   },
   period: {
     start: {
-      value: new Date(2017, 3, 12),
+      value: '2013-01-01T00:00:00+00:00',
       kind: PartialDateTimeKindCode.Date,
     },
   },
