@@ -13,6 +13,11 @@
     "strict": true,
     "target": "es5"
   },
-  "exclude": ["node_modules"],
-  "include": ["packages/*/src", "components/*/src"]
+  "exclude": ["node_modules", "**/*.test.ts"],
+  "include": [
+    "packages/*/src",
+    "components/*/src",
+    "packages/utils/__tests__/partial-date-time-test.ts",
+    "packages/utils/__tests__/tests.tsx"
+  ]
 }

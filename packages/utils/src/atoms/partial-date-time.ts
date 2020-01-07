@@ -1,6 +1,6 @@
 import { PartialDateTime, PartialDateTimeKindCode } from '@ltht-react/types'
 
-const locale = 'en-GB'
+const locale = 'en-gb'
 const dayFormat = '2-digit'
 const monthFormat = 'short'
 const yearFormat = 'numeric'
@@ -16,7 +16,7 @@ const formatDate = (date: Date): string => {
 
 const formatTime = (date: Date): string => {
   return date
-    .toLocaleString(locale, { hour: hourFormat, minute: minuteFormat })
+    .toLocaleString(locale, { hour: hourFormat, minute: minuteFormat, hour12: false })
     .split(' ')
     .join(':')
 }
@@ -25,7 +25,6 @@ const partialDateTimeText = (partialDateTime?: PartialDateTime | null): string =
   if (!partialDateTime || !partialDateTime.value) {
     return ''
   }
-  console.log(partialDateTime)
   switch (partialDateTime.kind) {
     case PartialDateTimeKindCode.Date:
       return formatDate(new Date(partialDateTime.value))

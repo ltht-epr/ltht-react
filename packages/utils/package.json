@@ -24,7 +24,7 @@
     "build:lib": "tsc",
     "type:check": "tsc --noEmit",
     "lint": "prettylint 'src/*.{ts,tsx}'",
-    "test": ""
+    "test": "jest"
   },
   "dependencies": {
     "@ltht-react/types": "^0.0.4"
