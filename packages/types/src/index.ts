@@ -6,7 +6,7 @@ export type Scalars = {
   Boolean: boolean,
   Int: number,
   Float: number,
-  DateTimeOffset: any,
+  DateTimeOffset: Date,
   Decimal: number,
   Date: Date,
   DateTime: Date,

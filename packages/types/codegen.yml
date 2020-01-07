@@ -4,6 +4,7 @@ config:
   scalars:
     Date: Date
     DateTime: Date
+    DateTimeOffset: Date
     Decimal: number
     Milliseconds: number
     Seconds: number

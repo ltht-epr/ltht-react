@@ -23,8 +23,8 @@ const FlagOne: Flag = {
   },
   period: {
     start: {
-      value: new Date(2019, 4, 5),
-      kind: PartialDateTimeKindCode.Date,
+      value: new Date('2013-01-01T00:00:00+00:00'),
+      kind: PartialDateTimeKindCode.Year,
     },
   },
   status: FlagStatusCode.Inactive,

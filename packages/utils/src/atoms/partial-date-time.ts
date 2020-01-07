@@ -1,7 +1,7 @@
 import { PartialDateTime } from '@ltht-react/types'
 
 const partialDateTimeText = (date?: PartialDateTime | null): string => {
-  if (!date) {
+  if (!date || !date.value) {
     return ''
   }
   const result = date.value
