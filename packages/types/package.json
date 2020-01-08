@@ -22,9 +22,7 @@
     "build": "yarn build:lib",
     "build:watch": "tsc -w",
     "build:lib": "tsc",
-    "type:check": "tsc --noEmit",
-    "type:gen": "yarn graphql-codegen",
-    "lint": "prettylint 'src/*.{ts,tsx}'"
+    "type:check": "tsc --noEmit"
   },
   "dependencies": {
     "@emotion/core": "^10.0.27",
