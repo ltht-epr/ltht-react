@@ -1,6 +1,7 @@
 export { default as AllergySummary } from '@ltht-react/allergy-summary'
 export { default as ExclamationIcon } from '@ltht-react/exclamation-icon'
 export { default as FlagSummary } from '@ltht-react/flag-summary'
+export * from '@ltht-react/widget'
 export * from '@ltht-react/styles'
 export * from '@ltht-react/types'
 export * from '@ltht-react/utils'
