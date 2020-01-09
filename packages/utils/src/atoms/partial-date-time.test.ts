@@ -9,30 +9,30 @@ describe('partialDateTimeText', () => {
       value: dateValue,
       kind: PartialDateTimeKindCode.Date,
     }
-    expect(partialDateTimeText(date)).toEqual('03-Jan-2013')
+    expect(partialDateTimeText(date)).toEqual('03-Feb-2013')
   })
   it('formats date-time correctly', () => {
     const date: PartialDateTime = {
       value: dateValue,
       kind: PartialDateTimeKindCode.DateTime,
     }
-    expect(partialDateTimeText(date)).toEqual('03-Jan-2013 13:15')
+    expect(partialDateTimeText(date)).toEqual('03-Feb-2013 13:15')
   })
-  it.only('formats time correctly', () => {
+  it('formats time correctly', () => {
     const date: PartialDateTime = {
       value: dateValue,
       kind: PartialDateTimeKindCode.Time,
     }
     expect(partialDateTimeText(date)).toEqual('13:15')
   })
-  it.only('formats year correctly', () => {
+  it('formats year correctly', () => {
     const date: PartialDateTime = {
       value: dateValue,
       kind: PartialDateTimeKindCode.Year,
     }
     expect(partialDateTimeText(date)).toEqual('2013')
   })
-  it.only('formats year-month correctly', () => {
+  it('formats year-month correctly', () => {
     const date: PartialDateTime = {
       value: dateValue,
       kind: PartialDateTimeKindCode.YearMonth,

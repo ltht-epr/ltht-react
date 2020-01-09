@@ -3,7 +3,7 @@ import React from 'react'
 import { css, jsx } from '@emotion/core'
 
 import { WIDGET_STYLES, CSS_RESET } from '@ltht-react/styles'
-import { Flag, AllergyIntolerance } from '@ltht-react/types'
+import { AllergyIntolerance } from '@ltht-react/types'
 import AllergySummaryItem from './molecules/allergy-summary-item'
 
 const titleStyles = css`
