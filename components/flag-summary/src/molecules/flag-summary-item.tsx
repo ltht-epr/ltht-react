@@ -17,7 +17,6 @@ const styles = css`
 `
 const descriptionStyles = css`
   flex-grow: 1;
-  padding-left: 0.5rem;
 `
 
 const FlagSummaryItem = ({ flag, clickHandler }: Props) => {
@@ -27,9 +26,6 @@ const FlagSummaryItem = ({ flag, clickHandler }: Props) => {
   }
   return (
     <li css={styles} onClick={handleClick}>
-      <div>
-        <FlagIcon flag={flag} />
-      </div>
       <div css={descriptionStyles}>
         <FlagTitle flag={flag} />
         <FlagDescription flag={flag} />

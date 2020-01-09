@@ -51,9 +51,13 @@ const FlagTwo: Flag = {
       value: '2013-01-01T00:00:00+00:00',
       kind: PartialDateTimeKindCode.Date,
     },
+    end: {
+      value: '2014-02-02T00:00:00+00:00',
+      kind: PartialDateTimeKindCode.Date,
+    },
   },
 
-  status: FlagStatusCode.Active,
+  status: FlagStatusCode.Inactive,
 }
 
 export { FlagOne, FlagTwo }
