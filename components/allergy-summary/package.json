@@ -1,6 +1,6 @@
 {
-  "name": "ltht-react",
-  "version": "0.0.1-alpha.6",
+  "name": "@ltht-react/allergy-summary",
+  "version": "0.0.0",
   "description": "> TODO: description",
   "author": "Jonny Smith <jonny.asmith@gmail.com>",
   "homepage": "",
@@ -22,14 +22,18 @@
     "build": "yarn build:lib",
     "watch": "tsc -w",
     "build:lib": "tsc",
-    "lint": "prettylint 'src/*.{ts,tsx}'"
+    "type:check": "tsc --noEmit",
+    "lint": "prettylint 'src/*.{ts,tsx}'",
+    "docs": "doc-component ./lib/index.js README_AUTO.md"
   },
   "dependencies": {
-    "@ltht-react/allergy-summary": "^0.0.0",
+    "@emotion/core": "^10.0.27",
+    "@emotion/styled": "^10.0.27",
     "@ltht-react/exclamation-icon": "^0.0.2",
-    "@ltht-react/flag-summary": "^0.0.6",
     "@ltht-react/styles": "^0.0.1",
     "@ltht-react/types": "^0.0.4",
-    "@ltht-react/utils": "^0.0.4"
+    "@ltht-react/utils": "^0.0.4",
+    "emotion": "^10.0.27",
+    "react": "^16.12.0"
   }
 }

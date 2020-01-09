@@ -3,11 +3,11 @@ import React from 'react'
 import { css, jsx } from '@emotion/core'
 
 import { Flag } from '@ltht-react/types'
-import FlagCode from '../atoms/flag-code'
+import FlagTitle from '../atoms/flag-title'
 import FlagDate from '../atoms/flag-date'
 import FlagDescription from '../atoms/flag-description'
 import FlagIcon from '../atoms/flag-icon'
-import FlagSource from '../atoms/flag-source'
+import FlagStatus from '../atoms/flag-status'
 
 const styles = css`
   display: flex;
@@ -31,12 +31,12 @@ const FlagSummaryItem = ({ flag, clickHandler }: Props) => {
         <FlagIcon flag={flag} />
       </div>
       <div css={descriptionStyles}>
+        <FlagTitle flag={flag} />
         <FlagDescription flag={flag} />
-        <FlagCode flag={flag} />
       </div>
       <div>
         <FlagDate flag={flag} />
-        <FlagSource flag={flag} />
+        <FlagStatus flag={flag} />
       </div>
     </li>
   )

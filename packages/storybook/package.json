@@ -42,6 +42,7 @@
     "storybook-readme": "^5.0.8"
   },
   "dependencies": {
+    "@ltht-react/allergy-summary": "^0.0.0",
     "@ltht-react/exclamation-icon": "^0.0.2",
     "@ltht-react/flag-summary": "^0.0.6"
   }

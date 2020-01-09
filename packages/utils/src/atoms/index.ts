@@ -1,3 +1,4 @@
+export * from './allergy-intolerance-category-code'
 export * from './codeable-concept'
 export * from './partial-date-time'
 export * from './period'

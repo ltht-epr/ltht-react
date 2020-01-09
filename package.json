@@ -35,6 +35,7 @@
     "bootstrap": "lerna bootstrap && lerna run build",
     "build:sort": "lerna run build --sort",
     "build:storybook": "cd packages/storybook && yarn build:storybook",
+    "build:package": "yarn lerna run build --scope=@ltht-react/flag-summary",
     "build": "lerna run build --parallel",
     "deploy:npm": "lerna publish from-package",
     "deploy:storybook": "cd packages/storybook && yarn deploy:storybook",
@@ -44,7 +45,7 @@
     "new:version": "lerna version --conventional-commits --yes",
     "start:debug": "cd packages/storybook && yarn start:debug",
     "start": "cd packages/storybook && yarn start",
-    "test:unit": "jest",
+    "test:unit": "jest --verbose",
     "test": "yarn test:unit",
     "type:check": "lerna run type:check --parallel",
     "type:gen": "lerna run type:gen --scope=@ltht-react/types && yarn lerna run build --scope=@ltht-react/types"

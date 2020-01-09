@@ -1,6 +1,5 @@
 {
-    "cSpell.words": [
-        "Codeable",
-        "ltht"
-    ]
+  "cSpell.words": ["Codeable", "ltht"],
+  "npm.packageManager": "yarn",
+  "prettier.packageManager": "yarn"
 }

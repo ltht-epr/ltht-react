@@ -43,6 +43,9 @@ const FlagTwo: Flag = {
   code: {
     coding: [{ display: 'High Risk of Violence', code: '56706' }],
   },
+  category: {
+    coding: [{ display: 'Violence', code: '66706' }],
+  },
   period: {
     start: {
       value: '2013-01-01T00:00:00+00:00',
