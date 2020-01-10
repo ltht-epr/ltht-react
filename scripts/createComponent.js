@@ -1,7 +1,7 @@
 const fs = require('fs')
 const path = require('path')
 const mkdirp = require('mkdirp-promise')
-const { exec } = require('child_process')
+const exec = require('await-exec')
 const package = require('../package.json')
 
 package.author = 'Node'
@@ -20,14 +20,14 @@ const fileNames = {
   readme: 'README.md',
 }
 
-const writeFile = (filename, contents) => {
+const writeFile = async (filename, contents) => {
   const rootFileNames = [fileNames.package, fileNames.tsconfig, fileNames.readme]
   const pathName = path.join(rootFileNames.includes(filename) ? folderName : `${folderName}/src`, filename)
-  fs.writeFile(pathName, `${contents}`, err => {
+  console.log(`ℹ️ creating file: ${pathName}`)
+  await fs.promises.writeFile(pathName, `${contents}`, err => {
     if (err) {
-      return console.log(err)
+      return console.log(`❌ ${pathName} error: ${err}`)
     }
-    console.log(`Creating file: ${pathName}`)
     return false
   })
   return false
@@ -120,22 +120,29 @@ export default ${componentName}
   writeFile(filename, contents)
 }
 
-const linkPackages = () => {
-  console.log(`ℹ️ linking packages, please wait'`)
-  exec(
-    `yarn lerna add @ltht-react/${componentFolderName} --scope=@ltht-react/storybook && 
-     yarn lerna add @ltht-react/${componentFolderName} --scope=ltht-react &&
-     yarn lerna add @ltht-react/types --scope=@ltht-react/${componentFolderName} &&
-     yarn lerna add @ltht-react/utils --scope=@ltht-react/${componentFolderName}`,
-    (error, stdout, stderr) => {
-      if (error) {
-        console.error(`exec error: ${error}`)
-        return
-      }
-      console.log(`✅ Package linking complete, '${componentFolderName}' was created successfully`)
-      console.log(`⚠️  Please ensure you that it is exported in packages/ltht-react/src/index.ts`)
-    }
-  )
+const lerna = async command => {
+  return exec(command).catch(error => {
+    console.error(`❌ command error: ${error}`)
+  })
+}
+
+const linkPackages = async () => {
+  console.log(`ℹ️ linking @ltht-react/types`)
+  await lerna(`yarn lerna add @ltht-react/types --scope=@ltht-react/${componentFolderName}`)
+  console.log(`ℹ️ linking @ltht-react/utils`)
+  await lerna(`yarn lerna add @ltht-react/utils --scope=@ltht-react/${componentFolderName}`)
+  console.log(`ℹ️ linking @ltht-react/storybook`)
+  await lerna(`yarn lerna add @ltht-react/${componentFolderName} --scope=@ltht-react/storybook`)
+  console.log(`ℹ️ linking ltht-react`)
+  await lerna(`yarn lerna add @ltht-react/${componentFolderName} --scope=ltht-react`)
+  console.log(`ℹ️ bootstrapping`)
+  await lerna(`yarn lerna bootstrap`)
+  console.log(`ℹ️ building`)
+  await lerna(`yarn lerna run build`)
+
+  console.log('')
+  console.log(`✅ Package linking complete, '${componentFolderName}' was created successfully`)
+  console.log(`⚠️  Please ensure you that it is exported in packages/ltht-react/src/index.ts`)
 }
 
 const init = () => {
