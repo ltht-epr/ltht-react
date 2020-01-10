@@ -1,0 +1,6 @@
+export { default as Widget } from './widget'
+export { default as WidgetBody } from './widget-body'
+export { default as WidgetFooter } from './widget-footer'
+export { default as WidgetHeader } from './widget-header'
+export { default as WidgetList } from './widget-list'
+export { default as WidgetListItem } from './widget-list-item'
