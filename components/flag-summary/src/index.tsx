@@ -2,26 +2,24 @@
 import React from 'react'
 import { css, jsx } from '@emotion/core'
 
-import { WIDGET_STYLES, CSS_RESET } from '@ltht-react/styles'
 import { Flag } from '@ltht-react/types'
 import FlagSummaryItem from './molecules/flag-summary-item'
-
-const titleStyles = css`
-  margin-bottom: 0.5rem;
-`
+import { Widget, WidgetHeader, WidgetList, WidgetListItem } from '@ltht-react/widget'
 
 const FlagSummary = ({ title, flags, clickHandler }: Props) => {
   return (
-    <div css={WIDGET_STYLES}>
-      <div css={CSS_RESET}>
-        <h3 css={titleStyles}>{title}</h3>
-        <ul>
-          {flags.map((flag, index) => (
+    <Widget>
+      <WidgetHeader>
+        <h3>{title}</h3>
+      </WidgetHeader>
+      <WidgetList clickable>
+        {flags.map((flag, index) => (
+          <WidgetListItem key={index}>
             <FlagSummaryItem key={index} flag={flag} clickHandler={clickHandler} />
-          ))}
-        </ul>
-      </div>
-    </div>
+          </WidgetListItem>
+        ))}
+      </WidgetList>
+    </Widget>
   )
 }
 

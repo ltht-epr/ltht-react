@@ -16,20 +16,12 @@ const styles = css`
   -webkit-font-smoothing: antialiased;
 `
 
-const ThemeContext = React.createContext({ count: 0 })
-
 const Widget: React.FC<Props> = ({ children }) => {
-  return (
-    <ThemeContext.Provider value={{ count: React.Children.count(children) }}>
-      <div css={styles}>{children}</div>
-    </ThemeContext.Provider>
-  )
+  return <div css={styles}>{children}</div>
 }
 
 interface Props {
   children: any
 }
-
-export { ThemeContext }
 
 export default Widget

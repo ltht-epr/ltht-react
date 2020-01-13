@@ -39,9 +39,9 @@
   },
   "scripts": {
     "bootstrap": "lerna bootstrap && lerna run build",
+    "build:package": "yarn lerna run build --scope=@ltht-react/flag-summary",
     "build:sort": "lerna run build --sort",
     "build:storybook": "cd packages/storybook && yarn build:storybook",
-    "build:package": "yarn lerna run build --scope=@ltht-react/flag-summary",
     "build": "lerna run build --parallel",
     "clean": "lerna run clean --parallel",
     "create:component": "node ./scripts/createComponent.js",
@@ -51,9 +51,10 @@
     "doc:components": "lerna run docs --parallel",
     "lint": "lerna run lint --parallel",
     "new:version": "lerna version --conventional-commits --yes",
+    "predeploy:storybook": "yarn build:storybook",
     "start:debug": "cd packages/storybook && yarn start:debug",
     "start": "cd packages/storybook && yarn start",
-    "test:unit": "jest --verbose",
+    "test:unit": "jest",
     "test": "yarn test:unit",
     "type:check": "lerna run type:check --parallel",
     "type:gen": "lerna run type:gen --scope=@ltht-react/types && yarn lerna run build --scope=@ltht-react/types"

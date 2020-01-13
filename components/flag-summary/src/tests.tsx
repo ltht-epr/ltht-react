@@ -2,7 +2,7 @@ import React from 'react'
 import { mount } from 'enzyme'
 import ReactDOM from 'react-dom'
 
-import { Flag } from '../../../packages/types/lib'
+import { Flag } from '@ltht-react/types'
 import { FlagOne, FlagTwo } from './fixtures'
 import FlagSummary from '.'
 

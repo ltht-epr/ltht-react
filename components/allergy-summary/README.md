@@ -1,23 +1,21 @@
-# Flag Summary
-
-<!-- STORY -->
+# Allergy Summary
 
 ### Import
 
 ```js
-import FlagSummary from '@ltht-react/flag-summary'
+import AllergySummary from '@ltht-react/allergy-summary'
 ```
 
 ### Usage
 
 ```jsx
-<FlagSummary title="Alerts" flags={flags} handleItemClick={handleClick} />
+<AllergySummary title="Allergies" allergies={allergies} clickHandler={handleClick} />
 ```
 
 ### Properties
 
-| Prop              | Required | Default      | Type     | Description                                                    |
-| :---------------- | :------- | :----------- | :------- | :------------------------------------------------------------- |
-| `title`           | No       | Flag Summary | string   | Header text for the widget                                     |
-| `flags`           | Yes      |              | Flag[]   | Array of flag to display in the widget                         |
-| `handleItemClick` | No       |              | Function | Callback click handler containing the flag item from the array |
+| Prop           | Required | Default   | Type                 | Description                                                 |
+| :------------- | :------- | :-------- | :------------------- | :---------------------------------------------------------- |
+| `title`        | No       | Allergies | string               | Header text                                                 |
+| `allergies`    | Yes      |           | AllergyIntolerance[] | Array of allergies to display                               |
+| `clickHandler` | No       | undefined | Function             | Callback click handler containing the selected allergy item |

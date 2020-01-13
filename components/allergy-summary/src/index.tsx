@@ -2,26 +2,28 @@
 import React from 'react'
 import { css, jsx } from '@emotion/core'
 
-import { WIDGET_STYLES, CSS_RESET } from '@ltht-react/styles'
 import { AllergyIntolerance } from '@ltht-react/types'
 import AllergySummaryItem from './molecules/allergy-summary-item'
+import { Widget, WidgetHeader, WidgetList, WidgetListItem } from '@ltht-react/widget'
 
 const titleStyles = css`
   margin-bottom: 0.5rem;
 `
 
-const AllergySummary = ({ title, allergies, clickHandler }: Props) => {
+const AllergySummary = ({ title = 'Allergies', allergies, clickHandler }: Props) => {
   return (
-    <div css={WIDGET_STYLES}>
-      <div css={CSS_RESET}>
+    <Widget>
+      <WidgetHeader>
         <h3 css={titleStyles}>{title}</h3>
-        <ul>
-          {allergies.map((allergy, index) => (
-            <AllergySummaryItem key={index} allergy={allergy} clickHandler={clickHandler} />
-          ))}
-        </ul>
-      </div>
-    </div>
+      </WidgetHeader>
+      <WidgetList clickable>
+        {allergies.map((allergy, index) => (
+          <WidgetListItem key={index}>
+            <AllergySummaryItem allergy={allergy} clickHandler={clickHandler} />
+          </WidgetListItem>
+        ))}
+      </WidgetList>
+    </Widget>
   )
 }
 

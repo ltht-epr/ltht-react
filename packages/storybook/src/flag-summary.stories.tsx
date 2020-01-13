@@ -3,15 +3,15 @@ import { storiesOf } from '@storybook/react'
 import { withInfo } from '@storybook/addon-info'
 
 import FlagSummary from '@ltht-react/flag-summary'
-import FlagSummaryReadMe from '@ltht-react/flag-summary/README.md'
+import readme from '@ltht-react/flag-summary/README.md'
 import * as fixtures from '@ltht-react/flag-summary/src/fixtures'
 import { Flag } from '@ltht-react/types'
 
-const stories = storiesOf('Widgets|Flag|Examples', module)
+const stories = storiesOf('Components|Flag|Examples', module)
 
 stories.addParameters({
   readme: {
-    content: FlagSummaryReadMe,
+    sidebar: readme,
   },
 })
 

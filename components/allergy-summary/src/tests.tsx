@@ -2,7 +2,7 @@ import React from 'react'
 import { mount } from 'enzyme'
 import ReactDOM from 'react-dom'
 
-import { AllergyIntolerance } from '../../../packages/types/lib'
+import { AllergyIntolerance } from '@ltht-react/types'
 import { AllergyOne, AllergyTwo } from './fixtures'
 import AllergySummary from '.'
 

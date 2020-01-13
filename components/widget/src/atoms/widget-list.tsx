@@ -2,27 +2,32 @@
 import React from 'react'
 import { css, jsx } from '@emotion/core'
 
-import { ThemeContext } from './widget'
-import { CSS_RESET } from '@ltht-react/styles'
+import { WIDGET_LIST_ITEM_BACKGROUND_HOVER } from '@ltht-react/styles'
 
-const computeStyles = (itemCount: number) => {
+const computeStyles = (clickable?: boolean) => {
   return css`
     list-style: none;
     padding-left: 0.5rem;
     & li {
       border-top: 1px solid #b0b0b0;
-      padding: 0.5rem 0;
+      padding: 0.5rem 0.5rem 0.5rem 0;
     }
     & li:last-child {
       border-bottom: 1px solid #b0b0b0;
     }
+    & li:hover {
+      cursor: pointer;
+      ${clickable && `background: ${WIDGET_LIST_ITEM_BACKGROUND_HOVER};`}
+    }
   `
 }
 
-const WidgetList: React.FC = ({ children }) => {
-  const theme = React.useContext(ThemeContext)
-  const styles = computeStyles(theme.count)
-  return <ul css={styles}>{children}</ul>
+const WidgetList: React.FC<Props> = ({ children, clickable }) => {
+  return <ul css={computeStyles(clickable)}>{children}</ul>
+}
+
+interface Props {
+  clickable?: boolean
 }
 
 export default WidgetList

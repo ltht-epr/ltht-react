@@ -1,10 +1,7 @@
-import { PartialDateTimeKindCode, Period } from '@ltht-react/types'
+import { PartialDateTimeKindCode, PartialDateTime, Period } from '@ltht-react/types'
 import { periodSummaryText } from './period'
 
 describe('periodSummaryText', () => {
-  const startValue = '2013-02-03T13:15:16+00:00'
-  const endValue = '2014-04-04T13:15:16+00:00'
-
   it('formats period summary correctly when both start and end are not specified', () => {
     const period: Period = {}
     expect(periodSummaryText(period)).toEqual('')
@@ -12,35 +9,40 @@ describe('periodSummaryText', () => {
 
   it('formats period summary correctly when only period start is specified', () => {
     const period: Period = {
-      start: {
-        value: startValue,
-        kind: PartialDateTimeKindCode.Date,
-      },
+      start: startPartialDateTime(PartialDateTimeKindCode.Date),
     }
     expect(periodSummaryText(period)).toEqual('03-Feb-2013')
   })
 
   it('formats period summary correctly when only period end is specified', () => {
     const period: Period = {
-      end: {
-        value: endValue,
-        kind: PartialDateTimeKindCode.Date,
-      },
+      end: endPartialDateTime(PartialDateTimeKindCode.Date),
     }
     expect(periodSummaryText(period)).toEqual('Unknown to 04-Apr-2014')
   })
 
   it('formats period summary correctly when both period start and end are specified', () => {
     const period: Period = {
-      start: {
-        value: startValue,
-        kind: PartialDateTimeKindCode.Date,
-      },
-      end: {
-        value: endValue,
-        kind: PartialDateTimeKindCode.Date,
-      },
+      start: startPartialDateTime(PartialDateTimeKindCode.Date),
+      end: endPartialDateTime(PartialDateTimeKindCode.Date),
     }
     expect(periodSummaryText(period)).toEqual('03-Feb-2013 to 04-Apr-2014')
   })
 })
+
+const startPartialDateTime = (kind: PartialDateTimeKindCode): PartialDateTime => {
+  return {
+    value: startDataTime,
+    kind,
+  }
+}
+
+const endPartialDateTime = (kind: PartialDateTimeKindCode): PartialDateTime => {
+  return {
+    value: endDataTime,
+    kind,
+  }
+}
+
+const startDataTime = '2013-02-03T13:15:16+00:00'
+const endDataTime = '2014-04-04T13:15:16+00:00'

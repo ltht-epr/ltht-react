@@ -1,7 +1,5 @@
 # Exclamation Icon
 
-<!-- STORY -->
-
 ### Import
 
 ```js

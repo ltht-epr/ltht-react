@@ -9,7 +9,7 @@ const stories = storiesOf('Elements|Icons|Examples', module)
 
 stories.addParameters({
   readme: {
-    content: ExclamationIconReadMe,
+    sidebar: ExclamationIconReadMe,
   },
 })
 
