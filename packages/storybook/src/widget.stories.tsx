@@ -38,3 +38,18 @@ stories.addWithJSX('List', () => (
     </Widget>
   </div>
 ))
+
+stories.addWithJSX('List (Clickable)', () => (
+  <div>
+    <Widget>
+      <WidgetHeader>
+        <h3>Header</h3>
+      </WidgetHeader>
+      <WidgetList clickable>
+        <WidgetListItem>Item 1</WidgetListItem>
+        <WidgetListItem>Item 2</WidgetListItem>
+      </WidgetList>
+      <WidgetFooter>Footer</WidgetFooter>
+    </Widget>
+  </div>
+))

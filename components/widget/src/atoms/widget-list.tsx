@@ -16,7 +16,7 @@ const computeStyles = (clickable?: boolean) => {
       border-bottom: 1px solid #b0b0b0;
     }
     & li:hover {
-      cursor: pointer;
+      ${clickable && `cursor: pointer;`}
       ${clickable && `background: ${WIDGET_LIST_ITEM_BACKGROUND_HOVER};`}
     }
   `
