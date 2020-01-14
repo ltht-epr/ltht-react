@@ -12,9 +12,6 @@ const computeStyles = (clickable?: boolean) => {
       border-top: 1px solid #b0b0b0;
       padding: 0.5rem 0.5rem 0.5rem 0;
     }
-    & li:last-child {
-      border-bottom: 1px solid #b0b0b0;
-    }
     & li:hover {
       ${clickable && `cursor: pointer;`}
       ${clickable && `background: ${WIDGET_LIST_ITEM_BACKGROUND_HOVER};`}

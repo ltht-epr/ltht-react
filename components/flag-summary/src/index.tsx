@@ -12,7 +12,7 @@ const FlagSummary = ({ title, flags, clickHandler }: Props) => {
       <WidgetHeader>
         <h3>{title}</h3>
       </WidgetHeader>
-      <WidgetList clickable>
+      <WidgetList clickable={clickHandler ? true : false}>
         {flags.map((flag, index) => (
           <WidgetListItem key={index}>
             <FlagSummaryItem key={index} flag={flag} clickHandler={clickHandler} />
@@ -24,9 +24,9 @@ const FlagSummary = ({ title, flags, clickHandler }: Props) => {
 }
 
 interface Props {
-  title: string
+  title?: string
   flags: Flag[]
-  clickHandler(flag: Flag): void
+  clickHandler?(flag: Flag): void
 }
 
 export default FlagSummary

@@ -16,7 +16,7 @@ const AllergySummary = ({ title = 'Allergies', allergies, clickHandler }: Props)
       <WidgetHeader>
         <h3 css={titleStyles}>{title}</h3>
       </WidgetHeader>
-      <WidgetList clickable>
+      <WidgetList clickable={clickHandler ? true : false}>
         {allergies.map((allergy, index) => (
           <WidgetListItem key={index}>
             <AllergySummaryItem allergy={allergy} clickHandler={clickHandler} />
@@ -28,9 +28,9 @@ const AllergySummary = ({ title = 'Allergies', allergies, clickHandler }: Props)
 }
 
 interface Props {
-  title: string
+  title?: string
   allergies: AllergyIntolerance[]
-  clickHandler(allergy: AllergyIntolerance): void
+  clickHandler?(allergy: AllergyIntolerance): void
 }
 
 export default AllergySummary

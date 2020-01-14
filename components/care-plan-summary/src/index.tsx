@@ -16,7 +16,7 @@ const CarePlanSummary = ({ title = 'Care Plans', carePlans, clickHandler }: Prop
       <WidgetHeader>
         <h3 css={titleStyles}>{title}</h3>
       </WidgetHeader>
-      <WidgetList clickable>
+      <WidgetList clickable={clickHandler ? true : false}>
         {carePlans.map((carePlan, index) => (
           <WidgetListItem key={index}>
             <CarePlanSummaryItem carePlan={carePlan} clickHandler={clickHandler} />
@@ -28,9 +28,9 @@ const CarePlanSummary = ({ title = 'Care Plans', carePlans, clickHandler }: Prop
 }
 
 interface Props {
-  title: string
+  title?: string
   carePlans: CarePlan[]
-  clickHandler(carePlan: CarePlan): void
+  clickHandler?(carePlan: CarePlan): void
 }
 
 export default CarePlanSummary

@@ -16,7 +16,7 @@ const InvolvedTeamSummary = ({ title = 'Involved Teams', episodeOfCares, clickHa
       <WidgetHeader>
         <h3 css={titleStyles}>{title}</h3>
       </WidgetHeader>
-      <WidgetList clickable>
+      <WidgetList clickable={clickHandler ? true : false}>
         {episodeOfCares.map((episodeOfCare, index) => (
           <WidgetListItem key={index}>
             <InvolvedTeamSummaryItem episodeOfCare={episodeOfCare} clickHandler={clickHandler} />
@@ -28,9 +28,9 @@ const InvolvedTeamSummary = ({ title = 'Involved Teams', episodeOfCares, clickHa
 }
 
 interface Props {
-  title: string
+  title?: string
   episodeOfCares: EpisodeOfCare[]
-  clickHandler(episodeOfCare: EpisodeOfCare): void
+  clickHandler?(episodeOfCare: EpisodeOfCare): void
 }
 
 export default InvolvedTeamSummary

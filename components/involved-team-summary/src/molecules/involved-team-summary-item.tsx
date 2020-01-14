@@ -19,10 +19,10 @@ const descriptionStyles = css`
 const InvolvedTeamSummaryItem = ({ episodeOfCare, clickHandler }: Props) => {
   const handleClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     e.preventDefault()
-    clickHandler(episodeOfCare)
+    clickHandler && clickHandler(episodeOfCare)
   }
   return (
-    <div css={styles} onClick={handleClick}>
+    <div css={styles} onClick={clickHandler && handleClick}>
       <div css={descriptionStyles}>
         <InvolvedTeamTitle episodeOfCare={episodeOfCare} />
         <InvolvedTeamDescription episodeOfCare={episodeOfCare} />
@@ -37,7 +37,7 @@ const InvolvedTeamSummaryItem = ({ episodeOfCare, clickHandler }: Props) => {
 
 interface Props {
   episodeOfCare: EpisodeOfCare
-  clickHandler(episodeOfCare: EpisodeOfCare): void
+  clickHandler?(episodeOfCare: EpisodeOfCare): void
 }
 
 export default InvolvedTeamSummaryItem

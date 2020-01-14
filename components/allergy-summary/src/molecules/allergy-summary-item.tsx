@@ -19,10 +19,10 @@ const descriptionStyles = css`
 const AllergySummaryItem = ({ allergy, clickHandler }: Props) => {
   const handleClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     e.preventDefault()
-    clickHandler(allergy)
+    clickHandler && clickHandler(allergy)
   }
   return (
-    <div css={styles} onClick={handleClick}>
+    <div css={styles} onClick={clickHandler && handleClick}>
       <div css={descriptionStyles}>
         <AllergyTitle allergy={allergy} />
         <AllergyDescription allergy={allergy} />
@@ -37,7 +37,7 @@ const AllergySummaryItem = ({ allergy, clickHandler }: Props) => {
 
 interface Props {
   allergy: AllergyIntolerance
-  clickHandler(allergy: AllergyIntolerance): void
+  clickHandler?(allergy: AllergyIntolerance): void
 }
 
 export default AllergySummaryItem

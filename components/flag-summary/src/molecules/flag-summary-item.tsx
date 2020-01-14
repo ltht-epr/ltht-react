@@ -19,10 +19,10 @@ const descriptionStyles = css`
 const FlagSummaryItem = ({ flag, clickHandler }: Props) => {
   const handleClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     e.preventDefault()
-    clickHandler(flag)
+    clickHandler && clickHandler(flag)
   }
   return (
-    <div css={styles} onClick={handleClick}>
+    <div css={styles} onClick={clickHandler && handleClick}>
       <div css={descriptionStyles}>
         <FlagTitle flag={flag} />
         <FlagDescription flag={flag} />
@@ -37,7 +37,7 @@ const FlagSummaryItem = ({ flag, clickHandler }: Props) => {
 
 interface Props {
   flag: Flag
-  clickHandler(flag: Flag): void
+  clickHandler?(flag: Flag): void
 }
 
 export default FlagSummaryItem
