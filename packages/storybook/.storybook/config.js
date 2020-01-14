@@ -20,6 +20,7 @@ const viewports = {
 addParameters({
   backgrounds: [{ name: 'canvas-background', value: '#d8d8d8', default: true }],
   viewport: { viewports },
+  showPanel: true,
 })
 
 configure(loadStories, module)

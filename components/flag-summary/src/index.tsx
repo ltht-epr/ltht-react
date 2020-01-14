@@ -1,6 +1,4 @@
-/** @jsx jsx */
 import React from 'react'
-import { css, jsx } from '@emotion/core'
 
 import { Flag } from '@ltht-react/types'
 import FlagSummaryItem from './molecules/flag-summary-item'
