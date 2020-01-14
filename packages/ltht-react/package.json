@@ -1,6 +1,6 @@
 {
   "name": "ltht-react",
-  "version": "0.0.1-alpha.6",
+  "version": "0.0.1",
   "description": "> TODO: description",
   "author": "Jonny Smith <jonny.asmith@gmail.com>",
   "homepage": "",
@@ -25,14 +25,14 @@
     "lint": "prettylint 'src/*.{ts,tsx}'"
   },
   "dependencies": {
-    "@ltht-react/allergy-summary": "^0.0.0",
-    "@ltht-react/care-plan-summary": "^0.0.0",
-    "@ltht-react/exclamation-icon": "^0.0.2",
-    "@ltht-react/flag-summary": "^0.0.6",
-    "@ltht-react/involved-team-summary": "^0.0.0",
-    "@ltht-react/styles": "^0.0.1",
-    "@ltht-react/types": "^0.0.4",
-    "@ltht-react/utils": "^0.0.4",
-    "@ltht-react/widget": "^0.0.0"
+    "@ltht-react/allergy-summary": "^0.0.1",
+    "@ltht-react/care-plan-summary": "^0.0.1",
+    "@ltht-react/exclamation-icon": "^0.0.3",
+    "@ltht-react/flag-summary": "^0.0.7",
+    "@ltht-react/involved-team-summary": "^0.0.1",
+    "@ltht-react/styles": "^0.0.2",
+    "@ltht-react/types": "^0.0.5",
+    "@ltht-react/utils": "^0.0.5",
+    "@ltht-react/widget": "^0.0.1"
   }
 }
