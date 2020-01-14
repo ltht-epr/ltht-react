@@ -5,7 +5,13 @@ const periodSummaryText = (period?: Period | null): string => {
   var start = (period?.start && partialDateTimeText(period?.start)) || ''
   var end = (period?.end && partialDateTimeText(period?.end)) || ''
 
-  return end === '' ? start : start === '' ? `Unknown to ${end}` : `${start} to ${end}`
+  if (start === '' && end === '') return ''
+
+  if (end === '') return `${start} to Present`
+
+  if (start === '') return `Unknown to ${end}`
+
+  return `${start} to ${end}`
 }
 
 export { periodSummaryText }
