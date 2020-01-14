@@ -7,7 +7,7 @@ const periodSummaryText = (period?: Period | null): string => {
 
   if (start === '' && end === '') return ''
 
-  if (end === '') return `${start} to Present`
+  if (end === '') return `${start}`
 
   if (start === '') return `Unknown to ${end}`
 

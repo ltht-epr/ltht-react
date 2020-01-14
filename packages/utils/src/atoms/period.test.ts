@@ -11,7 +11,7 @@ describe('periodSummaryText', () => {
     const period: Period = {
       start: startPartialDateTime(PartialDateTimeKindCode.Date),
     }
-    expect(periodSummaryText(period)).toEqual('03-Feb-2013 to Present')
+    expect(periodSummaryText(period)).toEqual('03-Feb-2013')
   })
 
   it('formats period summary correctly when only period end is specified', () => {
