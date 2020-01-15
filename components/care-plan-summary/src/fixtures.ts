@@ -12,6 +12,12 @@ const CarePlanOne: CarePlan = {
   id: '580ca927-34e0-e911-a2c7-005056926fe4|careplan',
   metadata: mockMetadata,
   author: { display: 'Joe Bloggs', type: 'Test' },
+  careTeam: [
+    {
+      display: 'LYPFT Care Team 1',
+      type: 'Team',
+    },
+  ],
   intent: CarePlanIntentCode.Plan,
   period: {
     start: {
@@ -24,13 +30,19 @@ const CarePlanOne: CarePlan = {
     },
   },
   status: CarePlanStatusCode.Active,
-  title: 'Test Care Plan Summary One',
+  title: 'Mental Health Crisis Plan',
 }
 
 const CarePlanTwo: CarePlan = {
   id: '690ca927-68e0-c511-b2c7-898056926ze4|careplan',
   metadata: mockMetadata,
   author: { display: 'John Mclane', type: 'Test' },
+  careTeam: [
+    {
+      display: 'LYPFT Care Team 2',
+      type: 'Team',
+    },
+  ],
   intent: CarePlanIntentCode.Proposal,
   period: {
     start: {
@@ -43,7 +55,7 @@ const CarePlanTwo: CarePlan = {
     },
   },
   status: CarePlanStatusCode.Completed,
-  title: 'Test Care Plan Summary Two',
+  title: 'Test Care Plan',
 }
 
 export { CarePlanOne, CarePlanTwo }

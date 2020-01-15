@@ -10,8 +10,8 @@ const styles = css`
   text-align: left;
 `
 
-const CarePlanDescription = ({ episodeOfCare }: { episodeOfCare: EpisodeOfCare }) => {
+const InvolvedTeamDescription = ({ episodeOfCare }: { episodeOfCare: EpisodeOfCare }) => {
   return <div css={styles}>{episodeOfCare.careManager?.display}</div>
 }
 
-export default CarePlanDescription
+export default InvolvedTeamDescription

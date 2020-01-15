@@ -20,7 +20,7 @@ const handleClick = (episodeOfCare: EpisodeOfCare) => {
 
 stories.addWithJSX('Involved Team Summary', () => (
   <InvolvedTeamSummary
-    title="Involved Teamas"
+    title="Involved Teams"
     episodeOfCares={[fixtures.InvolvedTeamOne, fixtures.InvolvedTeamTwo]}
     clickHandler={handleClick}
   />

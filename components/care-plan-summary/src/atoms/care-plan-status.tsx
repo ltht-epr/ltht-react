@@ -11,7 +11,11 @@ const styles = css`
 `
 
 const CarePlanStatus = ({ carePlan }: { carePlan: CarePlan }) => {
-  return <div css={styles}>{carePlan.status.toString()}</div>
+  return (
+    <div css={styles}>
+      {carePlan.intent.toString()} - {carePlan.status.toString()}
+    </div>
+  )
 }
 
 export default CarePlanStatus

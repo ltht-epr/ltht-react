@@ -10,7 +10,7 @@ const styles = css`
   text-align: left;
 `
 
-const CommunityTreatmentOrderConsent = ({
+const CommunityTreatmentOrderRestrictions = ({
   communityTreatmentOrder,
 }: {
   communityTreatmentOrder: LypftCommunityTreatmentOrder
@@ -18,4 +18,4 @@ const CommunityTreatmentOrderConsent = ({
   return <div css={styles}>{communityTreatmentOrder.restrictions && communityTreatmentOrder.restrictions}</div>
 }
 
-export default CommunityTreatmentOrderConsent
+export default CommunityTreatmentOrderRestrictions
