@@ -1,4 +1,4 @@
-import { CodeableConcept } from '@ltht-react/types'
+import { CodeableConcept, Maybe } from '@ltht-react/types'
 
 const codeableConceptDisplaySummary = (codeableConcept: CodeableConcept = {}): string => {
   const codings = codeableConcept.coding || []
@@ -20,4 +20,13 @@ const codeableConceptCodeSummary = (codeableConcept: CodeableConcept = {}): stri
   return code
 }
 
-export { codeableConceptDisplaySummary, codeableConceptCodeSummary }
+const codeableConceptTextSummary = (codeableConcept: Maybe<CodeableConcept>[] = []): string => {
+  const textSummary = codeableConcept
+    .map(item => {
+      return item?.text
+    })
+    .join(', ')
+  return textSummary
+}
+
+export { codeableConceptDisplaySummary, codeableConceptCodeSummary, codeableConceptTextSummary }

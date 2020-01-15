@@ -1,44 +1,29 @@
-import { CodeableConcept } from '@ltht-react/types'
-import { codeableConceptCodeSummary, codeableConceptDisplaySummary } from './codeable-concept'
+import { ResourceReference } from '@ltht-react/types'
+import { resourceReferenceDisplaySummary } from './resource-reference'
 
-describe('CodeableConceptText', () => {
-  describe('codeableConceptDisplaySummary', () => {
-    it('empty coding  display formats correctly', () => {
-      const codeable: CodeableConcept = {}
-      expect(codeableConceptDisplaySummary(codeable)).toEqual('')
+describe('ResourceReferenceText', () => {
+  describe('resourceReferenceDisplaySummary', () => {
+    it('empty resource reference collection display formats correctly', () => {
+      const resourceReference: ResourceReference[] = []
+      expect(resourceReferenceDisplaySummary(resourceReference)).toEqual('')
     })
-    it('single coding display formats correctly', () => {
-      const codeable: CodeableConcept = {
-        coding: [{ display: 'Test' }],
-      }
-      expect(codeableConceptDisplaySummary(codeable)).toEqual('Test')
+    it('single item in resource reference display formats correctly', () => {
+      const resourceReference: ResourceReference[] = [
+        {
+          display: 'test one',
+          type: 'test',
+        },
+      ]
+
+      expect(resourceReferenceDisplaySummary(resourceReference)).toEqual('test one')
     })
-    it('multiple codings display formats correctly', () => {
-      const codeable: CodeableConcept = {
-        coding: [{ display: 'Test' }, { display: 'Another' }],
-      }
-      expect(codeableConceptDisplaySummary(codeable)).toEqual('Test, Another')
-    })
-  })
-  describe('codeableConceptCodeSummary', () => {
-    it('empty coding display formats correctly', () => {
-      const codeable: CodeableConcept = {}
-      expect(codeableConceptCodeSummary(codeable)).toEqual('')
-    })
-    it('single coding display formats correctly', () => {
-      const codeable: CodeableConcept = {
-        coding: [{ display: '', code: '00000' }],
-      }
-      expect(codeableConceptCodeSummary(codeable)).toEqual('00000')
-    })
-    it('multiple codings display formats correctly', () => {
-      const codeable: CodeableConcept = {
-        coding: [
-          { display: '', code: '00000' },
-          { display: '', code: '11111' },
-        ],
-      }
-      expect(codeableConceptCodeSummary(codeable)).toEqual('00000, 11111')
+    it('multiple items in resource reference formats correctly', () => {
+      const resourceReference: ResourceReference[] = [
+        { display: 'test one', type: 'test' },
+        { display: 'test two', type: 'test' },
+      ]
+
+      expect(resourceReferenceDisplaySummary(resourceReference)).toEqual('test one, test two')
     })
   })
 })

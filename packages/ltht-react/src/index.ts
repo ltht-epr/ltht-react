@@ -1,4 +1,5 @@
 export { default as AllergySummary } from '@ltht-react/allergy-summary'
+export { default as AppointmentSummary } from '@ltht-react/appointment-summary'
 export { default as CarePlanSummary } from '@ltht-react/care-plan-summary'
 export { default as ExclamationIcon } from '@ltht-react/exclamation-icon'
 export { default as FlagSummary } from '@ltht-react/flag-summary'

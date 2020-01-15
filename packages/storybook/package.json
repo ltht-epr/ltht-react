@@ -45,6 +45,7 @@
     "@emotion/core": "^10.0.27",
     "@emotion/styled": "^10.0.27",
     "@ltht-react/allergy-summary": "^0.0.1",
+	"@ltht-react/appointment-summary": "^0.0.0",
     "@ltht-react/care-plan-summary": "^0.0.1",
     "@ltht-react/exclamation-icon": "^0.0.3",
     "@ltht-react/flag-summary": "^0.0.7",

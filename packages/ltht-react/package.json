@@ -1,6 +1,5 @@
 {
   "name": "ltht-react",
-  "version": "0.0.1",
   "description": "> TODO: description",
   "author": "Jonny Smith <jonny.asmith@gmail.com>",
   "homepage": "",
@@ -26,6 +25,7 @@
   },
   "dependencies": {
     "@ltht-react/allergy-summary": "^0.0.1",
+	"@ltht-react/appointment-summary": "^0.0.0",
     "@ltht-react/care-plan-summary": "^0.0.1",
     "@ltht-react/exclamation-icon": "^0.0.3",
     "@ltht-react/flag-summary": "^0.0.7",
