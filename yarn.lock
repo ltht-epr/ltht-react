@@ -2337,6 +2337,11 @@
     npmlog "^4.1.2"
     write-file-atomic "^2.3.0"
 
+"@ltht-react/styles@^0.0.1":
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/@ltht-react/styles/-/styles-0.0.1.tgz#79bbd714b17c194fd1af1c50af90b42f21c415f9"
+  integrity sha512-uny6g68sMtNUjdw0b4AHRGDvCkAqHiwbNt56EZHrusj2ziHz2xZ+NpJo5A/0OxyNEfoQlcsTCEq9Twp3o9IMZw==
+
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/@mrmlnc/readdir-enhanced/-/readdir-enhanced-2.2.1.tgz#524af240d1a360527b730475ecfa1344aa540dde"

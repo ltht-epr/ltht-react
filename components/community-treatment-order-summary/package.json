@@ -1,7 +1,7 @@
 {
-  "name": "@ltht-react/appointment-summary",
+  "name": "@ltht-react/community-treatment-order-summary",
   "version": "0.0.0",
-  "description": "ltht-react AppointmentSummary component.",
+  "description": "ltht-react CommunityTreatmentOrderSummary component.",
   "author": "LTHT",
   "homepage": "",
   "license": "MIT",
@@ -27,10 +27,9 @@
   "dependencies": {
     "@emotion/core": "^10.0.27",
     "@emotion/styled": "^10.0.27",
-    "@ltht-react/styles": "^0.0.2",
+    "@ltht-react/styles": "^0.0.1",
     "@ltht-react/types": "^0.0.5",
     "@ltht-react/utils": "^0.0.5",
-    "@ltht-react/widget": "^0.0.1",
     "emotion": "^10.0.27",
     "react": "^16.12.0"
   }
