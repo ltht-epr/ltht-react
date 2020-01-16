@@ -14,8 +14,8 @@ import InvolvedTeamSummary from '@ltht-react/involved-team-summary'
 
 ### Properties
 
-| Prop             | Required | Default   | Type             | Description                                                         |
-| :--------------- | :------- | :-------- | :--------------- | :------------------------------------------------------------------ |
-| `title`          | No       | Allergies | string           | Header text                                                         |
-| `episodeOfCares` | Yes      |           | EpisodeOfCares[] | Array of episode of care to display                                 |
-| `clickHandler`   | No       | undefined | Function         | Callback click handler containing the selected episode of care item |
+| Prop             | Required | Default        | Type             | Description                                                         |
+| :--------------- | :------- | :------------- | :--------------- | :------------------------------------------------------------------ |
+| `title`          | No       | Involved Teams | string           | Header text                                                         |
+| `episodeOfCares` | Yes      |                | EpisodeOfCares[] | Array of episode of care to display                                 |
+| `clickHandler`   | No       | undefined      | Function         | Callback click handler containing the selected episode of care item |

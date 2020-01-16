@@ -13,13 +13,13 @@ describe('HospitalStaySummary', () => {
   it('renders without crashing', () => {
     const div = document.createElement('div')
     ReactDOM.render(
-      <HospitalStaySummary title="Allergies" hospitalStays={hospitalStays} clickHandler={handleClick} />,
+      <HospitalStaySummary title="Hospital Stays" hospitalStays={hospitalStays} clickHandler={handleClick} />,
       div
     )
   })
   it('matches snapshot', () => {
     expect(
-      mount(<HospitalStaySummary title="Allergies" hospitalStays={hospitalStays} clickHandler={handleClick} />)
+      mount(<HospitalStaySummary title="Hospital Stays" hospitalStays={hospitalStays} clickHandler={handleClick} />)
     ).toMatchSnapshot('wrapper mount')
   })
 })

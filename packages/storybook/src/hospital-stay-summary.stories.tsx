@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react'
 import { withInfo } from '@storybook/addon-info'
 
 import HospitalStaySummary from '@ltht-react/hospital-stay-summary'
-import readme from '@ltht-react/appointment-summary/README.md'
+import readme from '@ltht-react/hospital-stay-summary/README.md'
 import * as fixtures from '@ltht-react/hospital-stay-summary/src/fixtures'
 import { HospitalStay } from '@ltht-react/types'
 

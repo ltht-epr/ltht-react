@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react'
 import { withInfo } from '@storybook/addon-info'
 
 import CommunityTreatmentOrderSummary from '@ltht-react/community-treatment-order-summary'
-import readme from '@ltht-react/appointment-summary/README.md'
+import readme from '@ltht-react/community-treatment-order-summary/README.md'
 import * as fixtures from '@ltht-react/community-treatment-order-summary/src/fixtures'
 import { LypftCommunityTreatmentOrder } from '@ltht-react/types'
 
