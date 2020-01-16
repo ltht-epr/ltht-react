@@ -365,6 +365,14 @@ export enum FlagStatusCode {
   EnteredInError = 'ENTERED_IN_ERROR',
 }
 
+export type HospitalStay = {
+  id: Scalars['String']
+  nhsNumber: Scalars['String']
+  metadata: Metadata
+  period?: Maybe<Period>
+  serviceProvider?: Maybe<ResourceReference>
+}
+
 export type Identifier = {
   assigner?: Maybe<ResourceReference>
   extension?: Maybe<Array<Maybe<Extension>>>
@@ -389,6 +397,7 @@ export type Lypft = {
   encounters?: Maybe<Array<Maybe<Encounter>>>
   episodesOfCare?: Maybe<Array<Maybe<EpisodeOfCare>>>
   flags?: Maybe<Array<Maybe<Flag>>>
+  hospitalStays?: Maybe<Array<Maybe<HospitalStay>>>
   recordAvailability?: Maybe<RecordAvailability>
 }
 

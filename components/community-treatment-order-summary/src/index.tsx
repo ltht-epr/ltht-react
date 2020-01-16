@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { LypftCommunityTreatmentOrder } from '@ltht-react/types'
-import CommunityTreatmentOrderSummaryItem from './molecules/community-treatment-order--summary-item'
+import CommunityTreatmentOrderSummaryItem from './molecules/community-treatment-order-summary-item'
 import { Widget, WidgetHeader, WidgetList, WidgetListItem } from '@ltht-react/widget'
 
 const CommunityTreatmentOrderSummary = ({ title, communityTreatmentOrders, clickHandler }: Props) => {
