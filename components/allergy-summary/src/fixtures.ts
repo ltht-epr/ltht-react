@@ -6,6 +6,7 @@ import {
   AllergyIntoleranceClinicalStatusCode,
   AllergyIntoleranceVerificationStatusCode,
   Metadata,
+  AllergyIntoleranceCriticalityCode,
 } from '@ltht-react/types'
 
 const mockMetadata: Metadata = {
@@ -30,6 +31,7 @@ const AllergyOne: AllergyIntolerance = {
   type: AllergyIntoleranceTypeCode.Allergy,
   clinicalStatus: AllergyIntoleranceClinicalStatusCode.Active,
   verificationStatus: AllergyIntoleranceVerificationStatusCode.Confirmed,
+  criticality: AllergyIntoleranceCriticalityCode.High,
 }
 
 const AllergyTwo: AllergyIntolerance = {
@@ -43,9 +45,9 @@ const AllergyTwo: AllergyIntolerance = {
     coding: [{ display: 'Kiwi fruit', code: '109007' }],
   },
   category: [AllergyIntoleranceCategoryCode.Food, AllergyIntoleranceCategoryCode.Biologic],
-  type: AllergyIntoleranceTypeCode.Allergy,
-  clinicalStatus: AllergyIntoleranceClinicalStatusCode.Active,
-  verificationStatus: AllergyIntoleranceVerificationStatusCode.Confirmed,
+  type: AllergyIntoleranceTypeCode.Intolerance,
+  clinicalStatus: AllergyIntoleranceClinicalStatusCode.Resolved,
+  verificationStatus: AllergyIntoleranceVerificationStatusCode.Unconfirmed,
 }
 
 export { AllergyOne, AllergyTwo }

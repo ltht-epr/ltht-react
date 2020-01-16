@@ -11,7 +11,11 @@ const styles = css`
 `
 
 const AlergyStatus = ({ allergy }: { allergy: AllergyIntolerance }) => {
-  return <div css={styles}>{allergy.verificationStatus && allergy.verificationStatus.toString()}</div>
+  return (
+    <div css={styles}>
+      {allergy.clinicalStatus.toString()} {allergy.verificationStatus && `- ${allergy.verificationStatus.toString()}`}
+    </div>
+  )
 }
 
 export default AlergyStatus

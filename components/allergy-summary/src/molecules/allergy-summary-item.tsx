@@ -7,6 +7,7 @@ import AllergyTitle from '../atoms/allergy-title'
 import AllergyDate from '../atoms/allergy-date'
 import AllergyDescription from '../atoms/allergy-description'
 import AllergyStatus from '../atoms/allergy-status'
+import AllergyIcon from '../atoms/allergy-icon'
 
 const styles = css`
   display: flex;
@@ -14,6 +15,11 @@ const styles = css`
 `
 const descriptionStyles = css`
   flex-grow: 1;
+  padding-left: 0.5em;
+`
+
+const iconStyles = css`
+  min-width: 15.75px;
 `
 
 const AllergySummaryItem = ({ allergy, clickHandler }: Props) => {
@@ -23,6 +29,9 @@ const AllergySummaryItem = ({ allergy, clickHandler }: Props) => {
   }
   return (
     <div css={styles} onClick={clickHandler && handleClick}>
+      <div css={iconStyles}>
+        <AllergyIcon allergy={allergy} />
+      </div>
       <div css={descriptionStyles}>
         <AllergyTitle allergy={allergy} />
         <AllergyDescription allergy={allergy} />
