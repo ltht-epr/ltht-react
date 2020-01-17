@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { EpisodeOfCare } from '@ltht-react/types'
+import { EpisodeOfCare, Maybe } from '@ltht-react/types'
 import InvolvedTeamSummaryItem from './molecules/involved-team-summary-item'
 import { Widget, WidgetHeader, WidgetList, WidgetListItem } from '@ltht-react/widget'
 
@@ -11,7 +11,7 @@ const InvolvedTeamSummary = ({ title = 'Involved Teams', episodeOfCares, clickHa
         <h3>{title}</h3>
       </WidgetHeader>
       <WidgetList clickable={clickHandler ? true : false}>
-        {episodeOfCares.map((episodeOfCare, index) => (
+        {episodeOfCares?.map((episodeOfCare, index) => (
           <WidgetListItem key={index}>
             <InvolvedTeamSummaryItem episodeOfCare={episodeOfCare} clickHandler={clickHandler} />
           </WidgetListItem>
@@ -23,7 +23,7 @@ const InvolvedTeamSummary = ({ title = 'Involved Teams', episodeOfCares, clickHa
 
 interface Props {
   title?: string
-  episodeOfCares: EpisodeOfCare[]
+  episodeOfCares: Maybe<EpisodeOfCare[]>
   clickHandler?(episodeOfCare: EpisodeOfCare): void
 }
 

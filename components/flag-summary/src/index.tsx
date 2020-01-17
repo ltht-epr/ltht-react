@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Flag } from '@ltht-react/types'
+import { Flag, Maybe } from '@ltht-react/types'
 import FlagSummaryItem from './molecules/flag-summary-item'
 import { Widget, WidgetHeader, WidgetList, WidgetListItem } from '@ltht-react/widget'
 
@@ -11,9 +11,9 @@ const FlagSummary = ({ title, flags, clickHandler }: Props) => {
         <h3>{title}</h3>
       </WidgetHeader>
       <WidgetList clickable={clickHandler ? true : false}>
-        {flags.map((flag, index) => (
+        {flags?.map((flag, index) => (
           <WidgetListItem key={index}>
-            <FlagSummaryItem key={index} flag={flag} clickHandler={clickHandler} />
+            <FlagSummaryItem flag={flag} clickHandler={clickHandler} />
           </WidgetListItem>
         ))}
       </WidgetList>
@@ -23,7 +23,7 @@ const FlagSummary = ({ title, flags, clickHandler }: Props) => {
 
 interface Props {
   title?: string
-  flags: Flag[]
+  flags: Maybe<Flag[]>
   clickHandler?(flag: Flag): void
 }
 

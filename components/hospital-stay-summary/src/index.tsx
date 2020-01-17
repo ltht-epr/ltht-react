@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Encounter } from '@ltht-react/types'
+import { Encounter, Maybe } from '@ltht-react/types'
 import HospitalStaySummaryItem from './molecules/hospital-stay-summary-item'
 import { Widget, WidgetHeader, WidgetList, WidgetListItem } from '@ltht-react/widget'
 
@@ -11,7 +11,7 @@ const HospitalStaySummary = ({ title = 'Hospital Stays', hospitalStays, clickHan
         <h3>{title}</h3>
       </WidgetHeader>
       <WidgetList clickable={clickHandler ? true : false}>
-        {hospitalStays.map((hospitalStay, index) => (
+        {hospitalStays?.map((hospitalStay, index) => (
           <WidgetListItem key={index}>
             <HospitalStaySummaryItem hospitalStay={hospitalStay} clickHandler={clickHandler} />
           </WidgetListItem>
@@ -23,7 +23,7 @@ const HospitalStaySummary = ({ title = 'Hospital Stays', hospitalStays, clickHan
 
 interface Props {
   title?: string
-  hospitalStays: Encounter[]
+  hospitalStays: Maybe<Encounter[]>
   clickHandler?(allergy: Encounter): void
 }
 

@@ -122,7 +122,6 @@ exports[`HospitalStaySummary matches snapshot: wrapper mount 1`] = `
             },
           ],
         },
-        "nhsNumber": "123456789",
         "period": Object {
           "end": Object {
             "kind": "DATE",
@@ -135,7 +134,7 @@ exports[`HospitalStaySummary matches snapshot: wrapper mount 1`] = `
         },
         "serviceProvider": Object {
           "display": "Chapel Allerton Hospital",
-          "type": "Hospital",
+          "typeName": "Hospital",
         },
       },
       Object {
@@ -147,7 +146,6 @@ exports[`HospitalStaySummary matches snapshot: wrapper mount 1`] = `
             },
           ],
         },
-        "nhsNumber": "987654321",
         "period": Object {
           "start": Object {
             "kind": "DATE",
@@ -156,7 +154,7 @@ exports[`HospitalStaySummary matches snapshot: wrapper mount 1`] = `
         },
         "serviceProvider": Object {
           "display": "Beaumont Hospital",
-          "type": "Hospital",
+          "typeName": "Hospital",
         },
       },
     ]
@@ -198,7 +196,6 @@ exports[`HospitalStaySummary matches snapshot: wrapper mount 1`] = `
                         },
                       ],
                     },
-                    "nhsNumber": "123456789",
                     "period": Object {
                       "end": Object {
                         "kind": "DATE",
@@ -211,7 +208,7 @@ exports[`HospitalStaySummary matches snapshot: wrapper mount 1`] = `
                     },
                     "serviceProvider": Object {
                       "display": "Chapel Allerton Hospital",
-                      "type": "Hospital",
+                      "typeName": "Hospital",
                     },
                   }
                 }
@@ -234,7 +231,6 @@ exports[`HospitalStaySummary matches snapshot: wrapper mount 1`] = `
                               },
                             ],
                           },
-                          "nhsNumber": "123456789",
                           "period": Object {
                             "end": Object {
                               "kind": "DATE",
@@ -247,7 +243,7 @@ exports[`HospitalStaySummary matches snapshot: wrapper mount 1`] = `
                           },
                           "serviceProvider": Object {
                             "display": "Chapel Allerton Hospital",
-                            "type": "Hospital",
+                            "typeName": "Hospital",
                           },
                         }
                       }
@@ -273,7 +269,6 @@ exports[`HospitalStaySummary matches snapshot: wrapper mount 1`] = `
                               },
                             ],
                           },
-                          "nhsNumber": "123456789",
                           "period": Object {
                             "end": Object {
                               "kind": "DATE",
@@ -286,7 +281,7 @@ exports[`HospitalStaySummary matches snapshot: wrapper mount 1`] = `
                           },
                           "serviceProvider": Object {
                             "display": "Chapel Allerton Hospital",
-                            "type": "Hospital",
+                            "typeName": "Hospital",
                           },
                         }
                       }
@@ -318,7 +313,6 @@ exports[`HospitalStaySummary matches snapshot: wrapper mount 1`] = `
                         },
                       ],
                     },
-                    "nhsNumber": "987654321",
                     "period": Object {
                       "start": Object {
                         "kind": "DATE",
@@ -327,7 +321,7 @@ exports[`HospitalStaySummary matches snapshot: wrapper mount 1`] = `
                     },
                     "serviceProvider": Object {
                       "display": "Beaumont Hospital",
-                      "type": "Hospital",
+                      "typeName": "Hospital",
                     },
                   }
                 }
@@ -350,7 +344,6 @@ exports[`HospitalStaySummary matches snapshot: wrapper mount 1`] = `
                               },
                             ],
                           },
-                          "nhsNumber": "987654321",
                           "period": Object {
                             "start": Object {
                               "kind": "DATE",
@@ -359,7 +352,7 @@ exports[`HospitalStaySummary matches snapshot: wrapper mount 1`] = `
                           },
                           "serviceProvider": Object {
                             "display": "Beaumont Hospital",
-                            "type": "Hospital",
+                            "typeName": "Hospital",
                           },
                         }
                       }
@@ -385,7 +378,6 @@ exports[`HospitalStaySummary matches snapshot: wrapper mount 1`] = `
                               },
                             ],
                           },
-                          "nhsNumber": "987654321",
                           "period": Object {
                             "start": Object {
                               "kind": "DATE",
@@ -394,7 +386,7 @@ exports[`HospitalStaySummary matches snapshot: wrapper mount 1`] = `
                           },
                           "serviceProvider": Object {
                             "display": "Beaumont Hospital",
-                            "type": "Hospital",
+                            "typeName": "Hospital",
                           },
                         }
                       }

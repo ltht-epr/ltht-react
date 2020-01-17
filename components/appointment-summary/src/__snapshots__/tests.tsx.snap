@@ -140,7 +140,7 @@ exports[`AppointmentSummary matches snapshot: wrapper mount 1`] = `
         },
         "serviceProvider": Object {
           "display": "Beeston Village Surgery",
-          "type": "GP",
+          "typeName": "GP",
         },
         "status": "PLANNED",
         "type": Array [
@@ -172,7 +172,7 @@ exports[`AppointmentSummary matches snapshot: wrapper mount 1`] = `
         },
         "serviceProvider": Object {
           "display": "Chapel Allerton Hospital",
-          "type": "Hospital",
+          "typeName": "Hospital",
         },
         "status": "FINISHED",
         "type": Array [
@@ -234,7 +234,7 @@ exports[`AppointmentSummary matches snapshot: wrapper mount 1`] = `
                     },
                     "serviceProvider": Object {
                       "display": "Beeston Village Surgery",
-                      "type": "GP",
+                      "typeName": "GP",
                     },
                     "status": "PLANNED",
                     "type": Array [
@@ -277,7 +277,7 @@ exports[`AppointmentSummary matches snapshot: wrapper mount 1`] = `
                           },
                           "serviceProvider": Object {
                             "display": "Beeston Village Surgery",
-                            "type": "GP",
+                            "typeName": "GP",
                           },
                           "status": "PLANNED",
                           "type": Array [
@@ -323,7 +323,7 @@ exports[`AppointmentSummary matches snapshot: wrapper mount 1`] = `
                           },
                           "serviceProvider": Object {
                             "display": "Beeston Village Surgery",
-                            "type": "GP",
+                            "typeName": "GP",
                           },
                           "status": "PLANNED",
                           "type": Array [
@@ -367,7 +367,7 @@ exports[`AppointmentSummary matches snapshot: wrapper mount 1`] = `
                           },
                           "serviceProvider": Object {
                             "display": "Beeston Village Surgery",
-                            "type": "GP",
+                            "typeName": "GP",
                           },
                           "status": "PLANNED",
                           "type": Array [
@@ -409,7 +409,7 @@ exports[`AppointmentSummary matches snapshot: wrapper mount 1`] = `
                           },
                           "serviceProvider": Object {
                             "display": "Beeston Village Surgery",
-                            "type": "GP",
+                            "typeName": "GP",
                           },
                           "status": "PLANNED",
                           "type": Array [
@@ -460,7 +460,7 @@ exports[`AppointmentSummary matches snapshot: wrapper mount 1`] = `
                     },
                     "serviceProvider": Object {
                       "display": "Chapel Allerton Hospital",
-                      "type": "Hospital",
+                      "typeName": "Hospital",
                     },
                     "status": "FINISHED",
                     "type": Array [
@@ -503,7 +503,7 @@ exports[`AppointmentSummary matches snapshot: wrapper mount 1`] = `
                           },
                           "serviceProvider": Object {
                             "display": "Chapel Allerton Hospital",
-                            "type": "Hospital",
+                            "typeName": "Hospital",
                           },
                           "status": "FINISHED",
                           "type": Array [
@@ -549,7 +549,7 @@ exports[`AppointmentSummary matches snapshot: wrapper mount 1`] = `
                           },
                           "serviceProvider": Object {
                             "display": "Chapel Allerton Hospital",
-                            "type": "Hospital",
+                            "typeName": "Hospital",
                           },
                           "status": "FINISHED",
                           "type": Array [
@@ -593,7 +593,7 @@ exports[`AppointmentSummary matches snapshot: wrapper mount 1`] = `
                           },
                           "serviceProvider": Object {
                             "display": "Chapel Allerton Hospital",
-                            "type": "Hospital",
+                            "typeName": "Hospital",
                           },
                           "status": "FINISHED",
                           "type": Array [
@@ -635,7 +635,7 @@ exports[`AppointmentSummary matches snapshot: wrapper mount 1`] = `
                           },
                           "serviceProvider": Object {
                             "display": "Chapel Allerton Hospital",
-                            "type": "Hospital",
+                            "typeName": "Hospital",
                           },
                           "status": "FINISHED",
                           "type": Array [

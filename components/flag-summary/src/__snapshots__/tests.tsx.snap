@@ -128,7 +128,7 @@ exports[`FlagSummary matches snapshot: wrapper mount 1`] = `
           "display": "John Smith",
           "identifier": undefined,
           "reference": "https://phoenixqa.careworks.ie/Services/api/fhir/v3/practitioner/9c1ad2c0-ec34-e911-a2c5-005056926fe4|systemuser",
-          "type": "Practitioner",
+          "typeName": "Practitioner",
         },
         "code": Object {
           "coding": Array [
@@ -159,7 +159,7 @@ exports[`FlagSummary matches snapshot: wrapper mount 1`] = `
           "display": "John Smith",
           "identifier": undefined,
           "reference": "https://phoenixqa.careworks.ie/Services/api/fhir/v3/practitioner/9c1ad2c0-ec34-e911-a2c5-005056926fe4|systemuser",
-          "type": "Practitioner",
+          "typeName": "Practitioner",
         },
         "category": Object {
           "coding": Array [
@@ -232,7 +232,7 @@ exports[`FlagSummary matches snapshot: wrapper mount 1`] = `
                       "display": "John Smith",
                       "identifier": undefined,
                       "reference": "https://phoenixqa.careworks.ie/Services/api/fhir/v3/practitioner/9c1ad2c0-ec34-e911-a2c5-005056926fe4|systemuser",
-                      "type": "Practitioner",
+                      "typeName": "Practitioner",
                     },
                     "code": Object {
                       "coding": Array [
@@ -259,7 +259,6 @@ exports[`FlagSummary matches snapshot: wrapper mount 1`] = `
                     "status": "INACTIVE",
                   }
                 }
-                key="0"
               >
                 <div
                   className="emotion-6"
@@ -275,7 +274,7 @@ exports[`FlagSummary matches snapshot: wrapper mount 1`] = `
                             "display": "John Smith",
                             "identifier": undefined,
                             "reference": "https://phoenixqa.careworks.ie/Services/api/fhir/v3/practitioner/9c1ad2c0-ec34-e911-a2c5-005056926fe4|systemuser",
-                            "type": "Practitioner",
+                            "typeName": "Practitioner",
                           },
                           "code": Object {
                             "coding": Array [
@@ -316,7 +315,7 @@ exports[`FlagSummary matches snapshot: wrapper mount 1`] = `
                             "display": "John Smith",
                             "identifier": undefined,
                             "reference": "https://phoenixqa.careworks.ie/Services/api/fhir/v3/practitioner/9c1ad2c0-ec34-e911-a2c5-005056926fe4|systemuser",
-                            "type": "Practitioner",
+                            "typeName": "Practitioner",
                           },
                           "code": Object {
                             "coding": Array [
@@ -360,7 +359,7 @@ exports[`FlagSummary matches snapshot: wrapper mount 1`] = `
                             "display": "John Smith",
                             "identifier": undefined,
                             "reference": "https://phoenixqa.careworks.ie/Services/api/fhir/v3/practitioner/9c1ad2c0-ec34-e911-a2c5-005056926fe4|systemuser",
-                            "type": "Practitioner",
+                            "typeName": "Practitioner",
                           },
                           "code": Object {
                             "coding": Array [
@@ -401,7 +400,7 @@ exports[`FlagSummary matches snapshot: wrapper mount 1`] = `
                             "display": "John Smith",
                             "identifier": undefined,
                             "reference": "https://phoenixqa.careworks.ie/Services/api/fhir/v3/practitioner/9c1ad2c0-ec34-e911-a2c5-005056926fe4|systemuser",
-                            "type": "Practitioner",
+                            "typeName": "Practitioner",
                           },
                           "code": Object {
                             "coding": Array [
@@ -452,7 +451,7 @@ exports[`FlagSummary matches snapshot: wrapper mount 1`] = `
                       "display": "John Smith",
                       "identifier": undefined,
                       "reference": "https://phoenixqa.careworks.ie/Services/api/fhir/v3/practitioner/9c1ad2c0-ec34-e911-a2c5-005056926fe4|systemuser",
-                      "type": "Practitioner",
+                      "typeName": "Practitioner",
                     },
                     "category": Object {
                       "coding": Array [
@@ -491,7 +490,6 @@ exports[`FlagSummary matches snapshot: wrapper mount 1`] = `
                     "status": "INACTIVE",
                   }
                 }
-                key="1"
               >
                 <div
                   className="emotion-6"
@@ -507,7 +505,7 @@ exports[`FlagSummary matches snapshot: wrapper mount 1`] = `
                             "display": "John Smith",
                             "identifier": undefined,
                             "reference": "https://phoenixqa.careworks.ie/Services/api/fhir/v3/practitioner/9c1ad2c0-ec34-e911-a2c5-005056926fe4|systemuser",
-                            "type": "Practitioner",
+                            "typeName": "Practitioner",
                           },
                           "category": Object {
                             "coding": Array [
@@ -560,7 +558,7 @@ exports[`FlagSummary matches snapshot: wrapper mount 1`] = `
                             "display": "John Smith",
                             "identifier": undefined,
                             "reference": "https://phoenixqa.careworks.ie/Services/api/fhir/v3/practitioner/9c1ad2c0-ec34-e911-a2c5-005056926fe4|systemuser",
-                            "type": "Practitioner",
+                            "typeName": "Practitioner",
                           },
                           "category": Object {
                             "coding": Array [
@@ -617,7 +615,7 @@ exports[`FlagSummary matches snapshot: wrapper mount 1`] = `
                             "display": "John Smith",
                             "identifier": undefined,
                             "reference": "https://phoenixqa.careworks.ie/Services/api/fhir/v3/practitioner/9c1ad2c0-ec34-e911-a2c5-005056926fe4|systemuser",
-                            "type": "Practitioner",
+                            "typeName": "Practitioner",
                           },
                           "category": Object {
                             "coding": Array [
@@ -670,7 +668,7 @@ exports[`FlagSummary matches snapshot: wrapper mount 1`] = `
                             "display": "John Smith",
                             "identifier": undefined,
                             "reference": "https://phoenixqa.careworks.ie/Services/api/fhir/v3/practitioner/9c1ad2c0-ec34-e911-a2c5-005056926fe4|systemuser",
-                            "type": "Practitioner",
+                            "typeName": "Practitioner",
                           },
                           "category": Object {
                             "coding": Array [

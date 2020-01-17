@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { CarePlan } from '@ltht-react/types'
+import { CarePlan, Maybe } from '@ltht-react/types'
 import CarePlanSummaryItem from './molecules/care-plan-summary-item'
 import { Widget, WidgetHeader, WidgetList, WidgetListItem } from '@ltht-react/widget'
 
@@ -11,7 +11,7 @@ const CarePlanSummary = ({ title = 'Care Plans', carePlans, clickHandler }: Prop
         <h3>{title}</h3>
       </WidgetHeader>
       <WidgetList clickable={clickHandler ? true : false}>
-        {carePlans.map((carePlan, index) => (
+        {carePlans?.map((carePlan, index) => (
           <WidgetListItem key={index}>
             <CarePlanSummaryItem carePlan={carePlan} clickHandler={clickHandler} />
           </WidgetListItem>
@@ -23,7 +23,7 @@ const CarePlanSummary = ({ title = 'Care Plans', carePlans, clickHandler }: Prop
 
 interface Props {
   title?: string
-  carePlans: CarePlan[]
+  carePlans: Maybe<CarePlan[]>
   clickHandler?(carePlan: CarePlan): void
 }
 

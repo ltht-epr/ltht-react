@@ -126,7 +126,7 @@ exports[`InvolvedTeamSummary matches snapshot: wrapper mount 1`] = `
       Object {
         "careManager": Object {
           "display": "Bella Swann (0113 111111)",
-          "type": "Care Manager",
+          "typeName": "Care Manager",
         },
         "id": "580ca927-34e0-e911-a2c7-005056926fe4|involvedteam",
         "metadata": Object {
@@ -150,7 +150,7 @@ exports[`InvolvedTeamSummary matches snapshot: wrapper mount 1`] = `
         "team": Array [
           Object {
             "display": "LYPFT Outbound Care Team",
-            "type": "Test Team",
+            "typeName": "Test Team",
           },
         ],
         "type": Array [
@@ -167,7 +167,7 @@ exports[`InvolvedTeamSummary matches snapshot: wrapper mount 1`] = `
       Object {
         "careManager": Object {
           "display": "Joe Bloggs (0113 000000)",
-          "type": "Care Manager",
+          "typeName": "Care Manager",
         },
         "id": "690ca927-68e0-c511-b2c7-898056926ze4|involvedteam",
         "metadata": Object {
@@ -187,7 +187,7 @@ exports[`InvolvedTeamSummary matches snapshot: wrapper mount 1`] = `
         "team": Array [
           Object {
             "display": "LYPFT Inbound Care Team",
-            "type": "Test Team",
+            "typeName": "Test Team",
           },
         ],
         "type": Array [
@@ -234,7 +234,7 @@ exports[`InvolvedTeamSummary matches snapshot: wrapper mount 1`] = `
                   Object {
                     "careManager": Object {
                       "display": "Bella Swann (0113 111111)",
-                      "type": "Care Manager",
+                      "typeName": "Care Manager",
                     },
                     "id": "580ca927-34e0-e911-a2c7-005056926fe4|involvedteam",
                     "metadata": Object {
@@ -258,7 +258,7 @@ exports[`InvolvedTeamSummary matches snapshot: wrapper mount 1`] = `
                     "team": Array [
                       Object {
                         "display": "LYPFT Outbound Care Team",
-                        "type": "Test Team",
+                        "typeName": "Test Team",
                       },
                     ],
                     "type": Array [
@@ -286,7 +286,7 @@ exports[`InvolvedTeamSummary matches snapshot: wrapper mount 1`] = `
                         Object {
                           "careManager": Object {
                             "display": "Bella Swann (0113 111111)",
-                            "type": "Care Manager",
+                            "typeName": "Care Manager",
                           },
                           "id": "580ca927-34e0-e911-a2c7-005056926fe4|involvedteam",
                           "metadata": Object {
@@ -310,7 +310,7 @@ exports[`InvolvedTeamSummary matches snapshot: wrapper mount 1`] = `
                           "team": Array [
                             Object {
                               "display": "LYPFT Outbound Care Team",
-                              "type": "Test Team",
+                              "typeName": "Test Team",
                             },
                           ],
                           "type": Array [
@@ -337,7 +337,7 @@ exports[`InvolvedTeamSummary matches snapshot: wrapper mount 1`] = `
                         Object {
                           "careManager": Object {
                             "display": "Bella Swann (0113 111111)",
-                            "type": "Care Manager",
+                            "typeName": "Care Manager",
                           },
                           "id": "580ca927-34e0-e911-a2c7-005056926fe4|involvedteam",
                           "metadata": Object {
@@ -361,7 +361,7 @@ exports[`InvolvedTeamSummary matches snapshot: wrapper mount 1`] = `
                           "team": Array [
                             Object {
                               "display": "LYPFT Outbound Care Team",
-                              "type": "Test Team",
+                              "typeName": "Test Team",
                             },
                           ],
                           "type": Array [
@@ -390,7 +390,7 @@ exports[`InvolvedTeamSummary matches snapshot: wrapper mount 1`] = `
                         Object {
                           "careManager": Object {
                             "display": "Bella Swann (0113 111111)",
-                            "type": "Care Manager",
+                            "typeName": "Care Manager",
                           },
                           "id": "580ca927-34e0-e911-a2c7-005056926fe4|involvedteam",
                           "metadata": Object {
@@ -414,7 +414,7 @@ exports[`InvolvedTeamSummary matches snapshot: wrapper mount 1`] = `
                           "team": Array [
                             Object {
                               "display": "LYPFT Outbound Care Team",
-                              "type": "Test Team",
+                              "typeName": "Test Team",
                             },
                           ],
                           "type": Array [
@@ -441,7 +441,7 @@ exports[`InvolvedTeamSummary matches snapshot: wrapper mount 1`] = `
                         Object {
                           "careManager": Object {
                             "display": "Bella Swann (0113 111111)",
-                            "type": "Care Manager",
+                            "typeName": "Care Manager",
                           },
                           "id": "580ca927-34e0-e911-a2c7-005056926fe4|involvedteam",
                           "metadata": Object {
@@ -465,7 +465,7 @@ exports[`InvolvedTeamSummary matches snapshot: wrapper mount 1`] = `
                           "team": Array [
                             Object {
                               "display": "LYPFT Outbound Care Team",
-                              "type": "Test Team",
+                              "typeName": "Test Team",
                             },
                           ],
                           "type": Array [
@@ -502,7 +502,7 @@ exports[`InvolvedTeamSummary matches snapshot: wrapper mount 1`] = `
                   Object {
                     "careManager": Object {
                       "display": "Joe Bloggs (0113 000000)",
-                      "type": "Care Manager",
+                      "typeName": "Care Manager",
                     },
                     "id": "690ca927-68e0-c511-b2c7-898056926ze4|involvedteam",
                     "metadata": Object {
@@ -522,7 +522,7 @@ exports[`InvolvedTeamSummary matches snapshot: wrapper mount 1`] = `
                     "team": Array [
                       Object {
                         "display": "LYPFT Inbound Care Team",
-                        "type": "Test Team",
+                        "typeName": "Test Team",
                       },
                     ],
                     "type": Array [
@@ -550,7 +550,7 @@ exports[`InvolvedTeamSummary matches snapshot: wrapper mount 1`] = `
                         Object {
                           "careManager": Object {
                             "display": "Joe Bloggs (0113 000000)",
-                            "type": "Care Manager",
+                            "typeName": "Care Manager",
                           },
                           "id": "690ca927-68e0-c511-b2c7-898056926ze4|involvedteam",
                           "metadata": Object {
@@ -570,7 +570,7 @@ exports[`InvolvedTeamSummary matches snapshot: wrapper mount 1`] = `
                           "team": Array [
                             Object {
                               "display": "LYPFT Inbound Care Team",
-                              "type": "Test Team",
+                              "typeName": "Test Team",
                             },
                           ],
                           "type": Array [
@@ -597,7 +597,7 @@ exports[`InvolvedTeamSummary matches snapshot: wrapper mount 1`] = `
                         Object {
                           "careManager": Object {
                             "display": "Joe Bloggs (0113 000000)",
-                            "type": "Care Manager",
+                            "typeName": "Care Manager",
                           },
                           "id": "690ca927-68e0-c511-b2c7-898056926ze4|involvedteam",
                           "metadata": Object {
@@ -617,7 +617,7 @@ exports[`InvolvedTeamSummary matches snapshot: wrapper mount 1`] = `
                           "team": Array [
                             Object {
                               "display": "LYPFT Inbound Care Team",
-                              "type": "Test Team",
+                              "typeName": "Test Team",
                             },
                           ],
                           "type": Array [
@@ -646,7 +646,7 @@ exports[`InvolvedTeamSummary matches snapshot: wrapper mount 1`] = `
                         Object {
                           "careManager": Object {
                             "display": "Joe Bloggs (0113 000000)",
-                            "type": "Care Manager",
+                            "typeName": "Care Manager",
                           },
                           "id": "690ca927-68e0-c511-b2c7-898056926ze4|involvedteam",
                           "metadata": Object {
@@ -666,7 +666,7 @@ exports[`InvolvedTeamSummary matches snapshot: wrapper mount 1`] = `
                           "team": Array [
                             Object {
                               "display": "LYPFT Inbound Care Team",
-                              "type": "Test Team",
+                              "typeName": "Test Team",
                             },
                           ],
                           "type": Array [
@@ -693,7 +693,7 @@ exports[`InvolvedTeamSummary matches snapshot: wrapper mount 1`] = `
                         Object {
                           "careManager": Object {
                             "display": "Joe Bloggs (0113 000000)",
-                            "type": "Care Manager",
+                            "typeName": "Care Manager",
                           },
                           "id": "690ca927-68e0-c511-b2c7-898056926ze4|involvedteam",
                           "metadata": Object {
@@ -713,7 +713,7 @@ exports[`InvolvedTeamSummary matches snapshot: wrapper mount 1`] = `
                           "team": Array [
                             Object {
                               "display": "LYPFT Inbound Care Team",
-                              "type": "Test Team",
+                              "typeName": "Test Team",
                             },
                           ],
                           "type": Array [

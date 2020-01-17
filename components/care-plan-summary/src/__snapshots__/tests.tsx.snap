@@ -123,14 +123,16 @@ exports[`CarePlanSummary matches snapshot: wrapper mount 1`] = `
   carePlans={
     Array [
       Object {
-        "author": Object {
-          "display": "Joe Bloggs",
-          "type": "Test",
-        },
+        "author": Array [
+          Object {
+            "display": "Joe Bloggs",
+            "typeName": "Test",
+          },
+        ],
         "careTeam": Array [
           Object {
             "display": "LYPFT Care Team 1",
-            "type": "Team",
+            "typeName": "Team",
           },
         ],
         "id": "580ca927-34e0-e911-a2c7-005056926fe4|careplan",
@@ -156,14 +158,16 @@ exports[`CarePlanSummary matches snapshot: wrapper mount 1`] = `
         "title": "Mental Health Crisis Plan",
       },
       Object {
-        "author": Object {
-          "display": "John Mclane",
-          "type": "Test",
-        },
+        "author": Array [
+          Object {
+            "display": "John Mclane",
+            "typeName": "Test",
+          },
+        ],
         "careTeam": Array [
           Object {
             "display": "LYPFT Care Team 2",
-            "type": "Team",
+            "typeName": "Team",
           },
         ],
         "id": "690ca927-68e0-c511-b2c7-898056926ze4|careplan",
@@ -219,14 +223,16 @@ exports[`CarePlanSummary matches snapshot: wrapper mount 1`] = `
               <CarePlanSummaryItem
                 carePlan={
                   Object {
-                    "author": Object {
-                      "display": "Joe Bloggs",
-                      "type": "Test",
-                    },
+                    "author": Array [
+                      Object {
+                        "display": "Joe Bloggs",
+                        "typeName": "Test",
+                      },
+                    ],
                     "careTeam": Array [
                       Object {
                         "display": "LYPFT Care Team 1",
-                        "type": "Team",
+                        "typeName": "Team",
                       },
                     ],
                     "id": "580ca927-34e0-e911-a2c7-005056926fe4|careplan",
@@ -264,14 +270,16 @@ exports[`CarePlanSummary matches snapshot: wrapper mount 1`] = `
                     <CarePlanTitle
                       carePlan={
                         Object {
-                          "author": Object {
-                            "display": "Joe Bloggs",
-                            "type": "Test",
-                          },
+                          "author": Array [
+                            Object {
+                              "display": "Joe Bloggs",
+                              "typeName": "Test",
+                            },
+                          ],
                           "careTeam": Array [
                             Object {
                               "display": "LYPFT Care Team 1",
-                              "type": "Team",
+                              "typeName": "Team",
                             },
                           ],
                           "id": "580ca927-34e0-e911-a2c7-005056926fe4|careplan",
@@ -307,14 +315,16 @@ exports[`CarePlanSummary matches snapshot: wrapper mount 1`] = `
                     <CarePlanDescription
                       carePlan={
                         Object {
-                          "author": Object {
-                            "display": "Joe Bloggs",
-                            "type": "Test",
-                          },
+                          "author": Array [
+                            Object {
+                              "display": "Joe Bloggs",
+                              "typeName": "Test",
+                            },
+                          ],
                           "careTeam": Array [
                             Object {
                               "display": "LYPFT Care Team 1",
-                              "type": "Team",
+                              "typeName": "Team",
                             },
                           ],
                           "id": "580ca927-34e0-e911-a2c7-005056926fe4|careplan",
@@ -354,14 +364,16 @@ exports[`CarePlanSummary matches snapshot: wrapper mount 1`] = `
                     <CarePlanDate
                       carePlan={
                         Object {
-                          "author": Object {
-                            "display": "Joe Bloggs",
-                            "type": "Test",
-                          },
+                          "author": Array [
+                            Object {
+                              "display": "Joe Bloggs",
+                              "typeName": "Test",
+                            },
+                          ],
                           "careTeam": Array [
                             Object {
                               "display": "LYPFT Care Team 1",
-                              "type": "Team",
+                              "typeName": "Team",
                             },
                           ],
                           "id": "580ca927-34e0-e911-a2c7-005056926fe4|careplan",
@@ -397,14 +409,16 @@ exports[`CarePlanSummary matches snapshot: wrapper mount 1`] = `
                     <CarePlanStatus
                       carePlan={
                         Object {
-                          "author": Object {
-                            "display": "Joe Bloggs",
-                            "type": "Test",
-                          },
+                          "author": Array [
+                            Object {
+                              "display": "Joe Bloggs",
+                              "typeName": "Test",
+                            },
+                          ],
                           "careTeam": Array [
                             Object {
                               "display": "LYPFT Care Team 1",
-                              "type": "Team",
+                              "typeName": "Team",
                             },
                           ],
                           "id": "580ca927-34e0-e911-a2c7-005056926fe4|careplan",
@@ -451,14 +465,16 @@ exports[`CarePlanSummary matches snapshot: wrapper mount 1`] = `
               <CarePlanSummaryItem
                 carePlan={
                   Object {
-                    "author": Object {
-                      "display": "John Mclane",
-                      "type": "Test",
-                    },
+                    "author": Array [
+                      Object {
+                        "display": "John Mclane",
+                        "typeName": "Test",
+                      },
+                    ],
                     "careTeam": Array [
                       Object {
                         "display": "LYPFT Care Team 2",
-                        "type": "Team",
+                        "typeName": "Team",
                       },
                     ],
                     "id": "690ca927-68e0-c511-b2c7-898056926ze4|careplan",
@@ -496,14 +512,16 @@ exports[`CarePlanSummary matches snapshot: wrapper mount 1`] = `
                     <CarePlanTitle
                       carePlan={
                         Object {
-                          "author": Object {
-                            "display": "John Mclane",
-                            "type": "Test",
-                          },
+                          "author": Array [
+                            Object {
+                              "display": "John Mclane",
+                              "typeName": "Test",
+                            },
+                          ],
                           "careTeam": Array [
                             Object {
                               "display": "LYPFT Care Team 2",
-                              "type": "Team",
+                              "typeName": "Team",
                             },
                           ],
                           "id": "690ca927-68e0-c511-b2c7-898056926ze4|careplan",
@@ -539,14 +557,16 @@ exports[`CarePlanSummary matches snapshot: wrapper mount 1`] = `
                     <CarePlanDescription
                       carePlan={
                         Object {
-                          "author": Object {
-                            "display": "John Mclane",
-                            "type": "Test",
-                          },
+                          "author": Array [
+                            Object {
+                              "display": "John Mclane",
+                              "typeName": "Test",
+                            },
+                          ],
                           "careTeam": Array [
                             Object {
                               "display": "LYPFT Care Team 2",
-                              "type": "Team",
+                              "typeName": "Team",
                             },
                           ],
                           "id": "690ca927-68e0-c511-b2c7-898056926ze4|careplan",
@@ -586,14 +606,16 @@ exports[`CarePlanSummary matches snapshot: wrapper mount 1`] = `
                     <CarePlanDate
                       carePlan={
                         Object {
-                          "author": Object {
-                            "display": "John Mclane",
-                            "type": "Test",
-                          },
+                          "author": Array [
+                            Object {
+                              "display": "John Mclane",
+                              "typeName": "Test",
+                            },
+                          ],
                           "careTeam": Array [
                             Object {
                               "display": "LYPFT Care Team 2",
-                              "type": "Team",
+                              "typeName": "Team",
                             },
                           ],
                           "id": "690ca927-68e0-c511-b2c7-898056926ze4|careplan",
@@ -629,14 +651,16 @@ exports[`CarePlanSummary matches snapshot: wrapper mount 1`] = `
                     <CarePlanStatus
                       carePlan={
                         Object {
-                          "author": Object {
-                            "display": "John Mclane",
-                            "type": "Test",
-                          },
+                          "author": Array [
+                            Object {
+                              "display": "John Mclane",
+                              "typeName": "Test",
+                            },
+                          ],
                           "careTeam": Array [
                             Object {
                               "display": "LYPFT Care Team 2",
-                              "type": "Team",
+                              "typeName": "Team",
                             },
                           ],
                           "id": "690ca927-68e0-c511-b2c7-898056926ze4|careplan",
