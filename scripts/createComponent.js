@@ -63,9 +63,7 @@ const packageJson = () => {
   },
   "dependencies": {
     "@emotion/core": "^10.0.27",
-    "@emotion/styled": "^10.0.27",
-    "@ltht-react/styles": "^0.0.1",
-    "@ltht-react/types": "^0.0.4",
+    "@emotion/styled": "^10.0.27",    
     "emotion": "^10.0.27",
     "react": "^16.12.0"
   }
