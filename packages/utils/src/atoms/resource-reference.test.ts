@@ -11,7 +11,7 @@ describe('ResourceReferenceText', () => {
       const resourceReference: ResourceReference[] = [
         {
           display: 'test one',
-          type: 'test',
+          typeName: 'test',
         },
       ]
 
@@ -19,8 +19,8 @@ describe('ResourceReferenceText', () => {
     })
     it('multiple items in resource reference formats correctly', () => {
       const resourceReference: ResourceReference[] = [
-        { display: 'test one', type: 'test' },
-        { display: 'test two', type: 'test' },
+        { display: 'test one', typeName: 'test' },
+        { display: 'test two', typeName: 'test' },
       ]
 
       expect(resourceReferenceDisplaySummary(resourceReference)).toEqual('test one, test two')
