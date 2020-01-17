@@ -5,7 +5,7 @@ import ExclamationIcon from '@ltht-react/exclamation-icon'
 import { AllergyIntolerance, AllergyIntoleranceCriticalityCode } from '@ltht-react/types'
 
 const styles = css`
-  min-width: 15.75px;
+  min-width: 1.0828rem;
 `
 
 const AllergyIcon = ({ allergy }: { allergy: AllergyIntolerance }) => {

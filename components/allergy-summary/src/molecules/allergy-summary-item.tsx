@@ -15,11 +15,11 @@ const styles = css`
 `
 const descriptionStyles = css`
   flex-grow: 1;
-  padding-left: 0.5em;
+  padding-left: 0.5rem;
 `
 
 const iconStyles = css`
-  min-width: 15.75px;
+  min-width: 1rem;
 `
 
 const AllergySummaryItem = ({ allergy, clickHandler }: Props) => {
