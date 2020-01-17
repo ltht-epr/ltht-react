@@ -23,13 +23,13 @@ const AppointmentSummaryItem = ({ appointment, clickHandler }: Props) => {
   }
   return (
     <div css={styles} onClick={clickHandler && handleClick}>
-      <div css={descriptionStyles}>
+      <div>
         <AppointmentDate appointment={appointment} />
       </div>
       <div css={descriptionStyles}>
         <AppointmentDescription appointment={appointment} />
       </div>
-      <div css={descriptionStyles}>
+      <div>
         <AppointmentServiceProvider appointment={appointment} />
         <AppointmentStatus appointment={appointment} />
       </div>

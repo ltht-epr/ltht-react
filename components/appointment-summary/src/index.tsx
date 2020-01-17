@@ -1,10 +1,10 @@
 import React from 'react'
 
-import { Flag, Encounter } from '@ltht-react/types'
+import { Encounter } from '@ltht-react/types'
 import AppointmentSummaryItem from './molecules/appointment-summary-item'
 import { Widget, WidgetHeader, WidgetList, WidgetListItem } from '@ltht-react/widget'
 
-const AppointmentSummary = ({ title, appointments, clickHandler }: Props) => {
+const AppointmentSummary = ({ title = 'Appointments', appointments, clickHandler }: Props) => {
   return (
     <Widget>
       <WidgetHeader>
