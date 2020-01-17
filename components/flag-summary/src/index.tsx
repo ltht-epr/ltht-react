@@ -23,7 +23,7 @@ const FlagSummary = ({ title, flags, clickHandler }: Props) => {
 
 interface Props {
   title?: string
-  flags: Maybe<Flag[]>
+  flags: Flag[] | undefined
   clickHandler?(flag: Flag): void
 }
 
