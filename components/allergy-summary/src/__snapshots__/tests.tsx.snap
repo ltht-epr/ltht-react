@@ -93,7 +93,7 @@ exports[`AllergySummary matches snapshot: wrapper mount 1`] = `
 }
 
 .emotion-3 {
-  min-width: 15.75px;
+  min-width: 1rem;
 }
 
 .emotion-1 {
@@ -105,7 +105,7 @@ exports[`AllergySummary matches snapshot: wrapper mount 1`] = `
   -webkit-flex-grow: 1;
   -ms-flex-positive: 1;
   flex-grow: 1;
-  padding-left: 0.5em;
+  padding-left: 0.5rem;
 }
 
 .emotion-4 {
@@ -295,10 +295,10 @@ exports[`AllergySummary matches snapshot: wrapper mount 1`] = `
                         css={
                           Object {
                             "map": undefined,
-                            "name": "bx019j",
+                            "name": "119ucgz",
                             "next": undefined,
                             "styles": "
-  min-width: 15.75px;
+  min-width: 1.0828rem;
 ",
                             "toString": [Function],
                           }
@@ -612,10 +612,10 @@ exports[`AllergySummary matches snapshot: wrapper mount 1`] = `
                         css={
                           Object {
                             "map": undefined,
-                            "name": "bx019j",
+                            "name": "119ucgz",
                             "next": undefined,
                             "styles": "
-  min-width: 15.75px;
+  min-width: 1.0828rem;
 ",
                             "toString": [Function],
                           }
