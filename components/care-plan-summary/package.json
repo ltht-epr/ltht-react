@@ -1,6 +1,6 @@
 {
   "name": "@ltht-react/care-plan-summary",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "ltht-react CarePlanSummary component.",
   "author": "LTHT",
   "homepage": "",
@@ -29,8 +29,8 @@
     "@emotion/styled": "^10.0.27",
     "@ltht-react/styles": "^0.0.2",
     "@ltht-react/types": "^0.0.6",
-    "@ltht-react/utils": "^0.0.6",
-    "@ltht-react/widget": "^0.0.2",
+    "@ltht-react/utils": "^0.0.7",
+    "@ltht-react/widget": "^0.0.3",
     "emotion": "^10.0.27",
     "react": "^16.12.0"
   }
