@@ -2,11 +2,11 @@ import React from 'react'
 import { mount } from 'enzyme'
 import ReactDOM from 'react-dom'
 
-import { HospitalStay } from '@ltht-react/types'
+import { Encounter } from '@ltht-react/types'
 import { HospitalStayOne, HospitalStayTwo } from './fixtures'
 import HospitalStaySummary from '.'
 
-const handleClick = (hospitalStay: HospitalStay) => {}
+const handleClick = (hospitalStay: Encounter) => {}
 
 describe('HospitalStaySummary', () => {
   const hospitalStays = [HospitalStayOne, HospitalStayTwo]

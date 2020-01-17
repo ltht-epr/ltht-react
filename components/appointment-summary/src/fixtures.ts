@@ -25,7 +25,7 @@ const AppointmentOne: Encounter = {
   },
   serviceProvider: {
     display: 'Beeston Village Surgery',
-    type: 'GP',
+    typeName: 'GP',
   },
   status: EncounterStatusCode.Planned,
 }
@@ -47,7 +47,7 @@ const AppointmentTwo: Encounter = {
   },
   serviceProvider: {
     display: 'Chapel Allerton Hospital',
-    type: 'Hospital',
+    typeName: 'Hospital',
   },
   status: EncounterStatusCode.Finished,
 }

@@ -11,11 +11,11 @@ const mockMetadata: Metadata = {
 const CarePlanOne: CarePlan = {
   id: '580ca927-34e0-e911-a2c7-005056926fe4|careplan',
   metadata: mockMetadata,
-  author: { display: 'Joe Bloggs', type: 'Test' },
+  author: [{ display: 'Joe Bloggs', typeName: 'Test' }],
   careTeam: [
     {
       display: 'LYPFT Care Team 1',
-      type: 'Team',
+      typeName: 'Team',
     },
   ],
   intent: CarePlanIntentCode.Plan,
@@ -36,11 +36,11 @@ const CarePlanOne: CarePlan = {
 const CarePlanTwo: CarePlan = {
   id: '690ca927-68e0-c511-b2c7-898056926ze4|careplan',
   metadata: mockMetadata,
-  author: { display: 'John Mclane', type: 'Test' },
+  author: [{ display: 'John Mclane', typeName: 'Test' }],
   careTeam: [
     {
       display: 'LYPFT Care Team 2',
-      type: 'Team',
+      typeName: 'Team',
     },
   ],
   intent: CarePlanIntentCode.Proposal,

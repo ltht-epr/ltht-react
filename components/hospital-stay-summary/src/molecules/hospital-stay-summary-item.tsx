@@ -2,7 +2,7 @@
 import React from 'react'
 import { css, jsx } from '@emotion/core'
 
-import { HospitalStay } from '@ltht-react/types'
+import { Encounter } from '@ltht-react/types'
 import HospitalStayPeriod from '../atoms/hospital-stay-period'
 import HospitalStayServiceProvider from '../atoms/hospital-stay-service-provider'
 
@@ -32,8 +32,8 @@ const HospitalStaySummaryItem = ({ hospitalStay, clickHandler }: Props) => {
 }
 
 interface Props {
-  hospitalStay: HospitalStay
-  clickHandler?(hospitalStay: HospitalStay): void
+  hospitalStay: Encounter
+  clickHandler?(hospitalStay: Encounter): void
 }
 
 export default HospitalStaySummaryItem

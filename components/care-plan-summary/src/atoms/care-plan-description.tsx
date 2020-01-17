@@ -14,7 +14,7 @@ const styles = css`
 const CarePlanDescription = ({ carePlan }: { carePlan: CarePlan }) => {
   return (
     <div css={styles}>
-      {carePlan.author && `${carePlan.author?.display} -`}{' '}
+      {carePlan.author && `${resourceReferenceDisplaySummary(carePlan.author)} -`}{' '}
       {carePlan.careTeam && resourceReferenceDisplaySummary(carePlan.careTeam)}
     </div>
   )

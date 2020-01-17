@@ -5,7 +5,7 @@ import { withInfo } from '@storybook/addon-info'
 import HospitalStaySummary from '@ltht-react/hospital-stay-summary'
 import readme from '@ltht-react/hospital-stay-summary/README.md'
 import * as fixtures from '@ltht-react/hospital-stay-summary/src/fixtures'
-import { HospitalStay } from '@ltht-react/types'
+import { Encounter } from '@ltht-react/types'
 
 const stories = storiesOf('Components|Hospital Stay|Examples', module)
 
@@ -15,7 +15,7 @@ stories.addParameters({
   },
 })
 
-const handleClick = (hospitalStay: HospitalStay) => {
+const handleClick = (hospitalStay: Encounter) => {
   console.log('item clicked ', hospitalStay)
 }
 

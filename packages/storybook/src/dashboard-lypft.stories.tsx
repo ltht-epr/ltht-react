@@ -17,7 +17,7 @@ import * as carePlans from '@ltht-react/care-plan-summary/src/fixtures'
 import * as communityOrders from '@ltht-react/community-treatment-order-summary/src/fixtures'
 import * as episodeOfCares from '@ltht-react/involved-team-summary/src/fixtures'
 import * as flags from '@ltht-react/flag-summary/src/fixtures'
-import * as hospitalStay from '@ltht-react/hospital-stay-summary/src/fixtures'
+import * as hospitalStays from '@ltht-react/hospital-stay-summary/src/fixtures'
 
 const stories = storiesOf('Dashboards|Basic|Examples', module)
 
@@ -51,7 +51,7 @@ stories.addWithJSX('Readonly Widgets', () => (
           title="Previous Appointments"
           appointments={[appointments.AppointmentOne, appointments.AppointmentTwo]}
         />
-        <HospitalStaySummary hospitalStays={[hospitalStay.HospitalStayOne, hospitalStay.HospitalStayTwo]} />
+        <HospitalStaySummary hospitalStays={[hospitalStays.HospitalStayOne, hospitalStays.HospitalStayTwo]} />
       </Widgets>
     </Column>
   </Wrap>

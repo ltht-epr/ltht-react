@@ -1,4 +1,4 @@
-import { HospitalStay, PartialDateTimeKindCode, Metadata } from '@ltht-react/types'
+import { Encounter, PartialDateTimeKindCode, Metadata } from '@ltht-react/types'
 
 const mockMetadata: Metadata = {
   dataSources: [
@@ -8,11 +8,10 @@ const mockMetadata: Metadata = {
   ],
 }
 
-const HospitalStayOne: HospitalStay = {
+const HospitalStayOne: Encounter = {
   id: '580ca927-34e0-e911-a2c7-005056926fe4|hospitalstay',
   metadata: mockMetadata,
-  nhsNumber: '123456789',
-  serviceProvider: { display: 'Chapel Allerton Hospital', type: 'Hospital' },
+  serviceProvider: { display: 'Chapel Allerton Hospital', typeName: 'Hospital' },
   period: {
     start: {
       value: '2013-01-01T00:00:00+00:00',
@@ -25,11 +24,10 @@ const HospitalStayOne: HospitalStay = {
   },
 }
 
-const HospitalStayTwo: HospitalStay = {
+const HospitalStayTwo: Encounter = {
   id: '690ca927-68e0-c511-b2c7-898056926ze4|hospitalstay',
   metadata: mockMetadata,
-  nhsNumber: '987654321',
-  serviceProvider: { display: 'Beaumont Hospital', type: 'Hospital' },
+  serviceProvider: { display: 'Beaumont Hospital', typeName: 'Hospital' },
   period: {
     start: {
       value: '2020-01-01T00:00:00+00:00',

@@ -15,7 +15,7 @@ const FlagOne: Flag = {
     display: 'John Smith',
     reference:
       'https://phoenixqa.careworks.ie/Services/api/fhir/v3/practitioner/9c1ad2c0-ec34-e911-a2c5-005056926fe4|systemuser',
-    type: 'Practitioner',
+    typeName: 'Practitioner',
     identifier: undefined,
   },
   code: {
@@ -37,7 +37,7 @@ const FlagTwo: Flag = {
     display: 'John Smith',
     reference:
       'https://phoenixqa.careworks.ie/Services/api/fhir/v3/practitioner/9c1ad2c0-ec34-e911-a2c5-005056926fe4|systemuser',
-    type: 'Practitioner',
+    typeName: 'Practitioner',
     identifier: undefined,
   },
   code: {

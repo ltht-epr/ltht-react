@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { HospitalStay } from '@ltht-react/types'
+import { Encounter } from '@ltht-react/types'
 import HospitalStaySummaryItem from './molecules/hospital-stay-summary-item'
 import { Widget, WidgetHeader, WidgetList, WidgetListItem } from '@ltht-react/widget'
 
@@ -23,8 +23,8 @@ const HospitalStaySummary = ({ title = 'Hospital Stays', hospitalStays, clickHan
 
 interface Props {
   title?: string
-  hospitalStays: HospitalStay[]
-  clickHandler?(allergy: HospitalStay): void
+  hospitalStays: Encounter[]
+  clickHandler?(allergy: Encounter): void
 }
 
 export default HospitalStaySummary

@@ -11,7 +11,7 @@ const styles = css`
 `
 
 const AppointmentStatus = ({ appointment }: { appointment: Encounter }) => {
-  return <div css={styles}>{appointment.status.toString()}</div>
+  return <div css={styles}>{appointment.status && appointment.status.toString()}</div>
 }
 
 export default AppointmentStatus
