@@ -1,0 +1,225 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Widget matches snapshot: wrapper mount 1`] = `
+Array [
+  .emotion-3 {
+  color: #231f20;
+  font-family: 'SF Pro Text','SF Pro Icons','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 0.8rem;
+  background: #fff;
+  color: #000;
+  margin-bottom: 0.5rem;
+  border-radius: 5px;
+  box-shadow: 3px 3px 3px #666;
+  -webkit-box-shadow: 3px 3px 3px #666;
+  margin: 0 5px 10px 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+.emotion-3 *,
+.emotion-3 ::before,
+.emotion-3 ::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.emotion-3 * {
+  margin: 0;
+  padding: 0;
+}
+
+.emotion-3 h3 {
+  font-size: 1rem;
+}
+
+@media only screen and (min-width:768px) {
+  .emotion-3 {
+    font-size: 0.9rem;
+  }
+
+  .emotion-3 h3 {
+    font-size: 1.1rem;
+  }
+}
+
+@media only screen and (min-width:1024px) {
+  .emotion-3 {
+    font-size: 1rem;
+  }
+
+  .emotion-3 h3 {
+    font-size: 1.2rem;
+  }
+}
+
+@media only screen and (min-width:1200px) {
+  .emotion-3 {
+    font-size: 1.1rem;
+  }
+
+  .emotion-3 h3 {
+    font-size: 1.3rem;
+  }
+}
+
+.emotion-0 {
+  padding: 0.5rem;
+}
+
+.emotion-1 {
+  padding: 0.5rem 0 0.5rem 0.5rem;
+}
+
+.emotion-2 {
+  padding: 0.5rem;
+}
+
+<Widget>
+    <div
+      className="emotion-3"
+    >
+      <WidgetHeader>
+        <div
+          className="emotion-0"
+        >
+          <h3>
+            Heading
+          </h3>
+        </div>
+      </WidgetHeader>
+      <WidgetBody>
+        <div
+          className="emotion-1"
+        >
+          Body
+        </div>
+      </WidgetBody>
+      <WidgetFooter>
+        <div
+          className="emotion-2"
+        >
+          Footer
+        </div>
+      </WidgetFooter>
+    </div>
+  </Widget>,
+  .emotion-3 {
+  color: #231f20;
+  font-family: 'SF Pro Text','SF Pro Icons','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 0.8rem;
+  background: #fff;
+  color: #000;
+  margin-bottom: 0.5rem;
+  border-radius: 5px;
+  box-shadow: 3px 3px 3px #666;
+  -webkit-box-shadow: 3px 3px 3px #666;
+  margin: 0 5px 10px 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+.emotion-3 *,
+.emotion-3 ::before,
+.emotion-3 ::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.emotion-3 * {
+  margin: 0;
+  padding: 0;
+}
+
+.emotion-3 h3 {
+  font-size: 1rem;
+}
+
+@media only screen and (min-width:768px) {
+  .emotion-3 {
+    font-size: 0.9rem;
+  }
+
+  .emotion-3 h3 {
+    font-size: 1.1rem;
+  }
+}
+
+@media only screen and (min-width:1024px) {
+  .emotion-3 {
+    font-size: 1rem;
+  }
+
+  .emotion-3 h3 {
+    font-size: 1.2rem;
+  }
+}
+
+@media only screen and (min-width:1200px) {
+  .emotion-3 {
+    font-size: 1.1rem;
+  }
+
+  .emotion-3 h3 {
+    font-size: 1.3rem;
+  }
+}
+
+.emotion-0 {
+  padding: 0.5rem;
+}
+
+.emotion-2 {
+  padding: 0.5rem;
+}
+
+.emotion-1 {
+  list-style: none;
+  padding-left: 0.5rem;
+}
+
+.emotion-1 li {
+  border-top: 1px solid #b0b0b0;
+  padding: 0.5rem 0.5rem 0.5rem 0;
+}
+
+<Widget>
+    <div
+      className="emotion-3"
+    >
+      <WidgetHeader>
+        <div
+          className="emotion-0"
+        >
+          <h3>
+            Heading
+          </h3>
+        </div>
+      </WidgetHeader>
+      <WidgetList>
+        <ul
+          className="emotion-1"
+        >
+          <WidgetListItem>
+            <li>
+              Item 1
+            </li>
+          </WidgetListItem>
+          <WidgetListItem>
+            <li>
+              Item 2
+            </li>
+          </WidgetListItem>
+        </ul>
+      </WidgetList>
+      <WidgetFooter>
+        <div
+          className="emotion-2"
+        >
+          Footer
+        </div>
+      </WidgetFooter>
+    </div>
+  </Widget>,
+]
+`;

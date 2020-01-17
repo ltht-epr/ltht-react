@@ -1,0 +1,634 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CommunityTreatmentOrderSummary matches snapshot: wrapper mount 1`] = `
+.emotion-16 {
+  color: #231f20;
+  font-family: 'SF Pro Text','SF Pro Icons','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 0.8rem;
+  background: #fff;
+  color: #000;
+  margin-bottom: 0.5rem;
+  border-radius: 5px;
+  box-shadow: 3px 3px 3px #666;
+  -webkit-box-shadow: 3px 3px 3px #666;
+  margin: 0 5px 10px 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+.emotion-16 *,
+.emotion-16 ::before,
+.emotion-16 ::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.emotion-16 * {
+  margin: 0;
+  padding: 0;
+}
+
+.emotion-16 h3 {
+  font-size: 1rem;
+}
+
+@media only screen and (min-width:768px) {
+  .emotion-16 {
+    font-size: 0.9rem;
+  }
+
+  .emotion-16 h3 {
+    font-size: 1.1rem;
+  }
+}
+
+@media only screen and (min-width:1024px) {
+  .emotion-16 {
+    font-size: 1rem;
+  }
+
+  .emotion-16 h3 {
+    font-size: 1.2rem;
+  }
+}
+
+@media only screen and (min-width:1200px) {
+  .emotion-16 {
+    font-size: 1.1rem;
+  }
+
+  .emotion-16 h3 {
+    font-size: 1.3rem;
+  }
+}
+
+.emotion-0 {
+  padding: 0.5rem;
+}
+
+.emotion-15 {
+  list-style: none;
+  padding-left: 0.5rem;
+}
+
+.emotion-15 li {
+  border-top: 1px solid #b0b0b0;
+  padding: 0.5rem 0.5rem 0.5rem 0;
+}
+
+.emotion-15 li:hover {
+  cursor: pointer;
+  background: #E8EDEE;
+}
+
+.emotion-7 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.emotion-3 {
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+}
+
+.emotion-1 {
+  color: #231f20;
+  text-align: left;
+}
+
+.emotion-2 {
+  color: #768692;
+  text-align: left;
+}
+
+.emotion-4 {
+  color: #231f20;
+  text-align: right;
+}
+
+.emotion-5 {
+  color: #768692;
+  text-align: right;
+}
+
+<CommunityTreatmentOrderSummary
+  clickHandler={[Function]}
+  communityTreatmentOrders={
+    Array [
+      Object {
+        "consentToTreat": "Consent Not Given",
+        "id": "580ca927-34e0-e911-a2c7-005056926fe4|communityTreatmentOrder",
+        "legalStatus": Object {
+          "coding": Array [
+            Object {
+              "code": "3309007",
+              "display": "Approved",
+            },
+          ],
+          "text": "Approved",
+        },
+        "metadata": Object {
+          "dataSources": Array [
+            Object {
+              "display": "Mock",
+            },
+          ],
+        },
+        "period": Object {
+          "end": Object {
+            "kind": "DATE",
+            "value": "2014-02-02T00:00:00+00:00",
+          },
+          "start": Object {
+            "kind": "DATE",
+            "value": "2013-01-01T00:00:00+00:00",
+          },
+        },
+        "restrictions": "No restrictions",
+      },
+      Object {
+        "consentToTreat": "Consent Given",
+        "id": "690ca927-68e0-c511-b2c7-898056926ze4|communityTreatmentOrder",
+        "legalStatus": Object {
+          "coding": Array [
+            Object {
+              "code": "779007",
+              "display": "Pending",
+            },
+          ],
+          "text": "Pending",
+        },
+        "metadata": Object {
+          "dataSources": Array [
+            Object {
+              "display": "Mock",
+            },
+          ],
+        },
+        "period": Object {
+          "start": Object {
+            "kind": "DATE",
+            "value": "2020-01-02T00:00:00+00:00",
+          },
+        },
+        "restrictions": "No Restrictions",
+      },
+    ]
+  }
+  title="Community Treatment Orders"
+>
+  <Widget>
+    <div
+      className="emotion-16"
+    >
+      <WidgetHeader>
+        <div
+          className="emotion-0"
+        >
+          <h3>
+            Community Treatment Orders
+          </h3>
+        </div>
+      </WidgetHeader>
+      <WidgetList
+        clickable={true}
+      >
+        <ul
+          className="emotion-15"
+        >
+          <WidgetListItem
+            key="0"
+          >
+            <li>
+              <CommunityTreatmentOrderSummaryItem
+                clickHandler={[Function]}
+                communityTreatmentOrder={
+                  Object {
+                    "consentToTreat": "Consent Not Given",
+                    "id": "580ca927-34e0-e911-a2c7-005056926fe4|communityTreatmentOrder",
+                    "legalStatus": Object {
+                      "coding": Array [
+                        Object {
+                          "code": "3309007",
+                          "display": "Approved",
+                        },
+                      ],
+                      "text": "Approved",
+                    },
+                    "metadata": Object {
+                      "dataSources": Array [
+                        Object {
+                          "display": "Mock",
+                        },
+                      ],
+                    },
+                    "period": Object {
+                      "end": Object {
+                        "kind": "DATE",
+                        "value": "2014-02-02T00:00:00+00:00",
+                      },
+                      "start": Object {
+                        "kind": "DATE",
+                        "value": "2013-01-01T00:00:00+00:00",
+                      },
+                    },
+                    "restrictions": "No restrictions",
+                  }
+                }
+                key="0"
+              >
+                <div
+                  className="emotion-7"
+                  onClick={[Function]}
+                >
+                  <div
+                    className="emotion-3"
+                  >
+                    <CommunityTreatmentOrderConsent
+                      communityTreatmentOrder={
+                        Object {
+                          "consentToTreat": "Consent Not Given",
+                          "id": "580ca927-34e0-e911-a2c7-005056926fe4|communityTreatmentOrder",
+                          "legalStatus": Object {
+                            "coding": Array [
+                              Object {
+                                "code": "3309007",
+                                "display": "Approved",
+                              },
+                            ],
+                            "text": "Approved",
+                          },
+                          "metadata": Object {
+                            "dataSources": Array [
+                              Object {
+                                "display": "Mock",
+                              },
+                            ],
+                          },
+                          "period": Object {
+                            "end": Object {
+                              "kind": "DATE",
+                              "value": "2014-02-02T00:00:00+00:00",
+                            },
+                            "start": Object {
+                              "kind": "DATE",
+                              "value": "2013-01-01T00:00:00+00:00",
+                            },
+                          },
+                          "restrictions": "No restrictions",
+                        }
+                      }
+                    >
+                      <div
+                        className="emotion-1"
+                      >
+                        Approved
+                      </div>
+                    </CommunityTreatmentOrderConsent>
+                    <CommunityTreatmentOrderRestrictions
+                      communityTreatmentOrder={
+                        Object {
+                          "consentToTreat": "Consent Not Given",
+                          "id": "580ca927-34e0-e911-a2c7-005056926fe4|communityTreatmentOrder",
+                          "legalStatus": Object {
+                            "coding": Array [
+                              Object {
+                                "code": "3309007",
+                                "display": "Approved",
+                              },
+                            ],
+                            "text": "Approved",
+                          },
+                          "metadata": Object {
+                            "dataSources": Array [
+                              Object {
+                                "display": "Mock",
+                              },
+                            ],
+                          },
+                          "period": Object {
+                            "end": Object {
+                              "kind": "DATE",
+                              "value": "2014-02-02T00:00:00+00:00",
+                            },
+                            "start": Object {
+                              "kind": "DATE",
+                              "value": "2013-01-01T00:00:00+00:00",
+                            },
+                          },
+                          "restrictions": "No restrictions",
+                        }
+                      }
+                    >
+                      <div
+                        className="emotion-2"
+                      >
+                        No restrictions
+                      </div>
+                    </CommunityTreatmentOrderRestrictions>
+                  </div>
+                  <div
+                    className="emotion-3"
+                  >
+                    <CommunityTreatmentOrderPeriod
+                      communityTreatmentOrder={
+                        Object {
+                          "consentToTreat": "Consent Not Given",
+                          "id": "580ca927-34e0-e911-a2c7-005056926fe4|communityTreatmentOrder",
+                          "legalStatus": Object {
+                            "coding": Array [
+                              Object {
+                                "code": "3309007",
+                                "display": "Approved",
+                              },
+                            ],
+                            "text": "Approved",
+                          },
+                          "metadata": Object {
+                            "dataSources": Array [
+                              Object {
+                                "display": "Mock",
+                              },
+                            ],
+                          },
+                          "period": Object {
+                            "end": Object {
+                              "kind": "DATE",
+                              "value": "2014-02-02T00:00:00+00:00",
+                            },
+                            "start": Object {
+                              "kind": "DATE",
+                              "value": "2013-01-01T00:00:00+00:00",
+                            },
+                          },
+                          "restrictions": "No restrictions",
+                        }
+                      }
+                    >
+                      <div
+                        className="emotion-4"
+                      >
+                        01-Jan-2013 to 02-Feb-2014
+                      </div>
+                    </CommunityTreatmentOrderPeriod>
+                    <CommunityTreatmentOrderConsent
+                      communityTreatmentOrder={
+                        Object {
+                          "consentToTreat": "Consent Not Given",
+                          "id": "580ca927-34e0-e911-a2c7-005056926fe4|communityTreatmentOrder",
+                          "legalStatus": Object {
+                            "coding": Array [
+                              Object {
+                                "code": "3309007",
+                                "display": "Approved",
+                              },
+                            ],
+                            "text": "Approved",
+                          },
+                          "metadata": Object {
+                            "dataSources": Array [
+                              Object {
+                                "display": "Mock",
+                              },
+                            ],
+                          },
+                          "period": Object {
+                            "end": Object {
+                              "kind": "DATE",
+                              "value": "2014-02-02T00:00:00+00:00",
+                            },
+                            "start": Object {
+                              "kind": "DATE",
+                              "value": "2013-01-01T00:00:00+00:00",
+                            },
+                          },
+                          "restrictions": "No restrictions",
+                        }
+                      }
+                    >
+                      <div
+                        className="emotion-5"
+                      >
+                        Consent Not Given
+                      </div>
+                    </CommunityTreatmentOrderConsent>
+                  </div>
+                </div>
+              </CommunityTreatmentOrderSummaryItem>
+            </li>
+          </WidgetListItem>
+          <WidgetListItem
+            key="1"
+          >
+            <li>
+              <CommunityTreatmentOrderSummaryItem
+                clickHandler={[Function]}
+                communityTreatmentOrder={
+                  Object {
+                    "consentToTreat": "Consent Given",
+                    "id": "690ca927-68e0-c511-b2c7-898056926ze4|communityTreatmentOrder",
+                    "legalStatus": Object {
+                      "coding": Array [
+                        Object {
+                          "code": "779007",
+                          "display": "Pending",
+                        },
+                      ],
+                      "text": "Pending",
+                    },
+                    "metadata": Object {
+                      "dataSources": Array [
+                        Object {
+                          "display": "Mock",
+                        },
+                      ],
+                    },
+                    "period": Object {
+                      "start": Object {
+                        "kind": "DATE",
+                        "value": "2020-01-02T00:00:00+00:00",
+                      },
+                    },
+                    "restrictions": "No Restrictions",
+                  }
+                }
+                key="1"
+              >
+                <div
+                  className="emotion-7"
+                  onClick={[Function]}
+                >
+                  <div
+                    className="emotion-3"
+                  >
+                    <CommunityTreatmentOrderConsent
+                      communityTreatmentOrder={
+                        Object {
+                          "consentToTreat": "Consent Given",
+                          "id": "690ca927-68e0-c511-b2c7-898056926ze4|communityTreatmentOrder",
+                          "legalStatus": Object {
+                            "coding": Array [
+                              Object {
+                                "code": "779007",
+                                "display": "Pending",
+                              },
+                            ],
+                            "text": "Pending",
+                          },
+                          "metadata": Object {
+                            "dataSources": Array [
+                              Object {
+                                "display": "Mock",
+                              },
+                            ],
+                          },
+                          "period": Object {
+                            "start": Object {
+                              "kind": "DATE",
+                              "value": "2020-01-02T00:00:00+00:00",
+                            },
+                          },
+                          "restrictions": "No Restrictions",
+                        }
+                      }
+                    >
+                      <div
+                        className="emotion-1"
+                      >
+                        Pending
+                      </div>
+                    </CommunityTreatmentOrderConsent>
+                    <CommunityTreatmentOrderRestrictions
+                      communityTreatmentOrder={
+                        Object {
+                          "consentToTreat": "Consent Given",
+                          "id": "690ca927-68e0-c511-b2c7-898056926ze4|communityTreatmentOrder",
+                          "legalStatus": Object {
+                            "coding": Array [
+                              Object {
+                                "code": "779007",
+                                "display": "Pending",
+                              },
+                            ],
+                            "text": "Pending",
+                          },
+                          "metadata": Object {
+                            "dataSources": Array [
+                              Object {
+                                "display": "Mock",
+                              },
+                            ],
+                          },
+                          "period": Object {
+                            "start": Object {
+                              "kind": "DATE",
+                              "value": "2020-01-02T00:00:00+00:00",
+                            },
+                          },
+                          "restrictions": "No Restrictions",
+                        }
+                      }
+                    >
+                      <div
+                        className="emotion-2"
+                      >
+                        No Restrictions
+                      </div>
+                    </CommunityTreatmentOrderRestrictions>
+                  </div>
+                  <div
+                    className="emotion-3"
+                  >
+                    <CommunityTreatmentOrderPeriod
+                      communityTreatmentOrder={
+                        Object {
+                          "consentToTreat": "Consent Given",
+                          "id": "690ca927-68e0-c511-b2c7-898056926ze4|communityTreatmentOrder",
+                          "legalStatus": Object {
+                            "coding": Array [
+                              Object {
+                                "code": "779007",
+                                "display": "Pending",
+                              },
+                            ],
+                            "text": "Pending",
+                          },
+                          "metadata": Object {
+                            "dataSources": Array [
+                              Object {
+                                "display": "Mock",
+                              },
+                            ],
+                          },
+                          "period": Object {
+                            "start": Object {
+                              "kind": "DATE",
+                              "value": "2020-01-02T00:00:00+00:00",
+                            },
+                          },
+                          "restrictions": "No Restrictions",
+                        }
+                      }
+                    >
+                      <div
+                        className="emotion-4"
+                      >
+                        02-Jan-2020 to Present
+                      </div>
+                    </CommunityTreatmentOrderPeriod>
+                    <CommunityTreatmentOrderConsent
+                      communityTreatmentOrder={
+                        Object {
+                          "consentToTreat": "Consent Given",
+                          "id": "690ca927-68e0-c511-b2c7-898056926ze4|communityTreatmentOrder",
+                          "legalStatus": Object {
+                            "coding": Array [
+                              Object {
+                                "code": "779007",
+                                "display": "Pending",
+                              },
+                            ],
+                            "text": "Pending",
+                          },
+                          "metadata": Object {
+                            "dataSources": Array [
+                              Object {
+                                "display": "Mock",
+                              },
+                            ],
+                          },
+                          "period": Object {
+                            "start": Object {
+                              "kind": "DATE",
+                              "value": "2020-01-02T00:00:00+00:00",
+                            },
+                          },
+                          "restrictions": "No Restrictions",
+                        }
+                      }
+                    >
+                      <div
+                        className="emotion-5"
+                      >
+                        Consent Given
+                      </div>
+                    </CommunityTreatmentOrderConsent>
+                  </div>
+                </div>
+              </CommunityTreatmentOrderSummaryItem>
+            </li>
+          </WidgetListItem>
+        </ul>
+      </WidgetList>
+    </div>
+  </Widget>
+</CommunityTreatmentOrderSummary>
+`;
