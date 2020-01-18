@@ -3,6 +3,8 @@
     "Codeable",
     "Lypft",
     "clickable",
+    "fontawesome",
+    "fortawesome",
     "ltht"
   ],
   "npm.packageManager": "yarn",

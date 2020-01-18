@@ -5,7 +5,7 @@ import { withInfo } from '@storybook/addon-info'
 import ExclamationIcon from '@ltht-react/exclamation-icon'
 import ExclamationIconReadMe from '@ltht-react/exclamation-icon/README.md'
 
-const stories = storiesOf('Components|Icons|Examples', module)
+const stories = storiesOf('Components|Icons', module)
 
 stories.addParameters({
   readme: {
