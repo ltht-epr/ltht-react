@@ -2,7 +2,7 @@ import React from 'react'
 import { storiesOf, addParameters } from '@storybook/react'
 import { withInfo } from '@storybook/addon-info'
 
-import { Wrap, Column, Widgets } from './components/dashboard'
+import { Wrap, Column, Widgets } from '../components/dashboard'
 import AllergySummary from '@ltht-react/allergy-summary'
 import AppointmentSummary from '@ltht-react/appointment-summary'
 import CarePlanSummary from '@ltht-react/care-plan-summary'

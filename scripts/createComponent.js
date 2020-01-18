@@ -125,6 +125,8 @@ const lerna = async command => {
 }
 
 const linkPackages = async () => {
+  console.log(`ℹ️ linking @ltht-react/styles`)
+  await lerna(`yarn lerna add @ltht-react/styles --scope=@ltht-react/${componentFolderName}`)
   console.log(`ℹ️ linking @ltht-react/types`)
   await lerna(`yarn lerna add @ltht-react/types --scope=@ltht-react/${componentFolderName}`)
   console.log(`ℹ️ linking @ltht-react/utils`)
