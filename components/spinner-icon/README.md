@@ -9,7 +9,7 @@ import SpinnerIcon from '@ltht-react/spinner-icon'
 ### Usage
 
 ```jsx
-<SpinnerIcon />
+<SpinnerIcon size="medium" />
 ```
 
 ### Properties

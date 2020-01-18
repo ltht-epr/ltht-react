@@ -1,13 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ExclamationIcon matches snapshot: wrapper mount 1`] = `
+exports[`SpinnerIcon matches snapshot: wrapper mount 1`] = `
 .emotion-0 {
-  color: #DA291C;
+  color: #ED8B00;
 }
 
 <ExclamationIcon
   size="small"
-  status="red"
+  status="amber"
 >
   <FontAwesomeIcon
     border={false}
