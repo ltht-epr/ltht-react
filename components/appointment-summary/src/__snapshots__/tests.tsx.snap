@@ -143,6 +143,10 @@ exports[`AppointmentSummary matches snapshot: wrapper mount 1`] = `
           "typeName": "GP",
         },
         "status": "PLANNED",
+        "text": Object {
+          "div": "test",
+          "text": "See GP regarding sore throat",
+        },
         "type": Array [
           Object {
             "coding": Array [
@@ -175,6 +179,10 @@ exports[`AppointmentSummary matches snapshot: wrapper mount 1`] = `
           "typeName": "Hospital",
         },
         "status": "FINISHED",
+        "text": Object {
+          "div": "test",
+          "text": "Chest x-ray for recent car accident",
+        },
         "type": Array [
           Object {
             "coding": Array [
@@ -237,6 +245,10 @@ exports[`AppointmentSummary matches snapshot: wrapper mount 1`] = `
                       "typeName": "GP",
                     },
                     "status": "PLANNED",
+                    "text": Object {
+                      "div": "test",
+                      "text": "See GP regarding sore throat",
+                    },
                     "type": Array [
                       Object {
                         "coding": Array [
@@ -280,6 +292,10 @@ exports[`AppointmentSummary matches snapshot: wrapper mount 1`] = `
                             "typeName": "GP",
                           },
                           "status": "PLANNED",
+                          "text": Object {
+                            "div": "test",
+                            "text": "See GP regarding sore throat",
+                          },
                           "type": Array [
                             Object {
                               "coding": Array [
@@ -326,6 +342,10 @@ exports[`AppointmentSummary matches snapshot: wrapper mount 1`] = `
                             "typeName": "GP",
                           },
                           "status": "PLANNED",
+                          "text": Object {
+                            "div": "test",
+                            "text": "See GP regarding sore throat",
+                          },
                           "type": Array [
                             Object {
                               "coding": Array [
@@ -370,6 +390,10 @@ exports[`AppointmentSummary matches snapshot: wrapper mount 1`] = `
                             "typeName": "GP",
                           },
                           "status": "PLANNED",
+                          "text": Object {
+                            "div": "test",
+                            "text": "See GP regarding sore throat",
+                          },
                           "type": Array [
                             Object {
                               "coding": Array [
@@ -412,6 +436,10 @@ exports[`AppointmentSummary matches snapshot: wrapper mount 1`] = `
                             "typeName": "GP",
                           },
                           "status": "PLANNED",
+                          "text": Object {
+                            "div": "test",
+                            "text": "See GP regarding sore throat",
+                          },
                           "type": Array [
                             Object {
                               "coding": Array [
@@ -463,6 +491,10 @@ exports[`AppointmentSummary matches snapshot: wrapper mount 1`] = `
                       "typeName": "Hospital",
                     },
                     "status": "FINISHED",
+                    "text": Object {
+                      "div": "test",
+                      "text": "Chest x-ray for recent car accident",
+                    },
                     "type": Array [
                       Object {
                         "coding": Array [
@@ -506,6 +538,10 @@ exports[`AppointmentSummary matches snapshot: wrapper mount 1`] = `
                             "typeName": "Hospital",
                           },
                           "status": "FINISHED",
+                          "text": Object {
+                            "div": "test",
+                            "text": "Chest x-ray for recent car accident",
+                          },
                           "type": Array [
                             Object {
                               "coding": Array [
@@ -552,6 +588,10 @@ exports[`AppointmentSummary matches snapshot: wrapper mount 1`] = `
                             "typeName": "Hospital",
                           },
                           "status": "FINISHED",
+                          "text": Object {
+                            "div": "test",
+                            "text": "Chest x-ray for recent car accident",
+                          },
                           "type": Array [
                             Object {
                               "coding": Array [
@@ -596,6 +636,10 @@ exports[`AppointmentSummary matches snapshot: wrapper mount 1`] = `
                             "typeName": "Hospital",
                           },
                           "status": "FINISHED",
+                          "text": Object {
+                            "div": "test",
+                            "text": "Chest x-ray for recent car accident",
+                          },
                           "type": Array [
                             Object {
                               "coding": Array [
@@ -638,6 +682,10 @@ exports[`AppointmentSummary matches snapshot: wrapper mount 1`] = `
                             "typeName": "Hospital",
                           },
                           "status": "FINISHED",
+                          "text": Object {
+                            "div": "test",
+                            "text": "Chest x-ray for recent car accident",
+                          },
                           "type": Array [
                             Object {
                               "coding": Array [

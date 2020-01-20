@@ -11,6 +11,10 @@ const mockMetadata: Metadata = {
 const AppointmentOne: Encounter = {
   id: '346ca927-67e0-e931-a2c7-115087226fg2|appointment',
   metadata: mockMetadata,
+  text: {
+    text: 'See GP regarding sore throat',
+    div: 'test',
+  },
   type: [
     {
       text: 'See GP regarding sore throat',
@@ -33,6 +37,10 @@ const AppointmentOne: Encounter = {
 const AppointmentTwo: Encounter = {
   id: '941ca927-34e0-e911-a2c7-005087226fe4|appointment',
   metadata: mockMetadata,
+  text: {
+    text: 'Chest x-ray for recent car accident',
+    div: 'test',
+  },
   type: [
     {
       text: 'Chest x-ray for recent car accident',

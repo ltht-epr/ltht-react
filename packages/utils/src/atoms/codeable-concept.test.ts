@@ -53,15 +53,29 @@ describe('CodeableConceptText', () => {
       expect(codeableConceptTextSummary(codeables)).toEqual('')
     })
     it('single codeable concept text summary formats correctly', () => {
-      const codeables: CodeableConcept[] = [{ text: 'Test 1', coding: [{ display: '', code: '00000' }] }]
-      expect(codeableConceptTextSummary(codeables)).toEqual('Test 1')
+      const codeables: CodeableConcept[] = [{ text: 'Text 1', coding: [{ display: '', code: '00000' }] }]
+      expect(codeableConceptTextSummary(codeables)).toEqual('Text 1')
     })
     it('multiple codeable concept text summary formats correctly', () => {
       const codeables: CodeableConcept[] = [
-        { text: 'Test 1', coding: [{ display: '', code: '00000' }] },
-        { text: 'Test 2', coding: [{ display: '', code: '00001' }] },
+        { text: 'Text 1', coding: [{ display: '', code: '00000' }] },
+        { text: 'Text 2', coding: [{ display: '', code: '00001' }] },
       ]
-      expect(codeableConceptTextSummary(codeables)).toEqual('Test 1, Test 2')
+      expect(codeableConceptTextSummary(codeables)).toEqual('Text 1, Text 2')
+    })
+    it('codeable concept text summary formats correctly when text is null but coding property display has value', () => {
+      const codeables: CodeableConcept[] = [
+        { coding: [{ display: 'Display 1', code: '00000' }] },
+        { coding: [{ display: 'Display 2', code: '00001' }] },
+      ]
+      expect(codeableConceptTextSummary(codeables)).toEqual('Display 1, Display 2')
+    })
+    it('codeable concept text summary formats correctly when text is null for some items but correponding coding property display has value', () => {
+      const codeables: CodeableConcept[] = [
+        { text: 'Text 1', coding: [{ display: 'Display 1', code: '00000' }] },
+        { coding: [{ display: 'Display 2', code: '00001' }] },
+      ]
+      expect(codeableConceptTextSummary(codeables)).toEqual('Text 1, Display 2')
     })
   })
 })
