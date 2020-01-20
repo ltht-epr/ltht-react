@@ -1,17 +1,17 @@
 import React from 'react'
 
-import { AllergyIntolerance, Maybe } from '@ltht-react/types'
+import { AllergyIntolerance } from '@ltht-react/types'
 import AllergySummaryItem from './molecules/allergy-summary-item'
 import { Widget, WidgetHeader, WidgetList, WidgetListItem } from '@ltht-react/widget'
 
-const AllergySummary = ({ title = 'Allergies', allergies, clickHandler }: Props) => {
+const AllergySummary = ({ title = 'Allergies', allergies = [], clickHandler }: Props) => {
   return (
     <Widget>
       <WidgetHeader>
         <h3>{title}</h3>
       </WidgetHeader>
       <WidgetList clickable={clickHandler ? true : false}>
-        {allergies?.map((allergy, index) => (
+        {allergies.map((allergy, index) => (
           <WidgetListItem key={index}>
             <AllergySummaryItem allergy={allergy} clickHandler={clickHandler} />
           </WidgetListItem>
@@ -23,7 +23,7 @@ const AllergySummary = ({ title = 'Allergies', allergies, clickHandler }: Props)
 
 interface Props {
   title?: string
-  allergies: Maybe<AllergyIntolerance[]>
+  allergies: AllergyIntolerance[] | undefined
   clickHandler?(allergy: AllergyIntolerance): void
 }
 

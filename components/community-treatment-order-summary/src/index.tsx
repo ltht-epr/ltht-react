@@ -6,7 +6,7 @@ import { Widget, WidgetHeader, WidgetList, WidgetListItem } from '@ltht-react/wi
 
 const CommunityTreatmentOrderSummary = ({
   title = 'Community Treatment Orders',
-  communityTreatmentOrders,
+  communityTreatmentOrders = [],
   clickHandler,
 }: Props) => {
   return (
@@ -15,7 +15,7 @@ const CommunityTreatmentOrderSummary = ({
         <h3>{title}</h3>
       </WidgetHeader>
       <WidgetList clickable={clickHandler ? true : false}>
-        {communityTreatmentOrders?.map((communityTreatmentOrder, index) => (
+        {communityTreatmentOrders.map((communityTreatmentOrder, index) => (
           <WidgetListItem key={index}>
             <CommunityTreatmentOrderSummaryItem
               communityTreatmentOrder={communityTreatmentOrder}
@@ -30,7 +30,7 @@ const CommunityTreatmentOrderSummary = ({
 
 interface Props {
   title?: string
-  communityTreatmentOrders: Maybe<LypftCommunityTreatmentOrder[]>
+  communityTreatmentOrders: LypftCommunityTreatmentOrder[] | undefined
   clickHandler?(communityTreatmentOrder: LypftCommunityTreatmentOrder): void
 }
 
