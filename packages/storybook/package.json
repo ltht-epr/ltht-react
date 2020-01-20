@@ -1,6 +1,6 @@
 {
   "name": "@ltht-react/storybook",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "> TODO: description",
   "author": "Jonny Smith <jonny.asmith@gmail.com>",
   "homepage": "",
@@ -44,15 +44,15 @@
   "dependencies": {
     "@emotion/core": "^10.0.27",
     "@emotion/styled": "^10.0.27",
-    "@ltht-react/allergy-summary": "^0.0.3",
-    "@ltht-react/appointment-summary": "^0.0.2",
-    "@ltht-react/care-plan-summary": "^0.0.3",
-    "@ltht-react/community-treatment-order-summary": "^0.0.2",
-    "@ltht-react/exclamation-icon": "^0.0.4",
-    "@ltht-react/flag-summary": "^0.0.9",
-    "@ltht-react/hospital-stay-summary": "^0.0.2",
-    "@ltht-react/involved-team-summary": "^0.0.3",
-    "@ltht-react/spinner-icon": "^0.0.0",
-    "@ltht-react/widget": "^0.0.3"
+    "@ltht-react/allergy-summary": "^0.0.4",
+    "@ltht-react/appointment-summary": "^0.0.3",
+    "@ltht-react/care-plan-summary": "^0.0.4",
+    "@ltht-react/community-treatment-order-summary": "^0.0.3",
+    "@ltht-react/exclamation-icon": "^0.0.5",
+    "@ltht-react/flag-summary": "^0.0.10",
+    "@ltht-react/hospital-stay-summary": "^0.0.3",
+    "@ltht-react/involved-team-summary": "^0.0.4",
+    "@ltht-react/spinner-icon": "^0.0.1",
+    "@ltht-react/widget": "^0.0.4"
   }
 }
