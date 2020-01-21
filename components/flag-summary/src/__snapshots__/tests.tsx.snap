@@ -347,7 +347,6 @@ exports[`FlagSummary matches snapshot: wrapper mount 1`] = `
                         className="emotion-2"
                       >
                         109006
-                         
                       </div>
                     </FlagDescription>
                   </div>
@@ -601,9 +600,7 @@ exports[`FlagSummary matches snapshot: wrapper mount 1`] = `
                       <div
                         className="emotion-2"
                       >
-                        56706
-                         
-                        - Violence
+                        56706 - Violence
                       </div>
                     </FlagDescription>
                   </div>

@@ -5,10 +5,10 @@ export const SECONDARY_TEXT_COLOUR = colours.NHS_MID_GREY
 export const DANGER_TEXT_COLOUR = colours.NHS_DARK_RED
 export const INFO_TEXT_COLOUR = colours.NHS_DARK_BLUE
 
-export const ICON_PRIMARY_COLOUR = colours.NHS_BLACK
-export const ICON_RED_COLOUR = colours.NHS_EMERGENCY_SERVICES_RED
-export const ICON_AMBER_COLOUR = colours.NHS_ORANGE
-export const ICON_GREEN_COLOUR = colours.NHS_GREEN
-export const ICON_DEFAULT_COLOUR = colours.NHS_MID_GREY
+export const PRIMARY_ICON_COLOUR = colours.NHS_BLACK
+export const RED_ICON_COLOUR = colours.NHS_EMERGENCY_SERVICES_RED
+export const AMBER_ICON_COLOUR = colours.NHS_ORANGE
+export const GREEN_ICON_COLOUR = colours.NHS_GREEN
+export const DEFAULT_ICON_COLOUR = colours.NHS_MID_GREY
 
 export const WIDGET_LIST_ITEM_BACKGROUND_HOVER = colours.NHS_PALE_GREY

@@ -1,6 +1,6 @@
 import { css } from '@emotion/core'
 import { PRIMARY_TEXT_COLOUR } from './colours'
-import { TABLET_MEDIA_QUERY, DESKOP_MEDIA_QUERY, WIDESCREEN_MEDIA_QUERY } from './media-queries'
+import { TABLET_MEDIA_QUERY, DESKTOP_MEDIA_QUERY, WIDESCREEN_MEDIA_QUERY } from './media-queries'
 
 const CSS_RESET = css`
   & *,
@@ -28,7 +28,7 @@ const CSS_RESET = css`
       font-size: 1.1rem;
     }
   }
-  ${DESKOP_MEDIA_QUERY} {
+  ${DESKTOP_MEDIA_QUERY} {
     font-size: 1rem;
     & h3 {
       font-size: 1.2rem;

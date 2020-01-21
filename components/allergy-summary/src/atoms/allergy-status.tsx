@@ -11,11 +11,12 @@ const styles = css`
 `
 
 const AlergyStatus = ({ allergy }: { allergy: AllergyIntolerance }) => {
-  return (
-    <div css={styles}>
-      {allergy.clinicalStatus.toString()} {allergy.verificationStatus && `- ${allergy.verificationStatus.toString()}`}
-    </div>
-  )
+  let values = []
+
+  if (allergy.clinicalStatus) values.push(allergy.clinicalStatus.toString())
+  if (allergy.verificationStatus) values.push(allergy.verificationStatus.toString())
+
+  return <div css={styles}>{values.join(' - ')}</div>
 }
 
 export default AlergyStatus

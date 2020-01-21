@@ -12,13 +12,17 @@ const styles = css`
 `
 
 const AllergyDescription = ({ allergy }: { allergy: AllergyIntolerance }) => {
-  return (
-    <div css={styles}>
-      {codeableConceptCodeSummary(allergy.code)}{' '}
-      {allergy.category && `- ${allergyIntoleranceCategoryCodeDisplaySummary(allergy.category)}`}{' '}
-      {allergy.type && `- ${allergy.type.toString()}`}
-    </div>
-  )
+  let values = []
+
+  const codeSummary = codeableConceptCodeSummary(allergy.code)
+  if (codeSummary && codeSummary.length > 0) values.push(codeSummary)
+
+  const categorySummary = allergy.category && allergyIntoleranceCategoryCodeDisplaySummary(allergy.category)
+  if (categorySummary && categorySummary.length > 0) values.push(categorySummary)
+
+  if (allergy.type) values.push(allergy.type.toString())
+
+  return <div css={styles}>{values.join(' - ')}</div>
 }
 
 export default AllergyDescription

@@ -44,10 +44,8 @@ const AllergyTwo: AllergyIntolerance = {
   code: {
     coding: [{ display: 'Kiwi fruit', code: '109007' }],
   },
-  category: [AllergyIntoleranceCategoryCode.Food, AllergyIntoleranceCategoryCode.Biologic],
   type: AllergyIntoleranceTypeCode.Intolerance,
   clinicalStatus: AllergyIntoleranceClinicalStatusCode.Resolved,
-  verificationStatus: AllergyIntoleranceVerificationStatusCode.Unconfirmed,
 }
 
 export { AllergyOne, AllergyTwo }

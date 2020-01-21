@@ -11,11 +11,12 @@ const styles = css`
 `
 
 const CarePlanStatus = ({ carePlan }: { carePlan: CarePlan }) => {
-  return (
-    <div css={styles}>
-      {carePlan.intent.toString()} - {carePlan.status.toString()}
-    </div>
-  )
+  let values = []
+
+  if (carePlan.intent) values.push(carePlan.intent.toString())
+  if (carePlan.intent) values.push(carePlan.intent.toString())
+
+  return <div css={styles}>{values.join(' - ')}</div>
 }
 
 export default CarePlanStatus

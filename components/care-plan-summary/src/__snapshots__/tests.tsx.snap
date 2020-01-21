@@ -354,9 +354,7 @@ exports[`CarePlanSummary matches snapshot: wrapper mount 1`] = `
                       <div
                         className="emotion-2"
                       >
-                        Joe Bloggs -
-                         
-                        LYPFT Care Team 1
+                        Joe Bloggs - LYPFT Care Team 1
                       </div>
                     </CarePlanDescription>
                   </div>
@@ -448,9 +446,7 @@ exports[`CarePlanSummary matches snapshot: wrapper mount 1`] = `
                       <div
                         className="emotion-5"
                       >
-                        PLAN
-                         - 
-                        ACTIVE
+                        PLAN - PLAN
                       </div>
                     </CarePlanStatus>
                   </div>
@@ -596,9 +592,7 @@ exports[`CarePlanSummary matches snapshot: wrapper mount 1`] = `
                       <div
                         className="emotion-2"
                       >
-                        John Mclane -
-                         
-                        LYPFT Care Team 2
+                        John Mclane - LYPFT Care Team 2
                       </div>
                     </CarePlanDescription>
                   </div>
@@ -690,9 +684,7 @@ exports[`CarePlanSummary matches snapshot: wrapper mount 1`] = `
                       <div
                         className="emotion-5"
                       >
-                        PROPOSAL
-                         - 
-                        COMPLETED
+                        PROPOSAL - PROPOSAL
                       </div>
                     </CarePlanStatus>
                   </div>

@@ -12,11 +12,15 @@ const styles = css`
 `
 
 const FlagDescription = ({ flag }: { flag: Flag }) => {
-  return (
-    <div css={styles}>
-      {codeableConceptCodeSummary(flag.code)} {flag.category && `- ${codeableConceptDisplaySummary(flag.category)}`}
-    </div>
-  )
+  let values = []
+
+  const codeSummary = codeableConceptCodeSummary(flag.code)
+  if (codeSummary && codeSummary.length > 0) values.push(codeSummary)
+
+  const categorySummary = flag.category && codeableConceptDisplaySummary(flag.category)
+  if (categorySummary && categorySummary.length > 0) values.push(categorySummary)
+
+  return <div css={styles}>{values.join(' - ')}</div>
 }
 
 export default FlagDescription

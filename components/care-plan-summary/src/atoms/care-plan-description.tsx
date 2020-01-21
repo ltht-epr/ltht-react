@@ -12,12 +12,15 @@ const styles = css`
 `
 
 const CarePlanDescription = ({ carePlan }: { carePlan: CarePlan }) => {
-  return (
-    <div css={styles}>
-      {carePlan.author && `${resourceReferenceDisplaySummary(carePlan.author)} -`}{' '}
-      {carePlan.careTeam && resourceReferenceDisplaySummary(carePlan.careTeam)}
-    </div>
-  )
+  let values = []
+
+  const author = carePlan.author && resourceReferenceDisplaySummary(carePlan.author)
+  if (author && author.length > 0) values.push(author)
+
+  const careTeam = carePlan.careTeam && resourceReferenceDisplaySummary(carePlan.careTeam)
+  if (careTeam && careTeam.length > 0) values.push(careTeam)
+
+  return <div css={styles}>{values.join(' - ')}</div>
 }
 
 export default CarePlanDescription
