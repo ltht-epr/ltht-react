@@ -4,6 +4,7 @@ import { css, jsx } from '@emotion/core'
 
 import { SECONDARY_TEXT_COLOUR } from '@ltht-react/styles'
 import { Encounter } from '@ltht-react/types'
+import { titleCase } from '@ltht-react/utils'
 
 const styles = css`
   color: ${SECONDARY_TEXT_COLOUR};
@@ -11,7 +12,7 @@ const styles = css`
 `
 
 const AppointmentStatus = ({ appointment }: { appointment: Encounter }) => {
-  return <div css={styles}>{appointment.status && appointment.status.toString()}</div>
+  return <div css={styles}>{appointment.status && titleCase(appointment.status)}</div>
 }
 
 export default AppointmentStatus

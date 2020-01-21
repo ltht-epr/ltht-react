@@ -4,6 +4,7 @@ import { css, jsx } from '@emotion/core'
 
 import { SECONDARY_TEXT_COLOUR } from '@ltht-react/styles'
 import { EpisodeOfCare } from '@ltht-react/types'
+import { titleCase } from '@ltht-react/utils'
 
 const styles = css`
   color: ${SECONDARY_TEXT_COLOUR};
@@ -11,7 +12,7 @@ const styles = css`
 `
 
 const InvolvedTeamType = ({ episodeOfCare }: { episodeOfCare: EpisodeOfCare }) => {
-  return <div css={styles}>{episodeOfCare.status.toString()}</div>
+  return <div css={styles}>{titleCase(episodeOfCare.status)}</div>
 }
 
 export default InvolvedTeamType

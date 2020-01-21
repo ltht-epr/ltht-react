@@ -430,7 +430,7 @@ exports[`FlagSummary matches snapshot: wrapper mount 1`] = `
                       <div
                         className="emotion-5"
                       >
-                        INACTIVE
+                        Inactive
                       </div>
                     </FlagStatus>
                   </div>
@@ -708,7 +708,7 @@ exports[`FlagSummary matches snapshot: wrapper mount 1`] = `
                       <div
                         className="emotion-5"
                       >
-                        INACTIVE
+                        Inactive
                       </div>
                     </FlagStatus>
                   </div>

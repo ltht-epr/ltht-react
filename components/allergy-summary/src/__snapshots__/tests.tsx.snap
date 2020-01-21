@@ -424,7 +424,7 @@ exports[`AllergySummary matches snapshot: wrapper mount 1`] = `
                       <div
                         className="emotion-5"
                       >
-                        109006 - ENVIRONMENT - ALLERGY
+                        109006 - Environment - Allergy
                       </div>
                     </AllergyDescription>
                   </div>
@@ -504,7 +504,7 @@ exports[`AllergySummary matches snapshot: wrapper mount 1`] = `
                       <div
                         className="emotion-8"
                       >
-                        ACTIVE - CONFIRMED
+                        Active - Confirmed
                       </div>
                     </AlergyStatus>
                   </div>
@@ -704,7 +704,7 @@ exports[`AllergySummary matches snapshot: wrapper mount 1`] = `
                       <div
                         className="emotion-5"
                       >
-                        109007 - INTOLERANCE
+                        109007 - Intolerance
                       </div>
                     </AllergyDescription>
                   </div>
@@ -774,7 +774,7 @@ exports[`AllergySummary matches snapshot: wrapper mount 1`] = `
                       <div
                         className="emotion-8"
                       >
-                        RESOLVED
+                        Resolved
                       </div>
                     </AlergyStatus>
                   </div>

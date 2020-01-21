@@ -484,7 +484,7 @@ exports[`InvolvedTeamSummary matches snapshot: wrapper mount 1`] = `
                       <div
                         className="emotion-5"
                       >
-                        FINISHED
+                        Finished
                       </div>
                     </InvolvedTeamType>
                   </div>
@@ -732,7 +732,7 @@ exports[`InvolvedTeamSummary matches snapshot: wrapper mount 1`] = `
                       <div
                         className="emotion-5"
                       >
-                        ACTIVE
+                        Active
                       </div>
                     </InvolvedTeamType>
                   </div>

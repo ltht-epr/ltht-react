@@ -446,7 +446,7 @@ exports[`CarePlanSummary matches snapshot: wrapper mount 1`] = `
                       <div
                         className="emotion-5"
                       >
-                        PLAN - PLAN
+                        Plan - Active
                       </div>
                     </CarePlanStatus>
                   </div>
@@ -684,7 +684,7 @@ exports[`CarePlanSummary matches snapshot: wrapper mount 1`] = `
                       <div
                         className="emotion-5"
                       >
-                        PROPOSAL - PROPOSAL
+                        Proposal - Completed
                       </div>
                     </CarePlanStatus>
                   </div>

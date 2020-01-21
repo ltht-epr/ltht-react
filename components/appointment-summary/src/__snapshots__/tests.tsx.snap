@@ -457,7 +457,7 @@ exports[`AppointmentSummary matches snapshot: wrapper mount 1`] = `
                       <div
                         className="emotion-5"
                       >
-                        PLANNED
+                        Planned
                       </div>
                     </AppointmentStatus>
                   </div>
@@ -703,7 +703,7 @@ exports[`AppointmentSummary matches snapshot: wrapper mount 1`] = `
                       <div
                         className="emotion-5"
                       >
-                        FINISHED
+                        Finished
                       </div>
                     </AppointmentStatus>
                   </div>
