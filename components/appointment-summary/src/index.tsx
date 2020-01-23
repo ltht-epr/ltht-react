@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Encounter, Maybe } from '@ltht-react/types'
+import { Encounter } from '@ltht-react/types'
 import AppointmentSummaryItem from './molecules/appointment-summary-item'
 import { Widget, WidgetHeader, WidgetList, WidgetListItem } from '@ltht-react/widget'
 

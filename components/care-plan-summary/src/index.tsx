@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { CarePlan, Maybe } from '@ltht-react/types'
+import { CarePlan } from '@ltht-react/types'
 import CarePlanSummaryItem from './molecules/care-plan-summary-item'
 import { Widget, WidgetHeader, WidgetList, WidgetListItem } from '@ltht-react/widget'
 

@@ -2,12 +2,12 @@
 import React from 'react'
 import { css, jsx } from '@emotion/core'
 
-import { PRIMARY_TEXT_COLOUR } from '@ltht-react/styles'
+import { TEXT_PRIMARY_COLOUR } from '@ltht-react/styles'
 import { Encounter } from '@ltht-react/types'
 import { periodSummaryText } from '@ltht-react/utils'
 
 const styles = css`
-  color: ${PRIMARY_TEXT_COLOUR};
+  color: ${TEXT_PRIMARY_COLOUR};
   text-align: left;
 `
 

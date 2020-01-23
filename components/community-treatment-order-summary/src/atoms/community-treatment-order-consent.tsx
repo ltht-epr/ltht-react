@@ -2,11 +2,11 @@
 import React from 'react'
 import { css, jsx } from '@emotion/core'
 
-import { SECONDARY_TEXT_COLOUR } from '@ltht-react/styles'
+import { TEXT_SECONDARY_COLOUR } from '@ltht-react/styles'
 import { LypftCommunityTreatmentOrder } from '@ltht-react/types'
 
 const styles = css`
-  color: ${SECONDARY_TEXT_COLOUR};
+  color: ${TEXT_SECONDARY_COLOUR};
   text-align: right;
 `
 

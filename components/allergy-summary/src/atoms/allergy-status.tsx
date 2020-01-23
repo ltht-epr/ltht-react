@@ -2,16 +2,16 @@
 import React from 'react'
 import { css, jsx } from '@emotion/core'
 
-import { SECONDARY_TEXT_COLOUR } from '@ltht-react/styles'
+import { TEXT_SECONDARY_COLOUR } from '@ltht-react/styles'
 import { AllergyIntolerance } from '@ltht-react/types'
 import { titleCase } from '@ltht-react/utils'
 
 const styles = css`
-  color: ${SECONDARY_TEXT_COLOUR};
+  color: ${TEXT_SECONDARY_COLOUR};
   text-align: right;
 `
 
-const AlergyStatus = ({ allergy }: { allergy: AllergyIntolerance }) => {
+const AllergyStatus = ({ allergy }: { allergy: AllergyIntolerance }) => {
   let values = []
 
   if (allergy.clinicalStatus) values.push(titleCase(allergy.clinicalStatus))
@@ -20,4 +20,4 @@ const AlergyStatus = ({ allergy }: { allergy: AllergyIntolerance }) => {
   return <div css={styles}>{values.join(' - ')}</div>
 }
 
-export default AlergyStatus
+export default AllergyStatus

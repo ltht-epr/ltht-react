@@ -4,9 +4,9 @@ export const ICON_SIZE_LARGE = '1rem'
 
 type FontAwesomeIconSize = 'xs' | 'lg' | 'sm' | '1x' | '2x' | '3x' | '4x' | '5x' | '6x' | '7x' | '8x' | '9x' | '10x'
 
-export type IconSize = 'small' | 'medium' | 'large'
+export type IconSizes = 'small' | 'medium' | 'large'
 
-export const calculateIconSize = (input: IconSize): FontAwesomeIconSize => {
+export const calculateIconSize = (input: IconSizes): FontAwesomeIconSize => {
   switch (input) {
     case 'large':
       return 'lg'
