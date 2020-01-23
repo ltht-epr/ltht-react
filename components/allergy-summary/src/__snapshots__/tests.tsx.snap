@@ -5,12 +5,11 @@ exports[`AllergySummary matches snapshot: wrapper mount 1`] = `
   color: #231f20;
   font-family: 'SF Pro Text','SF Pro Icons','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 0.8rem;
-  background: #fff;
-  color: #000;
+  background: #FFFFFF;
+  color: #231f20;
   margin-bottom: 0.5rem;
-  border-radius: 5px;
-  box-shadow: 3px 3px 3px #666;
-  -webkit-box-shadow: 3px 3px 3px #666;
+  border-radius: 4px;
+  box-shadow: 3px 3px 3px #666666;
   margin: 0 5px 10px 0;
   -webkit-font-smoothing: antialiased;
 }
@@ -468,7 +467,7 @@ exports[`AllergySummary matches snapshot: wrapper mount 1`] = `
                         2013
                       </div>
                     </AllergyDate>
-                    <AlergyStatus
+                    <AllergyStatus
                       allergy={
                         Object {
                           "assertedDate": Object {
@@ -506,7 +505,7 @@ exports[`AllergySummary matches snapshot: wrapper mount 1`] = `
                       >
                         Active - Confirmed
                       </div>
-                    </AlergyStatus>
+                    </AllergyStatus>
                   </div>
                 </div>
               </AllergySummaryItem>
@@ -743,7 +742,7 @@ exports[`AllergySummary matches snapshot: wrapper mount 1`] = `
                         2013
                       </div>
                     </AllergyDate>
-                    <AlergyStatus
+                    <AllergyStatus
                       allergy={
                         Object {
                           "assertedDate": Object {
@@ -776,7 +775,7 @@ exports[`AllergySummary matches snapshot: wrapper mount 1`] = `
                       >
                         Resolved
                       </div>
-                    </AlergyStatus>
+                    </AllergyStatus>
                   </div>
                 </div>
               </AllergySummaryItem>
