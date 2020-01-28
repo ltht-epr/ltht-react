@@ -1,5 +1,5 @@
 import { AllergyIntoleranceCategoryCode } from '@ltht-react/types'
-import { allergyIntoleranceCategoryCodeDisplaySummary } from './allergy-intolerance-category-code'
+import allergyIntoleranceCategoryCodeDisplaySummary from './allergy-intolerance-category-code'
 import { titleCase } from './title-case'
 
 describe('allergyIntoleranceCategoryCodeDisplaySummary', () => {

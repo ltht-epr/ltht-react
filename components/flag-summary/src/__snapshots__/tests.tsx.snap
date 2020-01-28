@@ -75,11 +75,6 @@ exports[`FlagSummary matches snapshot: wrapper mount 1`] = `
   padding: 0.5rem 0.5rem 0.5rem 0;
 }
 
-.emotion-13 li:hover {
-  cursor: pointer;
-  background: #E8EDEE;
-}
-
 .emotion-6 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -119,7 +114,6 @@ exports[`FlagSummary matches snapshot: wrapper mount 1`] = `
 }
 
 <FlagSummary
-  clickHandler={[Function]}
   flags={
     Array [
       Object {
@@ -137,7 +131,7 @@ exports[`FlagSummary matches snapshot: wrapper mount 1`] = `
             },
           ],
         },
-        "id": "580ca927-34e0-e911-a2c7-005056926fe4|personalertandhazard",
+        "id": "580ca927-34e0-e911-a2c7-005056926fe5|personalertandhazard",
         "metadata": Object {
           "dataSources": Array [
             Object {
@@ -214,17 +208,16 @@ exports[`FlagSummary matches snapshot: wrapper mount 1`] = `
         </div>
       </WidgetHeader>
       <WidgetList
-        clickable={true}
+        clickable={false}
       >
         <ul
           className="emotion-13"
         >
           <WidgetListItem
-            key="0"
+            key="580ca927-34e0-e911-a2c7-005056926fe5|personalertandhazard"
           >
             <li>
               <FlagSummaryItem
-                clickHandler={[Function]}
                 flag={
                   Object {
                     "author": Object {
@@ -241,7 +234,7 @@ exports[`FlagSummary matches snapshot: wrapper mount 1`] = `
                         },
                       ],
                     },
-                    "id": "580ca927-34e0-e911-a2c7-005056926fe4|personalertandhazard",
+                    "id": "580ca927-34e0-e911-a2c7-005056926fe5|personalertandhazard",
                     "metadata": Object {
                       "dataSources": Array [
                         Object {
@@ -258,10 +251,12 @@ exports[`FlagSummary matches snapshot: wrapper mount 1`] = `
                     "status": "INACTIVE",
                   }
                 }
+                tabIndex={0}
               >
                 <div
                   className="emotion-6"
-                  onClick={[Function]}
+                  role="link"
+                  tabIndex={0}
                 >
                   <div
                     className="emotion-3"
@@ -283,7 +278,7 @@ exports[`FlagSummary matches snapshot: wrapper mount 1`] = `
                               },
                             ],
                           },
-                          "id": "580ca927-34e0-e911-a2c7-005056926fe4|personalertandhazard",
+                          "id": "580ca927-34e0-e911-a2c7-005056926fe5|personalertandhazard",
                           "metadata": Object {
                             "dataSources": Array [
                               Object {
@@ -324,7 +319,7 @@ exports[`FlagSummary matches snapshot: wrapper mount 1`] = `
                               },
                             ],
                           },
-                          "id": "580ca927-34e0-e911-a2c7-005056926fe4|personalertandhazard",
+                          "id": "580ca927-34e0-e911-a2c7-005056926fe5|personalertandhazard",
                           "metadata": Object {
                             "dataSources": Array [
                               Object {
@@ -367,7 +362,7 @@ exports[`FlagSummary matches snapshot: wrapper mount 1`] = `
                               },
                             ],
                           },
-                          "id": "580ca927-34e0-e911-a2c7-005056926fe4|personalertandhazard",
+                          "id": "580ca927-34e0-e911-a2c7-005056926fe5|personalertandhazard",
                           "metadata": Object {
                             "dataSources": Array [
                               Object {
@@ -408,7 +403,7 @@ exports[`FlagSummary matches snapshot: wrapper mount 1`] = `
                               },
                             ],
                           },
-                          "id": "580ca927-34e0-e911-a2c7-005056926fe4|personalertandhazard",
+                          "id": "580ca927-34e0-e911-a2c7-005056926fe5|personalertandhazard",
                           "metadata": Object {
                             "dataSources": Array [
                               Object {
@@ -438,11 +433,10 @@ exports[`FlagSummary matches snapshot: wrapper mount 1`] = `
             </li>
           </WidgetListItem>
           <WidgetListItem
-            key="1"
+            key="580ca927-34e0-e911-a2c7-005056926fe4|personalertandhazard"
           >
             <li>
               <FlagSummaryItem
-                clickHandler={[Function]}
                 flag={
                   Object {
                     "author": Object {
@@ -488,10 +482,12 @@ exports[`FlagSummary matches snapshot: wrapper mount 1`] = `
                     "status": "INACTIVE",
                   }
                 }
+                tabIndex={1}
               >
                 <div
                   className="emotion-6"
-                  onClick={[Function]}
+                  role="link"
+                  tabIndex={1}
                 >
                   <div
                     className="emotion-3"

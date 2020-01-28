@@ -32,7 +32,7 @@ const HospitalStaySummaryItem: React.FC<Props> = ({ hospitalStay, clickHandler, 
         <HospitalStayPeriod encounter={hospitalStay} />
       </div>
       <div>
-        <HospitalStayServiceProvider hospitalStay={hospitalStay} />
+        <HospitalStayServiceProvider encounter={hospitalStay} />
       </div>
     </div>
   )

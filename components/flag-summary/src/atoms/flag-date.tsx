@@ -11,8 +11,12 @@ const styles = css`
   text-align: right;
 `
 
-const FlagDate = ({ flag }: { flag: Flag }) => {
+const FlagDate: React.FC<Props> = ({ flag }) => {
   return <div css={styles}>{periodSummaryText(flag.period)}</div>
+}
+
+interface Props {
+  flag: Flag
 }
 
 export default FlagDate

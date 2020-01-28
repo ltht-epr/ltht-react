@@ -10,8 +10,12 @@ const styles = css`
   text-align: right;
 `
 
-const AppointmentServiceProvider = ({ appointment }: { appointment: Encounter }) => {
-  return <div css={styles}>{appointment.serviceProvider?.display}</div>
+const AppointmentServiceProvider: React.FC<Props> = ({ encounter }) => {
+  return <div css={styles}>{encounter.serviceProvider?.display}</div>
+}
+
+interface Props {
+  encounter: Encounter
 }
 
 export default AppointmentServiceProvider

@@ -11,8 +11,12 @@ const styles = css`
   text-align: right;
 `
 
-const CarePlanDate = ({ carePlan }: { carePlan: CarePlan }) => {
+const CarePlanDate: React.FC<Props> = ({ carePlan }) => {
   return <div css={styles}>{periodSummaryText(carePlan.period)}</div>
+}
+
+interface Props {
+  carePlan: CarePlan
 }
 
 export default CarePlanDate

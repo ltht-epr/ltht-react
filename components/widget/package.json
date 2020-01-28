@@ -17,12 +17,8 @@
     "access": "public"
   },
   "scripts": {
-    "clean": "rimraf lib",
-    "build": "yarn build:lib",
-    "build:watch": "tsc -w",
-    "build:lib": "tsc",
-    "type:check": "tsc --noEmit",
-    "lint": "prettylint 'src/*.{ts,tsx}'"
+    "clean": "rimraf lib && rimraf node_modules",
+    "build": "tsc"
   },
   "dependencies": {
     "@emotion/core": "^10.0.27",

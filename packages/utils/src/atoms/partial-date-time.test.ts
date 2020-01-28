@@ -1,5 +1,5 @@
 import { PartialDateTime, PartialDateTimeKindCode } from '@ltht-react/types'
-import { partialDateTimeText } from './partial-date-time'
+import partialDateTimeText from './partial-date-time'
 
 describe('partialDateTimeText', () => {
   it('formats date correctly', () => {

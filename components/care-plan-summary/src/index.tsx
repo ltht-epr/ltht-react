@@ -4,7 +4,7 @@ import { CarePlan } from '@ltht-react/types'
 import { Widget, WidgetHeader, WidgetList, WidgetListItem } from '@ltht-react/widget'
 import CarePlanSummaryItem from './molecules/care-plan-summary-item'
 
-const CarePlanSummary = ({ title = 'Care Plans', carePlans = [], clickHandler }: Props) => {
+const CarePlanSummary: React.FC<Props> = ({ title = 'Care Plans', carePlans = [], clickHandler }) => {
   return (
     <Widget>
       <WidgetHeader>
@@ -12,8 +12,8 @@ const CarePlanSummary = ({ title = 'Care Plans', carePlans = [], clickHandler }:
       </WidgetHeader>
       <WidgetList clickable={!!clickHandler}>
         {carePlans.map((carePlan, index) => (
-          <WidgetListItem key={index}>
-            <CarePlanSummaryItem carePlan={carePlan} clickHandler={clickHandler} />
+          <WidgetListItem key={carePlan.id}>
+            <CarePlanSummaryItem tabIndex={index} carePlan={carePlan} clickHandler={clickHandler} />
           </WidgetListItem>
         ))}
       </WidgetList>

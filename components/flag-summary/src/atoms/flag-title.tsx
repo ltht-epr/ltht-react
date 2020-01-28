@@ -11,8 +11,12 @@ const styles = css`
   text-align: left;
 `
 
-const FlagTitle = ({ flag }: { flag: Flag }) => {
+const FlagTitle: React.FC<Props> = ({ flag }) => {
   return <div css={styles}>{codeableConceptDisplaySummary(flag.code)}</div>
+}
+
+interface Props {
+  flag: Flag
 }
 
 export default FlagTitle

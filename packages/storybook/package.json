@@ -17,11 +17,11 @@
     "access": "public"
   },
   "scripts": {
+    "clean": "rimraf storybook-static && rimraf node_modules",
     "start": "start-storybook -p 9009",
     "start:debug": "storybook --debug-webpack",
     "build:storybook": "build-storybook -c .storybook",
-    "deploy:storybook": "storybook-to-ghpages -e storybook-static",
-    "lint": "prettylint 'src/*.{ts,tsx}'"
+    "deploy:storybook": "storybook-to-ghpages -e storybook-static"
   },
   "devDependencies": {
     "@babel/core": "^7.7.7",

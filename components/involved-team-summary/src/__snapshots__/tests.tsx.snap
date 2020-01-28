@@ -75,11 +75,6 @@ exports[`InvolvedTeamSummary matches snapshot: wrapper mount 1`] = `
   padding: 0.5rem 0.5rem 0.5rem 0;
 }
 
-.emotion-13 li:hover {
-  cursor: pointer;
-  background: #E8EDEE;
-}
-
 .emotion-6 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -119,7 +114,6 @@ exports[`InvolvedTeamSummary matches snapshot: wrapper mount 1`] = `
 }
 
 <InvolvedTeamSummary
-  clickHandler={[Function]}
   episodeOfCares={
     Array [
       Object {
@@ -218,17 +212,16 @@ exports[`InvolvedTeamSummary matches snapshot: wrapper mount 1`] = `
         </div>
       </WidgetHeader>
       <WidgetList
-        clickable={true}
+        clickable={false}
       >
         <ul
           className="emotion-13"
         >
           <WidgetListItem
-            key="0"
+            key="580ca927-34e0-e911-a2c7-005056926fe4|involvedteam"
           >
             <li>
               <InvolvedTeamSummaryItem
-                clickHandler={[Function]}
                 episodeOfCare={
                   Object {
                     "careManager": Object {
@@ -272,10 +265,12 @@ exports[`InvolvedTeamSummary matches snapshot: wrapper mount 1`] = `
                     ],
                   }
                 }
+                tabIndex={0}
               >
                 <div
                   className="emotion-6"
-                  onClick={[Function]}
+                  role="link"
+                  tabIndex={0}
                 >
                   <div
                     className="emotion-3"
@@ -492,11 +487,10 @@ exports[`InvolvedTeamSummary matches snapshot: wrapper mount 1`] = `
             </li>
           </WidgetListItem>
           <WidgetListItem
-            key="1"
+            key="690ca927-68e0-c511-b2c7-898056926ze4|involvedteam"
           >
             <li>
               <InvolvedTeamSummaryItem
-                clickHandler={[Function]}
                 episodeOfCare={
                   Object {
                     "careManager": Object {
@@ -536,10 +530,12 @@ exports[`InvolvedTeamSummary matches snapshot: wrapper mount 1`] = `
                     ],
                   }
                 }
+                tabIndex={1}
               >
                 <div
                   className="emotion-6"
-                  onClick={[Function]}
+                  role="link"
+                  tabIndex={1}
                 >
                   <div
                     className="emotion-3"

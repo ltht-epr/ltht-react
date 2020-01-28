@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`HospitalStaySummary matches snapshot: wrapper mount 1`] = `
-.emotion-12 {
+.emotion-8 {
   color: #231f20;
   font-family: 'SF Pro Text','SF Pro Icons','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 0.8rem;
@@ -14,49 +14,49 @@ exports[`HospitalStaySummary matches snapshot: wrapper mount 1`] = `
   -webkit-font-smoothing: antialiased;
 }
 
-.emotion-12 *,
-.emotion-12 ::before,
-.emotion-12 ::after {
+.emotion-8 *,
+.emotion-8 ::before,
+.emotion-8 ::after {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
 
-.emotion-12 * {
+.emotion-8 * {
   margin: 0;
   padding: 0;
 }
 
-.emotion-12 h3 {
+.emotion-8 h3 {
   font-size: 1rem;
 }
 
 @media only screen and (min-width:768px) {
-  .emotion-12 {
+  .emotion-8 {
     font-size: 0.9rem;
   }
 
-  .emotion-12 h3 {
+  .emotion-8 h3 {
     font-size: 1.1rem;
   }
 }
 
 @media only screen and (min-width:1024px) {
-  .emotion-12 {
+  .emotion-8 {
     font-size: 1rem;
   }
 
-  .emotion-12 h3 {
+  .emotion-8 h3 {
     font-size: 1.2rem;
   }
 }
 
 @media only screen and (min-width:1200px) {
-  .emotion-12 {
+  .emotion-8 {
     font-size: 1.1rem;
   }
 
-  .emotion-12 h3 {
+  .emotion-8 h3 {
     font-size: 1.3rem;
   }
 }
@@ -65,22 +65,17 @@ exports[`HospitalStaySummary matches snapshot: wrapper mount 1`] = `
   padding: 0.5rem;
 }
 
-.emotion-11 {
+.emotion-7 {
   list-style: none;
   padding-left: 0.5rem;
 }
 
-.emotion-11 li {
+.emotion-7 li {
   border-top: 1px solid #b0b0b0;
   padding: 0.5rem 0.5rem 0.5rem 0;
 }
 
-.emotion-11 li:hover {
-  cursor: pointer;
-  background: #E8EDEE;
-}
-
-.emotion-5 {
+.emotion-3 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -91,7 +86,7 @@ exports[`HospitalStaySummary matches snapshot: wrapper mount 1`] = `
   justify-content: center;
 }
 
-.emotion-2 {
+.emotion-3 > div {
   -webkit-box-flex: 1;
   -webkit-flex-grow: 1;
   -ms-flex-positive: 1;
@@ -103,13 +98,12 @@ exports[`HospitalStaySummary matches snapshot: wrapper mount 1`] = `
   text-align: left;
 }
 
-.emotion-3 {
+.emotion-2 {
   color: #768692;
   text-align: right;
 }
 
 <HospitalStaySummary
-  clickHandler={[Function]}
   hospitalStays={
     Array [
       Object {
@@ -162,7 +156,7 @@ exports[`HospitalStaySummary matches snapshot: wrapper mount 1`] = `
 >
   <Widget>
     <div
-      className="emotion-12"
+      className="emotion-8"
     >
       <WidgetHeader>
         <div
@@ -174,17 +168,16 @@ exports[`HospitalStaySummary matches snapshot: wrapper mount 1`] = `
         </div>
       </WidgetHeader>
       <WidgetList
-        clickable={true}
+        clickable={false}
       >
         <ul
-          className="emotion-11"
+          className="emotion-7"
         >
           <WidgetListItem
-            key="0"
+            key="580ca927-34e0-e911-a2c7-005056926fe4|hospitalstay"
           >
             <li>
               <HospitalStaySummaryItem
-                clickHandler={[Function]}
                 hospitalStay={
                   Object {
                     "id": "580ca927-34e0-e911-a2c7-005056926fe4|hospitalstay",
@@ -211,16 +204,16 @@ exports[`HospitalStaySummary matches snapshot: wrapper mount 1`] = `
                     },
                   }
                 }
+                tabIndex={0}
               >
                 <div
-                  className="emotion-5"
-                  onClick={[Function]}
+                  className="emotion-3"
+                  role="link"
+                  tabIndex={0}
                 >
-                  <div
-                    className="emotion-2"
-                  >
+                  <div>
                     <HospitalStayPeriod
-                      hospitalStay={
+                      encounter={
                         Object {
                           "id": "580ca927-34e0-e911-a2c7-005056926fe4|hospitalstay",
                           "metadata": Object {
@@ -254,11 +247,9 @@ exports[`HospitalStaySummary matches snapshot: wrapper mount 1`] = `
                       </div>
                     </HospitalStayPeriod>
                   </div>
-                  <div
-                    className="emotion-2"
-                  >
+                  <div>
                     <HospitalStayServiceProvider
-                      hospitalStay={
+                      encounter={
                         Object {
                           "id": "580ca927-34e0-e911-a2c7-005056926fe4|hospitalstay",
                           "metadata": Object {
@@ -286,7 +277,7 @@ exports[`HospitalStaySummary matches snapshot: wrapper mount 1`] = `
                       }
                     >
                       <div
-                        className="emotion-3"
+                        className="emotion-2"
                       >
                         Chapel Allerton Hospital
                       </div>
@@ -297,11 +288,10 @@ exports[`HospitalStaySummary matches snapshot: wrapper mount 1`] = `
             </li>
           </WidgetListItem>
           <WidgetListItem
-            key="1"
+            key="690ca927-68e0-c511-b2c7-898056926ze4|hospitalstay"
           >
             <li>
               <HospitalStaySummaryItem
-                clickHandler={[Function]}
                 hospitalStay={
                   Object {
                     "id": "690ca927-68e0-c511-b2c7-898056926ze4|hospitalstay",
@@ -324,16 +314,16 @@ exports[`HospitalStaySummary matches snapshot: wrapper mount 1`] = `
                     },
                   }
                 }
+                tabIndex={1}
               >
                 <div
-                  className="emotion-5"
-                  onClick={[Function]}
+                  className="emotion-3"
+                  role="link"
+                  tabIndex={1}
                 >
-                  <div
-                    className="emotion-2"
-                  >
+                  <div>
                     <HospitalStayPeriod
-                      hospitalStay={
+                      encounter={
                         Object {
                           "id": "690ca927-68e0-c511-b2c7-898056926ze4|hospitalstay",
                           "metadata": Object {
@@ -363,11 +353,9 @@ exports[`HospitalStaySummary matches snapshot: wrapper mount 1`] = `
                       </div>
                     </HospitalStayPeriod>
                   </div>
-                  <div
-                    className="emotion-2"
-                  >
+                  <div>
                     <HospitalStayServiceProvider
-                      hospitalStay={
+                      encounter={
                         Object {
                           "id": "690ca927-68e0-c511-b2c7-898056926ze4|hospitalstay",
                           "metadata": Object {
@@ -391,7 +379,7 @@ exports[`HospitalStaySummary matches snapshot: wrapper mount 1`] = `
                       }
                     >
                       <div
-                        className="emotion-3"
+                        className="emotion-2"
                       >
                         Beaumont Hospital
                       </div>

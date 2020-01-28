@@ -11,8 +11,12 @@ const styles = css`
   margin-left: 0.5em;
 `
 
-const AppointmentDescription = ({ appointment }: { appointment: Encounter }) => {
-  return <div css={styles}>{appointment.text && appointment.text.text}</div>
+const AppointmentDescription: React.FC<Props> = ({ encounter }) => {
+  return <div css={styles}>{encounter.text && encounter.text.text}</div>
+}
+
+interface Props {
+  encounter: Encounter
 }
 
 export default AppointmentDescription

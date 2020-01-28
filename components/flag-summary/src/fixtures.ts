@@ -9,7 +9,7 @@ const mockMetadata: Metadata = {
 }
 
 const FlagOne: Flag = {
-  id: '580ca927-34e0-e911-a2c7-005056926fe4|personalertandhazard',
+  id: '580ca927-34e0-e911-a2c7-005056926fe5|personalertandhazard',
   metadata: mockMetadata,
   author: {
     display: 'John Smith',

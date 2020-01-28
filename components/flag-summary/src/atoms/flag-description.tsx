@@ -11,7 +11,7 @@ const styles = css`
   text-align: left;
 `
 
-const FlagDescription = ({ flag }: { flag: Flag }) => {
+const FlagDescription: React.FC<Props> = ({ flag }) => {
   const values = []
 
   const codeSummary = codeableConceptCodeSummary(flag.code)
@@ -21,6 +21,10 @@ const FlagDescription = ({ flag }: { flag: Flag }) => {
   if (categorySummary && categorySummary.length > 0) values.push(categorySummary)
 
   return <div css={styles}>{values.join(' - ')}</div>
+}
+
+interface Props {
+  flag: Flag
 }
 
 export default FlagDescription

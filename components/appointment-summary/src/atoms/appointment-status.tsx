@@ -11,8 +11,12 @@ const styles = css`
   text-align: right;
 `
 
-const AppointmentStatus = ({ appointment }: { appointment: Encounter }) => {
-  return <div css={styles}>{appointment.status && titleCase(appointment.status)}</div>
+const AppointmentStatus: React.FC<Props> = ({ encounter }) => {
+  return <div css={styles}>{encounter.status && titleCase(encounter.status)}</div>
+}
+
+interface Props {
+  encounter: Encounter
 }
 
 export default AppointmentStatus

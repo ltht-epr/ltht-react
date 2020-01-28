@@ -8,22 +8,30 @@ import FlagDate from '../atoms/flag-date'
 import FlagDescription from '../atoms/flag-description'
 import FlagStatus from '../atoms/flag-status'
 
-const styles = css`
-  display: flex;
-  justify-content: center;
-`
-const descriptionStyles = css`
-  flex-grow: 1;
-`
+const styles = {
+  root: css`
+    display: flex;
+    justify-content: center;
+  `,
+  description: css`
+    flex-grow: 1;
+  `,
+}
 
-const FlagSummaryItem: React.FC<Props> = ({ flag, clickHandler }) => {
+const FlagSummaryItem: React.FC<Props> = ({ flag, clickHandler, tabIndex }) => {
   const handleClick = (e: EventTypes): void => {
     e.preventDefault()
     clickHandler && clickHandler(flag)
   }
   return (
-    <div css={styles} onClick={clickHandler && handleClick}>
-      <div css={descriptionStyles}>
+    <div
+      css={styles.root}
+      role="link"
+      tabIndex={tabIndex}
+      onClick={clickHandler && handleClick}
+      onKeyDown={clickHandler && handleClick}
+    >
+      <div css={styles.description}>
         <FlagTitle flag={flag} />
         <FlagDescription flag={flag} />
       </div>
@@ -40,6 +48,7 @@ type EventTypes = React.MouseEvent<HTMLDivElement, MouseEvent> | React.KeyboardE
 interface Props {
   flag: Flag
   clickHandler?(flag: Flag): void
+  tabIndex: number
 }
 
 export default FlagSummaryItem

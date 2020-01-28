@@ -1,5 +1,5 @@
 import { ResourceReference } from '@ltht-react/types'
-import { resourceReferenceDisplaySummary } from './resource-reference'
+import resourceReferenceDisplaySummary from './resource-reference'
 
 describe('ResourceReferenceText', () => {
   describe('resourceReferenceDisplaySummary', () => {

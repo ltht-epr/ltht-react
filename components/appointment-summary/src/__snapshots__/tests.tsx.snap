@@ -75,11 +75,6 @@ exports[`AppointmentSummary matches snapshot: wrapper mount 1`] = `
   padding: 0.5rem 0.5rem 0.5rem 0;
 }
 
-.emotion-13 li:hover {
-  cursor: pointer;
-  background: #E8EDEE;
-}
-
 .emotion-6 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -120,7 +115,7 @@ exports[`AppointmentSummary matches snapshot: wrapper mount 1`] = `
 }
 
 <AppointmentSummary
-  appointments={
+  encounters={
     Array [
       Object {
         "id": "346ca927-67e0-e931-a2c7-115087226fg2|appointment",
@@ -196,7 +191,6 @@ exports[`AppointmentSummary matches snapshot: wrapper mount 1`] = `
       },
     ]
   }
-  clickHandler={[Function]}
   title="Appointments"
 >
   <Widget>
@@ -213,17 +207,17 @@ exports[`AppointmentSummary matches snapshot: wrapper mount 1`] = `
         </div>
       </WidgetHeader>
       <WidgetList
-        clickable={true}
+        clickable={false}
       >
         <ul
           className="emotion-13"
         >
           <WidgetListItem
-            key="0"
+            key="346ca927-67e0-e931-a2c7-115087226fg2|appointment"
           >
             <li>
               <AppointmentSummaryItem
-                appointment={
+                encounter={
                   Object {
                     "id": "346ca927-67e0-e931-a2c7-115087226fg2|appointment",
                     "metadata": Object {
@@ -261,16 +255,16 @@ exports[`AppointmentSummary matches snapshot: wrapper mount 1`] = `
                     ],
                   }
                 }
-                clickHandler={[Function]}
-                key="0"
+                tabIndex={0}
               >
                 <div
                   className="emotion-6"
-                  onClick={[Function]}
+                  role="link"
+                  tabIndex={0}
                 >
                   <div>
                     <AppointmentDate
-                      appointment={
+                      encounter={
                         Object {
                           "id": "346ca927-67e0-e931-a2c7-115087226fg2|appointment",
                           "metadata": Object {
@@ -320,7 +314,7 @@ exports[`AppointmentSummary matches snapshot: wrapper mount 1`] = `
                     className="emotion-3"
                   >
                     <AppointmentDescription
-                      appointment={
+                      encounter={
                         Object {
                           "id": "346ca927-67e0-e931-a2c7-115087226fg2|appointment",
                           "metadata": Object {
@@ -368,7 +362,7 @@ exports[`AppointmentSummary matches snapshot: wrapper mount 1`] = `
                   </div>
                   <div>
                     <AppointmentServiceProvider
-                      appointment={
+                      encounter={
                         Object {
                           "id": "346ca927-67e0-e931-a2c7-115087226fg2|appointment",
                           "metadata": Object {
@@ -414,7 +408,7 @@ exports[`AppointmentSummary matches snapshot: wrapper mount 1`] = `
                       </div>
                     </AppointmentServiceProvider>
                     <AppointmentStatus
-                      appointment={
+                      encounter={
                         Object {
                           "id": "346ca927-67e0-e931-a2c7-115087226fg2|appointment",
                           "metadata": Object {
@@ -465,11 +459,11 @@ exports[`AppointmentSummary matches snapshot: wrapper mount 1`] = `
             </li>
           </WidgetListItem>
           <WidgetListItem
-            key="1"
+            key="941ca927-34e0-e911-a2c7-005087226fe4|appointment"
           >
             <li>
               <AppointmentSummaryItem
-                appointment={
+                encounter={
                   Object {
                     "id": "941ca927-34e0-e911-a2c7-005087226fe4|appointment",
                     "metadata": Object {
@@ -507,16 +501,16 @@ exports[`AppointmentSummary matches snapshot: wrapper mount 1`] = `
                     ],
                   }
                 }
-                clickHandler={[Function]}
-                key="1"
+                tabIndex={1}
               >
                 <div
                   className="emotion-6"
-                  onClick={[Function]}
+                  role="link"
+                  tabIndex={1}
                 >
                   <div>
                     <AppointmentDate
-                      appointment={
+                      encounter={
                         Object {
                           "id": "941ca927-34e0-e911-a2c7-005087226fe4|appointment",
                           "metadata": Object {
@@ -566,7 +560,7 @@ exports[`AppointmentSummary matches snapshot: wrapper mount 1`] = `
                     className="emotion-3"
                   >
                     <AppointmentDescription
-                      appointment={
+                      encounter={
                         Object {
                           "id": "941ca927-34e0-e911-a2c7-005087226fe4|appointment",
                           "metadata": Object {
@@ -614,7 +608,7 @@ exports[`AppointmentSummary matches snapshot: wrapper mount 1`] = `
                   </div>
                   <div>
                     <AppointmentServiceProvider
-                      appointment={
+                      encounter={
                         Object {
                           "id": "941ca927-34e0-e911-a2c7-005087226fe4|appointment",
                           "metadata": Object {
@@ -660,7 +654,7 @@ exports[`AppointmentSummary matches snapshot: wrapper mount 1`] = `
                       </div>
                     </AppointmentServiceProvider>
                     <AppointmentStatus
-                      appointment={
+                      encounter={
                         Object {
                           "id": "941ca927-34e0-e911-a2c7-005087226fe4|appointment",
                           "metadata": Object {

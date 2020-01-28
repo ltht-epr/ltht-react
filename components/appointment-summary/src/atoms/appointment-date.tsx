@@ -11,8 +11,12 @@ const styles = css`
   text-align: left;
 `
 
-const AppointmentDate = ({ appointment }: { appointment: Encounter }) => {
-  return <div css={styles}>{partialDateTimeText(appointment.period?.start)}</div>
+const AppointmentDate: React.FC<Props> = ({ encounter }) => {
+  return <div css={styles}>{partialDateTimeText(encounter.period?.start)}</div>
+}
+
+interface Props {
+  encounter: Encounter
 }
 
 export default AppointmentDate

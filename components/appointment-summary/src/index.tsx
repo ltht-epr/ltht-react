@@ -4,16 +4,16 @@ import { Encounter } from '@ltht-react/types'
 import { Widget, WidgetHeader, WidgetList, WidgetListItem } from '@ltht-react/widget'
 import AppointmentSummaryItem from './molecules/appointment-summary-item'
 
-const AppointmentSummary = ({ title = 'Appointments', appointments = [], clickHandler }: Props) => {
+const AppointmentSummary: React.FC<Props> = ({ title = 'Appointments', encounters = [], clickHandler }) => {
   return (
     <Widget>
       <WidgetHeader>
         <h3>{title}</h3>
       </WidgetHeader>
       <WidgetList clickable={!!clickHandler}>
-        {appointments.map((appointment, index) => (
-          <WidgetListItem key={index}>
-            <AppointmentSummaryItem key={index} appointment={appointment} clickHandler={clickHandler} />
+        {encounters.map((encounter, index) => (
+          <WidgetListItem key={encounter.id}>
+            <AppointmentSummaryItem tabIndex={index} encounter={encounter} clickHandler={clickHandler} />
           </WidgetListItem>
         ))}
       </WidgetList>
@@ -23,7 +23,7 @@ const AppointmentSummary = ({ title = 'Appointments', appointments = [], clickHa
 
 interface Props {
   title?: string
-  appointments: Encounter[] | undefined
+  encounters: Encounter[] | undefined
   clickHandler?(appointment: Encounter): void
 }
 

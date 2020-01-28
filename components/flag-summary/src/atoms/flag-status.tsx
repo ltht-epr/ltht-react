@@ -11,8 +11,12 @@ const styles = css`
   text-align: right;
 `
 
-const FlagStatus = ({ flag }: { flag: Flag }) => {
+const FlagStatus: React.FC<Props> = ({ flag }) => {
   return <div css={styles}>{titleCase(flag.status)}</div>
+}
+
+interface Props {
+  flag: Flag
 }
 
 export default FlagStatus

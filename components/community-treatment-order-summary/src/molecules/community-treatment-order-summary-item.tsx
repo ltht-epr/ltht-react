@@ -8,26 +8,34 @@ import CommunityTreatmentOrderPeriod from '../atoms/community-treatment-order-pe
 import CommunityTreatmentOrderRestrictions from '../atoms/community-treatment-order-restrictions'
 import CommunityTreatmentOrderStatus from '../atoms/community-treatment-order-status'
 
-const styles = css`
-  display: flex;
-  justify-content: center;
-`
-const descriptionStyles = css`
-  flex-grow: 1;
-`
+const styles = {
+  root: css`
+    display: flex;
+    justify-content: center;
+  `,
+  description: css`
+    flex-grow: 1;
+  `,
+}
 
-const CommunityTreatmentOrderSummaryItem = ({ communityTreatmentOrder, clickHandler }: Props) => {
-  const handleClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+const CommunityTreatmentOrderSummaryItem: React.FC<Props> = ({ communityTreatmentOrder, clickHandler, tabIndex }) => {
+  const handleClick = (e: EventTypes): void => {
     e.preventDefault()
     clickHandler && clickHandler(communityTreatmentOrder)
   }
   return (
-    <div css={styles} onClick={clickHandler && handleClick}>
-      <div css={descriptionStyles}>
+    <div
+      css={styles.root}
+      role="link"
+      tabIndex={tabIndex}
+      onClick={clickHandler && handleClick}
+      onKeyDown={clickHandler && handleClick}
+    >
+      <div css={styles.description}>
         <CommunityTreatmentOrderStatus communityTreatmentOrder={communityTreatmentOrder} />
         <CommunityTreatmentOrderRestrictions communityTreatmentOrder={communityTreatmentOrder} />
       </div>
-      <div css={descriptionStyles}>
+      <div css={styles.description}>
         <CommunityTreatmentOrderPeriod communityTreatmentOrder={communityTreatmentOrder} />
         <CommunityTreatmentOrderConsent communityTreatmentOrder={communityTreatmentOrder} />
       </div>
@@ -35,9 +43,12 @@ const CommunityTreatmentOrderSummaryItem = ({ communityTreatmentOrder, clickHand
   )
 }
 
+type EventTypes = React.MouseEvent<HTMLDivElement, MouseEvent> | React.KeyboardEvent<HTMLDivElement>
+
 interface Props {
   communityTreatmentOrder: LypftCommunityTreatmentOrder
   clickHandler?(CommunityTreatmentOrder: LypftCommunityTreatmentOrder): void
+  tabIndex: number
 }
 
 export default CommunityTreatmentOrderSummaryItem

@@ -75,11 +75,6 @@ exports[`CommunityTreatmentOrderSummary matches snapshot: wrapper mount 1`] = `
   padding: 0.5rem 0.5rem 0.5rem 0;
 }
 
-.emotion-15 li:hover {
-  cursor: pointer;
-  background: #E8EDEE;
-}
-
 .emotion-7 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -119,7 +114,6 @@ exports[`CommunityTreatmentOrderSummary matches snapshot: wrapper mount 1`] = `
 }
 
 <CommunityTreatmentOrderSummary
-  clickHandler={[Function]}
   communityTreatmentOrders={
     Array [
       Object {
@@ -198,17 +192,16 @@ exports[`CommunityTreatmentOrderSummary matches snapshot: wrapper mount 1`] = `
         </div>
       </WidgetHeader>
       <WidgetList
-        clickable={true}
+        clickable={false}
       >
         <ul
           className="emotion-15"
         >
           <WidgetListItem
-            key="0"
+            key="580ca927-34e0-e911-a2c7-005056926fe4|communityTreatmentOrder"
           >
             <li>
               <CommunityTreatmentOrderSummaryItem
-                clickHandler={[Function]}
                 communityTreatmentOrder={
                   Object {
                     "consentToTreat": "Consent Not Given",
@@ -242,10 +235,12 @@ exports[`CommunityTreatmentOrderSummary matches snapshot: wrapper mount 1`] = `
                     "restrictions": "No restrictions",
                   }
                 }
+                tabIndex={0}
               >
                 <div
                   className="emotion-7"
-                  onClick={[Function]}
+                  role="link"
+                  tabIndex={0}
                 >
                   <div
                     className="emotion-3"
@@ -424,11 +419,10 @@ exports[`CommunityTreatmentOrderSummary matches snapshot: wrapper mount 1`] = `
             </li>
           </WidgetListItem>
           <WidgetListItem
-            key="1"
+            key="690ca927-68e0-c511-b2c7-898056926ze4|communityTreatmentOrder"
           >
             <li>
               <CommunityTreatmentOrderSummaryItem
-                clickHandler={[Function]}
                 communityTreatmentOrder={
                   Object {
                     "consentToTreat": "Consent Given",
@@ -458,10 +452,12 @@ exports[`CommunityTreatmentOrderSummary matches snapshot: wrapper mount 1`] = `
                     "restrictions": "No Restrictions",
                   }
                 }
+                tabIndex={1}
               >
                 <div
                   className="emotion-7"
-                  onClick={[Function]}
+                  role="link"
+                  tabIndex={1}
                 >
                   <div
                     className="emotion-3"

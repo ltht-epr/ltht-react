@@ -10,12 +10,12 @@ const styles = css`
   text-align: left;
 `
 
-const CommunityTreatmentOrderConsent = ({
-  communityTreatmentOrder,
-}: {
-  communityTreatmentOrder: LypftCommunityTreatmentOrder
-}) => {
+const CommunityTreatmentOrderConsent: React.FC<Props> = ({ communityTreatmentOrder }) => {
   return <div css={styles}>{communityTreatmentOrder.legalStatus && communityTreatmentOrder.legalStatus.text}</div>
+}
+
+interface Props {
+  communityTreatmentOrder: LypftCommunityTreatmentOrder
 }
 
 export default CommunityTreatmentOrderConsent

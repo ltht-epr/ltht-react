@@ -18,13 +18,8 @@
     "access": "public"
   },
   "scripts": {
-    "clean": "rimraf lib",
-    "build": "yarn build:lib",
-    "watch": "tsc -w",
-    "build:lib": "tsc",
-    "type:check": "tsc --noEmit",
-    "lint": "prettylint 'src/*.{ts,tsx}'",
-    "docs": "doc-component ./lib/index.js README_AUTO.md"
+    "clean": "rimraf lib && rimraf node_modules",
+    "build": "tsc"
   },
   "dependencies": {
     "@emotion/core": "^10.0.27",
@@ -35,6 +30,8 @@
     "@ltht-react/utils": "^0.0.9",
     "@ltht-react/widget": "^0.0.7",
     "emotion": "^10.0.27",
-    "react": "^16.12.0"
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "enzyme": "^3.11.0"
   }
 }

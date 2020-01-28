@@ -10,8 +10,12 @@ const styles = css`
   text-align: left;
 `
 
-const CarePlanTitle = ({ carePlan }: { carePlan: CarePlan }) => {
+const CarePlanTitle: React.FC<Props> = ({ carePlan }) => {
   return <div css={styles}>{carePlan.title}</div>
+}
+
+interface Props {
+  carePlan: CarePlan
 }
 
 export default CarePlanTitle

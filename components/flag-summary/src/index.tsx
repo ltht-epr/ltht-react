@@ -4,7 +4,7 @@ import { Flag } from '@ltht-react/types'
 import { Widget, WidgetHeader, WidgetList, WidgetListItem } from '@ltht-react/widget'
 import FlagSummaryItem from './molecules/flag-summary-item'
 
-const FlagSummary = ({ title, flags = [], clickHandler }: Props) => {
+const FlagSummary: React.FC<Props> = ({ title, flags = [], clickHandler }) => {
   return (
     <Widget>
       <WidgetHeader>
@@ -12,8 +12,8 @@ const FlagSummary = ({ title, flags = [], clickHandler }: Props) => {
       </WidgetHeader>
       <WidgetList clickable={!!clickHandler}>
         {flags.map((flag, index) => (
-          <WidgetListItem key={index}>
-            <FlagSummaryItem flag={flag} clickHandler={clickHandler} />
+          <WidgetListItem key={flag.id}>
+            <FlagSummaryItem tabIndex={index} flag={flag} clickHandler={clickHandler} />
           </WidgetListItem>
         ))}
       </WidgetList>

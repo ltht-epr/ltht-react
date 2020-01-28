@@ -1,5 +1,5 @@
 import { Metadata } from '@ltht-react/types'
-import { metadataSourceSummaryText } from './metadata'
+import metadataSourceSummaryText from './metadata'
 
 describe('metadataSourceSummaryText', () => {
   it('empty dataSource formats correctly', () => {

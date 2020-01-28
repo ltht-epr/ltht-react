@@ -11,13 +11,17 @@ const styles = css`
   text-align: right;
 `
 
-const CarePlanStatus = ({ carePlan }: { carePlan: CarePlan }) => {
+const CarePlanStatus: React.FC<Props> = ({ carePlan }) => {
   const values = []
 
   if (carePlan.intent) values.push(titleCase(carePlan.intent))
   if (carePlan.status) values.push(titleCase(carePlan.status))
 
   return <div css={styles}>{values.join(' - ')}</div>
+}
+
+interface Props {
+  carePlan: CarePlan
 }
 
 export default CarePlanStatus

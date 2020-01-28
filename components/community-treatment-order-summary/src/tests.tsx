@@ -2,11 +2,8 @@ import React from 'react'
 import { mount } from 'enzyme'
 import ReactDOM from 'react-dom'
 
-import { LypftCommunityTreatmentOrder } from '@ltht-react/types'
 import { CommunityTreatmentOrderOne, CommunityTreatmentOrderTwo } from './fixtures'
 import CommunityTreatmentOrderSummary from '.'
-
-const handleClick = (communityTreatmentOrder: LypftCommunityTreatmentOrder) => {}
 
 describe('CommunityTreatmentOrderSummary', () => {
   const communityTreatmentOrders = [CommunityTreatmentOrderOne, CommunityTreatmentOrderTwo]
@@ -16,7 +13,6 @@ describe('CommunityTreatmentOrderSummary', () => {
       <CommunityTreatmentOrderSummary
         title="Community Treatment Orders"
         communityTreatmentOrders={communityTreatmentOrders}
-        clickHandler={handleClick}
       />,
       div
     )
@@ -27,7 +23,6 @@ describe('CommunityTreatmentOrderSummary', () => {
         <CommunityTreatmentOrderSummary
           title="Community Treatment Orders"
           communityTreatmentOrders={communityTreatmentOrders}
-          clickHandler={handleClick}
         />
       )
     ).toMatchSnapshot('wrapper mount')

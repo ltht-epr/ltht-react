@@ -11,8 +11,12 @@ const styles = css`
   text-align: right;
 `
 
-const FlagSource = ({ flag }: { flag: Flag }) => {
+const FlagSource: React.FC<Props> = ({ flag }) => {
   return <div css={styles}>{metadataSourceSummaryText(flag.metadata)}</div>
+}
+
+interface Props {
+  flag: Flag
 }
 
 export default FlagSource

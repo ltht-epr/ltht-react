@@ -16,30 +16,39 @@ const descriptionStyles = css`
   flex-grow: 1;
 `
 
-const AppointmentSummaryItem = ({ appointment, clickHandler }: Props) => {
-  const handleClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+const AppointmentSummaryItem: React.FC<Props> = ({ encounter, clickHandler, tabIndex }) => {
+  const handleClick = (e: EventTypes): void => {
     e.preventDefault()
-    clickHandler && clickHandler(appointment)
+    clickHandler && clickHandler(encounter)
   }
   return (
-    <div css={styles} onClick={clickHandler && handleClick}>
+    <div
+      role="link"
+      tabIndex={tabIndex}
+      css={styles}
+      onClick={clickHandler && handleClick}
+      onKeyDown={clickHandler && handleClick}
+    >
       <div>
-        <AppointmentDate appointment={appointment} />
+        <AppointmentDate encounter={encounter} />
       </div>
       <div css={descriptionStyles}>
-        <AppointmentDescription appointment={appointment} />
+        <AppointmentDescription encounter={encounter} />
       </div>
       <div>
-        <AppointmentServiceProvider appointment={appointment} />
-        <AppointmentStatus appointment={appointment} />
+        <AppointmentServiceProvider encounter={encounter} />
+        <AppointmentStatus encounter={encounter} />
       </div>
     </div>
   )
 }
 
+type EventTypes = React.MouseEvent<HTMLDivElement, MouseEvent> | React.KeyboardEvent<HTMLDivElement>
+
 interface Props {
-  appointment: Encounter
+  encounter: Encounter
   clickHandler?(appointment: Encounter): void
+  tabIndex: number
 }
 
 export default AppointmentSummaryItem

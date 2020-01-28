@@ -11,7 +11,7 @@ const styles = css`
   text-align: left;
 `
 
-const CarePlanDescription = ({ carePlan }: { carePlan: CarePlan }) => {
+const CarePlanDescription: React.FC<Props> = ({ carePlan }) => {
   const values = []
 
   const author = carePlan.author && resourceReferenceDisplaySummary(carePlan.author)
@@ -21,6 +21,10 @@ const CarePlanDescription = ({ carePlan }: { carePlan: CarePlan }) => {
   if (careTeam && careTeam.length > 0) values.push(careTeam)
 
   return <div css={styles}>{values.join(' - ')}</div>
+}
+
+interface Props {
+  carePlan: CarePlan
 }
 
 export default CarePlanDescription

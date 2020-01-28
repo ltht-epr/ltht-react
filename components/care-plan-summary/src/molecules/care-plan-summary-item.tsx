@@ -8,22 +8,30 @@ import CarePlanDescription from '../atoms/care-plan-description'
 import CarePlanStatus from '../atoms/care-plan-status'
 import CarePlanTitle from '../atoms/care-plan-title'
 
-const styles = css`
-  display: flex;
-  justify-content: center;
-`
-const descriptionStyles = css`
-  flex-grow: 1;
-`
+const styles = {
+  root: css`
+    display: flex;
+    justify-content: center;
+  `,
+  description: css`
+    flex-grow: 1;
+  `,
+}
 
-const CarePlanSummaryItem = ({ carePlan, clickHandler }: Props) => {
-  const handleClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+const CarePlanSummaryItem: React.FC<Props> = ({ carePlan, clickHandler, tabIndex }) => {
+  const handleClick = (e: EventTypes): void => {
     e.preventDefault()
     clickHandler && clickHandler(carePlan)
   }
   return (
-    <div css={styles} onClick={clickHandler && handleClick}>
-      <div css={descriptionStyles}>
+    <div
+      css={styles.root}
+      role="link"
+      tabIndex={tabIndex}
+      onClick={clickHandler && handleClick}
+      onKeyDown={clickHandler && handleClick}
+    >
+      <div css={styles.description}>
         <CarePlanTitle carePlan={carePlan} />
         <CarePlanDescription carePlan={carePlan} />
       </div>
@@ -35,9 +43,12 @@ const CarePlanSummaryItem = ({ carePlan, clickHandler }: Props) => {
   )
 }
 
+type EventTypes = React.MouseEvent<HTMLDivElement, MouseEvent> | React.KeyboardEvent<HTMLDivElement>
+
 interface Props {
   carePlan: CarePlan
   clickHandler?(carePlan: CarePlan): void
+  tabIndex: number
 }
 
 export default CarePlanSummaryItem

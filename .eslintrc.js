@@ -11,9 +11,12 @@ module.exports = {
   ],
   plugins: ['@typescript-eslint'],
   parserOptions: {
-    ecmaVersion: 2020, // Allows for the parsing of modern ECMAScript features
-    sourceType: 'module', // Allows for the use of imports
+    ecmaVersion: 2018,
+    sourceType: 'module',
     project: './tsconfig.json',
+    ecmaFeatures: {
+      jsx: true,
+    },
   },
   rules: {
     'prettier/prettier': ['error'],
@@ -23,25 +26,28 @@ module.exports = {
       'error',
       'ignorePackages',
       {
-        js: 'never',
-        jsx: 'never',
+        // js: 'never',
+        // jsx: 'never',
         ts: 'never',
         tsx: 'never',
-        mjs: 'never',
-        '.test.ts': 'never',
+        // mjs: 'never',
+        // '.test.ts': 'never',
       },
     ],
   },
   settings: {
     'import/resolver': {
       node: {
-        extensions: ['.ts', '.tsx'],
-        paths: ['src', 'atoms', 'molecules'],
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+        paths: ['src', 'atoms', 'molecules', 'node_modules'],
       },
     },
   },
   env: {
     browser: true,
+    commonjs: true,
+    es6: true,
     jest: true,
+    node: true,
   },
 }
