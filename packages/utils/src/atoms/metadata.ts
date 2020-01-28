@@ -1,7 +1,7 @@
 import { Metadata } from '@ltht-react/types'
 
 const metadataSourceSummaryText = (metadata: Metadata): string => {
-  if (!metadata || !metadata.dataSources || metadata.dataSources.length == 0) {
+  if (!metadata || !metadata.dataSources || metadata.dataSources.length === 0) {
     return ''
   }
   const result = metadata.dataSources
@@ -12,4 +12,4 @@ const metadataSourceSummaryText = (metadata: Metadata): string => {
   return result
 }
 
-export { metadataSourceSummaryText }
+export default metadataSourceSummaryText

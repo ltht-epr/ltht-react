@@ -28,9 +28,10 @@ const partialDateTimeText = (partialDateTime?: PartialDateTime | null): string =
   switch (partialDateTime.kind) {
     case PartialDateTimeKindCode.Date:
       return formatDate(new Date(partialDateTime.value))
-    case PartialDateTimeKindCode.DateTime:
+    case PartialDateTimeKindCode.DateTime: {
       const date = new Date(partialDateTime.value)
       return `${formatDate(date)} ${formatTime(date)}`
+    }
     case PartialDateTimeKindCode.Year:
       return new Date(partialDateTime.value).toLocaleString(locale, { year: yearFormat })
     case PartialDateTimeKindCode.YearMonth:
@@ -45,4 +46,4 @@ const partialDateTimeText = (partialDateTime?: PartialDateTime | null): string =
   }
 }
 
-export { partialDateTimeText }
+export default partialDateTimeText

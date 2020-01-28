@@ -11,8 +11,12 @@ const styles = css`
   text-align: left;
 `
 
-const InvolvedTeamTitle = ({ episodeOfCare }: { episodeOfCare: EpisodeOfCare }) => {
+const InvolvedTeamTitle: React.FC<Props> = ({ episodeOfCare }) => {
   return <div css={styles}>{episodeOfCare.team && resourceReferenceDisplaySummary(episodeOfCare.team)}</div>
+}
+
+interface Props {
+  episodeOfCare: EpisodeOfCare
 }
 
 export default InvolvedTeamTitle

@@ -1,19 +1,20 @@
 import React from 'react'
 
 import { AllergyIntolerance } from '@ltht-react/types'
-import AllergySummaryItem from './molecules/allergy-summary-item'
 import { Widget, WidgetHeader, WidgetList, WidgetListItem } from '@ltht-react/widget'
 
-const AllergySummary = ({ title = 'Allergies', allergies = [], clickHandler }: Props) => {
+import AllergySummaryItem from './molecules/allergy-summary-item'
+
+const AllergySummary: React.FC<Props> = ({ title = 'Allergies', allergies = [], clickHandler }) => {
   return (
     <Widget>
       <WidgetHeader>
         <h3>{title}</h3>
       </WidgetHeader>
-      <WidgetList clickable={clickHandler ? true : false}>
+      <WidgetList clickable={!!clickHandler}>
         {allergies.map((allergy, index) => (
-          <WidgetListItem key={index}>
-            <AllergySummaryItem allergy={allergy} clickHandler={clickHandler} />
+          <WidgetListItem key={allergy.id}>
+            <AllergySummaryItem tabIndex={index} allergy={allergy} clickHandler={clickHandler} />
           </WidgetListItem>
         ))}
       </WidgetList>

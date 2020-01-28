@@ -10,4 +10,4 @@ const resourceReferenceDisplaySummary = (resourceReferences: Maybe<ResourceRefer
   return displaySummary
 }
 
-export { resourceReferenceDisplaySummary }
+export default resourceReferenceDisplaySummary

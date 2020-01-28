@@ -1,10 +1,4 @@
-import {
-  LypftCommunityTreatmentOrder,
-  CarePlanStatusCode,
-  PartialDateTimeKindCode,
-  CarePlanIntentCode,
-  Metadata,
-} from '@ltht-react/types'
+import { LypftCommunityTreatmentOrder, PartialDateTimeKindCode, Metadata } from '@ltht-react/types'
 
 const mockMetadata: Metadata = {
   dataSources: [

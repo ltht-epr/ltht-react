@@ -11,8 +11,12 @@ const styles = css`
   text-align: left;
 `
 
-const HospitalStayPeriod = ({ hospitalStay }: { hospitalStay: Encounter }) => {
-  return <div css={styles}>{periodSummaryText(hospitalStay.period)}</div>
+const HospitalStayPeriod: React.FC<Props> = ({ encounter }) => {
+  return <div css={styles}>{periodSummaryText(encounter.period)}</div>
+}
+
+interface Props {
+  encounter: Encounter
 }
 
 export default HospitalStayPeriod

@@ -1,17 +1,15 @@
-const titleCase = (value: string): string => {
-  if (!value || value.length == 0) {
+export const titleCase = (value: string): string => {
+  if (!value || value.length === 0) {
     return ''
   }
 
-  const titleCased = value
+  return value
     .toLowerCase()
     .split(/\s|_/)
-    .map(function(word) {
+    .map(word => {
       return word.replace(word[0], word[0].toUpperCase())
     })
     .join(' ')
-
-  return titleCased
 }
 
-export { titleCase }
+export default titleCase

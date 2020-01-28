@@ -1,19 +1,19 @@
 import React from 'react'
 
 import { EpisodeOfCare } from '@ltht-react/types'
-import InvolvedTeamSummaryItem from './molecules/involved-team-summary-item'
 import { Widget, WidgetHeader, WidgetList, WidgetListItem } from '@ltht-react/widget'
+import InvolvedTeamSummaryItem from './molecules/involved-team-summary-item'
 
-const InvolvedTeamSummary = ({ title = 'Involved Teams', episodeOfCares = [], clickHandler }: Props) => {
+const InvolvedTeamSummary: React.FC<Props> = ({ title = 'Involved Teams', episodeOfCares = [], clickHandler }) => {
   return (
     <Widget>
       <WidgetHeader>
         <h3>{title}</h3>
       </WidgetHeader>
-      <WidgetList clickable={clickHandler ? true : false}>
+      <WidgetList clickable={!!clickHandler}>
         {episodeOfCares.map((episodeOfCare, index) => (
-          <WidgetListItem key={index}>
-            <InvolvedTeamSummaryItem episodeOfCare={episodeOfCare} clickHandler={clickHandler} />
+          <WidgetListItem key={episodeOfCare.id}>
+            <InvolvedTeamSummaryItem tabIndex={index} episodeOfCare={episodeOfCare} clickHandler={clickHandler} />
           </WidgetListItem>
         ))}
       </WidgetList>

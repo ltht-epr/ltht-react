@@ -1,8 +1,6 @@
 import React from 'react'
-import { storiesOf, addParameters } from '@storybook/react'
-import { withInfo } from '@storybook/addon-info'
+import { storiesOf } from '@storybook/react'
 
-import { Wrap, Column, Widgets } from '../components/dashboard'
 import AllergySummary from '@ltht-react/allergy-summary'
 import AppointmentSummary from '@ltht-react/appointment-summary'
 import CarePlanSummary from '@ltht-react/care-plan-summary'
@@ -18,6 +16,8 @@ import * as communityOrders from '@ltht-react/community-treatment-order-summary/
 import * as episodeOfCares from '@ltht-react/involved-team-summary/src/fixtures'
 import * as flags from '@ltht-react/flag-summary/src/fixtures'
 import * as hospitalStays from '@ltht-react/hospital-stay-summary/src/fixtures'
+
+import { Wrap, Column, Widgets } from '../components/dashboard'
 
 const stories = storiesOf('Dashboards|Basic|Examples', module)
 

@@ -1,10 +1,10 @@
 /** @jsx jsx */
 import React from 'react'
-import { css, jsx } from '@emotion/core'
+import { css, jsx, SerializedStyles } from '@emotion/core'
 
 import { WIDGET_LIST_ITEM_BACKGROUND_HOVER } from '@ltht-react/styles'
 
-const computeStyles = (clickable?: boolean) => {
+const computeStyles = (clickable?: boolean): SerializedStyles => {
   return css`
     list-style: none;
     padding-left: 0.5rem;

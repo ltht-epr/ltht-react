@@ -9,7 +9,7 @@ const styles = css`
   color: ${ICON_PRIMARY_COLOUR};
 `
 
-const SpinnerIcon = ({ size }: Props) => {
+const SpinnerIcon: React.FC<Props> = ({ size }) => {
   return <FontAwesomeIcon className="fa-spin" css={styles} icon={faSync} size={calculateIconSize(size)} />
 }
 

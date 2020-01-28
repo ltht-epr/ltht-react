@@ -10,8 +10,12 @@ const styles = css`
   text-align: left;
 `
 
-const InvolvedTeamDescription = ({ episodeOfCare }: { episodeOfCare: EpisodeOfCare }) => {
+const InvolvedTeamDescription: React.FC<Props> = ({ episodeOfCare }) => {
   return <div css={styles}>{episodeOfCare.careManager?.display}</div>
+}
+
+interface Props {
+  episodeOfCare: EpisodeOfCare
 }
 
 export default InvolvedTeamDescription

@@ -11,8 +11,12 @@ const styles = css`
   text-align: left;
 `
 
-const AllergyTitle = ({ allergy }: { allergy: AllergyIntolerance }) => {
+const AllergyTitle: React.FC<Props> = ({ allergy }) => {
   return <div css={styles}>{codeableConceptDisplaySummary(allergy.code)}</div>
+}
+
+interface Props {
+  allergy: AllergyIntolerance
 }
 
 export default AllergyTitle

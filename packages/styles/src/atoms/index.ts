@@ -1,4 +1,4 @@
 export * from './colours'
-export * from './css-reset'
+export { default as CSS_RESET } from './css-reset'
 export * from './icons'
 export * from './media-queries'

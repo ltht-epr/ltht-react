@@ -1,11 +1,13 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { withInfo } from '@storybook/addon-info'
+import JSXAddon from 'storybook-addon-jsx'
 
 import ExclamationIcon from '@ltht-react/exclamation-icon'
 import ExclamationIconReadMe from '@ltht-react/exclamation-icon/README.md'
 
 const stories = storiesOf('Components|Icons', module)
+
+stories.addWithJSX = JSXAddon.addWithJSX
 
 stories.addParameters({
   readme: {

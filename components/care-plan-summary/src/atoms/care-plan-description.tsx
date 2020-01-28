@@ -12,7 +12,7 @@ const styles = css`
 `
 
 const CarePlanDescription = ({ carePlan }: { carePlan: CarePlan }) => {
-  let values = []
+  const values = []
 
   const author = carePlan.author && resourceReferenceDisplaySummary(carePlan.author)
   if (author && author.length > 0) values.push(author)

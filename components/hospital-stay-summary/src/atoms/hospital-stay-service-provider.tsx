@@ -10,8 +10,12 @@ const styles = css`
   text-align: right;
 `
 
-const HospitalStayServiceProvider = ({ hospitalStay }: { hospitalStay: Encounter }) => {
-  return <div css={styles}>{hospitalStay.serviceProvider?.display}</div>
+const HospitalStayServiceProvider: React.FC<Props> = ({ encounter }) => {
+  return <div css={styles}>{encounter.serviceProvider?.display}</div>
+}
+
+interface Props {
+  encounter: Encounter
 }
 
 export default HospitalStayServiceProvider

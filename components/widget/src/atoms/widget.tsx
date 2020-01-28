@@ -15,12 +15,8 @@ const styles = css`
   -webkit-font-smoothing: antialiased;
 `
 
-const Widget: React.FC<Props> = ({ children }) => {
+const Widget: React.FC = ({ children }) => {
   return <div css={styles}>{children}</div>
-}
-
-interface Props {
-  children: any
 }
 
 export default Widget

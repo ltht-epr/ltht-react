@@ -11,8 +11,12 @@ const styles = css`
   text-align: right;
 `
 
-const InvolvedTeamType = ({ episodeOfCare }: { episodeOfCare: EpisodeOfCare }) => {
+const InvolvedTeamType: React.FC<Props> = ({ episodeOfCare }) => {
   return <div css={styles}>{titleCase(episodeOfCare.status)}</div>
+}
+
+interface Props {
+  episodeOfCare: EpisodeOfCare
 }
 
 export default InvolvedTeamType

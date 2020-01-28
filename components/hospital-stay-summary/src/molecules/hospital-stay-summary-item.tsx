@@ -9,31 +9,41 @@ import HospitalStayServiceProvider from '../atoms/hospital-stay-service-provider
 const styles = css`
   display: flex;
   justify-content: center;
-`
-const descriptionStyles = css`
-  flex-grow: 1;
+
+  & > div {
+    flex-grow: 1;
+  }
 `
 
-const HospitalStaySummaryItem = ({ hospitalStay, clickHandler }: Props) => {
-  const handleClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+const HospitalStaySummaryItem: React.FC<Props> = ({ hospitalStay, clickHandler, tabIndex }) => {
+  const handleClick = (e: EventTypes): void => {
     e.preventDefault()
     clickHandler && clickHandler(hospitalStay)
   }
   return (
-    <div css={styles} onClick={clickHandler && handleClick}>
-      <div css={descriptionStyles}>
-        <HospitalStayPeriod hospitalStay={hospitalStay} />
+    <div
+      role="link"
+      css={styles}
+      tabIndex={tabIndex}
+      onClick={clickHandler && handleClick}
+      onKeyDown={clickHandler && handleClick}
+    >
+      <div>
+        <HospitalStayPeriod encounter={hospitalStay} />
       </div>
-      <div css={descriptionStyles}>
+      <div>
         <HospitalStayServiceProvider hospitalStay={hospitalStay} />
       </div>
     </div>
   )
 }
 
+type EventTypes = React.MouseEvent<HTMLDivElement, MouseEvent> | React.KeyboardEvent<HTMLDivElement>
+
 interface Props {
   hospitalStay: Encounter
   clickHandler?(hospitalStay: Encounter): void
+  tabIndex: number
 }
 
 export default HospitalStaySummaryItem

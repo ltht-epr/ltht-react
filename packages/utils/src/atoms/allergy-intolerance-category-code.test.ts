@@ -19,7 +19,7 @@ describe('allergyIntoleranceCategoryCodeDisplaySummary', () => {
       AllergyIntoleranceCategoryCode.Environment,
     ]
     expect(allergyIntoleranceCategoryCodeDisplaySummary(categories)).toEqual(
-      titleCase(AllergyIntoleranceCategoryCode.Biologic) + ', ' + titleCase(AllergyIntoleranceCategoryCode.Environment)
+      `${titleCase(AllergyIntoleranceCategoryCode.Biologic)}, ${titleCase(AllergyIntoleranceCategoryCode.Environment)}`
     )
   })
 })

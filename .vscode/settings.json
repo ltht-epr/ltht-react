@@ -1,12 +1,7 @@
 {
-  "cSpell.words": [
-    "Codeable",
-    "Lypft",
-    "clickable",
-    "fontawesome",
-    "fortawesome",
-    "ltht"
-  ],
+  "cSpell.words": ["Codeable", "Lypft", "clickable", "fontawesome", "fortawesome", "ltht"],
   "npm.packageManager": "yarn",
-  "prettier.packageManager": "yarn"
+  "prettier.packageManager": "yarn",
+  "eslint.validate": ["javascript", "typescript", "javascriptreact", "typescriptreact"],
+  "eslint.alwaysShowStatus": true
 }

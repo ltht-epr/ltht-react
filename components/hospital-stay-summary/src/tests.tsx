@@ -2,24 +2,18 @@ import React from 'react'
 import { mount } from 'enzyme'
 import ReactDOM from 'react-dom'
 
-import { Encounter } from '@ltht-react/types'
 import { HospitalStayOne, HospitalStayTwo } from './fixtures'
 import HospitalStaySummary from '.'
-
-const handleClick = (hospitalStay: Encounter) => {}
 
 describe('HospitalStaySummary', () => {
   const hospitalStays = [HospitalStayOne, HospitalStayTwo]
   it('renders without crashing', () => {
     const div = document.createElement('div')
-    ReactDOM.render(
-      <HospitalStaySummary title="Hospital Stays" hospitalStays={hospitalStays} clickHandler={handleClick} />,
-      div
-    )
+    ReactDOM.render(<HospitalStaySummary title="Hospital Stays" hospitalStays={hospitalStays} />, div)
   })
   it('matches snapshot', () => {
-    expect(
-      mount(<HospitalStaySummary title="Hospital Stays" hospitalStays={hospitalStays} clickHandler={handleClick} />)
-    ).toMatchSnapshot('wrapper mount')
+    expect(mount(<HospitalStaySummary title="Hospital Stays" hospitalStays={hospitalStays} />)).toMatchSnapshot(
+      'wrapper mount'
+    )
   })
 })

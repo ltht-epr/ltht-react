@@ -42,4 +42,4 @@ const CSS_RESET = css`
   }
 `
 
-export { CSS_RESET }
+export default CSS_RESET

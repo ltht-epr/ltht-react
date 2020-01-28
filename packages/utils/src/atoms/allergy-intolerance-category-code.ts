@@ -5,10 +5,10 @@ const allergyIntoleranceCategoryCodeDisplaySummary = (
   categories: Maybe<AllergyIntoleranceCategoryCode>[] = []
 ): string => {
   return categories
-    .map(function(category) {
+    .map(category => {
       return category && titleCase(category)
     })
     .join(', ')
 }
 
-export { allergyIntoleranceCategoryCodeDisplaySummary }
+export default allergyIntoleranceCategoryCodeDisplaySummary

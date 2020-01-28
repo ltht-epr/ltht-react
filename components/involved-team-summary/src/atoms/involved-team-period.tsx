@@ -11,8 +11,12 @@ const styles = css`
   text-align: right;
 `
 
-const InvolvedTeamPeriod = ({ episodeOfCare }: { episodeOfCare: EpisodeOfCare }) => {
+const InvolvedTeamPeriod: React.FC<Props> = ({ episodeOfCare }) => {
   return <div css={styles}>{periodSummaryText(episodeOfCare.period)}</div>
+}
+
+interface Props {
+  episodeOfCare: EpisodeOfCare
 }
 
 export default InvolvedTeamPeriod

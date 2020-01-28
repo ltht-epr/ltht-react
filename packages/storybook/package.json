@@ -32,13 +32,12 @@
     "@storybook/addon-links": "^5.2.8",
     "@storybook/addon-viewport": "^5.2.8",
     "@storybook/addons": "^5.2.8",
-    "@storybook/react": "^5.2.8",
     "@storybook/storybook-deployer": "^2.8.1",
+    "@types/enzyme": "^3.10.4",
     "awesome-typescript-loader": "^5.2.1",
     "babel-loader": "^8.0.6",
     "core-js": "^3.6.1",
     "react-docgen-typescript-webpack-plugin": "^1.1.0",
-    "storybook-addon-jsx": "^7.1.13",
     "storybook-readme": "^5.0.8"
   },
   "dependencies": {
@@ -53,6 +52,12 @@
     "@ltht-react/hospital-stay-summary": "^0.0.6",
     "@ltht-react/involved-team-summary": "^0.0.7",
     "@ltht-react/spinner-icon": "^0.0.4",
-    "@ltht-react/widget": "^0.0.7"
+    "@ltht-react/types": "^0.0.6",
+    "@ltht-react/widget": "^0.0.7",
+    "@storybook/react": "^5.2.8",
+    "enzyme": "^3.11.0",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "storybook-addon-jsx": "^7.1.13"
   }
 }

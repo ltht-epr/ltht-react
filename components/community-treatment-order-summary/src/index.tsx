@@ -1,26 +1,22 @@
 import React from 'react'
-
-import { LypftCommunityTreatmentOrder, Maybe } from '@ltht-react/types'
-import CommunityTreatmentOrderSummaryItem from './molecules/community-treatment-order-summary-item'
+import { LypftCommunityTreatmentOrder } from '@ltht-react/types'
 import { Widget, WidgetHeader, WidgetList, WidgetListItem } from '@ltht-react/widget'
+import CommunityTreatmentOrderSummaryItem from './molecules/community-treatment-order-summary-item'
 
-const CommunityTreatmentOrderSummary = ({
+const CommunityTreatmentOrderSummary: React.FC<Props> = ({
   title = 'Community Treatment Orders',
   communityTreatmentOrders = [],
   clickHandler,
-}: Props) => {
+}) => {
   return (
     <Widget>
       <WidgetHeader>
         <h3>{title}</h3>
       </WidgetHeader>
-      <WidgetList clickable={clickHandler ? true : false}>
-        {communityTreatmentOrders.map((communityTreatmentOrder, index) => (
-          <WidgetListItem key={index}>
-            <CommunityTreatmentOrderSummaryItem
-              communityTreatmentOrder={communityTreatmentOrder}
-              clickHandler={clickHandler}
-            />
+      <WidgetList clickable={clickHandler !== undefined}>
+        {communityTreatmentOrders.map(order => (
+          <WidgetListItem key={order.id}>
+            <CommunityTreatmentOrderSummaryItem communityTreatmentOrder={order} clickHandler={clickHandler} />
           </WidgetListItem>
         ))}
       </WidgetList>

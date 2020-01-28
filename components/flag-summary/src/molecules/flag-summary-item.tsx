@@ -16,8 +16,8 @@ const descriptionStyles = css`
   flex-grow: 1;
 `
 
-const FlagSummaryItem = ({ flag, clickHandler }: Props) => {
-  const handleClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+const FlagSummaryItem: React.FC<Props> = ({ flag, clickHandler }) => {
+  const handleClick = (e: EventTypes): void => {
     e.preventDefault()
     clickHandler && clickHandler(flag)
   }
@@ -34,6 +34,8 @@ const FlagSummaryItem = ({ flag, clickHandler }: Props) => {
     </div>
   )
 }
+
+type EventTypes = React.MouseEvent<HTMLDivElement, MouseEvent> | React.KeyboardEvent<HTMLDivElement>
 
 interface Props {
   flag: Flag

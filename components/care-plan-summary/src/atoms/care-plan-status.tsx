@@ -12,7 +12,7 @@ const styles = css`
 `
 
 const CarePlanStatus = ({ carePlan }: { carePlan: CarePlan }) => {
-  let values = []
+  const values = []
 
   if (carePlan.intent) values.push(titleCase(carePlan.intent))
   if (carePlan.status) values.push(titleCase(carePlan.status))

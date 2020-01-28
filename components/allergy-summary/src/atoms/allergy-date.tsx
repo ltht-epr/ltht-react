@@ -11,8 +11,12 @@ const styles = css`
   text-align: right;
 `
 
-const AllergyDate = ({ allergy }: { allergy: AllergyIntolerance }) => {
+const AllergyDate: React.FC<Props> = ({ allergy }) => {
   return <div css={styles}>{partialDateTimeText(allergy.assertedDate)}</div>
+}
+
+interface Props {
+  allergy: AllergyIntolerance
 }
 
 export default AllergyDate

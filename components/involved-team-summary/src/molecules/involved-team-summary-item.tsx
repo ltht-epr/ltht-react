@@ -3,33 +3,43 @@ import React from 'react'
 import { css, jsx } from '@emotion/core'
 
 import { EpisodeOfCare } from '@ltht-react/types'
-import InvolvedTeamPeriod from '../atoms/involved-team-period'
-import InvolvedTeamDescription from '../atoms/involved-team-description'
-import InvolvedTeamType from '../atoms/involved-team-type'
-import InvolvedTeamTitle from '../atoms/involved-team-title'
+import Period from '../atoms/involved-team-period'
+import Description from '../atoms/involved-team-description'
+import Type from '../atoms/involved-team-type'
+import Title from '../atoms/involved-team-title'
 
-const styles = css`
-  display: flex;
-  justify-content: center;
-`
-const descriptionStyles = css`
-  flex-grow: 1;
-`
+const styles = {
+  root: css`
+    display: flex;
+    justify-content: center;
+  `,
+  description: css`
+    flex-grow: 1;
+  `,
+}
 
-const InvolvedTeamSummaryItem = ({ episodeOfCare, clickHandler }: Props) => {
-  const handleClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+type EventTypes = React.MouseEvent<HTMLDivElement, MouseEvent> | React.KeyboardEvent<HTMLDivElement>
+
+const InvolvedTeamSummaryItem: React.FC<Props> = ({ episodeOfCare, clickHandler, tabIndex }) => {
+  const handleClick = (e: EventTypes): void => {
     e.preventDefault()
     clickHandler && clickHandler(episodeOfCare)
   }
   return (
-    <div css={styles} onClick={clickHandler && handleClick}>
-      <div css={descriptionStyles}>
-        <InvolvedTeamTitle episodeOfCare={episodeOfCare} />
-        <InvolvedTeamDescription episodeOfCare={episodeOfCare} />
+    <div
+      role="link"
+      tabIndex={tabIndex}
+      css={styles.root}
+      onClick={clickHandler && handleClick}
+      onKeyDown={clickHandler && handleClick}
+    >
+      <div css={styles.description}>
+        <Title episodeOfCare={episodeOfCare} />
+        <Description episodeOfCare={episodeOfCare} />
       </div>
       <div>
-        <InvolvedTeamPeriod episodeOfCare={episodeOfCare} />
-        <InvolvedTeamType episodeOfCare={episodeOfCare} />
+        <Period episodeOfCare={episodeOfCare} />
+        <Type episodeOfCare={episodeOfCare} />
       </div>
     </div>
   )
@@ -38,6 +48,7 @@ const InvolvedTeamSummaryItem = ({ episodeOfCare, clickHandler }: Props) => {
 interface Props {
   episodeOfCare: EpisodeOfCare
   clickHandler?(episodeOfCare: EpisodeOfCare): void
+  tabIndex: number
 }
 
 export default InvolvedTeamSummaryItem

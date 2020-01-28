@@ -12,7 +12,7 @@ const styles = css`
 `
 
 const FlagDescription = ({ flag }: { flag: Flag }) => {
-  let values = []
+  const values = []
 
   const codeSummary = codeableConceptCodeSummary(flag.code)
   if (codeSummary && codeSummary.length > 0) values.push(codeSummary)

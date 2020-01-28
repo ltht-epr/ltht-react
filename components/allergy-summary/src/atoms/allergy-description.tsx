@@ -11,8 +11,8 @@ const styles = css`
   text-align: left;
 `
 
-const AllergyDescription = ({ allergy }: { allergy: AllergyIntolerance }) => {
-  let values = []
+const AllergyDescription: React.FC<Props> = ({ allergy }) => {
+  const values = []
 
   const codeSummary = codeableConceptCodeSummary(allergy.code)
   if (codeSummary && codeSummary.length > 0) values.push(codeSummary)
@@ -23,6 +23,10 @@ const AllergyDescription = ({ allergy }: { allergy: AllergyIntolerance }) => {
   if (allergy.type) values.push(titleCase(allergy.type))
 
   return <div css={styles}>{values.join(' - ')}</div>
+}
+
+interface Props {
+  allergy: AllergyIntolerance
 }
 
 export default AllergyDescription

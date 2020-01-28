@@ -1,6 +1,5 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { withInfo } from '@storybook/addon-info'
 
 import SpinnerIcon from '@ltht-react/spinner-icon'
 import SpinnerIconReadMe from '@ltht-react/spinner-icon/README.md'
