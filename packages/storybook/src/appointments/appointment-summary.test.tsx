@@ -2,8 +2,8 @@ import React from 'react'
 import { mount } from 'enzyme'
 import ReactDOM from 'react-dom'
 
-import { AppointmentOne, AppointmentTwo } from './fixtures'
-import AppointmentSummary from '.'
+import AppointmentSummary from '@ltht-react/appointment-summary'
+import { AppointmentOne, AppointmentTwo } from './appointment-summary.fixtures'
 
 describe('AppointmentSummary', () => {
   const appointments = [AppointmentOne, AppointmentTwo]

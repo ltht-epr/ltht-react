@@ -3,18 +3,20 @@ import React from 'react'
 import { css, jsx } from '@emotion/core'
 
 import { Encounter } from '@ltht-react/types'
-import AppointmentServiceProvider from '../atoms/appointment-service-provider'
-import AppointmentDate from '../atoms/appointment-date'
-import AppointmentDescription from '../atoms/appointment-description'
-import AppointmentStatus from '../atoms/appointment-status'
+import ServiceProvider from '../atoms/appointment-service-provider'
+import Date from '../atoms/appointment-date'
+import Description from '../atoms/appointment-description'
+import Status from '../atoms/appointment-status'
 
-const styles = css`
-  display: flex;
-  justify-content: center;
-`
-const descriptionStyles = css`
-  flex-grow: 1;
-`
+const styles = {
+  root: css`
+    display: flex;
+    justify-content: center;
+  `,
+  description: css`
+    flex-grow: 1;
+  `,
+}
 
 const AppointmentSummaryItem: React.FC<Props> = ({ encounter, clickHandler, tabIndex }) => {
   const handleClick = (e: EventTypes): void => {
@@ -25,19 +27,19 @@ const AppointmentSummaryItem: React.FC<Props> = ({ encounter, clickHandler, tabI
     <div
       role="link"
       tabIndex={tabIndex}
-      css={styles}
+      css={styles.root}
       onClick={clickHandler && handleClick}
       onKeyDown={clickHandler && handleClick}
     >
       <div>
-        <AppointmentDate encounter={encounter} />
+        <Date encounter={encounter} />
       </div>
-      <div css={descriptionStyles}>
-        <AppointmentDescription encounter={encounter} />
+      <div css={styles.root}>
+        <Description encounter={encounter} />
       </div>
       <div>
-        <AppointmentServiceProvider encounter={encounter} />
-        <AppointmentStatus encounter={encounter} />
+        <ServiceProvider encounter={encounter} />
+        <Status encounter={encounter} />
       </div>
     </div>
   )
