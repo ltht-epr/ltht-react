@@ -2,8 +2,8 @@ import React from 'react'
 import { mount } from 'enzyme'
 import ReactDOM from 'react-dom'
 
-import { FlagOne, FlagTwo } from './fixtures'
-import FlagSummary from '.'
+import FlagSummary from '@ltht-react/flag-summary'
+import { FlagOne, FlagTwo } from './flag-summary.fixtures'
 
 describe('FlagSummary', () => {
   const flags = [FlagOne, FlagTwo]

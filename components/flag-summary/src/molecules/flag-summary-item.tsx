@@ -3,10 +3,10 @@ import React from 'react'
 import { css, jsx } from '@emotion/core'
 
 import { Flag } from '@ltht-react/types'
-import FlagTitle from '../atoms/flag-title'
-import FlagDate from '../atoms/flag-date'
-import FlagDescription from '../atoms/flag-description'
-import FlagStatus from '../atoms/flag-status'
+import Title from '../atoms/flag-title'
+import Date from '../atoms/flag-date'
+import Description from '../atoms/flag-description'
+import Status from '../atoms/flag-status'
 
 const styles = {
   root: css`
@@ -32,12 +32,12 @@ const FlagSummaryItem: React.FC<Props> = ({ flag, clickHandler, tabIndex }) => {
       onKeyDown={clickHandler && handleClick}
     >
       <div css={styles.description}>
-        <FlagTitle flag={flag} />
-        <FlagDescription flag={flag} />
+        <Title flag={flag} />
+        <Description flag={flag} />
       </div>
       <div>
-        <FlagDate flag={flag} />
-        <FlagStatus flag={flag} />
+        <Date flag={flag} />
+        <Status flag={flag} />
       </div>
     </div>
   )
