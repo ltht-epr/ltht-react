@@ -2,8 +2,8 @@ import React from 'react'
 import { mount } from 'enzyme'
 import ReactDOM from 'react-dom'
 
-import { InvolvedTeamOne, InvolvedTeamTwo } from './fixtures'
-import InvolvedTeamSummary from '.'
+import InvolvedTeamSummary from '@ltht-react/involved-team-summary'
+import { InvolvedTeamOne, InvolvedTeamTwo } from './involved-team-summary.fixtures'
 
 describe('InvolvedTeamSummary', () => {
   const episodeOfCares = [InvolvedTeamOne, InvolvedTeamTwo]
