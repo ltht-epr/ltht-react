@@ -76,7 +76,9 @@
     "type:gen": "lerna run type:gen --scope=@ltht-react/types && yarn lerna run build --scope=@ltht-react/types"
   },
   "husky": {
-    "hooks": {}
+    "hooks": {
+      "pre-push": "yarn lint"
+    }
   },
   "repository": {
     "type": "git",
