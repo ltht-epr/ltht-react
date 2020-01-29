@@ -1,9 +1,12 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
+import JSXAddon from 'storybook-addon-jsx'
 
 import { Widget, WidgetHeader, WidgetBody, WidgetFooter, WidgetList, WidgetListItem } from '@ltht-react/widget'
 
 const stories = storiesOf('Components|Widget|Examples', module)
+
+stories.addWithJSX = JSXAddon.addWithJSX
 
 stories.addWithJSX('Basic', () => (
   <Widget>

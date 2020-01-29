@@ -2,8 +2,7 @@ import React from 'react'
 import { mount } from 'enzyme'
 import ReactDOM from 'react-dom'
 
-// import { FlagOne, FlagTwo } from './fixtures'
-import { Widget, WidgetBody, WidgetHeader, WidgetFooter, WidgetList, WidgetListItem } from '.'
+import { Widget, WidgetBody, WidgetHeader, WidgetFooter, WidgetList, WidgetListItem } from '@ltht-react/widget'
 
 const components = (
   <>
