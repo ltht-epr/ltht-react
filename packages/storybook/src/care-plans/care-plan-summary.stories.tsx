@@ -4,7 +4,7 @@ import JSXAddon from 'storybook-addon-jsx'
 
 import CarePlanSummary from '@ltht-react/care-plan-summary'
 import readme from '@ltht-react/care-plan-summary/README.md'
-import * as fixtures from '@ltht-react/care-plan-summary/src/fixtures'
+import * as fixtures from './care-plan-summary.fixtures'
 
 const stories = storiesOf('Components|Care Plan|Examples', module)
 

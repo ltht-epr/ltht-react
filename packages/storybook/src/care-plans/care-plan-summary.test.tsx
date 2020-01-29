@@ -2,8 +2,8 @@ import React from 'react'
 import { mount } from 'enzyme'
 import ReactDOM from 'react-dom'
 
-import { CarePlanOne, CarePlanTwo } from './fixtures'
-import CarePlanSummary from '.'
+import CarePlanSummary from '@ltht-react/care-plan-summary'
+import { CarePlanOne, CarePlanTwo } from './care-plan-summary.fixtures'
 
 describe('CarePlanSummary', () => {
   const carePlans = [CarePlanOne, CarePlanTwo]

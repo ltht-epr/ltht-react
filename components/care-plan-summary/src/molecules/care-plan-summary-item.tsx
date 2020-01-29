@@ -3,10 +3,10 @@ import React from 'react'
 import { css, jsx } from '@emotion/core'
 
 import { CarePlan } from '@ltht-react/types'
-import CarePlanDate from '../atoms/care-plan-date'
-import CarePlanDescription from '../atoms/care-plan-description'
-import CarePlanStatus from '../atoms/care-plan-status'
-import CarePlanTitle from '../atoms/care-plan-title'
+import Date from '../atoms/care-plan-date'
+import Description from '../atoms/care-plan-description'
+import Status from '../atoms/care-plan-status'
+import Title from '../atoms/care-plan-title'
 
 const styles = {
   root: css`
@@ -32,12 +32,12 @@ const CarePlanSummaryItem: React.FC<Props> = ({ carePlan, clickHandler, tabIndex
       onKeyDown={clickHandler && handleClick}
     >
       <div css={styles.description}>
-        <CarePlanTitle carePlan={carePlan} />
-        <CarePlanDescription carePlan={carePlan} />
+        <Title carePlan={carePlan} />
+        <Description carePlan={carePlan} />
       </div>
       <div>
-        <CarePlanDate carePlan={carePlan} />
-        <CarePlanStatus carePlan={carePlan} />
+        <Date carePlan={carePlan} />
+        <Status carePlan={carePlan} />
       </div>
     </div>
   )

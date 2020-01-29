@@ -75,7 +75,7 @@ exports[`AppointmentSummary matches snapshot: wrapper mount 1`] = `
   padding: 0.5rem 0.5rem 0.5rem 0;
 }
 
-.emotion-6 {
+.emotion-3 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -89,13 +89,6 @@ exports[`AppointmentSummary matches snapshot: wrapper mount 1`] = `
 .emotion-1 {
   color: #231f20;
   text-align: left;
-}
-
-.emotion-3 {
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
 }
 
 .emotion-2 {
@@ -258,7 +251,7 @@ exports[`AppointmentSummary matches snapshot: wrapper mount 1`] = `
                 tabIndex={0}
               >
                 <div
-                  className="emotion-6"
+                  className="emotion-3"
                   role="link"
                   tabIndex={0}
                 >
@@ -504,7 +497,7 @@ exports[`AppointmentSummary matches snapshot: wrapper mount 1`] = `
                 tabIndex={1}
               >
                 <div
-                  className="emotion-6"
+                  className="emotion-3"
                   role="link"
                   tabIndex={1}
                 >
