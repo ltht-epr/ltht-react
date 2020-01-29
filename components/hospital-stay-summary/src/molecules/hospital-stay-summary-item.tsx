@@ -3,8 +3,8 @@ import React from 'react'
 import { css, jsx } from '@emotion/core'
 
 import { Encounter } from '@ltht-react/types'
-import HospitalStayPeriod from '../atoms/hospital-stay-period'
-import HospitalStayServiceProvider from '../atoms/hospital-stay-service-provider'
+import Period from '../atoms/hospital-stay-period'
+import ServiceProvider from '../atoms/hospital-stay-service-provider'
 
 const styles = css`
   display: flex;
@@ -29,10 +29,10 @@ const HospitalStaySummaryItem: React.FC<Props> = ({ hospitalStay, clickHandler, 
       onKeyDown={clickHandler && handleClick}
     >
       <div>
-        <HospitalStayPeriod encounter={hospitalStay} />
+        <Period encounter={hospitalStay} />
       </div>
       <div>
-        <HospitalStayServiceProvider encounter={hospitalStay} />
+        <ServiceProvider encounter={hospitalStay} />
       </div>
     </div>
   )
