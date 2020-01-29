@@ -53,6 +53,7 @@
     "@ltht-react/involved-team-summary": "^0.0.7",
     "@ltht-react/spinner-icon": "^0.0.4",
     "@ltht-react/types": "^0.0.6",
+    "@ltht-react/styles": "^0.0.6",
     "@ltht-react/widget": "^0.0.7",
     "@storybook/react": "^5.2.8",
     "enzyme": "^3.11.0",

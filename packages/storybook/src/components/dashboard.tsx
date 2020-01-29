@@ -1,46 +1,32 @@
 /** @jsx jsx */
 import React from 'react'
 import { css, jsx } from '@emotion/core'
+import { TABLET_MEDIA_QUERY } from '@ltht-react/styles'
 
 const styles = {
-  wrap: css`
-    -ms-overflow-style: none;
+  container: css`
     display: flex;
-    overflow-y: hidden;
-    height: 100vh;
+    flex-direction: column;
+
+    & > div:last {
+      padding-right: 0;
+    }
+
+    ${TABLET_MEDIA_QUERY} {
+      flex-direction: row;
+    }
   `,
   column: css`
-    position: relative;
     flex: 1;
-  `,
-  widget: css`
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding-bottom: 1rem;
-    -ms-overflow-style: none;
-    overflow-y: scroll; /* has to be scroll, not auto */
-    -webkit-overflow-scrolling: touch;
-
-    & > div {
-      margin-right: 0.5rem;
-      margin-left: 0.5rem;
-    }
   `,
 }
 
-const Wrap: React.FC = ({ children }) => {
-  return <div css={styles.wrap}>{children}</div>
+const Container: React.FC = ({ children }) => {
+  return <div css={styles.container}>{children}</div>
 }
 
 const Column: React.FC = ({ children }) => {
   return <div css={styles.column}>{children}</div>
 }
 
-const Widgets: React.FC = ({ children }) => {
-  return <div css={styles.widget}>{children}</div>
-}
-
-export { Wrap, Column, Widgets }
+export { Container, Column }

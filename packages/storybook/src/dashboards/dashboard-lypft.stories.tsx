@@ -1,5 +1,6 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
+import JSXAddon from 'storybook-addon-jsx'
 
 import AllergySummary from '@ltht-react/allergy-summary'
 import AppointmentSummary from '@ltht-react/appointment-summary'
@@ -17,42 +18,40 @@ import * as episodeOfCares from '@ltht-react/involved-team-summary/src/fixtures'
 import * as flags from '@ltht-react/flag-summary/src/fixtures'
 import * as hospitalStays from '@ltht-react/hospital-stay-summary/src/fixtures'
 
-import { Wrap, Column, Widgets } from '../components/dashboard'
+import { Container, Column } from '../components/dashboard'
 
 const stories = storiesOf('Dashboards|Basic|Examples', module)
+
+stories.addWithJSX = JSXAddon.addWithJSX
 
 stories.addParameters({
   showPanel: false,
 })
 
 stories.addWithJSX('Readonly Widgets', () => (
-  <Wrap>
+  <Container>
     <Column>
-      <Widgets>
-        <FlagSummary title="Alerts" flags={[flags.FlagOne, flags.FlagTwo]} />
-        <AllergySummary allergies={[allergies.AllergyOne, allergies.AllergyTwo]} />
-        <CommunityTreatmentOrderSummary
-          communityTreatmentOrders={[
-            communityOrders.CommunityTreatmentOrderOne,
-            communityOrders.CommunityTreatmentOrderTwo,
-          ]}
-        />
-        <CarePlanSummary carePlans={[carePlans.CarePlanOne, carePlans.CarePlanTwo]} />
-      </Widgets>
+      <FlagSummary title="Alerts" flags={[flags.FlagOne, flags.FlagTwo]} />
+      <AllergySummary allergies={[allergies.AllergyOne, allergies.AllergyTwo]} />
+      <CommunityTreatmentOrderSummary
+        communityTreatmentOrders={[
+          communityOrders.CommunityTreatmentOrderOne,
+          communityOrders.CommunityTreatmentOrderTwo,
+        ]}
+      />
+      <CarePlanSummary carePlans={[carePlans.CarePlanOne, carePlans.CarePlanTwo]} />
     </Column>
     <Column>
-      <Widgets>
-        <InvolvedTeamSummary episodeOfCares={[episodeOfCares.InvolvedTeamOne, episodeOfCares.InvolvedTeamTwo]} />
-        <AppointmentSummary
-          title="Future Appointments"
-          appointments={[appointments.AppointmentOne, appointments.AppointmentTwo]}
-        />
-        <AppointmentSummary
-          title="Previous Appointments"
-          appointments={[appointments.AppointmentOne, appointments.AppointmentTwo]}
-        />
-        <HospitalStaySummary hospitalStays={[hospitalStays.HospitalStayOne, hospitalStays.HospitalStayTwo]} />
-      </Widgets>
+      <InvolvedTeamSummary episodeOfCares={[episodeOfCares.InvolvedTeamOne, episodeOfCares.InvolvedTeamTwo]} />
+      <AppointmentSummary
+        title="Future Appointments"
+        encounters={[appointments.AppointmentOne, appointments.AppointmentTwo]}
+      />
+      <AppointmentSummary
+        title="Previous Appointments"
+        encounters={[appointments.AppointmentOne, appointments.AppointmentTwo]}
+      />
+      <HospitalStaySummary hospitalStays={[hospitalStays.HospitalStayOne, hospitalStays.HospitalStayTwo]} />
     </Column>
-  </Wrap>
+  </Container>
 ))
