@@ -34,7 +34,7 @@ const AppointmentSummaryItem: React.FC<Props> = ({ encounter, clickHandler, tabI
       <div>
         <Date encounter={encounter} />
       </div>
-      <div css={styles.root}>
+      <div css={styles.description}>
         <Description encounter={encounter} />
       </div>
       <div>

@@ -8,15 +8,14 @@ import Description from '../atoms/involved-team-description'
 import Type from '../atoms/involved-team-type'
 import Title from '../atoms/involved-team-title'
 
-const styles = {
-  root: css`
-    display: flex;
-    justify-content: center;
-  `,
-  description: css`
+const styles = css`
+  display: flex;
+  justify-content: center;
+
+  & > div {
     flex-grow: 1;
-  `,
-}
+  }
+`
 
 type EventTypes = React.MouseEvent<HTMLDivElement, MouseEvent> | React.KeyboardEvent<HTMLDivElement>
 
@@ -29,11 +28,11 @@ const InvolvedTeamSummaryItem: React.FC<Props> = ({ episodeOfCare, clickHandler,
     <div
       role="link"
       tabIndex={tabIndex}
-      css={styles.root}
+      css={styles}
       onClick={clickHandler && handleClick}
       onKeyDown={clickHandler && handleClick}
     >
-      <div css={styles.description}>
+      <div>
         <Title episodeOfCare={episodeOfCare} />
         <Description episodeOfCare={episodeOfCare} />
       </div>
