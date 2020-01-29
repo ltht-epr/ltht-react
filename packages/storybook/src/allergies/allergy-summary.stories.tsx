@@ -1,11 +1,14 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
+import JSXAddon from 'storybook-addon-jsx'
 
 import AllergySummary from '@ltht-react/allergy-summary'
 import readme from '@ltht-react/allergy-summary/README.md'
-import * as fixtures from '@ltht-react/allergy-summary/src/fixtures'
+import * as fixtures from './allergy-summary.fixtures'
 
 const stories = storiesOf('Components|Allergy|Examples', module)
+
+stories.addWithJSX = JSXAddon.addWithJSX
 
 stories.addParameters({
   readme: {

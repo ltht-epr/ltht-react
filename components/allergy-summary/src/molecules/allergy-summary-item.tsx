@@ -9,21 +9,22 @@ import Description from '../atoms/allergy-description'
 import Status from '../atoms/allergy-status'
 import Icon from '../atoms/allergy-icon'
 
-const styles = css`
-  display: flex;
-  justify-content: center;
-`
-const descriptionStyles = css`
-  flex-grow: 1;
-  padding-left: 0.5rem;
-`
-
-const iconStyles = css`
-  min-width: 1rem;
-`
+const styles = {
+  root: css`
+    display: flex;
+    justify-content: center;
+  `,
+  description: css`
+    flex-grow: 1;
+    padding-left: 0.5rem;
+  `,
+  icon: css`
+    min-width: 1rem;
+  `,
+}
 
 const AllergySummaryItem: React.FC<Props> = ({ allergy, clickHandler, tabIndex }) => {
-  const handleClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent> | React.KeyboardEvent<HTMLDivElement>): void => {
+  const handleClick = (e: EventTypes): void => {
     e.preventDefault()
     clickHandler && clickHandler(allergy)
   }
@@ -31,14 +32,14 @@ const AllergySummaryItem: React.FC<Props> = ({ allergy, clickHandler, tabIndex }
     <div
       role="link"
       tabIndex={tabIndex}
-      css={styles}
+      css={styles.root}
       onClick={clickHandler && handleClick}
       onKeyDown={clickHandler && handleClick}
     >
-      <div css={iconStyles}>
+      <div css={styles.icon}>
         <Icon allergy={allergy} />
       </div>
-      <div css={descriptionStyles}>
+      <div css={styles.description}>
         <Title allergy={allergy} />
         <Description allergy={allergy} />
       </div>
@@ -49,6 +50,8 @@ const AllergySummaryItem: React.FC<Props> = ({ allergy, clickHandler, tabIndex }
     </div>
   )
 }
+
+type EventTypes = React.MouseEvent<HTMLDivElement, MouseEvent> | React.KeyboardEvent<HTMLDivElement>
 
 interface Props {
   allergy: AllergyIntolerance
