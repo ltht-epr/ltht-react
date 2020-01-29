@@ -1,11 +1,14 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
+import JSXAddon from 'storybook-addon-jsx'
 
 import CommunityTreatmentOrderSummary from '@ltht-react/community-treatment-order-summary'
 import readme from '@ltht-react/community-treatment-order-summary/README.md'
-import * as fixtures from '@ltht-react/community-treatment-order-summary/src/fixtures'
+import * as fixtures from './community-treatment-order-summary.fixtures'
 
 const stories = storiesOf('Components|Community Treatment Order|Examples', module)
+
+stories.addWithJSX = JSXAddon.addWithJSX
 
 stories.addParameters({
   readme: {

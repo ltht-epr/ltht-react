@@ -3,10 +3,10 @@ import React from 'react'
 import { css, jsx } from '@emotion/core'
 
 import { LypftCommunityTreatmentOrder } from '@ltht-react/types'
-import CommunityTreatmentOrderConsent from '../atoms/community-treatment-order-consent'
-import CommunityTreatmentOrderPeriod from '../atoms/community-treatment-order-period'
-import CommunityTreatmentOrderRestrictions from '../atoms/community-treatment-order-restrictions'
-import CommunityTreatmentOrderStatus from '../atoms/community-treatment-order-status'
+import Consent from '../atoms/community-treatment-order-consent'
+import Period from '../atoms/community-treatment-order-period'
+import Restrictions from '../atoms/community-treatment-order-restrictions'
+import Status from '../atoms/community-treatment-order-status'
 
 const styles = {
   root: css`
@@ -32,12 +32,12 @@ const CommunityTreatmentOrderSummaryItem: React.FC<Props> = ({ communityTreatmen
       onKeyDown={clickHandler && handleClick}
     >
       <div css={styles.description}>
-        <CommunityTreatmentOrderStatus communityTreatmentOrder={communityTreatmentOrder} />
-        <CommunityTreatmentOrderRestrictions communityTreatmentOrder={communityTreatmentOrder} />
+        <Status communityTreatmentOrder={communityTreatmentOrder} />
+        <Restrictions communityTreatmentOrder={communityTreatmentOrder} />
       </div>
       <div css={styles.description}>
-        <CommunityTreatmentOrderPeriod communityTreatmentOrder={communityTreatmentOrder} />
-        <CommunityTreatmentOrderConsent communityTreatmentOrder={communityTreatmentOrder} />
+        <Period communityTreatmentOrder={communityTreatmentOrder} />
+        <Consent communityTreatmentOrder={communityTreatmentOrder} />
       </div>
     </div>
   )

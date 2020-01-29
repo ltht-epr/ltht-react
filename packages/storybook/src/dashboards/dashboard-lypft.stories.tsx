@@ -10,13 +10,13 @@ import FlagSummary from '@ltht-react/flag-summary'
 import HospitalStaySummary from '@ltht-react/hospital-stay-summary'
 import InvolvedTeamSummary from '@ltht-react/involved-team-summary'
 
-import * as communityOrders from '@ltht-react/community-treatment-order-summary/src/fixtures'
 import * as episodeOfCares from '@ltht-react/involved-team-summary/src/fixtures'
 import * as flags from '@ltht-react/flag-summary/src/fixtures'
 import * as hospitalStays from '@ltht-react/hospital-stay-summary/src/fixtures'
 import * as allergies from '../allergies/allergy-summary.fixtures'
 import * as appointments from '../appointments/appointment-summary.fixtures'
 import * as carePlans from '../care-plans/care-plan-summary.fixtures'
+import * as communityOrders from '../community-treatment-orders/community-treatment-order-summary.fixtures'
 
 import { Container, Column } from '../components/dashboard'
 
