@@ -111,7 +111,7 @@ const indexScript = () => {
   const filename = 'index.tsx'
   const contents = `import React from 'react'
 
-const ${componentName} = () => <div>${componentName}</div>
+const ${componentName}: React.FC = () => <div>${componentName}</div>
 
 export default ${componentName}
 `

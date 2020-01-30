@@ -9,7 +9,7 @@ exports[`CommunityTreatmentOrderSummary matches snapshot: wrapper mount 1`] = `
   color: #231f20;
   margin-bottom: 0.5rem;
   border-radius: 4px;
-  box-shadow: 3px 3px 3px #666666;
+  box-shadow: 0px 2px 1px -1px rgba(102,102,102,0.1), 0px 1px 1px 0px rgba(102,102,102,0.15), 0px 1px 3px 0px rgba(102,102,102,.6);
   margin: 0 5px 10px 0;
   -webkit-font-smoothing: antialiased;
 }
