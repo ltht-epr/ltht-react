@@ -241,12 +241,10 @@ exports[`AllergySummary matches snapshot: wrapper mount 1`] = `
                     "verificationStatus": "CONFIRMED",
                   }
                 }
-                tabIndex={0}
               >
                 <div
                   className="emotion-9"
                   role="link"
-                  tabIndex={0}
                 >
                   <div
                     className="emotion-3"
@@ -537,12 +535,10 @@ exports[`AllergySummary matches snapshot: wrapper mount 1`] = `
                     "type": "INTOLERANCE",
                   }
                 }
-                tabIndex={1}
               >
                 <div
                   className="emotion-9"
                   role="link"
-                  tabIndex={1}
                 >
                   <div
                     className="emotion-3"

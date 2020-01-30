@@ -11,9 +11,9 @@ const CarePlanSummary: React.FC<Props> = ({ title = 'Care Plans', carePlans = []
         <h3>{title}</h3>
       </WidgetHeader>
       <WidgetList clickable={!!clickHandler}>
-        {carePlans.map((carePlan, index) => (
+        {carePlans.map(carePlan => (
           <WidgetListItem key={carePlan.id}>
-            <CarePlanSummaryItem tabIndex={index} carePlan={carePlan} clickHandler={clickHandler} />
+            <CarePlanSummaryItem carePlan={carePlan} clickHandler={clickHandler} />
           </WidgetListItem>
         ))}
       </WidgetList>

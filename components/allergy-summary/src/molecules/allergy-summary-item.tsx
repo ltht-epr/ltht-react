@@ -23,19 +23,13 @@ const styles = {
   `,
 }
 
-const AllergySummaryItem: React.FC<Props> = ({ allergy, clickHandler, tabIndex }) => {
-  const handleClick = (e: EventTypes): void => {
+const AllergySummaryItem: React.FC<Props> = ({ allergy, clickHandler }) => {
+  const handleClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>): void => {
     e.preventDefault()
     clickHandler && clickHandler(allergy)
   }
   return (
-    <div
-      role="link"
-      tabIndex={tabIndex}
-      css={styles.root}
-      onClick={clickHandler && handleClick}
-      onKeyDown={clickHandler && handleClick}
-    >
+    <div css={styles.root} role="link" onClick={clickHandler && handleClick}>
       <div css={styles.icon}>
         <Icon allergy={allergy} />
       </div>
@@ -51,12 +45,9 @@ const AllergySummaryItem: React.FC<Props> = ({ allergy, clickHandler, tabIndex }
   )
 }
 
-type EventTypes = React.MouseEvent<HTMLDivElement, MouseEvent> | React.KeyboardEvent<HTMLDivElement>
-
 interface Props {
   allergy: AllergyIntolerance
   clickHandler?(allergy: AllergyIntolerance): void
-  tabIndex: number
 }
 
 export default AllergySummaryItem

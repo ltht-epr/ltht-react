@@ -18,19 +18,13 @@ const styles = {
   `,
 }
 
-const AppointmentSummaryItem: React.FC<Props> = ({ encounter, clickHandler, tabIndex }) => {
-  const handleClick = (e: EventTypes): void => {
+const AppointmentSummaryItem: React.FC<Props> = ({ encounter, clickHandler }) => {
+  const handleClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>): void => {
     e.preventDefault()
     clickHandler && clickHandler(encounter)
   }
   return (
-    <div
-      role="link"
-      tabIndex={tabIndex}
-      css={styles.root}
-      onClick={clickHandler && handleClick}
-      onKeyDown={clickHandler && handleClick}
-    >
+    <div role="link" css={styles.root} onClick={clickHandler && handleClick}>
       <div>
         <Date encounter={encounter} />
       </div>
@@ -45,12 +39,9 @@ const AppointmentSummaryItem: React.FC<Props> = ({ encounter, clickHandler, tabI
   )
 }
 
-type EventTypes = React.MouseEvent<HTMLDivElement, MouseEvent> | React.KeyboardEvent<HTMLDivElement>
-
 interface Props {
   encounter: Encounter
   clickHandler?(appointment: Encounter): void
-  tabIndex: number
 }
 
 export default AppointmentSummaryItem

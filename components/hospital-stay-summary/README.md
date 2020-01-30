@@ -1,4 +1,4 @@
-# HospitalStaySummary
+# Hospital Stay Summary
 
 <!-- STORY -->
 

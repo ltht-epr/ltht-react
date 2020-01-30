@@ -204,12 +204,10 @@ exports[`HospitalStaySummary matches snapshot: wrapper mount 1`] = `
                     },
                   }
                 }
-                tabIndex={0}
               >
                 <div
                   className="emotion-3"
                   role="link"
-                  tabIndex={0}
                 >
                   <div>
                     <HospitalStayPeriod
@@ -314,12 +312,10 @@ exports[`HospitalStaySummary matches snapshot: wrapper mount 1`] = `
                     },
                   }
                 }
-                tabIndex={1}
               >
                 <div
                   className="emotion-3"
                   role="link"
-                  tabIndex={1}
                 >
                   <div>
                     <HospitalStayPeriod

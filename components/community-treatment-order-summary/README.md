@@ -1,4 +1,4 @@
-# CommunityTreatmentOrderSummary
+# Community Treatment Order Summary
 
 <!-- STORY -->
 

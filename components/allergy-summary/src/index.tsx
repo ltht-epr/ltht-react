@@ -12,9 +12,9 @@ const AllergySummary: React.FC<Props> = ({ title = 'Allergies', allergies = [], 
         <h3>{title}</h3>
       </WidgetHeader>
       <WidgetList clickable={!!clickHandler}>
-        {allergies.map((allergy, index) => (
+        {allergies.map(allergy => (
           <WidgetListItem key={allergy.id}>
-            <AllergySummaryItem tabIndex={index} allergy={allergy} clickHandler={clickHandler} />
+            <AllergySummaryItem allergy={allergy} clickHandler={clickHandler} />
           </WidgetListItem>
         ))}
       </WidgetList>

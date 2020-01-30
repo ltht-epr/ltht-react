@@ -11,9 +11,9 @@ const AppointmentSummary: React.FC<Props> = ({ title = 'Appointments', encounter
         <h3>{title}</h3>
       </WidgetHeader>
       <WidgetList clickable={!!clickHandler}>
-        {encounters.map((encounter, index) => (
+        {encounters.map(encounter => (
           <WidgetListItem key={encounter.id}>
-            <AppointmentSummaryItem tabIndex={index} encounter={encounter} clickHandler={clickHandler} />
+            <AppointmentSummaryItem encounter={encounter} clickHandler={clickHandler} />
           </WidgetListItem>
         ))}
       </WidgetList>

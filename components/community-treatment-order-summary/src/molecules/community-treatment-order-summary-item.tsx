@@ -18,19 +18,13 @@ const styles = {
   `,
 }
 
-const CommunityTreatmentOrderSummaryItem: React.FC<Props> = ({ communityTreatmentOrder, clickHandler, tabIndex }) => {
-  const handleClick = (e: EventTypes): void => {
+const CommunityTreatmentOrderSummaryItem: React.FC<Props> = ({ communityTreatmentOrder, clickHandler }) => {
+  const handleClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>): void => {
     e.preventDefault()
     clickHandler && clickHandler(communityTreatmentOrder)
   }
   return (
-    <div
-      css={styles.root}
-      role="link"
-      tabIndex={tabIndex}
-      onClick={clickHandler && handleClick}
-      onKeyDown={clickHandler && handleClick}
-    >
+    <div css={styles.root} role="link" onClick={clickHandler && handleClick}>
       <div css={styles.description}>
         <Status communityTreatmentOrder={communityTreatmentOrder} />
         <Restrictions communityTreatmentOrder={communityTreatmentOrder} />
@@ -43,12 +37,9 @@ const CommunityTreatmentOrderSummaryItem: React.FC<Props> = ({ communityTreatmen
   )
 }
 
-type EventTypes = React.MouseEvent<HTMLDivElement, MouseEvent> | React.KeyboardEvent<HTMLDivElement>
-
 interface Props {
   communityTreatmentOrder: LypftCommunityTreatmentOrder
   clickHandler?(CommunityTreatmentOrder: LypftCommunityTreatmentOrder): void
-  tabIndex: number
 }
 
 export default CommunityTreatmentOrderSummaryItem

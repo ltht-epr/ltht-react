@@ -235,12 +235,10 @@ exports[`CommunityTreatmentOrderSummary matches snapshot: wrapper mount 1`] = `
                     "restrictions": "No restrictions",
                   }
                 }
-                tabIndex={0}
               >
                 <div
                   className="emotion-7"
                   role="link"
-                  tabIndex={0}
                 >
                   <div
                     className="emotion-3"
@@ -452,12 +450,10 @@ exports[`CommunityTreatmentOrderSummary matches snapshot: wrapper mount 1`] = `
                     "restrictions": "No Restrictions",
                   }
                 }
-                tabIndex={1}
               >
                 <div
                   className="emotion-7"
                   role="link"
-                  tabIndex={1}
                 >
                   <div
                     className="emotion-3"

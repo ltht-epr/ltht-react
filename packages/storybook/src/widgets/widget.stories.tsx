@@ -3,10 +3,17 @@ import { storiesOf } from '@storybook/react'
 import JSXAddon from 'storybook-addon-jsx'
 
 import { Widget, WidgetHeader, WidgetBody, WidgetFooter, WidgetList, WidgetListItem } from '@ltht-react/widget'
+import readme from '@ltht-react/widget/README.md'
 
 const stories = storiesOf('Components|Widget|Examples', module)
 
 stories.addWithJSX = JSXAddon.addWithJSX
+
+stories.addParameters({
+  readme: {
+    sidebar: readme,
+  },
+})
 
 stories.addWithJSX('Basic', () => (
   <Widget>

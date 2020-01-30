@@ -15,19 +15,13 @@ const styles = css`
   }
 `
 
-const HospitalStaySummaryItem: React.FC<Props> = ({ hospitalStay, clickHandler, tabIndex }) => {
-  const handleClick = (e: EventTypes): void => {
+const HospitalStaySummaryItem: React.FC<Props> = ({ hospitalStay, clickHandler }) => {
+  const handleClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>): void => {
     e.preventDefault()
     clickHandler && clickHandler(hospitalStay)
   }
   return (
-    <div
-      role="link"
-      css={styles}
-      tabIndex={tabIndex}
-      onClick={clickHandler && handleClick}
-      onKeyDown={clickHandler && handleClick}
-    >
+    <div role="link" css={styles} onClick={clickHandler && handleClick}>
       <div>
         <Period encounter={hospitalStay} />
       </div>
@@ -38,12 +32,9 @@ const HospitalStaySummaryItem: React.FC<Props> = ({ hospitalStay, clickHandler, 
   )
 }
 
-type EventTypes = React.MouseEvent<HTMLDivElement, MouseEvent> | React.KeyboardEvent<HTMLDivElement>
-
 interface Props {
   hospitalStay: Encounter
   clickHandler?(hospitalStay: Encounter): void
-  tabIndex: number
 }
 
 export default HospitalStaySummaryItem

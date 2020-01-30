@@ -11,9 +11,9 @@ const HospitalStaySummary: React.FC<Props> = ({ title = 'Hospital Stays', hospit
         <h3>{title}</h3>
       </WidgetHeader>
       <WidgetList clickable={!!clickHandler}>
-        {hospitalStays.map((encounter, index) => (
+        {hospitalStays.map(encounter => (
           <WidgetListItem key={encounter.id}>
-            <HospitalStaySummaryItem tabIndex={index} hospitalStay={encounter} clickHandler={clickHandler} />
+            <HospitalStaySummaryItem hospitalStay={encounter} clickHandler={clickHandler} />
           </WidgetListItem>
         ))}
       </WidgetList>

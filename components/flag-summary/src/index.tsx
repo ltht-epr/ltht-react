@@ -11,9 +11,9 @@ const FlagSummary: React.FC<Props> = ({ title, flags = [], clickHandler }) => {
         <h3>{title}</h3>
       </WidgetHeader>
       <WidgetList clickable={!!clickHandler}>
-        {flags.map((flag, index) => (
+        {flags.map(flag => (
           <WidgetListItem key={flag.id}>
-            <FlagSummaryItem tabIndex={index} flag={flag} clickHandler={clickHandler} />
+            <FlagSummaryItem flag={flag} clickHandler={clickHandler} />
           </WidgetListItem>
         ))}
       </WidgetList>

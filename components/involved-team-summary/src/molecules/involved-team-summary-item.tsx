@@ -17,21 +17,13 @@ const styles = css`
   }
 `
 
-type EventTypes = React.MouseEvent<HTMLDivElement, MouseEvent> | React.KeyboardEvent<HTMLDivElement>
-
-const InvolvedTeamSummaryItem: React.FC<Props> = ({ episodeOfCare, clickHandler, tabIndex }) => {
-  const handleClick = (e: EventTypes): void => {
+const InvolvedTeamSummaryItem: React.FC<Props> = ({ episodeOfCare, clickHandler }) => {
+  const handleClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>): void => {
     e.preventDefault()
     clickHandler && clickHandler(episodeOfCare)
   }
   return (
-    <div
-      role="link"
-      tabIndex={tabIndex}
-      css={styles}
-      onClick={clickHandler && handleClick}
-      onKeyDown={clickHandler && handleClick}
-    >
+    <div role="link" css={styles} onClick={clickHandler && handleClick}>
       <div>
         <Title episodeOfCare={episodeOfCare} />
         <Description episodeOfCare={episodeOfCare} />
@@ -47,7 +39,6 @@ const InvolvedTeamSummaryItem: React.FC<Props> = ({ episodeOfCare, clickHandler,
 interface Props {
   episodeOfCare: EpisodeOfCare
   clickHandler?(episodeOfCare: EpisodeOfCare): void
-  tabIndex: number
 }
 
 export default InvolvedTeamSummaryItem

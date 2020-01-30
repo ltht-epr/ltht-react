@@ -11,9 +11,9 @@ const InvolvedTeamSummary: React.FC<Props> = ({ title = 'Involved Teams', episod
         <h3>{title}</h3>
       </WidgetHeader>
       <WidgetList clickable={!!clickHandler}>
-        {episodeOfCares.map((episodeOfCare, index) => (
+        {episodeOfCares.map(episodeOfCare => (
           <WidgetListItem key={episodeOfCare.id}>
-            <InvolvedTeamSummaryItem tabIndex={index} episodeOfCare={episodeOfCare} clickHandler={clickHandler} />
+            <InvolvedTeamSummaryItem episodeOfCare={episodeOfCare} clickHandler={clickHandler} />
           </WidgetListItem>
         ))}
       </WidgetList>

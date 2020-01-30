@@ -14,13 +14,9 @@ const CommunityTreatmentOrderSummary: React.FC<Props> = ({
         <h3>{title}</h3>
       </WidgetHeader>
       <WidgetList clickable={clickHandler !== undefined}>
-        {communityTreatmentOrders.map((order, index) => (
+        {communityTreatmentOrders.map(order => (
           <WidgetListItem key={order.id}>
-            <CommunityTreatmentOrderSummaryItem
-              tabIndex={index}
-              communityTreatmentOrder={order}
-              clickHandler={clickHandler}
-            />
+            <CommunityTreatmentOrderSummaryItem communityTreatmentOrder={order} clickHandler={clickHandler} />
           </WidgetListItem>
         ))}
       </WidgetList>
