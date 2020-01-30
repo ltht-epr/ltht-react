@@ -1,6 +1,6 @@
 {
   "name": "ltht-react",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "> TODO: description",
   "author": "Jonny Smith <jonny.asmith@gmail.com>",
   "homepage": "",
@@ -22,18 +22,18 @@
     "build": "tsc"
   },
   "dependencies": {
-    "@ltht-react/allergy-summary": "^0.0.7",
-    "@ltht-react/appointment-summary": "^0.0.6",
-    "@ltht-react/care-plan-summary": "^0.0.7",
-    "@ltht-react/community-treatment-order-summary": "^0.0.6",
-    "@ltht-react/exclamation-icon": "^0.0.8",
-    "@ltht-react/flag-summary": "^0.0.13",
-    "@ltht-react/hospital-stay-summary": "^0.0.6",
-    "@ltht-react/involved-team-summary": "^0.0.7",
-    "@ltht-react/spinner-icon": "^0.0.4",
-    "@ltht-react/styles": "^0.0.6",
-    "@ltht-react/types": "^0.0.6",
-    "@ltht-react/utils": "^0.0.9",
-    "@ltht-react/widget": "^0.0.7"
+    "@ltht-react/allergy-summary": "^0.0.8",
+    "@ltht-react/appointment-summary": "^0.0.7",
+    "@ltht-react/care-plan-summary": "^0.0.8",
+    "@ltht-react/community-treatment-order-summary": "^0.0.7",
+    "@ltht-react/exclamation-icon": "^0.0.9",
+    "@ltht-react/flag-summary": "^0.0.14",
+    "@ltht-react/hospital-stay-summary": "^0.0.7",
+    "@ltht-react/involved-team-summary": "^0.0.8",
+    "@ltht-react/spinner-icon": "^0.0.5",
+    "@ltht-react/styles": "^0.0.7",
+    "@ltht-react/types": "^0.0.7",
+    "@ltht-react/utils": "^0.0.10",
+    "@ltht-react/widget": "^0.0.8"
   }
 }

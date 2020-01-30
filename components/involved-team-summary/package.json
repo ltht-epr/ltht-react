@@ -1,6 +1,6 @@
 {
   "name": "@ltht-react/involved-team-summary",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "ltht-react InvolvedTeamSummary component.",
   "author": "LTHT",
   "homepage": "",
@@ -23,10 +23,10 @@
   "dependencies": {
     "@emotion/core": "^10.0.27",
     "@emotion/styled": "^10.0.27",
-    "@ltht-react/styles": "^0.0.6",
-    "@ltht-react/types": "^0.0.6",
-    "@ltht-react/utils": "^0.0.9",
-    "@ltht-react/widget": "^0.0.7",
+    "@ltht-react/styles": "^0.0.7",
+    "@ltht-react/types": "^0.0.7",
+    "@ltht-react/utils": "^0.0.10",
+    "@ltht-react/widget": "^0.0.8",
     "emotion": "^10.0.27",
     "react": "^16.12.0"
   }
