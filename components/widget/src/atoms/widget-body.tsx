@@ -1,13 +1,18 @@
 /** @jsx jsx */
 import React from 'react'
-import { css, jsx } from '@emotion/core'
+import { css, jsx, SerializedStyles } from '@emotion/core'
+import { useWidget } from './widget-context'
 
-const styles = css`
-  padding: 0.5rem 0 0.5rem 0.5rem;
-`
+const styles = (collapsed: boolean): SerializedStyles => {
+  return css`
+    padding: 0.5rem 0 0.5rem 0.5rem;
+    ${collapsed && 'display: none;'}
+  `
+}
 
 const WidgetBody: React.FC = ({ children }) => {
-  return <div css={styles}>{children}</div>
+  const { collapseButton } = useWidget()
+  return <div css={styles(collapseButton.collapsed)}>{children}</div>
 }
 
 export default WidgetBody

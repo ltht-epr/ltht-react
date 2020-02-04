@@ -2,8 +2,8 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import JSXAddon from 'storybook-addon-jsx'
 
-import { Widget, WidgetHeader, WidgetBody, WidgetFooter, WidgetList, WidgetListItem } from '@ltht-react/widget'
 import readme from '@ltht-react/widget/README.md'
+import { Widget, WidgetHeader, WidgetBody, WidgetFooter, WidgetList, WidgetListItem } from '@ltht-react/widget'
 
 const stories = storiesOf('Components|Widget|Examples', module)
 
@@ -62,4 +62,12 @@ stories.addWithJSX('List (Clickable)', () => (
       <WidgetFooter>Footer</WidgetFooter>
     </Widget>
   </div>
+))
+
+stories.addWithJSX('No Data', () => (
+  <Widget noData>
+    <WidgetHeader>
+      <h3>Header</h3>
+    </WidgetHeader>
+  </Widget>
 ))

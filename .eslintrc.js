@@ -19,11 +19,18 @@ module.exports = {
     },
   },
   rules: {
+    'jsx-a11y/no-static-element-interactions': [
+      'error',
+      {
+        handlers: ['onMouseDown', 'onMouseUp', 'onKeyPress', 'onKeyDown', 'onKeyUp'],
+      },
+    ],
+    'eslint(react-hooks/exhaustive-deps)': 'off',
+    'jsx-a11y/click-events-have-key-events': 'off',
+    'jsx-a11y/interactive-supports-focus': 'off',
     'prettier/prettier': ['error'],
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx', '.tsx'] }],
     'react/prop-types': 'off',
-    'jsx-a11y/interactive-supports-focus': 'off',
-    'jsx-a11y/click-events-have-key-events': 'off',
     'import/extensions': [
       'error',
       'ignorePackages',

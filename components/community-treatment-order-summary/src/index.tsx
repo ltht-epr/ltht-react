@@ -9,7 +9,7 @@ const CommunityTreatmentOrderSummary: React.FC<Props> = ({
   clickHandler,
 }) => {
   return (
-    <Widget>
+    <Widget noData={communityTreatmentOrders.length === 0}>
       <WidgetHeader>
         <h3>{title}</h3>
       </WidgetHeader>

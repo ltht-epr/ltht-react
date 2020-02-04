@@ -6,7 +6,7 @@ import InvolvedTeamSummaryItem from './molecules/involved-team-summary-item'
 
 const InvolvedTeamSummary: React.FC<Props> = ({ title = 'Involved Teams', episodeOfCares = [], clickHandler }) => {
   return (
-    <Widget>
+    <Widget noData={episodeOfCares.length === 0}>
       <WidgetHeader>
         <h3>{title}</h3>
       </WidgetHeader>

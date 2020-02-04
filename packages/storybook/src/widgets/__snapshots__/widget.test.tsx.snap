@@ -2,7 +2,7 @@
 
 exports[`Widget matches snapshot: wrapper mount 1`] = `
 Array [
-  .emotion-3 {
+  .emotion-5 {
   color: #231f20;
   font-family: 'SF Pro Text','SF Pro Icons','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 0.8rem;
@@ -15,95 +15,176 @@ Array [
   -webkit-font-smoothing: antialiased;
 }
 
-.emotion-3 *,
-.emotion-3 ::before,
-.emotion-3 ::after {
+.emotion-5 *,
+.emotion-5 ::before,
+.emotion-5 ::after {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
 
-.emotion-3 * {
+.emotion-5 * {
   margin: 0;
   padding: 0;
 }
 
-.emotion-3 h3 {
+.emotion-5 h3 {
   font-size: 1rem;
 }
 
 @media only screen and (min-width:768px) {
-  .emotion-3 {
+  .emotion-5 {
     font-size: 0.9rem;
   }
 
-  .emotion-3 h3 {
+  .emotion-5 h3 {
     font-size: 1.1rem;
   }
 }
 
 @media only screen and (min-width:1024px) {
-  .emotion-3 {
+  .emotion-5 {
     font-size: 1rem;
   }
 
-  .emotion-3 h3 {
+  .emotion-5 h3 {
     font-size: 1.2rem;
   }
 }
 
 @media only screen and (min-width:1200px) {
-  .emotion-3 {
+  .emotion-5 {
     font-size: 1.1rem;
   }
 
-  .emotion-3 h3 {
+  .emotion-5 h3 {
     font-size: 1.3rem;
   }
 }
 
-.emotion-0 {
+.emotion-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   padding: 0.5rem;
 }
 
-.emotion-1 {
+.emotion-2:hover {
+  cursor: pointer;
+}
+
+.emotion-0 {
+  color: #768692;
+}
+
+.emotion-3 {
   padding: 0.5rem 0 0.5rem 0.5rem;
 }
 
-.emotion-2 {
+.emotion-4 {
   padding: 0.5rem;
 }
 
 <Widget>
-    <div
-      className="emotion-3"
+    <WidgetProvider
+      collapsible={true}
+      noData={false}
     >
-      <WidgetHeader>
-        <div
-          className="emotion-0"
-        >
-          <h3>
-            Heading
-          </h3>
-        </div>
-      </WidgetHeader>
-      <WidgetBody>
-        <div
-          className="emotion-1"
-        >
-          Body
-        </div>
-      </WidgetBody>
-      <WidgetFooter>
-        <div
-          className="emotion-2"
-        >
-          Footer
-        </div>
-      </WidgetFooter>
-    </div>
+      <div
+        className="emotion-5"
+      >
+        <WidgetHeader>
+          <div
+            className="emotion-2"
+            onClick={[Function]}
+            title="Click to collapse"
+          >
+            <div>
+              <h3>
+                Heading
+              </h3>
+            </div>
+            <div>
+              <ChevronCircleIcon
+                direction="down"
+                size="medium"
+              >
+                <FontAwesomeIcon
+                  border={false}
+                  className="emotion-0"
+                  fixedWidth={false}
+                  flip={null}
+                  icon={
+                    Object {
+                      "icon": Array [
+                        512,
+                        512,
+                        Array [],
+                        "f13a",
+                        "M504 256c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zM273 369.9l135.5-135.5c9.4-9.4 9.4-24.6 0-33.9l-17-17c-9.4-9.4-24.6-9.4-33.9 0L256 285.1 154.4 183.5c-9.4-9.4-24.6-9.4-33.9 0l-17 17c-9.4 9.4-9.4 24.6 0 33.9L239 369.9c9.4 9.4 24.6 9.4 34 0z",
+                      ],
+                      "iconName": "chevron-circle-down",
+                      "prefix": "fas",
+                    }
+                  }
+                  inverse={false}
+                  listItem={false}
+                  mask={null}
+                  pull={null}
+                  pulse={false}
+                  rotation={null}
+                  size="sm"
+                  spin={false}
+                  swapOpacity={false}
+                  symbol={false}
+                  title=""
+                  transform={null}
+                >
+                  <svg
+                    aria-hidden="true"
+                    className="svg-inline--fa fa-chevron-circle-down fa-w-16 fa-sm emotion-0"
+                    data-icon="chevron-circle-down"
+                    data-prefix="fas"
+                    focusable="false"
+                    role="img"
+                    style={Object {}}
+                    viewBox="0 0 512 512"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M504 256c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zM273 369.9l135.5-135.5c9.4-9.4 9.4-24.6 0-33.9l-17-17c-9.4-9.4-24.6-9.4-33.9 0L256 285.1 154.4 183.5c-9.4-9.4-24.6-9.4-33.9 0l-17 17c-9.4 9.4-9.4 24.6 0 33.9L239 369.9c9.4 9.4 24.6 9.4 34 0z"
+                      fill="currentColor"
+                      style={Object {}}
+                    />
+                  </svg>
+                </FontAwesomeIcon>
+              </ChevronCircleIcon>
+            </div>
+          </div>
+        </WidgetHeader>
+        <WidgetBody>
+          <div
+            className="emotion-3"
+          >
+            Body
+          </div>
+        </WidgetBody>
+        <WidgetFooter>
+          <div
+            className="emotion-4"
+          >
+            Footer
+          </div>
+        </WidgetFooter>
+      </div>
+    </WidgetProvider>
   </Widget>,
-  .emotion-3 {
+  .emotion-5 {
   color: #231f20;
   font-family: 'SF Pro Text','SF Pro Icons','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 0.8rem;
@@ -116,108 +197,189 @@ Array [
   -webkit-font-smoothing: antialiased;
 }
 
-.emotion-3 *,
-.emotion-3 ::before,
-.emotion-3 ::after {
+.emotion-5 *,
+.emotion-5 ::before,
+.emotion-5 ::after {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
 
-.emotion-3 * {
+.emotion-5 * {
   margin: 0;
   padding: 0;
 }
 
-.emotion-3 h3 {
+.emotion-5 h3 {
   font-size: 1rem;
 }
 
 @media only screen and (min-width:768px) {
-  .emotion-3 {
+  .emotion-5 {
     font-size: 0.9rem;
   }
 
-  .emotion-3 h3 {
+  .emotion-5 h3 {
     font-size: 1.1rem;
   }
 }
 
 @media only screen and (min-width:1024px) {
-  .emotion-3 {
+  .emotion-5 {
     font-size: 1rem;
   }
 
-  .emotion-3 h3 {
+  .emotion-5 h3 {
     font-size: 1.2rem;
   }
 }
 
 @media only screen and (min-width:1200px) {
-  .emotion-3 {
+  .emotion-5 {
     font-size: 1.1rem;
   }
 
-  .emotion-3 h3 {
+  .emotion-5 h3 {
     font-size: 1.3rem;
   }
 }
 
-.emotion-0 {
-  padding: 0.5rem;
-}
-
 .emotion-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   padding: 0.5rem;
 }
 
-.emotion-1 {
+.emotion-2:hover {
+  cursor: pointer;
+}
+
+.emotion-0 {
+  color: #768692;
+}
+
+.emotion-4 {
+  padding: 0.5rem;
+}
+
+.emotion-3 {
   list-style: none;
   padding-left: 0.5rem;
 }
 
-.emotion-1 li {
+.emotion-3 li {
   border-top: 1px solid #b0b0b0;
   padding: 0.5rem 0.5rem 0.5rem 0;
 }
 
 <Widget>
-    <div
-      className="emotion-3"
+    <WidgetProvider
+      collapsible={true}
+      noData={false}
     >
-      <WidgetHeader>
-        <div
-          className="emotion-0"
-        >
-          <h3>
-            Heading
-          </h3>
-        </div>
-      </WidgetHeader>
-      <WidgetList>
-        <ul
-          className="emotion-1"
-        >
-          <WidgetListItem>
-            <li>
-              Item 1
-            </li>
-          </WidgetListItem>
-          <WidgetListItem>
-            <li>
-              Item 2
-            </li>
-          </WidgetListItem>
-        </ul>
-      </WidgetList>
-      <WidgetFooter>
-        <div
-          className="emotion-2"
-        >
-          Footer
-        </div>
-      </WidgetFooter>
-    </div>
+      <div
+        className="emotion-5"
+      >
+        <WidgetHeader>
+          <div
+            className="emotion-2"
+            onClick={[Function]}
+            title="Click to collapse"
+          >
+            <div>
+              <h3>
+                Heading
+              </h3>
+            </div>
+            <div>
+              <ChevronCircleIcon
+                direction="down"
+                size="medium"
+              >
+                <FontAwesomeIcon
+                  border={false}
+                  className="emotion-0"
+                  fixedWidth={false}
+                  flip={null}
+                  icon={
+                    Object {
+                      "icon": Array [
+                        512,
+                        512,
+                        Array [],
+                        "f13a",
+                        "M504 256c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zM273 369.9l135.5-135.5c9.4-9.4 9.4-24.6 0-33.9l-17-17c-9.4-9.4-24.6-9.4-33.9 0L256 285.1 154.4 183.5c-9.4-9.4-24.6-9.4-33.9 0l-17 17c-9.4 9.4-9.4 24.6 0 33.9L239 369.9c9.4 9.4 24.6 9.4 34 0z",
+                      ],
+                      "iconName": "chevron-circle-down",
+                      "prefix": "fas",
+                    }
+                  }
+                  inverse={false}
+                  listItem={false}
+                  mask={null}
+                  pull={null}
+                  pulse={false}
+                  rotation={null}
+                  size="sm"
+                  spin={false}
+                  swapOpacity={false}
+                  symbol={false}
+                  title=""
+                  transform={null}
+                >
+                  <svg
+                    aria-hidden="true"
+                    className="svg-inline--fa fa-chevron-circle-down fa-w-16 fa-sm emotion-0"
+                    data-icon="chevron-circle-down"
+                    data-prefix="fas"
+                    focusable="false"
+                    role="img"
+                    style={Object {}}
+                    viewBox="0 0 512 512"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M504 256c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zM273 369.9l135.5-135.5c9.4-9.4 9.4-24.6 0-33.9l-17-17c-9.4-9.4-24.6-9.4-33.9 0L256 285.1 154.4 183.5c-9.4-9.4-24.6-9.4-33.9 0l-17 17c-9.4 9.4-9.4 24.6 0 33.9L239 369.9c9.4 9.4 24.6 9.4 34 0z"
+                      fill="currentColor"
+                      style={Object {}}
+                    />
+                  </svg>
+                </FontAwesomeIcon>
+              </ChevronCircleIcon>
+            </div>
+          </div>
+        </WidgetHeader>
+        <WidgetList>
+          <ul
+            className="emotion-3"
+          >
+            <WidgetListItem>
+              <li>
+                Item 1
+              </li>
+            </WidgetListItem>
+            <WidgetListItem>
+              <li>
+                Item 2
+              </li>
+            </WidgetListItem>
+          </ul>
+        </WidgetList>
+        <WidgetFooter>
+          <div
+            className="emotion-4"
+          >
+            Footer
+          </div>
+        </WidgetFooter>
+      </div>
+    </WidgetProvider>
   </Widget>,
 ]
 `;

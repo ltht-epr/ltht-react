@@ -6,7 +6,7 @@ import CarePlanSummaryItem from './molecules/care-plan-summary-item'
 
 const CarePlanSummary: React.FC<Props> = ({ title = 'Care Plans', carePlans = [], clickHandler }) => {
   return (
-    <Widget>
+    <Widget noData={carePlans.length === 0}>
       <WidgetHeader>
         <h3>{title}</h3>
       </WidgetHeader>

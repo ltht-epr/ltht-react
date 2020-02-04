@@ -1,13 +1,16 @@
 /** @jsx jsx */
 import React from 'react'
-import { css, jsx } from '@emotion/core'
+import { css, jsx, SerializedStyles } from '@emotion/core'
 
-import { CSS_RESET, TEXT_PRIMARY_COLOUR, WIDGET_BACKGROUND_COLOUR } from '@ltht-react/styles'
+import { CSS_RESET, TEXT_PRIMARY_COLOUR, TEXT_SECONDARY_COLOUR, WIDGET_BACKGROUND_COLOUR } from '@ltht-react/styles'
+import { WidgetProvider, ProviderProps } from './widget-context'
+import WidgetBody from './widget-body'
 
-const styles = css`
+const styles = (noData: boolean): SerializedStyles => {
+  return css`
   ${CSS_RESET}
   background: ${WIDGET_BACKGROUND_COLOUR};
-  color: ${TEXT_PRIMARY_COLOUR};
+  color: ${noData ? TEXT_SECONDARY_COLOUR : TEXT_PRIMARY_COLOUR};
   margin-bottom: 0.5rem;
   border-radius: 4px;
   box-shadow: 
@@ -17,9 +20,30 @@ const styles = css`
   margin: 0 5px 10px 0;
   -webkit-font-smoothing: antialiased;
 `
+}
 
-const Widget: React.FC = ({ children }) => {
-  return <div css={styles}>{children}</div>
+const emptyStyles = css`
+  color: ${TEXT_SECONDARY_COLOUR};
+  font-style: italic;
+`
+
+const Widget: React.FC<Props> = ({ children, collapsible = true, collapsed, noData = false }) => {
+  return (
+    <WidgetProvider collapsible={collapsible} collapsed={collapsed} noData={noData}>
+      <div css={styles(noData)}>
+        {children}
+        {noData && (
+          <WidgetBody>
+            <div css={emptyStyles}>No records found.</div>
+          </WidgetBody>
+        )}
+      </div>
+    </WidgetProvider>
+  )
+}
+
+interface Props extends ProviderProps {
+  noData?: boolean
 }
 
 export default Widget

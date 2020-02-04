@@ -7,7 +7,7 @@ import AllergySummaryItem from './molecules/allergy-summary-item'
 
 const AllergySummary: React.FC<Props> = ({ title = 'Allergies', allergies = [], clickHandler }) => {
   return (
-    <Widget>
+    <Widget noData={allergies.length === 0}>
       <WidgetHeader>
         <h3>{title}</h3>
       </WidgetHeader>

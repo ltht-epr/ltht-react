@@ -6,7 +6,7 @@ import AppointmentSummaryItem from './molecules/appointment-summary-item'
 
 const AppointmentSummary: React.FC<Props> = ({ title = 'Appointments', encounters = [], clickHandler }) => {
   return (
-    <Widget>
+    <Widget noData={encounters.length === 0}>
       <WidgetHeader>
         <h3>{title}</h3>
       </WidgetHeader>

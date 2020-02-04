@@ -6,7 +6,7 @@ import FlagSummaryItem from './molecules/flag-summary-item'
 
 const FlagSummary: React.FC<Props> = ({ title, flags = [], clickHandler }) => {
   return (
-    <Widget>
+    <Widget noData={flags.length === 0}>
       <WidgetHeader>
         <h3>{title}</h3>
       </WidgetHeader>

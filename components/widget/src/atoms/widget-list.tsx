@@ -3,8 +3,9 @@ import React from 'react'
 import { css, jsx, SerializedStyles } from '@emotion/core'
 
 import { WIDGET_LIST_ITEM_BACKGROUND_HOVER } from '@ltht-react/styles'
+import { useWidget } from './widget-context'
 
-const computeStyles = (clickable?: boolean): SerializedStyles => {
+const computeStyles = (collapsed: boolean, clickable?: boolean): SerializedStyles => {
   return css`
     list-style: none;
     padding-left: 0.5rem;
@@ -16,11 +17,13 @@ const computeStyles = (clickable?: boolean): SerializedStyles => {
       ${clickable && `cursor: pointer;`}
       ${clickable && `background: ${WIDGET_LIST_ITEM_BACKGROUND_HOVER};`}
     }
+    ${collapsed && 'display: none;'}
   `
 }
 
 const WidgetList: React.FC<Props> = ({ children, clickable }) => {
-  return <ul css={computeStyles(clickable)}>{children}</ul>
+  const { collapseButton } = useWidget()
+  return <ul css={computeStyles(collapseButton.collapsed, clickable)}>{children}</ul>
 }
 
 interface Props {

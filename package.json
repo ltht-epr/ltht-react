@@ -64,7 +64,7 @@
     "deploy": "cd packages/storybook && yarn deploy",
     "doc:components": "lerna run docs --parallel",
     "lint": "yarn lint:pretty && yarn lint:eslint",
-    "lint:eslint": "eslint \"./{components,packages}/*/src/**/*.{ts,tsx}\" --max-warnings=0 --fix",
+    "lint:eslint": "eslint \"./{components,packages}/*/src/**/*.{ts,tsx}\" --max-warnings=0",
     "lint:pretty": "prettylint './{components,packages}/*/src/**/*.{ts,tsx}'",
     "new:version": "lerna version --conventional-commits --yes",
     "predeploy:storybook": "yarn build:storybook",

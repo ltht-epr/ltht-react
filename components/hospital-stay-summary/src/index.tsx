@@ -6,7 +6,7 @@ import HospitalStaySummaryItem from './molecules/hospital-stay-summary-item'
 
 const HospitalStaySummary: React.FC<Props> = ({ title = 'Hospital Stays', hospitalStays = [], clickHandler }) => {
   return (
-    <Widget>
+    <Widget noData={hospitalStays.length === 0}>
       <WidgetHeader>
         <h3>{title}</h3>
       </WidgetHeader>

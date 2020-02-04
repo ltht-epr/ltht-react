@@ -43,6 +43,7 @@ stories.addWithJSX('Readonly Widgets', () => (
     </Column>
     <Column>
       <InvolvedTeamSummary episodeOfCares={[episodeOfCares.InvolvedTeamOne, episodeOfCares.InvolvedTeamTwo]} />
+      <AppointmentSummary title="Future Appointments" encounters={[]} />
       <AppointmentSummary
         title="Future Appointments"
         encounters={[appointments.AppointmentOne, appointments.AppointmentTwo]}

@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AllergySummary matches snapshot: wrapper mount 1`] = `
-.emotion-20 {
+.emotion-22 {
   color: #231f20;
   font-family: 'SF Pro Text','SF Pro Icons','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 0.8rem;
@@ -14,68 +14,84 @@ exports[`AllergySummary matches snapshot: wrapper mount 1`] = `
   -webkit-font-smoothing: antialiased;
 }
 
-.emotion-20 *,
-.emotion-20 ::before,
-.emotion-20 ::after {
+.emotion-22 *,
+.emotion-22 ::before,
+.emotion-22 ::after {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
 
-.emotion-20 * {
+.emotion-22 * {
   margin: 0;
   padding: 0;
 }
 
-.emotion-20 h3 {
+.emotion-22 h3 {
   font-size: 1rem;
 }
 
 @media only screen and (min-width:768px) {
-  .emotion-20 {
+  .emotion-22 {
     font-size: 0.9rem;
   }
 
-  .emotion-20 h3 {
+  .emotion-22 h3 {
     font-size: 1.1rem;
   }
 }
 
 @media only screen and (min-width:1024px) {
-  .emotion-20 {
+  .emotion-22 {
     font-size: 1rem;
   }
 
-  .emotion-20 h3 {
+  .emotion-22 h3 {
     font-size: 1.2rem;
   }
 }
 
 @media only screen and (min-width:1200px) {
-  .emotion-20 {
+  .emotion-22 {
     font-size: 1.1rem;
   }
 
-  .emotion-20 h3 {
+  .emotion-22 h3 {
     font-size: 1.3rem;
   }
 }
 
-.emotion-0 {
+.emotion-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   padding: 0.5rem;
 }
 
-.emotion-19 {
+.emotion-2:hover {
+  cursor: pointer;
+}
+
+.emotion-0 {
+  color: #768692;
+}
+
+.emotion-21 {
   list-style: none;
   padding-left: 0.5rem;
 }
 
-.emotion-19 li {
+.emotion-21 li {
   border-top: 1px solid #b0b0b0;
   padding: 0.5rem 0.5rem 0.5rem 0;
 }
 
-.emotion-9 {
+.emotion-11 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -86,15 +102,15 @@ exports[`AllergySummary matches snapshot: wrapper mount 1`] = `
   justify-content: center;
 }
 
-.emotion-3 {
+.emotion-5 {
   min-width: 1rem;
 }
 
-.emotion-1 {
+.emotion-3 {
   color: #DA291C;
 }
 
-.emotion-6 {
+.emotion-8 {
   -webkit-box-flex: 1;
   -webkit-flex-grow: 1;
   -ms-flex-positive: 1;
@@ -102,27 +118,27 @@ exports[`AllergySummary matches snapshot: wrapper mount 1`] = `
   padding-left: 0.5rem;
 }
 
-.emotion-4 {
+.emotion-6 {
   color: #231f20;
-  text-align: left;
-}
-
-.emotion-5 {
-  color: #768692;
   text-align: left;
 }
 
 .emotion-7 {
+  color: #768692;
+  text-align: left;
+}
+
+.emotion-9 {
   color: #231f20;
   text-align: right;
 }
 
-.emotion-8 {
+.emotion-10 {
   color: #768692;
   text-align: right;
 }
 
-.emotion-10 {
+.emotion-12 {
   color: #768692;
 }
 
@@ -186,596 +202,663 @@ exports[`AllergySummary matches snapshot: wrapper mount 1`] = `
   }
   title="Allergies"
 >
-  <Widget>
-    <div
-      className="emotion-20"
+  <Widget
+    noData={false}
+  >
+    <WidgetProvider
+      collapsible={true}
+      noData={false}
     >
-      <WidgetHeader>
-        <div
-          className="emotion-0"
-        >
-          <h3>
-            Allergies
-          </h3>
-        </div>
-      </WidgetHeader>
-      <WidgetList
-        clickable={false}
+      <div
+        className="emotion-22"
       >
-        <ul
-          className="emotion-19"
+        <WidgetHeader>
+          <div
+            className="emotion-2"
+            onClick={[Function]}
+            title="Click to collapse"
+          >
+            <div>
+              <h3>
+                Allergies
+              </h3>
+            </div>
+            <div>
+              <ChevronCircleIcon
+                direction="down"
+                size="medium"
+              >
+                <FontAwesomeIcon
+                  border={false}
+                  className="emotion-0"
+                  fixedWidth={false}
+                  flip={null}
+                  icon={
+                    Object {
+                      "icon": Array [
+                        512,
+                        512,
+                        Array [],
+                        "f13a",
+                        "M504 256c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zM273 369.9l135.5-135.5c9.4-9.4 9.4-24.6 0-33.9l-17-17c-9.4-9.4-24.6-9.4-33.9 0L256 285.1 154.4 183.5c-9.4-9.4-24.6-9.4-33.9 0l-17 17c-9.4 9.4-9.4 24.6 0 33.9L239 369.9c9.4 9.4 24.6 9.4 34 0z",
+                      ],
+                      "iconName": "chevron-circle-down",
+                      "prefix": "fas",
+                    }
+                  }
+                  inverse={false}
+                  listItem={false}
+                  mask={null}
+                  pull={null}
+                  pulse={false}
+                  rotation={null}
+                  size="sm"
+                  spin={false}
+                  swapOpacity={false}
+                  symbol={false}
+                  title=""
+                  transform={null}
+                >
+                  <svg
+                    aria-hidden="true"
+                    className="svg-inline--fa fa-chevron-circle-down fa-w-16 fa-sm emotion-0"
+                    data-icon="chevron-circle-down"
+                    data-prefix="fas"
+                    focusable="false"
+                    role="img"
+                    style={Object {}}
+                    viewBox="0 0 512 512"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M504 256c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zM273 369.9l135.5-135.5c9.4-9.4 9.4-24.6 0-33.9l-17-17c-9.4-9.4-24.6-9.4-33.9 0L256 285.1 154.4 183.5c-9.4-9.4-24.6-9.4-33.9 0l-17 17c-9.4 9.4-9.4 24.6 0 33.9L239 369.9c9.4 9.4 24.6 9.4 34 0z"
+                      fill="currentColor"
+                      style={Object {}}
+                    />
+                  </svg>
+                </FontAwesomeIcon>
+              </ChevronCircleIcon>
+            </div>
+          </div>
+        </WidgetHeader>
+        <WidgetList
+          clickable={false}
         >
-          <WidgetListItem
-            key="580ca927-34e0-e911-a2c7-005056926fe4|allergyalert"
+          <ul
+            className="emotion-21"
           >
-            <li>
-              <AllergySummaryItem
-                allergy={
-                  Object {
-                    "assertedDate": Object {
-                      "kind": "YEAR",
-                      "value": "2013-01-01T00:00:00+00:00",
-                    },
-                    "category": Array [
-                      "ENVIRONMENT",
-                    ],
-                    "clinicalStatus": "ACTIVE",
-                    "code": Object {
-                      "coding": Array [
-                        Object {
-                          "code": "109006",
-                          "display": "Dust Mites",
-                        },
+            <WidgetListItem
+              key="580ca927-34e0-e911-a2c7-005056926fe4|allergyalert"
+            >
+              <li>
+                <AllergySummaryItem
+                  allergy={
+                    Object {
+                      "assertedDate": Object {
+                        "kind": "YEAR",
+                        "value": "2013-01-01T00:00:00+00:00",
+                      },
+                      "category": Array [
+                        "ENVIRONMENT",
                       ],
-                    },
-                    "criticality": "HIGH",
-                    "id": "580ca927-34e0-e911-a2c7-005056926fe4|allergyalert",
-                    "metadata": Object {
-                      "dataSources": Array [
-                        Object {
-                          "display": "Mock",
-                        },
-                      ],
-                    },
-                    "type": "ALLERGY",
-                    "verificationStatus": "CONFIRMED",
+                      "clinicalStatus": "ACTIVE",
+                      "code": Object {
+                        "coding": Array [
+                          Object {
+                            "code": "109006",
+                            "display": "Dust Mites",
+                          },
+                        ],
+                      },
+                      "criticality": "HIGH",
+                      "id": "580ca927-34e0-e911-a2c7-005056926fe4|allergyalert",
+                      "metadata": Object {
+                        "dataSources": Array [
+                          Object {
+                            "display": "Mock",
+                          },
+                        ],
+                      },
+                      "type": "ALLERGY",
+                      "verificationStatus": "CONFIRMED",
+                    }
                   }
-                }
-              >
-                <div
-                  className="emotion-9"
-                  role="link"
                 >
                   <div
-                    className="emotion-3"
+                    className="emotion-11"
+                    role="link"
                   >
-                    <AllergyIcon
-                      allergy={
-                        Object {
-                          "assertedDate": Object {
-                            "kind": "YEAR",
-                            "value": "2013-01-01T00:00:00+00:00",
-                          },
-                          "category": Array [
-                            "ENVIRONMENT",
-                          ],
-                          "clinicalStatus": "ACTIVE",
-                          "code": Object {
-                            "coding": Array [
-                              Object {
-                                "code": "109006",
-                                "display": "Dust Mites",
-                              },
-                            ],
-                          },
-                          "criticality": "HIGH",
-                          "id": "580ca927-34e0-e911-a2c7-005056926fe4|allergyalert",
-                          "metadata": Object {
-                            "dataSources": Array [
-                              Object {
-                                "display": "Mock",
-                              },
-                            ],
-                          },
-                          "type": "ALLERGY",
-                          "verificationStatus": "CONFIRMED",
-                        }
-                      }
+                    <div
+                      className="emotion-5"
                     >
-                      <ExclamationIcon
-                        size="medium"
-                        status="red"
-                      >
-                        <FontAwesomeIcon
-                          border={false}
-                          className="emotion-1"
-                          fixedWidth={false}
-                          flip={null}
-                          icon={
-                            Object {
-                              "icon": Array [
-                                576,
-                                512,
-                                Array [],
-                                "f071",
-                                "M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z",
+                      <AllergyIcon
+                        allergy={
+                          Object {
+                            "assertedDate": Object {
+                              "kind": "YEAR",
+                              "value": "2013-01-01T00:00:00+00:00",
+                            },
+                            "category": Array [
+                              "ENVIRONMENT",
+                            ],
+                            "clinicalStatus": "ACTIVE",
+                            "code": Object {
+                              "coding": Array [
+                                Object {
+                                  "code": "109006",
+                                  "display": "Dust Mites",
+                                },
                               ],
-                              "iconName": "exclamation-triangle",
-                              "prefix": "fas",
-                            }
+                            },
+                            "criticality": "HIGH",
+                            "id": "580ca927-34e0-e911-a2c7-005056926fe4|allergyalert",
+                            "metadata": Object {
+                              "dataSources": Array [
+                                Object {
+                                  "display": "Mock",
+                                },
+                              ],
+                            },
+                            "type": "ALLERGY",
+                            "verificationStatus": "CONFIRMED",
                           }
-                          inverse={false}
-                          listItem={false}
-                          mask={null}
-                          pull={null}
-                          pulse={false}
-                          rotation={null}
-                          size="sm"
-                          spin={false}
-                          swapOpacity={false}
-                          symbol={false}
-                          title=""
-                          transform={null}
+                        }
+                      >
+                        <ExclamationIcon
+                          size="medium"
+                          status="red"
                         >
-                          <svg
-                            aria-hidden="true"
-                            className="svg-inline--fa fa-exclamation-triangle fa-w-18 fa-sm emotion-1"
-                            data-icon="exclamation-triangle"
-                            data-prefix="fas"
-                            focusable="false"
-                            role="img"
-                            style={Object {}}
-                            viewBox="0 0 576 512"
-                            xmlns="http://www.w3.org/2000/svg"
+                          <FontAwesomeIcon
+                            border={false}
+                            className="emotion-3"
+                            fixedWidth={false}
+                            flip={null}
+                            icon={
+                              Object {
+                                "icon": Array [
+                                  576,
+                                  512,
+                                  Array [],
+                                  "f071",
+                                  "M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z",
+                                ],
+                                "iconName": "exclamation-triangle",
+                                "prefix": "fas",
+                              }
+                            }
+                            inverse={false}
+                            listItem={false}
+                            mask={null}
+                            pull={null}
+                            pulse={false}
+                            rotation={null}
+                            size="sm"
+                            spin={false}
+                            swapOpacity={false}
+                            symbol={false}
+                            title=""
+                            transform={null}
                           >
-                            <path
-                              d="M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"
-                              fill="currentColor"
+                            <svg
+                              aria-hidden="true"
+                              className="svg-inline--fa fa-exclamation-triangle fa-w-18 fa-sm emotion-3"
+                              data-icon="exclamation-triangle"
+                              data-prefix="fas"
+                              focusable="false"
+                              role="img"
                               style={Object {}}
-                            />
-                          </svg>
-                        </FontAwesomeIcon>
-                      </ExclamationIcon>
-                    </AllergyIcon>
-                  </div>
-                  <div
-                    className="emotion-6"
-                  >
-                    <AllergyTitle
-                      allergy={
-                        Object {
-                          "assertedDate": Object {
-                            "kind": "YEAR",
-                            "value": "2013-01-01T00:00:00+00:00",
-                          },
-                          "category": Array [
-                            "ENVIRONMENT",
-                          ],
-                          "clinicalStatus": "ACTIVE",
-                          "code": Object {
-                            "coding": Array [
-                              Object {
-                                "code": "109006",
-                                "display": "Dust Mites",
-                              },
-                            ],
-                          },
-                          "criticality": "HIGH",
-                          "id": "580ca927-34e0-e911-a2c7-005056926fe4|allergyalert",
-                          "metadata": Object {
-                            "dataSources": Array [
-                              Object {
-                                "display": "Mock",
-                              },
-                            ],
-                          },
-                          "type": "ALLERGY",
-                          "verificationStatus": "CONFIRMED",
-                        }
-                      }
+                              viewBox="0 0 576 512"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"
+                                fill="currentColor"
+                                style={Object {}}
+                              />
+                            </svg>
+                          </FontAwesomeIcon>
+                        </ExclamationIcon>
+                      </AllergyIcon>
+                    </div>
+                    <div
+                      className="emotion-8"
                     >
-                      <div
-                        className="emotion-4"
-                      >
-                        Dust Mites
-                      </div>
-                    </AllergyTitle>
-                    <AllergyDescription
-                      allergy={
-                        Object {
-                          "assertedDate": Object {
-                            "kind": "YEAR",
-                            "value": "2013-01-01T00:00:00+00:00",
-                          },
-                          "category": Array [
-                            "ENVIRONMENT",
-                          ],
-                          "clinicalStatus": "ACTIVE",
-                          "code": Object {
-                            "coding": Array [
-                              Object {
-                                "code": "109006",
-                                "display": "Dust Mites",
-                              },
+                      <AllergyTitle
+                        allergy={
+                          Object {
+                            "assertedDate": Object {
+                              "kind": "YEAR",
+                              "value": "2013-01-01T00:00:00+00:00",
+                            },
+                            "category": Array [
+                              "ENVIRONMENT",
                             ],
-                          },
-                          "criticality": "HIGH",
-                          "id": "580ca927-34e0-e911-a2c7-005056926fe4|allergyalert",
-                          "metadata": Object {
-                            "dataSources": Array [
-                              Object {
-                                "display": "Mock",
-                              },
-                            ],
-                          },
-                          "type": "ALLERGY",
-                          "verificationStatus": "CONFIRMED",
+                            "clinicalStatus": "ACTIVE",
+                            "code": Object {
+                              "coding": Array [
+                                Object {
+                                  "code": "109006",
+                                  "display": "Dust Mites",
+                                },
+                              ],
+                            },
+                            "criticality": "HIGH",
+                            "id": "580ca927-34e0-e911-a2c7-005056926fe4|allergyalert",
+                            "metadata": Object {
+                              "dataSources": Array [
+                                Object {
+                                  "display": "Mock",
+                                },
+                              ],
+                            },
+                            "type": "ALLERGY",
+                            "verificationStatus": "CONFIRMED",
+                          }
                         }
-                      }
-                    >
-                      <div
-                        className="emotion-5"
                       >
-                        109006 - Environment - Allergy
-                      </div>
-                    </AllergyDescription>
-                  </div>
-                  <div>
-                    <AllergyDate
-                      allergy={
-                        Object {
-                          "assertedDate": Object {
-                            "kind": "YEAR",
-                            "value": "2013-01-01T00:00:00+00:00",
-                          },
-                          "category": Array [
-                            "ENVIRONMENT",
-                          ],
-                          "clinicalStatus": "ACTIVE",
-                          "code": Object {
-                            "coding": Array [
-                              Object {
-                                "code": "109006",
-                                "display": "Dust Mites",
-                              },
+                        <div
+                          className="emotion-6"
+                        >
+                          Dust Mites
+                        </div>
+                      </AllergyTitle>
+                      <AllergyDescription
+                        allergy={
+                          Object {
+                            "assertedDate": Object {
+                              "kind": "YEAR",
+                              "value": "2013-01-01T00:00:00+00:00",
+                            },
+                            "category": Array [
+                              "ENVIRONMENT",
                             ],
-                          },
-                          "criticality": "HIGH",
-                          "id": "580ca927-34e0-e911-a2c7-005056926fe4|allergyalert",
-                          "metadata": Object {
-                            "dataSources": Array [
-                              Object {
-                                "display": "Mock",
-                              },
-                            ],
-                          },
-                          "type": "ALLERGY",
-                          "verificationStatus": "CONFIRMED",
+                            "clinicalStatus": "ACTIVE",
+                            "code": Object {
+                              "coding": Array [
+                                Object {
+                                  "code": "109006",
+                                  "display": "Dust Mites",
+                                },
+                              ],
+                            },
+                            "criticality": "HIGH",
+                            "id": "580ca927-34e0-e911-a2c7-005056926fe4|allergyalert",
+                            "metadata": Object {
+                              "dataSources": Array [
+                                Object {
+                                  "display": "Mock",
+                                },
+                              ],
+                            },
+                            "type": "ALLERGY",
+                            "verificationStatus": "CONFIRMED",
+                          }
                         }
-                      }
-                    >
-                      <div
-                        className="emotion-7"
                       >
-                        2013
-                      </div>
-                    </AllergyDate>
-                    <AllergyStatus
-                      allergy={
-                        Object {
-                          "assertedDate": Object {
-                            "kind": "YEAR",
-                            "value": "2013-01-01T00:00:00+00:00",
-                          },
-                          "category": Array [
-                            "ENVIRONMENT",
-                          ],
-                          "clinicalStatus": "ACTIVE",
-                          "code": Object {
-                            "coding": Array [
-                              Object {
-                                "code": "109006",
-                                "display": "Dust Mites",
-                              },
+                        <div
+                          className="emotion-7"
+                        >
+                          109006 - Environment - Allergy
+                        </div>
+                      </AllergyDescription>
+                    </div>
+                    <div>
+                      <AllergyDate
+                        allergy={
+                          Object {
+                            "assertedDate": Object {
+                              "kind": "YEAR",
+                              "value": "2013-01-01T00:00:00+00:00",
+                            },
+                            "category": Array [
+                              "ENVIRONMENT",
                             ],
-                          },
-                          "criticality": "HIGH",
-                          "id": "580ca927-34e0-e911-a2c7-005056926fe4|allergyalert",
-                          "metadata": Object {
-                            "dataSources": Array [
-                              Object {
-                                "display": "Mock",
-                              },
-                            ],
-                          },
-                          "type": "ALLERGY",
-                          "verificationStatus": "CONFIRMED",
+                            "clinicalStatus": "ACTIVE",
+                            "code": Object {
+                              "coding": Array [
+                                Object {
+                                  "code": "109006",
+                                  "display": "Dust Mites",
+                                },
+                              ],
+                            },
+                            "criticality": "HIGH",
+                            "id": "580ca927-34e0-e911-a2c7-005056926fe4|allergyalert",
+                            "metadata": Object {
+                              "dataSources": Array [
+                                Object {
+                                  "display": "Mock",
+                                },
+                              ],
+                            },
+                            "type": "ALLERGY",
+                            "verificationStatus": "CONFIRMED",
+                          }
                         }
-                      }
-                    >
-                      <div
-                        className="emotion-8"
                       >
-                        Active - Confirmed
-                      </div>
-                    </AllergyStatus>
-                  </div>
-                </div>
-              </AllergySummaryItem>
-            </li>
-          </WidgetListItem>
-          <WidgetListItem
-            key="690ca927-68e0-c511-b2c7-898056926ze4|allergyalert"
-          >
-            <li>
-              <AllergySummaryItem
-                allergy={
-                  Object {
-                    "assertedDate": Object {
-                      "kind": "YEAR",
-                      "value": "2013-01-01T00:00:00+00:00",
-                    },
-                    "clinicalStatus": "RESOLVED",
-                    "code": Object {
-                      "coding": Array [
-                        Object {
-                          "code": "109007",
-                          "display": "Kiwi fruit",
-                        },
-                      ],
-                    },
-                    "id": "690ca927-68e0-c511-b2c7-898056926ze4|allergyalert",
-                    "metadata": Object {
-                      "dataSources": Array [
-                        Object {
-                          "display": "Mock",
-                        },
-                      ],
-                    },
-                    "type": "INTOLERANCE",
-                  }
-                }
-              >
-                <div
-                  className="emotion-9"
-                  role="link"
-                >
-                  <div
-                    className="emotion-3"
-                  >
-                    <AllergyIcon
-                      allergy={
-                        Object {
-                          "assertedDate": Object {
-                            "kind": "YEAR",
-                            "value": "2013-01-01T00:00:00+00:00",
-                          },
-                          "clinicalStatus": "RESOLVED",
-                          "code": Object {
-                            "coding": Array [
-                              Object {
-                                "code": "109007",
-                                "display": "Kiwi fruit",
-                              },
+                        <div
+                          className="emotion-9"
+                        >
+                          2013
+                        </div>
+                      </AllergyDate>
+                      <AllergyStatus
+                        allergy={
+                          Object {
+                            "assertedDate": Object {
+                              "kind": "YEAR",
+                              "value": "2013-01-01T00:00:00+00:00",
+                            },
+                            "category": Array [
+                              "ENVIRONMENT",
                             ],
-                          },
-                          "id": "690ca927-68e0-c511-b2c7-898056926ze4|allergyalert",
-                          "metadata": Object {
-                            "dataSources": Array [
-                              Object {
-                                "display": "Mock",
-                              },
-                            ],
-                          },
-                          "type": "INTOLERANCE",
+                            "clinicalStatus": "ACTIVE",
+                            "code": Object {
+                              "coding": Array [
+                                Object {
+                                  "code": "109006",
+                                  "display": "Dust Mites",
+                                },
+                              ],
+                            },
+                            "criticality": "HIGH",
+                            "id": "580ca927-34e0-e911-a2c7-005056926fe4|allergyalert",
+                            "metadata": Object {
+                              "dataSources": Array [
+                                Object {
+                                  "display": "Mock",
+                                },
+                              ],
+                            },
+                            "type": "ALLERGY",
+                            "verificationStatus": "CONFIRMED",
+                          }
                         }
-                      }
-                    >
-                      <ExclamationIcon
-                        size="medium"
-                        status="default"
                       >
-                        <FontAwesomeIcon
-                          border={false}
+                        <div
                           className="emotion-10"
-                          fixedWidth={false}
-                          flip={null}
-                          icon={
-                            Object {
-                              "icon": Array [
-                                576,
-                                512,
-                                Array [],
-                                "f071",
-                                "M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z",
-                              ],
-                              "iconName": "exclamation-triangle",
-                              "prefix": "fas",
-                            }
-                          }
-                          inverse={false}
-                          listItem={false}
-                          mask={null}
-                          pull={null}
-                          pulse={false}
-                          rotation={null}
-                          size="sm"
-                          spin={false}
-                          swapOpacity={false}
-                          symbol={false}
-                          title=""
-                          transform={null}
                         >
-                          <svg
-                            aria-hidden="true"
-                            className="svg-inline--fa fa-exclamation-triangle fa-w-18 fa-sm emotion-10"
-                            data-icon="exclamation-triangle"
-                            data-prefix="fas"
-                            focusable="false"
-                            role="img"
-                            style={Object {}}
-                            viewBox="0 0 576 512"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"
-                              fill="currentColor"
-                              style={Object {}}
-                            />
-                          </svg>
-                        </FontAwesomeIcon>
-                      </ExclamationIcon>
-                    </AllergyIcon>
+                          Active - Confirmed
+                        </div>
+                      </AllergyStatus>
+                    </div>
                   </div>
+                </AllergySummaryItem>
+              </li>
+            </WidgetListItem>
+            <WidgetListItem
+              key="690ca927-68e0-c511-b2c7-898056926ze4|allergyalert"
+            >
+              <li>
+                <AllergySummaryItem
+                  allergy={
+                    Object {
+                      "assertedDate": Object {
+                        "kind": "YEAR",
+                        "value": "2013-01-01T00:00:00+00:00",
+                      },
+                      "clinicalStatus": "RESOLVED",
+                      "code": Object {
+                        "coding": Array [
+                          Object {
+                            "code": "109007",
+                            "display": "Kiwi fruit",
+                          },
+                        ],
+                      },
+                      "id": "690ca927-68e0-c511-b2c7-898056926ze4|allergyalert",
+                      "metadata": Object {
+                        "dataSources": Array [
+                          Object {
+                            "display": "Mock",
+                          },
+                        ],
+                      },
+                      "type": "INTOLERANCE",
+                    }
+                  }
+                >
                   <div
-                    className="emotion-6"
+                    className="emotion-11"
+                    role="link"
                   >
-                    <AllergyTitle
-                      allergy={
-                        Object {
-                          "assertedDate": Object {
-                            "kind": "YEAR",
-                            "value": "2013-01-01T00:00:00+00:00",
-                          },
-                          "clinicalStatus": "RESOLVED",
-                          "code": Object {
-                            "coding": Array [
-                              Object {
-                                "code": "109007",
-                                "display": "Kiwi fruit",
-                              },
-                            ],
-                          },
-                          "id": "690ca927-68e0-c511-b2c7-898056926ze4|allergyalert",
-                          "metadata": Object {
-                            "dataSources": Array [
-                              Object {
-                                "display": "Mock",
-                              },
-                            ],
-                          },
-                          "type": "INTOLERANCE",
-                        }
-                      }
+                    <div
+                      className="emotion-5"
                     >
-                      <div
-                        className="emotion-4"
-                      >
-                        Kiwi fruit
-                      </div>
-                    </AllergyTitle>
-                    <AllergyDescription
-                      allergy={
-                        Object {
-                          "assertedDate": Object {
-                            "kind": "YEAR",
-                            "value": "2013-01-01T00:00:00+00:00",
-                          },
-                          "clinicalStatus": "RESOLVED",
-                          "code": Object {
-                            "coding": Array [
-                              Object {
-                                "code": "109007",
-                                "display": "Kiwi fruit",
-                              },
-                            ],
-                          },
-                          "id": "690ca927-68e0-c511-b2c7-898056926ze4|allergyalert",
-                          "metadata": Object {
-                            "dataSources": Array [
-                              Object {
-                                "display": "Mock",
-                              },
-                            ],
-                          },
-                          "type": "INTOLERANCE",
+                      <AllergyIcon
+                        allergy={
+                          Object {
+                            "assertedDate": Object {
+                              "kind": "YEAR",
+                              "value": "2013-01-01T00:00:00+00:00",
+                            },
+                            "clinicalStatus": "RESOLVED",
+                            "code": Object {
+                              "coding": Array [
+                                Object {
+                                  "code": "109007",
+                                  "display": "Kiwi fruit",
+                                },
+                              ],
+                            },
+                            "id": "690ca927-68e0-c511-b2c7-898056926ze4|allergyalert",
+                            "metadata": Object {
+                              "dataSources": Array [
+                                Object {
+                                  "display": "Mock",
+                                },
+                              ],
+                            },
+                            "type": "INTOLERANCE",
+                          }
                         }
-                      }
-                    >
-                      <div
-                        className="emotion-5"
                       >
-                        109007 - Intolerance
-                      </div>
-                    </AllergyDescription>
+                        <ExclamationIcon
+                          size="medium"
+                          status="default"
+                        >
+                          <FontAwesomeIcon
+                            border={false}
+                            className="emotion-12"
+                            fixedWidth={false}
+                            flip={null}
+                            icon={
+                              Object {
+                                "icon": Array [
+                                  576,
+                                  512,
+                                  Array [],
+                                  "f071",
+                                  "M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z",
+                                ],
+                                "iconName": "exclamation-triangle",
+                                "prefix": "fas",
+                              }
+                            }
+                            inverse={false}
+                            listItem={false}
+                            mask={null}
+                            pull={null}
+                            pulse={false}
+                            rotation={null}
+                            size="sm"
+                            spin={false}
+                            swapOpacity={false}
+                            symbol={false}
+                            title=""
+                            transform={null}
+                          >
+                            <svg
+                              aria-hidden="true"
+                              className="svg-inline--fa fa-exclamation-triangle fa-w-18 fa-sm emotion-12"
+                              data-icon="exclamation-triangle"
+                              data-prefix="fas"
+                              focusable="false"
+                              role="img"
+                              style={Object {}}
+                              viewBox="0 0 576 512"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"
+                                fill="currentColor"
+                                style={Object {}}
+                              />
+                            </svg>
+                          </FontAwesomeIcon>
+                        </ExclamationIcon>
+                      </AllergyIcon>
+                    </div>
+                    <div
+                      className="emotion-8"
+                    >
+                      <AllergyTitle
+                        allergy={
+                          Object {
+                            "assertedDate": Object {
+                              "kind": "YEAR",
+                              "value": "2013-01-01T00:00:00+00:00",
+                            },
+                            "clinicalStatus": "RESOLVED",
+                            "code": Object {
+                              "coding": Array [
+                                Object {
+                                  "code": "109007",
+                                  "display": "Kiwi fruit",
+                                },
+                              ],
+                            },
+                            "id": "690ca927-68e0-c511-b2c7-898056926ze4|allergyalert",
+                            "metadata": Object {
+                              "dataSources": Array [
+                                Object {
+                                  "display": "Mock",
+                                },
+                              ],
+                            },
+                            "type": "INTOLERANCE",
+                          }
+                        }
+                      >
+                        <div
+                          className="emotion-6"
+                        >
+                          Kiwi fruit
+                        </div>
+                      </AllergyTitle>
+                      <AllergyDescription
+                        allergy={
+                          Object {
+                            "assertedDate": Object {
+                              "kind": "YEAR",
+                              "value": "2013-01-01T00:00:00+00:00",
+                            },
+                            "clinicalStatus": "RESOLVED",
+                            "code": Object {
+                              "coding": Array [
+                                Object {
+                                  "code": "109007",
+                                  "display": "Kiwi fruit",
+                                },
+                              ],
+                            },
+                            "id": "690ca927-68e0-c511-b2c7-898056926ze4|allergyalert",
+                            "metadata": Object {
+                              "dataSources": Array [
+                                Object {
+                                  "display": "Mock",
+                                },
+                              ],
+                            },
+                            "type": "INTOLERANCE",
+                          }
+                        }
+                      >
+                        <div
+                          className="emotion-7"
+                        >
+                          109007 - Intolerance
+                        </div>
+                      </AllergyDescription>
+                    </div>
+                    <div>
+                      <AllergyDate
+                        allergy={
+                          Object {
+                            "assertedDate": Object {
+                              "kind": "YEAR",
+                              "value": "2013-01-01T00:00:00+00:00",
+                            },
+                            "clinicalStatus": "RESOLVED",
+                            "code": Object {
+                              "coding": Array [
+                                Object {
+                                  "code": "109007",
+                                  "display": "Kiwi fruit",
+                                },
+                              ],
+                            },
+                            "id": "690ca927-68e0-c511-b2c7-898056926ze4|allergyalert",
+                            "metadata": Object {
+                              "dataSources": Array [
+                                Object {
+                                  "display": "Mock",
+                                },
+                              ],
+                            },
+                            "type": "INTOLERANCE",
+                          }
+                        }
+                      >
+                        <div
+                          className="emotion-9"
+                        >
+                          2013
+                        </div>
+                      </AllergyDate>
+                      <AllergyStatus
+                        allergy={
+                          Object {
+                            "assertedDate": Object {
+                              "kind": "YEAR",
+                              "value": "2013-01-01T00:00:00+00:00",
+                            },
+                            "clinicalStatus": "RESOLVED",
+                            "code": Object {
+                              "coding": Array [
+                                Object {
+                                  "code": "109007",
+                                  "display": "Kiwi fruit",
+                                },
+                              ],
+                            },
+                            "id": "690ca927-68e0-c511-b2c7-898056926ze4|allergyalert",
+                            "metadata": Object {
+                              "dataSources": Array [
+                                Object {
+                                  "display": "Mock",
+                                },
+                              ],
+                            },
+                            "type": "INTOLERANCE",
+                          }
+                        }
+                      >
+                        <div
+                          className="emotion-10"
+                        >
+                          Resolved
+                        </div>
+                      </AllergyStatus>
+                    </div>
                   </div>
-                  <div>
-                    <AllergyDate
-                      allergy={
-                        Object {
-                          "assertedDate": Object {
-                            "kind": "YEAR",
-                            "value": "2013-01-01T00:00:00+00:00",
-                          },
-                          "clinicalStatus": "RESOLVED",
-                          "code": Object {
-                            "coding": Array [
-                              Object {
-                                "code": "109007",
-                                "display": "Kiwi fruit",
-                              },
-                            ],
-                          },
-                          "id": "690ca927-68e0-c511-b2c7-898056926ze4|allergyalert",
-                          "metadata": Object {
-                            "dataSources": Array [
-                              Object {
-                                "display": "Mock",
-                              },
-                            ],
-                          },
-                          "type": "INTOLERANCE",
-                        }
-                      }
-                    >
-                      <div
-                        className="emotion-7"
-                      >
-                        2013
-                      </div>
-                    </AllergyDate>
-                    <AllergyStatus
-                      allergy={
-                        Object {
-                          "assertedDate": Object {
-                            "kind": "YEAR",
-                            "value": "2013-01-01T00:00:00+00:00",
-                          },
-                          "clinicalStatus": "RESOLVED",
-                          "code": Object {
-                            "coding": Array [
-                              Object {
-                                "code": "109007",
-                                "display": "Kiwi fruit",
-                              },
-                            ],
-                          },
-                          "id": "690ca927-68e0-c511-b2c7-898056926ze4|allergyalert",
-                          "metadata": Object {
-                            "dataSources": Array [
-                              Object {
-                                "display": "Mock",
-                              },
-                            ],
-                          },
-                          "type": "INTOLERANCE",
-                        }
-                      }
-                    >
-                      <div
-                        className="emotion-8"
-                      >
-                        Resolved
-                      </div>
-                    </AllergyStatus>
-                  </div>
-                </div>
-              </AllergySummaryItem>
-            </li>
-          </WidgetListItem>
-        </ul>
-      </WidgetList>
-    </div>
+                </AllergySummaryItem>
+              </li>
+            </WidgetListItem>
+          </ul>
+        </WidgetList>
+      </div>
+    </WidgetProvider>
   </Widget>
 </AllergySummary>
 `;
