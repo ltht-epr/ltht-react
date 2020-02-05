@@ -118,10 +118,22 @@ exports[`FlagSummary matches snapshot: wrapper mount 1`] = `
     Array [
       Object {
         "author": Object {
-          "display": "John Smith",
+          "display": "Smith, John (Dr)",
           "identifier": undefined,
           "reference": "https://phoenixqa.careworks.ie/Services/api/fhir/v3/practitioner/9c1ad2c0-ec34-e911-a2c5-005056926fe4|systemuser",
           "typeName": "Practitioner",
+        },
+        "category": Object {
+          "coding": Array [
+            Object {
+              "code": "66706",
+              "display": "Location",
+            },
+            Object {
+              "code": "66707",
+              "display": "Demographics",
+            },
+          ],
         },
         "code": Object {
           "coding": Array [
@@ -145,7 +157,11 @@ exports[`FlagSummary matches snapshot: wrapper mount 1`] = `
             "value": "2013-01-01T00:00:00+00:00",
           },
         },
-        "status": "INACTIVE",
+        "status": "ACTIVE",
+        "text": Object {
+          "div": "Lorem ipsum dolor sit amet",
+          "text": "Lorem ipsum dolor sit amet, falli nulla oportere vel eu. Ea meis moderatius scripserit his, ei decore ceteros has. Quo at apeirian facilisi consectetuer. At putant animal persius his, inani maiestatis moderatius vis no",
+        },
       },
       Object {
         "author": Object {
@@ -221,10 +237,22 @@ exports[`FlagSummary matches snapshot: wrapper mount 1`] = `
                 flag={
                   Object {
                     "author": Object {
-                      "display": "John Smith",
+                      "display": "Smith, John (Dr)",
                       "identifier": undefined,
                       "reference": "https://phoenixqa.careworks.ie/Services/api/fhir/v3/practitioner/9c1ad2c0-ec34-e911-a2c5-005056926fe4|systemuser",
                       "typeName": "Practitioner",
+                    },
+                    "category": Object {
+                      "coding": Array [
+                        Object {
+                          "code": "66706",
+                          "display": "Location",
+                        },
+                        Object {
+                          "code": "66707",
+                          "display": "Demographics",
+                        },
+                      ],
                     },
                     "code": Object {
                       "coding": Array [
@@ -248,7 +276,11 @@ exports[`FlagSummary matches snapshot: wrapper mount 1`] = `
                         "value": "2013-01-01T00:00:00+00:00",
                       },
                     },
-                    "status": "INACTIVE",
+                    "status": "ACTIVE",
+                    "text": Object {
+                      "div": "Lorem ipsum dolor sit amet",
+                      "text": "Lorem ipsum dolor sit amet, falli nulla oportere vel eu. Ea meis moderatius scripserit his, ei decore ceteros has. Quo at apeirian facilisi consectetuer. At putant animal persius his, inani maiestatis moderatius vis no",
+                    },
                   }
                 }
               >
@@ -263,10 +295,22 @@ exports[`FlagSummary matches snapshot: wrapper mount 1`] = `
                       flag={
                         Object {
                           "author": Object {
-                            "display": "John Smith",
+                            "display": "Smith, John (Dr)",
                             "identifier": undefined,
                             "reference": "https://phoenixqa.careworks.ie/Services/api/fhir/v3/practitioner/9c1ad2c0-ec34-e911-a2c5-005056926fe4|systemuser",
                             "typeName": "Practitioner",
+                          },
+                          "category": Object {
+                            "coding": Array [
+                              Object {
+                                "code": "66706",
+                                "display": "Location",
+                              },
+                              Object {
+                                "code": "66707",
+                                "display": "Demographics",
+                              },
+                            ],
                           },
                           "code": Object {
                             "coding": Array [
@@ -290,7 +334,11 @@ exports[`FlagSummary matches snapshot: wrapper mount 1`] = `
                               "value": "2013-01-01T00:00:00+00:00",
                             },
                           },
-                          "status": "INACTIVE",
+                          "status": "ACTIVE",
+                          "text": Object {
+                            "div": "Lorem ipsum dolor sit amet",
+                            "text": "Lorem ipsum dolor sit amet, falli nulla oportere vel eu. Ea meis moderatius scripserit his, ei decore ceteros has. Quo at apeirian facilisi consectetuer. At putant animal persius his, inani maiestatis moderatius vis no",
+                          },
                         }
                       }
                     >
@@ -304,10 +352,22 @@ exports[`FlagSummary matches snapshot: wrapper mount 1`] = `
                       flag={
                         Object {
                           "author": Object {
-                            "display": "John Smith",
+                            "display": "Smith, John (Dr)",
                             "identifier": undefined,
                             "reference": "https://phoenixqa.careworks.ie/Services/api/fhir/v3/practitioner/9c1ad2c0-ec34-e911-a2c5-005056926fe4|systemuser",
                             "typeName": "Practitioner",
+                          },
+                          "category": Object {
+                            "coding": Array [
+                              Object {
+                                "code": "66706",
+                                "display": "Location",
+                              },
+                              Object {
+                                "code": "66707",
+                                "display": "Demographics",
+                              },
+                            ],
                           },
                           "code": Object {
                             "coding": Array [
@@ -331,14 +391,18 @@ exports[`FlagSummary matches snapshot: wrapper mount 1`] = `
                               "value": "2013-01-01T00:00:00+00:00",
                             },
                           },
-                          "status": "INACTIVE",
+                          "status": "ACTIVE",
+                          "text": Object {
+                            "div": "Lorem ipsum dolor sit amet",
+                            "text": "Lorem ipsum dolor sit amet, falli nulla oportere vel eu. Ea meis moderatius scripserit his, ei decore ceteros has. Quo at apeirian facilisi consectetuer. At putant animal persius his, inani maiestatis moderatius vis no",
+                          },
                         }
                       }
                     >
                       <div
                         className="emotion-2"
                       >
-                        109006
+                        109006 - Location, Demographics
                       </div>
                     </FlagDescription>
                   </div>
@@ -347,10 +411,22 @@ exports[`FlagSummary matches snapshot: wrapper mount 1`] = `
                       flag={
                         Object {
                           "author": Object {
-                            "display": "John Smith",
+                            "display": "Smith, John (Dr)",
                             "identifier": undefined,
                             "reference": "https://phoenixqa.careworks.ie/Services/api/fhir/v3/practitioner/9c1ad2c0-ec34-e911-a2c5-005056926fe4|systemuser",
                             "typeName": "Practitioner",
+                          },
+                          "category": Object {
+                            "coding": Array [
+                              Object {
+                                "code": "66706",
+                                "display": "Location",
+                              },
+                              Object {
+                                "code": "66707",
+                                "display": "Demographics",
+                              },
+                            ],
                           },
                           "code": Object {
                             "coding": Array [
@@ -374,7 +450,11 @@ exports[`FlagSummary matches snapshot: wrapper mount 1`] = `
                               "value": "2013-01-01T00:00:00+00:00",
                             },
                           },
-                          "status": "INACTIVE",
+                          "status": "ACTIVE",
+                          "text": Object {
+                            "div": "Lorem ipsum dolor sit amet",
+                            "text": "Lorem ipsum dolor sit amet, falli nulla oportere vel eu. Ea meis moderatius scripserit his, ei decore ceteros has. Quo at apeirian facilisi consectetuer. At putant animal persius his, inani maiestatis moderatius vis no",
+                          },
                         }
                       }
                     >
@@ -388,10 +468,22 @@ exports[`FlagSummary matches snapshot: wrapper mount 1`] = `
                       flag={
                         Object {
                           "author": Object {
-                            "display": "John Smith",
+                            "display": "Smith, John (Dr)",
                             "identifier": undefined,
                             "reference": "https://phoenixqa.careworks.ie/Services/api/fhir/v3/practitioner/9c1ad2c0-ec34-e911-a2c5-005056926fe4|systemuser",
                             "typeName": "Practitioner",
+                          },
+                          "category": Object {
+                            "coding": Array [
+                              Object {
+                                "code": "66706",
+                                "display": "Location",
+                              },
+                              Object {
+                                "code": "66707",
+                                "display": "Demographics",
+                              },
+                            ],
                           },
                           "code": Object {
                             "coding": Array [
@@ -415,14 +507,18 @@ exports[`FlagSummary matches snapshot: wrapper mount 1`] = `
                               "value": "2013-01-01T00:00:00+00:00",
                             },
                           },
-                          "status": "INACTIVE",
+                          "status": "ACTIVE",
+                          "text": Object {
+                            "div": "Lorem ipsum dolor sit amet",
+                            "text": "Lorem ipsum dolor sit amet, falli nulla oportere vel eu. Ea meis moderatius scripserit his, ei decore ceteros has. Quo at apeirian facilisi consectetuer. At putant animal persius his, inani maiestatis moderatius vis no",
+                          },
                         }
                       }
                     >
                       <div
                         className="emotion-5"
                       >
-                        Inactive
+                        Active
                       </div>
                     </FlagStatus>
                   </div>

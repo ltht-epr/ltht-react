@@ -12,7 +12,7 @@ const FlagOne: Flag = {
   id: '580ca927-34e0-e911-a2c7-005056926fe5|personalertandhazard',
   metadata: mockMetadata,
   author: {
-    display: 'John Smith',
+    display: 'Smith, John (Dr)',
     reference:
       'https://phoenixqa.careworks.ie/Services/api/fhir/v3/practitioner/9c1ad2c0-ec34-e911-a2c5-005056926fe4|systemuser',
     typeName: 'Practitioner',
@@ -21,13 +21,24 @@ const FlagOne: Flag = {
   code: {
     coding: [{ display: 'Lives in Known High Risk Area', code: '109006' }],
   },
+  category: {
+    coding: [
+      { display: 'Location', code: '66706' },
+      { display: 'Demographics', code: '66707' },
+    ],
+  },
   period: {
     start: {
       value: '2013-01-01T00:00:00+00:00',
       kind: PartialDateTimeKindCode.Year,
     },
   },
-  status: FlagStatusCode.Inactive,
+  status: FlagStatusCode.Active,
+  text: {
+    div: 'Lorem ipsum dolor sit amet',
+    text:
+      'Lorem ipsum dolor sit amet, falli nulla oportere vel eu. Ea meis moderatius scripserit his, ei decore ceteros has. Quo at apeirian facilisi consectetuer. At putant animal persius his, inani maiestatis moderatius vis no',
+  },
 }
 
 const FlagTwo: Flag = {
