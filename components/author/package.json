@@ -1,7 +1,7 @@
 {
-  "name": "@ltht-react/flag-detail",
+  "name": "@ltht-react/author",
   "version": "0.0.0",
-  "description": "ltht-react FlagDetail component.",
+  "description": "ltht-react Author component.",
   "author": "LTHT",
   "homepage": "",
   "license": "MIT",
@@ -31,7 +31,6 @@
     "@ltht-react/types": "^0.0.7",
     "@ltht-react/utils": "^0.0.10",
     "@ltht-react/widget": "^0.0.8",
-    "@ltht-react/period": "^0.0.0",
     "emotion": "^10.0.27",
     "react": "^16.12.0"
   }

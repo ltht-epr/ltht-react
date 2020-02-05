@@ -3,8 +3,9 @@ import React from 'react'
 import { css, jsx } from '@emotion/core'
 
 import { Flag } from '@ltht-react/types'
-import { codeableConceptDisplaySummary, titleCase, periodSummaryText } from '@ltht-react/utils'
+import { codeableConceptDisplaySummary, titleCase } from '@ltht-react/utils'
 import { TEXT_SECONDARY_COLOUR } from '@ltht-react/styles'
+import Period from '@ltht-react/period'
 
 const styles = {
   layout: css`
@@ -35,10 +36,7 @@ const FlagDetailItem: React.FC<Props> = ({ flag }) => {
           <div>{code?.display}</div>
         ))}
       </div>
-      <div css={styles.layout}>
-        <div css={styles.color}>Period</div>
-        <div>{periodSummaryText(flag.period)}</div>
-      </div>
+      <Period period={flag?.period} />
       <div css={styles.layout}>
         <div css={styles.color}>Narrative</div>
         <div>{flag.text?.text}</div>
