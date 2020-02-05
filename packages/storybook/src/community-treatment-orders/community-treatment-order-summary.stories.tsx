@@ -4,9 +4,9 @@ import JSXAddon from 'storybook-addon-jsx'
 
 import CommunityTreatmentOrderSummary from '@ltht-react/community-treatment-order-summary'
 import readme from '@ltht-react/community-treatment-order-summary/README.md'
-import * as fixtures from './community-treatment-order-summary.fixtures'
+import * as fixtures from './community-treatment-order.fixtures'
 
-const stories = storiesOf('Components|Community Treatment Order|Examples', module)
+const stories = storiesOf('Components|Community Treatment Order', module)
 
 stories.addWithJSX = JSXAddon.addWithJSX
 

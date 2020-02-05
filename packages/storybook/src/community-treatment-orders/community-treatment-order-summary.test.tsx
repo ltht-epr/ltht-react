@@ -3,7 +3,7 @@ import { mount } from 'enzyme'
 import ReactDOM from 'react-dom'
 
 import CommunityTreatmentOrderSummary from '@ltht-react/community-treatment-order-summary'
-import { CommunityTreatmentOrderOne, CommunityTreatmentOrderTwo } from './community-treatment-order-summary.fixtures'
+import { CommunityTreatmentOrderOne, CommunityTreatmentOrderTwo } from './community-treatment-order.fixtures'
 
 describe('CommunityTreatmentOrderSummary', () => {
   const communityTreatmentOrders = [CommunityTreatmentOrderOne, CommunityTreatmentOrderTwo]

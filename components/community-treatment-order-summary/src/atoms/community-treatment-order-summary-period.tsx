@@ -11,7 +11,7 @@ const styles = css`
   text-align: right;
 `
 
-const CommunityTreatmentOrderPeriod: React.FC<Props> = ({ communityTreatmentOrder }) => {
+const CommunityTreatmentOrderSummaryPeriod: React.FC<Props> = ({ communityTreatmentOrder }) => {
   return <div css={styles}>{periodSummaryText(communityTreatmentOrder.period)}</div>
 }
 
@@ -19,4 +19,4 @@ interface Props {
   communityTreatmentOrder: LypftCommunityTreatmentOrder
 }
 
-export default CommunityTreatmentOrderPeriod
+export default CommunityTreatmentOrderSummaryPeriod

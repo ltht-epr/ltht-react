@@ -7,15 +7,15 @@ import { LypftCommunityTreatmentOrder } from '@ltht-react/types'
 
 const styles = css`
   color: ${TEXT_SECONDARY_COLOUR};
-  text-align: left;
+  text-align: right;
 `
 
-const CommunityTreatmentOrderRestrictions: React.FC<Props> = ({ communityTreatmentOrder }) => {
-  return <div css={styles}>{communityTreatmentOrder.restrictions && communityTreatmentOrder.restrictions}</div>
+const CommunityTreatmentOrderSummaryConsent: React.FC<Props> = ({ communityTreatmentOrder }) => {
+  return <div css={styles}>{communityTreatmentOrder.consentToTreat && communityTreatmentOrder.consentToTreat}</div>
 }
 
 interface Props {
   communityTreatmentOrder: LypftCommunityTreatmentOrder
 }
 
-export default CommunityTreatmentOrderRestrictions
+export default CommunityTreatmentOrderSummaryConsent

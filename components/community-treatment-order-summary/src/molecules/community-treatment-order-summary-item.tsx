@@ -3,10 +3,10 @@ import React from 'react'
 import { css, jsx } from '@emotion/core'
 
 import { LypftCommunityTreatmentOrder } from '@ltht-react/types'
-import Consent from '../atoms/community-treatment-order-consent'
-import Period from '../atoms/community-treatment-order-period'
-import Restrictions from '../atoms/community-treatment-order-restrictions'
-import Status from '../atoms/community-treatment-order-status'
+import Consent from '../atoms/community-treatment-order-summary-consent'
+import Period from '../atoms/community-treatment-order-summary-period'
+import Restrictions from '../atoms/community-treatment-order-summary-restrictions'
+import Status from '../atoms/community-treatment-order-summary-status'
 
 const styles = {
   root: css`
