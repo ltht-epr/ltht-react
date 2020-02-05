@@ -16,8 +16,8 @@ const styles = css`
   }
 `
 
-const WidgetDetailList: React.FC = ({ children }) => {
+const DetailList: React.FC = ({ children }) => {
   return <dl css={styles}>{children}</dl>
 }
 
-export default WidgetDetailList
+export default DetailList

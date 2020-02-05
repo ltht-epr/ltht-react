@@ -1,16 +1,16 @@
 import React from 'react'
 
 import { LypftCommunityTreatmentOrder } from '@ltht-react/types'
-import { WidgetDetailList } from '@ltht-react/widget'
+import { DetailList } from '@ltht-react/detail-list'
+import Period from '@ltht-react/period'
 import Consent from '../atoms/community-treatment-order-detail-consent'
 
 const CommunityTreatmentOrderDetailItem: React.FC<Props> = ({ communityTreatmentOrder }) => {
   return (
-    <WidgetDetailList>
+    <DetailList>
       <Consent communityTreatmentOrder={communityTreatmentOrder} />
-      <Consent communityTreatmentOrder={communityTreatmentOrder} />
-      <Consent communityTreatmentOrder={communityTreatmentOrder} />
-    </WidgetDetailList>
+      <Period period={communityTreatmentOrder?.period} />
+    </DetailList>
   )
 }
 

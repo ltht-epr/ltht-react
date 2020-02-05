@@ -5,7 +5,7 @@ import { css, jsx } from '@emotion/core'
 import { Flag } from '@ltht-react/types'
 import { codeableConceptDisplaySummary, titleCase } from '@ltht-react/utils'
 import { TEXT_SECONDARY_COLOUR } from '@ltht-react/styles'
-import Period from '@ltht-react/period'
+import { DetailList, DetailListItemPeriod, DetailListItemResourceReference } from '@ltht-react/detail-list'
 
 const styles = {
   layout: css`
@@ -19,7 +19,7 @@ const styles = {
 
 const FlagDetailItem: React.FC<Props> = ({ flag }) => {
   return (
-    <div>
+    <DetailList>
       {flag?.code && (
         <div css={styles.layout}>
           <div css={styles.color}>Code</div>
@@ -36,16 +36,13 @@ const FlagDetailItem: React.FC<Props> = ({ flag }) => {
           <div>{code?.display}</div>
         ))}
       </div>
-      <Period period={flag?.period} />
+      <DetailListItemPeriod period={flag?.period} />
       <div css={styles.layout}>
         <div css={styles.color}>Narrative</div>
         <div>{flag.text?.text}</div>
       </div>
-      <div css={styles.layout}>
-        <div css={styles.color}>Author</div>
-        <div>{flag.author?.display}</div>
-      </div>
-    </div>
+      <DetailListItemResourceReference tag="Author" resourceReference={flag?.author} />
+    </DetailList>
   )
 }
 

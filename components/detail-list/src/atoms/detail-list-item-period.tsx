@@ -1,9 +1,9 @@
 import React from 'react'
 import { Period as PeriodType } from '@ltht-react/types'
 import { periodSummaryText } from '@ltht-react/utils'
-import { DetailListItemTag, DetailListItemDescription } from '@ltht-react/detail-list'
+import { DetailListItemTag, DetailListItemDescription } from '.'
 
-const Period: React.FC<Props> = ({ period }) => {
+const DetailListItemPeriod: React.FC<Props> = ({ period }) => {
   if (period?.start?.value || period?.end?.value) {
     return (
       <>
@@ -19,4 +19,4 @@ interface Props {
   period?: PeriodType | null
 }
 
-export default Period
+export default DetailListItemPeriod
