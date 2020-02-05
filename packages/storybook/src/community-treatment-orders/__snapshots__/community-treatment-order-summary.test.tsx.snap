@@ -284,7 +284,7 @@ exports[`CommunityTreatmentOrderSummary matches snapshot: wrapper mount 1`] = `
                         Approved
                       </div>
                     </CommunityTreatmentOrderConsent>
-                    <CommunityTreatmentOrderRestrictions
+                    <CommunityTreatmentOrderSummaryRestrictions
                       communityTreatmentOrder={
                         Object {
                           "consentToTreat": "Consent Not Given",
@@ -324,12 +324,12 @@ exports[`CommunityTreatmentOrderSummary matches snapshot: wrapper mount 1`] = `
                       >
                         No restrictions
                       </div>
-                    </CommunityTreatmentOrderRestrictions>
+                    </CommunityTreatmentOrderSummaryRestrictions>
                   </div>
                   <div
                     className="emotion-3"
                   >
-                    <CommunityTreatmentOrderPeriod
+                    <CommunityTreatmentOrderSummaryPeriod
                       communityTreatmentOrder={
                         Object {
                           "consentToTreat": "Consent Not Given",
@@ -369,8 +369,8 @@ exports[`CommunityTreatmentOrderSummary matches snapshot: wrapper mount 1`] = `
                       >
                         01-Jan-2013 to 02-Feb-2014
                       </div>
-                    </CommunityTreatmentOrderPeriod>
-                    <CommunityTreatmentOrderConsent
+                    </CommunityTreatmentOrderSummaryPeriod>
+                    <CommunityTreatmentOrderSummaryConsent
                       communityTreatmentOrder={
                         Object {
                           "consentToTreat": "Consent Not Given",
@@ -410,7 +410,7 @@ exports[`CommunityTreatmentOrderSummary matches snapshot: wrapper mount 1`] = `
                       >
                         Consent Not Given
                       </div>
-                    </CommunityTreatmentOrderConsent>
+                    </CommunityTreatmentOrderSummaryConsent>
                   </div>
                 </div>
               </CommunityTreatmentOrderSummaryItem>
@@ -495,7 +495,7 @@ exports[`CommunityTreatmentOrderSummary matches snapshot: wrapper mount 1`] = `
                         Pending
                       </div>
                     </CommunityTreatmentOrderConsent>
-                    <CommunityTreatmentOrderRestrictions
+                    <CommunityTreatmentOrderSummaryRestrictions
                       communityTreatmentOrder={
                         Object {
                           "consentToTreat": "Consent Given",
@@ -531,12 +531,12 @@ exports[`CommunityTreatmentOrderSummary matches snapshot: wrapper mount 1`] = `
                       >
                         No Restrictions
                       </div>
-                    </CommunityTreatmentOrderRestrictions>
+                    </CommunityTreatmentOrderSummaryRestrictions>
                   </div>
                   <div
                     className="emotion-3"
                   >
-                    <CommunityTreatmentOrderPeriod
+                    <CommunityTreatmentOrderSummaryPeriod
                       communityTreatmentOrder={
                         Object {
                           "consentToTreat": "Consent Given",
@@ -572,8 +572,8 @@ exports[`CommunityTreatmentOrderSummary matches snapshot: wrapper mount 1`] = `
                       >
                         02-Jan-2020 to Present
                       </div>
-                    </CommunityTreatmentOrderPeriod>
-                    <CommunityTreatmentOrderConsent
+                    </CommunityTreatmentOrderSummaryPeriod>
+                    <CommunityTreatmentOrderSummaryConsent
                       communityTreatmentOrder={
                         Object {
                           "consentToTreat": "Consent Given",
@@ -609,7 +609,7 @@ exports[`CommunityTreatmentOrderSummary matches snapshot: wrapper mount 1`] = `
                       >
                         Consent Given
                       </div>
-                    </CommunityTreatmentOrderConsent>
+                    </CommunityTreatmentOrderSummaryConsent>
                   </div>
                 </div>
               </CommunityTreatmentOrderSummaryItem>
