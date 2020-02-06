@@ -1,4 +1,3 @@
-
 # DetailList
 
 <!-- STORY -->
@@ -6,7 +5,7 @@
 ### Import
 
 ```js
-import DetailList from '@ltht-react/detail-list'
+import DetailList from '@ltht-react/detail'
 ```
 
 ### Usage
@@ -14,4 +13,3 @@ import DetailList from '@ltht-react/detail-list'
 ```jsx
 <DetailList />
 ```
-  

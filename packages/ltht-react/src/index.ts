@@ -10,7 +10,7 @@ export { default as HospitalStaySummary } from '@ltht-react/hospital-stay-summar
 export { default as InvolvedTeamSummary } from '@ltht-react/involved-team-summary'
 export { default as Author } from '@ltht-react/author'
 export { default as SpinnerIcon } from '@ltht-react/spinner-icon'
-export { default as DetailList } from '@ltht-react/detail-list'
+export { default as DetailList } from '@ltht-react/detail'
 export * from '@ltht-react/styles'
 export * from '@ltht-react/types'
 export * from '@ltht-react/utils'

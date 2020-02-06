@@ -1,7 +1,7 @@
 {
-  "name": "@ltht-react/detail-list",
+  "name": "@ltht-react/detail",
   "version": "0.0.0",
-  "description": "ltht-react DetailList component.",
+  "description": "ltht-react Detail component.",
   "author": "LTHT",
   "homepage": "",
   "license": "MIT",

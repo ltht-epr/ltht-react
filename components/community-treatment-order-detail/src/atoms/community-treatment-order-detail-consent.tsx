@@ -2,7 +2,7 @@
 import React from 'react'
 
 import { LypftCommunityTreatmentOrder } from '@ltht-react/types'
-import { DetailListItemTag, DetailListItemDescription } from '@ltht-react/detail-list'
+import { DetailListItemTag, DetailListItemDescription } from '@ltht-react/detail'
 import { jsx } from '@emotion/core'
 
 const CommunityTreatmentOrderDetailConsent: React.FC<Props> = ({ communityTreatmentOrder }) => {

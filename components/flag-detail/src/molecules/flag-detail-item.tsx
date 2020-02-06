@@ -9,7 +9,7 @@ import {
   DetailListItemString,
   DetailListItemCodeableConceptDisplay,
   DetailListItemNarrativeText,
-} from '@ltht-react/detail-list'
+} from '@ltht-react/detail'
 
 const FlagDetailItem: React.FC<Props> = ({ flag }) => {
   return (
