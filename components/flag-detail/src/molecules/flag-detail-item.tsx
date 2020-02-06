@@ -1,48 +1,24 @@
 /** @jsx jsx */
 import React from 'react'
-import { css, jsx } from '@emotion/core'
-
+import { jsx } from '@emotion/core'
 import { Flag } from '@ltht-react/types'
-import { codeableConceptDisplaySummary } from '@ltht-react/utils'
-import { TEXT_SECONDARY_COLOUR } from '@ltht-react/styles'
 import {
   DetailList,
   DetailListItemPeriod,
   DetailListItemResourceReference,
   DetailListItemString,
+  DetailListItemCodeableConceptDisplay,
+  DetailListItemNarrativeText,
 } from '@ltht-react/detail-list'
-
-const styles = {
-  layout: css`
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-  `,
-  color: css`
-    color: ${TEXT_SECONDARY_COLOUR};
-  `,
-}
 
 const FlagDetailItem: React.FC<Props> = ({ flag }) => {
   return (
     <DetailList>
-      {flag?.code && (
-        <div css={styles.layout}>
-          <div css={styles.color}>Code</div>
-          <div>{codeableConceptDisplaySummary(flag?.code)}</div>
-        </div>
-      )}
+      <DetailListItemCodeableConceptDisplay tag="Code" concept={flag?.code} />
       <DetailListItemString tag="Status" string={flag.status.toString()} />
-      <div css={styles.layout}>
-        <div css={styles.color}>Category</div>
-        {flag.category?.coding?.map(code => (
-          <div>{code?.display}</div>
-        ))}
-      </div>
+      <DetailListItemCodeableConceptDisplay tag="Category" concept={flag?.category} />
       <DetailListItemPeriod period={flag?.period} />
-      <div css={styles.layout}>
-        <div css={styles.color}>Narrative</div>
-        <div>{flag.text?.text}</div>
-      </div>
+      <DetailListItemNarrativeText narrative={flag?.text} />
       <DetailListItemResourceReference tag="Author" resourceReference={flag?.author} />
     </DetailList>
   )

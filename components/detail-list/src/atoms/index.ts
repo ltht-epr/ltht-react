@@ -4,3 +4,5 @@ export { default as DetailListItemDescription } from './detail-list-item-descrip
 export { default as DetailListItemPeriod } from './detail-list-item-period'
 export { default as DetailListItemResourceReference } from './detail-list-item-resource-reference'
 export { default as DetailListItemString } from './detail-list-item-string'
+export { default as DetailListItemCodeableConceptDisplay } from './detail-list-item-codeable-concept'
+export { default as DetailListItemNarrativeText } from './detail-list-item-narrative'
