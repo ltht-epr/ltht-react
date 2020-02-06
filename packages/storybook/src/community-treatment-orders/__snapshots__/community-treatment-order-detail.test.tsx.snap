@@ -202,6 +202,31 @@ exports[`CommunityTreatmentOrderSummary matches snapshot: wrapper mount 1`] = `
                     </dd>
                   </DetailListItemDescription>
                 </DetailListItemString>
+                <DetailListItemCodeableConceptDisplay
+                  concept={
+                    Object {
+                      "coding": Array [
+                        Object {
+                          "code": "3309007",
+                          "display": "Approved",
+                        },
+                      ],
+                      "text": "Approved",
+                    }
+                  }
+                  tag="Legal Status"
+                >
+                  <DetailListItemTag>
+                    <dt>
+                      Legal Status
+                    </dt>
+                  </DetailListItemTag>
+                  <DetailListItemDescription>
+                    <dd>
+                      Approved
+                    </dd>
+                  </DetailListItemDescription>
+                </DetailListItemCodeableConceptDisplay>
                 <DetailListItemPeriod
                   period={
                     Object {
@@ -227,6 +252,21 @@ exports[`CommunityTreatmentOrderSummary matches snapshot: wrapper mount 1`] = `
                     </dd>
                   </DetailListItemDescription>
                 </DetailListItemPeriod>
+                <DetailListItemString
+                  string="No restrictions"
+                  tag="Restrictions"
+                >
+                  <DetailListItemTag>
+                    <dt>
+                      Restrictions
+                    </dt>
+                  </DetailListItemTag>
+                  <DetailListItemDescription>
+                    <dd>
+                      No Restrictions
+                    </dd>
+                  </DetailListItemDescription>
+                </DetailListItemString>
               </dl>
             </DetailList>
           </CommunityTreatmentOrderDetailItem>
