@@ -3,9 +3,14 @@ import React from 'react'
 import { css, jsx } from '@emotion/core'
 
 import { Flag } from '@ltht-react/types'
-import { codeableConceptDisplaySummary, titleCase } from '@ltht-react/utils'
+import { codeableConceptDisplaySummary } from '@ltht-react/utils'
 import { TEXT_SECONDARY_COLOUR } from '@ltht-react/styles'
-import { DetailList, DetailListItemPeriod, DetailListItemResourceReference } from '@ltht-react/detail-list'
+import {
+  DetailList,
+  DetailListItemPeriod,
+  DetailListItemResourceReference,
+  DetailListItemString,
+} from '@ltht-react/detail-list'
 
 const styles = {
   layout: css`
@@ -26,10 +31,7 @@ const FlagDetailItem: React.FC<Props> = ({ flag }) => {
           <div>{codeableConceptDisplaySummary(flag?.code)}</div>
         </div>
       )}
-      <div css={styles.layout}>
-        <div css={styles.color}>Status</div>
-        <div>{titleCase(flag.status)}</div>
-      </div>
+      <DetailListItemString tag="Status" string={flag.status.toString()} />
       <div css={styles.layout}>
         <div css={styles.color}>Category</div>
         {flag.category?.coding?.map(code => (

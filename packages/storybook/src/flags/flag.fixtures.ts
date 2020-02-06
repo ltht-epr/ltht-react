@@ -33,7 +33,7 @@ const FlagOne: Flag = {
       kind: PartialDateTimeKindCode.Year,
     },
   },
-  status: FlagStatusCode.Active,
+  status: FlagStatusCode.EnteredInError,
   text: {
     div: 'Lorem ipsum dolor sit amet',
     text:
