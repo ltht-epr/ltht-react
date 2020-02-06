@@ -208,7 +208,7 @@ exports[`CommunityTreatmentOrderSummary matches snapshot: wrapper mount 1`] = `
                     </dd>
                   </DetailListItemDescription>
                 </CommunityTreatmentOrderDetailConsent>
-                <Period
+                <DetailListItemPeriod
                   period={
                     Object {
                       "end": Object {
@@ -232,7 +232,7 @@ exports[`CommunityTreatmentOrderSummary matches snapshot: wrapper mount 1`] = `
                       01-Jan-2013 to 02-Feb-2014
                     </dd>
                   </DetailListItemDescription>
-                </Period>
+                </DetailListItemPeriod>
               </dl>
             </DetailList>
           </CommunityTreatmentOrderDetailItem>

@@ -55,7 +55,6 @@
     "@ltht-react/flag-summary": "^0.0.14",
     "@ltht-react/hospital-stay-summary": "^0.0.7",
     "@ltht-react/involved-team-summary": "^0.0.8",
-    "@ltht-react/period": "^0.0.0",
     "@ltht-react/spinner-icon": "^0.0.5",
     "@ltht-react/styles": "^0.0.7",
     "@ltht-react/types": "^0.0.7",
