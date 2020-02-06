@@ -1,11 +1,15 @@
 import React from 'react'
 import { LypftCommunityTreatmentOrder } from '@ltht-react/types'
-import { Widget, WidgetBody } from '@ltht-react/widget'
+import { Widget, WidgetBody, WidgetHeader } from '@ltht-react/widget'
+import { DetailHeader } from '@ltht-react/detail'
 import CommunityTreatmentOrderDetailItem from './molecules/community-treatment-order-detail-item'
 
-const CommunityTreatmentOrderDetail: React.FC<Props> = ({ communityTreatmentOrder }) => {
+const CommunityTreatmentOrderDetail: React.FC<Props> = ({ title, communityTreatmentOrder }) => {
   return (
     <Widget>
+      <WidgetHeader>
+        <DetailHeader>{title}</DetailHeader>
+      </WidgetHeader>
       <WidgetBody>
         <CommunityTreatmentOrderDetailItem communityTreatmentOrder={communityTreatmentOrder} />
       </WidgetBody>
@@ -14,6 +18,7 @@ const CommunityTreatmentOrderDetail: React.FC<Props> = ({ communityTreatmentOrde
 }
 
 interface Props {
+  title: string
   communityTreatmentOrder: LypftCommunityTreatmentOrder
 }
 

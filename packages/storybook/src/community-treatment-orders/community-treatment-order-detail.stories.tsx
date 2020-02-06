@@ -17,5 +17,8 @@ stories.addParameters({
 })
 
 stories.addWithJSX('Community Treatment Order Detail', () => (
-  <CommunityTreatmentOrderDetail communityTreatmentOrder={CommunityTreatmentOrderOne} />
+  <CommunityTreatmentOrderDetail
+    title="Community Treatment Order"
+    communityTreatmentOrder={CommunityTreatmentOrderOne}
+  />
 ))

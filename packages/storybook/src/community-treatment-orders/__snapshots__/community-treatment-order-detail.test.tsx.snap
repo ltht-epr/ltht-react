@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CommunityTreatmentOrderSummary matches snapshot: wrapper mount 1`] = `
-.emotion-2 {
+.emotion-4 {
   color: #231f20;
   font-family: 'SF Pro Text','SF Pro Icons','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 0.8rem;
@@ -14,68 +14,79 @@ exports[`CommunityTreatmentOrderSummary matches snapshot: wrapper mount 1`] = `
   -webkit-font-smoothing: antialiased;
 }
 
-.emotion-2 *,
-.emotion-2 ::before,
-.emotion-2 ::after {
+.emotion-4 *,
+.emotion-4 ::before,
+.emotion-4 ::after {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
 
-.emotion-2 * {
+.emotion-4 * {
   margin: 0;
   padding: 0;
 }
 
-.emotion-2 h3 {
+.emotion-4 h3 {
   font-size: 1rem;
 }
 
 @media only screen and (min-width:768px) {
-  .emotion-2 {
+  .emotion-4 {
     font-size: 0.9rem;
   }
 
-  .emotion-2 h3 {
+  .emotion-4 h3 {
     font-size: 1.1rem;
   }
 }
 
 @media only screen and (min-width:1024px) {
-  .emotion-2 {
+  .emotion-4 {
     font-size: 1rem;
   }
 
-  .emotion-2 h3 {
+  .emotion-4 h3 {
     font-size: 1.2rem;
   }
 }
 
 @media only screen and (min-width:1200px) {
-  .emotion-2 {
+  .emotion-4 {
     font-size: 1.1rem;
   }
 
-  .emotion-2 h3 {
+  .emotion-4 h3 {
     font-size: 1.3rem;
   }
 }
 
 .emotion-1 {
-  padding: 0.5rem 0 0.5rem 0.5rem;
+  padding: 0.5rem;
 }
 
 .emotion-0 {
   list-style: none;
   padding-left: 0.5rem;
+  color: #231f20;
+  text-align: center;
 }
 
-.emotion-0 dt {
+.emotion-3 {
+  padding: 0.5rem 0 0.5rem 0.5rem;
+}
+
+.emotion-2 {
+  list-style: none;
+  padding-left: 0.5rem;
+}
+
+.emotion-2 dt {
   color: #768692;
   margin-top: 10px;
 }
 
-.emotion-0 dd {
+.emotion-2 dd {
   color: #231f20;
   margin-top: 5px;
 }
@@ -114,14 +125,28 @@ exports[`CommunityTreatmentOrderSummary matches snapshot: wrapper mount 1`] = `
       "restrictions": "No restrictions",
     }
   }
+  title="Community Treatment Order"
 >
   <Widget>
     <div
-      className="emotion-2"
+      className="emotion-4"
     >
-      <WidgetBody>
+      <WidgetHeader>
         <div
           className="emotion-1"
+        >
+          <DetailHeader>
+            <h2
+              className="emotion-0"
+            >
+              Community Treatment Order
+            </h2>
+          </DetailHeader>
+        </div>
+      </WidgetHeader>
+      <WidgetBody>
+        <div
+          className="emotion-3"
         >
           <CommunityTreatmentOrderDetailItem
             communityTreatmentOrder={
@@ -160,42 +185,11 @@ exports[`CommunityTreatmentOrderSummary matches snapshot: wrapper mount 1`] = `
           >
             <DetailList>
               <dl
-                className="emotion-0"
+                className="emotion-2"
               >
-                <CommunityTreatmentOrderDetailConsent
-                  communityTreatmentOrder={
-                    Object {
-                      "consentToTreat": "Consent Not Given",
-                      "id": "580ca927-34e0-e911-a2c7-005056926fe4|communityTreatmentOrder",
-                      "legalStatus": Object {
-                        "coding": Array [
-                          Object {
-                            "code": "3309007",
-                            "display": "Approved",
-                          },
-                        ],
-                        "text": "Approved",
-                      },
-                      "metadata": Object {
-                        "dataSources": Array [
-                          Object {
-                            "display": "Mock",
-                          },
-                        ],
-                      },
-                      "period": Object {
-                        "end": Object {
-                          "kind": "DATE",
-                          "value": "2014-02-02T00:00:00+00:00",
-                        },
-                        "start": Object {
-                          "kind": "DATE",
-                          "value": "2013-01-01T00:00:00+00:00",
-                        },
-                      },
-                      "restrictions": "No restrictions",
-                    }
-                  }
+                <DetailListItemString
+                  string="Consent Not Given"
+                  tag="Consent"
                 >
                   <DetailListItemTag>
                     <dt>
@@ -207,7 +201,7 @@ exports[`CommunityTreatmentOrderSummary matches snapshot: wrapper mount 1`] = `
                       Consent Not Given
                     </dd>
                   </DetailListItemDescription>
-                </CommunityTreatmentOrderDetailConsent>
+                </DetailListItemString>
                 <DetailListItemPeriod
                   period={
                     Object {
