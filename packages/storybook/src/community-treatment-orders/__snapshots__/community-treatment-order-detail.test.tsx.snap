@@ -158,7 +158,7 @@ exports[`CommunityTreatmentOrderSummary matches snapshot: wrapper mount 1`] = `
               }
             }
           >
-            <WidgetDetailList>
+            <DetailList>
               <dl
                 className="emotion-0"
               >
@@ -197,111 +197,44 @@ exports[`CommunityTreatmentOrderSummary matches snapshot: wrapper mount 1`] = `
                     }
                   }
                 >
-                  <WidgetDetailListItemTag>
+                  <DetailListItemTag>
                     <dt>
                       Consent
                     </dt>
-                  </WidgetDetailListItemTag>
-                  <WidgetDetailListItemDescription>
+                  </DetailListItemTag>
+                  <DetailListItemDescription>
                     <dd>
                       Consent Not Given
                     </dd>
-                  </WidgetDetailListItemDescription>
+                  </DetailListItemDescription>
                 </CommunityTreatmentOrderDetailConsent>
-                <CommunityTreatmentOrderDetailConsent
-                  communityTreatmentOrder={
+                <Period
+                  period={
                     Object {
-                      "consentToTreat": "Consent Not Given",
-                      "id": "580ca927-34e0-e911-a2c7-005056926fe4|communityTreatmentOrder",
-                      "legalStatus": Object {
-                        "coding": Array [
-                          Object {
-                            "code": "3309007",
-                            "display": "Approved",
-                          },
-                        ],
-                        "text": "Approved",
+                      "end": Object {
+                        "kind": "DATE",
+                        "value": "2014-02-02T00:00:00+00:00",
                       },
-                      "metadata": Object {
-                        "dataSources": Array [
-                          Object {
-                            "display": "Mock",
-                          },
-                        ],
+                      "start": Object {
+                        "kind": "DATE",
+                        "value": "2013-01-01T00:00:00+00:00",
                       },
-                      "period": Object {
-                        "end": Object {
-                          "kind": "DATE",
-                          "value": "2014-02-02T00:00:00+00:00",
-                        },
-                        "start": Object {
-                          "kind": "DATE",
-                          "value": "2013-01-01T00:00:00+00:00",
-                        },
-                      },
-                      "restrictions": "No restrictions",
                     }
                   }
                 >
-                  <WidgetDetailListItemTag>
+                  <DetailListItemTag>
                     <dt>
-                      Consent
+                      Period
                     </dt>
-                  </WidgetDetailListItemTag>
-                  <WidgetDetailListItemDescription>
+                  </DetailListItemTag>
+                  <DetailListItemDescription>
                     <dd>
-                      Consent Not Given
+                      01-Jan-2013 to 02-Feb-2014
                     </dd>
-                  </WidgetDetailListItemDescription>
-                </CommunityTreatmentOrderDetailConsent>
-                <CommunityTreatmentOrderDetailConsent
-                  communityTreatmentOrder={
-                    Object {
-                      "consentToTreat": "Consent Not Given",
-                      "id": "580ca927-34e0-e911-a2c7-005056926fe4|communityTreatmentOrder",
-                      "legalStatus": Object {
-                        "coding": Array [
-                          Object {
-                            "code": "3309007",
-                            "display": "Approved",
-                          },
-                        ],
-                        "text": "Approved",
-                      },
-                      "metadata": Object {
-                        "dataSources": Array [
-                          Object {
-                            "display": "Mock",
-                          },
-                        ],
-                      },
-                      "period": Object {
-                        "end": Object {
-                          "kind": "DATE",
-                          "value": "2014-02-02T00:00:00+00:00",
-                        },
-                        "start": Object {
-                          "kind": "DATE",
-                          "value": "2013-01-01T00:00:00+00:00",
-                        },
-                      },
-                      "restrictions": "No restrictions",
-                    }
-                  }
-                >
-                  <WidgetDetailListItemTag>
-                    <dt>
-                      Consent
-                    </dt>
-                  </WidgetDetailListItemTag>
-                  <WidgetDetailListItemDescription>
-                    <dd>
-                      Consent Not Given
-                    </dd>
-                  </WidgetDetailListItemDescription>
-                </CommunityTreatmentOrderDetailConsent>
+                  </DetailListItemDescription>
+                </Period>
               </dl>
-            </WidgetDetailList>
+            </DetailList>
           </CommunityTreatmentOrderDetailItem>
         </div>
       </WidgetBody>

@@ -32,6 +32,7 @@
     "@ltht-react/utils": "^0.0.10",
     "@ltht-react/widget": "^0.0.8",
     "@ltht-react/period": "^0.0.0",
+    "@ltht-react/detail-list": "^0.0.0",
     "emotion": "^10.0.27",
     "react": "^16.12.0"
   }
