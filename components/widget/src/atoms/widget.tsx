@@ -4,7 +4,7 @@ import { css, jsx, SerializedStyles } from '@emotion/core'
 
 import { CSS_RESET, TEXT_PRIMARY_COLOUR, TEXT_SECONDARY_COLOUR, WIDGET_BACKGROUND_COLOUR } from '@ltht-react/styles'
 import { WidgetProvider, ProviderProps } from './widget-context'
-import WidgetBody from './widget-body'
+import WidgetEmpty from './widget-empty'
 
 const styles = (noData: boolean): SerializedStyles => {
   return css`
@@ -22,21 +22,12 @@ const styles = (noData: boolean): SerializedStyles => {
 `
 }
 
-const emptyStyles = css`
-  color: ${TEXT_SECONDARY_COLOUR};
-  font-style: italic;
-`
-
 const Widget: React.FC<Props> = ({ children, collapsible = true, collapsed, noData = false }) => {
   return (
     <WidgetProvider collapsible={collapsible} collapsed={collapsed} noData={noData}>
       <div css={styles(noData)}>
         {children}
-        {noData && (
-          <WidgetBody>
-            <div css={emptyStyles}>No records found.</div>
-          </WidgetBody>
-        )}
+        {noData && <WidgetEmpty />}
       </div>
     </WidgetProvider>
   )
