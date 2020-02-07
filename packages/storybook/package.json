@@ -47,6 +47,7 @@
     "@ltht-react/appointment-summary": "^0.0.9",
     "@ltht-react/author": "^0.0.2",
     "@ltht-react/care-plan-summary": "^0.0.10",
+    "@ltht-react/care-plan-detail": "^0.0.0",
     "@ltht-react/chevron-icon": "^0.0.1",
     "@ltht-react/community-treatment-order-detail": "^0.0.2",
     "@ltht-react/community-treatment-order-summary": "^0.0.9",
