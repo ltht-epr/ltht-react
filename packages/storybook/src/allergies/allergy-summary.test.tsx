@@ -3,7 +3,7 @@ import { mount } from 'enzyme'
 import ReactDOM from 'react-dom'
 
 import AllergySummary from '@ltht-react/allergy-summary'
-import { AllergyOne, AllergyTwo } from './allergy-summary.fixtures'
+import { AllergyOne, AllergyTwo } from './allergy.fixtures'
 
 describe('AllergySummary', () => {
   const allergies = [AllergyOne, AllergyTwo]

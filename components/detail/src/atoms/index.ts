@@ -7,3 +7,4 @@ export { default as DetailListItemResourceReference } from './detail-list-item-r
 export { default as DetailListItemString } from './detail-list-item-string'
 export { default as DetailListItemCodeableConceptDisplay } from './detail-list-item-codeable-concept'
 export { default as DetailListItemNarrativeText } from './detail-list-item-narrative'
+export { default as DetailListItemDateTime } from './detail-list-item-datetime'

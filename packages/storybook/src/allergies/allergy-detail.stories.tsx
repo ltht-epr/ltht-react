@@ -2,7 +2,7 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import JSXAddon from 'storybook-addon-jsx'
 
-import AllergySummary from '@ltht-react/allergy-summary'
+import AllergyDetailItem from '@ltht-react/allergy-detail'
 import readme from '@ltht-react/allergy-summary/README.md'
 import * as fixtures from './allergy.fixtures'
 
@@ -16,6 +16,4 @@ stories.addParameters({
   },
 })
 
-stories.addWithJSX('Allergy Summary', () => (
-  <AllergySummary title="Allergies" allergies={[fixtures.AllergyOne, fixtures.AllergyTwo]} />
-))
+stories.addWithJSX('Allergy Detail', () => <AllergyDetailItem title="Allergy" allergy={fixtures.AllergyOne} />)

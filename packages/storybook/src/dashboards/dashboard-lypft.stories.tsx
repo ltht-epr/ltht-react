@@ -10,7 +10,7 @@ import FlagSummary from '@ltht-react/flag-summary'
 import HospitalStaySummary from '@ltht-react/hospital-stay-summary'
 import InvolvedTeamSummary from '@ltht-react/involved-team-summary'
 
-import * as allergies from '../allergies/allergy-summary.fixtures'
+import * as allergies from '../allergies/allergy.fixtures'
 import * as appointments from '../appointments/appointment-summary.fixtures'
 import * as carePlans from '../care-plans/care-plan.fixtures'
 import * as communityOrders from '../community-treatment-orders/community-treatment-order.fixtures'

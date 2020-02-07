@@ -22,6 +22,7 @@
     "build": "tsc"
   },
   "dependencies": {
+    "@ltht-react/allergy-detail": "^0.0.0",
     "@ltht-react/allergy-summary": "^0.0.10",
     "@ltht-react/appointment-summary": "^0.0.9",
     "@ltht-react/author": "^0.0.2",
