@@ -1,6 +1,6 @@
 {
   "name": "@ltht-react/widget",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "ltht-react Widget component.",
   "author": "LTHT",
   "homepage": "",
@@ -23,10 +23,10 @@
   "dependencies": {
     "@emotion/core": "^10.0.27",
     "@emotion/styled": "^10.0.27",
+    "@ltht-react/chevron-icon": "^0.0.1",
     "@ltht-react/styles": "^0.0.7",
     "@ltht-react/types": "^0.0.7",
     "@ltht-react/utils": "^0.0.10",
-    "@ltht-react/chevron-icon": "^0.0.0",
     "emotion": "^10.0.27",
     "react": "^16.12.0"
   }
