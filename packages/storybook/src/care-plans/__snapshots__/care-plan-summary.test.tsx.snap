@@ -135,7 +135,11 @@ exports[`CarePlanSummary matches snapshot: wrapper mount 1`] = `
       Object {
         "author": Array [
           Object {
-            "display": "Joe Bloggs",
+            "display": "Dr Joe Bloggs",
+            "typeName": "Test",
+          },
+          Object {
+            "display": "Dr Adam Careplan",
             "typeName": "Test",
           },
         ],
@@ -145,6 +149,7 @@ exports[`CarePlanSummary matches snapshot: wrapper mount 1`] = `
             "typeName": "Team",
           },
         ],
+        "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo",
         "id": "580ca927-34e0-e911-a2c7-005056926fe4|careplan",
         "intent": "PLAN",
         "metadata": Object {
@@ -165,6 +170,10 @@ exports[`CarePlanSummary matches snapshot: wrapper mount 1`] = `
           },
         },
         "status": "ACTIVE",
+        "text": Object {
+          "div": "",
+          "text": "Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
+        },
         "title": "Mental Health Crisis Plan",
       },
       Object {
@@ -300,7 +309,11 @@ exports[`CarePlanSummary matches snapshot: wrapper mount 1`] = `
                     Object {
                       "author": Array [
                         Object {
-                          "display": "Joe Bloggs",
+                          "display": "Dr Joe Bloggs",
+                          "typeName": "Test",
+                        },
+                        Object {
+                          "display": "Dr Adam Careplan",
                           "typeName": "Test",
                         },
                       ],
@@ -310,6 +323,7 @@ exports[`CarePlanSummary matches snapshot: wrapper mount 1`] = `
                           "typeName": "Team",
                         },
                       ],
+                      "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo",
                       "id": "580ca927-34e0-e911-a2c7-005056926fe4|careplan",
                       "intent": "PLAN",
                       "metadata": Object {
@@ -330,6 +344,10 @@ exports[`CarePlanSummary matches snapshot: wrapper mount 1`] = `
                         },
                       },
                       "status": "ACTIVE",
+                      "text": Object {
+                        "div": "",
+                        "text": "Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
+                      },
                       "title": "Mental Health Crisis Plan",
                     }
                   }
@@ -346,7 +364,11 @@ exports[`CarePlanSummary matches snapshot: wrapper mount 1`] = `
                           Object {
                             "author": Array [
                               Object {
-                                "display": "Joe Bloggs",
+                                "display": "Dr Joe Bloggs",
+                                "typeName": "Test",
+                              },
+                              Object {
+                                "display": "Dr Adam Careplan",
                                 "typeName": "Test",
                               },
                             ],
@@ -356,6 +378,7 @@ exports[`CarePlanSummary matches snapshot: wrapper mount 1`] = `
                                 "typeName": "Team",
                               },
                             ],
+                            "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo",
                             "id": "580ca927-34e0-e911-a2c7-005056926fe4|careplan",
                             "intent": "PLAN",
                             "metadata": Object {
@@ -376,6 +399,10 @@ exports[`CarePlanSummary matches snapshot: wrapper mount 1`] = `
                               },
                             },
                             "status": "ACTIVE",
+                            "text": Object {
+                              "div": "",
+                              "text": "Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
+                            },
                             "title": "Mental Health Crisis Plan",
                           }
                         }
@@ -391,7 +418,11 @@ exports[`CarePlanSummary matches snapshot: wrapper mount 1`] = `
                           Object {
                             "author": Array [
                               Object {
-                                "display": "Joe Bloggs",
+                                "display": "Dr Joe Bloggs",
+                                "typeName": "Test",
+                              },
+                              Object {
+                                "display": "Dr Adam Careplan",
                                 "typeName": "Test",
                               },
                             ],
@@ -401,6 +432,7 @@ exports[`CarePlanSummary matches snapshot: wrapper mount 1`] = `
                                 "typeName": "Team",
                               },
                             ],
+                            "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo",
                             "id": "580ca927-34e0-e911-a2c7-005056926fe4|careplan",
                             "intent": "PLAN",
                             "metadata": Object {
@@ -421,6 +453,10 @@ exports[`CarePlanSummary matches snapshot: wrapper mount 1`] = `
                               },
                             },
                             "status": "ACTIVE",
+                            "text": Object {
+                              "div": "",
+                              "text": "Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
+                            },
                             "title": "Mental Health Crisis Plan",
                           }
                         }
@@ -428,7 +464,7 @@ exports[`CarePlanSummary matches snapshot: wrapper mount 1`] = `
                         <div
                           className="emotion-4"
                         >
-                          Joe Bloggs - LYPFT Care Team 1
+                          Dr Joe Bloggs, Dr Adam Careplan - LYPFT Care Team 1
                         </div>
                       </CarePlanDescription>
                     </div>
@@ -438,7 +474,11 @@ exports[`CarePlanSummary matches snapshot: wrapper mount 1`] = `
                           Object {
                             "author": Array [
                               Object {
-                                "display": "Joe Bloggs",
+                                "display": "Dr Joe Bloggs",
+                                "typeName": "Test",
+                              },
+                              Object {
+                                "display": "Dr Adam Careplan",
                                 "typeName": "Test",
                               },
                             ],
@@ -448,6 +488,7 @@ exports[`CarePlanSummary matches snapshot: wrapper mount 1`] = `
                                 "typeName": "Team",
                               },
                             ],
+                            "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo",
                             "id": "580ca927-34e0-e911-a2c7-005056926fe4|careplan",
                             "intent": "PLAN",
                             "metadata": Object {
@@ -468,6 +509,10 @@ exports[`CarePlanSummary matches snapshot: wrapper mount 1`] = `
                               },
                             },
                             "status": "ACTIVE",
+                            "text": Object {
+                              "div": "",
+                              "text": "Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
+                            },
                             "title": "Mental Health Crisis Plan",
                           }
                         }
@@ -483,7 +528,11 @@ exports[`CarePlanSummary matches snapshot: wrapper mount 1`] = `
                           Object {
                             "author": Array [
                               Object {
-                                "display": "Joe Bloggs",
+                                "display": "Dr Joe Bloggs",
+                                "typeName": "Test",
+                              },
+                              Object {
+                                "display": "Dr Adam Careplan",
                                 "typeName": "Test",
                               },
                             ],
@@ -493,6 +542,7 @@ exports[`CarePlanSummary matches snapshot: wrapper mount 1`] = `
                                 "typeName": "Team",
                               },
                             ],
+                            "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo",
                             "id": "580ca927-34e0-e911-a2c7-005056926fe4|careplan",
                             "intent": "PLAN",
                             "metadata": Object {
@@ -513,6 +563,10 @@ exports[`CarePlanSummary matches snapshot: wrapper mount 1`] = `
                               },
                             },
                             "status": "ACTIVE",
+                            "text": Object {
+                              "div": "",
+                              "text": "Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
+                            },
                             "title": "Mental Health Crisis Plan",
                           }
                         }
