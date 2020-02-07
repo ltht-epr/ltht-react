@@ -2,7 +2,7 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import JSXAddon from 'storybook-addon-jsx'
 
-import CarePlanSummary from '@ltht-react/care-plan-summary'
+import CarePlanDetail from '@ltht-react/care-plan-detail'
 import readme from '@ltht-react/care-plan-summary/README.md'
 import * as fixtures from './care-plan.fixtures'
 
@@ -16,6 +16,9 @@ stories.addParameters({
   },
 })
 
-stories.addWithJSX('Care Plan Summary', () => (
-  <CarePlanSummary title="Care Plans" carePlans={[fixtures.CarePlanOne, fixtures.CarePlanTwo]} />
+stories.addWithJSX('Care Plan Detail e.g. 1', () => (
+  <CarePlanDetail title="Care Plan" carePlan={fixtures.CarePlanOne} />
+))
+stories.addWithJSX('Care Plan Detail e.g. 2', () => (
+  <CarePlanDetail title="Care Plan" carePlan={fixtures.CarePlanTwo} />
 ))

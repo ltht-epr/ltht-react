@@ -11,7 +11,10 @@ const mockMetadata: Metadata = {
 const CarePlanOne: CarePlan = {
   id: '580ca927-34e0-e911-a2c7-005056926fe4|careplan',
   metadata: mockMetadata,
-  author: [{ display: 'Joe Bloggs', typeName: 'Test' }],
+  author: [
+    { display: 'Dr Joe Bloggs', typeName: 'Test' },
+    { display: 'Dr Adam Careplan', typeName: 'Test' },
+  ],
   careTeam: [
     {
       display: 'LYPFT Care Team 1',
@@ -31,6 +34,13 @@ const CarePlanOne: CarePlan = {
   },
   status: CarePlanStatusCode.Active,
   title: 'Mental Health Crisis Plan',
+  description:
+    'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo',
+  text: {
+    div: '',
+    text:
+      'Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.',
+  },
 }
 
 const CarePlanTwo: CarePlan = {

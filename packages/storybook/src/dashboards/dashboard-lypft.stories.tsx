@@ -12,7 +12,7 @@ import InvolvedTeamSummary from '@ltht-react/involved-team-summary'
 
 import * as allergies from '../allergies/allergy-summary.fixtures'
 import * as appointments from '../appointments/appointment-summary.fixtures'
-import * as carePlans from '../care-plans/care-plan-summary.fixtures'
+import * as carePlans from '../care-plans/care-plan.fixtures'
 import * as communityOrders from '../community-treatment-orders/community-treatment-order.fixtures'
 import * as episodeOfCares from '../involved-teams/involved-team-summary.fixtures'
 import * as flags from '../flags/flag.fixtures'
