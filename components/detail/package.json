@@ -1,6 +1,6 @@
 {
   "name": "@ltht-react/detail",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "ltht-react Detail component.",
   "author": "LTHT",
   "homepage": "",
@@ -30,7 +30,7 @@
     "@ltht-react/styles": "^0.0.7",
     "@ltht-react/types": "^0.0.7",
     "@ltht-react/utils": "^0.0.10",
-    "@ltht-react/widget": "^0.0.9",
+    "@ltht-react/widget": "^0.0.10",
     "emotion": "^10.0.27",
     "react": "^16.12.0"
   }

@@ -1,6 +1,6 @@
 {
   "name": "@ltht-react/flag-summary",
-  "version": "0.0.15",
+  "version": "0.0.16",
   "description": "> TODO: description",
   "author": "Jonny Smith <jonny.asmith@gmail.com>",
   "homepage": "",
@@ -28,7 +28,7 @@
     "@ltht-react/styles": "^0.0.7",
     "@ltht-react/types": "^0.0.7",
     "@ltht-react/utils": "^0.0.10",
-    "@ltht-react/widget": "^0.0.9",
+    "@ltht-react/widget": "^0.0.10",
     "emotion": "^10.0.27",
     "react": "^16.12.0"
   }
