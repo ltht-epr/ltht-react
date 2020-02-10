@@ -3,8 +3,8 @@ module.exports = {
     '^.+\\.ts?(x)?$': 'ts-jest',
   },
   testMatch: [
-    '<rootDir>/components/*/src/**/test?(s).ts?(x)',
-    '<rootDir>/components/*/src/**/*.test?(s).ts?(x)',
+    '<rootDir>/components/**/src/**/test?(s).ts?(x)',
+    '<rootDir>/components/**/src/**/*.test?(s).ts?(x)',
     '<rootDir>/packages/*/src/**/test?(s).ts?(x)',
     '<rootDir>/packages/*/src/**/*.test?(s).ts?(x)',
   ],

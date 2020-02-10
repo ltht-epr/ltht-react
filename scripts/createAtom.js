@@ -13,7 +13,7 @@ const componentName = `${componentFolderName.charAt(0).toUpperCase()}${component
   .slice(1)
   .replace(/-([a-z])/g, g => g[1].toUpperCase())}`
 
-const folderName = `./components/${componentFolderName}`
+const folderName = `./components/atoms/${componentFolderName}`
 const fileNames = {
   package: 'package.json',
   tsconfig: 'tsconfig.json',

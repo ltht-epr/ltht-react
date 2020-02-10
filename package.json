@@ -58,14 +58,16 @@
     "build": "lerna run build --parallel",
     "clean": "lerna run clean --parallel",
     "postclean": "rimraf node_modules",
-    "create:component": "node ./scripts/createComponent.js",
+    "create:atom": "node ./scripts/createAtom.js",
+    "create:molecule": "node ./scripts/createMolecule.js",
+    "create:organism": "node ./scripts/createOrganism.js",
     "deploy:npm": "lerna publish from-package",
     "deploy:storybook": "cd packages/storybook && yarn deploy:storybook",
     "deploy": "cd packages/storybook && yarn deploy",
     "doc:components": "lerna run docs --parallel",
     "lint": "yarn lint:pretty && yarn lint:eslint",
-    "lint:eslint": "eslint \"./{components,packages}/*/src/**/*.{ts,tsx}\" --max-warnings=0",
-    "lint:pretty": "prettylint './{components,packages}/*/src/**/*.{ts,tsx}'",
+    "lint:eslint": "eslint \"./{components,packages}/**/src/**/*.{ts,tsx}\" --max-warnings=0",
+    "lint:pretty": "prettylint './{components,packages}/**/src/**/*.{ts,tsx}'",
     "new:version": "lerna version --conventional-commits --yes",
     "predeploy:storybook": "yarn build:storybook",
     "start:debug": "cd packages/storybook && yarn start:debug",
@@ -91,6 +93,6 @@
   "homepage": "https://github.com/ltht-epr/ltht-react#readme",
   "workspaces": [
     "packages/*",
-    "components/*"
+    "components/**"
   ]
 }
