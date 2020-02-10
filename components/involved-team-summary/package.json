@@ -1,6 +1,6 @@
 {
   "name": "@ltht-react/involved-team-summary",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "ltht-react InvolvedTeamSummary component.",
   "author": "LTHT",
   "homepage": "",
@@ -25,8 +25,8 @@
     "@emotion/styled": "^10.0.27",
     "@ltht-react/styles": "^0.0.7",
     "@ltht-react/types": "^0.0.7",
-    "@ltht-react/utils": "^0.0.10",
-    "@ltht-react/widget": "^0.0.10",
+    "@ltht-react/utils": "^0.0.11",
+    "@ltht-react/widget": "^0.0.11",
     "emotion": "^10.0.27",
     "react": "^16.12.0"
   }
