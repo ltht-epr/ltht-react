@@ -42,10 +42,28 @@ const AllergyTwo: AllergyIntolerance = {
     kind: PartialDateTimeKindCode.Year,
   },
   code: {
-    coding: [{ display: 'Kiwi fruit', code: '109007' }],
+    coding: [],
+    text: 'Kiwi fruit',
   },
   type: AllergyIntoleranceTypeCode.Intolerance,
   clinicalStatus: AllergyIntoleranceClinicalStatusCode.Resolved,
 }
 
-export { AllergyOne, AllergyTwo }
+const AllergyThree: AllergyIntolerance = {
+  id: '690ca927-68e0-c511-b2c7-89804g926fg4|allergyalert',
+  metadata: mockMetadata,
+  assertedDate: {
+    value: '2015-03-01T00:00:00+00:00',
+    kind: PartialDateTimeKindCode.Year,
+  },
+  code: {
+    coding: [],
+    text: 'Allergic to Penicilin',
+  },
+  category: [AllergyIntoleranceCategoryCode.Medication],
+  type: AllergyIntoleranceTypeCode.Intolerance,
+  clinicalStatus: AllergyIntoleranceClinicalStatusCode.Active,
+  criticality: AllergyIntoleranceCriticalityCode.High,
+}
+
+export { AllergyOne, AllergyTwo, AllergyThree }

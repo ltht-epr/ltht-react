@@ -181,12 +181,8 @@ exports[`AllergySummary matches snapshot: wrapper mount 1`] = `
         },
         "clinicalStatus": "RESOLVED",
         "code": Object {
-          "coding": Array [
-            Object {
-              "code": "109007",
-              "display": "Kiwi fruit",
-            },
-          ],
+          "coding": Array [],
+          "text": "Kiwi fruit",
         },
         "id": "690ca927-68e0-c511-b2c7-898056926ze4|allergyalert",
         "metadata": Object {
@@ -599,12 +595,8 @@ exports[`AllergySummary matches snapshot: wrapper mount 1`] = `
                       },
                       "clinicalStatus": "RESOLVED",
                       "code": Object {
-                        "coding": Array [
-                          Object {
-                            "code": "109007",
-                            "display": "Kiwi fruit",
-                          },
-                        ],
+                        "coding": Array [],
+                        "text": "Kiwi fruit",
                       },
                       "id": "690ca927-68e0-c511-b2c7-898056926ze4|allergyalert",
                       "metadata": Object {
@@ -634,12 +626,8 @@ exports[`AllergySummary matches snapshot: wrapper mount 1`] = `
                             },
                             "clinicalStatus": "RESOLVED",
                             "code": Object {
-                              "coding": Array [
-                                Object {
-                                  "code": "109007",
-                                  "display": "Kiwi fruit",
-                                },
-                              ],
+                              "coding": Array [],
+                              "text": "Kiwi fruit",
                             },
                             "id": "690ca927-68e0-c511-b2c7-898056926ze4|allergyalert",
                             "metadata": Object {
@@ -721,12 +709,8 @@ exports[`AllergySummary matches snapshot: wrapper mount 1`] = `
                             },
                             "clinicalStatus": "RESOLVED",
                             "code": Object {
-                              "coding": Array [
-                                Object {
-                                  "code": "109007",
-                                  "display": "Kiwi fruit",
-                                },
-                              ],
+                              "coding": Array [],
+                              "text": "Kiwi fruit",
                             },
                             "id": "690ca927-68e0-c511-b2c7-898056926ze4|allergyalert",
                             "metadata": Object {
@@ -755,12 +739,8 @@ exports[`AllergySummary matches snapshot: wrapper mount 1`] = `
                             },
                             "clinicalStatus": "RESOLVED",
                             "code": Object {
-                              "coding": Array [
-                                Object {
-                                  "code": "109007",
-                                  "display": "Kiwi fruit",
-                                },
-                              ],
+                              "coding": Array [],
+                              "text": "Kiwi fruit",
                             },
                             "id": "690ca927-68e0-c511-b2c7-898056926ze4|allergyalert",
                             "metadata": Object {
@@ -777,7 +757,7 @@ exports[`AllergySummary matches snapshot: wrapper mount 1`] = `
                         <div
                           className="emotion-7"
                         >
-                          109007 - Intolerance
+                          Intolerance
                         </div>
                       </AllergyDescription>
                     </div>
@@ -791,12 +771,8 @@ exports[`AllergySummary matches snapshot: wrapper mount 1`] = `
                             },
                             "clinicalStatus": "RESOLVED",
                             "code": Object {
-                              "coding": Array [
-                                Object {
-                                  "code": "109007",
-                                  "display": "Kiwi fruit",
-                                },
-                              ],
+                              "coding": Array [],
+                              "text": "Kiwi fruit",
                             },
                             "id": "690ca927-68e0-c511-b2c7-898056926ze4|allergyalert",
                             "metadata": Object {
@@ -825,12 +801,8 @@ exports[`AllergySummary matches snapshot: wrapper mount 1`] = `
                             },
                             "clinicalStatus": "RESOLVED",
                             "code": Object {
-                              "coding": Array [
-                                Object {
-                                  "code": "109007",
-                                  "display": "Kiwi fruit",
-                                },
-                              ],
+                              "coding": Array [],
+                              "text": "Kiwi fruit",
                             },
                             "id": "690ca927-68e0-c511-b2c7-898056926ze4|allergyalert",
                             "metadata": Object {

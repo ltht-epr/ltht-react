@@ -7,9 +7,21 @@ import {
 
 describe('CodeableConceptText', () => {
   describe('codeableConceptDisplaySummary', () => {
-    it('empty coding  display formats correctly', () => {
+    it('null coding display formats correctly', () => {
       const codeable: CodeableConcept = {}
       expect(codeableConceptDisplaySummary(codeable)).toEqual('')
+    })
+    it('null coding, populated text display formats correctly', () => {
+      const codeable: CodeableConcept = { text: 'Test Text 1' }
+      expect(codeableConceptDisplaySummary(codeable)).toEqual('Test Text 1')
+    })
+    it('empty coding, populated text display formats correctly', () => {
+      const codeable: CodeableConcept = { coding: [], text: 'Test Text 2' }
+      expect(codeableConceptDisplaySummary(codeable)).toEqual('Test Text 2')
+    })
+    it('signle coding with empty display, populated text display formats correctly', () => {
+      const codeable: CodeableConcept = { coding: [{ display: '' }], text: 'Test Text 2' }
+      expect(codeableConceptDisplaySummary(codeable)).toEqual('Test Text 2')
     })
     it('single coding display formats correctly', () => {
       const codeable: CodeableConcept = {

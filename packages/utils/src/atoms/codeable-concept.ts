@@ -2,11 +2,17 @@ import { CodeableConcept, Maybe } from '@ltht-react/types'
 
 const codeableConceptDisplaySummary = (codeableConcept: Maybe<CodeableConcept> = {}): string => {
   const codings = codeableConcept?.coding || []
-  const display = codings
+
+  let display = codings
     .map(coding => {
       return coding?.display
     })
     .join(', ')
+
+  if (display?.length === 0) {
+    display = codeableConcept?.text ?? ''
+  }
+
   return display
 }
 
