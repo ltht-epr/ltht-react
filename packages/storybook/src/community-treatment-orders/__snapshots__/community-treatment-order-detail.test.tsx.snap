@@ -158,13 +158,13 @@ exports[`CommunityTreatmentOrderSummary matches snapshot: wrapper mount 1`] = `
             title="Click to collapse"
           >
             <div>
-              <DetailHeader>
+              <SubHeader>
                 <h2
                   className="emotion-0"
                 >
                   Community Treatment Order
                 </h2>
-              </DetailHeader>
+              </SubHeader>
             </div>
             <div>
               <ChevronCircleIcon
