@@ -8,12 +8,13 @@ package.author = 'Node'
 
 console.log(package.author)
 
-const componentFolderName = process.argv[2]
+const componentType = process.argv[2]
+const componentFolderName = process.argv[3]
 const componentName = `${componentFolderName.charAt(0).toUpperCase()}${componentFolderName
   .slice(1)
   .replace(/-([a-z])/g, g => g[1].toUpperCase())}`
 
-const folderName = `./components/atoms/${componentFolderName}`
+const folderName = `./components/${componentType}/${componentFolderName}`
 const fileNames = {
   package: 'package.json',
   tsconfig: 'tsconfig.json',
@@ -38,7 +39,7 @@ const packageJson = () => {
   const contents = `{  
   "name": "@ltht-react/${componentFolderName}",
   "version": "0.0.0",
-  "description": "ltht-react ${componentName} component.",
+  "description": "ltht-react ${componentType} ${componentName} component.",
   "author": "LTHT",
   "homepage": "",
   "license": "MIT",
@@ -97,7 +98,7 @@ import ${componentName} from '@ltht-react/${componentFolderName}'
 const tsconfigScript = () => {
   const filename = fileNames.tsconfig
   const content = `{
-  "extends": "../../tsconfig.json",
+  "extends": "../../../tsconfig.json",
   "compilerOptions": {
     "outDir": "./lib"
   },
@@ -150,7 +151,7 @@ const linkPackages = async () => {
 const init = () => {
   if (fs.existsSync(path.join(folderName))) {
     console.log(
-      `❌ The component '${componentName}' already exists Please use a different name or delete the existing folder`
+      `❌ The ${componentType} component '${componentName}' already exists Please use a different name or delete the existing folder`
     )
     return false
   }

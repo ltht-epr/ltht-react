@@ -4,14 +4,14 @@ import { jsx } from '@emotion/core'
 
 import { Flag } from '@ltht-react/types'
 import { Widget, WidgetHeader, WidgetBody } from '@ltht-react/widget'
-import { DetailHeader } from '@ltht-react/detail'
+import MediumHeader from '@ltht-react/medium-header'
 import FlagDetailItem from './molecules/flag-detail-item'
 
 const FlagDetail: React.FC<Props> = ({ title, flag }) => {
   return (
     <Widget>
       <WidgetHeader>
-        <DetailHeader>{title}</DetailHeader>
+        <MediumHeader>{title}</MediumHeader>
       </WidgetHeader>
       <WidgetBody>
         <FlagDetailItem flag={flag} />

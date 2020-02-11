@@ -32,6 +32,7 @@
     "@ltht-react/utils": "^0.0.10",
     "@ltht-react/widget": "^0.0.10",
     "@ltht-react/detail": "^0.0.2",
+    "@ltht-react/medium-header": "^0.0.0",
     "emotion": "^10.0.27",
     "react": "^16.12.0"
   }

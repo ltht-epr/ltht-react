@@ -1,14 +1,14 @@
 import React from 'react'
 import { CarePlan } from '@ltht-react/types'
 import { Widget, WidgetBody, WidgetHeader } from '@ltht-react/widget'
-import { DetailHeader } from '@ltht-react/detail'
+import MediumHeader from '@ltht-react/medium-header'
 import CarePlanDetailItem from './molecules/care-plan-detail-item'
 
 const CarePlanDetail: React.FC<Props> = ({ title, carePlan }) => {
   return (
     <Widget>
       <WidgetHeader>
-        <DetailHeader>{title}</DetailHeader>
+        <MediumHeader>{title}</MediumHeader>
       </WidgetHeader>
       <WidgetBody>
         <CarePlanDetailItem carePlan={carePlan} />
