@@ -2,8 +2,8 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import JSXAddon from 'storybook-addon-jsx'
 
-import SubHeader from '../../../../../components/atoms/headers/sub-header/lib'
 import readme from '@ltht-react/sub-header/README.md'
+import SubHeader from '@ltht-react/sub-header'
 
 const stories = storiesOf('Atoms|Headers', module)
 
