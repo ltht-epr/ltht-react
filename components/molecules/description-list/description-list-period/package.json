@@ -1,0 +1,40 @@
+{
+  "name": "@ltht-react/description-list-period",
+  "version": "0.0.0",
+  "description": "ltht-react molecules DescriptionListPeriod component.",
+  "author": "LTHT",
+  "homepage": "",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
+  "files": [
+    "lib"
+  ],
+  "directories": {
+    "lib": "lib"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "clean": "rimraf lib",
+    "build": "yarn build:lib",
+    "watch": "tsc -w",
+    "build:lib": "tsc",
+    "type:check": "tsc --noEmit",
+    "lint": "prettylint 'src/*.{ts,tsx}'"
+  },
+  "dependencies": {
+    "@emotion/core": "^10.0.27",
+    "@emotion/styled": "^10.0.27",
+    "@ltht-react/styles": "^0.0.7",
+    "@ltht-react/types": "^0.0.7",
+    "@ltht-react/utils": "^0.0.10",
+    "@ltht-react/widget": "^0.0.10",
+    "@ltht-react/description-list": "^0.0.0",
+    "@ltht-react/description-list-term": "^0.0.0",
+    "@ltht-react/description-list-description": "^0.0.0",
+    "emotion": "^10.0.27",
+    "react": "^16.12.0"
+  }
+}

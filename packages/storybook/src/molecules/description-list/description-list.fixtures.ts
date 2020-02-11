@@ -1,4 +1,11 @@
-import { ResourceReference, PartialDateTime, PartialDateTimeKindCode } from '@ltht-react/types'
+import {
+  ResourceReference,
+  PartialDateTime,
+  PartialDateTimeKindCode,
+  CodeableConcept,
+  Narrative,
+  Period,
+} from '@ltht-react/types'
 
 const resourceReference: ResourceReference = {
   display: 'Smith, John (Dr)',
@@ -13,4 +20,21 @@ const partialDateTime: PartialDateTime = {
   kind: PartialDateTimeKindCode.Date,
 }
 
-export { resourceReference, partialDateTime }
+const codeableConcept: CodeableConcept = {
+  text: 'See GP regarding sore throat',
+  coding: [{ display: 'GP', code: '64706' }],
+}
+
+const narrative: Narrative = {
+  text: 'See GP regarding sore throat',
+  div: 'test',
+}
+
+const period: Period = {
+  start: {
+    value: '2020-04-01T00:00:00+00:00',
+    kind: PartialDateTimeKindCode.Date,
+  },
+}
+
+export { resourceReference, partialDateTime, period, narrative, codeableConcept }
