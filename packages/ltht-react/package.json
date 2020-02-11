@@ -32,6 +32,8 @@
     "@ltht-react/community-treatment-order-detail": "^0.0.2",
     "@ltht-react/community-treatment-order-summary": "^0.0.9",
     "@ltht-react/description-list": "^0.0.0",
+    "@ltht-react/description-list-description": "^0.0.0",
+    "@ltht-react/description-list-term": "^0.0.0",
     "@ltht-react/detail": "^0.0.2",
     "@ltht-react/exclamation-icon": "^0.0.9",
     "@ltht-react/flag-detail": "^0.0.2",
