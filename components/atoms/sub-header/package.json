@@ -1,7 +1,7 @@
 {
-  "name": "@ltht-react/medium-header",
+  "name": "@ltht-react/sub-header",
   "version": "0.0.0",
-  "description": "ltht-react MediumHeader atoms component.",
+  "description": "ltht-react SubHeader atoms component.",
   "author": "LTHT",
   "homepage": "",
   "license": "MIT",

@@ -38,7 +38,7 @@
     "@ltht-react/flag-summary": "^0.0.16",
     "@ltht-react/hospital-stay-summary": "^0.0.9",
     "@ltht-react/involved-team-summary": "^0.0.10",
-    "@ltht-react/medium-header": "^0.0.0",
+    "@ltht-react/sub-header": "^0.0.0",
     "@ltht-react/spinner-icon": "^0.0.5",
     "@ltht-react/styles": "^0.0.7",
     "@ltht-react/types": "^0.0.7",

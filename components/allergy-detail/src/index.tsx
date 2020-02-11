@@ -4,14 +4,14 @@ import { jsx } from '@emotion/core'
 
 import { AllergyIntolerance } from '@ltht-react/types'
 import { Widget, WidgetHeader, WidgetBody } from '@ltht-react/widget'
-import MediumHeader from '@ltht-react/medium-header'
+import SubHeader from '@ltht-react/sub-header'
 import AllergyDetailItem from './molecules/allergy-detail-item'
 
 const AllergyDetail: React.FC<Props> = ({ title, allergy }) => {
   return (
     <Widget>
       <WidgetHeader>
-        <MediumHeader>{title}</MediumHeader>
+        <SubHeader>{title}</SubHeader>
       </WidgetHeader>
       <WidgetBody>
         <AllergyDetailItem allergy={allergy} />

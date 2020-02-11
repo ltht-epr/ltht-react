@@ -10,8 +10,8 @@ const styles = css`
   text-align: center;
 `
 
-const MediumHeader: React.FC = ({ children }) => {
+const SubHeader: React.FC = ({ children }) => {
   return <h2 css={styles}>{children}</h2>
 }
 
-export default MediumHeader
+export default SubHeader
