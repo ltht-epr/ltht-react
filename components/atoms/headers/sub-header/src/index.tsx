@@ -11,7 +11,7 @@ const styles = css`
 `
 
 const SubHeader: React.FC = ({ children }) => {
-  return <h2 css={styles}>{children}</h2>
+  return <h3 css={styles}>{children}</h3>
 }
 
 export default SubHeader
