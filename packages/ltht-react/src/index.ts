@@ -8,6 +8,8 @@ export { default as CommunityTreatmentOrderDetail } from '@ltht-react/community-
 export { default as CommunityTreatmentOrderSummary } from '@ltht-react/community-treatment-order-summary'
 export { default as SubHeader } from '@ltht-react/sub-header'
 export { default as PageHeader } from '@ltht-react/page-header'
+
+// DescriptionList
 export { default as DescriptionList } from '@ltht-react/description-list'
 export { default as DescriptionListTerm } from '@ltht-react/description-list-term'
 export { default as DescriptionListDescription } from '@ltht-react/description-list-description'
@@ -17,6 +19,17 @@ export { default as DescriptionListCodeableConcept } from '@ltht-react/descripti
 export { default as DescriptionListNarrative } from '@ltht-react/description-list-narrative'
 export { default as DescriptionListPeriod } from '@ltht-react/description-list-period'
 export { default as DescriptionListDatetime } from '@ltht-react/description-list-datetime'
+
+// SummaryItem
+export { default as SummaryItem } from '@ltht-react/summary-item'
+export { default as SummaryItemBody } from '@ltht-react/summary-item-body'
+export { default as SummaryItemHeader } from '@ltht-react/summary-item-header'
+export { default as SummaryItemFooter } from '@ltht-react/summary-item-footer'
+export { default as SummaryItemIcon } from '@ltht-react/summary-item-icon'
+
+// clinical summary
+export { default as AllergySummaryItem } from '@ltht-react/allergy-summary-item'
+
 export { default as DetailList } from '@ltht-react/detail'
 export { default as ExclamationIcon } from '@ltht-react/exclamation-icon'
 export { default as FlagDetail } from '@ltht-react/flag-detail'
