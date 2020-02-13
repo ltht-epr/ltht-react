@@ -6,7 +6,7 @@ import AllergyDetailItem from '@ltht-react/allergy-detail'
 import readme from '@ltht-react/allergy-summary/README.md'
 import * as fixtures from './allergy.fixtures'
 
-const stories = storiesOf('Components|Allergy|Examples', module)
+const stories = storiesOf('Organisms|Clinical', module)
 
 stories.addWithJSX = JSXAddon.addWithJSX
 
