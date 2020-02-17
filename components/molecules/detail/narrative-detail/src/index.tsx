@@ -4,7 +4,7 @@ import DescriptionList from '@ltht-react/description-list'
 import DescriptionListTerm from '@ltht-react/description-list-term'
 import DescriptionListDescription from '@ltht-react/description-list-description'
 
-const DescriptionListNarrative: React.FC<Props> = ({ narrative }) => {
+const NarrativeDetail: React.FC<Props> = ({ narrative }) => {
   if (narrative) {
     return (
       <DescriptionList>
@@ -20,4 +20,4 @@ interface Props {
   narrative?: Narrative | null
 }
 
-export default DescriptionListNarrative
+export default NarrativeDetail

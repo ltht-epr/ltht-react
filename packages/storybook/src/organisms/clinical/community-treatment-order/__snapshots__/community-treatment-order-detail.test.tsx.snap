@@ -228,7 +228,7 @@ exports[`CommunityTreatmentOrderSummary matches snapshot: wrapper mount 1`] = `
           <div
             className="emotion-16"
           >
-            <DescriptionListString
+            <StringDetail
               description="Consent Not Given"
               term="Consent"
             >
@@ -252,8 +252,8 @@ exports[`CommunityTreatmentOrderSummary matches snapshot: wrapper mount 1`] = `
                   </DescriptionListDescription>
                 </dl>
               </DescriptionList>
-            </DescriptionListString>
-            <DescriptionListCodeableConcept
+            </StringDetail>
+            <CodeableConceptDetail
               concept={
                 Object {
                   "coding": Array [
@@ -287,8 +287,8 @@ exports[`CommunityTreatmentOrderSummary matches snapshot: wrapper mount 1`] = `
                   </DescriptionListDescription>
                 </dl>
               </DescriptionList>
-            </DescriptionListCodeableConcept>
-            <DescriptionListPeriod
+            </CodeableConceptDetail>
+            <PeriodDetail
               period={
                 Object {
                   "end": Object {
@@ -322,8 +322,8 @@ exports[`CommunityTreatmentOrderSummary matches snapshot: wrapper mount 1`] = `
                   </DescriptionListDescription>
                 </dl>
               </DescriptionList>
-            </DescriptionListPeriod>
-            <DescriptionListString
+            </PeriodDetail>
+            <StringDetail
               description="No restrictions"
               term="Restrictions"
             >
@@ -347,7 +347,7 @@ exports[`CommunityTreatmentOrderSummary matches snapshot: wrapper mount 1`] = `
                   </DescriptionListDescription>
                 </dl>
               </DescriptionList>
-            </DescriptionListString>
+            </StringDetail>
           </div>
         </WidgetBody>
       </div>

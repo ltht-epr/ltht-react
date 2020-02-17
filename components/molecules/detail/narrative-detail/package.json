@@ -1,7 +1,7 @@
 {
-  "name": "@ltht-react/description-list-resource-reference",
+  "name": "@ltht-react/narrative-detail",
   "version": "0.0.0",
-  "description": "ltht-react molecules DescriptionListResourceReference component.",
+  "description": "ltht-react molecules NarrativeDetail component.",
   "author": "LTHT",
   "homepage": "",
   "license": "MIT",

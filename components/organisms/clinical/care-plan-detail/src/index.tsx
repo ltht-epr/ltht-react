@@ -5,9 +5,9 @@ import { jsx } from '@emotion/core'
 import { CarePlan } from '@ltht-react/types'
 import { Widget, WidgetHeader, WidgetBody } from '@ltht-react/widget'
 import SubHeader from '@ltht-react/sub-header'
-import DescriptionListResourceReference from '@ltht-react/description-list-resource-reference'
-import DescriptionListString from '@ltht-react/description-list-string'
-import DescriptionListPeriod from '@ltht-react/description-list-period'
+import PeriodDetail from '@ltht-react/period-detail'
+import ResourceReferenceDetail from '@ltht-react/resource-reference-detail'
+import StringDetail from '@ltht-react/string-detail'
 
 const CarePlanDetail: React.FC<Props> = ({ title, carePlan }) => {
   return (
@@ -16,14 +16,14 @@ const CarePlanDetail: React.FC<Props> = ({ title, carePlan }) => {
         <SubHeader>{title}</SubHeader>
       </WidgetHeader>
       <WidgetBody>
-        <DescriptionListString term="Plan" description={carePlan.title} />
-        <DescriptionListString term="Description" description={carePlan.description} />
-        <DescriptionListPeriod period={carePlan.period} />
-        <DescriptionListString term="Inent" description={carePlan.intent.toString()} />
-        <DescriptionListString term="Status" description={carePlan.status.toString()} />
-        <DescriptionListString term="Narrative" description={carePlan.text?.text} />
+        <StringDetail term="Plan" description={carePlan.title} />
+        <StringDetail term="Description" description={carePlan.description} />
+        <PeriodDetail period={carePlan.period} />
+        <StringDetail term="Inent" description={carePlan.intent.toString()} />
+        <StringDetail term="Status" description={carePlan.status.toString()} />
+        <StringDetail term="Narrative" description={carePlan.text?.text} />
         {carePlan?.author?.map(item => {
-          return <DescriptionListResourceReference term="Author(s)" resourceReference={item} />
+          return <ResourceReferenceDetail term="Author(s)" resourceReference={item} />
         })}
       </WidgetBody>
     </Widget>

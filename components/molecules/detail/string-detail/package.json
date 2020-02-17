@@ -1,7 +1,7 @@
 {
-  "name": "@ltht-react/description-list-codeable-concept",
+  "name": "@ltht-react/string-detail",
   "version": "0.0.0",
-  "description": "ltht-react molecules DescriptionListCodeableConcept component.",
+  "description": "ltht-react molecules StringDetail component.",
   "author": "LTHT",
   "homepage": "",
   "license": "MIT",

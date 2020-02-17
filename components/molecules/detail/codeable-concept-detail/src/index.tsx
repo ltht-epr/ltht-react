@@ -5,7 +5,7 @@ import DescriptionList from '@ltht-react/description-list'
 import DescriptionListTerm from '@ltht-react/description-list-term'
 import DescriptionListDescription from '@ltht-react/description-list-description'
 
-const DescriptionListCodeableConcept: React.FC<Props> = ({ term, concept }) => {
+const CodeableConceptDetail: React.FC<Props> = ({ term, concept }) => {
   if (concept) {
     return (
       <DescriptionList>
@@ -22,4 +22,4 @@ interface Props {
   concept?: CodeableConcept | null
 }
 
-export default DescriptionListCodeableConcept
+export default CodeableConceptDetail

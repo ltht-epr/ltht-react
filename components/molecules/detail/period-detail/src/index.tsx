@@ -5,7 +5,7 @@ import DescriptionList from '@ltht-react/description-list'
 import DescriptionListTerm from '@ltht-react/description-list-term'
 import DescriptionListDescription from '@ltht-react/description-list-description'
 
-const DescriptionListPeriod: React.FC<Props> = ({ period }) => {
+const PeriodDetail: React.FC<Props> = ({ period }) => {
   if (period?.start?.value || period?.end?.value) {
     return (
       <DescriptionList>
@@ -21,4 +21,4 @@ interface Props {
   period?: PeriodType | null
 }
 
-export default DescriptionListPeriod
+export default PeriodDetail

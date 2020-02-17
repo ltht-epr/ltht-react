@@ -5,10 +5,10 @@ import { jsx } from '@emotion/core'
 import { AllergyIntolerance } from '@ltht-react/types'
 import { Widget, WidgetHeader, WidgetBody } from '@ltht-react/widget'
 import SubHeader from '@ltht-react/sub-header'
-import DescriptionListCodeableConcept from '@ltht-react/description-list-codeable-concept'
-import DescriptionListResourceReference from '@ltht-react/description-list-resource-reference'
-import DescriptionListString from '@ltht-react/description-list-string'
-import DescriptionListDatetime from '@ltht-react/description-list-datetime'
+import CodeableConceptDetail from '@ltht-react/codeable-concept-detail'
+import ResourceReferenceDetail from '@ltht-react/resource-reference-detail'
+import StringDetail from '@ltht-react/string-detail'
+import DatetimeDetail from '@ltht-react/datetime-detail'
 
 const AllergyDetail: React.FC<Props> = ({ title, allergy }) => {
   return (
@@ -17,10 +17,10 @@ const AllergyDetail: React.FC<Props> = ({ title, allergy }) => {
         <SubHeader>{title}</SubHeader>
       </WidgetHeader>
       <WidgetBody>
-        <DescriptionListResourceReference term="Asserter" resourceReference={allergy?.asserter} />
-        <DescriptionListDatetime term="Asserted Date" datetime={allergy?.assertedDate} />
-        <DescriptionListCodeableConcept term="Code" concept={allergy?.code} />
-        <DescriptionListString term="Category" description={allergy?.category?.toString()} />
+        <ResourceReferenceDetail term="Asserter" resourceReference={allergy?.asserter} />
+        <DatetimeDetail term="Asserted Date" datetime={allergy?.assertedDate} />
+        <CodeableConceptDetail term="Code" concept={allergy?.code} />
+        <StringDetail term="Category" description={allergy?.category?.toString()} />
       </WidgetBody>
     </Widget>
   )

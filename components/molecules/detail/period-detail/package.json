@@ -1,7 +1,7 @@
 {
-  "name": "@ltht-react/description-list-narrative",
+  "name": "@ltht-react/period-detail",
   "version": "0.0.0",
-  "description": "ltht-react molecules DescriptionListNarrative component.",
+  "description": "ltht-react molecules PeriodDetail component.",
   "author": "LTHT",
   "homepage": "",
   "license": "MIT",

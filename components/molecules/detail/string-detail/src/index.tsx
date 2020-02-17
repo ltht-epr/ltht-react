@@ -1,16 +1,15 @@
 import React from 'react'
-import { PartialDateTime } from '@ltht-react/types'
-import { partialDateTimeText } from '@ltht-react/utils'
+import { titleCase } from '@ltht-react/utils'
 import DescriptionList from '@ltht-react/description-list'
 import DescriptionListTerm from '@ltht-react/description-list-term'
 import DescriptionListDescription from '@ltht-react/description-list-description'
 
-const DescriptionListDatetime: React.FC<Props> = ({ term, datetime }) => {
-  if (datetime?.value) {
+const StringDetail: React.FC<Props> = ({ term, description }) => {
+  if (description) {
     return (
       <DescriptionList>
         <DescriptionListTerm>{term}</DescriptionListTerm>
-        <DescriptionListDescription>{partialDateTimeText(datetime)}</DescriptionListDescription>
+        <DescriptionListDescription>{titleCase(description)}</DescriptionListDescription>
       </DescriptionList>
     )
   }
@@ -19,7 +18,7 @@ const DescriptionListDatetime: React.FC<Props> = ({ term, datetime }) => {
 
 interface Props {
   term: string
-  datetime?: PartialDateTime | null
+  description?: string | null
 }
 
-export default DescriptionListDatetime
+export default StringDetail

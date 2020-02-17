@@ -1,7 +1,7 @@
 {
-  "name": "@ltht-react/description-list-period",
+  "name": "@ltht-react/codeable-concept-detail",
   "version": "0.0.0",
-  "description": "ltht-react molecules DescriptionListPeriod component.",
+  "description": "ltht-react molecules CodeableConceptCodeableConceptDetail component.",
   "author": "LTHT",
   "homepage": "",
   "license": "MIT",

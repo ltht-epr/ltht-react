@@ -1,7 +1,7 @@
 {
-  "name": "@ltht-react/description-list-string",
+  "name": "@ltht-react/datetime-detail",
   "version": "0.0.0",
-  "description": "ltht-react molecules DescriptionListString component.",
+  "description": "ltht-react molecules DatetimeDetail component.",
   "author": "LTHT",
   "homepage": "",
   "license": "MIT",

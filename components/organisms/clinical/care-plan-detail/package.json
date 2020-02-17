@@ -32,9 +32,9 @@
     "@ltht-react/utils": "^0.0.10",
     "@ltht-react/widget": "^0.0.10",
     "@ltht-react/sub-header": "^0.0.0",
-    "@ltht-react/description-list-period": "^0.0.0",
-    "@ltht-react/description-list-resource-reference": "^0.0.0",
-    "@ltht-react/description-list-string": "^0.0.0",
+    "@ltht-react/period-detail": "^0.0.0",
+    "@ltht-react/resource-reference-detail": "^0.0.0",
+    "@ltht-react/string-detail": "^0.0.0",
     "emotion": "^10.0.27",
     "react": "^16.12.0"
   }

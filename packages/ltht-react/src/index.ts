@@ -9,16 +9,18 @@ export { default as CommunityTreatmentOrderSummary } from '@ltht-react/community
 export { default as SubHeader } from '@ltht-react/sub-header'
 export { default as PageHeader } from '@ltht-react/page-header'
 
-// DescriptionList
+// Description List
 export { default as DescriptionList } from '@ltht-react/description-list'
 export { default as DescriptionListTerm } from '@ltht-react/description-list-term'
 export { default as DescriptionListDescription } from '@ltht-react/description-list-description'
-export { default as DescriptionListString } from '@ltht-react/description-list-string'
-export { default as DescriptionListResourceReference } from '@ltht-react/description-list-resource-reference'
-export { default as DescriptionListCodeableConcept } from '@ltht-react/description-list-codeable-concept'
-export { default as DescriptionListNarrative } from '@ltht-react/description-list-narrative'
-export { default as DescriptionListPeriod } from '@ltht-react/description-list-period'
-export { default as DescriptionListDatetime } from '@ltht-react/description-list-datetime'
+
+// Detail
+export { default as StringDetail } from '@ltht-react/string-detail'
+export { default as ResourceReferenceDetail } from '@ltht-react/resource-reference-detail'
+export { default as CodeableConceptDetail } from '@ltht-react/codeable-concept-detail'
+export { default as NarrativeDetail } from '@ltht-react/narrative-detail'
+export { default as PeriodDetail } from '@ltht-react/period-detail'
+export { default as DatetimeDetail } from '@ltht-react/datetime-detail'
 
 // SummaryItem
 export { default as SummaryItem } from '@ltht-react/summary-item'

@@ -2,9 +2,9 @@ import React from 'react'
 import { LypftCommunityTreatmentOrder } from '@ltht-react/types/'
 import { Widget, WidgetBody, WidgetHeader } from '@ltht-react/widget'
 import SubHeader from '@ltht-react/sub-header'
-import DescriptionListCodeableConcept from '@ltht-react/description-list-codeable-concept'
-import DescriptionListString from '@ltht-react/description-list-string'
-import DescriptionListPeriod from '@ltht-react/description-list-period'
+import CodeableConceptDetail from '@ltht-react/codeable-concept-detail'
+import StringDetail from '@ltht-react/string-detail'
+import PeriodDetail from '@ltht-react/period-detail'
 
 const CommunityTreatmentOrderDetail: React.FC<Props> = ({ title, communityTreatmentOrder }) => {
   return (
@@ -13,10 +13,10 @@ const CommunityTreatmentOrderDetail: React.FC<Props> = ({ title, communityTreatm
         <SubHeader>{title}</SubHeader>
       </WidgetHeader>
       <WidgetBody>
-        <DescriptionListString term="Consent" description={communityTreatmentOrder.consentToTreat} />
-        <DescriptionListCodeableConcept term="Legal Status" concept={communityTreatmentOrder.legalStatus} />
-        <DescriptionListPeriod period={communityTreatmentOrder?.period} />
-        <DescriptionListString term="Restrictions" description={communityTreatmentOrder.restrictions} />
+        <StringDetail term="Consent" description={communityTreatmentOrder.consentToTreat} />
+        <CodeableConceptDetail term="Legal Status" concept={communityTreatmentOrder.legalStatus} />
+        <PeriodDetail period={communityTreatmentOrder?.period} />
+        <StringDetail term="Restrictions" description={communityTreatmentOrder.restrictions} />
       </WidgetBody>
     </Widget>
   )
