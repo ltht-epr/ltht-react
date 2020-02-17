@@ -14,7 +14,7 @@ export { default as DescriptionList } from '@ltht-react/description-list'
 export { default as DescriptionListTerm } from '@ltht-react/description-list-term'
 export { default as DescriptionListDescription } from '@ltht-react/description-list-description'
 
-// Detail
+// Detail molecules
 export { default as StringDetail } from '@ltht-react/string-detail'
 export { default as ResourceReferenceDetail } from '@ltht-react/resource-reference-detail'
 export { default as CodeableConceptDetail } from '@ltht-react/codeable-concept-detail'
@@ -22,23 +22,14 @@ export { default as NarrativeDetail } from '@ltht-react/narrative-detail'
 export { default as PeriodDetail } from '@ltht-react/period-detail'
 export { default as DatetimeDetail } from '@ltht-react/datetime-detail'
 
-// SummaryItem
-export { default as SummaryItem } from '@ltht-react/summary-item'
-export { default as SummaryItemBody } from '@ltht-react/summary-item-body'
-export { default as SummaryItemHeader } from '@ltht-react/summary-item-header'
-export { default as SummaryItemFooter } from '@ltht-react/summary-item-footer'
-export { default as SummaryItemIcon } from '@ltht-react/summary-item-icon'
-
-// clinical summary
-export { default as AllergySummaryItem } from '@ltht-react/allergy-summary-item'
-
-export { default as DetailList } from '@ltht-react/detail'
 export { default as ExclamationIcon } from '@ltht-react/exclamation-icon'
+
 export { default as FlagDetail } from '@ltht-react/flag-detail'
 export { default as FlagSummary } from '@ltht-react/flag-summary'
 export { default as HospitalStaySummary } from '@ltht-react/hospital-stay-summary'
 export { default as InvolvedTeamSummary } from '@ltht-react/involved-team-summary'
 export { default as SpinnerIcon } from '@ltht-react/spinner-icon'
+
 export * from '@ltht-react/styles'
 export * from '@ltht-react/types'
 export * from '@ltht-react/utils'
