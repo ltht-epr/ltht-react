@@ -6,7 +6,7 @@ import AppointmentSummary from '@ltht-react/appointment-summary'
 import readme from '@ltht-react/appointment-summary/README.md'
 import * as fixtures from './appointment-summary.fixtures'
 
-const stories = storiesOf('Components|Appointment|Examples', module)
+const stories = storiesOf('Organisms|Clinical', module)
 
 stories.addWithJSX = JSXAddon.addWithJSX
 

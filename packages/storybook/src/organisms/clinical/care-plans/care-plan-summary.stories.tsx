@@ -6,7 +6,7 @@ import CarePlanSummary from '@ltht-react/care-plan-summary'
 import readme from '@ltht-react/care-plan-summary/README.md'
 import * as fixtures from './care-plan.fixtures'
 
-const stories = storiesOf('Components|Care Plan', module)
+const stories = storiesOf('Organisms|Clinical', module)
 
 stories.addWithJSX = JSXAddon.addWithJSX
 

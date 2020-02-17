@@ -5,7 +5,7 @@ import JSXAddon from 'storybook-addon-jsx'
 import ChevronIcon from '@ltht-react/chevron-icon'
 import ChevronIconReadMe from '@ltht-react/chevron-icon/README.md'
 
-const stories = storiesOf('Components|Icons', module)
+const stories = storiesOf('Atoms|Icons', module)
 
 stories.addWithJSX = JSXAddon.addWithJSX
 

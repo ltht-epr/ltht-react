@@ -6,7 +6,7 @@ import CommunityTreatmentOrderSummary from '@ltht-react/community-treatment-orde
 import readme from '@ltht-react/community-treatment-order-summary/README.md'
 import * as fixtures from './community-treatment-order.fixtures'
 
-const stories = storiesOf('Components|Community Treatment Order', module)
+const stories = storiesOf('Organisms|Clinical', module)
 
 stories.addWithJSX = JSXAddon.addWithJSX
 

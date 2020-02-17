@@ -5,7 +5,7 @@ import JSXAddon from 'storybook-addon-jsx'
 import ExclamationIcon from '@ltht-react/exclamation-icon'
 import ExclamationIconReadMe from '@ltht-react/exclamation-icon/README.md'
 
-const stories = storiesOf('Components|Icons', module)
+const stories = storiesOf('Atoms|Icons', module)
 
 stories.addWithJSX = JSXAddon.addWithJSX
 

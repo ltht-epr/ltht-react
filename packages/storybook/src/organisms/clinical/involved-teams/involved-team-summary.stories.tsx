@@ -5,7 +5,7 @@ import InvolvedTeamSummary from '@ltht-react/involved-team-summary'
 import readme from '@ltht-react/involved-team-summary/README.md'
 import * as fixtures from './involved-team-summary.fixtures'
 
-const stories = storiesOf('Components|Involved Team|Examples', module)
+const stories = storiesOf('Organisms|Clinical', module)
 
 stories.addWithJSX = JSXAddon.addWithJSX
 
