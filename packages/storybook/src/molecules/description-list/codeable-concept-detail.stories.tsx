@@ -4,7 +4,7 @@ import JSXAddon from 'storybook-addon-jsx'
 
 import readme from '@ltht-react/codeable-concept-detail/README.md'
 import CodeableConceptDetail from '@ltht-react/codeable-concept-detail'
-import * as fixtures from './description-list.fixtures'
+import * as fixtures from './detail.fixtures'
 
 const stories = storiesOf('Molecules|Detail', module)
 
