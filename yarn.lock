@@ -2182,6 +2182,20 @@
     emotion "^10.0.27"
     react "^16.12.0"
 
+"@ltht-react/chevron-icon@^0.0.1":
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/@ltht-react/chevron-icon/-/chevron-icon-0.0.1.tgz#f0198b49dd3e1eca3a677e3cbf942ba300c9dd30"
+  integrity sha512-87TYhDKdJoMDtLTGrdXZH6jJY+iE2Hxcy5REQb/nC2qAwZXV1O1yOeyGw4j0IhG2RQwCecZ63uyEhC+KY+K75g==
+  dependencies:
+    "@emotion/core" "^10.0.27"
+    "@emotion/styled" "^10.0.27"
+    "@fortawesome/fontawesome-svg-core" "^1.2.26"
+    "@fortawesome/free-solid-svg-icons" "^5.12.0"
+    "@fortawesome/react-fontawesome" "^0.1.8"
+    "@ltht-react/styles" "^0.0.7"
+    emotion "^10.0.27"
+    react "^16.12.0"
+
 "@ltht-react/widget@^0.0.10":
   version "0.0.10"
   resolved "https://registry.yarnpkg.com/@ltht-react/widget/-/widget-0.0.10.tgz#613b13588fdeaf07e0a44ee071c94ac85319d1ac"

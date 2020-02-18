@@ -2,7 +2,7 @@ import React from 'react'
 import { mount } from 'enzyme'
 import ReactDOM from 'react-dom'
 
-import SpinnerIcon from '@ltht-react/spinner-icon'
+import { SpinnerIcon } from '@ltht-react/icon'
 
 describe('SpinnerIcon', () => {
   it('renders without crashing', () => {

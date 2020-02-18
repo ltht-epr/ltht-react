@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import React from 'react'
 import { css, jsx, SerializedStyles } from '@emotion/core'
-import ChevronIcon from '@ltht-react/chevron-icon'
+import { ChevronCircleIcon } from '@ltht-react/icon'
 import useCard from '../store/card-hook'
 
 const styles = (noData: boolean): SerializedStyles => {
@@ -33,7 +33,7 @@ const CardHeader: React.FC = ({ children }) => {
       <div>{children}</div>
       {showButton && (
         <div>
-          <ChevronIcon direction={collapsed ? 'up' : 'down'} size="medium" />
+          <ChevronCircleIcon direction={collapsed ? 'up' : 'down'} size="medium" />
         </div>
       )}
     </div>

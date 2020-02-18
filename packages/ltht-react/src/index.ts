@@ -21,11 +21,6 @@ export { default as NarrativeDetail } from '@ltht-react/narrative-detail'
 export { default as PeriodDetail } from '@ltht-react/period-detail'
 export { default as DatetimeDetail } from '@ltht-react/datetime-detail'
 
-// Icons
-export { default as ExclamationIcon } from '@ltht-react/exclamation-icon'
-export { default as SpinnerIcon } from '@ltht-react/spinner-icon'
-export { default as ChevronIcon } from '@ltht-react/chevron-icon'
-
 export { default as FlagDetail } from '@ltht-react/flag-detail'
 export { default as FlagSummary } from '@ltht-react/flag-summary'
 export { default as HospitalStaySummary } from '@ltht-react/hospital-stay-summary'
@@ -36,3 +31,4 @@ export * from '@ltht-react/types'
 export * from '@ltht-react/utils'
 export * from '@ltht-react/card'
 export * from '@ltht-react/list'
+export * from '@ltht-react/icon'

@@ -2,8 +2,8 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import JSXAddon from 'storybook-addon-jsx'
 
-import ChevronIcon from '@ltht-react/chevron-icon'
-import ChevronIconReadMe from '@ltht-react/chevron-icon/README.md'
+import { ChevronCircleIcon } from '@ltht-react/icon'
+import ChevronIconReadMe from '@ltht-react/icon/README.md'
 
 const stories = storiesOf('Atoms|Icons', module)
 
@@ -17,19 +17,19 @@ stories.addParameters({
 
 stories.addWithJSX('Chevron Icon', () => (
   <>
-    <ChevronIcon direction="up" size="small" />
-    <ChevronIcon direction="down" size="small" />
-    <ChevronIcon direction="left" size="small" />
-    <ChevronIcon direction="right" size="small" />
+    <ChevronCircleIcon direction="up" size="small" />
+    <ChevronCircleIcon direction="down" size="small" />
+    <ChevronCircleIcon direction="left" size="small" />
+    <ChevronCircleIcon direction="right" size="small" />
     <br />
-    <ChevronIcon direction="up" size="medium" />
-    <ChevronIcon direction="down" size="medium" />
-    <ChevronIcon direction="left" size="medium" />
-    <ChevronIcon direction="right" size="medium" />
+    <ChevronCircleIcon direction="up" size="medium" />
+    <ChevronCircleIcon direction="down" size="medium" />
+    <ChevronCircleIcon direction="left" size="medium" />
+    <ChevronCircleIcon direction="right" size="medium" />
     <br />
-    <ChevronIcon direction="up" size="large" />
-    <ChevronIcon direction="down" size="large" />
-    <ChevronIcon direction="left" size="large" />
-    <ChevronIcon direction="right" size="large" />
+    <ChevronCircleIcon direction="up" size="large" />
+    <ChevronCircleIcon direction="down" size="large" />
+    <ChevronCircleIcon direction="left" size="large" />
+    <ChevronCircleIcon direction="right" size="large" />
   </>
 ))

@@ -2,16 +2,16 @@ import React from 'react'
 import { mount } from 'enzyme'
 import ReactDOM from 'react-dom'
 
-import ChevronIcon from '@ltht-react/chevron-icon'
+import { ChevronCircleIcon } from '@ltht-react/icon'
 
 describe('ChevronIcon', () => {
   const Icons: React.FC = () => {
     return (
       <>
-        <ChevronIcon direction="up" size="medium" />
-        <ChevronIcon direction="down" size="medium" />
-        <ChevronIcon direction="left" size="medium" />
-        <ChevronIcon direction="right" size="medium" />
+        <ChevronCircleIcon direction="up" size="medium" />
+        <ChevronCircleIcon direction="down" size="medium" />
+        <ChevronCircleIcon direction="left" size="medium" />
+        <ChevronCircleIcon direction="right" size="medium" />
       </>
     )
   }

@@ -1,6 +1,6 @@
 import React from 'react'
 
-import ExclamationIcon from '@ltht-react/exclamation-icon'
+import { ExclamationIcon } from '@ltht-react/icon'
 import { AllergyIntolerance, AllergyIntoleranceCriticalityCode } from '@ltht-react/types'
 
 const AllergyIcon: React.FC<Props> = ({ allergy }) => {

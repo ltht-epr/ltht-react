@@ -2,7 +2,7 @@ import React from 'react'
 import { mount } from 'enzyme'
 import ReactDOM from 'react-dom'
 
-import ExclamationIcon from '@ltht-react/exclamation-icon'
+import { ExclamationIcon } from '@ltht-react/icon'
 
 describe('SpinnerIcon', () => {
   it('renders without crashing', () => {
