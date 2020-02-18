@@ -5,8 +5,6 @@ export { default as CarePlanDetail } from '@ltht-react/care-plan-detail'
 export { default as CarePlanSummary } from '@ltht-react/care-plan-summary'
 export { default as CommunityTreatmentOrderDetail } from '@ltht-react/community-treatment-order-detail'
 export { default as CommunityTreatmentOrderSummary } from '@ltht-react/community-treatment-order-summary'
-export { default as SubHeader } from '@ltht-react/sub-header'
-export { default as PageHeader } from '@ltht-react/page-header'
 
 // Description List
 export { default as DescriptionList } from '@ltht-react/description-list'
@@ -32,3 +30,4 @@ export * from '@ltht-react/utils'
 export * from '@ltht-react/card'
 export * from '@ltht-react/list'
 export * from '@ltht-react/icon'
+export * from '@ltht-react/header'

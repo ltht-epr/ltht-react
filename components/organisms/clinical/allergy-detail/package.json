@@ -30,7 +30,7 @@
     "@ltht-react/styles": "^0.0.7",
     "@ltht-react/types": "^0.0.7",
     "@ltht-react/utils": "^0.0.10",
-    "@ltht-react/sub-header": "^0.0.0",
+    "@ltht-react/header": "^0.0.0",
     "@ltht-react/card": "^0.0.0",
     "@ltht-react/codeable-concept-detail": "^0.0.0",
     "@ltht-react/datetime-detail": "^0.0.0",

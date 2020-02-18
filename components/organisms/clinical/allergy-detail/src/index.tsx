@@ -4,7 +4,7 @@ import { jsx } from '@emotion/core'
 
 import { AllergyIntolerance } from '@ltht-react/types'
 import { Card, CardHeader, CardBody } from '@ltht-react/card'
-import SubHeader from '@ltht-react/sub-header'
+import { SubHeader } from '@ltht-react/header'
 import CodeableConceptDetail from '@ltht-react/codeable-concept-detail'
 import ResourceReferenceDetail from '@ltht-react/resource-reference-detail'
 import StringDetail from '@ltht-react/string-detail'

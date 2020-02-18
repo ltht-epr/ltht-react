@@ -4,7 +4,7 @@ import { jsx } from '@emotion/core'
 
 import { CarePlan } from '@ltht-react/types'
 import { Card, CardHeader, CardBody } from '@ltht-react/card'
-import SubHeader from '@ltht-react/sub-header'
+import { SubHeader } from '@ltht-react/header'
 import PeriodDetail from '@ltht-react/period-detail'
 import ResourceReferenceDetail from '@ltht-react/resource-reference-detail'
 import StringDetail from '@ltht-react/string-detail'

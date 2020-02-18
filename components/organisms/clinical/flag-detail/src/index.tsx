@@ -4,7 +4,7 @@ import { jsx } from '@emotion/core'
 
 import { Flag } from '@ltht-react/types'
 import { Card, CardHeader, CardBody } from '@ltht-react/card'
-import SubHeader from '@ltht-react/sub-header'
+import { SubHeader } from '@ltht-react/header'
 import CodeableConceptDetail from '@ltht-react/codeable-concept-detail'
 import NarrativeDetail from '@ltht-react/narrative-detail'
 import ResourceReferenceDetail from '@ltht-react/resource-reference-detail'

@@ -1,7 +1,7 @@
 {
-  "name": "@ltht-react/page-header",
+  "name": "@ltht-react/header",
   "version": "0.0.0",
-  "description": "ltht-react atoms PageHeader component.",
+  "description": "ltht-react atoms Header component.",
   "author": "LTHT",
   "homepage": "",
   "license": "MIT",
@@ -27,6 +27,7 @@
   "dependencies": {
     "@emotion/core": "^10.0.27",
     "@emotion/styled": "^10.0.27",
+    "@ltht-react/card": "^0.0.0",
     "@ltht-react/styles": "^0.0.7",
     "@ltht-react/types": "^0.0.7",
     "@ltht-react/utils": "^0.0.10",

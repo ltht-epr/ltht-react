@@ -1,7 +1,7 @@
 import React from 'react'
 import { LypftCommunityTreatmentOrder } from '@ltht-react/types/'
 import { Card, CardBody, CardHeader } from '@ltht-react/card'
-import SubHeader from '@ltht-react/sub-header'
+import { SubHeader } from '@ltht-react/header'
 import CodeableConceptDetail from '@ltht-react/codeable-concept-detail'
 import StringDetail from '@ltht-react/string-detail'
 import PeriodDetail from '@ltht-react/period-detail'
