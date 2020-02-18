@@ -46,7 +46,6 @@
     "@ltht-react/allergy-detail": "^0.0.0",
     "@ltht-react/allergy-summary": "^0.0.10",
     "@ltht-react/appointment-summary": "^0.0.9",
-    "@ltht-react/author": "^0.0.2",
     "@ltht-react/card": "^0.0.0",
     "@ltht-react/care-plan-detail": "^0.0.0",
     "@ltht-react/care-plan-summary": "^0.0.10",
