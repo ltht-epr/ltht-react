@@ -300,7 +300,7 @@ exports[`CarePlanSummary matches snapshot: wrapper mount 1`] = `
           <ul
             className="emotion-15"
           >
-            <CardListItem
+            <ListItem
               key="580ca927-34e0-e911-a2c7-005056926fe4|careplan"
             >
               <li>
@@ -581,8 +581,8 @@ exports[`CarePlanSummary matches snapshot: wrapper mount 1`] = `
                   </div>
                 </CarePlanSummaryItem>
               </li>
-            </CardListItem>
-            <CardListItem
+            </ListItem>
+            <ListItem
               key="690ca927-68e0-c511-b2c7-898056926ze4|careplan"
             >
               <li>
@@ -818,7 +818,7 @@ exports[`CarePlanSummary matches snapshot: wrapper mount 1`] = `
                   </div>
                 </CarePlanSummaryItem>
               </li>
-            </CardListItem>
+            </ListItem>
           </ul>
         </CardList>
       </div>

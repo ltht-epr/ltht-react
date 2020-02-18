@@ -294,7 +294,7 @@ exports[`AppointmentSummary matches snapshot: wrapper mount 1`] = `
           <ul
             className="emotion-15"
           >
-            <CardListItem
+            <ListItem
               key="346ca927-67e0-e931-a2c7-115087226fg2|appointment"
             >
               <li>
@@ -537,8 +537,8 @@ exports[`AppointmentSummary matches snapshot: wrapper mount 1`] = `
                   </div>
                 </AppointmentSummaryItem>
               </li>
-            </CardListItem>
-            <CardListItem
+            </ListItem>
+            <ListItem
               key="941ca927-34e0-e911-a2c7-005087226fe4|appointment"
             >
               <li>
@@ -781,7 +781,7 @@ exports[`AppointmentSummary matches snapshot: wrapper mount 1`] = `
                   </div>
                 </AppointmentSummaryItem>
               </li>
-            </CardListItem>
+            </ListItem>
           </ul>
         </CardList>
       </div>

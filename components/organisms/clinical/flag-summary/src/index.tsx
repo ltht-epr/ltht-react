@@ -1,7 +1,8 @@
 import React from 'react'
 
 import { Flag } from '@ltht-react/types'
-import { Card, CardHeader, CardList, CardListItem } from '@ltht-react/card'
+import { ListItem } from '@ltht-react/list'
+import { Card, CardHeader, CardList } from '@ltht-react/card'
 import FlagSummaryItem from './molecules/flag-summary-item'
 
 const FlagSummary: React.FC<Props> = ({ title, flags = [], clickHandler }) => {
@@ -12,9 +13,9 @@ const FlagSummary: React.FC<Props> = ({ title, flags = [], clickHandler }) => {
       </CardHeader>
       <CardList clickable={!!clickHandler}>
         {flags.map(flag => (
-          <CardListItem key={flag.id}>
+          <ListItem key={flag.id}>
             <FlagSummaryItem flag={flag} clickHandler={clickHandler} />
-          </CardListItem>
+          </ListItem>
         ))}
       </CardList>
     </Card>

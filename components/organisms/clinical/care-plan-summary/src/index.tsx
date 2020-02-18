@@ -1,7 +1,8 @@
 import React from 'react'
 
 import { CarePlan } from '@ltht-react/types'
-import { Card, CardHeader, CardList, CardListItem } from '@ltht-react/card'
+import { ListItem } from '@ltht-react/list'
+import { Card, CardHeader, CardList } from '@ltht-react/card'
 import CarePlanSummaryItem from './molecules/care-plan-summary-item'
 
 const CarePlanSummary: React.FC<Props> = ({ title = 'Care Plans', carePlans = [], clickHandler }) => {
@@ -12,9 +13,9 @@ const CarePlanSummary: React.FC<Props> = ({ title = 'Care Plans', carePlans = []
       </CardHeader>
       <CardList clickable={!!clickHandler}>
         {carePlans.map(carePlan => (
-          <CardListItem key={carePlan.id}>
+          <ListItem key={carePlan.id}>
             <CarePlanSummaryItem carePlan={carePlan} clickHandler={clickHandler} />
-          </CardListItem>
+          </ListItem>
         ))}
       </CardList>
     </Card>

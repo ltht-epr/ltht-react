@@ -1,7 +1,8 @@
 import React from 'react'
 
 import { AllergyIntolerance } from '@ltht-react/types'
-import { Card, CardHeader, CardList, CardListItem } from '@ltht-react/card'
+import { ListItem } from '@ltht-react/list'
+import { Card, CardHeader, CardList } from '@ltht-react/card'
 
 import AllergySummaryItem from './molecules/allergy-summary-item'
 
@@ -13,9 +14,9 @@ const AllergySummary: React.FC<Props> = ({ title = 'Allergies', allergies = [], 
       </CardHeader>
       <CardList clickable={!!clickHandler}>
         {allergies.map(allergy => (
-          <CardListItem key={allergy.id}>
+          <ListItem key={allergy.id}>
             <AllergySummaryItem allergy={allergy} clickHandler={clickHandler} />
-          </CardListItem>
+          </ListItem>
         ))}
       </CardList>
     </Card>

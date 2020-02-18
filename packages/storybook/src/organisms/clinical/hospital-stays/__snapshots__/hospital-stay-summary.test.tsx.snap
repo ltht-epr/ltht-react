@@ -255,7 +255,7 @@ exports[`HospitalStaySummary matches snapshot: wrapper mount 1`] = `
           <ul
             className="emotion-9"
           >
-            <CardListItem
+            <ListItem
               key="580ca927-34e0-e911-a2c7-005056926fe4|hospitalstay"
             >
               <li>
@@ -366,8 +366,8 @@ exports[`HospitalStaySummary matches snapshot: wrapper mount 1`] = `
                   </div>
                 </HospitalStaySummaryItem>
               </li>
-            </CardListItem>
-            <CardListItem
+            </ListItem>
+            <ListItem
               key="690ca927-68e0-c511-b2c7-898056926ze4|hospitalstay"
             >
               <li>
@@ -466,7 +466,7 @@ exports[`HospitalStaySummary matches snapshot: wrapper mount 1`] = `
                   </div>
                 </HospitalStaySummaryItem>
               </li>
-            </CardListItem>
+            </ListItem>
           </ul>
         </CardList>
       </div>

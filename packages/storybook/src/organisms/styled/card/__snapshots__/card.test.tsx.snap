@@ -359,16 +359,16 @@ Array [
           <ul
             className="emotion-3"
           >
-            <CardListItem>
+            <ListItem>
               <li>
                 Item 1
               </li>
-            </CardListItem>
-            <CardListItem>
+            </ListItem>
+            <ListItem>
               <li>
                 Item 2
               </li>
-            </CardListItem>
+            </ListItem>
           </ul>
         </CardList>
         <CardFooter>

@@ -1,7 +1,8 @@
 import React from 'react'
 
 import { EpisodeOfCare } from '@ltht-react/types'
-import { Card, CardHeader, CardList, CardListItem } from '@ltht-react/card'
+import { ListItem } from '@ltht-react/list'
+import { Card, CardHeader, CardList } from '@ltht-react/card'
 import InvolvedTeamSummaryItem from './molecules/involved-team-summary-item'
 
 const InvolvedTeamSummary: React.FC<Props> = ({ title = 'Involved Teams', episodeOfCares = [], clickHandler }) => {
@@ -12,9 +13,9 @@ const InvolvedTeamSummary: React.FC<Props> = ({ title = 'Involved Teams', episod
       </CardHeader>
       <CardList clickable={!!clickHandler}>
         {episodeOfCares.map(episodeOfCare => (
-          <CardListItem key={episodeOfCare.id}>
+          <ListItem key={episodeOfCare.id}>
             <InvolvedTeamSummaryItem episodeOfCare={episodeOfCare} clickHandler={clickHandler} />
-          </CardListItem>
+          </ListItem>
         ))}
       </CardList>
     </Card>

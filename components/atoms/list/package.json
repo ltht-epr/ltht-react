@@ -1,7 +1,7 @@
 {
-  "name": "@ltht-react/involved-team-summary",
-  "version": "0.0.10",
-  "description": "ltht-react InvolvedTeamSummary component.",
+  "name": "@ltht-react/list",
+  "version": "0.0.0",
+  "description": "ltht-react atoms List component.",
   "author": "LTHT",
   "homepage": "",
   "license": "MIT",
@@ -17,17 +17,20 @@
     "access": "public"
   },
   "scripts": {
-    "clean": "rimraf lib && rimraf node_modules",
-    "build": "tsc"
+    "clean": "rimraf lib",
+    "build": "yarn build:lib",
+    "watch": "tsc -w",
+    "build:lib": "tsc",
+    "type:check": "tsc --noEmit",
+    "lint": "prettylint 'src/*.{ts,tsx}'"
   },
   "dependencies": {
     "@emotion/core": "^10.0.27",
     "@emotion/styled": "^10.0.27",
+    "@ltht-react/card": "^0.0.0",
     "@ltht-react/styles": "^0.0.7",
     "@ltht-react/types": "^0.0.7",
     "@ltht-react/utils": "^0.0.10",
-    "@ltht-react/card": "^0.0.0",
-    "@ltht-react/list": "^0.0.0",
     "emotion": "^10.0.27",
     "react": "^16.12.0"
   }

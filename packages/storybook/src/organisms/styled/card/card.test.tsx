@@ -2,7 +2,8 @@ import React from 'react'
 import { mount } from 'enzyme'
 import ReactDOM from 'react-dom'
 
-import { Card, CardBody, CardHeader, CardFooter, CardList, CardListItem } from '@ltht-react/card'
+import { ListItem } from '@ltht-react/list'
+import { Card, CardBody, CardHeader, CardFooter, CardList } from '@ltht-react/card'
 
 const components = (
   <>
@@ -18,8 +19,8 @@ const components = (
         <h3>Heading</h3>
       </CardHeader>
       <CardList>
-        <CardListItem>Item 1</CardListItem>
-        <CardListItem>Item 2</CardListItem>
+        <ListItem>Item 1</ListItem>
+        <ListItem>Item 2</ListItem>
       </CardList>
       <CardFooter>Footer</CardFooter>
     </Card>

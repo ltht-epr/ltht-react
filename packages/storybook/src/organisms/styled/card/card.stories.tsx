@@ -3,7 +3,8 @@ import { storiesOf } from '@storybook/react'
 import JSXAddon from 'storybook-addon-jsx'
 
 import readme from '@ltht-react/card/README.md'
-import { Card, CardHeader, CardBody, CardFooter, CardList, CardListItem } from '@ltht-react/card'
+import { ListItem } from '@ltht-react/list'
+import { Card, CardHeader, CardBody, CardFooter, CardList } from '@ltht-react/card'
 
 const stories = storiesOf('Organisms - Styled|Card', module)
 
@@ -41,8 +42,8 @@ stories.addWithJSX('List', () => (
         <h3>Header</h3>
       </CardHeader>
       <CardList>
-        <CardListItem>Item 1</CardListItem>
-        <CardListItem>Item 2</CardListItem>
+        <ListItem>Item 1</ListItem>
+        <ListItem>Item 2</ListItem>
       </CardList>
       <CardFooter>Footer</CardFooter>
     </Card>
@@ -56,8 +57,8 @@ stories.addWithJSX('List (Clickable)', () => (
         <h3>Header</h3>
       </CardHeader>
       <CardList clickable>
-        <CardListItem>Item 1</CardListItem>
-        <CardListItem>Item 2</CardListItem>
+        <ListItem>Item 1</ListItem>
+        <ListItem>Item 2</ListItem>
       </CardList>
       <CardFooter>Footer</CardFooter>
     </Card>

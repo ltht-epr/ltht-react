@@ -1,7 +1,8 @@
 import React from 'react'
 
 import { Encounter } from '@ltht-react/types'
-import { Card, CardHeader, CardList, CardListItem } from '@ltht-react/card'
+import { ListItem } from '@ltht-react/list'
+import { Card, CardHeader, CardList } from '@ltht-react/card'
 import AppointmentSummaryItem from './molecules/appointment-summary-item'
 
 const AppointmentSummary: React.FC<Props> = ({ title = 'Appointments', encounters = [], clickHandler }) => {
@@ -12,9 +13,9 @@ const AppointmentSummary: React.FC<Props> = ({ title = 'Appointments', encounter
       </CardHeader>
       <CardList clickable={!!clickHandler}>
         {encounters.map(encounter => (
-          <CardListItem key={encounter.id}>
+          <ListItem key={encounter.id}>
             <AppointmentSummaryItem encounter={encounter} clickHandler={clickHandler} />
-          </CardListItem>
+          </ListItem>
         ))}
       </CardList>
     </Card>
