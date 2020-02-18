@@ -132,8 +132,6 @@ const linkPackages = async () => {
   await lerna(`yarn lerna add @ltht-react/types --scope=@ltht-react/${componentFolderName}`)
   console.log(`ℹ️ linking @ltht-react/utils`)
   await lerna(`yarn lerna add @ltht-react/utils --scope=@ltht-react/${componentFolderName}`)
-  console.log(`ℹ️ linking @ltht-react/card`)
-  await lerna(`yarn lerna add @ltht-react/card --scope=@ltht-react/${componentFolderName}`)
   console.log(`ℹ️ linking @ltht-react/storybook`)
   await lerna(`yarn lerna add @ltht-react/${componentFolderName} --scope=@ltht-react/storybook`)
   console.log(`ℹ️ linking ltht-react`)
