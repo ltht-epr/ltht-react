@@ -1,4 +1,3 @@
-
 # AllergyDetail
 
 <!-- STORY -->
@@ -14,4 +13,3 @@ import AllergyDetail from '@ltht-react/allergy-detail'
 ```jsx
 <AllergyDetail />
 ```
-  

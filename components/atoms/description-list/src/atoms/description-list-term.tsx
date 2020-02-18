@@ -5,7 +5,7 @@ import { TEXT_SECONDARY_COLOUR } from '@ltht-react/styles'
 
 const styles = css`
   color: ${TEXT_SECONDARY_COLOUR};
-  margin-top: 10px;
+  margin-top: 0.5rem;
 `
 
 const DescriptionListTerm: React.FC = ({ children }) => {

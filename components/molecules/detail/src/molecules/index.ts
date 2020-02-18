@@ -1,0 +1,6 @@
+export { default as CodeableConceptDetail } from './codeable-concept-detail'
+export { default as DatetimeDetail } from './datetime-detail'
+export { default as NarrativeDetail } from './narrative-detail'
+export { default as PeriodDetail } from './period-detail'
+export { default as ResourceReferenceDetail } from './resource-reference-detail'
+export { default as StringDetail } from './string-detail'

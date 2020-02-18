@@ -5,11 +5,13 @@ import { jsx } from '@emotion/core'
 import { Flag } from '@ltht-react/types'
 import { Card, CardHeader, CardBody } from '@ltht-react/card'
 import { SubHeader } from '@ltht-react/header'
-import CodeableConceptDetail from '@ltht-react/codeable-concept-detail'
-import NarrativeDetail from '@ltht-react/narrative-detail'
-import ResourceReferenceDetail from '@ltht-react/resource-reference-detail'
-import StringDetail from '@ltht-react/string-detail'
-import PeriodDetail from '@ltht-react/period-detail'
+import {
+  CodeableConceptDetail,
+  StringDetail,
+  PeriodDetail,
+  NarrativeDetail,
+  ResourceReferenceDetail,
+} from '@ltht-react/detail'
 
 const FlagDetail: React.FC<Props> = ({ title, flag }) => {
   return (

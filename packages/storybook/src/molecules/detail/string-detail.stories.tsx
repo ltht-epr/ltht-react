@@ -2,8 +2,8 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import JSXAddon from 'storybook-addon-jsx'
 
-import readme from '@ltht-react/string-detail/README.md'
-import String from '@ltht-react/string-detail'
+import readme from '@ltht-react/detail/README.md'
+import { StringDetail } from '@ltht-react/detail'
 
 const stories = storiesOf('Molecules|Detail', module)
 
@@ -15,4 +15,4 @@ stories.addParameters({
   },
 })
 
-stories.addWithJSX('String', () => <String term="Term" description="description test" />)
+stories.addWithJSX('String', () => <StringDetail term="Term" description="description test" />)

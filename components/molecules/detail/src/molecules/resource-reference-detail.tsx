@@ -2,7 +2,7 @@ import React from 'react'
 import { ResourceReference } from '@ltht-react/types'
 import { DescriptionList, DescriptionListTerm, DescriptionListDescription } from '@ltht-react/description-list'
 
-const DescriptionListResourceReference: React.FC<Props> = ({ term, resourceReference }) => {
+const ResourceReferenceDetail: React.FC<Props> = ({ term, resourceReference }) => {
   if (resourceReference) {
     return (
       <DescriptionList>
@@ -19,4 +19,4 @@ interface Props {
   resourceReference?: ResourceReference | null
 }
 
-export default DescriptionListResourceReference
+export default ResourceReferenceDetail

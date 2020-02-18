@@ -32,10 +32,7 @@
     "@ltht-react/utils": "^0.0.10",
     "@ltht-react/header": "^0.0.0",
     "@ltht-react/card": "^0.0.0",
-    "@ltht-react/codeable-concept-detail": "^0.0.0",
-    "@ltht-react/datetime-detail": "^0.0.0",
-    "@ltht-react/resource-reference-detail": "^0.0.0",
-    "@ltht-react/string-detail": "^0.0.0",
+    "@ltht-react/detail": "^0.0.0",
     "emotion": "^10.0.27",
     "react": "^16.12.0"
   }

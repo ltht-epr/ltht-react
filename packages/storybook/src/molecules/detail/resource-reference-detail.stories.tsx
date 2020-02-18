@@ -2,8 +2,8 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import JSXAddon from 'storybook-addon-jsx'
 
-import readme from '@ltht-react/resource-reference-detail/README.md'
-import ResourceReference from '@ltht-react/resource-reference-detail'
+import readme from '@ltht-react/detail/README.md'
+import { ResourceReferenceDetail } from '@ltht-react/detail'
 import * as fixtures from './detail.fixtures'
 
 const stories = storiesOf('Molecules|Detail', module)
@@ -17,5 +17,5 @@ stories.addParameters({
 })
 
 stories.addWithJSX('Resource Reference', () => (
-  <ResourceReference term="Author" resourceReference={fixtures.resourceReference} />
+  <ResourceReferenceDetail term="Author" resourceReference={fixtures.resourceReference} />
 ))

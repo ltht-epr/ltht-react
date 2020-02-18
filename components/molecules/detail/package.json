@@ -1,7 +1,7 @@
 {
-  "name": "@ltht-react/codeable-concept-detail",
+  "name": "@ltht-react/detail",
   "version": "0.0.0",
-  "description": "ltht-react molecules CodeableConceptCodeableConceptDetail component.",
+  "description": "ltht-react molecules Detail component.",
   "author": "LTHT",
   "homepage": "",
   "license": "MIT",

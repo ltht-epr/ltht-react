@@ -20,7 +20,7 @@ import * as hospitalStays from '../../clinical/hospital-stays/hospital-stay-summ
 
 import { Container, Column } from './dashboard'
 
-const stories = storiesOf('Organisms-Styled|Dashboard', module)
+const stories = storiesOf('Organisms - Styled|Dashboard', module)
 
 stories.addWithJSX = JSXAddon.addWithJSX
 
