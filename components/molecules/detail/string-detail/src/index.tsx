@@ -1,8 +1,6 @@
 import React from 'react'
 import { titleCase } from '@ltht-react/utils'
-import DescriptionList from '@ltht-react/description-list'
-import DescriptionListTerm from '@ltht-react/description-list-term'
-import DescriptionListDescription from '@ltht-react/description-list-description'
+import { DescriptionList, DescriptionListTerm, DescriptionListDescription } from '@ltht-react/description-list'
 
 const StringDetail: React.FC<Props> = ({ term, description }) => {
   if (description) {

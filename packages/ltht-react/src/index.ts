@@ -7,9 +7,7 @@ export { default as CommunityTreatmentOrderDetail } from '@ltht-react/community-
 export { default as CommunityTreatmentOrderSummary } from '@ltht-react/community-treatment-order-summary'
 
 // Description List
-export { default as DescriptionList } from '@ltht-react/description-list'
-export { default as DescriptionListTerm } from '@ltht-react/description-list-term'
-export { default as DescriptionListDescription } from '@ltht-react/description-list-description'
+export * from '@ltht-react/description-list'
 
 // Detail molecules
 export { default as StringDetail } from '@ltht-react/string-detail'

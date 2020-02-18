@@ -55,8 +55,6 @@
     "@ltht-react/community-treatment-order-summary": "^0.0.9",
     "@ltht-react/datetime-detail": "^0.0.0",
     "@ltht-react/description-list": "^0.0.0",
-    "@ltht-react/description-list-description": "^0.0.0",
-    "@ltht-react/description-list-term": "^0.0.0",
     "@ltht-react/flag-detail": "^0.0.2",
     "@ltht-react/flag-summary": "^0.0.16",
     "@ltht-react/header": "^0.0.0",

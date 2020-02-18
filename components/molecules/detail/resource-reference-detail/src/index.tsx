@@ -1,8 +1,6 @@
 import React from 'react'
 import { ResourceReference } from '@ltht-react/types'
-import DescriptionList from '@ltht-react/description-list'
-import DescriptionListTerm from '@ltht-react/description-list-term'
-import DescriptionListDescription from '@ltht-react/description-list-description'
+import { DescriptionList, DescriptionListTerm, DescriptionListDescription } from '@ltht-react/description-list'
 
 const DescriptionListResourceReference: React.FC<Props> = ({ term, resourceReference }) => {
   if (resourceReference) {
