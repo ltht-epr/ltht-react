@@ -17,5 +17,5 @@ stories.addParameters({
 })
 
 stories.addWithJSX('Summary', () => (
-  <AllergySummary title="Allergies" allergies={[fixtures.AllergyOne, fixtures.AllergyTwo]} />
+  <AllergySummary title="Allergies" allergies={[fixtures.AllergyOne, fixtures.AllergyTwo, fixtures.AllergyThree]} />
 ))

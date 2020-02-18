@@ -2,14 +2,20 @@
 import React from 'react'
 import { css, jsx, SerializedStyles } from '@emotion/core'
 
-import { CSS_RESET, TEXT_PRIMARY_COLOUR, TEXT_SECONDARY_COLOUR, CARD_BACKGROUND_COLOUR } from '@ltht-react/styles'
+import {
+  CSS_RESET,
+  TEXT_PRIMARY_COLOUR,
+  TEXT_SECONDARY_COLOUR,
+  CARD_BACKGROUND_COLOUR,
+  CARD_BACKGROUND_COLOUR_NO_DATA,
+} from '@ltht-react/styles'
 import { CardProvider, ProviderProps } from '../store/card-context'
 import CardEmpty from '../atoms/card-empty'
 
 const styles = (noData: boolean): SerializedStyles => {
   return css`
   ${CSS_RESET}
-  background: ${CARD_BACKGROUND_COLOUR};
+  background: ${noData ? CARD_BACKGROUND_COLOUR_NO_DATA : CARD_BACKGROUND_COLOUR};
   color: ${noData ? TEXT_SECONDARY_COLOUR : TEXT_PRIMARY_COLOUR};
   margin-bottom: 0.5rem;
   border-radius: 4px;

@@ -12,6 +12,7 @@ export const ICON_SUCCESS_COLOUR = colours.NHS_GREEN
 export const ICON_DEFAULT_COLOUR = colours.NHS_MID_GREY
 
 export const CARD_BACKGROUND_COLOUR = colours.NHS_WHITE
+export const CARD_BACKGROUND_COLOUR_NO_DATA = '#F2F2F2'
 export const CARD_SHADOW_COLOUR = '#666666'
 export const CARD_LIST_ITEM_BACKGROUND_HOVER = colours.NHS_PALE_GREY
 export const CARD_LIST_ITEM_BORDER_HOVER = '#b0b0b0'
