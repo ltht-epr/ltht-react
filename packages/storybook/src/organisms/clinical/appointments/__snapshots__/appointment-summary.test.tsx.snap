@@ -209,17 +209,17 @@ exports[`AppointmentSummary matches snapshot: wrapper mount 1`] = `
   }
   title="Appointments"
 >
-  <Widget
+  <Card
     noData={false}
   >
-    <WidgetProvider
+    <CardProvider
       collapsible={true}
       noData={false}
     >
       <div
         className="emotion-16"
       >
-        <WidgetHeader>
+        <CardHeader>
           <div
             className="emotion-2"
             onClick={[Function]}
@@ -287,14 +287,14 @@ exports[`AppointmentSummary matches snapshot: wrapper mount 1`] = `
               </ChevronCircleIcon>
             </div>
           </div>
-        </WidgetHeader>
-        <WidgetList
+        </CardHeader>
+        <CardList
           clickable={false}
         >
           <ul
             className="emotion-15"
           >
-            <WidgetListItem
+            <CardListItem
               key="346ca927-67e0-e931-a2c7-115087226fg2|appointment"
             >
               <li>
@@ -537,8 +537,8 @@ exports[`AppointmentSummary matches snapshot: wrapper mount 1`] = `
                   </div>
                 </AppointmentSummaryItem>
               </li>
-            </WidgetListItem>
-            <WidgetListItem
+            </CardListItem>
+            <CardListItem
               key="941ca927-34e0-e911-a2c7-005087226fe4|appointment"
             >
               <li>
@@ -781,11 +781,11 @@ exports[`AppointmentSummary matches snapshot: wrapper mount 1`] = `
                   </div>
                 </AppointmentSummaryItem>
               </li>
-            </WidgetListItem>
+            </CardListItem>
           </ul>
-        </WidgetList>
+        </CardList>
       </div>
-    </WidgetProvider>
-  </Widget>
+    </CardProvider>
+  </Card>
 </AppointmentSummary>
 `;

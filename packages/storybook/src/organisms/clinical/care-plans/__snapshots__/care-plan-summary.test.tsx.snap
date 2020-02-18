@@ -215,17 +215,17 @@ exports[`CarePlanSummary matches snapshot: wrapper mount 1`] = `
   }
   title="Care Plans"
 >
-  <Widget
+  <Card
     noData={false}
   >
-    <WidgetProvider
+    <CardProvider
       collapsible={true}
       noData={false}
     >
       <div
         className="emotion-16"
       >
-        <WidgetHeader>
+        <CardHeader>
           <div
             className="emotion-2"
             onClick={[Function]}
@@ -293,14 +293,14 @@ exports[`CarePlanSummary matches snapshot: wrapper mount 1`] = `
               </ChevronCircleIcon>
             </div>
           </div>
-        </WidgetHeader>
-        <WidgetList
+        </CardHeader>
+        <CardList
           clickable={false}
         >
           <ul
             className="emotion-15"
           >
-            <WidgetListItem
+            <CardListItem
               key="580ca927-34e0-e911-a2c7-005056926fe4|careplan"
             >
               <li>
@@ -581,8 +581,8 @@ exports[`CarePlanSummary matches snapshot: wrapper mount 1`] = `
                   </div>
                 </CarePlanSummaryItem>
               </li>
-            </WidgetListItem>
-            <WidgetListItem
+            </CardListItem>
+            <CardListItem
               key="690ca927-68e0-c511-b2c7-898056926ze4|careplan"
             >
               <li>
@@ -818,11 +818,11 @@ exports[`CarePlanSummary matches snapshot: wrapper mount 1`] = `
                   </div>
                 </CarePlanSummaryItem>
               </li>
-            </WidgetListItem>
+            </CardListItem>
           </ul>
-        </WidgetList>
+        </CardList>
       </div>
-    </WidgetProvider>
-  </Widget>
+    </CardProvider>
+  </Card>
 </CarePlanSummary>
 `;

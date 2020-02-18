@@ -6,7 +6,7 @@ import AppointmentSummary from '@ltht-react/appointment-summary'
 import readme from '@ltht-react/appointment-summary/README.md'
 import * as fixtures from './appointment-summary.fixtures'
 
-const stories = storiesOf('Organisms|Clinical', module)
+const stories = storiesOf('Organisms - Clinical|Appointment', module)
 
 stories.addWithJSX = JSXAddon.addWithJSX
 
@@ -16,6 +16,6 @@ stories.addParameters({
   },
 })
 
-stories.addWithJSX('Appointment Summary', () => (
+stories.addWithJSX('Summary', () => (
   <AppointmentSummary title="Appointments" encounters={[fixtures.AppointmentOne, fixtures.AppointmentTwo]} />
 ))

@@ -6,7 +6,7 @@ import FlagDetail from '@ltht-react/flag-detail'
 import readme from '@ltht-react/flag-detail/README.md'
 import * as fixtures from './flag.fixtures'
 
-const stories = storiesOf('Organisms|Clinical', module)
+const stories = storiesOf('Organisms - Clinical|Flag', module)
 
 stories.addWithJSX = JSXAddon.addWithJSX
 
@@ -16,4 +16,4 @@ stories.addParameters({
   },
 })
 
-stories.addWithJSX('Flag Detail', () => <FlagDetail title="Flag" flag={fixtures.FlagOne} />)
+stories.addWithJSX('Detail', () => <FlagDetail title="Flag" flag={fixtures.FlagOne} />)

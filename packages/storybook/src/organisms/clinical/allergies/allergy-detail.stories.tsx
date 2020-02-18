@@ -6,7 +6,7 @@ import AllergyDetailItem from '@ltht-react/allergy-detail'
 import readme from '@ltht-react/allergy-summary/README.md'
 import * as fixtures from './allergy.fixtures'
 
-const stories = storiesOf('Organisms|Clinical', module)
+const stories = storiesOf('Organisms - Clinical|Allergy', module)
 
 stories.addWithJSX = JSXAddon.addWithJSX
 
@@ -16,4 +16,4 @@ stories.addParameters({
   },
 })
 
-stories.addWithJSX('Allergy Detail', () => <AllergyDetailItem title="Allergy" allergy={fixtures.AllergyOne} />)
+stories.addWithJSX('Detail', () => <AllergyDetailItem title="Allergy" allergy={fixtures.AllergyOne} />)

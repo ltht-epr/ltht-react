@@ -143,15 +143,15 @@ exports[`CommunityTreatmentOrderSummary matches snapshot: wrapper mount 1`] = `
   }
   title="Community Treatment Order"
 >
-  <Widget>
-    <WidgetProvider
+  <Card>
+    <CardProvider
       collapsible={true}
       noData={false}
     >
       <div
         className="emotion-17"
       >
-        <WidgetHeader>
+        <CardHeader>
           <div
             className="emotion-3"
             onClick={[Function]}
@@ -223,8 +223,8 @@ exports[`CommunityTreatmentOrderSummary matches snapshot: wrapper mount 1`] = `
               </ChevronCircleIcon>
             </div>
           </div>
-        </WidgetHeader>
-        <WidgetBody>
+        </CardHeader>
+        <CardBody>
           <div
             className="emotion-16"
           >
@@ -349,9 +349,9 @@ exports[`CommunityTreatmentOrderSummary matches snapshot: wrapper mount 1`] = `
               </DescriptionList>
             </StringDetail>
           </div>
-        </WidgetBody>
+        </CardBody>
       </div>
-    </WidgetProvider>
-  </Widget>
+    </CardProvider>
+  </Card>
 </CommunityTreatmentOrderDetail>
 `;

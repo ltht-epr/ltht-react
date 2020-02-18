@@ -2,8 +2,8 @@
 import React from 'react'
 import { css, jsx, SerializedStyles } from '@emotion/core'
 
-import { WIDGET_LIST_ITEM_BACKGROUND_HOVER } from '@ltht-react/styles'
-import { useWidget } from './widget-context'
+import { CARD_LIST_ITEM_BACKGROUND_HOVER } from '@ltht-react/styles'
+import useCard from '../store/card-hook'
 
 const computeStyles = (collapsed: boolean, clickable?: boolean): SerializedStyles => {
   return css`
@@ -15,14 +15,14 @@ const computeStyles = (collapsed: boolean, clickable?: boolean): SerializedStyle
     }
     & li:hover {
       ${clickable && `cursor: pointer;`}
-      ${clickable && `background: ${WIDGET_LIST_ITEM_BACKGROUND_HOVER};`}
+      ${clickable && `background: ${CARD_LIST_ITEM_BACKGROUND_HOVER};`}
     }
     ${collapsed && 'display: none;'}
   `
 }
 
-const WidgetList: React.FC<Props> = ({ children, clickable }) => {
-  const { collapseButton } = useWidget()
+const CardList: React.FC<Props> = ({ children, clickable }) => {
+  const { collapseButton } = useCard()
   return <ul css={computeStyles(collapseButton.collapsed, clickable)}>{children}</ul>
 }
 
@@ -30,4 +30,4 @@ interface Props {
   clickable?: boolean
 }
 
-export default WidgetList
+export default CardList

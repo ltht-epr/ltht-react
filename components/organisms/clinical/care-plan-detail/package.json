@@ -30,7 +30,7 @@
     "@ltht-react/styles": "^0.0.7",
     "@ltht-react/types": "^0.0.7",
     "@ltht-react/utils": "^0.0.10",
-    "@ltht-react/widget": "^0.0.10",
+    "@ltht-react/card": "^0.0.0",
     "@ltht-react/sub-header": "^0.0.0",
     "@ltht-react/period-detail": "^0.0.0",
     "@ltht-react/resource-reference-detail": "^0.0.0",

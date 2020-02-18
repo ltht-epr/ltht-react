@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import React from 'react'
 import { css, jsx, SerializedStyles } from '@emotion/core'
-import { useWidget } from './widget-context'
+import useCard from '../store/card-hook'
 
 const styles = (collapsed: boolean): SerializedStyles => {
   return css`
@@ -10,9 +10,9 @@ const styles = (collapsed: boolean): SerializedStyles => {
   `
 }
 
-const WidgetBody: React.FC = ({ children }) => {
-  const { collapseButton } = useWidget()
+const CardBody: React.FC = ({ children }) => {
+  const { collapseButton } = useCard()
   return <div css={styles(collapseButton.collapsed)}>{children}</div>
 }
 
-export default WidgetBody
+export default CardBody

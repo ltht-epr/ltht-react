@@ -1,23 +1,23 @@
 import React from 'react'
 
 import { Flag } from '@ltht-react/types'
-import { Widget, WidgetHeader, WidgetList, WidgetListItem } from '@ltht-react/widget'
+import { Card, CardHeader, CardList, CardListItem } from '@ltht-react/card'
 import FlagSummaryItem from './molecules/flag-summary-item'
 
 const FlagSummary: React.FC<Props> = ({ title, flags = [], clickHandler }) => {
   return (
-    <Widget noData={flags.length === 0}>
-      <WidgetHeader>
+    <Card noData={flags.length === 0}>
+      <CardHeader>
         <h3>{title}</h3>
-      </WidgetHeader>
-      <WidgetList clickable={!!clickHandler}>
+      </CardHeader>
+      <CardList clickable={!!clickHandler}>
         {flags.map(flag => (
-          <WidgetListItem key={flag.id}>
+          <CardListItem key={flag.id}>
             <FlagSummaryItem flag={flag} clickHandler={clickHandler} />
-          </WidgetListItem>
+          </CardListItem>
         ))}
-      </WidgetList>
-    </Widget>
+      </CardList>
+    </Card>
   )
 }
 

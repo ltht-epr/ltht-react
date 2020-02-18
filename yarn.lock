@@ -2182,6 +2182,20 @@
     emotion "^10.0.27"
     react "^16.12.0"
 
+"@ltht-react/widget@^0.0.10":
+  version "0.0.10"
+  resolved "https://registry.yarnpkg.com/@ltht-react/widget/-/widget-0.0.10.tgz#613b13588fdeaf07e0a44ee071c94ac85319d1ac"
+  integrity sha512-SVjwY3ThIzCYxuU3PWUHAublaXgdJGuh24nb+A5VNhSVcYa9VCkBrdd5LqcoAkPdLsjfL1qwK7tfOatsV7jWUg==
+  dependencies:
+    "@emotion/core" "^10.0.27"
+    "@emotion/styled" "^10.0.27"
+    "@ltht-react/chevron-icon" "^0.0.1"
+    "@ltht-react/styles" "^0.0.7"
+    "@ltht-react/types" "^0.0.7"
+    "@ltht-react/utils" "^0.0.10"
+    emotion "^10.0.27"
+    react "^16.12.0"
+
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/@mrmlnc/readdir-enhanced/-/readdir-enhanced-2.2.1.tgz#524af240d1a360527b730475ecfa1344aa540dde"

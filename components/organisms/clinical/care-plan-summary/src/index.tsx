@@ -1,23 +1,23 @@
 import React from 'react'
 
 import { CarePlan } from '@ltht-react/types'
-import { Widget, WidgetHeader, WidgetList, WidgetListItem } from '@ltht-react/widget'
+import { Card, CardHeader, CardList, CardListItem } from '@ltht-react/card'
 import CarePlanSummaryItem from './molecules/care-plan-summary-item'
 
 const CarePlanSummary: React.FC<Props> = ({ title = 'Care Plans', carePlans = [], clickHandler }) => {
   return (
-    <Widget noData={carePlans.length === 0}>
-      <WidgetHeader>
+    <Card noData={carePlans.length === 0}>
+      <CardHeader>
         <h3>{title}</h3>
-      </WidgetHeader>
-      <WidgetList clickable={!!clickHandler}>
+      </CardHeader>
+      <CardList clickable={!!clickHandler}>
         {carePlans.map(carePlan => (
-          <WidgetListItem key={carePlan.id}>
+          <CardListItem key={carePlan.id}>
             <CarePlanSummaryItem carePlan={carePlan} clickHandler={clickHandler} />
-          </WidgetListItem>
+          </CardListItem>
         ))}
-      </WidgetList>
-    </Widget>
+      </CardList>
+    </Card>
   )
 }
 

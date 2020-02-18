@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Widget matches snapshot: wrapper mount 1`] = `
+exports[`Card matches snapshot: wrapper mount 1`] = `
 Array [
   .emotion-5 {
   color: #231f20;
@@ -90,15 +90,15 @@ Array [
   padding: 0.5rem;
 }
 
-<Widget>
-    <WidgetProvider
+<Card>
+    <CardProvider
       collapsible={true}
       noData={false}
     >
       <div
         className="emotion-5"
       >
-        <WidgetHeader>
+        <CardHeader>
           <div
             className="emotion-2"
             onClick={[Function]}
@@ -166,24 +166,24 @@ Array [
               </ChevronCircleIcon>
             </div>
           </div>
-        </WidgetHeader>
-        <WidgetBody>
+        </CardHeader>
+        <CardBody>
           <div
             className="emotion-3"
           >
             Body
           </div>
-        </WidgetBody>
-        <WidgetFooter>
+        </CardBody>
+        <CardFooter>
           <div
             className="emotion-4"
           >
             Footer
           </div>
-        </WidgetFooter>
+        </CardFooter>
       </div>
-    </WidgetProvider>
-  </Widget>,
+    </CardProvider>
+  </Card>,
   .emotion-5 {
   color: #231f20;
   font-family: 'SF Pro Text','SF Pro Icons','Helvetica Neue',Helvetica,Arial,sans-serif;
@@ -278,15 +278,15 @@ Array [
   padding: 0.5rem 0.5rem 0.5rem 0;
 }
 
-<Widget>
-    <WidgetProvider
+<Card>
+    <CardProvider
       collapsible={true}
       noData={false}
     >
       <div
         className="emotion-5"
       >
-        <WidgetHeader>
+        <CardHeader>
           <div
             className="emotion-2"
             onClick={[Function]}
@@ -354,32 +354,32 @@ Array [
               </ChevronCircleIcon>
             </div>
           </div>
-        </WidgetHeader>
-        <WidgetList>
+        </CardHeader>
+        <CardList>
           <ul
             className="emotion-3"
           >
-            <WidgetListItem>
+            <CardListItem>
               <li>
                 Item 1
               </li>
-            </WidgetListItem>
-            <WidgetListItem>
+            </CardListItem>
+            <CardListItem>
               <li>
                 Item 2
               </li>
-            </WidgetListItem>
+            </CardListItem>
           </ul>
-        </WidgetList>
-        <WidgetFooter>
+        </CardList>
+        <CardFooter>
           <div
             className="emotion-4"
           >
             Footer
           </div>
-        </WidgetFooter>
+        </CardFooter>
       </div>
-    </WidgetProvider>
-  </Widget>,
+    </CardProvider>
+  </Card>,
 ]
 `;

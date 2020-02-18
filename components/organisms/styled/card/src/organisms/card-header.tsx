@@ -2,7 +2,7 @@
 import React from 'react'
 import { css, jsx, SerializedStyles } from '@emotion/core'
 import ChevronIcon from '@ltht-react/chevron-icon'
-import { useWidget } from './widget-context'
+import useCard from '../store/card-hook'
 
 const styles = (noData: boolean): SerializedStyles => {
   return css`
@@ -15,8 +15,8 @@ const styles = (noData: boolean): SerializedStyles => {
     }
   `
 }
-const WidgetHeader: React.FC = ({ children }) => {
-  const { noData, collapseButton, setCollapseButton } = useWidget()
+const CardHeader: React.FC = ({ children }) => {
+  const { noData, collapseButton, setCollapseButton } = useCard()
   const { showButton, collapsed } = collapseButton
 
   const handleClick = (e: React.MouseEvent<HTMLElement, MouseEvent>): void => {
@@ -40,4 +40,4 @@ const WidgetHeader: React.FC = ({ children }) => {
   )
 }
 
-export default WidgetHeader
+export default CardHeader

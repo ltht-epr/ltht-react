@@ -31,7 +31,7 @@
     "@ltht-react/styles": "^0.0.7",
     "@ltht-react/types": "^0.0.7",
     "@ltht-react/utils": "^0.0.10",
-    "@ltht-react/widget": "^0.0.10",
+    "@ltht-react/card": "^0.0.0",
     "@ltht-react/codeable-concept-detail": "^0.0.0",
     "@ltht-react/narrative-detail": "^0.0.0",
     "@ltht-react/period-detail": "^0.0.0",

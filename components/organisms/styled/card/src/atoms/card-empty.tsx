@@ -10,8 +10,8 @@ const styles = css`
   font-style: italic;
 `
 
-const WidgetEmpty: React.FC = () => {
+const CardEmpty: React.FC = () => {
   return <div css={styles}>No records found.</div>
 }
 
-export default WidgetEmpty
+export default CardEmpty

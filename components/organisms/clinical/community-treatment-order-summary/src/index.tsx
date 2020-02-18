@@ -1,6 +1,6 @@
 import React from 'react'
 import { LypftCommunityTreatmentOrder } from '@ltht-react/types'
-import { Widget, WidgetHeader, WidgetList, WidgetListItem } from '@ltht-react/widget'
+import { Card, CardHeader, CardList, CardListItem } from '@ltht-react/card'
 import CommunityTreatmentOrderSummaryItem from './molecules/community-treatment-order-summary-item'
 
 const CommunityTreatmentOrderSummary: React.FC<Props> = ({
@@ -9,18 +9,18 @@ const CommunityTreatmentOrderSummary: React.FC<Props> = ({
   clickHandler,
 }) => {
   return (
-    <Widget noData={communityTreatmentOrders.length === 0}>
-      <WidgetHeader>
+    <Card noData={communityTreatmentOrders.length === 0}>
+      <CardHeader>
         <h3>{title}</h3>
-      </WidgetHeader>
-      <WidgetList clickable={clickHandler !== undefined}>
+      </CardHeader>
+      <CardList clickable={clickHandler !== undefined}>
         {communityTreatmentOrders.map(order => (
-          <WidgetListItem key={order.id}>
+          <CardListItem key={order.id}>
             <CommunityTreatmentOrderSummaryItem communityTreatmentOrder={order} clickHandler={clickHandler} />
-          </WidgetListItem>
+          </CardListItem>
         ))}
-      </WidgetList>
-    </Widget>
+      </CardList>
+    </Card>
   )
 }
 

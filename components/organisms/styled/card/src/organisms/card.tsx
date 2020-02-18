@@ -2,14 +2,14 @@
 import React from 'react'
 import { css, jsx, SerializedStyles } from '@emotion/core'
 
-import { CSS_RESET, TEXT_PRIMARY_COLOUR, TEXT_SECONDARY_COLOUR, WIDGET_BACKGROUND_COLOUR } from '@ltht-react/styles'
-import { WidgetProvider, ProviderProps } from './widget-context'
-import WidgetEmpty from './widget-empty'
+import { CSS_RESET, TEXT_PRIMARY_COLOUR, TEXT_SECONDARY_COLOUR, CARD_BACKGROUND_COLOUR } from '@ltht-react/styles'
+import { CardProvider, ProviderProps } from '../store/card-context'
+import CardEmpty from '../atoms/card-empty'
 
 const styles = (noData: boolean): SerializedStyles => {
   return css`
   ${CSS_RESET}
-  background: ${WIDGET_BACKGROUND_COLOUR};
+  background: ${CARD_BACKGROUND_COLOUR};
   color: ${noData ? TEXT_SECONDARY_COLOUR : TEXT_PRIMARY_COLOUR};
   margin-bottom: 0.5rem;
   border-radius: 4px;
@@ -22,14 +22,14 @@ const styles = (noData: boolean): SerializedStyles => {
 `
 }
 
-const Widget: React.FC<Props> = ({ children, collapsible = true, collapsed, noData = false }) => {
+const Card: React.FC<Props> = ({ children, collapsible = true, collapsed, noData = false }) => {
   return (
-    <WidgetProvider collapsible={collapsible} collapsed={collapsed} noData={noData}>
+    <CardProvider collapsible={collapsible} collapsed={collapsed} noData={noData}>
       <div css={styles(noData)}>
         {children}
-        {noData && <WidgetEmpty />}
+        {noData && <CardEmpty />}
       </div>
-    </WidgetProvider>
+    </CardProvider>
   )
 }
 
@@ -37,4 +37,4 @@ interface Props extends ProviderProps {
   noData?: boolean
 }
 
-export default Widget
+export default Card

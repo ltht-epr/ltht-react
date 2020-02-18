@@ -10,17 +10,17 @@ import FlagSummary from '@ltht-react/flag-summary'
 import HospitalStaySummary from '@ltht-react/hospital-stay-summary'
 import InvolvedTeamSummary from '@ltht-react/involved-team-summary'
 
-import * as allergies from '../organisms/clinical/allergies/allergy.fixtures'
-import * as appointments from '../organisms/clinical/appointments/appointment-summary.fixtures'
-import * as carePlans from '../organisms/clinical/care-plans/care-plan.fixtures'
-import * as communityOrders from '../organisms/clinical/community-treatment-orders/community-treatment-order.fixtures'
-import * as episodeOfCares from '../organisms/clinical/involved-teams/involved-team-summary.fixtures'
-import * as flags from '../organisms/clinical/flags/flag.fixtures'
-import * as hospitalStays from '../organisms/clinical/hospital-stays/hospital-stay-summary.fixtures'
+import * as allergies from '../../clinical/allergies/allergy.fixtures'
+import * as appointments from '../../clinical/appointments/appointment-summary.fixtures'
+import * as carePlans from '../../clinical/care-plans/care-plan.fixtures'
+import * as communityOrders from '../../clinical/community-treatment-orders/community-treatment-order.fixtures'
+import * as episodeOfCares from '../../clinical/involved-teams/involved-team-summary.fixtures'
+import * as flags from '../../clinical/flags/flag.fixtures'
+import * as hospitalStays from '../../clinical/hospital-stays/hospital-stay-summary.fixtures'
 
-import { Container, Column } from '../components/dashboard'
+import { Container, Column } from './dashboard'
 
-const stories = storiesOf('Dashboards|Basic|Examples', module)
+const stories = storiesOf('Organisms-Styled|Dashboard', module)
 
 stories.addWithJSX = JSXAddon.addWithJSX
 
@@ -28,7 +28,7 @@ stories.addParameters({
   showPanel: false,
 })
 
-stories.addWithJSX('Readonly Widgets', () => (
+stories.addWithJSX('Readonly Cards', () => (
   <Container>
     <Column>
       <FlagSummary title="Alerts" flags={[flags.FlagOne, flags.FlagTwo]} />

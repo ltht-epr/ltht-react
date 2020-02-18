@@ -1,23 +1,23 @@
 import React from 'react'
 
 import { Encounter } from '@ltht-react/types'
-import { Widget, WidgetHeader, WidgetList, WidgetListItem } from '@ltht-react/widget'
+import { Card, CardHeader, CardList, CardListItem } from '@ltht-react/card'
 import HospitalStaySummaryItem from './molecules/hospital-stay-summary-item'
 
 const HospitalStaySummary: React.FC<Props> = ({ title = 'Hospital Stays', hospitalStays = [], clickHandler }) => {
   return (
-    <Widget noData={hospitalStays.length === 0}>
-      <WidgetHeader>
+    <Card noData={hospitalStays.length === 0}>
+      <CardHeader>
         <h3>{title}</h3>
-      </WidgetHeader>
-      <WidgetList clickable={!!clickHandler}>
+      </CardHeader>
+      <CardList clickable={!!clickHandler}>
         {hospitalStays.map(encounter => (
-          <WidgetListItem key={encounter.id}>
+          <CardListItem key={encounter.id}>
             <HospitalStaySummaryItem hospitalStay={encounter} clickHandler={clickHandler} />
-          </WidgetListItem>
+          </CardListItem>
         ))}
-      </WidgetList>
-    </Widget>
+      </CardList>
+    </Card>
   )
 }
 

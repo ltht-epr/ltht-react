@@ -6,7 +6,7 @@ import CommunityTreatmentOrderSummary from '@ltht-react/community-treatment-orde
 import readme from '@ltht-react/community-treatment-order-summary/README.md'
 import * as fixtures from './community-treatment-order.fixtures'
 
-const stories = storiesOf('Organisms|Clinical', module)
+const stories = storiesOf('Organisms - Clinical|Community Treatment Order', module)
 
 stories.addWithJSX = JSXAddon.addWithJSX
 
@@ -16,7 +16,7 @@ stories.addParameters({
   },
 })
 
-stories.addWithJSX('Community Treatment Order Summary', () => (
+stories.addWithJSX('Summary', () => (
   <CommunityTreatmentOrderSummary
     title="Community Treatment Orders"
     communityTreatmentOrders={[fixtures.CommunityTreatmentOrderOne, fixtures.CommunityTreatmentOrderTwo]}
