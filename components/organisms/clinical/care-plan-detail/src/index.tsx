@@ -5,7 +5,8 @@ import { jsx } from '@emotion/core'
 import { CarePlan } from '@ltht-react/types'
 import { Card, CardHeader, CardBody } from '@ltht-react/card'
 import { SubHeader } from '@ltht-react/header'
-import { StringDetail, PeriodDetail, ResourceReferenceDetail } from '@ltht-react/detail'
+import { DescriptionList, DescriptionListTerm, DescriptionListDescription } from '@ltht-react/description-list'
+import { StringDetail, PeriodDetail } from '@ltht-react/detail'
 
 const CarePlanDetail: React.FC<Props> = ({ title, carePlan }) => {
   return (
@@ -20,9 +21,12 @@ const CarePlanDetail: React.FC<Props> = ({ title, carePlan }) => {
         <StringDetail term="Inent" description={carePlan.intent.toString()} />
         <StringDetail term="Status" description={carePlan.status.toString()} />
         <StringDetail term="Narrative" description={carePlan.text?.text} />
-        {carePlan?.author?.map(item => {
-          return <ResourceReferenceDetail term="Author(s)" resourceReference={item} />
-        })}
+        <DescriptionList>
+          <DescriptionListTerm>Author(s)</DescriptionListTerm>
+          {carePlan?.author?.map(item => {
+            return <DescriptionListDescription>{item?.display}</DescriptionListDescription>
+          })}
+        </DescriptionList>
       </CardBody>
     </Card>
   )
