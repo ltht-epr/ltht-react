@@ -1,6 +1,5 @@
 export { default as AllergySummary } from '@ltht-react/allergy-summary'
 export { default as AppointmentSummary } from '@ltht-react/appointment-summary'
-export { default as Author } from '@ltht-react/author'
 export { default as CarePlanDetail } from '@ltht-react/care-plan-detail'
 export { default as CarePlanSummary } from '@ltht-react/care-plan-summary'
 export { default as CommunityTreatmentOrderDetail } from '@ltht-react/community-treatment-order-detail'
