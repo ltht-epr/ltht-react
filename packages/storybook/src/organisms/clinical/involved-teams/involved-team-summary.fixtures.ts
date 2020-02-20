@@ -6,6 +6,7 @@ const mockMetadata: Metadata = {
       display: 'Mock',
     },
   ],
+  requestedWhen: '',
 }
 
 const InvolvedTeamOne: EpisodeOfCare = {

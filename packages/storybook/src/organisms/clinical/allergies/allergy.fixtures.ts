@@ -15,6 +15,7 @@ const mockMetadata: Metadata = {
       display: 'Mock',
     },
   ],
+  requestedWhen: '',
 }
 
 const AllergyOne: AllergyIntolerance = {

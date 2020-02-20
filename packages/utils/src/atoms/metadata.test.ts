@@ -5,6 +5,7 @@ describe('metadataSourceSummaryText', () => {
   it('empty dataSource formats correctly', () => {
     const metadata: Metadata = {
       dataSources: [],
+      requestedWhen: '',
     }
     expect(metadataSourceSummaryText(metadata)).toEqual('')
   })
@@ -15,6 +16,7 @@ describe('metadataSourceSummaryText', () => {
           display: 'Test',
         },
       ],
+      requestedWhen: '',
     }
     expect(metadataSourceSummaryText(metadata)).toEqual('Test')
   })
@@ -28,6 +30,7 @@ describe('metadataSourceSummaryText', () => {
           display: 'Another',
         },
       ],
+      requestedWhen: '',
     }
     expect(metadataSourceSummaryText(metadata)).toEqual('Test, Another')
   })

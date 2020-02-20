@@ -166,6 +166,7 @@ exports[`FlagSummary matches snapshot: wrapper mount 1`] = `
               "display": "Mock",
             },
           ],
+          "requestedWhen": "",
         },
         "period": Object {
           "start": Object {
@@ -209,6 +210,7 @@ exports[`FlagSummary matches snapshot: wrapper mount 1`] = `
               "display": "Mock",
             },
           ],
+          "requestedWhen": "",
         },
         "period": Object {
           "end": Object {
@@ -351,6 +353,7 @@ exports[`FlagSummary matches snapshot: wrapper mount 1`] = `
                             "display": "Mock",
                           },
                         ],
+                        "requestedWhen": "",
                       },
                       "period": Object {
                         "start": Object {
@@ -409,6 +412,7 @@ exports[`FlagSummary matches snapshot: wrapper mount 1`] = `
                                   "display": "Mock",
                                 },
                               ],
+                              "requestedWhen": "",
                             },
                             "period": Object {
                               "start": Object {
@@ -466,6 +470,7 @@ exports[`FlagSummary matches snapshot: wrapper mount 1`] = `
                                   "display": "Mock",
                                 },
                               ],
+                              "requestedWhen": "",
                             },
                             "period": Object {
                               "start": Object {
@@ -525,6 +530,7 @@ exports[`FlagSummary matches snapshot: wrapper mount 1`] = `
                                   "display": "Mock",
                                 },
                               ],
+                              "requestedWhen": "",
                             },
                             "period": Object {
                               "start": Object {
@@ -582,6 +588,7 @@ exports[`FlagSummary matches snapshot: wrapper mount 1`] = `
                                   "display": "Mock",
                                 },
                               ],
+                              "requestedWhen": "",
                             },
                             "period": Object {
                               "start": Object {
@@ -644,6 +651,7 @@ exports[`FlagSummary matches snapshot: wrapper mount 1`] = `
                             "display": "Mock",
                           },
                         ],
+                        "requestedWhen": "",
                       },
                       "period": Object {
                         "end": Object {
@@ -698,6 +706,7 @@ exports[`FlagSummary matches snapshot: wrapper mount 1`] = `
                                   "display": "Mock",
                                 },
                               ],
+                              "requestedWhen": "",
                             },
                             "period": Object {
                               "end": Object {
@@ -751,6 +760,7 @@ exports[`FlagSummary matches snapshot: wrapper mount 1`] = `
                                   "display": "Mock",
                                 },
                               ],
+                              "requestedWhen": "",
                             },
                             "period": Object {
                               "end": Object {
@@ -806,6 +816,7 @@ exports[`FlagSummary matches snapshot: wrapper mount 1`] = `
                                   "display": "Mock",
                                 },
                               ],
+                              "requestedWhen": "",
                             },
                             "period": Object {
                               "end": Object {
@@ -859,6 +870,7 @@ exports[`FlagSummary matches snapshot: wrapper mount 1`] = `
                                   "display": "Mock",
                                 },
                               ],
+                              "requestedWhen": "",
                             },
                             "period": Object {
                               "end": Object {
