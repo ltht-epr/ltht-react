@@ -10,8 +10,8 @@ export type Scalars = {
   Decimal: number
   Date: string
   DateTime: string
-  Milliseconds: number
   Seconds: number
+  Milliseconds: number
 }
 
 export type AllergyIntolerance = {
@@ -97,6 +97,17 @@ export type Annotation = {
   extension?: Maybe<Array<Maybe<Extension>>>
   text: Scalars['String']
   time?: Maybe<PartialDateTime>
+}
+
+export type Attachment = {
+  contentType?: Maybe<Scalars['String']>
+  creation?: Maybe<PartialDateTime>
+  extension?: Maybe<Array<Maybe<Extension>>>
+  hash?: Maybe<Scalars['String']>
+  language?: Maybe<Scalars['String']>
+  size?: Maybe<Scalars['Int']>
+  title?: Maybe<Scalars['String']>
+  url?: Maybe<Scalars['String']>
 }
 
 export type CarePlan = {
@@ -200,16 +211,140 @@ export type Coding = {
   version?: Maybe<Scalars['String']>
 }
 
+export type Condition = {
+  abatement?: Maybe<ConditionAbatement>
+  assertedDate?: Maybe<PartialDateTime>
+  asserter?: Maybe<ResourceReference>
+  bodySite?: Maybe<Array<Maybe<CodeableConcept>>>
+  category?: Maybe<Array<Maybe<CodeableConcept>>>
+  clinicalStatus?: Maybe<ConditionClinicalStatus>
+  code?: Maybe<CodeableConcept>
+  context?: Maybe<ResourceReference>
+  evidence?: Maybe<ConditionEvidence>
+  extension?: Maybe<Array<Maybe<Extension>>>
+  id: Scalars['ID']
+  identifier?: Maybe<Array<Maybe<Identifier>>>
+  metadata: Metadata
+  onset?: Maybe<ConditionOnset>
+  severity?: Maybe<CodeableConcept>
+  stage?: Maybe<ConditionStage>
+  subject: ResourceReference
+  text?: Maybe<Narrative>
+}
+
+export type ConditionAbatement = {
+  age?: Maybe<Quantity>
+  dateTime: Period
+  extension?: Maybe<Array<Maybe<Extension>>>
+}
+
+export enum ConditionClinicalStatus {
+  Active = 'ACTIVE',
+  Recurrence = 'RECURRENCE',
+  Inactive = 'INACTIVE',
+  Remission = 'REMISSION',
+  Resolved = 'RESOLVED',
+}
+
+export type ConditionEvidence = {
+  code?: Maybe<Array<Maybe<CodeableConcept>>>
+  detail?: Maybe<ResourceReference>
+  extension?: Maybe<Array<Maybe<Extension>>>
+}
+
+export type ConditionOnset = {
+  extension?: Maybe<Array<Maybe<Extension>>>
+  onsetAge?: Maybe<Quantity>
+  onsetDateTime?: Maybe<PartialDateTime>
+  onsetPeriod?: Maybe<Period>
+  onsetRange?: Maybe<Range>
+  onsetString?: Maybe<Scalars['String']>
+}
+
+export type ConditionStage = {
+  assessments?: Maybe<Array<Maybe<ResourceReference>>>
+  extension?: Maybe<Array<Maybe<Extension>>>
+  summary?: Maybe<CodeableConcept>
+}
+
+export type DocumentReference = {
+  authenticator?: Maybe<ResourceReference>
+  author?: Maybe<Array<Maybe<ResourceReference>>>
+  class?: Maybe<CodeableConcept>
+  content: Array<Maybe<DocumentReferenceContent>>
+  context?: Maybe<DocumentReferenceContext>
+  created?: Maybe<PartialDateTime>
+  custodian?: Maybe<ResourceReference>
+  description?: Maybe<Scalars['String']>
+  docStatus?: Maybe<DocumentReferenceDocStatusCode>
+  extension?: Maybe<Array<Maybe<Extension>>>
+  id: Scalars['ID']
+  identifier?: Maybe<Array<Maybe<Identifier>>>
+  indexed: PartialDateTime
+  masterIdentifier?: Maybe<Identifier>
+  metadata: Metadata
+  relatesTo?: Maybe<Array<Maybe<DocumentReferenceRelatesTo>>>
+  securityLabel?: Maybe<Array<Maybe<ResourceReference>>>
+  status: DocumentReferenceStatusCode
+  text?: Maybe<Narrative>
+  type: CodeableConcept
+}
+
+export type DocumentReferenceContent = {
+  attachment: Attachment
+  extension?: Maybe<Array<Maybe<Extension>>>
+  format?: Maybe<Coding>
+}
+
+export type DocumentReferenceContext = {
+  encounter?: Maybe<DocumentReference>
+  event?: Maybe<Array<Maybe<CodeableConcept>>>
+  extension?: Maybe<Array<Maybe<Extension>>>
+  facilityType?: Maybe<CodeableConcept>
+  period?: Maybe<Period>
+  practiceSetting?: Maybe<CodeableConcept>
+  related?: Maybe<Array<Maybe<DocumentReferenceRelated>>>
+  sourcePatientInfo?: Maybe<DocumentReference>
+}
+
+export enum DocumentReferenceDocStatusCode {
+  Preliminary = 'PRELIMINARY',
+  Final = 'FINAL',
+  Appended = 'APPENDED',
+  Amended = 'AMENDED',
+  EnteredInError = 'ENTERED_IN_ERROR',
+}
+
+export type DocumentReferenceRelated = {
+  extension?: Maybe<Array<Maybe<Extension>>>
+  identifier?: Maybe<Identifier>
+  ref?: Maybe<ResourceReference>
+}
+
+export type DocumentReferenceRelatesTo = {
+  code: DocumentReferenceRelatesToCode
+  extension?: Maybe<Array<Maybe<Extension>>>
+  target: ResourceReference
+}
+
+export enum DocumentReferenceRelatesToCode {
+  Replaces = 'REPLACES',
+  Transforms = 'TRANSFORMS',
+  Signs = 'SIGNS',
+  Appends = 'APPENDS',
+}
+
+export enum DocumentReferenceStatusCode {
+  Current = 'CURRENT',
+  Superseded = 'SUPERSEDED',
+  EnteredInError = 'ENTERED_IN_ERROR',
+}
+
 export type Ehr = {
   flags?: Maybe<Array<Maybe<Flag>>>
-  recordAvailability?: Maybe<RecordAvailability>
 }
 
 export type EhrFlagsArgs = {
-  patientGuid: Scalars['String']
-}
-
-export type EhrRecordAvailabilityArgs = {
   patientGuid: Scalars['String']
 }
 
@@ -312,6 +447,10 @@ export type EncounterStatusHistory = {
   status?: Maybe<EncounterStatusCode>
 }
 
+export type EntryType = {
+  items?: Maybe<ItemType>
+}
+
 export type EpisodeOfCare = {
   account?: Maybe<ResourceReference>
   careManager?: Maybe<ResourceReference>
@@ -379,6 +518,25 @@ export enum FlagStatusCode {
   EnteredInError = 'ENTERED_IN_ERROR',
 }
 
+export type GpConnect = {
+  medications?: Maybe<Array<Maybe<GpConnectMedicationList>>>
+}
+
+export type GpConnectMedicationsArgs = {
+  nhsNumber: Scalars['String']
+}
+
+export type GpConnectMedicationList = {
+  code?: Maybe<CodeableConcept>
+  date?: Maybe<PartialDateTime>
+  entry?: Maybe<EntryType>
+  extension?: Maybe<Array<Maybe<Extension>>>
+  id: Scalars['ID']
+  medicationStatements?: Maybe<Array<Maybe<MedicationStatement>>>
+  metadata: Metadata
+  text?: Maybe<Narrative>
+}
+
 export type Identifier = {
   assigner?: Maybe<ResourceReference>
   extension?: Maybe<Array<Maybe<Extension>>>
@@ -396,15 +554,19 @@ export enum IdentifierUseCode {
   Secondary = 'SECONDARY',
 }
 
+export type ItemType = {
+  reference?: Maybe<ResourceReference>
+}
+
 export type Lypft = {
   allergyIntolerances?: Maybe<Array<Maybe<AllergyIntolerance>>>
   appointments?: Maybe<EncounterPage>
   carePlans?: Maybe<Array<Maybe<CarePlan>>>
   careTeams?: Maybe<Array<Maybe<EpisodeOfCare>>>
   communityTreatmentOrders?: Maybe<Array<Maybe<LypftCommunityTreatmentOrder>>>
+  documents?: Maybe<Array<Maybe<DocumentReference>>>
   flags?: Maybe<Array<Maybe<Flag>>>
   hospitalStays?: Maybe<Array<Maybe<Encounter>>>
-  recordAvailability?: Maybe<RecordAvailability>
 }
 
 export type LypftAllergyIntolerancesArgs = {
@@ -431,15 +593,15 @@ export type LypftCommunityTreatmentOrdersArgs = {
   nhsNumber: Scalars['String']
 }
 
+export type LypftDocumentsArgs = {
+  nhsNumber: Scalars['String']
+}
+
 export type LypftFlagsArgs = {
   nhsNumber: Scalars['String']
 }
 
 export type LypftHospitalStaysArgs = {
-  nhsNumber: Scalars['String']
-}
-
-export type LypftRecordAvailabilityArgs = {
   nhsNumber: Scalars['String']
 }
 
@@ -454,10 +616,18 @@ export type LypftCommunityTreatmentOrder = {
   text?: Maybe<Narrative>
 }
 
+export type MedicationStatement = {
+  extension?: Maybe<Array<Maybe<Extension>>>
+  id: Scalars['ID']
+  metadata: Metadata
+  text?: Maybe<Narrative>
+}
+
 export type Metadata = {
   dataSources: Array<Maybe<Coding>>
   extension?: Maybe<Array<Maybe<Extension>>>
   lastUpdated?: Maybe<Scalars['DateTimeOffset']>
+  requestedWhen: Scalars['DateTimeOffset']
   versionId?: Maybe<Scalars['String']>
 }
 
@@ -512,7 +682,13 @@ export enum QuantityComparatorCode {
 
 export type Query = {
   ehr?: Maybe<Ehr>
+  gpConnect?: Maybe<GpConnect>
   lypft?: Maybe<Lypft>
+  yhcr?: Maybe<Yhcr>
+}
+
+export type QueryYhcrArgs = {
+  reasonForAccess: ReasonForAccessCode
 }
 
 export type Range = {
@@ -521,9 +697,13 @@ export type Range = {
   low?: Maybe<Quantity>
 }
 
-export type RecordAvailability = {
-  dataSources?: Maybe<Array<Maybe<Coding>>>
-  isRecordAvailable: Scalars['Boolean']
+export enum ReasonForAccessCode {
+  DirectCareEmergency = 'DIRECT_CARE_EMERGENCY',
+  DirectCareNonEmergency = 'DIRECT_CARE_NON_EMERGENCY',
+  IndirectCareInContext = 'INDIRECT_CARE_IN_CONTEXT',
+  IndirectCareNotInContext = 'INDIRECT_CARE_NOT_IN_CONTEXT',
+  AnalyticsAccess = 'ANALYTICS_ACCESS',
+  Administration = 'ADMINISTRATION',
 }
 
 export type ResourceReference = {
@@ -532,4 +712,12 @@ export type ResourceReference = {
   identifier?: Maybe<Array<Maybe<Identifier>>>
   reference?: Maybe<Scalars['String']>
   typeName: Scalars['String']
+}
+
+export type Yhcr = {
+  conditions?: Maybe<Array<Maybe<Condition>>>
+}
+
+export type YhcrConditionsArgs = {
+  nhsNumber: Scalars['String']
 }
