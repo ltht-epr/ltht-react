@@ -2,8 +2,8 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import JSXAddon from 'storybook-addon-jsx'
 
-import HospitalStaySummary from '@ltht-react/hospital-stay-summary'
-import readme from '@ltht-react/hospital-stay-summary/README.md'
+import HospitalStayDetail from '@ltht-react/hospital-stay-detail'
+import readme from '@ltht-react/hospital-stay-detail/README.md'
 import * as fixtures from './hospital-stay.fixtures'
 
 const stories = storiesOf('Organisms - Clinical|Hospital Stay', module)
@@ -16,6 +16,6 @@ stories.addParameters({
   },
 })
 
-stories.addWithJSX('Summary', () => (
-  <HospitalStaySummary title="Hospital Stays" hospitalStays={[fixtures.HospitalStayOne, fixtures.HospitalStayTwo]} />
+stories.addWithJSX('Detail', () => (
+  <HospitalStayDetail title="Hospital Stay" hospitalStay={fixtures.HospitalStayThree} />
 ))

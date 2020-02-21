@@ -4,9 +4,17 @@ import { DescriptionList, DescriptionListTerm, DescriptionListDescription } from
 
 const ResourceReferenceDetail: React.FC<Props> = ({ term, resourceReference }) => {
   if (resourceReference) {
+    if (term) {
+      return (
+        <DescriptionList>
+          <DescriptionListTerm>{term}</DescriptionListTerm>
+          <DescriptionListDescription>{resourceReference?.display}</DescriptionListDescription>
+        </DescriptionList>
+      )
+    }
     return (
       <DescriptionList>
-        <DescriptionListTerm>{term}</DescriptionListTerm>
+        <DescriptionListTerm>{resourceReference?.typeName}</DescriptionListTerm>
         <DescriptionListDescription>{resourceReference?.display}</DescriptionListDescription>
       </DescriptionList>
     )
@@ -15,7 +23,7 @@ const ResourceReferenceDetail: React.FC<Props> = ({ term, resourceReference }) =
 }
 
 interface Props {
-  term: string
+  term?: string | null
   resourceReference?: ResourceReference | null
 }
 

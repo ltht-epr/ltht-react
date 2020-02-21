@@ -16,7 +16,7 @@ import * as carePlans from '../../clinical/care-plans/care-plan.fixtures'
 import * as communityOrders from '../../clinical/community-treatment-orders/community-treatment-order.fixtures'
 import * as episodeOfCares from '../../clinical/involved-teams/involved-team-summary.fixtures'
 import * as flags from '../../clinical/flags/flag.fixtures'
-import * as hospitalStays from '../../clinical/hospital-stays/hospital-stay-summary.fixtures'
+import * as hospitalStays from '../../clinical/hospital-stays/hospital-stay.fixtures'
 
 import { Container, Column } from './dashboard'
 

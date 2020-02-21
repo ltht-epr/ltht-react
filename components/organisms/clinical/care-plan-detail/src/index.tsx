@@ -20,9 +20,9 @@ const CarePlanDetail: React.FC<Props> = ({ title, carePlan }) => {
         <StringDetail term="Intent" description={carePlan.intent.toString()} />
         <StringDetail term="Status" description={carePlan.status.toString()} />
         <NarrativeDetail narrative={carePlan.text} />
-        <ResourceReferenceListDetail term="Addresses" resourceReference={carePlan?.addresses} />
-        <ResourceReferenceListDetail term="Performer(s)" resourceReference={carePlan?.activity?.detail?.performer} />
-        <ResourceReferenceListDetail term="Author(s)" resourceReference={carePlan?.author} />
+        <ResourceReferenceListDetail term="Addresses" resourceReferences={carePlan?.addresses} />
+        <ResourceReferenceListDetail term="Performer(s)" resourceReferences={carePlan?.activity?.detail?.performer} />
+        <ResourceReferenceListDetail term="Author(s)" resourceReferences={carePlan?.author} />
       </CardBody>
     </Card>
   )
