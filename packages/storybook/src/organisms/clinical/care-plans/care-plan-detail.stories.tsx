@@ -16,4 +16,4 @@ stories.addParameters({
   },
 })
 
-stories.addWithJSX('Detail', () => <CarePlanDetail title="Care Plan" carePlan={fixtures.CarePlanOne} />)
+stories.addWithJSX('Detail', () => <CarePlanDetail title="Care Plan" carePlan={fixtures.CarePlanThree} />)

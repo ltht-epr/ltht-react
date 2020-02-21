@@ -5,8 +5,7 @@ import { jsx } from '@emotion/core'
 import { CarePlan } from '@ltht-react/types'
 import { Card, CardHeader, CardBody } from '@ltht-react/card'
 import { SubHeader } from '@ltht-react/header'
-import { DescriptionList, DescriptionListTerm, DescriptionListDescription } from '@ltht-react/description-list'
-import { StringDetail, PeriodDetail } from '@ltht-react/detail'
+import { StringDetail, PeriodDetail, NarrativeDetail, ResourceReferenceListDetail } from '@ltht-react/detail'
 
 const CarePlanDetail: React.FC<Props> = ({ title, carePlan }) => {
   return (
@@ -18,15 +17,12 @@ const CarePlanDetail: React.FC<Props> = ({ title, carePlan }) => {
         <StringDetail term="Plan" description={carePlan.title} />
         <StringDetail term="Description" description={carePlan.description} />
         <PeriodDetail period={carePlan.period} />
-        <StringDetail term="Inent" description={carePlan.intent.toString()} />
+        <StringDetail term="Intent" description={carePlan.intent.toString()} />
         <StringDetail term="Status" description={carePlan.status.toString()} />
-        <StringDetail term="Narrative" description={carePlan.text?.text} />
-        <DescriptionList>
-          <DescriptionListTerm>Author(s)</DescriptionListTerm>
-          {carePlan?.author?.map(item => {
-            return <DescriptionListDescription>{item?.display}</DescriptionListDescription>
-          })}
-        </DescriptionList>
+        <NarrativeDetail narrative={carePlan.text} />
+        <ResourceReferenceListDetail term="Addresses" resourceReference={carePlan?.addresses} />
+        <ResourceReferenceListDetail term="Performer(s)" resourceReference={carePlan?.activity?.detail?.performer} />
+        <ResourceReferenceListDetail term="Author(s)" resourceReference={carePlan?.author} />
       </CardBody>
     </Card>
   )

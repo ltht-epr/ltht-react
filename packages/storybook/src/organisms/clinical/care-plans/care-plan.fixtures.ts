@@ -1,4 +1,12 @@
-import { CarePlan, CarePlanStatusCode, PartialDateTimeKindCode, CarePlanIntentCode, Metadata } from '@ltht-react/types'
+import {
+  CarePlan,
+  CarePlanStatusCode,
+  PartialDateTimeKindCode,
+  CarePlanIntentCode,
+  Metadata,
+  NarrativeStatusCode,
+  CarePlanActivityDetailStatusCode,
+} from '@ltht-react/types'
 
 const mockMetadata: Metadata = {
   dataSources: [
@@ -69,4 +77,68 @@ const CarePlanTwo: CarePlan = {
   title: 'Test Care Plan',
 }
 
-export { CarePlanOne, CarePlanTwo }
+const CarePlanThree: CarePlan = {
+  id: 'gpvisit',
+  metadata: mockMetadata,
+  author: [
+    { display: 'Dr Joe Bloggs', typeName: 'Test' },
+    { display: 'Dr Adam Careplan', typeName: 'Test' },
+  ],
+  text: {
+    status: NarrativeStatusCode.Additional,
+    text: '',
+    div:
+      "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n      <p>  Represents the flow of a patient within a practice. The plan is created when\n        they arrive and represents the 'care' of the patient over the course of that encounter.\n        They first see the nurse for basic observations (BP, pulse, temp) then the doctor for\n        the consultation and finally the nurse again for a tetanus immunization. As the plan is\n        updated (e.g. a new activity added), different versions of the plan exist, and workflow timings\n        for reporting can be gained by examining the plan history. This example is the version after\n        seeing the doctor, and waiting for the nurse.The plan can either be created 'ad hoc' and modified as\n        the parient progresses, or start with a standard template (which can, of course, be altered to suit the patient.</p>\n    </div>",
+  },
+  title: 'Test Care Plan',
+  status: CarePlanStatusCode.Active,
+  intent: CarePlanIntentCode.Plan,
+  period: {
+    start: {
+      value: '2014-02-02T00:00:00+00:00',
+      kind: PartialDateTimeKindCode.Date,
+    },
+  },
+  careTeam: [
+    {
+      reference: '#careteam',
+      display: '',
+      typeName: '',
+    },
+  ],
+  addresses: [
+    {
+      reference: '#p1',
+      display: 'obesity',
+      typeName: '',
+    },
+  ],
+  goal: [
+    {
+      reference: '#goal',
+      display: '',
+      typeName: '',
+    },
+  ],
+  activity: {
+    outcomeReference: [
+      {
+        reference: 'Encounter/example',
+        typeName: '',
+        display: '',
+      },
+    ],
+    detail: {
+      status: CarePlanActivityDetailStatusCode.Completed,
+      performer: [
+        {
+          reference: 'Practitioner/13',
+          display: 'Nurse Nancy',
+          typeName: '',
+        },
+      ],
+    },
+  },
+}
+
+export { CarePlanOne, CarePlanTwo, CarePlanThree }

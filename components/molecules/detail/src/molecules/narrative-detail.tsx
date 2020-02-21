@@ -4,10 +4,20 @@ import { DescriptionList, DescriptionListTerm, DescriptionListDescription } from
 
 const NarrativeDetail: React.FC<Props> = ({ narrative }) => {
   if (narrative) {
+    if (narrative.text.length > 0) {
+      return (
+        <DescriptionList>
+          <DescriptionListTerm>Text</DescriptionListTerm>
+          <DescriptionListDescription>{narrative.text}</DescriptionListDescription>
+        </DescriptionList>
+      )
+    }
     return (
       <DescriptionList>
         <DescriptionListTerm>Text</DescriptionListTerm>
-        <DescriptionListDescription>{narrative.text}</DescriptionListDescription>
+        <DescriptionListDescription>
+          <div dangerouslySetInnerHTML={{ __html: narrative.div }} />
+        </DescriptionListDescription>
       </DescriptionList>
     )
   }
