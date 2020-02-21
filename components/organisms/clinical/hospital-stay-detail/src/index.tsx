@@ -2,7 +2,7 @@
 import React from 'react'
 import { jsx, css } from '@emotion/core'
 
-import { Encounter } from '@ltht-react/types'
+import { Encounter, CodeableConcept } from '@ltht-react/types'
 import { periodSummaryText, titleCase } from '@ltht-react/utils'
 import { Card, CardHeader, CardBody } from '@ltht-react/card'
 import { DescriptionListDescription } from '@ltht-react/description-list'
@@ -17,13 +17,24 @@ import {
 } from '@ltht-react/detail'
 
 const styles = {
-  children: css`
+  nested: css`
     margin-top: 0.5rem;
     margin-left: 0.5rem;
+  `,
+  li: css`
+    list-style: initial;
   `,
 }
 
 const HospitalStayDetail: React.FC<Props> = ({ title, hospitalStay }) => {
+  const hospitalisations: CodeableConcept[] = []
+
+  hospitalStay.hospitalization?.extension?.map(item => {
+    if (item?.valueCodeableConcept) {
+      hospitalisations.push(item?.valueCodeableConcept)
+    }
+  })
+
   return (
     <Card>
       <CardHeader>
@@ -39,27 +50,40 @@ const HospitalStayDetail: React.FC<Props> = ({ title, hospitalStay }) => {
           {hospitalStay.statusHistory?.map(item => {
             if (item?.status) {
               return (
-                <div css={styles.children}>
-                  <DescriptionListDescription>
+                <div css={styles.nested}>
+                  <li css={styles.li}>
                     {titleCase(item?.status)} - {periodSummaryText(item?.period)}
-                  </DescriptionListDescription>
+                  </li>
                 </div>
               )
             }
             return (
-              <div css={styles.children}>
+              <div css={styles.nested}>
                 <DescriptionListDescription>{periodSummaryText(item?.period)}</DescriptionListDescription>
               </div>
             )
+          })}
+        </NestedListDetail>
+        <CodeableConceptListDetail term="Hospitalization(s)" concepts={hospitalisations} />
+        <NestedListDetail term="Participant(s)">
+          {hospitalStay.participant?.map(item => {
+            if (item?.individual?.display && item?.individual?.typeName) {
+              return (
+                <div css={styles.nested}>
+                  <li css={styles.li}>
+                    {titleCase(item?.individual?.display)} ({titleCase(item?.individual?.typeName)}):{' '}
+                    {periodSummaryText(item?.period)}
+                  </li>
+                </div>
+              )
+            }
+            return <React.Fragment></React.Fragment>
           })}
         </NestedListDetail>
       </CardBody>
     </Card>
   )
 }
-
-// hospitalization
-// participant
 
 interface Props {
   title?: string

@@ -92,6 +92,24 @@ const HospitalStayThree: Encounter = {
         typeName: 'Practitioner',
       },
     },
+    {
+      period: {
+        start: {
+          value: '2019-01-01T00:00:00+00:00',
+          kind: PartialDateTimeKindCode.Date,
+        },
+        end: {
+          value: '2020-01-01T00:00:00+00:00',
+          kind: PartialDateTimeKindCode.Date,
+        },
+      },
+      individual: {
+        reference:
+          'https://phoenixqa.careworks.ie/Services/api/fhir/v3/practitioner/c4434f96-633f-e911-a2c5-005056926fe4|systemuser',
+        display: 'Man Test',
+        typeName: 'Nurse',
+      },
+    },
   ],
   period: {
     start: {
@@ -107,7 +125,18 @@ const HospitalStayThree: Encounter = {
         valueCodeableConcept: {
           coding: [
             {
-              display: 'Transfer of an admitted PATIENT from another Hospital Provider in an emergency',
+              display: '1. Transfer of an admitted PATIENT from another Hospital Provider in an emergency',
+            },
+          ],
+        },
+      },
+      {
+        url: 'https://fhir.hl7.org.uk/STU3/StructureDefinition/Extension-CareConnect-AdmissionMethod-1',
+        valueString: '',
+        valueCodeableConcept: {
+          coding: [
+            {
+              display: '2. Transfer of an admitted PATIENT from another Hospital Provider in an emergency',
             },
           ],
         },
