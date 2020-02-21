@@ -12,14 +12,14 @@ const NarrativeDetail: React.FC<Props> = ({ narrative }) => {
         </DescriptionList>
       )
     }
-    return (
-      <DescriptionList>
-        <DescriptionListTerm>Text</DescriptionListTerm>
-        <DescriptionListDescription>
-          <div dangerouslySetInnerHTML={{ __html: narrative.div }} />
-        </DescriptionListDescription>
-      </DescriptionList>
-    )
+    // return (
+    //   <DescriptionList>
+    //     <DescriptionListTerm>Text</DescriptionListTerm>
+    //     <DescriptionListDescription>
+    //       <div dangerouslySetInnerHTML={{ __html: narrative.div }} />
+    //     </DescriptionListDescription>
+    //   </DescriptionList>
+    // )
   }
   return <></>
 }
