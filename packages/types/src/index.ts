@@ -1,174 +1,174 @@
-export type Maybe<T> = T | null
+export type Maybe<T> = T | null;
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
-  ID: string
-  String: string
-  Boolean: boolean
-  Int: number
-  Float: number
-  DateTimeOffset: string
-  Decimal: number
-  Date: string
-  DateTime: string
-  Seconds: number
-  Milliseconds: number
-}
+  ID: string,
+  String: string,
+  Boolean: boolean,
+  Int: number,
+  Float: number,
+  DateTimeOffset: string,
+  Decimal: number,
+  Date: string,
+  DateTime: string,
+  Seconds: number,
+  Milliseconds: number,
+};
 
 export type AllergyIntolerance = {
-  assertedDate?: Maybe<PartialDateTime>
-  asserter?: Maybe<ResourceReference>
-  category?: Maybe<Array<Maybe<AllergyIntoleranceCategoryCode>>>
-  clinicalStatus: AllergyIntoleranceClinicalStatusCode
-  code: CodeableConcept
-  criticality?: Maybe<AllergyIntoleranceCriticalityCode>
-  extension?: Maybe<Array<Maybe<Extension>>>
-  id: Scalars['ID']
-  identifier?: Maybe<Array<Maybe<Identifier>>>
-  lastOccurrence?: Maybe<PartialDateTime>
-  metadata: Metadata
-  note?: Maybe<Array<Maybe<Annotation>>>
-  onSet?: Maybe<AllergyIntoleranceOnSet>
-  reaction?: Maybe<Array<Maybe<AllergyIntoleranceReaction>>>
-  recorder?: Maybe<ResourceReference>
-  text?: Maybe<Narrative>
-  type?: Maybe<AllergyIntoleranceTypeCode>
-  verificationStatus?: Maybe<AllergyIntoleranceVerificationStatusCode>
-}
+  assertedDate?: Maybe<PartialDateTime>,
+  asserter?: Maybe<ResourceReference>,
+  category?: Maybe<Array<Maybe<AllergyIntoleranceCategoryCode>>>,
+  clinicalStatus: AllergyIntoleranceClinicalStatusCode,
+  code: CodeableConcept,
+  criticality?: Maybe<AllergyIntoleranceCriticalityCode>,
+  extension?: Maybe<Array<Maybe<Extension>>>,
+  id: Scalars['ID'],
+  identifier?: Maybe<Array<Maybe<Identifier>>>,
+  lastOccurrence?: Maybe<PartialDateTime>,
+  metadata: Metadata,
+  note?: Maybe<Array<Maybe<Annotation>>>,
+  onSet?: Maybe<AllergyIntoleranceOnSet>,
+  reaction?: Maybe<Array<Maybe<AllergyIntoleranceReaction>>>,
+  recorder?: Maybe<ResourceReference>,
+  text?: Maybe<Narrative>,
+  type?: Maybe<AllergyIntoleranceTypeCode>,
+  verificationStatus?: Maybe<AllergyIntoleranceVerificationStatusCode>,
+};
 
 export enum AllergyIntoleranceCategoryCode {
   Food = 'FOOD',
   Medication = 'MEDICATION',
   Environment = 'ENVIRONMENT',
-  Biologic = 'BIOLOGIC',
+  Biologic = 'BIOLOGIC'
 }
 
 export enum AllergyIntoleranceClinicalStatusCode {
   Active = 'ACTIVE',
   Inactive = 'INACTIVE',
-  Resolved = 'RESOLVED',
+  Resolved = 'RESOLVED'
 }
 
 export enum AllergyIntoleranceCriticalityCode {
   Low = 'LOW',
   High = 'HIGH',
-  UnableToAssess = 'UNABLE_TO_ASSESS',
+  UnableToAssess = 'UNABLE_TO_ASSESS'
 }
 
 export type AllergyIntoleranceOnSet = {
-  extension?: Maybe<Array<Maybe<Extension>>>
-  onSetAge?: Maybe<Quantity>
-  onSetDateTime?: Maybe<PartialDateTime>
-  onSetPeriod?: Maybe<Period>
-  onSetRange?: Maybe<Range>
-  onSetString?: Maybe<Scalars['String']>
-}
+  extension?: Maybe<Array<Maybe<Extension>>>,
+  onSetAge?: Maybe<Quantity>,
+  onSetDateTime?: Maybe<PartialDateTime>,
+  onSetPeriod?: Maybe<Period>,
+  onSetRange?: Maybe<Range>,
+  onSetString?: Maybe<Scalars['String']>,
+};
 
 export type AllergyIntoleranceReaction = {
-  description?: Maybe<Scalars['String']>
-  exposureRoute?: Maybe<CodeableConcept>
-  extension?: Maybe<Array<Maybe<Extension>>>
-  manifestation: Array<Maybe<CodeableConcept>>
-  note?: Maybe<Array<Maybe<Annotation>>>
-  onSet?: Maybe<PartialDateTime>
-  severity?: Maybe<AllergyIntoleranceReactionSeverityCode>
-  substance?: Maybe<CodeableConcept>
-}
+  description?: Maybe<Scalars['String']>,
+  exposureRoute?: Maybe<CodeableConcept>,
+  extension?: Maybe<Array<Maybe<Extension>>>,
+  manifestation: Array<Maybe<CodeableConcept>>,
+  note?: Maybe<Array<Maybe<Annotation>>>,
+  onSet?: Maybe<PartialDateTime>,
+  severity?: Maybe<AllergyIntoleranceReactionSeverityCode>,
+  substance?: Maybe<CodeableConcept>,
+};
 
 export enum AllergyIntoleranceReactionSeverityCode {
   Mild = 'MILD',
   Moderate = 'MODERATE',
-  Severe = 'SEVERE',
+  Severe = 'SEVERE'
 }
 
 export enum AllergyIntoleranceTypeCode {
   Allergy = 'ALLERGY',
-  Intolerance = 'INTOLERANCE',
+  Intolerance = 'INTOLERANCE'
 }
 
 export enum AllergyIntoleranceVerificationStatusCode {
   Unconfirmed = 'UNCONFIRMED',
   Confirmed = 'CONFIRMED',
   Refuted = 'REFUTED',
-  EnteredInError = 'ENTERED_IN_ERROR',
+  EnteredInError = 'ENTERED_IN_ERROR'
 }
 
 export type Annotation = {
-  author?: Maybe<ResourceReference>
-  extension?: Maybe<Array<Maybe<Extension>>>
-  text: Scalars['String']
-  time?: Maybe<PartialDateTime>
-}
+  author?: Maybe<ResourceReference>,
+  extension?: Maybe<Array<Maybe<Extension>>>,
+  text: Scalars['String'],
+  time?: Maybe<PartialDateTime>,
+};
 
 export type Attachment = {
-  contentType?: Maybe<Scalars['String']>
-  creation?: Maybe<PartialDateTime>
-  extension?: Maybe<Array<Maybe<Extension>>>
-  hash?: Maybe<Scalars['String']>
-  language?: Maybe<Scalars['String']>
-  size?: Maybe<Scalars['Int']>
-  title?: Maybe<Scalars['String']>
-  url?: Maybe<Scalars['String']>
-}
+  contentType?: Maybe<Scalars['String']>,
+  creation?: Maybe<PartialDateTime>,
+  extension?: Maybe<Array<Maybe<Extension>>>,
+  hash?: Maybe<Scalars['String']>,
+  language?: Maybe<Scalars['String']>,
+  size?: Maybe<Scalars['Int']>,
+  title?: Maybe<Scalars['String']>,
+  url?: Maybe<Scalars['String']>,
+};
 
 export type CarePlan = {
-  activity?: Maybe<CarePlanActivity>
-  addresses?: Maybe<Array<Maybe<ResourceReference>>>
-  author?: Maybe<Array<Maybe<ResourceReference>>>
-  basedOn?: Maybe<Array<Maybe<ResourceReference>>>
-  careTeam?: Maybe<Array<Maybe<ResourceReference>>>
-  category?: Maybe<Array<Maybe<CodeableConcept>>>
-  context?: Maybe<ResourceReference>
-  definition?: Maybe<Array<Maybe<ResourceReference>>>
-  description?: Maybe<Scalars['String']>
-  extension?: Maybe<Array<Maybe<Extension>>>
-  goal?: Maybe<Array<Maybe<ResourceReference>>>
-  id: Scalars['ID']
-  identifier?: Maybe<Array<Maybe<Identifier>>>
-  intent: CarePlanIntentCode
-  metadata: Metadata
-  note?: Maybe<Array<Maybe<Annotation>>>
-  partOf?: Maybe<Array<Maybe<ResourceReference>>>
-  period?: Maybe<Period>
-  replaces?: Maybe<Array<Maybe<ResourceReference>>>
-  status: CarePlanStatusCode
-  supportingInfo?: Maybe<Array<Maybe<ResourceReference>>>
-  text?: Maybe<Narrative>
-  title?: Maybe<Scalars['String']>
-}
+  activity?: Maybe<CarePlanActivity>,
+  addresses?: Maybe<Array<Maybe<ResourceReference>>>,
+  author?: Maybe<Array<Maybe<ResourceReference>>>,
+  basedOn?: Maybe<Array<Maybe<ResourceReference>>>,
+  careTeam?: Maybe<Array<Maybe<ResourceReference>>>,
+  category?: Maybe<Array<Maybe<CodeableConcept>>>,
+  context?: Maybe<ResourceReference>,
+  definition?: Maybe<Array<Maybe<ResourceReference>>>,
+  description?: Maybe<Scalars['String']>,
+  extension?: Maybe<Array<Maybe<Extension>>>,
+  goal?: Maybe<Array<Maybe<ResourceReference>>>,
+  id: Scalars['ID'],
+  identifier?: Maybe<Array<Maybe<Identifier>>>,
+  intent: CarePlanIntentCode,
+  metadata: Metadata,
+  note?: Maybe<Array<Maybe<Annotation>>>,
+  partOf?: Maybe<Array<Maybe<ResourceReference>>>,
+  period?: Maybe<Period>,
+  replaces?: Maybe<Array<Maybe<ResourceReference>>>,
+  status: CarePlanStatusCode,
+  supportingInfo?: Maybe<Array<Maybe<ResourceReference>>>,
+  text?: Maybe<Narrative>,
+  title?: Maybe<Scalars['String']>,
+};
 
 export type CarePlanActivity = {
-  detail?: Maybe<CarePlanActivityDetail>
-  extension?: Maybe<Array<Maybe<Extension>>>
-  outcomeCodeableConcept?: Maybe<Array<Maybe<CodeableConcept>>>
-  outcomeReference?: Maybe<Array<Maybe<ResourceReference>>>
-  progress?: Maybe<Array<Maybe<Annotation>>>
-  reference?: Maybe<ResourceReference>
-}
+  detail?: Maybe<CarePlanActivityDetail>,
+  extension?: Maybe<Array<Maybe<Extension>>>,
+  outcomeCodeableConcept?: Maybe<Array<Maybe<CodeableConcept>>>,
+  outcomeReference?: Maybe<Array<Maybe<ResourceReference>>>,
+  progress?: Maybe<Array<Maybe<Annotation>>>,
+  reference?: Maybe<ResourceReference>,
+};
 
 export type CarePlanActivityDetail = {
-  category?: Maybe<CodeableConcept>
-  code?: Maybe<CodeableConcept>
-  dailyAmount?: Maybe<Quantity>
-  definition?: Maybe<ResourceReference>
-  description?: Maybe<Scalars['String']>
-  extension?: Maybe<Array<Maybe<Extension>>>
-  goal?: Maybe<Array<Maybe<ResourceReference>>>
-  location?: Maybe<ResourceReference>
-  performer?: Maybe<Array<Maybe<ResourceReference>>>
-  product?: Maybe<CarePlanActivityDetailProduct>
-  prohibited?: Maybe<Scalars['Boolean']>
-  quantity?: Maybe<Quantity>
-  reasonCode?: Maybe<Array<Maybe<CodeableConcept>>>
-  reasonReference?: Maybe<Array<Maybe<ResourceReference>>>
-  status: CarePlanActivityDetailStatusCode
-  statusReason?: Maybe<Scalars['String']>
-}
+  category?: Maybe<CodeableConcept>,
+  code?: Maybe<CodeableConcept>,
+  dailyAmount?: Maybe<Quantity>,
+  definition?: Maybe<ResourceReference>,
+  description?: Maybe<Scalars['String']>,
+  extension?: Maybe<Array<Maybe<Extension>>>,
+  goal?: Maybe<Array<Maybe<ResourceReference>>>,
+  location?: Maybe<ResourceReference>,
+  performer?: Maybe<Array<Maybe<ResourceReference>>>,
+  product?: Maybe<CarePlanActivityDetailProduct>,
+  prohibited?: Maybe<Scalars['Boolean']>,
+  quantity?: Maybe<Quantity>,
+  reasonCode?: Maybe<Array<Maybe<CodeableConcept>>>,
+  reasonReference?: Maybe<Array<Maybe<ResourceReference>>>,
+  status: CarePlanActivityDetailStatusCode,
+  statusReason?: Maybe<Scalars['String']>,
+};
 
 export type CarePlanActivityDetailProduct = {
-  extension?: Maybe<Array<Maybe<Extension>>>
-  productCodeableConcept?: Maybe<CodeableConcept>
-  productReference?: Maybe<ResourceReference>
-}
+  extension?: Maybe<Array<Maybe<Extension>>>,
+  productCodeableConcept?: Maybe<CodeableConcept>,
+  productReference?: Maybe<ResourceReference>,
+};
 
 export enum CarePlanActivityDetailStatusCode {
   NotStarted = 'NOT_STARTED',
@@ -177,14 +177,14 @@ export enum CarePlanActivityDetailStatusCode {
   OnHold = 'ON_HOLD',
   Completed = 'COMPLETED',
   Cancelled = 'CANCELLED',
-  Unknown = 'UNKNOWN',
+  Unknown = 'UNKNOWN'
 }
 
 export enum CarePlanIntentCode {
   Proposal = 'PROPOSAL',
   Plan = 'PLAN',
   Order = 'ORDER',
-  Option = 'OPTION',
+  Option = 'OPTION'
 }
 
 export enum CarePlanStatusCode {
@@ -194,240 +194,253 @@ export enum CarePlanStatusCode {
   Completed = 'COMPLETED',
   EnteredInError = 'ENTERED_IN_ERROR',
   Cancelled = 'CANCELLED',
-  Unknown = 'UNKNOWN',
+  Unknown = 'UNKNOWN'
 }
 
 export type CodeableConcept = {
-  coding?: Maybe<Array<Maybe<Coding>>>
-  extension?: Maybe<Array<Maybe<Extension>>>
-  text?: Maybe<Scalars['String']>
-}
+  coding?: Maybe<Array<Maybe<Coding>>>,
+  extension?: Maybe<Array<Maybe<Extension>>>,
+  text?: Maybe<Scalars['String']>,
+};
 
 export type Coding = {
-  code?: Maybe<Scalars['String']>
-  display: Scalars['String']
-  extension?: Maybe<Array<Maybe<Extension>>>
-  system?: Maybe<Scalars['String']>
-  version?: Maybe<Scalars['String']>
-}
+  code?: Maybe<Scalars['String']>,
+  display: Scalars['String'],
+  extension?: Maybe<Array<Maybe<Extension>>>,
+  system?: Maybe<Scalars['String']>,
+  version?: Maybe<Scalars['String']>,
+};
 
 export type Condition = {
-  abatement?: Maybe<ConditionAbatement>
-  assertedDate?: Maybe<PartialDateTime>
-  asserter?: Maybe<ResourceReference>
-  bodySite?: Maybe<Array<Maybe<CodeableConcept>>>
-  category?: Maybe<Array<Maybe<CodeableConcept>>>
-  clinicalStatus?: Maybe<ConditionClinicalStatus>
-  code?: Maybe<CodeableConcept>
-  context?: Maybe<ResourceReference>
-  evidence?: Maybe<ConditionEvidence>
-  extension?: Maybe<Array<Maybe<Extension>>>
-  id: Scalars['ID']
-  identifier?: Maybe<Array<Maybe<Identifier>>>
-  metadata: Metadata
-  onset?: Maybe<ConditionOnset>
-  severity?: Maybe<CodeableConcept>
-  stage?: Maybe<ConditionStage>
-  subject: ResourceReference
-  text?: Maybe<Narrative>
-}
+  abatement?: Maybe<ConditionAbatement>,
+  assertedDate?: Maybe<PartialDateTime>,
+  asserter?: Maybe<ResourceReference>,
+  bodySite?: Maybe<Array<Maybe<CodeableConcept>>>,
+  category?: Maybe<Array<Maybe<CodeableConcept>>>,
+  clinicalStatus?: Maybe<ConditionClinicalStatus>,
+  code?: Maybe<CodeableConcept>,
+  context?: Maybe<ResourceReference>,
+  evidence?: Maybe<ConditionEvidence>,
+  extension?: Maybe<Array<Maybe<Extension>>>,
+  id: Scalars['ID'],
+  identifier?: Maybe<Array<Maybe<Identifier>>>,
+  metadata: Metadata,
+  onset?: Maybe<ConditionOnset>,
+  severity?: Maybe<CodeableConcept>,
+  stage?: Maybe<ConditionStage>,
+  subject: ResourceReference,
+  text?: Maybe<Narrative>,
+};
 
 export type ConditionAbatement = {
-  age?: Maybe<Quantity>
-  dateTime: Period
-  extension?: Maybe<Array<Maybe<Extension>>>
-}
+  age?: Maybe<Quantity>,
+  dateTime: Period,
+  extension?: Maybe<Array<Maybe<Extension>>>,
+};
 
 export enum ConditionClinicalStatus {
   Active = 'ACTIVE',
   Recurrence = 'RECURRENCE',
   Inactive = 'INACTIVE',
   Remission = 'REMISSION',
-  Resolved = 'RESOLVED',
+  Resolved = 'RESOLVED'
 }
 
 export type ConditionEvidence = {
-  code?: Maybe<Array<Maybe<CodeableConcept>>>
-  detail?: Maybe<ResourceReference>
-  extension?: Maybe<Array<Maybe<Extension>>>
-}
+  code?: Maybe<Array<Maybe<CodeableConcept>>>,
+  detail?: Maybe<ResourceReference>,
+  extension?: Maybe<Array<Maybe<Extension>>>,
+};
 
 export type ConditionOnset = {
-  extension?: Maybe<Array<Maybe<Extension>>>
-  onsetAge?: Maybe<Quantity>
-  onsetDateTime?: Maybe<PartialDateTime>
-  onsetPeriod?: Maybe<Period>
-  onsetRange?: Maybe<Range>
-  onsetString?: Maybe<Scalars['String']>
-}
+  extension?: Maybe<Array<Maybe<Extension>>>,
+  onsetAge?: Maybe<Quantity>,
+  onsetDateTime?: Maybe<PartialDateTime>,
+  onsetPeriod?: Maybe<Period>,
+  onsetRange?: Maybe<Range>,
+  onsetString?: Maybe<Scalars['String']>,
+};
 
 export type ConditionStage = {
-  assessments?: Maybe<Array<Maybe<ResourceReference>>>
-  extension?: Maybe<Array<Maybe<Extension>>>
-  summary?: Maybe<CodeableConcept>
-}
+  assessment?: Maybe<Array<Maybe<ResourceReference>>>,
+  extension?: Maybe<Array<Maybe<Extension>>>,
+  summary?: Maybe<CodeableConcept>,
+};
+
+
+
+
 
 export type DocumentReference = {
-  authenticator?: Maybe<ResourceReference>
-  author?: Maybe<Array<Maybe<ResourceReference>>>
-  class?: Maybe<CodeableConcept>
-  content: Array<Maybe<DocumentReferenceContent>>
-  context?: Maybe<DocumentReferenceContext>
-  created?: Maybe<PartialDateTime>
-  custodian?: Maybe<ResourceReference>
-  description?: Maybe<Scalars['String']>
-  docStatus?: Maybe<DocumentReferenceDocStatusCode>
-  extension?: Maybe<Array<Maybe<Extension>>>
-  id: Scalars['ID']
-  identifier?: Maybe<Array<Maybe<Identifier>>>
-  indexed: PartialDateTime
-  masterIdentifier?: Maybe<Identifier>
-  metadata: Metadata
-  relatesTo?: Maybe<Array<Maybe<DocumentReferenceRelatesTo>>>
-  securityLabel?: Maybe<Array<Maybe<ResourceReference>>>
-  status: DocumentReferenceStatusCode
-  text?: Maybe<Narrative>
-  type: CodeableConcept
-}
+  authenticator?: Maybe<ResourceReference>,
+  author?: Maybe<Array<Maybe<ResourceReference>>>,
+  class?: Maybe<CodeableConcept>,
+  content: Array<Maybe<DocumentReferenceContent>>,
+  context?: Maybe<DocumentReferenceContext>,
+  created?: Maybe<PartialDateTime>,
+  custodian?: Maybe<ResourceReference>,
+  description?: Maybe<Scalars['String']>,
+  docStatus?: Maybe<DocumentReferenceDocStatusCode>,
+  extension?: Maybe<Array<Maybe<Extension>>>,
+  id: Scalars['ID'],
+  identifier?: Maybe<Array<Maybe<Identifier>>>,
+  indexed: PartialDateTime,
+  masterIdentifier?: Maybe<Identifier>,
+  metadata: Metadata,
+  relatesTo?: Maybe<Array<Maybe<DocumentReferenceRelatesTo>>>,
+  securityLabel?: Maybe<Array<Maybe<ResourceReference>>>,
+  status: DocumentReferenceStatusCode,
+  text?: Maybe<Narrative>,
+  type: CodeableConcept,
+};
 
 export type DocumentReferenceContent = {
-  attachment: Attachment
-  extension?: Maybe<Array<Maybe<Extension>>>
-  format?: Maybe<Coding>
-}
+  attachment: Attachment,
+  extension?: Maybe<Array<Maybe<Extension>>>,
+  format?: Maybe<Coding>,
+};
 
 export type DocumentReferenceContext = {
-  encounter?: Maybe<DocumentReference>
-  event?: Maybe<Array<Maybe<CodeableConcept>>>
-  extension?: Maybe<Array<Maybe<Extension>>>
-  facilityType?: Maybe<CodeableConcept>
-  period?: Maybe<Period>
-  practiceSetting?: Maybe<CodeableConcept>
-  related?: Maybe<Array<Maybe<DocumentReferenceRelated>>>
-  sourcePatientInfo?: Maybe<DocumentReference>
-}
+  encounter?: Maybe<DocumentReference>,
+  event?: Maybe<Array<Maybe<CodeableConcept>>>,
+  extension?: Maybe<Array<Maybe<Extension>>>,
+  facilityType?: Maybe<CodeableConcept>,
+  period?: Maybe<Period>,
+  practiceSetting?: Maybe<CodeableConcept>,
+  related?: Maybe<Array<Maybe<DocumentReferenceRelated>>>,
+  sourcePatientInfo?: Maybe<DocumentReference>,
+};
 
 export enum DocumentReferenceDocStatusCode {
   Preliminary = 'PRELIMINARY',
   Final = 'FINAL',
   Appended = 'APPENDED',
   Amended = 'AMENDED',
-  EnteredInError = 'ENTERED_IN_ERROR',
+  EnteredInError = 'ENTERED_IN_ERROR'
 }
 
 export type DocumentReferenceRelated = {
-  extension?: Maybe<Array<Maybe<Extension>>>
-  identifier?: Maybe<Identifier>
-  ref?: Maybe<ResourceReference>
-}
+  extension?: Maybe<Array<Maybe<Extension>>>,
+  identifier?: Maybe<Identifier>,
+  ref?: Maybe<ResourceReference>,
+};
 
 export type DocumentReferenceRelatesTo = {
-  code: DocumentReferenceRelatesToCode
-  extension?: Maybe<Array<Maybe<Extension>>>
-  target: ResourceReference
-}
+  code: DocumentReferenceRelatesToCode,
+  extension?: Maybe<Array<Maybe<Extension>>>,
+  target: ResourceReference,
+};
 
 export enum DocumentReferenceRelatesToCode {
   Replaces = 'REPLACES',
   Transforms = 'TRANSFORMS',
   Signs = 'SIGNS',
-  Appends = 'APPENDS',
+  Appends = 'APPENDS'
 }
 
 export enum DocumentReferenceStatusCode {
   Current = 'CURRENT',
   Superseded = 'SUPERSEDED',
-  EnteredInError = 'ENTERED_IN_ERROR',
+  EnteredInError = 'ENTERED_IN_ERROR'
 }
 
+export type Dosage = {
+  extension?: Maybe<Array<Maybe<Extension>>>,
+  id: Scalars['ID'],
+  metadata: Metadata,
+  patientInstruction?: Maybe<Scalars['String']>,
+  text?: Maybe<Narrative>,
+};
+
 export type Ehr = {
-  flags?: Maybe<Array<Maybe<Flag>>>
-}
+  flags?: Maybe<Array<Maybe<Flag>>>,
+};
+
 
 export type EhrFlagsArgs = {
   patientGuid: Scalars['String']
-}
+};
 
 export type Encounter = {
-  account?: Maybe<ResourceReference>
-  appointment?: Maybe<ResourceReference>
-  class?: Maybe<Coding>
-  classHistory?: Maybe<Array<Maybe<EncounterClassHistory>>>
-  diagnosis?: Maybe<Array<Maybe<EncounterDiagnosis>>>
-  episodeOfCare?: Maybe<Array<Maybe<ResourceReference>>>
-  extension?: Maybe<Array<Maybe<Extension>>>
-  hospitalization?: Maybe<EncounterHospitalisation>
-  id: Scalars['ID']
-  identifier?: Maybe<Array<Maybe<Identifier>>>
-  incomingReferral?: Maybe<Array<Maybe<ResourceReference>>>
-  length?: Maybe<Quantity>
-  location?: Maybe<Array<Maybe<EncounterLocation>>>
-  metadata: Metadata
-  participant?: Maybe<Array<Maybe<EncounterParticipant>>>
-  partOf?: Maybe<ResourceReference>
-  period?: Maybe<Period>
-  priority?: Maybe<CodeableConcept>
-  reason?: Maybe<Array<Maybe<CodeableConcept>>>
-  serviceProvider?: Maybe<ResourceReference>
-  status?: Maybe<EncounterStatusCode>
-  statusHistory?: Maybe<Array<Maybe<EncounterStatusHistory>>>
-  text?: Maybe<Narrative>
-  type?: Maybe<Array<Maybe<CodeableConcept>>>
-}
+  account?: Maybe<ResourceReference>,
+  appointment?: Maybe<ResourceReference>,
+  class?: Maybe<Coding>,
+  classHistory?: Maybe<Array<Maybe<EncounterClassHistory>>>,
+  diagnosis?: Maybe<Array<Maybe<EncounterDiagnosis>>>,
+  episodeOfCare?: Maybe<Array<Maybe<ResourceReference>>>,
+  extension?: Maybe<Array<Maybe<Extension>>>,
+  hospitalization?: Maybe<EncounterHospitalisation>,
+  id: Scalars['ID'],
+  identifier?: Maybe<Array<Maybe<Identifier>>>,
+  incomingReferral?: Maybe<Array<Maybe<ResourceReference>>>,
+  length?: Maybe<Quantity>,
+  location?: Maybe<Array<Maybe<EncounterLocation>>>,
+  metadata: Metadata,
+  participant?: Maybe<Array<Maybe<EncounterParticipant>>>,
+  partOf?: Maybe<ResourceReference>,
+  period?: Maybe<Period>,
+  priority?: Maybe<CodeableConcept>,
+  reason?: Maybe<Array<Maybe<CodeableConcept>>>,
+  serviceProvider?: Maybe<ResourceReference>,
+  status?: Maybe<EncounterStatusCode>,
+  statusHistory?: Maybe<Array<Maybe<EncounterStatusHistory>>>,
+  text?: Maybe<Narrative>,
+  type?: Maybe<Array<Maybe<CodeableConcept>>>,
+};
 
 export type EncounterClassHistory = {
-  class: Coding
-  extension?: Maybe<Array<Maybe<Extension>>>
-  period: Period
-}
+  class: Coding,
+  extension?: Maybe<Array<Maybe<Extension>>>,
+  period: Period,
+};
 
 export type EncounterDiagnosis = {
-  condition?: Maybe<ResourceReference>
-  extension?: Maybe<Array<Maybe<Extension>>>
-  rank?: Maybe<Scalars['Int']>
-  role?: Maybe<CodeableConcept>
-}
+  condition?: Maybe<ResourceReference>,
+  extension?: Maybe<Array<Maybe<Extension>>>,
+  rank?: Maybe<Scalars['Int']>,
+  role?: Maybe<CodeableConcept>,
+};
 
 export type EncounterHospitalisation = {
-  admitSource?: Maybe<CodeableConcept>
-  destination?: Maybe<ResourceReference>
-  dietPreference?: Maybe<Array<Maybe<CodeableConcept>>>
-  dischargeDisposition?: Maybe<CodeableConcept>
-  extension?: Maybe<Array<Maybe<Extension>>>
-  origin?: Maybe<ResourceReference>
-  preAdmissionIdentifier?: Maybe<Identifier>
-  reAdmission?: Maybe<CodeableConcept>
-  specialArrangement?: Maybe<Array<Maybe<CodeableConcept>>>
-  specialCourtesy?: Maybe<Array<Maybe<CodeableConcept>>>
-}
+  admitSource?: Maybe<CodeableConcept>,
+  destination?: Maybe<ResourceReference>,
+  dietPreference?: Maybe<Array<Maybe<CodeableConcept>>>,
+  dischargeDisposition?: Maybe<CodeableConcept>,
+  extension?: Maybe<Array<Maybe<Extension>>>,
+  origin?: Maybe<ResourceReference>,
+  preAdmissionIdentifier?: Maybe<Identifier>,
+  reAdmission?: Maybe<CodeableConcept>,
+  specialArrangement?: Maybe<Array<Maybe<CodeableConcept>>>,
+  specialCourtesy?: Maybe<Array<Maybe<CodeableConcept>>>,
+};
 
 export type EncounterLocation = {
-  extension?: Maybe<Array<Maybe<Extension>>>
-  location: ResourceReference
-  period?: Maybe<Period>
-  status?: Maybe<EncounterLocationStatusCode>
-}
+  extension?: Maybe<Array<Maybe<Extension>>>,
+  location: ResourceReference,
+  period?: Maybe<Period>,
+  status?: Maybe<EncounterLocationStatusCode>,
+};
 
 export enum EncounterLocationStatusCode {
   Planned = 'PLANNED',
   Active = 'ACTIVE',
   Reserved = 'RESERVED',
-  Completed = 'COMPLETED',
+  Completed = 'COMPLETED'
 }
 
 export type EncounterPage = {
-  page: Scalars['Int']
-  pageSize: Scalars['Int']
-  resources: Array<Maybe<Encounter>>
-  totalResources?: Maybe<Scalars['Int']>
-}
+  page: Scalars['Int'],
+  pageSize: Scalars['Int'],
+  resources: Array<Maybe<Encounter>>,
+  totalResources?: Maybe<Scalars['Int']>,
+};
 
 export type EncounterParticipant = {
-  extension?: Maybe<Array<Maybe<Extension>>>
-  individual?: Maybe<ResourceReference>
-  period?: Maybe<Period>
-  type?: Maybe<Array<Maybe<CodeableConcept>>>
-}
+  extension?: Maybe<Array<Maybe<Extension>>>,
+  individual?: Maybe<ResourceReference>,
+  period?: Maybe<Period>,
+  type?: Maybe<Array<Maybe<CodeableConcept>>>,
+};
 
 export enum EncounterStatusCode {
   Planned = 'PLANNED',
@@ -438,43 +451,43 @@ export enum EncounterStatusCode {
   Finished = 'FINISHED',
   Cancelled = 'CANCELLED',
   EnteredInError = 'ENTERED_IN_ERROR',
-  Unknown = 'UNKNOWN',
+  Unknown = 'UNKNOWN'
 }
 
 export type EncounterStatusHistory = {
-  extension?: Maybe<Array<Maybe<Extension>>>
-  period: Period
-  status?: Maybe<EncounterStatusCode>
-}
+  extension?: Maybe<Array<Maybe<Extension>>>,
+  period: Period,
+  status?: Maybe<EncounterStatusCode>,
+};
 
 export type EntryType = {
-  items?: Maybe<ItemType>
-}
+  items?: Maybe<ItemType>,
+};
 
 export type EpisodeOfCare = {
-  account?: Maybe<ResourceReference>
-  careManager?: Maybe<ResourceReference>
-  diagnosis?: Maybe<Array<Maybe<EpisodeOfCareDiagnosis>>>
-  extension?: Maybe<Array<Maybe<Extension>>>
-  id: Scalars['ID']
-  identifier?: Maybe<Array<Maybe<Identifier>>>
-  managingOrganization?: Maybe<ResourceReference>
-  metadata: Metadata
-  period?: Maybe<Period>
-  referralRequest?: Maybe<Array<Maybe<ResourceReference>>>
-  status: EpisodeOfCareStatusCode
-  statusHistory?: Maybe<Array<Maybe<EpisodeOfCareStatusHistory>>>
-  team?: Maybe<Array<Maybe<ResourceReference>>>
-  text?: Maybe<Narrative>
-  type?: Maybe<Array<Maybe<CodeableConcept>>>
-}
+  account?: Maybe<ResourceReference>,
+  careManager?: Maybe<ResourceReference>,
+  diagnosis?: Maybe<Array<Maybe<EpisodeOfCareDiagnosis>>>,
+  extension?: Maybe<Array<Maybe<Extension>>>,
+  id: Scalars['ID'],
+  identifier?: Maybe<Array<Maybe<Identifier>>>,
+  managingOrganization?: Maybe<ResourceReference>,
+  metadata: Metadata,
+  period?: Maybe<Period>,
+  referralRequest?: Maybe<Array<Maybe<ResourceReference>>>,
+  status: EpisodeOfCareStatusCode,
+  statusHistory?: Maybe<Array<Maybe<EpisodeOfCareStatusHistory>>>,
+  team?: Maybe<Array<Maybe<ResourceReference>>>,
+  text?: Maybe<Narrative>,
+  type?: Maybe<Array<Maybe<CodeableConcept>>>,
+};
 
 export type EpisodeOfCareDiagnosis = {
-  condition: ResourceReference
-  extension?: Maybe<Array<Maybe<Extension>>>
-  rank?: Maybe<Scalars['Int']>
-  role?: Maybe<CodeableConcept>
-}
+  condition: ResourceReference,
+  extension?: Maybe<Array<Maybe<Extension>>>,
+  rank?: Maybe<Scalars['Int']>,
+  role?: Maybe<CodeableConcept>,
+};
 
 export enum EpisodeOfCareStatusCode {
   Planned = 'PLANNED',
@@ -483,219 +496,338 @@ export enum EpisodeOfCareStatusCode {
   OnHold = 'ON_HOLD',
   Finished = 'FINISHED',
   Cancelled = 'CANCELLED',
-  EnteredInError = 'ENTERED_IN_ERROR',
+  EnteredInError = 'ENTERED_IN_ERROR'
 }
 
 export type EpisodeOfCareStatusHistory = {
-  extension?: Maybe<Array<Maybe<Extension>>>
-  period: Period
-  status: EncounterStatusCode
-}
+  extension?: Maybe<Array<Maybe<Extension>>>,
+  period: Period,
+  status: EncounterStatusCode,
+};
 
 export type Extension = {
-  extension?: Maybe<Array<Maybe<Extension>>>
-  url: Scalars['String']
-  valueCodeableConcept?: Maybe<CodeableConcept>
-  valueString: Scalars['String']
-}
+  extension?: Maybe<Array<Maybe<Extension>>>,
+  url: Scalars['String'],
+  valueCodeableConcept?: Maybe<CodeableConcept>,
+  valueString: Scalars['String'],
+};
 
 export type Flag = {
-  author?: Maybe<ResourceReference>
-  category?: Maybe<CodeableConcept>
-  code: CodeableConcept
-  extension?: Maybe<Array<Maybe<Extension>>>
-  id: Scalars['ID']
-  identifier?: Maybe<Array<Maybe<Identifier>>>
-  metadata: Metadata
-  period?: Maybe<Period>
-  status: FlagStatusCode
-  text?: Maybe<Narrative>
-}
+  author?: Maybe<ResourceReference>,
+  category?: Maybe<CodeableConcept>,
+  code: CodeableConcept,
+  extension?: Maybe<Array<Maybe<Extension>>>,
+  id: Scalars['ID'],
+  identifier?: Maybe<Array<Maybe<Identifier>>>,
+  metadata: Metadata,
+  period?: Maybe<Period>,
+  status: FlagStatusCode,
+  text?: Maybe<Narrative>,
+};
 
 export enum FlagStatusCode {
   Active = 'ACTIVE',
   Inactive = 'INACTIVE',
-  EnteredInError = 'ENTERED_IN_ERROR',
+  EnteredInError = 'ENTERED_IN_ERROR'
 }
 
 export type GpConnect = {
-  medications?: Maybe<Array<Maybe<GpConnectMedicationList>>>
-}
+  medications?: Maybe<Array<Maybe<GpConnectMedicationList>>>,
+};
+
 
 export type GpConnectMedicationsArgs = {
   nhsNumber: Scalars['String']
-}
+};
 
 export type GpConnectMedicationList = {
-  code?: Maybe<CodeableConcept>
-  date?: Maybe<PartialDateTime>
-  entry?: Maybe<EntryType>
-  extension?: Maybe<Array<Maybe<Extension>>>
-  id: Scalars['ID']
-  medicationStatements?: Maybe<Array<Maybe<MedicationStatement>>>
-  metadata: Metadata
-  text?: Maybe<Narrative>
-}
+  code?: Maybe<CodeableConcept>,
+  date?: Maybe<PartialDateTime>,
+  entry?: Maybe<EntryType>,
+  extension?: Maybe<Array<Maybe<Extension>>>,
+  id: Scalars['ID'],
+  medicationStatements?: Maybe<Array<Maybe<MedicationStatement>>>,
+  metadata: Metadata,
+  text?: Maybe<Narrative>,
+};
 
 export type Identifier = {
-  assigner?: Maybe<ResourceReference>
-  extension?: Maybe<Array<Maybe<Extension>>>
-  period?: Maybe<Period>
-  system?: Maybe<Scalars['String']>
-  type?: Maybe<CodeableConcept>
-  use?: Maybe<IdentifierUseCode>
-  value: Scalars['String']
-}
+  assigner?: Maybe<ResourceReference>,
+  extension?: Maybe<Array<Maybe<Extension>>>,
+  period?: Maybe<Period>,
+  system?: Maybe<Scalars['String']>,
+  type?: Maybe<CodeableConcept>,
+  use?: Maybe<IdentifierUseCode>,
+  value: Scalars['String'],
+};
 
 export enum IdentifierUseCode {
   Usual = 'USUAL',
   Official = 'OFFICIAL',
   Temp = 'TEMP',
-  Secondary = 'SECONDARY',
+  Secondary = 'SECONDARY'
 }
 
 export type ItemType = {
-  reference?: Maybe<ResourceReference>
-}
+  reference?: Maybe<ResourceReference>,
+};
 
 export type Lypft = {
-  allergyIntolerances?: Maybe<Array<Maybe<AllergyIntolerance>>>
-  appointments?: Maybe<EncounterPage>
-  carePlans?: Maybe<Array<Maybe<CarePlan>>>
-  careTeams?: Maybe<Array<Maybe<EpisodeOfCare>>>
-  communityTreatmentOrders?: Maybe<Array<Maybe<LypftCommunityTreatmentOrder>>>
-  documents?: Maybe<Array<Maybe<DocumentReference>>>
-  flags?: Maybe<Array<Maybe<Flag>>>
-  hospitalStays?: Maybe<Array<Maybe<Encounter>>>
-}
+  allergyIntolerances?: Maybe<Array<Maybe<AllergyIntolerance>>>,
+  appointments?: Maybe<EncounterPage>,
+  carePlans?: Maybe<Array<Maybe<CarePlan>>>,
+  careTeams?: Maybe<Array<Maybe<EpisodeOfCare>>>,
+  communityTreatmentOrders?: Maybe<Array<Maybe<LypftCommunityTreatmentOrder>>>,
+  documents?: Maybe<Array<Maybe<DocumentReference>>>,
+  flags?: Maybe<Array<Maybe<Flag>>>,
+  hospitalStays?: Maybe<Array<Maybe<Encounter>>>,
+};
+
 
 export type LypftAllergyIntolerancesArgs = {
-  nhsNumber: Scalars['String']
+  nhsNumber: Scalars['String'],
   clinicalStatus?: Maybe<Array<Maybe<AllergyIntoleranceClinicalStatusCode>>>
-}
+};
+
 
 export type LypftAppointmentsArgs = {
-  nhsNumber: Scalars['String']
-  status?: Maybe<Array<Maybe<EncounterStatusCode>>>
-  page?: Maybe<Scalars['Int']>
+  nhsNumber: Scalars['String'],
+  status?: Maybe<Array<Maybe<EncounterStatusCode>>>,
+  page?: Maybe<Scalars['Int']>,
   pageSize?: Maybe<Scalars['Int']>
-}
+};
+
 
 export type LypftCarePlansArgs = {
   nhsNumber: Scalars['String']
-}
+};
+
 
 export type LypftCareTeamsArgs = {
   nhsNumber: Scalars['String']
-}
+};
+
 
 export type LypftCommunityTreatmentOrdersArgs = {
   nhsNumber: Scalars['String']
-}
+};
+
 
 export type LypftDocumentsArgs = {
   nhsNumber: Scalars['String']
-}
+};
+
 
 export type LypftFlagsArgs = {
   nhsNumber: Scalars['String']
-}
+};
+
 
 export type LypftHospitalStaysArgs = {
   nhsNumber: Scalars['String']
-}
+};
 
 export type LypftCommunityTreatmentOrder = {
-  consentToTreat?: Maybe<Scalars['String']>
-  extension?: Maybe<Array<Maybe<Extension>>>
-  id: Scalars['ID']
-  legalStatus?: Maybe<CodeableConcept>
-  metadata: Metadata
-  period: Period
-  restrictions?: Maybe<Scalars['String']>
-  text?: Maybe<Narrative>
-}
+  consentToTreat?: Maybe<Scalars['String']>,
+  extension?: Maybe<Array<Maybe<Extension>>>,
+  id: Scalars['ID'],
+  legalStatus?: Maybe<CodeableConcept>,
+  metadata: Metadata,
+  period: Period,
+  restrictions?: Maybe<Scalars['String']>,
+  text?: Maybe<Narrative>,
+};
+
+export type Medication = {
+  code?: Maybe<CodeableConcept>,
+  extension?: Maybe<Array<Maybe<Extension>>>,
+  id: Scalars['ID'],
+  metadata: Metadata,
+  text?: Maybe<Narrative>,
+};
 
 export type MedicationStatement = {
-  extension?: Maybe<Array<Maybe<Extension>>>
-  id: Scalars['ID']
-  metadata: Metadata
-  text?: Maybe<Narrative>
+  dosage?: Maybe<Dosage>,
+  effective?: Maybe<PartialDateTime>,
+  extension?: Maybe<Array<Maybe<Extension>>>,
+  id: Scalars['ID'],
+  medication: Medication,
+  metadata: Metadata,
+  note?: Maybe<Array<Maybe<Annotation>>>,
+  status: MedicationStatusCode,
+  subject: ResourceReference,
+  taken: TakenCode,
+  text?: Maybe<Narrative>,
+};
+
+export enum MedicationStatusCode {
+  Active = 'ACTIVE',
+  Completed = 'COMPLETED',
+  EnteredInError = 'ENTERED_IN_ERROR',
+  Intended = 'INTENDED',
+  Stopped = 'STOPPED',
+  OnHold = 'ON_HOLD'
 }
 
 export type Metadata = {
-  dataSources: Array<Maybe<Coding>>
-  extension?: Maybe<Array<Maybe<Extension>>>
-  lastUpdated?: Maybe<Scalars['DateTimeOffset']>
-  requestedWhen: Scalars['DateTimeOffset']
-  versionId?: Maybe<Scalars['String']>
-}
+  dataSources: Array<Maybe<Coding>>,
+  extension?: Maybe<Array<Maybe<Extension>>>,
+  lastUpdated?: Maybe<Scalars['DateTimeOffset']>,
+  requestedWhen: Scalars['DateTimeOffset'],
+  versionId?: Maybe<Scalars['String']>,
+};
+
 
 export type Narrative = {
-  div: Scalars['String']
-  extension?: Maybe<Array<Maybe<Extension>>>
-  status?: Maybe<NarrativeStatusCode>
-  text: Scalars['String']
-}
+  div: Scalars['String'],
+  extension?: Maybe<Array<Maybe<Extension>>>,
+  status?: Maybe<NarrativeStatusCode>,
+  text: Scalars['String'],
+};
 
 export enum NarrativeStatusCode {
   Generated = 'GENERATED',
   Extensions = 'EXTENSIONS',
   Additional = 'ADDITIONAL',
-  Empty = 'EMPTY',
+  Empty = 'EMPTY'
 }
 
-export type PartialDateTime = {
-  kind?: Maybe<PartialDateTimeKindCode>
-  value?: Maybe<Scalars['DateTimeOffset']>
+export type Observation = {
+  basedOn?: Maybe<ResourceReference>,
+  bodySite?: Maybe<Array<Maybe<CodeableConcept>>>,
+  category?: Maybe<Array<Maybe<CodeableConcept>>>,
+  code: CodeableConcept,
+  comment?: Maybe<Scalars['String']>,
+  component?: Maybe<Array<Maybe<ObservationComponent>>>,
+  context?: Maybe<ResourceReference>,
+  dataAbsentReason?: Maybe<CodeableConcept>,
+  device?: Maybe<ResourceReference>,
+  effective?: Maybe<ObservationEffective>,
+  extension?: Maybe<Array<Maybe<Extension>>>,
+  id: Scalars['ID'],
+  identifier?: Maybe<Array<Maybe<Identifier>>>,
+  interpretation?: Maybe<CodeableConcept>,
+  issued?: Maybe<PartialDateTime>,
+  metadata: Metadata,
+  method?: Maybe<CodeableConcept>,
+  performer?: Maybe<Array<Maybe<ResourceReference>>>,
+  referenceRange?: Maybe<Array<Maybe<ObservationReferenceRange>>>,
+  related?: Maybe<Array<Maybe<ObservationReferenceRange>>>,
+  specimen?: Maybe<ResourceReference>,
+  status: ObservationStatusCode,
+  subject: ResourceReference,
+  text?: Maybe<Narrative>,
+  value?: Maybe<ObservationValue>,
+};
+
+export type ObservationComponent = {
+  code: CodeableConcept,
+  dataAbsentReason?: Maybe<CodeableConcept>,
+  extension?: Maybe<Array<Maybe<Extension>>>,
+  interpretation?: Maybe<CodeableConcept>,
+  referenceRange?: Maybe<Array<Maybe<ObservationReferenceRange>>>,
+  value?: Maybe<ObservationValue>,
+};
+
+export type ObservationEffective = {
+  effectiveDateTime?: Maybe<PartialDateTime>,
+  effectivePeriod?: Maybe<Period>,
+  extension?: Maybe<Array<Maybe<Extension>>>,
+};
+
+export type ObservationReferenceRange = {
+  age?: Maybe<Range>,
+  appliesTo?: Maybe<Array<Maybe<CodeableConcept>>>,
+  extension?: Maybe<Array<Maybe<Extension>>>,
+  high?: Maybe<Quantity>,
+  low?: Maybe<Quantity>,
+  text?: Maybe<Scalars['String']>,
+  type?: Maybe<CodeableConcept>,
+};
+
+export enum ObservationStatusCode {
+  Registered = 'REGISTERED',
+  Preliminary = 'PRELIMINARY',
+  Final = 'FINAL',
+  Amended = 'AMENDED',
+  Corrected = 'CORRECTED',
+  Cancelled = 'CANCELLED',
+  EnteredInError = 'ENTERED_IN_ERROR',
+  Unknown = 'UNKNOWN'
 }
+
+export type ObservationValue = {
+  extension?: Maybe<Array<Maybe<Extension>>>,
+  valueAttachment?: Maybe<Attachment>,
+  valueBoolean?: Maybe<Scalars['Boolean']>,
+  valueCodeableConcept?: Maybe<CodeableConcept>,
+  valueDateTime?: Maybe<PartialDateTime>,
+  valuePeriod?: Maybe<Period>,
+  valueQuantity?: Maybe<Quantity>,
+  valueRange?: Maybe<Range>,
+  valueRatio?: Maybe<Ratio>,
+  valueSampledData?: Maybe<SampledData>,
+  valueString?: Maybe<Scalars['String']>,
+};
+
+export type PartialDateTime = {
+  kind?: Maybe<PartialDateTimeKindCode>,
+  value?: Maybe<Scalars['DateTimeOffset']>,
+};
 
 export enum PartialDateTimeKindCode {
   Year = 'YEAR',
   YearMonth = 'YEAR_MONTH',
   Date = 'DATE',
   DateTime = 'DATE_TIME',
-  Time = 'TIME',
+  Time = 'TIME'
 }
 
 export type Period = {
-  end?: Maybe<PartialDateTime>
-  extension?: Maybe<Array<Maybe<Extension>>>
-  start?: Maybe<PartialDateTime>
-}
+  end?: Maybe<PartialDateTime>,
+  extension?: Maybe<Array<Maybe<Extension>>>,
+  start?: Maybe<PartialDateTime>,
+};
 
 export type Quantity = {
-  code?: Maybe<Scalars['String']>
-  comparator?: Maybe<QuantityComparatorCode>
-  extension?: Maybe<Array<Maybe<Extension>>>
-  system?: Maybe<Scalars['String']>
-  unit?: Maybe<Scalars['String']>
-  value?: Maybe<Scalars['Decimal']>
-}
+  code?: Maybe<Scalars['String']>,
+  comparator?: Maybe<QuantityComparatorCode>,
+  extension?: Maybe<Array<Maybe<Extension>>>,
+  system?: Maybe<Scalars['String']>,
+  unit?: Maybe<Scalars['String']>,
+  value?: Maybe<Scalars['Decimal']>,
+};
 
 export enum QuantityComparatorCode {
   LessThan = 'LESS_THAN',
   LessOrEqualTo = 'LESS_OR_EQUAL_TO',
   GreaterOrEqualTo = 'GREATER_OR_EQUAL_TO',
-  GreaterThan = 'GREATER_THAN',
+  GreaterThan = 'GREATER_THAN'
 }
 
 export type Query = {
-  ehr?: Maybe<Ehr>
-  gpConnect?: Maybe<GpConnect>
-  lypft?: Maybe<Lypft>
-  yhcr?: Maybe<Yhcr>
-}
+  ehr?: Maybe<Ehr>,
+  gpConnect?: Maybe<GpConnect>,
+  lypft?: Maybe<Lypft>,
+  yhcr?: Maybe<Yhcr>,
+};
+
 
 export type QueryYhcrArgs = {
   reasonForAccess: ReasonForAccessCode
-}
+};
 
 export type Range = {
-  extension?: Maybe<Array<Maybe<Extension>>>
-  high?: Maybe<Quantity>
-  low?: Maybe<Quantity>
-}
+  extension?: Maybe<Array<Maybe<Extension>>>,
+  high?: Maybe<Quantity>,
+  low?: Maybe<Quantity>,
+};
+
+export type Ratio = {
+  denominator?: Maybe<Quantity>,
+  extension?: Maybe<Array<Maybe<Extension>>>,
+  numerator?: Maybe<Quantity>,
+};
 
 export enum ReasonForAccessCode {
   DirectCareEmergency = 'DIRECT_CARE_EMERGENCY',
@@ -703,21 +835,54 @@ export enum ReasonForAccessCode {
   IndirectCareInContext = 'INDIRECT_CARE_IN_CONTEXT',
   IndirectCareNotInContext = 'INDIRECT_CARE_NOT_IN_CONTEXT',
   AnalyticsAccess = 'ANALYTICS_ACCESS',
-  Administration = 'ADMINISTRATION',
+  Administration = 'ADMINISTRATION'
 }
 
 export type ResourceReference = {
-  display: Scalars['String']
-  extension?: Maybe<Array<Maybe<Extension>>>
-  identifier?: Maybe<Array<Maybe<Identifier>>>
-  reference?: Maybe<Scalars['String']>
-  typeName: Scalars['String']
+  display: Scalars['String'],
+  extension?: Maybe<Array<Maybe<Extension>>>,
+  identifier?: Maybe<Array<Maybe<Identifier>>>,
+  reference?: Maybe<Scalars['String']>,
+  typeName: Scalars['String'],
+};
+
+export type SampledData = {
+  data: Scalars['String'],
+  dimensions: Scalars['Int'],
+  extension?: Maybe<Array<Maybe<Extension>>>,
+  factor?: Maybe<Scalars['Decimal']>,
+  lowerLimit?: Maybe<Scalars['Decimal']>,
+  origin: Quantity,
+  period?: Maybe<Scalars['Decimal']>,
+  upperLimit?: Maybe<Scalars['Decimal']>,
+};
+
+
+export enum TakenCode {
+  Yes = 'YES',
+  No = 'NO',
+  Unknown = 'UNKNOWN',
+  NotApplicable = 'NOT_APPLICABLE'
 }
 
 export type Yhcr = {
-  conditions?: Maybe<Array<Maybe<Condition>>>
-}
+  allergyIntolerances?: Maybe<Array<Maybe<AllergyIntolerance>>>,
+  conditions?: Maybe<Array<Maybe<Condition>>>,
+  observations?: Maybe<Array<Maybe<Observation>>>,
+};
+
+
+export type YhcrAllergyIntolerancesArgs = {
+  nhsNumber: Scalars['String'],
+  clinicalStatus?: Maybe<Array<Maybe<AllergyIntoleranceClinicalStatusCode>>>
+};
+
 
 export type YhcrConditionsArgs = {
   nhsNumber: Scalars['String']
-}
+};
+
+
+export type YhcrObservationsArgs = {
+  nhsNumber: Scalars['String']
+};
