@@ -44,6 +44,7 @@
     "@ltht-react/involved-team-detail": "^0.0.0",
     "@ltht-react/involved-team-summary": "^0.1.0",
     "@ltht-react/list": "^0.1.0",
+    "@ltht-react/medication-summary": "^0.0.0",
     "@ltht-react/observation-detail": "^0.0.0",
     "@ltht-react/observation-summary": "^0.0.0",
     "@ltht-react/styles": "^0.1.0",

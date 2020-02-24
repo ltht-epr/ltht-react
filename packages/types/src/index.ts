@@ -267,6 +267,12 @@ export type ConditionStage = {
   summary?: Maybe<CodeableConcept>
 }
 
+export type DataAvailability = {
+  dataSources?: Maybe<Array<Maybe<Coding>>>
+  id: Scalars['ID']
+  metadata: Metadata
+}
+
 export type DocumentReference = {
   authenticator?: Maybe<ResourceReference>
   author?: Maybe<Array<Maybe<ResourceReference>>>
@@ -527,22 +533,16 @@ export enum FlagStatusCode {
 }
 
 export type GpConnect = {
-  medications?: Maybe<Array<Maybe<GpConnectMedicationList>>>
+  dataAvailability?: Maybe<DataAvailability>
+  medicationList?: Maybe<MedicationList>
 }
 
-export type GpConnectMedicationsArgs = {
+export type GpConnectDataAvailabilityArgs = {
   nhsNumber: Scalars['String']
 }
 
-export type GpConnectMedicationList = {
-  code?: Maybe<CodeableConcept>
-  date?: Maybe<PartialDateTime>
-  entry?: Maybe<EntryType>
-  extension?: Maybe<Array<Maybe<Extension>>>
-  id: Scalars['ID']
-  medicationStatements?: Maybe<Array<Maybe<MedicationStatement>>>
-  metadata: Metadata
-  text?: Maybe<Narrative>
+export type GpConnectMedicationListArgs = {
+  nhsNumber: Scalars['String']
 }
 
 export type Identifier = {
@@ -572,6 +572,7 @@ export type Lypft = {
   carePlans?: Maybe<Array<Maybe<CarePlan>>>
   careTeams?: Maybe<Array<Maybe<EpisodeOfCare>>>
   communityTreatmentOrders?: Maybe<Array<Maybe<LypftCommunityTreatmentOrder>>>
+  dataAvailability?: Maybe<DataAvailability>
   documents?: Maybe<Array<Maybe<DocumentReference>>>
   flags?: Maybe<Array<Maybe<Flag>>>
   hospitalStays?: Maybe<Array<Maybe<Encounter>>>
@@ -601,6 +602,10 @@ export type LypftCommunityTreatmentOrdersArgs = {
   nhsNumber: Scalars['String']
 }
 
+export type LypftDataAvailabilityArgs = {
+  nhsNumber: Scalars['String']
+}
+
 export type LypftDocumentsArgs = {
   nhsNumber: Scalars['String']
 }
@@ -624,7 +629,18 @@ export type LypftCommunityTreatmentOrder = {
   text?: Maybe<Narrative>
 }
 
-export type Medication = {
+export type MedicationList = {
+  code?: Maybe<CodeableConcept>
+  date?: Maybe<PartialDateTime>
+  entry?: Maybe<EntryType>
+  extension?: Maybe<Array<Maybe<Extension>>>
+  id: Scalars['ID']
+  medicationStatements?: Maybe<Array<Maybe<MedicationStatement>>>
+  metadata: Metadata
+  text?: Maybe<Narrative>
+}
+
+export type Medications = {
   code?: Maybe<CodeableConcept>
   extension?: Maybe<Array<Maybe<Extension>>>
   id: Scalars['ID']
@@ -633,11 +649,11 @@ export type Medication = {
 }
 
 export type MedicationStatement = {
-  dosage?: Maybe<Dosage>
+  dosage?: Maybe<Array<Maybe<Dosage>>>
   effective?: Maybe<PartialDateTime>
   extension?: Maybe<Array<Maybe<Extension>>>
   id: Scalars['ID']
-  medication: Medication
+  medication: Medications
   metadata: Metadata
   note?: Maybe<Array<Maybe<Annotation>>>
   status: MedicationStatusCode
@@ -851,6 +867,7 @@ export enum TakenCode {
 export type Yhcr = {
   allergyIntolerances?: Maybe<Array<Maybe<AllergyIntolerance>>>
   conditions?: Maybe<Array<Maybe<Condition>>>
+  dataAvailability?: Maybe<DataAvailability>
   observations?: Maybe<Array<Maybe<Observation>>>
 }
 
@@ -860,6 +877,10 @@ export type YhcrAllergyIntolerancesArgs = {
 }
 
 export type YhcrConditionsArgs = {
+  nhsNumber: Scalars['String']
+}
+
+export type YhcrDataAvailabilityArgs = {
   nhsNumber: Scalars['String']
 }
 
