@@ -220,7 +220,7 @@ export type Condition = {
   clinicalStatus?: Maybe<ConditionClinicalStatus>
   code?: Maybe<CodeableConcept>
   context?: Maybe<ResourceReference>
-  evidence?: Maybe<ConditionEvidence>
+  evidence?: Maybe<Array<Maybe<ConditionEvidence>>>
   extension?: Maybe<Array<Maybe<Extension>>>
   id: Scalars['ID']
   identifier?: Maybe<Array<Maybe<Identifier>>>
@@ -253,12 +253,12 @@ export type ConditionEvidence = {
 }
 
 export type ConditionOnset = {
+  age?: Maybe<Quantity>
+  dateTime?: Maybe<PartialDateTime>
   extension?: Maybe<Array<Maybe<Extension>>>
-  onsetAge?: Maybe<Quantity>
-  onsetDateTime?: Maybe<PartialDateTime>
-  onsetPeriod?: Maybe<Period>
-  onsetRange?: Maybe<Range>
-  onsetString?: Maybe<Scalars['String']>
+  period?: Maybe<Period>
+  range?: Maybe<Range>
+  string?: Maybe<Scalars['String']>
 }
 
 export type ConditionStage = {
@@ -351,7 +351,7 @@ export type Dosage = {
   id: Scalars['ID']
   metadata: Metadata
   patientInstruction?: Maybe<Scalars['String']>
-  text?: Maybe<Narrative>
+  text?: Maybe<Scalars['String']>
 }
 
 export type Ehr = {
@@ -629,6 +629,14 @@ export type LypftCommunityTreatmentOrder = {
   text?: Maybe<Narrative>
 }
 
+export type Medication = {
+  code?: Maybe<CodeableConcept>
+  extension?: Maybe<Array<Maybe<Extension>>>
+  id: Scalars['ID']
+  metadata: Metadata
+  text?: Maybe<Narrative>
+}
+
 export type MedicationList = {
   code?: Maybe<CodeableConcept>
   date?: Maybe<PartialDateTime>
@@ -640,20 +648,12 @@ export type MedicationList = {
   text?: Maybe<Narrative>
 }
 
-export type Medications = {
-  code?: Maybe<CodeableConcept>
-  extension?: Maybe<Array<Maybe<Extension>>>
-  id: Scalars['ID']
-  metadata: Metadata
-  text?: Maybe<Narrative>
-}
-
 export type MedicationStatement = {
   dosage?: Maybe<Array<Maybe<Dosage>>>
   effective?: Maybe<PartialDateTime>
   extension?: Maybe<Array<Maybe<Extension>>>
   id: Scalars['ID']
-  medication: Medications
+  medication: Medication
   metadata: Metadata
   note?: Maybe<Array<Maybe<Annotation>>>
   status: MedicationStatusCode
@@ -790,6 +790,21 @@ export type Period = {
   start?: Maybe<PartialDateTime>
 }
 
+export type Permission = {
+  entity?: Maybe<Scalars['Int']>
+  extension?: Maybe<Array<Maybe<Extension>>>
+  operation?: Maybe<Scalars['Int']>
+  static?: Maybe<Scalars['Int']>
+  subType?: Maybe<Scalars['Int']>
+  type: PermissionTypeCode
+}
+
+export enum PermissionTypeCode {
+  Entity = 'ENTITY',
+  Static = 'STATIC',
+  Form = 'FORM',
+}
+
 export type Quantity = {
   code?: Maybe<Scalars['String']>
   comparator?: Maybe<QuantityComparatorCode>
@@ -810,6 +825,7 @@ export type Query = {
   ehr?: Maybe<Ehr>
   gpConnect?: Maybe<GpConnect>
   lypft?: Maybe<Lypft>
+  user?: Maybe<User>
   yhcr?: Maybe<Yhcr>
 }
 
@@ -862,6 +878,15 @@ export enum TakenCode {
   No = 'NO',
   Unknown = 'UNKNOWN',
   NotApplicable = 'NOT_APPLICABLE',
+}
+
+export type User = {
+  id: Scalars['ID']
+  metadata: Metadata
+  organisationGuid: Scalars['String']
+  permissions: Array<Maybe<Permission>>
+  userGuid: Scalars['String']
+  userName: Scalars['String']
 }
 
 export type Yhcr = {
