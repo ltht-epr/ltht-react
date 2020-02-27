@@ -1,5 +1,5 @@
 {
-  "name": "ltht-react",
+  "name": "@ltht-react/root",
   "version": "0.1.2",
   "description": "> TODO: description",
   "author": "Jonny Smith <jonny.asmith@gmail.com>",
@@ -50,5 +50,6 @@
     "@ltht-react/styles": "^0.1.0",
     "@ltht-react/types": "^0.0.9",
     "@ltht-react/utils": "^0.1.2"
-  }
+  },
+  "gitHead": "d5015fbb903c5f36fa515f2c340c1d067146cc6d"
 }
