@@ -9,7 +9,6 @@ import CommunityTreatmentOrderSummary from '@ltht-react/community-treatment-orde
 import FlagSummary from '@ltht-react/flag-summary'
 import HospitalStaySummary from '@ltht-react/hospital-stay-summary'
 import InvolvedTeamSummary from '@ltht-react/involved-team-summary'
-import MedicationSummary from '@ltht-react/medication-summary'
 
 import * as allergies from '../../clinical/allergies/allergy.fixtures'
 import * as appointments from '../../clinical/appointments/appointment-summary.fixtures'
@@ -54,7 +53,6 @@ stories.addWithJSX('Readonly Cards', () => (
         encounters={[appointments.AppointmentOne, appointments.AppointmentTwo]}
       />
       <HospitalStaySummary hospitalStays={[hospitalStays.HospitalStayOne, hospitalStays.HospitalStayTwo]} />
-      <MedicationSummary title="Medications" />
     </Column>
   </Container>
 ))

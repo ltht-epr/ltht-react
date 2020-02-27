@@ -30,6 +30,20 @@ const medicationOne: Medication = {
   },
 }
 
+const medicationTwo: Medication = {
+  id: 'a0259861-c4fb-42fc-8e59-a9133ee5f57d',
+  metadata: mockMetadata,
+  code: {
+    coding: [
+      {
+        code: '319773006',
+        display: 'Aspirin 75mg dispersible tablets',
+        system: 'http://snomed.info/sct',
+      },
+    ],
+  },
+}
+
 const medicationStatementOne: MedicationStatement = {
   id: 'f6f8e784-2048-4e47-8113-c22cc61851a0',
   dosage: [
@@ -51,10 +65,31 @@ const medicationStatementOne: MedicationStatement = {
   taken: TakenCode.Unknown,
 }
 
-const MedicationListOne: MedicationList = {
+const medicationStatementTwo: MedicationStatement = {
+  id: 'f6f8e784-2048-4e47-8113-c22cc61851a0',
+  dosage: [
+    {
+      id: 'eeed05af-f139-4459-9619-56ce0c820db1',
+      metadata: mockMetadata,
+      patientInstruction: 'Instructions for patient',
+      text: 'Take twice a day',
+    },
+  ],
+  medication: medicationTwo,
+  metadata: mockMetadata,
+  status: MedicationStatusCode.Active,
+  subject: {
+    reference: 'patient/0980cd87-220e-4169-8896-87d943630f48',
+    display: 'TEST, patient',
+    typeName: 'patient',
+  },
+  taken: TakenCode.Unknown,
+}
+
+export const MedicationListOne: MedicationList = {
   id: 'aeb8fd1e-092a-411c-b3da-abfb274cf229',
   metadata: mockMetadata,
-  medicationStatements: [medicationStatementOne],
+  medicationStatements: [medicationStatementOne, medicationStatementTwo],
 }
 
 export default MedicationListOne
