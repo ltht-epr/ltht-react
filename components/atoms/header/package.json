@@ -1,6 +1,6 @@
 {
   "name": "@ltht-react/header",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "ltht-react atoms Header component.",
   "author": "LTHT",
   "homepage": "",
@@ -28,8 +28,8 @@
     "@emotion/core": "^10.0.27",
     "@emotion/styled": "^10.0.27",
     "@ltht-react/styles": "^0.1.0",
-    "@ltht-react/types": "^0.0.8",
-    "@ltht-react/utils": "^0.1.1",
+    "@ltht-react/types": "^0.0.9",
+    "@ltht-react/utils": "^0.1.2",
     "emotion": "^10.0.27",
     "react": "^16.12.0"
   }

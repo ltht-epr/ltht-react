@@ -1,6 +1,6 @@
 {
   "name": "@ltht-react/icon",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "ltht-react atoms Icon component.",
   "author": "LTHT",
   "homepage": "",
@@ -31,8 +31,8 @@
     "@fortawesome/free-solid-svg-icons": "^5.12.0",
     "@fortawesome/react-fontawesome": "^0.1.8",
     "@ltht-react/styles": "^0.1.0",
-    "@ltht-react/types": "^0.0.8",
-    "@ltht-react/utils": "^0.1.1",
+    "@ltht-react/types": "^0.0.9",
+    "@ltht-react/utils": "^0.1.2",
     "emotion": "^10.0.27",
     "react": "^16.12.0"
   }
