@@ -230,6 +230,7 @@ export type Condition = {
   stage?: Maybe<ConditionStage>
   subject: ResourceReference
   text?: Maybe<Narrative>
+  verificationStatus?: Maybe<ConditionVerificationStatus>
 }
 
 export type ConditionAbatement = {
@@ -265,6 +266,15 @@ export type ConditionStage = {
   assessment?: Maybe<Array<Maybe<ResourceReference>>>
   extension?: Maybe<Array<Maybe<Extension>>>
   summary?: Maybe<CodeableConcept>
+}
+
+export enum ConditionVerificationStatus {
+  Provisional = 'PROVISIONAL',
+  Differential = 'DIFFERENTIAL',
+  Confirmed = 'CONFIRMED',
+  Refuted = 'REFUTED',
+  EnteredinError = 'ENTEREDIN_ERROR',
+  Unknown = 'UNKNOWN',
 }
 
 export type DataAvailability = {
@@ -898,7 +908,6 @@ export type Yhcr = {
 
 export type YhcrAllergyIntolerancesArgs = {
   nhsNumber: Scalars['String']
-  clinicalStatus?: Maybe<Array<Maybe<AllergyIntoleranceClinicalStatusCode>>>
 }
 
 export type YhcrConditionsArgs = {
