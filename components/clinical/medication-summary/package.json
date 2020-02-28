@@ -31,6 +31,7 @@
     "@ltht-react/styles": "^0.1.0",
     "@ltht-react/types": "^0.0.9",
     "@ltht-react/utils": "^0.1.2",
+    "@ltht-react/description-list": "0.1.2",
     "emotion": "^10.0.27",
     "react": "^16.12.0"
   }
