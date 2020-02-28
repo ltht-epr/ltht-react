@@ -1,4 +1,3 @@
-
 # MedicationSummary
 
 <!-- STORY -->
@@ -12,6 +11,11 @@ import MedicationSummary from '@ltht-react/medication-summary'
 ### Usage
 
 ```jsx
-<MedicationSummary />
+<MedicationSummary medicationList={medicationList} />
 ```
-  
+
+### Properties
+
+| Prop             | Required | Default | Type           | Description                                        |
+| :--------------- | :------- | :------ | :------------- | :------------------------------------------------- |
+| `medicationList` | No       |         | MedicationList | Container object for patient medication statements |
