@@ -1,97 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ConditionSummary matches snapshot: wrapper mount 1`] = `
-.emotion-14 {
-  color: #231f20;
-  font-family: 'SF Pro Text','SF Pro Icons','Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size: 0.8rem;
-  background: #FFFFFF;
-  color: #231f20;
-  margin-bottom: 0.5rem;
-  border-radius: 4px;
-  box-shadow: 0px 2px 1px -1px rgba(102,102,102,0.1), 0px 1px 1px 0px rgba(102,102,102,0.15), 0px 1px 3px 0px rgba(102,102,102,.6);
-  margin: 0 5px 10px 0;
-  -webkit-font-smoothing: antialiased;
-}
-
-.emotion-14 *,
-.emotion-14 ::before,
-.emotion-14 ::after {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-
-.emotion-14 * {
-  margin: 0;
-  padding: 0;
-}
-
-.emotion-14 h3 {
-  font-size: 1rem;
-}
-
-@media only screen and (min-width:768px) {
-  .emotion-14 {
-    font-size: 0.9rem;
-  }
-
-  .emotion-14 h3 {
-    font-size: 1.1rem;
-  }
-}
-
-@media only screen and (min-width:1024px) {
-  .emotion-14 {
-    font-size: 1rem;
-  }
-
-  .emotion-14 h3 {
-    font-size: 1.2rem;
-  }
-}
-
-@media only screen and (min-width:1200px) {
-  .emotion-14 {
-    font-size: 1.1rem;
-  }
-
-  .emotion-14 h3 {
-    font-size: 1.3rem;
-  }
-}
-
-.emotion-2 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  padding: 0.5rem;
-}
-
-.emotion-2:hover {
-  cursor: pointer;
-}
-
-.emotion-0 {
-  color: #768692;
-}
-
-.emotion-13 {
-  list-style: none;
-  padding-left: 0.5rem;
-}
-
-.emotion-13 li {
-  border-top: 1px solid #b0b0b0;
-  padding: 0.5rem 0.5rem 0.5rem 0;
-}
-
-.emotion-7 {
+.emotion-4 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -102,24 +12,24 @@ exports[`ConditionSummary matches snapshot: wrapper mount 1`] = `
   justify-content: center;
 }
 
-.emotion-5 {
+.emotion-2 {
   -webkit-box-flex: 1;
   -webkit-flex-grow: 1;
   -ms-flex-positive: 1;
   flex-grow: 1;
 }
 
-.emotion-3 {
+.emotion-0 {
   color: #231f20;
   text-align: left;
 }
 
-.emotion-4 {
+.emotion-1 {
   color: #768692;
   text-align: left;
 }
 
-.emotion-6 {
+.emotion-3 {
   color: #231f20;
   text-align: right;
 }
@@ -191,439 +101,349 @@ exports[`ConditionSummary matches snapshot: wrapper mount 1`] = `
   }
   title="Conditions"
 >
-  <Card
-    noData={false}
+  <ListItem
+    key="017ca927-67e0-e581-a2c7-115087226fg2|condition"
   >
-    <CardProvider
-      collapsible={true}
-      noData={false}
-    >
-      <div
-        className="emotion-14"
+    <li>
+      <ConditionSummaryItem
+        condition={
+          Object {
+            "assertedDate": Object {
+              "kind": "DATE",
+              "value": "2020-02-01T00:00:00+00:00",
+            },
+            "clinicalStatus": "ACTIVE",
+            "code": Object {
+              "coding": Array [
+                Object {
+                  "code": "60123008",
+                  "display": "Delusional disorder, mixed type",
+                  "system": "HEALTHPLUG",
+                },
+              ],
+              "text": "Delusional disorder, mixed type",
+            },
+            "id": "017ca927-67e0-e581-a2c7-115087226fg2|condition",
+            "metadata": Object {
+              "dataSources": Array [
+                Object {
+                  "display": "Mock",
+                },
+              ],
+              "requestedWhen": "",
+            },
+            "subject": Object {
+              "display": "Mt Peter Humble",
+              "typeName": "test",
+            },
+          }
+        }
       >
-        <CardHeader>
+        <div
+          className="emotion-4"
+          role="link"
+        >
           <div
             className="emotion-2"
-            onClick={[Function]}
-            title="Click to collapse"
           >
-            <div>
-              <h3>
-                Conditions
-              </h3>
-            </div>
-            <div>
-              <ChevronCircleIcon
-                direction="down"
-                size="medium"
+            <ConditionTitle
+              condition={
+                Object {
+                  "assertedDate": Object {
+                    "kind": "DATE",
+                    "value": "2020-02-01T00:00:00+00:00",
+                  },
+                  "clinicalStatus": "ACTIVE",
+                  "code": Object {
+                    "coding": Array [
+                      Object {
+                        "code": "60123008",
+                        "display": "Delusional disorder, mixed type",
+                        "system": "HEALTHPLUG",
+                      },
+                    ],
+                    "text": "Delusional disorder, mixed type",
+                  },
+                  "id": "017ca927-67e0-e581-a2c7-115087226fg2|condition",
+                  "metadata": Object {
+                    "dataSources": Array [
+                      Object {
+                        "display": "Mock",
+                      },
+                    ],
+                    "requestedWhen": "",
+                  },
+                  "subject": Object {
+                    "display": "Mt Peter Humble",
+                    "typeName": "test",
+                  },
+                }
+              }
+            >
+              <div
+                className="emotion-0"
               >
-                <FontAwesomeIcon
-                  border={false}
-                  className="emotion-0"
-                  fixedWidth={false}
-                  flip={null}
-                  icon={
-                    Object {
-                      "icon": Array [
-                        512,
-                        512,
-                        Array [],
-                        "f13a",
-                        "M504 256c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zM273 369.9l135.5-135.5c9.4-9.4 9.4-24.6 0-33.9l-17-17c-9.4-9.4-24.6-9.4-33.9 0L256 285.1 154.4 183.5c-9.4-9.4-24.6-9.4-33.9 0l-17 17c-9.4 9.4-9.4 24.6 0 33.9L239 369.9c9.4 9.4 24.6 9.4 34 0z",
-                      ],
-                      "iconName": "chevron-circle-down",
-                      "prefix": "fas",
-                    }
-                  }
-                  inverse={false}
-                  listItem={false}
-                  mask={null}
-                  pull={null}
-                  pulse={false}
-                  rotation={null}
-                  size="sm"
-                  spin={false}
-                  swapOpacity={false}
-                  symbol={false}
-                  title=""
-                  transform={null}
-                >
-                  <svg
-                    aria-hidden="true"
-                    className="svg-inline--fa fa-chevron-circle-down fa-w-16 fa-sm emotion-0"
-                    data-icon="chevron-circle-down"
-                    data-prefix="fas"
-                    focusable="false"
-                    role="img"
-                    style={Object {}}
-                    viewBox="0 0 512 512"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M504 256c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zM273 369.9l135.5-135.5c9.4-9.4 9.4-24.6 0-33.9l-17-17c-9.4-9.4-24.6-9.4-33.9 0L256 285.1 154.4 183.5c-9.4-9.4-24.6-9.4-33.9 0l-17 17c-9.4 9.4-9.4 24.6 0 33.9L239 369.9c9.4 9.4 24.6 9.4 34 0z"
-                      fill="currentColor"
-                      style={Object {}}
-                    />
-                  </svg>
-                </FontAwesomeIcon>
-              </ChevronCircleIcon>
-            </div>
+                Delusional disorder, mixed type
+              </div>
+            </ConditionTitle>
+            <ConditionStatus
+              condition={
+                Object {
+                  "assertedDate": Object {
+                    "kind": "DATE",
+                    "value": "2020-02-01T00:00:00+00:00",
+                  },
+                  "clinicalStatus": "ACTIVE",
+                  "code": Object {
+                    "coding": Array [
+                      Object {
+                        "code": "60123008",
+                        "display": "Delusional disorder, mixed type",
+                        "system": "HEALTHPLUG",
+                      },
+                    ],
+                    "text": "Delusional disorder, mixed type",
+                  },
+                  "id": "017ca927-67e0-e581-a2c7-115087226fg2|condition",
+                  "metadata": Object {
+                    "dataSources": Array [
+                      Object {
+                        "display": "Mock",
+                      },
+                    ],
+                    "requestedWhen": "",
+                  },
+                  "subject": Object {
+                    "display": "Mt Peter Humble",
+                    "typeName": "test",
+                  },
+                }
+              }
+            >
+              <div
+                className="emotion-1"
+              >
+                Active
+              </div>
+            </ConditionStatus>
           </div>
-        </CardHeader>
-        <CardList
-          clickable={false}
+          <div>
+            <ConditionDate
+              condition={
+                Object {
+                  "assertedDate": Object {
+                    "kind": "DATE",
+                    "value": "2020-02-01T00:00:00+00:00",
+                  },
+                  "clinicalStatus": "ACTIVE",
+                  "code": Object {
+                    "coding": Array [
+                      Object {
+                        "code": "60123008",
+                        "display": "Delusional disorder, mixed type",
+                        "system": "HEALTHPLUG",
+                      },
+                    ],
+                    "text": "Delusional disorder, mixed type",
+                  },
+                  "id": "017ca927-67e0-e581-a2c7-115087226fg2|condition",
+                  "metadata": Object {
+                    "dataSources": Array [
+                      Object {
+                        "display": "Mock",
+                      },
+                    ],
+                    "requestedWhen": "",
+                  },
+                  "subject": Object {
+                    "display": "Mt Peter Humble",
+                    "typeName": "test",
+                  },
+                }
+              }
+            >
+              <div
+                className="emotion-3"
+              >
+                01-Feb-2020
+              </div>
+            </ConditionDate>
+          </div>
+        </div>
+      </ConditionSummaryItem>
+    </li>
+  </ListItem>
+  <ListItem
+    key="345ha927-34e0-e911-a2c7-005087226er3|condition"
+  >
+    <li>
+      <ConditionSummaryItem
+        condition={
+          Object {
+            "assertedDate": Object {
+              "kind": "DATE",
+              "value": "2020-01-01T00:00:00+00:00",
+            },
+            "clinicalStatus": "REMISSION",
+            "code": Object {
+              "coding": Array [
+                Object {
+                  "code": "44054006",
+                  "display": "Diabetes mellitus type 2",
+                  "system": "HEALTHPLUG",
+                },
+              ],
+              "text": "Diabetes mellitus type 2",
+            },
+            "id": "345ha927-34e0-e911-a2c7-005087226er3|condition",
+            "metadata": Object {
+              "dataSources": Array [
+                Object {
+                  "display": "Mock",
+                },
+              ],
+              "requestedWhen": "",
+            },
+            "subject": Object {
+              "display": "Mr Joe BLoggs",
+              "typeName": "test",
+            },
+          }
+        }
+      >
+        <div
+          className="emotion-4"
+          role="link"
         >
-          <ul
-            className="emotion-13"
+          <div
+            className="emotion-2"
           >
-            <ListItem
-              key="017ca927-67e0-e581-a2c7-115087226fg2|condition"
+            <ConditionTitle
+              condition={
+                Object {
+                  "assertedDate": Object {
+                    "kind": "DATE",
+                    "value": "2020-01-01T00:00:00+00:00",
+                  },
+                  "clinicalStatus": "REMISSION",
+                  "code": Object {
+                    "coding": Array [
+                      Object {
+                        "code": "44054006",
+                        "display": "Diabetes mellitus type 2",
+                        "system": "HEALTHPLUG",
+                      },
+                    ],
+                    "text": "Diabetes mellitus type 2",
+                  },
+                  "id": "345ha927-34e0-e911-a2c7-005087226er3|condition",
+                  "metadata": Object {
+                    "dataSources": Array [
+                      Object {
+                        "display": "Mock",
+                      },
+                    ],
+                    "requestedWhen": "",
+                  },
+                  "subject": Object {
+                    "display": "Mr Joe BLoggs",
+                    "typeName": "test",
+                  },
+                }
+              }
             >
-              <li>
-                <ConditionSummaryItem
-                  condition={
-                    Object {
-                      "assertedDate": Object {
-                        "kind": "DATE",
-                        "value": "2020-02-01T00:00:00+00:00",
+              <div
+                className="emotion-0"
+              >
+                Diabetes mellitus type 2
+              </div>
+            </ConditionTitle>
+            <ConditionStatus
+              condition={
+                Object {
+                  "assertedDate": Object {
+                    "kind": "DATE",
+                    "value": "2020-01-01T00:00:00+00:00",
+                  },
+                  "clinicalStatus": "REMISSION",
+                  "code": Object {
+                    "coding": Array [
+                      Object {
+                        "code": "44054006",
+                        "display": "Diabetes mellitus type 2",
+                        "system": "HEALTHPLUG",
                       },
-                      "clinicalStatus": "ACTIVE",
-                      "code": Object {
-                        "coding": Array [
-                          Object {
-                            "code": "60123008",
-                            "display": "Delusional disorder, mixed type",
-                            "system": "HEALTHPLUG",
-                          },
-                        ],
-                        "text": "Delusional disorder, mixed type",
+                    ],
+                    "text": "Diabetes mellitus type 2",
+                  },
+                  "id": "345ha927-34e0-e911-a2c7-005087226er3|condition",
+                  "metadata": Object {
+                    "dataSources": Array [
+                      Object {
+                        "display": "Mock",
                       },
-                      "id": "017ca927-67e0-e581-a2c7-115087226fg2|condition",
-                      "metadata": Object {
-                        "dataSources": Array [
-                          Object {
-                            "display": "Mock",
-                          },
-                        ],
-                        "requestedWhen": "",
-                      },
-                      "subject": Object {
-                        "display": "Mt Peter Humble",
-                        "typeName": "test",
-                      },
-                    }
-                  }
-                >
-                  <div
-                    className="emotion-7"
-                    role="link"
-                  >
-                    <div
-                      className="emotion-5"
-                    >
-                      <ConditionTitle
-                        condition={
-                          Object {
-                            "assertedDate": Object {
-                              "kind": "DATE",
-                              "value": "2020-02-01T00:00:00+00:00",
-                            },
-                            "clinicalStatus": "ACTIVE",
-                            "code": Object {
-                              "coding": Array [
-                                Object {
-                                  "code": "60123008",
-                                  "display": "Delusional disorder, mixed type",
-                                  "system": "HEALTHPLUG",
-                                },
-                              ],
-                              "text": "Delusional disorder, mixed type",
-                            },
-                            "id": "017ca927-67e0-e581-a2c7-115087226fg2|condition",
-                            "metadata": Object {
-                              "dataSources": Array [
-                                Object {
-                                  "display": "Mock",
-                                },
-                              ],
-                              "requestedWhen": "",
-                            },
-                            "subject": Object {
-                              "display": "Mt Peter Humble",
-                              "typeName": "test",
-                            },
-                          }
-                        }
-                      >
-                        <div
-                          className="emotion-3"
-                        >
-                          Delusional disorder, mixed type
-                        </div>
-                      </ConditionTitle>
-                      <ConditionStatus
-                        condition={
-                          Object {
-                            "assertedDate": Object {
-                              "kind": "DATE",
-                              "value": "2020-02-01T00:00:00+00:00",
-                            },
-                            "clinicalStatus": "ACTIVE",
-                            "code": Object {
-                              "coding": Array [
-                                Object {
-                                  "code": "60123008",
-                                  "display": "Delusional disorder, mixed type",
-                                  "system": "HEALTHPLUG",
-                                },
-                              ],
-                              "text": "Delusional disorder, mixed type",
-                            },
-                            "id": "017ca927-67e0-e581-a2c7-115087226fg2|condition",
-                            "metadata": Object {
-                              "dataSources": Array [
-                                Object {
-                                  "display": "Mock",
-                                },
-                              ],
-                              "requestedWhen": "",
-                            },
-                            "subject": Object {
-                              "display": "Mt Peter Humble",
-                              "typeName": "test",
-                            },
-                          }
-                        }
-                      >
-                        <div
-                          className="emotion-4"
-                        >
-                          Active
-                        </div>
-                      </ConditionStatus>
-                    </div>
-                    <div>
-                      <ConditionDate
-                        condition={
-                          Object {
-                            "assertedDate": Object {
-                              "kind": "DATE",
-                              "value": "2020-02-01T00:00:00+00:00",
-                            },
-                            "clinicalStatus": "ACTIVE",
-                            "code": Object {
-                              "coding": Array [
-                                Object {
-                                  "code": "60123008",
-                                  "display": "Delusional disorder, mixed type",
-                                  "system": "HEALTHPLUG",
-                                },
-                              ],
-                              "text": "Delusional disorder, mixed type",
-                            },
-                            "id": "017ca927-67e0-e581-a2c7-115087226fg2|condition",
-                            "metadata": Object {
-                              "dataSources": Array [
-                                Object {
-                                  "display": "Mock",
-                                },
-                              ],
-                              "requestedWhen": "",
-                            },
-                            "subject": Object {
-                              "display": "Mt Peter Humble",
-                              "typeName": "test",
-                            },
-                          }
-                        }
-                      >
-                        <div
-                          className="emotion-6"
-                        >
-                          01-Feb-2020
-                        </div>
-                      </ConditionDate>
-                    </div>
-                  </div>
-                </ConditionSummaryItem>
-              </li>
-            </ListItem>
-            <ListItem
-              key="345ha927-34e0-e911-a2c7-005087226er3|condition"
+                    ],
+                    "requestedWhen": "",
+                  },
+                  "subject": Object {
+                    "display": "Mr Joe BLoggs",
+                    "typeName": "test",
+                  },
+                }
+              }
             >
-              <li>
-                <ConditionSummaryItem
-                  condition={
-                    Object {
-                      "assertedDate": Object {
-                        "kind": "DATE",
-                        "value": "2020-01-01T00:00:00+00:00",
+              <div
+                className="emotion-1"
+              >
+                Remission
+              </div>
+            </ConditionStatus>
+          </div>
+          <div>
+            <ConditionDate
+              condition={
+                Object {
+                  "assertedDate": Object {
+                    "kind": "DATE",
+                    "value": "2020-01-01T00:00:00+00:00",
+                  },
+                  "clinicalStatus": "REMISSION",
+                  "code": Object {
+                    "coding": Array [
+                      Object {
+                        "code": "44054006",
+                        "display": "Diabetes mellitus type 2",
+                        "system": "HEALTHPLUG",
                       },
-                      "clinicalStatus": "REMISSION",
-                      "code": Object {
-                        "coding": Array [
-                          Object {
-                            "code": "44054006",
-                            "display": "Diabetes mellitus type 2",
-                            "system": "HEALTHPLUG",
-                          },
-                        ],
-                        "text": "Diabetes mellitus type 2",
+                    ],
+                    "text": "Diabetes mellitus type 2",
+                  },
+                  "id": "345ha927-34e0-e911-a2c7-005087226er3|condition",
+                  "metadata": Object {
+                    "dataSources": Array [
+                      Object {
+                        "display": "Mock",
                       },
-                      "id": "345ha927-34e0-e911-a2c7-005087226er3|condition",
-                      "metadata": Object {
-                        "dataSources": Array [
-                          Object {
-                            "display": "Mock",
-                          },
-                        ],
-                        "requestedWhen": "",
-                      },
-                      "subject": Object {
-                        "display": "Mr Joe BLoggs",
-                        "typeName": "test",
-                      },
-                    }
-                  }
-                >
-                  <div
-                    className="emotion-7"
-                    role="link"
-                  >
-                    <div
-                      className="emotion-5"
-                    >
-                      <ConditionTitle
-                        condition={
-                          Object {
-                            "assertedDate": Object {
-                              "kind": "DATE",
-                              "value": "2020-01-01T00:00:00+00:00",
-                            },
-                            "clinicalStatus": "REMISSION",
-                            "code": Object {
-                              "coding": Array [
-                                Object {
-                                  "code": "44054006",
-                                  "display": "Diabetes mellitus type 2",
-                                  "system": "HEALTHPLUG",
-                                },
-                              ],
-                              "text": "Diabetes mellitus type 2",
-                            },
-                            "id": "345ha927-34e0-e911-a2c7-005087226er3|condition",
-                            "metadata": Object {
-                              "dataSources": Array [
-                                Object {
-                                  "display": "Mock",
-                                },
-                              ],
-                              "requestedWhen": "",
-                            },
-                            "subject": Object {
-                              "display": "Mr Joe BLoggs",
-                              "typeName": "test",
-                            },
-                          }
-                        }
-                      >
-                        <div
-                          className="emotion-3"
-                        >
-                          Diabetes mellitus type 2
-                        </div>
-                      </ConditionTitle>
-                      <ConditionStatus
-                        condition={
-                          Object {
-                            "assertedDate": Object {
-                              "kind": "DATE",
-                              "value": "2020-01-01T00:00:00+00:00",
-                            },
-                            "clinicalStatus": "REMISSION",
-                            "code": Object {
-                              "coding": Array [
-                                Object {
-                                  "code": "44054006",
-                                  "display": "Diabetes mellitus type 2",
-                                  "system": "HEALTHPLUG",
-                                },
-                              ],
-                              "text": "Diabetes mellitus type 2",
-                            },
-                            "id": "345ha927-34e0-e911-a2c7-005087226er3|condition",
-                            "metadata": Object {
-                              "dataSources": Array [
-                                Object {
-                                  "display": "Mock",
-                                },
-                              ],
-                              "requestedWhen": "",
-                            },
-                            "subject": Object {
-                              "display": "Mr Joe BLoggs",
-                              "typeName": "test",
-                            },
-                          }
-                        }
-                      >
-                        <div
-                          className="emotion-4"
-                        >
-                          Remission
-                        </div>
-                      </ConditionStatus>
-                    </div>
-                    <div>
-                      <ConditionDate
-                        condition={
-                          Object {
-                            "assertedDate": Object {
-                              "kind": "DATE",
-                              "value": "2020-01-01T00:00:00+00:00",
-                            },
-                            "clinicalStatus": "REMISSION",
-                            "code": Object {
-                              "coding": Array [
-                                Object {
-                                  "code": "44054006",
-                                  "display": "Diabetes mellitus type 2",
-                                  "system": "HEALTHPLUG",
-                                },
-                              ],
-                              "text": "Diabetes mellitus type 2",
-                            },
-                            "id": "345ha927-34e0-e911-a2c7-005087226er3|condition",
-                            "metadata": Object {
-                              "dataSources": Array [
-                                Object {
-                                  "display": "Mock",
-                                },
-                              ],
-                              "requestedWhen": "",
-                            },
-                            "subject": Object {
-                              "display": "Mr Joe BLoggs",
-                              "typeName": "test",
-                            },
-                          }
-                        }
-                      >
-                        <div
-                          className="emotion-6"
-                        >
-                          01-Jan-2020
-                        </div>
-                      </ConditionDate>
-                    </div>
-                  </div>
-                </ConditionSummaryItem>
-              </li>
-            </ListItem>
-          </ul>
-        </CardList>
-      </div>
-    </CardProvider>
-  </Card>
+                    ],
+                    "requestedWhen": "",
+                  },
+                  "subject": Object {
+                    "display": "Mr Joe BLoggs",
+                    "typeName": "test",
+                  },
+                }
+              }
+            >
+              <div
+                className="emotion-3"
+              >
+                01-Jan-2020
+              </div>
+            </ConditionDate>
+          </div>
+        </div>
+      </ConditionSummaryItem>
+    </li>
+  </ListItem>
 </ConditionSummary>
 `;
