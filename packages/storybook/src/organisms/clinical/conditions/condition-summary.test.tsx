@@ -8,10 +8,10 @@ import { ConditionOne, ConditionTwo } from './condition-summary.fixtures'
 describe('ConditionSummary', () => {
   const conditions = [ConditionOne, ConditionTwo]
   it('renders without crashing', () => {
-    const div = document.createElement('div')
-    ReactDOM.render(<ConditionSummary title="Conditions" conditions={conditions} />, div)
+    const ul = document.createElement('ul')
+    ReactDOM.render(<ConditionSummary conditions={conditions} />, ul)
   })
   it('matches snapshot', () => {
-    expect(mount(<ConditionSummary title="Conditions" conditions={conditions} />)).toMatchSnapshot('wrapper mount')
+    expect(mount(<ConditionSummary conditions={conditions} />)).toMatchSnapshot('wrapper mount')
   })
 })

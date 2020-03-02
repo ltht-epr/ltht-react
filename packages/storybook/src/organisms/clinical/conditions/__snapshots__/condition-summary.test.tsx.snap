@@ -99,7 +99,6 @@ exports[`ConditionSummary matches snapshot: wrapper mount 1`] = `
       },
     ]
   }
-  title="Conditions"
 >
   <ListItem
     key="017ca927-67e0-e581-a2c7-115087226fg2|condition"
