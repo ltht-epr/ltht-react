@@ -3,6 +3,7 @@ import React from 'react'
 import { css, jsx } from '@emotion/core'
 
 import { Condition } from '@ltht-react/types'
+import Category from '../atoms/condition-category'
 import Date from '../atoms/condition-date'
 import Status from '../atoms/condition-status'
 import Title from '../atoms/condition-title'
@@ -26,10 +27,11 @@ const ConditionSummaryItem: React.FC<Props> = ({ condition, clickHandler }) => {
     <div role="link" css={styles.root} onClick={clickHandler && handleClick}>
       <div css={styles.description}>
         <Title condition={condition} />
-        <Status condition={condition} />
+        <Category condition={condition} />
       </div>
       <div>
         <Date condition={condition} />
+        <Status condition={condition} />
       </div>
     </div>
   )

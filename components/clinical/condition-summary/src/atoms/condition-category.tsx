@@ -4,18 +4,18 @@ import { css, jsx } from '@emotion/core'
 
 import { TEXT_SECONDARY_COLOUR } from '@ltht-react/styles'
 import { Condition } from '@ltht-react/types'
-import { titleCase } from '@ltht-react/utils'
+import { codeableConceptDisplaySummary, codeableConceptTextSummary } from '@ltht-react/utils'
 
 const styles = css`
   color: ${TEXT_SECONDARY_COLOUR};
   text-align: left;
 `
 
-const ConditionStatus: React.FC<Props> = ({ condition }) => {
+const ConditionCategory: React.FC<Props> = ({ condition }) => {
   const values = []
 
-  if (condition.clinicalStatus) values.push(titleCase(condition.clinicalStatus))
-  if (condition.verificationStatus) values.push(titleCase(condition.verificationStatus))
+  if (condition.category) values.push(codeableConceptTextSummary(condition.category))
+  if (condition.severity) values.push(codeableConceptDisplaySummary(condition.severity))
 
   return <div css={styles}>{values.join(' - ')}</div>
 }
@@ -24,4 +24,4 @@ interface Props {
   condition: Condition
 }
 
-export default ConditionStatus
+export default ConditionCategory

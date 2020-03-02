@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ConditionSummary matches snapshot: wrapper mount 1`] = `
-.emotion-4 {
+.emotion-5 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -34,6 +34,11 @@ exports[`ConditionSummary matches snapshot: wrapper mount 1`] = `
   text-align: right;
 }
 
+.emotion-4 {
+  color: #768692;
+  text-align: left;
+}
+
 <ConditionSummary
   conditions={
     Array [
@@ -42,6 +47,17 @@ exports[`ConditionSummary matches snapshot: wrapper mount 1`] = `
           "kind": "DATE",
           "value": "2020-02-01T00:00:00+00:00",
         },
+        "category": Array [
+          Object {
+            "coding": Array [
+              Object {
+                "code": "55607006",
+                "display": "Problem",
+              },
+            ],
+            "text": "Problem",
+          },
+        ],
         "clinicalStatus": "ACTIVE",
         "code": Object {
           "coding": Array [
@@ -62,16 +78,37 @@ exports[`ConditionSummary matches snapshot: wrapper mount 1`] = `
           ],
           "requestedWhen": "",
         },
+        "severity": Object {
+          "coding": Array [
+            Object {
+              "code": "2448400",
+              "display": "Severe",
+            },
+          ],
+          "text": "Severe",
+        },
         "subject": Object {
-          "display": "Mt Peter Humble",
+          "display": "Mr Peter Humble",
           "typeName": "test",
         },
+        "verificationStatus": "CONFIRMED",
       },
       Object {
         "assertedDate": Object {
           "kind": "DATE",
           "value": "2020-01-01T00:00:00+00:00",
         },
+        "category": Array [
+          Object {
+            "coding": Array [
+              Object {
+                "code": "55607006",
+                "display": "Problem",
+              },
+            ],
+            "text": "Problem",
+          },
+        ],
         "clinicalStatus": "REMISSION",
         "code": Object {
           "coding": Array [
@@ -92,10 +129,20 @@ exports[`ConditionSummary matches snapshot: wrapper mount 1`] = `
           ],
           "requestedWhen": "",
         },
+        "severity": Object {
+          "coding": Array [
+            Object {
+              "code": "2448402",
+              "display": "Mild",
+            },
+          ],
+          "text": "Mild",
+        },
         "subject": Object {
           "display": "Mr Joe BLoggs",
           "typeName": "test",
         },
+        "verificationStatus": "REFUTED",
       },
     ]
   }
@@ -111,6 +158,17 @@ exports[`ConditionSummary matches snapshot: wrapper mount 1`] = `
               "kind": "DATE",
               "value": "2020-02-01T00:00:00+00:00",
             },
+            "category": Array [
+              Object {
+                "coding": Array [
+                  Object {
+                    "code": "55607006",
+                    "display": "Problem",
+                  },
+                ],
+                "text": "Problem",
+              },
+            ],
             "clinicalStatus": "ACTIVE",
             "code": Object {
               "coding": Array [
@@ -131,15 +189,25 @@ exports[`ConditionSummary matches snapshot: wrapper mount 1`] = `
               ],
               "requestedWhen": "",
             },
+            "severity": Object {
+              "coding": Array [
+                Object {
+                  "code": "2448400",
+                  "display": "Severe",
+                },
+              ],
+              "text": "Severe",
+            },
             "subject": Object {
-              "display": "Mt Peter Humble",
+              "display": "Mr Peter Humble",
               "typeName": "test",
             },
+            "verificationStatus": "CONFIRMED",
           }
         }
       >
         <div
-          className="emotion-4"
+          className="emotion-5"
           role="link"
         >
           <div
@@ -152,6 +220,17 @@ exports[`ConditionSummary matches snapshot: wrapper mount 1`] = `
                     "kind": "DATE",
                     "value": "2020-02-01T00:00:00+00:00",
                   },
+                  "category": Array [
+                    Object {
+                      "coding": Array [
+                        Object {
+                          "code": "55607006",
+                          "display": "Problem",
+                        },
+                      ],
+                      "text": "Problem",
+                    },
+                  ],
                   "clinicalStatus": "ACTIVE",
                   "code": Object {
                     "coding": Array [
@@ -172,10 +251,20 @@ exports[`ConditionSummary matches snapshot: wrapper mount 1`] = `
                     ],
                     "requestedWhen": "",
                   },
+                  "severity": Object {
+                    "coding": Array [
+                      Object {
+                        "code": "2448400",
+                        "display": "Severe",
+                      },
+                    ],
+                    "text": "Severe",
+                  },
                   "subject": Object {
-                    "display": "Mt Peter Humble",
+                    "display": "Mr Peter Humble",
                     "typeName": "test",
                   },
+                  "verificationStatus": "CONFIRMED",
                 }
               }
             >
@@ -185,13 +274,24 @@ exports[`ConditionSummary matches snapshot: wrapper mount 1`] = `
                 Delusional disorder, mixed type
               </div>
             </ConditionTitle>
-            <ConditionStatus
+            <ConditionCategory
               condition={
                 Object {
                   "assertedDate": Object {
                     "kind": "DATE",
                     "value": "2020-02-01T00:00:00+00:00",
                   },
+                  "category": Array [
+                    Object {
+                      "coding": Array [
+                        Object {
+                          "code": "55607006",
+                          "display": "Problem",
+                        },
+                      ],
+                      "text": "Problem",
+                    },
+                  ],
                   "clinicalStatus": "ACTIVE",
                   "code": Object {
                     "coding": Array [
@@ -212,19 +312,29 @@ exports[`ConditionSummary matches snapshot: wrapper mount 1`] = `
                     ],
                     "requestedWhen": "",
                   },
+                  "severity": Object {
+                    "coding": Array [
+                      Object {
+                        "code": "2448400",
+                        "display": "Severe",
+                      },
+                    ],
+                    "text": "Severe",
+                  },
                   "subject": Object {
-                    "display": "Mt Peter Humble",
+                    "display": "Mr Peter Humble",
                     "typeName": "test",
                   },
+                  "verificationStatus": "CONFIRMED",
                 }
               }
             >
               <div
                 className="emotion-1"
               >
-                Active
+                Problem - Severe
               </div>
-            </ConditionStatus>
+            </ConditionCategory>
           </div>
           <div>
             <ConditionDate
@@ -234,6 +344,17 @@ exports[`ConditionSummary matches snapshot: wrapper mount 1`] = `
                     "kind": "DATE",
                     "value": "2020-02-01T00:00:00+00:00",
                   },
+                  "category": Array [
+                    Object {
+                      "coding": Array [
+                        Object {
+                          "code": "55607006",
+                          "display": "Problem",
+                        },
+                      ],
+                      "text": "Problem",
+                    },
+                  ],
                   "clinicalStatus": "ACTIVE",
                   "code": Object {
                     "coding": Array [
@@ -254,10 +375,20 @@ exports[`ConditionSummary matches snapshot: wrapper mount 1`] = `
                     ],
                     "requestedWhen": "",
                   },
+                  "severity": Object {
+                    "coding": Array [
+                      Object {
+                        "code": "2448400",
+                        "display": "Severe",
+                      },
+                    ],
+                    "text": "Severe",
+                  },
                   "subject": Object {
-                    "display": "Mt Peter Humble",
+                    "display": "Mr Peter Humble",
                     "typeName": "test",
                   },
+                  "verificationStatus": "CONFIRMED",
                 }
               }
             >
@@ -267,6 +398,67 @@ exports[`ConditionSummary matches snapshot: wrapper mount 1`] = `
                 01-Feb-2020
               </div>
             </ConditionDate>
+            <ConditionStatus
+              condition={
+                Object {
+                  "assertedDate": Object {
+                    "kind": "DATE",
+                    "value": "2020-02-01T00:00:00+00:00",
+                  },
+                  "category": Array [
+                    Object {
+                      "coding": Array [
+                        Object {
+                          "code": "55607006",
+                          "display": "Problem",
+                        },
+                      ],
+                      "text": "Problem",
+                    },
+                  ],
+                  "clinicalStatus": "ACTIVE",
+                  "code": Object {
+                    "coding": Array [
+                      Object {
+                        "code": "60123008",
+                        "display": "Delusional disorder, mixed type",
+                        "system": "HEALTHPLUG",
+                      },
+                    ],
+                    "text": "Delusional disorder, mixed type",
+                  },
+                  "id": "017ca927-67e0-e581-a2c7-115087226fg2|condition",
+                  "metadata": Object {
+                    "dataSources": Array [
+                      Object {
+                        "display": "Mock",
+                      },
+                    ],
+                    "requestedWhen": "",
+                  },
+                  "severity": Object {
+                    "coding": Array [
+                      Object {
+                        "code": "2448400",
+                        "display": "Severe",
+                      },
+                    ],
+                    "text": "Severe",
+                  },
+                  "subject": Object {
+                    "display": "Mr Peter Humble",
+                    "typeName": "test",
+                  },
+                  "verificationStatus": "CONFIRMED",
+                }
+              }
+            >
+              <div
+                className="emotion-4"
+              >
+                Active - Confirmed
+              </div>
+            </ConditionStatus>
           </div>
         </div>
       </ConditionSummaryItem>
@@ -283,6 +475,17 @@ exports[`ConditionSummary matches snapshot: wrapper mount 1`] = `
               "kind": "DATE",
               "value": "2020-01-01T00:00:00+00:00",
             },
+            "category": Array [
+              Object {
+                "coding": Array [
+                  Object {
+                    "code": "55607006",
+                    "display": "Problem",
+                  },
+                ],
+                "text": "Problem",
+              },
+            ],
             "clinicalStatus": "REMISSION",
             "code": Object {
               "coding": Array [
@@ -303,15 +506,25 @@ exports[`ConditionSummary matches snapshot: wrapper mount 1`] = `
               ],
               "requestedWhen": "",
             },
+            "severity": Object {
+              "coding": Array [
+                Object {
+                  "code": "2448402",
+                  "display": "Mild",
+                },
+              ],
+              "text": "Mild",
+            },
             "subject": Object {
               "display": "Mr Joe BLoggs",
               "typeName": "test",
             },
+            "verificationStatus": "REFUTED",
           }
         }
       >
         <div
-          className="emotion-4"
+          className="emotion-5"
           role="link"
         >
           <div
@@ -324,6 +537,17 @@ exports[`ConditionSummary matches snapshot: wrapper mount 1`] = `
                     "kind": "DATE",
                     "value": "2020-01-01T00:00:00+00:00",
                   },
+                  "category": Array [
+                    Object {
+                      "coding": Array [
+                        Object {
+                          "code": "55607006",
+                          "display": "Problem",
+                        },
+                      ],
+                      "text": "Problem",
+                    },
+                  ],
                   "clinicalStatus": "REMISSION",
                   "code": Object {
                     "coding": Array [
@@ -344,10 +568,20 @@ exports[`ConditionSummary matches snapshot: wrapper mount 1`] = `
                     ],
                     "requestedWhen": "",
                   },
+                  "severity": Object {
+                    "coding": Array [
+                      Object {
+                        "code": "2448402",
+                        "display": "Mild",
+                      },
+                    ],
+                    "text": "Mild",
+                  },
                   "subject": Object {
                     "display": "Mr Joe BLoggs",
                     "typeName": "test",
                   },
+                  "verificationStatus": "REFUTED",
                 }
               }
             >
@@ -357,13 +591,24 @@ exports[`ConditionSummary matches snapshot: wrapper mount 1`] = `
                 Diabetes mellitus type 2
               </div>
             </ConditionTitle>
-            <ConditionStatus
+            <ConditionCategory
               condition={
                 Object {
                   "assertedDate": Object {
                     "kind": "DATE",
                     "value": "2020-01-01T00:00:00+00:00",
                   },
+                  "category": Array [
+                    Object {
+                      "coding": Array [
+                        Object {
+                          "code": "55607006",
+                          "display": "Problem",
+                        },
+                      ],
+                      "text": "Problem",
+                    },
+                  ],
                   "clinicalStatus": "REMISSION",
                   "code": Object {
                     "coding": Array [
@@ -384,19 +629,29 @@ exports[`ConditionSummary matches snapshot: wrapper mount 1`] = `
                     ],
                     "requestedWhen": "",
                   },
+                  "severity": Object {
+                    "coding": Array [
+                      Object {
+                        "code": "2448402",
+                        "display": "Mild",
+                      },
+                    ],
+                    "text": "Mild",
+                  },
                   "subject": Object {
                     "display": "Mr Joe BLoggs",
                     "typeName": "test",
                   },
+                  "verificationStatus": "REFUTED",
                 }
               }
             >
               <div
                 className="emotion-1"
               >
-                Remission
+                Problem - Mild
               </div>
-            </ConditionStatus>
+            </ConditionCategory>
           </div>
           <div>
             <ConditionDate
@@ -406,6 +661,17 @@ exports[`ConditionSummary matches snapshot: wrapper mount 1`] = `
                     "kind": "DATE",
                     "value": "2020-01-01T00:00:00+00:00",
                   },
+                  "category": Array [
+                    Object {
+                      "coding": Array [
+                        Object {
+                          "code": "55607006",
+                          "display": "Problem",
+                        },
+                      ],
+                      "text": "Problem",
+                    },
+                  ],
                   "clinicalStatus": "REMISSION",
                   "code": Object {
                     "coding": Array [
@@ -426,10 +692,20 @@ exports[`ConditionSummary matches snapshot: wrapper mount 1`] = `
                     ],
                     "requestedWhen": "",
                   },
+                  "severity": Object {
+                    "coding": Array [
+                      Object {
+                        "code": "2448402",
+                        "display": "Mild",
+                      },
+                    ],
+                    "text": "Mild",
+                  },
                   "subject": Object {
                     "display": "Mr Joe BLoggs",
                     "typeName": "test",
                   },
+                  "verificationStatus": "REFUTED",
                 }
               }
             >
@@ -439,6 +715,67 @@ exports[`ConditionSummary matches snapshot: wrapper mount 1`] = `
                 01-Jan-2020
               </div>
             </ConditionDate>
+            <ConditionStatus
+              condition={
+                Object {
+                  "assertedDate": Object {
+                    "kind": "DATE",
+                    "value": "2020-01-01T00:00:00+00:00",
+                  },
+                  "category": Array [
+                    Object {
+                      "coding": Array [
+                        Object {
+                          "code": "55607006",
+                          "display": "Problem",
+                        },
+                      ],
+                      "text": "Problem",
+                    },
+                  ],
+                  "clinicalStatus": "REMISSION",
+                  "code": Object {
+                    "coding": Array [
+                      Object {
+                        "code": "44054006",
+                        "display": "Diabetes mellitus type 2",
+                        "system": "HEALTHPLUG",
+                      },
+                    ],
+                    "text": "Diabetes mellitus type 2",
+                  },
+                  "id": "345ha927-34e0-e911-a2c7-005087226er3|condition",
+                  "metadata": Object {
+                    "dataSources": Array [
+                      Object {
+                        "display": "Mock",
+                      },
+                    ],
+                    "requestedWhen": "",
+                  },
+                  "severity": Object {
+                    "coding": Array [
+                      Object {
+                        "code": "2448402",
+                        "display": "Mild",
+                      },
+                    ],
+                    "text": "Mild",
+                  },
+                  "subject": Object {
+                    "display": "Mr Joe BLoggs",
+                    "typeName": "test",
+                  },
+                  "verificationStatus": "REFUTED",
+                }
+              }
+            >
+              <div
+                className="emotion-4"
+              >
+                Remission - Refuted
+              </div>
+            </ConditionStatus>
           </div>
         </div>
       </ConditionSummaryItem>
