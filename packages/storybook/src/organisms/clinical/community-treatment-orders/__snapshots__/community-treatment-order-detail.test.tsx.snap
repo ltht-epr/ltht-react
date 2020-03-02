@@ -98,12 +98,12 @@ exports[`CommunityTreatmentOrderSummary matches snapshot: wrapper mount 1`] = `
 }
 
 .emotion-4 {
-  color: #768692;
+  color: #231f20;
   margin-top: 0.5rem;
 }
 
 .emotion-5 {
-  color: #231f20;
+  color: #768692;
   margin-top: 0.25rem;
 }
 
