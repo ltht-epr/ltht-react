@@ -16,6 +16,6 @@ import GuidanceDetail from '@ltht-react/guidance-detail'
 
 ### Properties
 
-| Prop             | Required | Default | Type           | Description                                        |
-| :--------------- | :------- | :------ | :------------- | :------------------------------------------------- |
-| `medicationList` | No       |         | MedicationList | Container object for patient medication statements |
+| Prop       | Required | Default | Type     | Description                                     |
+| :--------- | :------- | :------ | :------- | :---------------------------------------------- |
+| `guidance` | No       |         | Guidance | An object containing an array of guidance notes |
