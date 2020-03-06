@@ -18,7 +18,7 @@ const GuidanceDetail: React.FC<Props> = ({ guidance = undefined }) => {
 }
 
 interface Props {
-  guidance: Guidance
+  guidance: Guidance | undefined
 }
 
 export default GuidanceDetail
