@@ -1,17 +1,17 @@
-# MedicationSummary
+# GuidanceDetail
 
 <!-- STORY -->
 
 ### Import
 
 ```js
-import MedicationSummary from '@ltht-react/medication-summary'
+import GuidanceDetail from '@ltht-react/guidance-detail'
 ```
 
 ### Usage
 
 ```jsx
-<MedicationSummary medicationList={medicationList} />
+<GuidanceDetail />
 ```
 
 ### Properties

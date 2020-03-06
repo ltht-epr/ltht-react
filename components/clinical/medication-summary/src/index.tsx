@@ -7,10 +7,10 @@ import { codeableConceptDisplaySummary as displaySummary } from '@ltht-react/uti
 
 const MedicationSummary: React.FC<Props> = ({ medicationlist = undefined }) => {
   if (!medicationlist) {
-    return <div>No Data</div>
+    return null
   }
 
-  const meds2 = new Array<JSX.Element>()
+  const meds = new Array<JSX.Element>()
 
   medicationlist.medicationStatements?.forEach(stmt => {
     const code = stmt?.medication.code
@@ -18,11 +18,11 @@ const MedicationSummary: React.FC<Props> = ({ medicationlist = undefined }) => {
       return
     }
 
-    meds2.push(<DescriptionListTerm>{displaySummary(code)}</DescriptionListTerm>)
-    meds2.push(<DescriptionListDescription>{stmt?.dosage?.map(x => x?.text).join(', ')}</DescriptionListDescription>)
+    meds.push(<DescriptionListTerm>{displaySummary(code)}</DescriptionListTerm>)
+    meds.push(<DescriptionListDescription>{stmt?.dosage?.map(x => x?.text).join(', ')}</DescriptionListDescription>)
   })
 
-  return <DescriptionList>{meds2}</DescriptionList>
+  return <DescriptionList>{meds}</DescriptionList>
 }
 
 interface Props {

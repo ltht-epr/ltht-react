@@ -366,9 +366,14 @@ export type Dosage = {
 
 export type Ehr = {
   flags?: Maybe<Array<Maybe<Flag>>>
+  guidance?: Maybe<Guidance>
 }
 
 export type EhrFlagsArgs = {
+  patientGuid: Scalars['String']
+}
+
+export type EhrGuidanceArgs = {
   patientGuid: Scalars['String']
 }
 
@@ -472,7 +477,7 @@ export type EncounterStatusHistory = {
 }
 
 export type EntryType = {
-  items?: Maybe<ItemType>
+  item?: Maybe<ItemType>
 }
 
 export type EpisodeOfCare = {
@@ -553,6 +558,14 @@ export type GpConnectDataAvailabilityArgs = {
 
 export type GpConnectMedicationListArgs = {
   nhsNumber: Scalars['String']
+}
+
+export type Guidance = {
+  extension?: Maybe<Array<Maybe<Extension>>>
+  id: Scalars['ID']
+  metadata: Metadata
+  note?: Maybe<Array<Maybe<Annotation>>>
+  text?: Maybe<Narrative>
 }
 
 export type Identifier = {
@@ -903,6 +916,8 @@ export type Yhcr = {
   allergyIntolerances?: Maybe<Array<Maybe<AllergyIntolerance>>>
   conditions?: Maybe<Array<Maybe<Condition>>>
   dataAvailability?: Maybe<DataAvailability>
+  documents?: Maybe<Array<Maybe<DocumentReference>>>
+  encounters?: Maybe<Array<Maybe<Encounter>>>
   observations?: Maybe<Array<Maybe<Observation>>>
 }
 
@@ -915,6 +930,14 @@ export type YhcrConditionsArgs = {
 }
 
 export type YhcrDataAvailabilityArgs = {
+  nhsNumber: Scalars['String']
+}
+
+export type YhcrDocumentsArgs = {
+  nhsNumber: Scalars['String']
+}
+
+export type YhcrEncountersArgs = {
   nhsNumber: Scalars['String']
 }
 
