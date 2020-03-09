@@ -11,6 +11,7 @@ const GuidanceDetail: React.FC<Props> = ({ guidance = undefined }) => {
   return (
     <UnorderedList>
       {guidance?.note?.map(n => (
+        // Force version bump
         <ListItem>{n?.text}</ListItem>
       ))}
     </UnorderedList>
