@@ -166,6 +166,7 @@ exports[`FlagSummary matches snapshot: wrapper mount 1`] = `
               "display": "Mock",
             },
           ],
+          "isRedacted": true,
           "requestedWhen": "",
         },
         "period": Object {
@@ -210,6 +211,7 @@ exports[`FlagSummary matches snapshot: wrapper mount 1`] = `
               "display": "Mock",
             },
           ],
+          "isRedacted": true,
           "requestedWhen": "",
         },
         "period": Object {
@@ -353,6 +355,7 @@ exports[`FlagSummary matches snapshot: wrapper mount 1`] = `
                             "display": "Mock",
                           },
                         ],
+                        "isRedacted": true,
                         "requestedWhen": "",
                       },
                       "period": Object {
@@ -412,6 +415,7 @@ exports[`FlagSummary matches snapshot: wrapper mount 1`] = `
                                   "display": "Mock",
                                 },
                               ],
+                              "isRedacted": true,
                               "requestedWhen": "",
                             },
                             "period": Object {
@@ -470,6 +474,7 @@ exports[`FlagSummary matches snapshot: wrapper mount 1`] = `
                                   "display": "Mock",
                                 },
                               ],
+                              "isRedacted": true,
                               "requestedWhen": "",
                             },
                             "period": Object {
@@ -530,6 +535,7 @@ exports[`FlagSummary matches snapshot: wrapper mount 1`] = `
                                   "display": "Mock",
                                 },
                               ],
+                              "isRedacted": true,
                               "requestedWhen": "",
                             },
                             "period": Object {
@@ -588,6 +594,7 @@ exports[`FlagSummary matches snapshot: wrapper mount 1`] = `
                                   "display": "Mock",
                                 },
                               ],
+                              "isRedacted": true,
                               "requestedWhen": "",
                             },
                             "period": Object {
@@ -651,6 +658,7 @@ exports[`FlagSummary matches snapshot: wrapper mount 1`] = `
                             "display": "Mock",
                           },
                         ],
+                        "isRedacted": true,
                         "requestedWhen": "",
                       },
                       "period": Object {
@@ -706,6 +714,7 @@ exports[`FlagSummary matches snapshot: wrapper mount 1`] = `
                                   "display": "Mock",
                                 },
                               ],
+                              "isRedacted": true,
                               "requestedWhen": "",
                             },
                             "period": Object {
@@ -760,6 +769,7 @@ exports[`FlagSummary matches snapshot: wrapper mount 1`] = `
                                   "display": "Mock",
                                 },
                               ],
+                              "isRedacted": true,
                               "requestedWhen": "",
                             },
                             "period": Object {
@@ -816,6 +826,7 @@ exports[`FlagSummary matches snapshot: wrapper mount 1`] = `
                                   "display": "Mock",
                                 },
                               ],
+                              "isRedacted": true,
                               "requestedWhen": "",
                             },
                             "period": Object {
@@ -870,6 +881,7 @@ exports[`FlagSummary matches snapshot: wrapper mount 1`] = `
                                   "display": "Mock",
                                 },
                               ],
+                              "isRedacted": true,
                               "requestedWhen": "",
                             },
                             "period": Object {

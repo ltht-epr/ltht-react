@@ -76,6 +76,7 @@ exports[`ConditionSummary matches snapshot: wrapper mount 1`] = `
               "display": "Mock",
             },
           ],
+          "isRedacted": true,
           "requestedWhen": "",
         },
         "severity": Object {
@@ -127,6 +128,7 @@ exports[`ConditionSummary matches snapshot: wrapper mount 1`] = `
               "display": "Mock",
             },
           ],
+          "isRedacted": true,
           "requestedWhen": "",
         },
         "severity": Object {
@@ -187,6 +189,7 @@ exports[`ConditionSummary matches snapshot: wrapper mount 1`] = `
                   "display": "Mock",
                 },
               ],
+              "isRedacted": true,
               "requestedWhen": "",
             },
             "severity": Object {
@@ -249,6 +252,7 @@ exports[`ConditionSummary matches snapshot: wrapper mount 1`] = `
                         "display": "Mock",
                       },
                     ],
+                    "isRedacted": true,
                     "requestedWhen": "",
                   },
                   "severity": Object {
@@ -310,6 +314,7 @@ exports[`ConditionSummary matches snapshot: wrapper mount 1`] = `
                         "display": "Mock",
                       },
                     ],
+                    "isRedacted": true,
                     "requestedWhen": "",
                   },
                   "severity": Object {
@@ -373,6 +378,7 @@ exports[`ConditionSummary matches snapshot: wrapper mount 1`] = `
                         "display": "Mock",
                       },
                     ],
+                    "isRedacted": true,
                     "requestedWhen": "",
                   },
                   "severity": Object {
@@ -434,6 +440,7 @@ exports[`ConditionSummary matches snapshot: wrapper mount 1`] = `
                         "display": "Mock",
                       },
                     ],
+                    "isRedacted": true,
                     "requestedWhen": "",
                   },
                   "severity": Object {
@@ -504,6 +511,7 @@ exports[`ConditionSummary matches snapshot: wrapper mount 1`] = `
                   "display": "Mock",
                 },
               ],
+              "isRedacted": true,
               "requestedWhen": "",
             },
             "severity": Object {
@@ -566,6 +574,7 @@ exports[`ConditionSummary matches snapshot: wrapper mount 1`] = `
                         "display": "Mock",
                       },
                     ],
+                    "isRedacted": true,
                     "requestedWhen": "",
                   },
                   "severity": Object {
@@ -627,6 +636,7 @@ exports[`ConditionSummary matches snapshot: wrapper mount 1`] = `
                         "display": "Mock",
                       },
                     ],
+                    "isRedacted": true,
                     "requestedWhen": "",
                   },
                   "severity": Object {
@@ -690,6 +700,7 @@ exports[`ConditionSummary matches snapshot: wrapper mount 1`] = `
                         "display": "Mock",
                       },
                     ],
+                    "isRedacted": true,
                     "requestedWhen": "",
                   },
                   "severity": Object {
@@ -751,6 +762,7 @@ exports[`ConditionSummary matches snapshot: wrapper mount 1`] = `
                         "display": "Mock",
                       },
                     ],
+                    "isRedacted": true,
                     "requestedWhen": "",
                   },
                   "severity": Object {

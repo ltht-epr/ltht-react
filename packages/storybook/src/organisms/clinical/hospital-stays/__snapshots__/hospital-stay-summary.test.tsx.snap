@@ -130,6 +130,7 @@ exports[`HospitalStaySummary matches snapshot: wrapper mount 1`] = `
               "display": "Mock",
             },
           ],
+          "isRedacted": true,
           "requestedWhen": "",
         },
         "period": Object {
@@ -155,6 +156,7 @@ exports[`HospitalStaySummary matches snapshot: wrapper mount 1`] = `
               "display": "Mock",
             },
           ],
+          "isRedacted": true,
           "requestedWhen": "",
         },
         "period": Object {
@@ -271,6 +273,7 @@ exports[`HospitalStaySummary matches snapshot: wrapper mount 1`] = `
                             "display": "Mock",
                           },
                         ],
+                        "isRedacted": true,
                         "requestedWhen": "",
                       },
                       "period": Object {
@@ -305,6 +308,7 @@ exports[`HospitalStaySummary matches snapshot: wrapper mount 1`] = `
                                   "display": "Mock",
                                 },
                               ],
+                              "isRedacted": true,
                               "requestedWhen": "",
                             },
                             "period": Object {
@@ -342,6 +346,7 @@ exports[`HospitalStaySummary matches snapshot: wrapper mount 1`] = `
                                   "display": "Mock",
                                 },
                               ],
+                              "isRedacted": true,
                               "requestedWhen": "",
                             },
                             "period": Object {
@@ -386,6 +391,7 @@ exports[`HospitalStaySummary matches snapshot: wrapper mount 1`] = `
                             "display": "Mock",
                           },
                         ],
+                        "isRedacted": true,
                         "requestedWhen": "",
                       },
                       "period": Object {
@@ -416,6 +422,7 @@ exports[`HospitalStaySummary matches snapshot: wrapper mount 1`] = `
                                   "display": "Mock",
                                 },
                               ],
+                              "isRedacted": true,
                               "requestedWhen": "",
                             },
                             "period": Object {
@@ -449,6 +456,7 @@ exports[`HospitalStaySummary matches snapshot: wrapper mount 1`] = `
                                   "display": "Mock",
                                 },
                               ],
+                              "isRedacted": true,
                               "requestedWhen": "",
                             },
                             "period": Object {
