@@ -14,6 +14,7 @@ const mockMetadata: Metadata = {
       display: 'Mock',
     },
   ],
+  isRedacted: true,
   requestedWhen: '',
 }
 

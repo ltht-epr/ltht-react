@@ -366,14 +366,14 @@ export type Dosage = {
 
 export type Ehr = {
   flags?: Maybe<Array<Maybe<Flag>>>
-  guidance?: Maybe<Guidance>
+  guidanceList?: Maybe<GuidanceList>
 }
 
 export type EhrFlagsArgs = {
   patientGuid: Scalars['String']
 }
 
-export type EhrGuidanceArgs = {
+export type EhrGuidanceListArgs = {
   patientGuid: Scalars['String']
 }
 
@@ -568,6 +568,17 @@ export type Guidance = {
   text?: Maybe<Narrative>
 }
 
+export type GuidanceList = {
+  code?: Maybe<CodeableConcept>
+  date?: Maybe<PartialDateTime>
+  entry?: Maybe<EntryType>
+  extension?: Maybe<Array<Maybe<Extension>>>
+  guidance?: Maybe<Array<Maybe<Guidance>>>
+  id: Scalars['ID']
+  metadata: Metadata
+  text?: Maybe<Narrative>
+}
+
 export type Identifier = {
   assigner?: Maybe<ResourceReference>
   extension?: Maybe<Array<Maybe<Extension>>>
@@ -586,6 +597,7 @@ export enum IdentifierUseCode {
 }
 
 export type ItemType = {
+  extension?: Maybe<Array<Maybe<Extension>>>
   reference?: Maybe<ResourceReference>
 }
 
@@ -697,8 +709,10 @@ export enum MedicationStatusCode {
 export type Metadata = {
   dataSources: Array<Maybe<Coding>>
   extension?: Maybe<Array<Maybe<Extension>>>
+  isRedacted: Scalars['Boolean']
   lastUpdated?: Maybe<Scalars['DateTimeOffset']>
   requestedWhen: Scalars['DateTimeOffset']
+  security?: Maybe<Array<Maybe<Coding>>>
   versionId?: Maybe<Scalars['String']>
 }
 
@@ -813,21 +827,6 @@ export type Period = {
   start?: Maybe<PartialDateTime>
 }
 
-export type Permission = {
-  entity?: Maybe<Scalars['Int']>
-  extension?: Maybe<Array<Maybe<Extension>>>
-  operation?: Maybe<Scalars['Int']>
-  static?: Maybe<Scalars['Int']>
-  subType?: Maybe<Scalars['Int']>
-  type: PermissionTypeCode
-}
-
-export enum PermissionTypeCode {
-  Entity = 'ENTITY',
-  Static = 'STATIC',
-  Form = 'FORM',
-}
-
 export type Quantity = {
   code?: Maybe<Scalars['String']>
   comparator?: Maybe<QuantityComparatorCode>
@@ -904,12 +903,54 @@ export enum TakenCode {
 }
 
 export type User = {
+  dataProviderPermissions?: Maybe<Array<Maybe<UserDataProviderPermission>>>
+  entityPermissions?: Maybe<Array<Maybe<UserResourcePermission>>>
+  featureFlags?: Maybe<Array<Maybe<UserFeatureFlag>>>
   id: Scalars['ID']
   metadata: Metadata
-  organisationGuid: Scalars['String']
-  permissions: Array<Maybe<Permission>>
-  userGuid: Scalars['String']
+  organisationIdentifier: Scalars['String']
   userName: Scalars['String']
+}
+
+export enum UserDataProviderPermission {
+  Ehr = 'EHR',
+  Yhcr = 'YHCR',
+  Lypft = 'LYPFT',
+  GpConnect = 'GP_CONNECT',
+}
+
+export enum UserFeatureFlag {
+  None = 'NONE',
+}
+
+export enum UserResourceOperation {
+  Create = 'CREATE',
+  Read = 'READ',
+  Update = 'UPDATE',
+  Delete = 'DELETE',
+}
+
+export type UserResourcePermission = {
+  action: UserResourceOperation
+  extension?: Maybe<Array<Maybe<Extension>>>
+  type: UserResourceType
+}
+
+export enum UserResourceType {
+  HospitalStay = 'HOSPITAL_STAY',
+  Flag = 'FLAG',
+  AllergyIntolerance = 'ALLERGY_INTOLERANCE',
+  Appointment = 'APPOINTMENT',
+  CarePlan = 'CARE_PLAN',
+  CareTeam = 'CARE_TEAM',
+  CommunityTreatmentOrder = 'COMMUNITY_TREATMENT_ORDER',
+  Condition = 'CONDITION',
+  Document = 'DOCUMENT',
+  Encounter = 'ENCOUNTER',
+  MedicationList = 'MEDICATION_LIST',
+  Observation = 'OBSERVATION',
+  Guidance = 'GUIDANCE',
+  DataAvailability = 'DATA_AVAILABILITY',
 }
 
 export type Yhcr = {
