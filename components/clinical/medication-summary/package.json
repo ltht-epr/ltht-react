@@ -1,7 +1,7 @@
 {
   "name": "@ltht-react/medication-summary",
   "version": "0.0.5",
-  "description": "ltht-react organisms MedicationSummary component.",
+  "description": "ltht-react clinical MedicationSummary component.",
   "author": "LTHT",
   "homepage": "",
   "license": "MIT",

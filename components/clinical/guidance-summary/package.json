@@ -1,7 +1,7 @@
 {
   "name": "@ltht-react/guidance-summary",
   "version": "0.0.0",
-  "description": "ltht-react organisms GuidanceSummary component.",
+  "description": "ltht-react clinical GuidanceSummary component.",
   "author": "LTHT",
   "homepage": "",
   "license": "MIT",
