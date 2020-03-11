@@ -2,7 +2,7 @@
 import React from 'react'
 import { css, jsx, SerializedStyles } from '@emotion/core'
 
-import { CARD_LIST_ITEM_BACKGROUND_HOVER } from '@ltht-react/styles'
+import { CARD_BORDER_COLOUR, CARD_LIST_ITEM_BACKGROUND_HOVER } from '@ltht-react/styles'
 import useCard from '../store/card-hook'
 
 const computeStyles = (collapsed: boolean, clickable?: boolean): SerializedStyles => {
@@ -10,7 +10,7 @@ const computeStyles = (collapsed: boolean, clickable?: boolean): SerializedStyle
     list-style: none;
     padding-left: 0.5rem;
     & li {
-      border-top: 1px solid #b0b0b0;
+      border-top: 1px solid ${CARD_BORDER_COLOUR};
       padding: 0.5rem 0.5rem 0.5rem 0;
     }
     & li:hover {

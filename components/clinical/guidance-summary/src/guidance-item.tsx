@@ -7,12 +7,12 @@ const GuidanceItem: React.FC<Props> = ({ guidance = undefined }) => {
     return null
   }
 
-  const notes = guidance.note?.map(x => <ListItem>{x?.text}</ListItem>)
+  const notes = guidance.note?.map((x, idx) => <ListItem key={idx}>{x?.text}</ListItem>)
 
   return (
     <div>
       <div>{guidance.text?.text}</div>
-      {notes ? <UnorderedList>{notes}</UnorderedList> : null}
+      {notes ? <UnorderedList bullet="disc">{notes}</UnorderedList> : null}
     </div>
   )
 }

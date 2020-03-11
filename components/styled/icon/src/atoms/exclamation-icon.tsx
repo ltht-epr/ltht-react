@@ -17,7 +17,7 @@ const ExclamationIcon: React.FC<ExclamationIconProps> = ({ status, size }) => {
     ${status === 'green' && `color: ${ICON_SUCCESS_COLOUR};`}
     ${status === 'amber' && `color: ${ICON_WARNING_COLOUR};`}
     ${status === 'red' && `color: ${ICON_DANGER_COLOUR};`}
-    ${status === 'default' && `color: ${ICON_DEFAULT_COLOUR};`}    
+    ${status === 'default' && `color: ${ICON_DEFAULT_COLOUR};`}
   `
   return <FontAwesomeIcon css={styles} icon={faExclamationTriangle} size={calculateIconSize(size)} />
 }
