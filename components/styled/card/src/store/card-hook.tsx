@@ -1,5 +1,5 @@
 import { useContext, useCallback } from 'react'
-import { CollapseButton, setCollapseButtonAction } from './card-reducer'
+import { CollapseButton, setChildrenCountAction, setCollapseButtonAction } from './card-reducer'
 import { CardContext } from './card-context'
 
 const useCard = (): CardApi => {
@@ -12,9 +12,18 @@ const useCard = (): CardApi => {
     [dispatch]
   )
 
+  const setChildrenCount = useCallback(
+    (childrenCount: number): void => {
+      dispatch(setChildrenCountAction(childrenCount))
+    },
+    [dispatch]
+  )
+
   return {
     collapseButton: state.collapseButton,
+    childrenCount: state.childrenCount,
     setCollapseButton,
+    setChildrenCount,
     noData: state.noData,
   }
 }
@@ -22,6 +31,8 @@ const useCard = (): CardApi => {
 interface CardApi {
   collapseButton: CollapseButton
   setCollapseButton(button: CollapseButton): void
+  childrenCount: number
+  setChildrenCount(childrenCount: number): void
   noData: boolean
 }
 

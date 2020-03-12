@@ -17,3 +17,6 @@ export const CARD_BORDER_COLOUR = '#b0b0b0'
 export const CARD_SHADOW_COLOUR = '#666666'
 export const CARD_LIST_ITEM_BACKGROUND_HOVER = colours.NHS_PALE_GREY
 export const CARD_LIST_ITEM_BORDER_HOVER = '#b0b0b0'
+
+export const BTN_PRIMARY_COLOUR = colours.NHS_BLUE
+export const BTN_SECONDARY_COLOUR = colours.NHS_MID_GREY

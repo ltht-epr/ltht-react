@@ -30,7 +30,12 @@ const styles = (noData: boolean): SerializedStyles => {
 
 const Card: React.FC<Props> = ({ children, collapsible = true, collapsed, noData = false }) => {
   return (
-    <CardProvider collapsible={collapsible} collapsed={collapsed} noData={noData}>
+    <CardProvider
+      collapsible={collapsible}
+      collapsed={collapsed}
+      noData={noData}
+      childrenCount={React.Children.count(children)}
+    >
       <div css={styles(noData)}>
         {children}
         {noData && <CardEmpty />}
