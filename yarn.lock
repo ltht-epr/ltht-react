@@ -2619,6 +2619,14 @@
     npmlog "^4.1.2"
     write-file-atomic "^2.3.0"
 
+"@ltht-react/types@^0.0.9":
+  version "0.0.9"
+  resolved "https://registry.yarnpkg.com/@ltht-react/types/-/types-0.0.9.tgz#0303cbcba74fc42fec0a10e62e22740deb4cd678"
+  integrity sha512-QKu0Dj9/nOfgs+Ra69mkK336BMgHgCgKyw9H/3gEynfFX5r1yY5aJREdoiIOIutDegYU8rUQPcsgSCA2opMWvA==
+  dependencies:
+    "@emotion/core" "^10.0.27"
+    "@emotion/styled" "^10.0.27"
+
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/@mrmlnc/readdir-enhanced/-/readdir-enhanced-2.2.1.tgz#524af240d1a360527b730475ecfa1344aa540dde"

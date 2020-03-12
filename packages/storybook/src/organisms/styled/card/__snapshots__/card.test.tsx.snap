@@ -83,7 +83,21 @@ Array [
 }
 
 .emotion-3 {
-  padding: 0.5rem 0 0.5rem 0.5rem;
+  padding: 0.5rem;
+}
+
+.emotion-3:before {
+  content: '';
+  display: block;
+  border-top: 1px solid #b0b0b0;
+  margin: -0.5rem -0.5rem 0.5rem 0;
+}
+
+.emotion-3:after {
+  content: '';
+  display: block;
+  border-top: 1px solid #b0b0b0;
+  margin: 0.5rem -0.5rem -0.5rem 0;
 }
 
 .emotion-4 {
@@ -92,6 +106,7 @@ Array [
 
 <Card>
     <CardProvider
+      childrenCount={3}
       collapsible={true}
       noData={false}
     >
@@ -280,6 +295,7 @@ Array [
 
 <Card>
     <CardProvider
+      childrenCount={3}
       collapsible={true}
       noData={false}
     >

@@ -234,6 +234,7 @@ exports[`FlagSummary matches snapshot: wrapper mount 1`] = `
     noData={false}
   >
     <CardProvider
+      childrenCount={2}
       collapsible={true}
       noData={false}
     >
