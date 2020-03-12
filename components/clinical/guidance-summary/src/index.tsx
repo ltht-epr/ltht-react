@@ -13,6 +13,7 @@ const styles = {
     flex-wrap: wrap;
     flex: 1 0 51%;
     margin-left: -1rem;
+    margin-top: -0.5rem;
     & > div {
       border-top: 1px solid ${CARD_BORDER_COLOUR};
       margin: 0.5rem 0 0 1rem;
