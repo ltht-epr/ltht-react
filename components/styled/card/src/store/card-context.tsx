@@ -11,7 +11,13 @@ const CardContext = createContext<CardContextState>({
   dispatch: (_action: ActionTypes): CardState => defaultState,
 })
 
-const CardProvider: React.FC<ProviderProps> = ({ children, collapsible, collapsed, noData = false, childrenCount }) => {
+const CardProvider: React.FC<ProviderProps> = ({
+  children,
+  collapsible,
+  collapsed,
+  noData = false,
+  childrenCount = 2,
+}) => {
   const initialState: CardState = {
     collapseButton: {
       showButton: noData ? false : collapsible || false,
@@ -28,7 +34,7 @@ export interface ProviderProps {
   collapsible?: boolean
   collapsed?: boolean
   noData?: boolean
-  childrenCount: number
+  childrenCount?: number
 }
 
 export { CardProvider, CardContext }
