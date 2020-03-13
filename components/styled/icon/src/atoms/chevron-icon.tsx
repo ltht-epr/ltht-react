@@ -8,10 +8,10 @@ import {
   faChevronCircleLeft,
   faChevronCircleRight,
 } from '@fortawesome/free-solid-svg-icons'
-import { ICON_DEFAULT_COLOUR, IconSizes, calculateIconSize } from '@ltht-react/styles'
+import { ICON_COLOURS, IconSizes, calculateIconSize } from '@ltht-react/styles'
 
 const styles = css`
-  color: ${ICON_DEFAULT_COLOUR};
+  color: ${ICON_COLOURS.DEFAULT};
 `
 
 const calculateIconType = (direction: IconDirection): IconTypes => {

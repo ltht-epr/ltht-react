@@ -7,11 +7,13 @@ export const TEXT_COLOURS = {
   INFO: colours.NHS_DARK_BLUE.VALUE,
 }
 
-export const ICON_PRIMARY_COLOUR = colours.NHS_BLACK
-export const ICON_DANGER_COLOUR = colours.NHS_EMERGENCY_SERVICES_RED
-export const ICON_WARNING_COLOUR = colours.NHS_ORANGE
-export const ICON_SUCCESS_COLOUR = colours.NHS_GREEN
-export const ICON_DEFAULT_COLOUR = colours.NHS_MID_GREY
+export const ICON_COLOURS = {
+  PRIMARY: colours.NHS_BLACK,
+  DANGER: colours.NHS_EMERGENCY_SERVICES_RED,
+  WARNING: colours.NHS_ORANGE,
+  SUCCESS: colours.NHS_GREEN,
+  DEFAULT: colours.NHS_MID_GREY,
+}
 
 export const CARD_BACKGROUND_COLOUR = colours.NHS_WHITE
 export const CARD_BACKGROUND_COLOUR_NO_DATA = '#F2F2F2'

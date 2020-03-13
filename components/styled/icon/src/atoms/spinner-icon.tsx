@@ -3,10 +3,10 @@ import React from 'react'
 import { css, jsx } from '@emotion/core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSync } from '@fortawesome/free-solid-svg-icons'
-import { ICON_PRIMARY_COLOUR, IconSizes, calculateIconSize } from '@ltht-react/styles'
+import { ICON_COLOURS, IconSizes, calculateIconSize } from '@ltht-react/styles'
 
 const styles = css`
-  color: ${ICON_PRIMARY_COLOUR};
+  color: ${ICON_COLOURS.PRIMARY};
 `
 
 const SpinnerIcon: React.FC<Props> = ({ size }) => {

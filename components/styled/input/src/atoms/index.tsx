@@ -1,1 +1,1 @@
-export { default as RadioButton } from './radio'
+export * from './radio'
