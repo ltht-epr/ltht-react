@@ -1,12 +1,12 @@
 /** @jsx jsx */
 import React from 'react'
 import { css, jsx } from '@emotion/core'
-import { TEXT_PRIMARY_COLOUR } from '@ltht-react/styles'
+import { TEXT_COLOURS } from '@ltht-react/styles'
 
 const styles = css`
   list-style: none;
   padding-left: 0.5rem;
-  color: ${TEXT_PRIMARY_COLOUR};
+  color: ${TEXT_COLOURS.PRIMARY};
   text-align: center;
 `
 

@@ -79,7 +79,9 @@ Array [
 }
 
 .emotion-0 {
-  color: #768692;
+  color: -v-a-l-u-e:#768692;
+  -d-a-r-k-e-r25: #59656e;
+  -l-i-g-h-t-e-r25: #98a4ad;
 }
 
 .emotion-3 {
@@ -276,7 +278,9 @@ Array [
 }
 
 .emotion-0 {
-  color: #768692;
+  color: -v-a-l-u-e:#768692;
+  -d-a-r-k-e-r25: #59656e;
+  -l-i-g-h-t-e-r25: #98a4ad;
 }
 
 .emotion-4 {

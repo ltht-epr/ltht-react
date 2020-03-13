@@ -1,5 +1,5 @@
 import { css } from '@emotion/core'
-import { TEXT_PRIMARY_COLOUR } from './colours'
+import { TEXT_COLOURS } from './colours'
 import { TABLET_MEDIA_QUERY, DESKTOP_MEDIA_QUERY, WIDESCREEN_MEDIA_QUERY } from './media-queries'
 
 const CSS_RESET = css`
@@ -14,7 +14,7 @@ const CSS_RESET = css`
     margin: 0;
     padding: 0;
   }
-  color: ${TEXT_PRIMARY_COLOUR};
+  color: ${TEXT_COLOURS.PRIMARY};
   font-family: 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 0.8rem;
 

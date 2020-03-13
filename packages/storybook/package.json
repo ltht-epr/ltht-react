@@ -65,6 +65,7 @@
     "@ltht-react/hospital-stay-detail": "^0.0.5",
     "@ltht-react/hospital-stay-summary": "^0.1.5",
     "@ltht-react/icon": "^0.1.4",
+    "@ltht-react/input": "^0.0.0",
     "@ltht-react/involved-team-detail": "^0.0.4",
     "@ltht-react/involved-team-summary": "^0.1.5",
     "@ltht-react/list": "^0.1.5",

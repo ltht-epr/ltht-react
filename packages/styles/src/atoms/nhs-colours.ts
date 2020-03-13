@@ -1,15 +1,31 @@
-export const NHS_DARK_BLUE = '#003087'
 export const NHS_BLUE = '#005EB8'
-export const NHS_BRIGHT_BLUE = '#0072CE'
-export const NHS_LIGHT_BLUE = '#41B6E6'
 export const NHS_AQUA_BLUE = '#00A9CE'
+export const NHS_BRIGHT_BLUE = '#0072CE'
+export const NHS_LIGHT_BLUE = {
+  VALUE: '#41B6E6',
+  DARKER25: '#3189ad',
+  LIGHTER25: '#71c8ec',
+}
+export const NHS_DARK_BLUE = {
+  VALUE: '#003087',
+  DARKER25: '#002a6e',
+  LIGHTER25: '#406aae',
+}
 export const NHS_BLACK = '#231f20'
 export const NHS_DARK_GREY = '#425563'
-export const NHS_MID_GREY = '#768692'
+export const NHS_MID_GREY = {
+  VALUE: '#768692',
+  DARKER25: '#59656e',
+  LIGHTER25: '#98a4ad',
+}
 export const NHS_PALE_GREY = '#E8EDEE'
 export const NHS_WHITE = '#FFFFFF'
 export const NHS_DARK_GREEN = '#006747'
-export const NHS_GREEN = '#009639'
+export const NHS_GREEN = {
+  VALUE: '#009639',
+  DARKER25: '#00712b',
+  LIGHTER25: '#40b06b',
+}
 export const NHS_LIGHT_GREEN = '#78BE20'
 export const NHS_AQUA_GREEN = '#00A499'
 export const NHS_PURPLE = '#330072'

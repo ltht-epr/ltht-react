@@ -25,7 +25,9 @@ exports[`ConditionSummary matches snapshot: wrapper mount 1`] = `
 }
 
 .emotion-1 {
-  color: #768692;
+  color: -v-a-l-u-e:#768692;
+  -d-a-r-k-e-r25: #59656e;
+  -l-i-g-h-t-e-r25: #98a4ad;
   text-align: left;
 }
 
@@ -35,7 +37,9 @@ exports[`ConditionSummary matches snapshot: wrapper mount 1`] = `
 }
 
 .emotion-4 {
-  color: #768692;
+  color: -v-a-l-u-e:#768692;
+  -d-a-r-k-e-r25: #59656e;
+  -l-i-g-h-t-e-r25: #98a4ad;
   text-align: left;
 }
 

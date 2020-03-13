@@ -78,7 +78,9 @@ exports[`AppointmentSummary matches snapshot: wrapper mount 1`] = `
 }
 
 .emotion-0 {
-  color: #768692;
+  color: -v-a-l-u-e:#768692;
+  -d-a-r-k-e-r25: #59656e;
+  -l-i-g-h-t-e-r25: #98a4ad;
 }
 
 .emotion-15 {
@@ -121,12 +123,16 @@ exports[`AppointmentSummary matches snapshot: wrapper mount 1`] = `
 }
 
 .emotion-6 {
-  color: #768692;
+  color: -v-a-l-u-e:#768692;
+  -d-a-r-k-e-r25: #59656e;
+  -l-i-g-h-t-e-r25: #98a4ad;
   text-align: right;
 }
 
 .emotion-7 {
-  color: #768692;
+  color: -v-a-l-u-e:#768692;
+  -d-a-r-k-e-r25: #59656e;
+  -l-i-g-h-t-e-r25: #98a4ad;
   text-align: right;
 }
 

@@ -28,31 +28,33 @@ stories.addParameters({
   showPanel: false,
 })
 
-stories.addWithJSX('Readonly Cards', () => (
-  <Container>
-    <Column>
-      <FlagSummary title="Alerts" flags={[flags.FlagOne, flags.FlagTwo]} />
-      <AllergySummary allergies={[allergies.AllergyOne, allergies.AllergyTwo]} />
-      <CommunityTreatmentOrderSummary
-        communityTreatmentOrders={[
-          communityOrders.CommunityTreatmentOrderOne,
-          communityOrders.CommunityTreatmentOrderTwo,
-        ]}
-      />
-      <CarePlanSummary carePlans={[carePlans.CarePlanOne, carePlans.CarePlanTwo]} />
-    </Column>
-    <Column>
-      <InvolvedTeamSummary episodeOfCares={[episodeOfCares.InvolvedTeamOne, episodeOfCares.InvolvedTeamTwo]} />
-      <AppointmentSummary title="Future Appointments" encounters={[]} />
-      <AppointmentSummary
-        title="Future Appointments"
-        encounters={[appointments.AppointmentOne, appointments.AppointmentTwo]}
-      />
-      <AppointmentSummary
-        title="Previous Appointments"
-        encounters={[appointments.AppointmentOne, appointments.AppointmentTwo]}
-      />
-      <HospitalStaySummary hospitalStays={[hospitalStays.HospitalStayOne, hospitalStays.HospitalStayTwo]} />
-    </Column>
-  </Container>
-))
+stories.addWithJSX('Readonly Cards', () => {
+  return (
+    <Container>
+      <Column>
+        <FlagSummary title="Alerts" flags={[flags.FlagOne, flags.FlagTwo]} />
+        <AllergySummary allergies={[allergies.AllergyOne, allergies.AllergyTwo]} />
+        <CommunityTreatmentOrderSummary
+          communityTreatmentOrders={[
+            communityOrders.CommunityTreatmentOrderOne,
+            communityOrders.CommunityTreatmentOrderTwo,
+          ]}
+        />
+        <CarePlanSummary carePlans={[carePlans.CarePlanOne, carePlans.CarePlanTwo]} />
+      </Column>
+      <Column>
+        <InvolvedTeamSummary episodeOfCares={[episodeOfCares.InvolvedTeamOne, episodeOfCares.InvolvedTeamTwo]} />
+        <AppointmentSummary title="Future Appointments" encounters={[]} />
+        <AppointmentSummary
+          title="Future Appointments"
+          encounters={[appointments.AppointmentOne, appointments.AppointmentTwo]}
+        />
+        <AppointmentSummary
+          title="Previous Appointments"
+          encounters={[appointments.AppointmentOne, appointments.AppointmentTwo]}
+        />
+        <HospitalStaySummary hospitalStays={[hospitalStays.HospitalStayOne, hospitalStays.HospitalStayTwo]} />
+      </Column>
+    </Container>
+  )
+})

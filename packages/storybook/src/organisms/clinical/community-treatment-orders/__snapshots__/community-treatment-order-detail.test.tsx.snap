@@ -85,7 +85,9 @@ exports[`CommunityTreatmentOrderSummary matches snapshot: wrapper mount 1`] = `
 }
 
 .emotion-1 {
-  color: #768692;
+  color: -v-a-l-u-e:#768692;
+  -d-a-r-k-e-r25: #59656e;
+  -l-i-g-h-t-e-r25: #98a4ad;
 }
 
 .emotion-16 {
@@ -110,7 +112,9 @@ exports[`CommunityTreatmentOrderSummary matches snapshot: wrapper mount 1`] = `
 }
 
 .emotion-5 {
-  color: #768692;
+  color: -v-a-l-u-e:#768692;
+  -d-a-r-k-e-r25: #59656e;
+  -l-i-g-h-t-e-r25: #98a4ad;
   margin-top: 0.25rem;
 }
 
