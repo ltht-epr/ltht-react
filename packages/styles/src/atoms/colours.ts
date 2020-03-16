@@ -1,5 +1,9 @@
 import * as colours from './nhs-colours'
 
+export const INPUT_COLOURS = {
+  RADIO_SELECTED: colours.NHS_LIGHT_GREEN.LIGHTER75,
+}
+
 export const TEXT_COLOURS = {
   PRIMARY: colours.NHS_BLACK,
   SECONDARY: colours.NHS_MID_GREY,
@@ -48,5 +52,3 @@ export const BTN_COLOURS = {
     TEXT: colours.NHS_WHITE,
   },
 }
-
-export const BTN_SECONDARY_COLOUR = colours.NHS_MID_GREY

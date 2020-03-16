@@ -21,7 +21,7 @@ export const styles = (checked: boolean): SerializedStyles => {
   `
 }
 
-const RadioButton: React.FC<Props> = ({ id, value, checked = false, label, changeHandler }) => {
+const Checkbox: React.FC<Props> = ({ id, value, checked = false, label, changeHandler }) => {
   return (
     <div css={styles(checked)}>
       <input id={id} onChange={changeHandler} value={value} type="radio" checked={checked} />
@@ -38,4 +38,4 @@ interface Props {
   changeHandler(e: React.ChangeEvent<HTMLInputElement>): void
 }
 
-export default RadioButton
+export default Checkbox
