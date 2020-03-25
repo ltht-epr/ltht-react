@@ -283,6 +283,13 @@ export type DataAvailability = {
   metadata: Metadata
 }
 
+export enum DataProviderPermission {
+  Ehr = 'EHR',
+  Yhcr = 'YHCR',
+  Lypft = 'LYPFT',
+  GpConnect = 'GP_CONNECT',
+}
+
 export type DocumentReference = {
   authenticator?: Maybe<ResourceReference>
   author?: Maybe<Array<Maybe<ResourceReference>>>
@@ -375,6 +382,7 @@ export type EhrFlagsArgs = {
 
 export type EhrGuidanceListArgs = {
   patientGuid: Scalars['String']
+  instanceSetGuid: Scalars['String']
 }
 
 export type Encounter = {
@@ -476,6 +484,39 @@ export type EncounterStatusHistory = {
   status?: Maybe<EncounterStatusCode>
 }
 
+export enum EntityAction {
+  Create = 'CREATE',
+  Read = 'READ',
+  Update = 'UPDATE',
+  Delete = 'DELETE',
+}
+
+export type EntityPermission = {
+  actions: Array<EntityAction>
+  extension?: Maybe<Array<Maybe<Extension>>>
+  type: EntityType
+}
+
+export enum EntityType {
+  HospitalStay = 'HOSPITAL_STAY',
+  Flag = 'FLAG',
+  Patient = 'PATIENT',
+  AllergyIntolerance = 'ALLERGY_INTOLERANCE',
+  Appointment = 'APPOINTMENT',
+  CarePlan = 'CARE_PLAN',
+  CareTeam = 'CARE_TEAM',
+  CommunityTreatmentOrder = 'COMMUNITY_TREATMENT_ORDER',
+  Condition = 'CONDITION',
+  Document = 'DOCUMENT',
+  Encounter = 'ENCOUNTER',
+  MedicationList = 'MEDICATION_LIST',
+  Observation = 'OBSERVATION',
+  Guidance = 'GUIDANCE',
+  Task = 'TASK',
+  DataAvailability = 'DATA_AVAILABILITY',
+  IamToken = 'IAM_TOKEN',
+}
+
 export type EntryType = {
   item?: Maybe<ItemType>
 }
@@ -526,6 +567,26 @@ export type Extension = {
   url: Scalars['String']
   valueCodeableConcept?: Maybe<CodeableConcept>
   valueString: Scalars['String']
+}
+
+export enum FeatureInstance {
+  FormsForHealth = 'FORMS_FOR_HEALTH',
+  EMedsAccess = 'E_MEDS_ACCESS',
+  PacsAccess = 'PACS_ACCESS',
+  TestToggle = 'TEST_TOGGLE',
+}
+
+export type FeatureToggle = {
+  extension?: Maybe<Array<Maybe<Extension>>>
+  feature: FeatureInstance
+  message?: Maybe<Scalars['String']>
+  status: FeatureToggleStatus
+}
+
+export enum FeatureToggleStatus {
+  Visible = 'VISIBLE',
+  Hidden = 'HIDDEN',
+  Message = 'MESSAGE',
 }
 
 export type Flag = {
@@ -599,6 +660,18 @@ export enum IdentifierUseCode {
 export type ItemType = {
   extension?: Maybe<Array<Maybe<Extension>>>
   reference?: Maybe<ResourceReference>
+}
+
+export enum LaunchApp {
+  Forms = 'FORMS',
+  Alfresco = 'ALFRESCO',
+}
+
+export type LaunchPermission = {
+  application: LaunchApp
+  extension?: Maybe<Array<Maybe<Extension>>>
+  intents: Array<Scalars['String']>
+  resource: Scalars['String']
 }
 
 export type Lypft = {
@@ -903,54 +976,15 @@ export enum TakenCode {
 }
 
 export type User = {
-  dataProviderPermissions?: Maybe<Array<Maybe<UserDataProviderPermission>>>
-  entityPermissions?: Maybe<Array<Maybe<UserResourcePermission>>>
-  featureFlags?: Maybe<Array<Maybe<UserFeatureFlag>>>
+  dataProviderPermissions?: Maybe<Array<Maybe<DataProviderPermission>>>
+  entityPermissions?: Maybe<Array<Maybe<EntityPermission>>>
+  featureToggles?: Maybe<Array<Maybe<FeatureToggle>>>
+  fullName: Scalars['String']
   id: Scalars['ID']
+  launchPermissions?: Maybe<Array<Maybe<LaunchPermission>>>
   metadata: Metadata
   organisationIdentifier: Scalars['String']
   userName: Scalars['String']
-}
-
-export enum UserDataProviderPermission {
-  Ehr = 'EHR',
-  Yhcr = 'YHCR',
-  Lypft = 'LYPFT',
-  GpConnect = 'GP_CONNECT',
-}
-
-export enum UserFeatureFlag {
-  None = 'NONE',
-}
-
-export enum UserResourceOperation {
-  Create = 'CREATE',
-  Read = 'READ',
-  Update = 'UPDATE',
-  Delete = 'DELETE',
-}
-
-export type UserResourcePermission = {
-  action: UserResourceOperation
-  extension?: Maybe<Array<Maybe<Extension>>>
-  type: UserResourceType
-}
-
-export enum UserResourceType {
-  HospitalStay = 'HOSPITAL_STAY',
-  Flag = 'FLAG',
-  AllergyIntolerance = 'ALLERGY_INTOLERANCE',
-  Appointment = 'APPOINTMENT',
-  CarePlan = 'CARE_PLAN',
-  CareTeam = 'CARE_TEAM',
-  CommunityTreatmentOrder = 'COMMUNITY_TREATMENT_ORDER',
-  Condition = 'CONDITION',
-  Document = 'DOCUMENT',
-  Encounter = 'ENCOUNTER',
-  MedicationList = 'MEDICATION_LIST',
-  Observation = 'OBSERVATION',
-  Guidance = 'GUIDANCE',
-  DataAvailability = 'DATA_AVAILABILITY',
 }
 
 export type Yhcr = {
