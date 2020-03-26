@@ -16,4 +16,4 @@ stories.addParameters({
   },
 })
 
-stories.addWithJSX('Summary', () => <FlagSummary title="Alerts" flags={[fixtures.FlagOne, fixtures.FlagTwo]} />)
+stories.addWithJSX('Summary', () => <FlagSummary flags={[fixtures.FlagOne, fixtures.FlagTwo]} />)

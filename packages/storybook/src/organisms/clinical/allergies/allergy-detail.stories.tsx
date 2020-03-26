@@ -16,4 +16,4 @@ stories.addParameters({
   },
 })
 
-stories.addWithJSX('Detail', () => <AllergyDetailItem title="Allergy" allergy={fixtures.AllergyOne} />)
+stories.addWithJSX('Detail', () => <AllergyDetailItem allergy={fixtures.AllergyOne} />)

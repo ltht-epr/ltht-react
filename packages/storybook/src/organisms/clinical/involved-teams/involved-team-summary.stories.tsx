@@ -16,5 +16,5 @@ stories.addParameters({
 })
 
 stories.addWithJSX('Summary', () => (
-  <InvolvedTeamSummary title="Involved Teams" episodeOfCares={[fixtures.InvolvedTeamOne, fixtures.InvolvedTeamTwo]} />
+  <InvolvedTeamSummary episodeOfCares={[fixtures.InvolvedTeamOne, fixtures.InvolvedTeamTwo]} />
 ))

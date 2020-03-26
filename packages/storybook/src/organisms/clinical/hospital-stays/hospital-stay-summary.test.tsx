@@ -9,11 +9,9 @@ describe('HospitalStaySummary', () => {
   const hospitalStays = [HospitalStayOne, HospitalStayTwo]
   it('renders without crashing', () => {
     const div = document.createElement('div')
-    ReactDOM.render(<HospitalStaySummary title="Hospital Stays" hospitalStays={hospitalStays} />, div)
+    ReactDOM.render(<HospitalStaySummary hospitalStays={hospitalStays} />, div)
   })
   it('matches snapshot', () => {
-    expect(mount(<HospitalStaySummary title="Hospital Stays" hospitalStays={hospitalStays} />)).toMatchSnapshot(
-      'wrapper mount'
-    )
+    expect(mount(<HospitalStaySummary hospitalStays={hospitalStays} />)).toMatchSnapshot('wrapper mount')
   })
 })

@@ -9,9 +9,9 @@ describe('FlagSummary', () => {
   const flags = [FlagOne, FlagTwo]
   it('renders without crashing', () => {
     const div = document.createElement('div')
-    ReactDOM.render(<FlagSummary title="Alerts" flags={flags} />, div)
+    ReactDOM.render(<FlagSummary flags={flags} />, div)
   })
   it('matches snapshot', () => {
-    expect(mount(<FlagSummary title="Alerts" flags={flags} />)).toMatchSnapshot('wrapper mount')
+    expect(mount(<FlagSummary flags={flags} />)).toMatchSnapshot('wrapper mount')
   })
 })

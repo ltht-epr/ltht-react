@@ -9,22 +9,11 @@ describe('CommunityTreatmentOrderSummary', () => {
   const communityTreatmentOrder = CommunityTreatmentOrderOne
   it('renders without crashing', () => {
     const div = document.createElement('div')
-    ReactDOM.render(
-      <CommunityTreatmentOrderDetail
-        title="Community Treatment Order"
-        communityTreatmentOrder={communityTreatmentOrder}
-      />,
-      div
-    )
+    ReactDOM.render(<CommunityTreatmentOrderDetail communityTreatmentOrder={communityTreatmentOrder} />, div)
   })
   it('matches snapshot', () => {
-    expect(
-      mount(
-        <CommunityTreatmentOrderDetail
-          title="Community Treatment Order"
-          communityTreatmentOrder={communityTreatmentOrder}
-        />
-      )
-    ).toMatchSnapshot('wrapper mount')
+    expect(mount(<CommunityTreatmentOrderDetail communityTreatmentOrder={communityTreatmentOrder} />)).toMatchSnapshot(
+      'wrapper mount'
+    )
   })
 })

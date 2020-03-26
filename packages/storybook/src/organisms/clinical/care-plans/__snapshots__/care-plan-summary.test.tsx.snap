@@ -1,99 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CarePlanSummary matches snapshot: wrapper mount 1`] = `
-.emotion-16 {
-  color: #231f20;
-  font-family: 'SF Pro Text','SF Pro Icons','Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size: 0.8rem;
-  background: #FFFFFF;
-  color: #231f20;
-  margin-bottom: 0.5rem;
-  border-radius: 4px;
-  box-shadow: 0px 2px 1px -1px rgba(102,102,102,0.1), 0px 1px 1px 0px rgba(102,102,102,0.15), 0px 1px 3px 0px rgba(102,102,102,.6);
-  margin: 0 5px 10px 0;
-  -webkit-font-smoothing: antialiased;
-}
-
-.emotion-16 *,
-.emotion-16 ::before,
-.emotion-16 ::after {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-
-.emotion-16 * {
-  margin: 0;
-  padding: 0;
-}
-
-.emotion-16 h3 {
-  font-size: 1rem;
-}
-
-@media only screen and (min-width:768px) {
-  .emotion-16 {
-    font-size: 0.9rem;
-  }
-
-  .emotion-16 h3 {
-    font-size: 1.1rem;
-  }
-}
-
-@media only screen and (min-width:1024px) {
-  .emotion-16 {
-    font-size: 1rem;
-  }
-
-  .emotion-16 h3 {
-    font-size: 1.2rem;
-  }
-}
-
-@media only screen and (min-width:1200px) {
-  .emotion-16 {
-    font-size: 1.1rem;
-  }
-
-  .emotion-16 h3 {
-    font-size: 1.3rem;
-  }
-}
-
-.emotion-2 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  padding: 0.5rem;
-}
-
-.emotion-2:hover {
-  cursor: pointer;
-}
-
-.emotion-0 {
-  color: -v-a-l-u-e:#768692;
-  -d-a-r-k-e-r25: #59656e;
-  -l-i-g-h-t-e-r25: #98a4ad;
-}
-
-.emotion-15 {
-  list-style: none;
-  padding-left: 0.5rem;
-}
-
-.emotion-15 li {
-  border-top: 1px solid #b0b0b0;
-  padding: 0.5rem 0.5rem 0.5rem 0;
-}
-
-.emotion-8 {
+.emotion-5 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -104,31 +12,31 @@ exports[`CarePlanSummary matches snapshot: wrapper mount 1`] = `
   justify-content: center;
 }
 
-.emotion-5 {
+.emotion-2 {
   -webkit-box-flex: 1;
   -webkit-flex-grow: 1;
   -ms-flex-positive: 1;
   flex-grow: 1;
 }
 
-.emotion-3 {
+.emotion-0 {
   color: #231f20;
   text-align: left;
 }
 
-.emotion-4 {
+.emotion-1 {
   color: -v-a-l-u-e:#768692;
   -d-a-r-k-e-r25: #59656e;
   -l-i-g-h-t-e-r25: #98a4ad;
   text-align: left;
 }
 
-.emotion-6 {
+.emotion-3 {
   color: #231f20;
   text-align: right;
 }
 
-.emotion-7 {
+.emotion-4 {
   color: -v-a-l-u-e:#768692;
   -d-a-r-k-e-r25: #59656e;
   -l-i-g-h-t-e-r25: #98a4ad;
@@ -223,637 +131,545 @@ exports[`CarePlanSummary matches snapshot: wrapper mount 1`] = `
       },
     ]
   }
-  title="Care Plans"
 >
-  <Card
-    noData={false}
+  <ListItem
+    key="580ca927-34e0-e911-a2c7-005056926fe4|careplan"
   >
-    <CardProvider
-      childrenCount={2}
-      collapsible={true}
-      noData={false}
-    >
-      <div
-        className="emotion-16"
+    <li>
+      <CarePlanSummaryItem
+        carePlan={
+          Object {
+            "author": Array [
+              Object {
+                "display": "Dr Joe Bloggs",
+                "typeName": "Test",
+              },
+              Object {
+                "display": "Dr Adam Careplan",
+                "typeName": "Test",
+              },
+            ],
+            "careTeam": Array [
+              Object {
+                "display": "LYPFT Care Team 1",
+                "typeName": "Team",
+              },
+            ],
+            "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo",
+            "id": "580ca927-34e0-e911-a2c7-005056926fe4|careplan",
+            "intent": "PLAN",
+            "metadata": Object {
+              "dataSources": Array [
+                Object {
+                  "display": "Mock",
+                },
+              ],
+              "isRedacted": true,
+              "requestedWhen": "",
+            },
+            "period": Object {
+              "end": Object {
+                "kind": "DATE",
+                "value": "2014-02-02T00:00:00+00:00",
+              },
+              "start": Object {
+                "kind": "DATE",
+                "value": "2013-01-01T00:00:00+00:00",
+              },
+            },
+            "status": "ACTIVE",
+            "text": Object {
+              "div": "",
+              "text": "Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
+            },
+            "title": "Mental Health Crisis Plan",
+          }
+        }
       >
-        <CardHeader>
+        <div
+          className="emotion-5"
+          role="link"
+        >
           <div
             className="emotion-2"
-            onClick={[Function]}
-            title="Click to collapse"
           >
-            <div>
-              <h3>
-                Care Plans
-              </h3>
-            </div>
-            <div>
-              <ChevronCircleIcon
-                direction="down"
-                size="medium"
+            <CarePlanTitle
+              carePlan={
+                Object {
+                  "author": Array [
+                    Object {
+                      "display": "Dr Joe Bloggs",
+                      "typeName": "Test",
+                    },
+                    Object {
+                      "display": "Dr Adam Careplan",
+                      "typeName": "Test",
+                    },
+                  ],
+                  "careTeam": Array [
+                    Object {
+                      "display": "LYPFT Care Team 1",
+                      "typeName": "Team",
+                    },
+                  ],
+                  "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo",
+                  "id": "580ca927-34e0-e911-a2c7-005056926fe4|careplan",
+                  "intent": "PLAN",
+                  "metadata": Object {
+                    "dataSources": Array [
+                      Object {
+                        "display": "Mock",
+                      },
+                    ],
+                    "isRedacted": true,
+                    "requestedWhen": "",
+                  },
+                  "period": Object {
+                    "end": Object {
+                      "kind": "DATE",
+                      "value": "2014-02-02T00:00:00+00:00",
+                    },
+                    "start": Object {
+                      "kind": "DATE",
+                      "value": "2013-01-01T00:00:00+00:00",
+                    },
+                  },
+                  "status": "ACTIVE",
+                  "text": Object {
+                    "div": "",
+                    "text": "Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
+                  },
+                  "title": "Mental Health Crisis Plan",
+                }
+              }
+            >
+              <div
+                className="emotion-0"
               >
-                <FontAwesomeIcon
-                  border={false}
-                  className="emotion-0"
-                  fixedWidth={false}
-                  flip={null}
-                  icon={
+                Mental Health Crisis Plan
+              </div>
+            </CarePlanTitle>
+            <CarePlanDescription
+              carePlan={
+                Object {
+                  "author": Array [
                     Object {
-                      "icon": Array [
-                        512,
-                        512,
-                        Array [],
-                        "f13a",
-                        "M504 256c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zM273 369.9l135.5-135.5c9.4-9.4 9.4-24.6 0-33.9l-17-17c-9.4-9.4-24.6-9.4-33.9 0L256 285.1 154.4 183.5c-9.4-9.4-24.6-9.4-33.9 0l-17 17c-9.4 9.4-9.4 24.6 0 33.9L239 369.9c9.4 9.4 24.6 9.4 34 0z",
-                      ],
-                      "iconName": "chevron-circle-down",
-                      "prefix": "fas",
-                    }
-                  }
-                  inverse={false}
-                  listItem={false}
-                  mask={null}
-                  pull={null}
-                  pulse={false}
-                  rotation={null}
-                  size="sm"
-                  spin={false}
-                  swapOpacity={false}
-                  symbol={false}
-                  title=""
-                  transform={null}
-                >
-                  <svg
-                    aria-hidden="true"
-                    className="svg-inline--fa fa-chevron-circle-down fa-w-16 fa-sm emotion-0"
-                    data-icon="chevron-circle-down"
-                    data-prefix="fas"
-                    focusable="false"
-                    role="img"
-                    style={Object {}}
-                    viewBox="0 0 512 512"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M504 256c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zM273 369.9l135.5-135.5c9.4-9.4 9.4-24.6 0-33.9l-17-17c-9.4-9.4-24.6-9.4-33.9 0L256 285.1 154.4 183.5c-9.4-9.4-24.6-9.4-33.9 0l-17 17c-9.4 9.4-9.4 24.6 0 33.9L239 369.9c9.4 9.4 24.6 9.4 34 0z"
-                      fill="currentColor"
-                      style={Object {}}
-                    />
-                  </svg>
-                </FontAwesomeIcon>
-              </ChevronCircleIcon>
-            </div>
+                      "display": "Dr Joe Bloggs",
+                      "typeName": "Test",
+                    },
+                    Object {
+                      "display": "Dr Adam Careplan",
+                      "typeName": "Test",
+                    },
+                  ],
+                  "careTeam": Array [
+                    Object {
+                      "display": "LYPFT Care Team 1",
+                      "typeName": "Team",
+                    },
+                  ],
+                  "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo",
+                  "id": "580ca927-34e0-e911-a2c7-005056926fe4|careplan",
+                  "intent": "PLAN",
+                  "metadata": Object {
+                    "dataSources": Array [
+                      Object {
+                        "display": "Mock",
+                      },
+                    ],
+                    "isRedacted": true,
+                    "requestedWhen": "",
+                  },
+                  "period": Object {
+                    "end": Object {
+                      "kind": "DATE",
+                      "value": "2014-02-02T00:00:00+00:00",
+                    },
+                    "start": Object {
+                      "kind": "DATE",
+                      "value": "2013-01-01T00:00:00+00:00",
+                    },
+                  },
+                  "status": "ACTIVE",
+                  "text": Object {
+                    "div": "",
+                    "text": "Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
+                  },
+                  "title": "Mental Health Crisis Plan",
+                }
+              }
+            >
+              <div
+                className="emotion-1"
+              >
+                Dr Joe Bloggs, Dr Adam Careplan - LYPFT Care Team 1
+              </div>
+            </CarePlanDescription>
           </div>
-        </CardHeader>
-        <CardList
-          clickable={false}
+          <div>
+            <CarePlanDate
+              carePlan={
+                Object {
+                  "author": Array [
+                    Object {
+                      "display": "Dr Joe Bloggs",
+                      "typeName": "Test",
+                    },
+                    Object {
+                      "display": "Dr Adam Careplan",
+                      "typeName": "Test",
+                    },
+                  ],
+                  "careTeam": Array [
+                    Object {
+                      "display": "LYPFT Care Team 1",
+                      "typeName": "Team",
+                    },
+                  ],
+                  "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo",
+                  "id": "580ca927-34e0-e911-a2c7-005056926fe4|careplan",
+                  "intent": "PLAN",
+                  "metadata": Object {
+                    "dataSources": Array [
+                      Object {
+                        "display": "Mock",
+                      },
+                    ],
+                    "isRedacted": true,
+                    "requestedWhen": "",
+                  },
+                  "period": Object {
+                    "end": Object {
+                      "kind": "DATE",
+                      "value": "2014-02-02T00:00:00+00:00",
+                    },
+                    "start": Object {
+                      "kind": "DATE",
+                      "value": "2013-01-01T00:00:00+00:00",
+                    },
+                  },
+                  "status": "ACTIVE",
+                  "text": Object {
+                    "div": "",
+                    "text": "Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
+                  },
+                  "title": "Mental Health Crisis Plan",
+                }
+              }
+            >
+              <div
+                className="emotion-3"
+              >
+                01-Jan-2013 to 02-Feb-2014
+              </div>
+            </CarePlanDate>
+            <CarePlanStatus
+              carePlan={
+                Object {
+                  "author": Array [
+                    Object {
+                      "display": "Dr Joe Bloggs",
+                      "typeName": "Test",
+                    },
+                    Object {
+                      "display": "Dr Adam Careplan",
+                      "typeName": "Test",
+                    },
+                  ],
+                  "careTeam": Array [
+                    Object {
+                      "display": "LYPFT Care Team 1",
+                      "typeName": "Team",
+                    },
+                  ],
+                  "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo",
+                  "id": "580ca927-34e0-e911-a2c7-005056926fe4|careplan",
+                  "intent": "PLAN",
+                  "metadata": Object {
+                    "dataSources": Array [
+                      Object {
+                        "display": "Mock",
+                      },
+                    ],
+                    "isRedacted": true,
+                    "requestedWhen": "",
+                  },
+                  "period": Object {
+                    "end": Object {
+                      "kind": "DATE",
+                      "value": "2014-02-02T00:00:00+00:00",
+                    },
+                    "start": Object {
+                      "kind": "DATE",
+                      "value": "2013-01-01T00:00:00+00:00",
+                    },
+                  },
+                  "status": "ACTIVE",
+                  "text": Object {
+                    "div": "",
+                    "text": "Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
+                  },
+                  "title": "Mental Health Crisis Plan",
+                }
+              }
+            >
+              <div
+                className="emotion-4"
+              >
+                Plan - Active
+              </div>
+            </CarePlanStatus>
+          </div>
+        </div>
+      </CarePlanSummaryItem>
+    </li>
+  </ListItem>
+  <ListItem
+    key="690ca927-68e0-c511-b2c7-898056926ze4|careplan"
+  >
+    <li>
+      <CarePlanSummaryItem
+        carePlan={
+          Object {
+            "author": Array [
+              Object {
+                "display": "John Mclane",
+                "typeName": "Test",
+              },
+            ],
+            "careTeam": Array [
+              Object {
+                "display": "LYPFT Care Team 2",
+                "typeName": "Team",
+              },
+            ],
+            "id": "690ca927-68e0-c511-b2c7-898056926ze4|careplan",
+            "intent": "PROPOSAL",
+            "metadata": Object {
+              "dataSources": Array [
+                Object {
+                  "display": "Mock",
+                },
+              ],
+              "isRedacted": true,
+              "requestedWhen": "",
+            },
+            "period": Object {
+              "end": Object {
+                "kind": "DATE",
+                "value": "2015-03-04T00:00:00+00:00",
+              },
+              "start": Object {
+                "kind": "DATE",
+                "value": "2014-02-02T00:00:00+00:00",
+              },
+            },
+            "status": "COMPLETED",
+            "title": "Test Care Plan",
+          }
+        }
+      >
+        <div
+          className="emotion-5"
+          role="link"
         >
-          <ul
-            className="emotion-15"
+          <div
+            className="emotion-2"
           >
-            <ListItem
-              key="580ca927-34e0-e911-a2c7-005056926fe4|careplan"
-            >
-              <li>
-                <CarePlanSummaryItem
-                  carePlan={
+            <CarePlanTitle
+              carePlan={
+                Object {
+                  "author": Array [
                     Object {
-                      "author": Array [
-                        Object {
-                          "display": "Dr Joe Bloggs",
-                          "typeName": "Test",
-                        },
-                        Object {
-                          "display": "Dr Adam Careplan",
-                          "typeName": "Test",
-                        },
-                      ],
-                      "careTeam": Array [
-                        Object {
-                          "display": "LYPFT Care Team 1",
-                          "typeName": "Team",
-                        },
-                      ],
-                      "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo",
-                      "id": "580ca927-34e0-e911-a2c7-005056926fe4|careplan",
-                      "intent": "PLAN",
-                      "metadata": Object {
-                        "dataSources": Array [
-                          Object {
-                            "display": "Mock",
-                          },
-                        ],
-                        "isRedacted": true,
-                        "requestedWhen": "",
-                      },
-                      "period": Object {
-                        "end": Object {
-                          "kind": "DATE",
-                          "value": "2014-02-02T00:00:00+00:00",
-                        },
-                        "start": Object {
-                          "kind": "DATE",
-                          "value": "2013-01-01T00:00:00+00:00",
-                        },
-                      },
-                      "status": "ACTIVE",
-                      "text": Object {
-                        "div": "",
-                        "text": "Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
-                      },
-                      "title": "Mental Health Crisis Plan",
-                    }
-                  }
-                >
-                  <div
-                    className="emotion-8"
-                    role="link"
-                  >
-                    <div
-                      className="emotion-5"
-                    >
-                      <CarePlanTitle
-                        carePlan={
-                          Object {
-                            "author": Array [
-                              Object {
-                                "display": "Dr Joe Bloggs",
-                                "typeName": "Test",
-                              },
-                              Object {
-                                "display": "Dr Adam Careplan",
-                                "typeName": "Test",
-                              },
-                            ],
-                            "careTeam": Array [
-                              Object {
-                                "display": "LYPFT Care Team 1",
-                                "typeName": "Team",
-                              },
-                            ],
-                            "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo",
-                            "id": "580ca927-34e0-e911-a2c7-005056926fe4|careplan",
-                            "intent": "PLAN",
-                            "metadata": Object {
-                              "dataSources": Array [
-                                Object {
-                                  "display": "Mock",
-                                },
-                              ],
-                              "isRedacted": true,
-                              "requestedWhen": "",
-                            },
-                            "period": Object {
-                              "end": Object {
-                                "kind": "DATE",
-                                "value": "2014-02-02T00:00:00+00:00",
-                              },
-                              "start": Object {
-                                "kind": "DATE",
-                                "value": "2013-01-01T00:00:00+00:00",
-                              },
-                            },
-                            "status": "ACTIVE",
-                            "text": Object {
-                              "div": "",
-                              "text": "Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
-                            },
-                            "title": "Mental Health Crisis Plan",
-                          }
-                        }
-                      >
-                        <div
-                          className="emotion-3"
-                        >
-                          Mental Health Crisis Plan
-                        </div>
-                      </CarePlanTitle>
-                      <CarePlanDescription
-                        carePlan={
-                          Object {
-                            "author": Array [
-                              Object {
-                                "display": "Dr Joe Bloggs",
-                                "typeName": "Test",
-                              },
-                              Object {
-                                "display": "Dr Adam Careplan",
-                                "typeName": "Test",
-                              },
-                            ],
-                            "careTeam": Array [
-                              Object {
-                                "display": "LYPFT Care Team 1",
-                                "typeName": "Team",
-                              },
-                            ],
-                            "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo",
-                            "id": "580ca927-34e0-e911-a2c7-005056926fe4|careplan",
-                            "intent": "PLAN",
-                            "metadata": Object {
-                              "dataSources": Array [
-                                Object {
-                                  "display": "Mock",
-                                },
-                              ],
-                              "isRedacted": true,
-                              "requestedWhen": "",
-                            },
-                            "period": Object {
-                              "end": Object {
-                                "kind": "DATE",
-                                "value": "2014-02-02T00:00:00+00:00",
-                              },
-                              "start": Object {
-                                "kind": "DATE",
-                                "value": "2013-01-01T00:00:00+00:00",
-                              },
-                            },
-                            "status": "ACTIVE",
-                            "text": Object {
-                              "div": "",
-                              "text": "Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
-                            },
-                            "title": "Mental Health Crisis Plan",
-                          }
-                        }
-                      >
-                        <div
-                          className="emotion-4"
-                        >
-                          Dr Joe Bloggs, Dr Adam Careplan - LYPFT Care Team 1
-                        </div>
-                      </CarePlanDescription>
-                    </div>
-                    <div>
-                      <CarePlanDate
-                        carePlan={
-                          Object {
-                            "author": Array [
-                              Object {
-                                "display": "Dr Joe Bloggs",
-                                "typeName": "Test",
-                              },
-                              Object {
-                                "display": "Dr Adam Careplan",
-                                "typeName": "Test",
-                              },
-                            ],
-                            "careTeam": Array [
-                              Object {
-                                "display": "LYPFT Care Team 1",
-                                "typeName": "Team",
-                              },
-                            ],
-                            "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo",
-                            "id": "580ca927-34e0-e911-a2c7-005056926fe4|careplan",
-                            "intent": "PLAN",
-                            "metadata": Object {
-                              "dataSources": Array [
-                                Object {
-                                  "display": "Mock",
-                                },
-                              ],
-                              "isRedacted": true,
-                              "requestedWhen": "",
-                            },
-                            "period": Object {
-                              "end": Object {
-                                "kind": "DATE",
-                                "value": "2014-02-02T00:00:00+00:00",
-                              },
-                              "start": Object {
-                                "kind": "DATE",
-                                "value": "2013-01-01T00:00:00+00:00",
-                              },
-                            },
-                            "status": "ACTIVE",
-                            "text": Object {
-                              "div": "",
-                              "text": "Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
-                            },
-                            "title": "Mental Health Crisis Plan",
-                          }
-                        }
-                      >
-                        <div
-                          className="emotion-6"
-                        >
-                          01-Jan-2013 to 02-Feb-2014
-                        </div>
-                      </CarePlanDate>
-                      <CarePlanStatus
-                        carePlan={
-                          Object {
-                            "author": Array [
-                              Object {
-                                "display": "Dr Joe Bloggs",
-                                "typeName": "Test",
-                              },
-                              Object {
-                                "display": "Dr Adam Careplan",
-                                "typeName": "Test",
-                              },
-                            ],
-                            "careTeam": Array [
-                              Object {
-                                "display": "LYPFT Care Team 1",
-                                "typeName": "Team",
-                              },
-                            ],
-                            "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo",
-                            "id": "580ca927-34e0-e911-a2c7-005056926fe4|careplan",
-                            "intent": "PLAN",
-                            "metadata": Object {
-                              "dataSources": Array [
-                                Object {
-                                  "display": "Mock",
-                                },
-                              ],
-                              "isRedacted": true,
-                              "requestedWhen": "",
-                            },
-                            "period": Object {
-                              "end": Object {
-                                "kind": "DATE",
-                                "value": "2014-02-02T00:00:00+00:00",
-                              },
-                              "start": Object {
-                                "kind": "DATE",
-                                "value": "2013-01-01T00:00:00+00:00",
-                              },
-                            },
-                            "status": "ACTIVE",
-                            "text": Object {
-                              "div": "",
-                              "text": "Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
-                            },
-                            "title": "Mental Health Crisis Plan",
-                          }
-                        }
-                      >
-                        <div
-                          className="emotion-7"
-                        >
-                          Plan - Active
-                        </div>
-                      </CarePlanStatus>
-                    </div>
-                  </div>
-                </CarePlanSummaryItem>
-              </li>
-            </ListItem>
-            <ListItem
-              key="690ca927-68e0-c511-b2c7-898056926ze4|careplan"
-            >
-              <li>
-                <CarePlanSummaryItem
-                  carePlan={
+                      "display": "John Mclane",
+                      "typeName": "Test",
+                    },
+                  ],
+                  "careTeam": Array [
                     Object {
-                      "author": Array [
-                        Object {
-                          "display": "John Mclane",
-                          "typeName": "Test",
-                        },
-                      ],
-                      "careTeam": Array [
-                        Object {
-                          "display": "LYPFT Care Team 2",
-                          "typeName": "Team",
-                        },
-                      ],
-                      "id": "690ca927-68e0-c511-b2c7-898056926ze4|careplan",
-                      "intent": "PROPOSAL",
-                      "metadata": Object {
-                        "dataSources": Array [
-                          Object {
-                            "display": "Mock",
-                          },
-                        ],
-                        "isRedacted": true,
-                        "requestedWhen": "",
+                      "display": "LYPFT Care Team 2",
+                      "typeName": "Team",
+                    },
+                  ],
+                  "id": "690ca927-68e0-c511-b2c7-898056926ze4|careplan",
+                  "intent": "PROPOSAL",
+                  "metadata": Object {
+                    "dataSources": Array [
+                      Object {
+                        "display": "Mock",
                       },
-                      "period": Object {
-                        "end": Object {
-                          "kind": "DATE",
-                          "value": "2015-03-04T00:00:00+00:00",
-                        },
-                        "start": Object {
-                          "kind": "DATE",
-                          "value": "2014-02-02T00:00:00+00:00",
-                        },
+                    ],
+                    "isRedacted": true,
+                    "requestedWhen": "",
+                  },
+                  "period": Object {
+                    "end": Object {
+                      "kind": "DATE",
+                      "value": "2015-03-04T00:00:00+00:00",
+                    },
+                    "start": Object {
+                      "kind": "DATE",
+                      "value": "2014-02-02T00:00:00+00:00",
+                    },
+                  },
+                  "status": "COMPLETED",
+                  "title": "Test Care Plan",
+                }
+              }
+            >
+              <div
+                className="emotion-0"
+              >
+                Test Care Plan
+              </div>
+            </CarePlanTitle>
+            <CarePlanDescription
+              carePlan={
+                Object {
+                  "author": Array [
+                    Object {
+                      "display": "John Mclane",
+                      "typeName": "Test",
+                    },
+                  ],
+                  "careTeam": Array [
+                    Object {
+                      "display": "LYPFT Care Team 2",
+                      "typeName": "Team",
+                    },
+                  ],
+                  "id": "690ca927-68e0-c511-b2c7-898056926ze4|careplan",
+                  "intent": "PROPOSAL",
+                  "metadata": Object {
+                    "dataSources": Array [
+                      Object {
+                        "display": "Mock",
                       },
-                      "status": "COMPLETED",
-                      "title": "Test Care Plan",
-                    }
-                  }
-                >
-                  <div
-                    className="emotion-8"
-                    role="link"
-                  >
-                    <div
-                      className="emotion-5"
-                    >
-                      <CarePlanTitle
-                        carePlan={
-                          Object {
-                            "author": Array [
-                              Object {
-                                "display": "John Mclane",
-                                "typeName": "Test",
-                              },
-                            ],
-                            "careTeam": Array [
-                              Object {
-                                "display": "LYPFT Care Team 2",
-                                "typeName": "Team",
-                              },
-                            ],
-                            "id": "690ca927-68e0-c511-b2c7-898056926ze4|careplan",
-                            "intent": "PROPOSAL",
-                            "metadata": Object {
-                              "dataSources": Array [
-                                Object {
-                                  "display": "Mock",
-                                },
-                              ],
-                              "isRedacted": true,
-                              "requestedWhen": "",
-                            },
-                            "period": Object {
-                              "end": Object {
-                                "kind": "DATE",
-                                "value": "2015-03-04T00:00:00+00:00",
-                              },
-                              "start": Object {
-                                "kind": "DATE",
-                                "value": "2014-02-02T00:00:00+00:00",
-                              },
-                            },
-                            "status": "COMPLETED",
-                            "title": "Test Care Plan",
-                          }
-                        }
-                      >
-                        <div
-                          className="emotion-3"
-                        >
-                          Test Care Plan
-                        </div>
-                      </CarePlanTitle>
-                      <CarePlanDescription
-                        carePlan={
-                          Object {
-                            "author": Array [
-                              Object {
-                                "display": "John Mclane",
-                                "typeName": "Test",
-                              },
-                            ],
-                            "careTeam": Array [
-                              Object {
-                                "display": "LYPFT Care Team 2",
-                                "typeName": "Team",
-                              },
-                            ],
-                            "id": "690ca927-68e0-c511-b2c7-898056926ze4|careplan",
-                            "intent": "PROPOSAL",
-                            "metadata": Object {
-                              "dataSources": Array [
-                                Object {
-                                  "display": "Mock",
-                                },
-                              ],
-                              "isRedacted": true,
-                              "requestedWhen": "",
-                            },
-                            "period": Object {
-                              "end": Object {
-                                "kind": "DATE",
-                                "value": "2015-03-04T00:00:00+00:00",
-                              },
-                              "start": Object {
-                                "kind": "DATE",
-                                "value": "2014-02-02T00:00:00+00:00",
-                              },
-                            },
-                            "status": "COMPLETED",
-                            "title": "Test Care Plan",
-                          }
-                        }
-                      >
-                        <div
-                          className="emotion-4"
-                        >
-                          John Mclane - LYPFT Care Team 2
-                        </div>
-                      </CarePlanDescription>
-                    </div>
-                    <div>
-                      <CarePlanDate
-                        carePlan={
-                          Object {
-                            "author": Array [
-                              Object {
-                                "display": "John Mclane",
-                                "typeName": "Test",
-                              },
-                            ],
-                            "careTeam": Array [
-                              Object {
-                                "display": "LYPFT Care Team 2",
-                                "typeName": "Team",
-                              },
-                            ],
-                            "id": "690ca927-68e0-c511-b2c7-898056926ze4|careplan",
-                            "intent": "PROPOSAL",
-                            "metadata": Object {
-                              "dataSources": Array [
-                                Object {
-                                  "display": "Mock",
-                                },
-                              ],
-                              "isRedacted": true,
-                              "requestedWhen": "",
-                            },
-                            "period": Object {
-                              "end": Object {
-                                "kind": "DATE",
-                                "value": "2015-03-04T00:00:00+00:00",
-                              },
-                              "start": Object {
-                                "kind": "DATE",
-                                "value": "2014-02-02T00:00:00+00:00",
-                              },
-                            },
-                            "status": "COMPLETED",
-                            "title": "Test Care Plan",
-                          }
-                        }
-                      >
-                        <div
-                          className="emotion-6"
-                        >
-                          02-Feb-2014 to 04-Mar-2015
-                        </div>
-                      </CarePlanDate>
-                      <CarePlanStatus
-                        carePlan={
-                          Object {
-                            "author": Array [
-                              Object {
-                                "display": "John Mclane",
-                                "typeName": "Test",
-                              },
-                            ],
-                            "careTeam": Array [
-                              Object {
-                                "display": "LYPFT Care Team 2",
-                                "typeName": "Team",
-                              },
-                            ],
-                            "id": "690ca927-68e0-c511-b2c7-898056926ze4|careplan",
-                            "intent": "PROPOSAL",
-                            "metadata": Object {
-                              "dataSources": Array [
-                                Object {
-                                  "display": "Mock",
-                                },
-                              ],
-                              "isRedacted": true,
-                              "requestedWhen": "",
-                            },
-                            "period": Object {
-                              "end": Object {
-                                "kind": "DATE",
-                                "value": "2015-03-04T00:00:00+00:00",
-                              },
-                              "start": Object {
-                                "kind": "DATE",
-                                "value": "2014-02-02T00:00:00+00:00",
-                              },
-                            },
-                            "status": "COMPLETED",
-                            "title": "Test Care Plan",
-                          }
-                        }
-                      >
-                        <div
-                          className="emotion-7"
-                        >
-                          Proposal - Completed
-                        </div>
-                      </CarePlanStatus>
-                    </div>
-                  </div>
-                </CarePlanSummaryItem>
-              </li>
-            </ListItem>
-          </ul>
-        </CardList>
-      </div>
-    </CardProvider>
-  </Card>
+                    ],
+                    "isRedacted": true,
+                    "requestedWhen": "",
+                  },
+                  "period": Object {
+                    "end": Object {
+                      "kind": "DATE",
+                      "value": "2015-03-04T00:00:00+00:00",
+                    },
+                    "start": Object {
+                      "kind": "DATE",
+                      "value": "2014-02-02T00:00:00+00:00",
+                    },
+                  },
+                  "status": "COMPLETED",
+                  "title": "Test Care Plan",
+                }
+              }
+            >
+              <div
+                className="emotion-1"
+              >
+                John Mclane - LYPFT Care Team 2
+              </div>
+            </CarePlanDescription>
+          </div>
+          <div>
+            <CarePlanDate
+              carePlan={
+                Object {
+                  "author": Array [
+                    Object {
+                      "display": "John Mclane",
+                      "typeName": "Test",
+                    },
+                  ],
+                  "careTeam": Array [
+                    Object {
+                      "display": "LYPFT Care Team 2",
+                      "typeName": "Team",
+                    },
+                  ],
+                  "id": "690ca927-68e0-c511-b2c7-898056926ze4|careplan",
+                  "intent": "PROPOSAL",
+                  "metadata": Object {
+                    "dataSources": Array [
+                      Object {
+                        "display": "Mock",
+                      },
+                    ],
+                    "isRedacted": true,
+                    "requestedWhen": "",
+                  },
+                  "period": Object {
+                    "end": Object {
+                      "kind": "DATE",
+                      "value": "2015-03-04T00:00:00+00:00",
+                    },
+                    "start": Object {
+                      "kind": "DATE",
+                      "value": "2014-02-02T00:00:00+00:00",
+                    },
+                  },
+                  "status": "COMPLETED",
+                  "title": "Test Care Plan",
+                }
+              }
+            >
+              <div
+                className="emotion-3"
+              >
+                02-Feb-2014 to 04-Mar-2015
+              </div>
+            </CarePlanDate>
+            <CarePlanStatus
+              carePlan={
+                Object {
+                  "author": Array [
+                    Object {
+                      "display": "John Mclane",
+                      "typeName": "Test",
+                    },
+                  ],
+                  "careTeam": Array [
+                    Object {
+                      "display": "LYPFT Care Team 2",
+                      "typeName": "Team",
+                    },
+                  ],
+                  "id": "690ca927-68e0-c511-b2c7-898056926ze4|careplan",
+                  "intent": "PROPOSAL",
+                  "metadata": Object {
+                    "dataSources": Array [
+                      Object {
+                        "display": "Mock",
+                      },
+                    ],
+                    "isRedacted": true,
+                    "requestedWhen": "",
+                  },
+                  "period": Object {
+                    "end": Object {
+                      "kind": "DATE",
+                      "value": "2015-03-04T00:00:00+00:00",
+                    },
+                    "start": Object {
+                      "kind": "DATE",
+                      "value": "2014-02-02T00:00:00+00:00",
+                    },
+                  },
+                  "status": "COMPLETED",
+                  "title": "Test Care Plan",
+                }
+              }
+            >
+              <div
+                className="emotion-4"
+              >
+                Proposal - Completed
+              </div>
+            </CarePlanStatus>
+          </div>
+        </div>
+      </CarePlanSummaryItem>
+    </li>
+  </ListItem>
 </CarePlanSummary>
 `;

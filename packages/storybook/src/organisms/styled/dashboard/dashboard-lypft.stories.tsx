@@ -32,7 +32,7 @@ stories.addWithJSX('Readonly Cards', () => {
   return (
     <Container>
       <Column>
-        <FlagSummary title="Alerts" flags={[flags.FlagOne, flags.FlagTwo]} />
+        <FlagSummary flags={[flags.FlagOne, flags.FlagTwo]} />
         <AllergySummary allergies={[allergies.AllergyOne, allergies.AllergyTwo]} />
         <CommunityTreatmentOrderSummary
           communityTreatmentOrders={[
@@ -44,15 +44,9 @@ stories.addWithJSX('Readonly Cards', () => {
       </Column>
       <Column>
         <InvolvedTeamSummary episodeOfCares={[episodeOfCares.InvolvedTeamOne, episodeOfCares.InvolvedTeamTwo]} />
-        <AppointmentSummary title="Future Appointments" encounters={[]} />
-        <AppointmentSummary
-          title="Future Appointments"
-          encounters={[appointments.AppointmentOne, appointments.AppointmentTwo]}
-        />
-        <AppointmentSummary
-          title="Previous Appointments"
-          encounters={[appointments.AppointmentOne, appointments.AppointmentTwo]}
-        />
+        <AppointmentSummary encounters={[]} />
+        <AppointmentSummary encounters={[appointments.AppointmentOne, appointments.AppointmentTwo]} />
+        <AppointmentSummary encounters={[appointments.AppointmentOne, appointments.AppointmentTwo]} />
         <HospitalStaySummary hospitalStays={[hospitalStays.HospitalStayOne, hospitalStays.HospitalStayTwo]} />
       </Column>
     </Container>
