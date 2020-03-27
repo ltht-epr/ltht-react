@@ -3,19 +3,25 @@ import React from 'react'
 import { css, jsx } from '@emotion/core'
 
 import { EpisodeOfCare } from '@ltht-react/types'
-import Period from '../atoms/involved-team-period'
+import { PeriodSummary } from '@ltht-react/summary'
+
 import Description from '../atoms/involved-team-description'
 import Type from '../atoms/involved-team-type'
 import Title from '../atoms/involved-team-title'
 
-const styles = css`
-  display: flex;
-  justify-content: center;
+const styles = {
+  root: css`
+    display: flex;
+    justify-content: center;
 
-  & > div {
-    flex-grow: 1;
-  }
-`
+    & > div {
+      flex-grow: 1;
+    }
+  `,
+  date: css`
+    text-align: right;
+  `,
+}
 
 const InvolvedTeamSummaryItem: React.FC<Props> = ({ episodeOfCare, clickHandler }) => {
   const handleClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>): void => {
@@ -23,13 +29,13 @@ const InvolvedTeamSummaryItem: React.FC<Props> = ({ episodeOfCare, clickHandler 
     clickHandler && clickHandler(episodeOfCare)
   }
   return (
-    <div role="link" css={styles} onClick={clickHandler && handleClick}>
+    <div role="link" css={styles.root} onClick={clickHandler && handleClick}>
       <div>
         <Title episodeOfCare={episodeOfCare} />
         <Description episodeOfCare={episodeOfCare} />
       </div>
-      <div>
-        <Period episodeOfCare={episodeOfCare} />
+      <div css={styles.date}>
+        <PeriodSummary period={episodeOfCare.period} />
         <Type episodeOfCare={episodeOfCare} />
       </div>
     </div>

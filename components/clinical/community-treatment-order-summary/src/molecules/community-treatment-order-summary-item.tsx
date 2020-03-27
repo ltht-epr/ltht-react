@@ -3,8 +3,9 @@ import React from 'react'
 import { css, jsx } from '@emotion/core'
 
 import { LypftCommunityTreatmentOrder } from '@ltht-react/types'
+import { PeriodSummary } from '@ltht-react/summary'
+
 import Consent from '../atoms/community-treatment-order-summary-consent'
-import Period from '../atoms/community-treatment-order-summary-period'
 import Restrictions from '../atoms/community-treatment-order-summary-restrictions'
 import Status from '../atoms/community-treatment-order-summary-status'
 
@@ -30,7 +31,7 @@ const CommunityTreatmentOrderSummaryItem: React.FC<Props> = ({ communityTreatmen
         <Restrictions communityTreatmentOrder={communityTreatmentOrder} />
       </div>
       <div css={styles.description}>
-        <Period communityTreatmentOrder={communityTreatmentOrder} />
+        <PeriodSummary period={communityTreatmentOrder.period} />
         <Consent communityTreatmentOrder={communityTreatmentOrder} />
       </div>
     </div>

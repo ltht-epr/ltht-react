@@ -3,7 +3,8 @@ import React from 'react'
 import { css, jsx } from '@emotion/core'
 
 import { CarePlan } from '@ltht-react/types'
-import Date from '../atoms/care-plan-date'
+import { PeriodSummary } from '@ltht-react/summary'
+
 import Description from '../atoms/care-plan-description'
 import Status from '../atoms/care-plan-status'
 import Title from '../atoms/care-plan-title'
@@ -15,6 +16,9 @@ const styles = {
   `,
   description: css`
     flex-grow: 1;
+  `,
+  date: css`
+    text-align: right;
   `,
 }
 
@@ -29,8 +33,8 @@ const CarePlanSummaryItem: React.FC<Props> = ({ carePlan, clickHandler }) => {
         <Title carePlan={carePlan} />
         <Description carePlan={carePlan} />
       </div>
-      <div>
-        <Date carePlan={carePlan} />
+      <div css={styles.date}>
+        <PeriodSummary period={carePlan.period} />
         <Status carePlan={carePlan} />
       </div>
     </div>

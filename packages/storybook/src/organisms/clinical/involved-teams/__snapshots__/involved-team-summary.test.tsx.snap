@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`InvolvedTeamSummary matches snapshot: wrapper mount 1`] = `
-.emotion-4 {
+.emotion-5 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -12,7 +12,7 @@ exports[`InvolvedTeamSummary matches snapshot: wrapper mount 1`] = `
   justify-content: center;
 }
 
-.emotion-4 > div {
+.emotion-5 > div {
   -webkit-box-flex: 1;
   -webkit-flex-grow: 1;
   -ms-flex-positive: 1;
@@ -31,9 +31,12 @@ exports[`InvolvedTeamSummary matches snapshot: wrapper mount 1`] = `
   text-align: left;
 }
 
+.emotion-4 {
+  text-align: right;
+}
+
 .emotion-2 {
   color: #231f20;
-  text-align: right;
 }
 
 .emotion-3 {
@@ -183,7 +186,7 @@ exports[`InvolvedTeamSummary matches snapshot: wrapper mount 1`] = `
         }
       >
         <div
-          className="emotion-4"
+          className="emotion-5"
           role="link"
         >
           <div>
@@ -294,51 +297,20 @@ exports[`InvolvedTeamSummary matches snapshot: wrapper mount 1`] = `
               </div>
             </InvolvedTeamDescription>
           </div>
-          <div>
-            <InvolvedTeamPeriod
-              episodeOfCare={
+          <div
+            className="emotion-4"
+          >
+            <PeriodSummary
+              period={
                 Object {
-                  "careManager": Object {
-                    "display": "Bella Swann (0113 111111)",
-                    "typeName": "Care Manager",
+                  "end": Object {
+                    "kind": "DATE",
+                    "value": "2020-01-02T00:00:00+00:00",
                   },
-                  "id": "580ca927-34e0-e911-a2c7-005056926fe4|involvedteam",
-                  "metadata": Object {
-                    "dataSources": Array [
-                      Object {
-                        "display": "Mock",
-                      },
-                    ],
-                    "isRedacted": true,
-                    "requestedWhen": "",
+                  "start": Object {
+                    "kind": "DATE",
+                    "value": "2018-12-01T00:00:00+00:00",
                   },
-                  "period": Object {
-                    "end": Object {
-                      "kind": "DATE",
-                      "value": "2020-01-02T00:00:00+00:00",
-                    },
-                    "start": Object {
-                      "kind": "DATE",
-                      "value": "2018-12-01T00:00:00+00:00",
-                    },
-                  },
-                  "status": "FINISHED",
-                  "team": Array [
-                    Object {
-                      "display": "LYPFT Outbound Care Team",
-                      "typeName": "Test Team",
-                    },
-                  ],
-                  "type": Array [
-                    Object {
-                      "coding": Array [
-                        Object {
-                          "code": "109007",
-                          "display": "Community Care",
-                        },
-                      ],
-                    },
-                  ],
                 }
               }
             >
@@ -347,7 +319,7 @@ exports[`InvolvedTeamSummary matches snapshot: wrapper mount 1`] = `
               >
                 01-Dec-2018 to 02-Jan-2020
               </div>
-            </InvolvedTeamPeriod>
+            </PeriodSummary>
             <InvolvedTeamType
               episodeOfCare={
                 Object {
@@ -454,7 +426,7 @@ exports[`InvolvedTeamSummary matches snapshot: wrapper mount 1`] = `
         }
       >
         <div
-          className="emotion-4"
+          className="emotion-5"
           role="link"
         >
           <div>
@@ -557,47 +529,16 @@ exports[`InvolvedTeamSummary matches snapshot: wrapper mount 1`] = `
               </div>
             </InvolvedTeamDescription>
           </div>
-          <div>
-            <InvolvedTeamPeriod
-              episodeOfCare={
+          <div
+            className="emotion-4"
+          >
+            <PeriodSummary
+              period={
                 Object {
-                  "careManager": Object {
-                    "display": "Joe Bloggs (0113 000000)",
-                    "typeName": "Care Manager",
+                  "start": Object {
+                    "kind": "DATE",
+                    "value": "2019-12-01T00:00:00+00:00",
                   },
-                  "id": "690ca927-68e0-c511-b2c7-898056926ze4|involvedteam",
-                  "metadata": Object {
-                    "dataSources": Array [
-                      Object {
-                        "display": "Mock",
-                      },
-                    ],
-                    "isRedacted": true,
-                    "requestedWhen": "",
-                  },
-                  "period": Object {
-                    "start": Object {
-                      "kind": "DATE",
-                      "value": "2019-12-01T00:00:00+00:00",
-                    },
-                  },
-                  "status": "ACTIVE",
-                  "team": Array [
-                    Object {
-                      "display": "LYPFT Inbound Care Team",
-                      "typeName": "Test Team",
-                    },
-                  ],
-                  "type": Array [
-                    Object {
-                      "coding": Array [
-                        Object {
-                          "code": "109016",
-                          "display": "Home Care",
-                        },
-                      ],
-                    },
-                  ],
                 }
               }
             >
@@ -606,7 +547,7 @@ exports[`InvolvedTeamSummary matches snapshot: wrapper mount 1`] = `
               >
                 01-Dec-2019 to Present
               </div>
-            </InvolvedTeamPeriod>
+            </PeriodSummary>
             <InvolvedTeamType
               episodeOfCare={
                 Object {

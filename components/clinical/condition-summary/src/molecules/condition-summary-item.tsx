@@ -3,8 +3,9 @@ import React from 'react'
 import { css, jsx } from '@emotion/core'
 
 import { Condition } from '@ltht-react/types'
+import { DateSummary } from '@ltht-react/summary'
+
 import Category from '../atoms/condition-category'
-import Date from '../atoms/condition-date'
 import Status from '../atoms/condition-status'
 import Title from '../atoms/condition-title'
 
@@ -15,6 +16,9 @@ const styles = {
   `,
   description: css`
     flex-grow: 1;
+  `,
+  date: css`
+    text-align: right;
   `,
 }
 
@@ -29,8 +33,8 @@ const ConditionSummaryItem: React.FC<Props> = ({ condition, clickHandler }) => {
         <Title condition={condition} />
         <Category condition={condition} />
       </div>
-      <div>
-        <Date condition={condition} />
+      <div css={styles.date}>
+        <DateSummary datetime={condition?.assertedDate} />
         <Status condition={condition} />
       </div>
     </div>

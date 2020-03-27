@@ -3,17 +3,23 @@ import React from 'react'
 import { css, jsx } from '@emotion/core'
 
 import { Encounter } from '@ltht-react/types'
-import Period from '../atoms/hospital-stay-period'
+import { PeriodSummary } from '@ltht-react/summary'
+
 import ServiceProvider from '../atoms/hospital-stay-service-provider'
 
-const styles = css`
-  display: flex;
-  justify-content: center;
+const styles = {
+  root: css`
+    display: flex;
+    justify-content: center;
 
-  & > div {
-    flex-grow: 1;
-  }
-`
+    & > div {
+      flex-grow: 1;
+    }
+  `,
+  date: css`
+    text-align: left;
+  `,
+}
 
 const HospitalStaySummaryItem: React.FC<Props> = ({ hospitalStay, clickHandler }) => {
   const handleClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>): void => {
@@ -21,9 +27,9 @@ const HospitalStaySummaryItem: React.FC<Props> = ({ hospitalStay, clickHandler }
     clickHandler && clickHandler(hospitalStay)
   }
   return (
-    <div role="link" css={styles} onClick={clickHandler && handleClick}>
-      <div>
-        <Period encounter={hospitalStay} />
+    <div role="link" css={styles.root} onClick={clickHandler && handleClick}>
+      <div css={styles.date}>
+        <PeriodSummary period={hospitalStay.period} />
       </div>
       <div>
         <ServiceProvider encounter={hospitalStay} />

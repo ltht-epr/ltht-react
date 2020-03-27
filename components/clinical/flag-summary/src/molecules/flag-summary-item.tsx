@@ -3,8 +3,9 @@ import React from 'react'
 import { css, jsx } from '@emotion/core'
 
 import { Flag } from '@ltht-react/types'
+import { PeriodSummary } from '@ltht-react/summary'
+
 import Title from '../atoms/flag-title'
-import Date from '../atoms/flag-date'
 import Description from '../atoms/flag-description'
 import Status from '../atoms/flag-status'
 
@@ -15,6 +16,9 @@ const styles = {
   `,
   description: css`
     flex-grow: 1;
+  `,
+  date: css`
+    text-align: right;
   `,
 }
 
@@ -29,8 +33,8 @@ const FlagSummaryItem: React.FC<Props> = ({ flag, clickHandler }) => {
         <Title flag={flag} />
         <Description flag={flag} />
       </div>
-      <div>
-        <Date flag={flag} />
+      <div css={styles.date}>
+        <PeriodSummary period={flag.period} />
         <Status flag={flag} />
       </div>
     </div>

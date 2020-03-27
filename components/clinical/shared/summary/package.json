@@ -1,7 +1,7 @@
 {
-  "name": "@ltht-react/care-plan-summary",
-  "version": "0.1.6",
-  "description": "ltht-react clinical CarePlanSummary component.",
+  "name": "@ltht-react/summary",
+  "version": "0.0.0",
+  "description": "ltht-react clinical Summary component.",
   "author": "LTHT",
   "homepage": "",
   "license": "MIT",
@@ -17,14 +17,16 @@
     "access": "public"
   },
   "scripts": {
-    "clean": "rimraf lib && rimraf node_modules",
-    "build": "tsc"
+    "clean": "rimraf lib",
+    "build": "yarn build:lib",
+    "watch": "tsc -w",
+    "build:lib": "tsc",
+    "type:check": "tsc --noEmit",
+    "lint": "prettylint 'src/*.{ts,tsx}'"
   },
   "dependencies": {
     "@emotion/core": "^10.0.27",
     "@emotion/styled": "^10.0.27",
-    "@ltht-react/summary": "^0.0.0",
-    "@ltht-react/list": "^0.1.6",
     "@ltht-react/styles": "^0.1.2",
     "@ltht-react/types": "^0.0.11",
     "@ltht-react/utils": "^0.1.4",

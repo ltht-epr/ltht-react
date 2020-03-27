@@ -28,6 +28,7 @@
     "@emotion/core": "^10.0.27",
     "@emotion/styled": "^10.0.27",
     "@ltht-react/list": "^0.1.6",
+    "@ltht-react/summary": "^0.0.0",
     "@ltht-react/styles": "^0.1.2",
     "@ltht-react/types": "^0.0.11",
     "@ltht-react/utils": "^0.1.4",

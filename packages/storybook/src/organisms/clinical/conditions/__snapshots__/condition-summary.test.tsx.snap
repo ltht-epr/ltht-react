@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ConditionSummary matches snapshot: wrapper mount 1`] = `
-.emotion-5 {
+.emotion-6 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -31,9 +31,12 @@ exports[`ConditionSummary matches snapshot: wrapper mount 1`] = `
   text-align: left;
 }
 
+.emotion-5 {
+  text-align: right;
+}
+
 .emotion-3 {
   color: #231f20;
-  text-align: right;
 }
 
 .emotion-4 {
@@ -214,7 +217,7 @@ exports[`ConditionSummary matches snapshot: wrapper mount 1`] = `
         }
       >
         <div
-          className="emotion-5"
+          className="emotion-6"
           role="link"
         >
           <div
@@ -345,60 +348,14 @@ exports[`ConditionSummary matches snapshot: wrapper mount 1`] = `
               </div>
             </ConditionCategory>
           </div>
-          <div>
-            <ConditionDate
-              condition={
+          <div
+            className="emotion-5"
+          >
+            <DateSummary
+              datetime={
                 Object {
-                  "assertedDate": Object {
-                    "kind": "DATE",
-                    "value": "2020-02-01T00:00:00+00:00",
-                  },
-                  "category": Array [
-                    Object {
-                      "coding": Array [
-                        Object {
-                          "code": "55607006",
-                          "display": "Problem",
-                        },
-                      ],
-                      "text": "Problem",
-                    },
-                  ],
-                  "clinicalStatus": "ACTIVE",
-                  "code": Object {
-                    "coding": Array [
-                      Object {
-                        "code": "60123008",
-                        "display": "Delusional disorder, mixed type",
-                        "system": "HEALTHPLUG",
-                      },
-                    ],
-                    "text": "Delusional disorder, mixed type",
-                  },
-                  "id": "017ca927-67e0-e581-a2c7-115087226fg2|condition",
-                  "metadata": Object {
-                    "dataSources": Array [
-                      Object {
-                        "display": "Mock",
-                      },
-                    ],
-                    "isRedacted": true,
-                    "requestedWhen": "",
-                  },
-                  "severity": Object {
-                    "coding": Array [
-                      Object {
-                        "code": "2448400",
-                        "display": "Severe",
-                      },
-                    ],
-                    "text": "Severe",
-                  },
-                  "subject": Object {
-                    "display": "Mr Peter Humble",
-                    "typeName": "test",
-                  },
-                  "verificationStatus": "CONFIRMED",
+                  "kind": "DATE",
+                  "value": "2020-02-01T00:00:00+00:00",
                 }
               }
             >
@@ -407,7 +364,7 @@ exports[`ConditionSummary matches snapshot: wrapper mount 1`] = `
               >
                 01-Feb-2020
               </div>
-            </ConditionDate>
+            </DateSummary>
             <ConditionStatus
               condition={
                 Object {
@@ -536,7 +493,7 @@ exports[`ConditionSummary matches snapshot: wrapper mount 1`] = `
         }
       >
         <div
-          className="emotion-5"
+          className="emotion-6"
           role="link"
         >
           <div
@@ -667,60 +624,14 @@ exports[`ConditionSummary matches snapshot: wrapper mount 1`] = `
               </div>
             </ConditionCategory>
           </div>
-          <div>
-            <ConditionDate
-              condition={
+          <div
+            className="emotion-5"
+          >
+            <DateSummary
+              datetime={
                 Object {
-                  "assertedDate": Object {
-                    "kind": "DATE",
-                    "value": "2020-01-01T00:00:00+00:00",
-                  },
-                  "category": Array [
-                    Object {
-                      "coding": Array [
-                        Object {
-                          "code": "55607006",
-                          "display": "Problem",
-                        },
-                      ],
-                      "text": "Problem",
-                    },
-                  ],
-                  "clinicalStatus": "REMISSION",
-                  "code": Object {
-                    "coding": Array [
-                      Object {
-                        "code": "44054006",
-                        "display": "Diabetes mellitus type 2",
-                        "system": "HEALTHPLUG",
-                      },
-                    ],
-                    "text": "Diabetes mellitus type 2",
-                  },
-                  "id": "345ha927-34e0-e911-a2c7-005087226er3|condition",
-                  "metadata": Object {
-                    "dataSources": Array [
-                      Object {
-                        "display": "Mock",
-                      },
-                    ],
-                    "isRedacted": true,
-                    "requestedWhen": "",
-                  },
-                  "severity": Object {
-                    "coding": Array [
-                      Object {
-                        "code": "2448402",
-                        "display": "Mild",
-                      },
-                    ],
-                    "text": "Mild",
-                  },
-                  "subject": Object {
-                    "display": "Mr Joe BLoggs",
-                    "typeName": "test",
-                  },
-                  "verificationStatus": "REFUTED",
+                  "kind": "DATE",
+                  "value": "2020-01-01T00:00:00+00:00",
                 }
               }
             >
@@ -729,7 +640,7 @@ exports[`ConditionSummary matches snapshot: wrapper mount 1`] = `
               >
                 01-Jan-2020
               </div>
-            </ConditionDate>
+            </DateSummary>
             <ConditionStatus
               condition={
                 Object {

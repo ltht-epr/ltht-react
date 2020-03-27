@@ -3,8 +3,9 @@ import React from 'react'
 import { css, jsx } from '@emotion/core'
 
 import { Encounter } from '@ltht-react/types'
+import { DateSummary } from '@ltht-react/summary'
+
 import ServiceProvider from '../atoms/appointment-service-provider'
-import Date from '../atoms/appointment-date'
 import Description from '../atoms/appointment-description'
 import Status from '../atoms/appointment-status'
 
@@ -16,6 +17,9 @@ const styles = {
   description: css`
     flex-grow: 1;
   `,
+  date: css`
+    text-align: left;
+  `,
 }
 
 const AppointmentSummaryItem: React.FC<Props> = ({ encounter, clickHandler }) => {
@@ -25,8 +29,8 @@ const AppointmentSummaryItem: React.FC<Props> = ({ encounter, clickHandler }) =>
   }
   return (
     <div role="link" css={styles.root} onClick={clickHandler && handleClick}>
-      <div>
-        <Date encounter={encounter} />
+      <div css={styles.date}>
+        <DateSummary datetime={encounter?.period?.start} />
       </div>
       <div css={styles.description}>
         <Description encounter={encounter} />

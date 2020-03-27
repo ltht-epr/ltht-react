@@ -3,8 +3,9 @@ import React from 'react'
 import { css, jsx } from '@emotion/core'
 
 import { AllergyIntolerance } from '@ltht-react/types'
+import { DateSummary } from '@ltht-react/summary'
+
 import Title from '../atoms/allergy-title'
-import Date from '../atoms/allergy-date'
 import Description from '../atoms/allergy-description'
 import Status from '../atoms/allergy-status'
 import Icon from '../atoms/allergy-icon'
@@ -20,6 +21,9 @@ const styles = {
   `,
   icon: css`
     min-width: 1rem;
+  `,
+  date: css`
+    text-align: right;
   `,
 }
 
@@ -37,8 +41,8 @@ const AllergySummaryItem: React.FC<Props> = ({ allergy, clickHandler }) => {
         <Title allergy={allergy} />
         <Description allergy={allergy} />
       </div>
-      <div>
-        <Date allergy={allergy} />
+      <div css={styles.date}>
+        <DateSummary datetime={allergy.assertedDate} />
         <Status allergy={allergy} />
       </div>
     </div>

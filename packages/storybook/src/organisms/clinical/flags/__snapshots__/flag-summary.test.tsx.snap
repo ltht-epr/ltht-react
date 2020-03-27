@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`FlagSummary matches snapshot: wrapper mount 1`] = `
-.emotion-5 {
+.emotion-6 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -31,9 +31,12 @@ exports[`FlagSummary matches snapshot: wrapper mount 1`] = `
   text-align: left;
 }
 
+.emotion-5 {
+  text-align: right;
+}
+
 .emotion-3 {
   color: #231f20;
-  text-align: right;
 }
 
 .emotion-4 {
@@ -201,7 +204,7 @@ exports[`FlagSummary matches snapshot: wrapper mount 1`] = `
         }
       >
         <div
-          className="emotion-5"
+          className="emotion-6"
           role="link"
         >
           <div
@@ -326,56 +329,15 @@ exports[`FlagSummary matches snapshot: wrapper mount 1`] = `
               </div>
             </FlagDescription>
           </div>
-          <div>
-            <FlagDate
-              flag={
+          <div
+            className="emotion-5"
+          >
+            <PeriodSummary
+              period={
                 Object {
-                  "author": Object {
-                    "display": "Smith, John (Dr)",
-                    "identifier": undefined,
-                    "reference": "https://phoenixqa.careworks.ie/Services/api/fhir/v3/practitioner/9c1ad2c0-ec34-e911-a2c5-005056926fe4|systemuser",
-                    "typeName": "Practitioner",
-                  },
-                  "category": Object {
-                    "coding": Array [
-                      Object {
-                        "code": "66706",
-                        "display": "Location",
-                      },
-                      Object {
-                        "code": "66707",
-                        "display": "Demographics",
-                      },
-                    ],
-                  },
-                  "code": Object {
-                    "coding": Array [
-                      Object {
-                        "code": "109006",
-                        "display": "Lives in Known High Risk Area",
-                      },
-                    ],
-                  },
-                  "id": "580ca927-34e0-e911-a2c7-005056926fe5|personalertandhazard",
-                  "metadata": Object {
-                    "dataSources": Array [
-                      Object {
-                        "display": "Mock",
-                      },
-                    ],
-                    "isRedacted": true,
-                    "requestedWhen": "",
-                  },
-                  "period": Object {
-                    "start": Object {
-                      "kind": "YEAR",
-                      "value": "2013-01-01T00:00:00+00:00",
-                    },
-                  },
-                  "status": "ENTERED_IN_ERROR",
-                  "text": Object {
-                    "div": "Lorem ipsum dolor sit amet",
-                    "text": "Lorem ipsum dolor sit amet, falli nulla oportere vel eu. Ea meis moderatius scripserit his, ei decore ceteros has. Quo at apeirian facilisi consectetuer. At putant animal persius his, inani maiestatis moderatius vis no",
+                  "start": Object {
+                    "kind": "YEAR",
+                    "value": "2013-01-01T00:00:00+00:00",
                   },
                 }
               }
@@ -385,7 +347,7 @@ exports[`FlagSummary matches snapshot: wrapper mount 1`] = `
               >
                 2013 to Present
               </div>
-            </FlagDate>
+            </PeriodSummary>
             <FlagStatus
               flag={
                 Object {
@@ -504,7 +466,7 @@ exports[`FlagSummary matches snapshot: wrapper mount 1`] = `
         }
       >
         <div
-          className="emotion-5"
+          className="emotion-6"
           role="link"
         >
           <div
@@ -621,53 +583,20 @@ exports[`FlagSummary matches snapshot: wrapper mount 1`] = `
               </div>
             </FlagDescription>
           </div>
-          <div>
-            <FlagDate
-              flag={
+          <div
+            className="emotion-5"
+          >
+            <PeriodSummary
+              period={
                 Object {
-                  "author": Object {
-                    "display": "John Smith",
-                    "identifier": undefined,
-                    "reference": "https://phoenixqa.careworks.ie/Services/api/fhir/v3/practitioner/9c1ad2c0-ec34-e911-a2c5-005056926fe4|systemuser",
-                    "typeName": "Practitioner",
+                  "end": Object {
+                    "kind": "DATE",
+                    "value": "2014-02-02T00:00:00+00:00",
                   },
-                  "category": Object {
-                    "coding": Array [
-                      Object {
-                        "code": "66706",
-                        "display": "Violence",
-                      },
-                    ],
+                  "start": Object {
+                    "kind": "DATE",
+                    "value": "2013-01-01T00:00:00+00:00",
                   },
-                  "code": Object {
-                    "coding": Array [
-                      Object {
-                        "code": "56706",
-                        "display": "High Risk of Violence",
-                      },
-                    ],
-                  },
-                  "id": "580ca927-34e0-e911-a2c7-005056926fe4|personalertandhazard",
-                  "metadata": Object {
-                    "dataSources": Array [
-                      Object {
-                        "display": "Mock",
-                      },
-                    ],
-                    "isRedacted": true,
-                    "requestedWhen": "",
-                  },
-                  "period": Object {
-                    "end": Object {
-                      "kind": "DATE",
-                      "value": "2014-02-02T00:00:00+00:00",
-                    },
-                    "start": Object {
-                      "kind": "DATE",
-                      "value": "2013-01-01T00:00:00+00:00",
-                    },
-                  },
-                  "status": "INACTIVE",
                 }
               }
             >
@@ -676,7 +605,7 @@ exports[`FlagSummary matches snapshot: wrapper mount 1`] = `
               >
                 01-Jan-2013 to 02-Feb-2014
               </div>
-            </FlagDate>
+            </PeriodSummary>
             <FlagStatus
               flag={
                 Object {
