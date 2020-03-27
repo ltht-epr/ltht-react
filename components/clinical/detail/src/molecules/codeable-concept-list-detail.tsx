@@ -4,7 +4,7 @@ import { codeableConceptDisplaySummary } from '@ltht-react/utils'
 import { DescriptionList, DescriptionListTerm, DescriptionListDescription } from '@ltht-react/description-list'
 
 const CodeableConceptListDetail: React.FC<Props> = ({ term, concepts }) => {
-  if (concepts) {
+  if (concepts && concepts.length > 0) {
     return (
       <DescriptionList>
         <DescriptionListTerm>{term}</DescriptionListTerm>

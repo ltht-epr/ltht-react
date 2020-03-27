@@ -1,4 +1,4 @@
-import { Encounter, PartialDateTimeKindCode, Metadata, EncounterStatusCode } from '@ltht-react/types'
+import { Encounter, PartialDateTimeKindCode, Metadata, EncounterStatusCode, IdentifierUseCode } from '@ltht-react/types'
 
 const mockMetadata: Metadata = {
   dataSources: [
@@ -119,6 +119,29 @@ const HospitalStayThree: Encounter = {
     },
   },
   hospitalization: {
+    preAdmissionIdentifier: {
+      use: IdentifierUseCode.Official,
+      system: 'http://www.bmc.nl/zorgportal/identifiers/pre-admissions',
+      value: '93042',
+    },
+    admitSource: {
+      coding: [
+        {
+          system: 'http://snomed.info/sct',
+          code: '305956004',
+          display: 'Referral by physician',
+        },
+      ],
+    },
+    dischargeDisposition: {
+      coding: [
+        {
+          system: 'http://snomed.info/sct',
+          code: '306689006',
+          display: 'Discharge to home',
+        },
+      ],
+    },
     extension: [
       {
         url: 'https://fhir.hl7.org.uk/STU3/StructureDefinition/Extension-CareConnect-AdmissionMethod-1',
