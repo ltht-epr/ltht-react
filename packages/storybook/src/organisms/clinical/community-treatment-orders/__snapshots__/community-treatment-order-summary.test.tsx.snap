@@ -31,6 +31,10 @@ exports[`CommunityTreatmentOrderSummary matches snapshot: wrapper mount 1`] = `
   text-align: left;
 }
 
+.emotion-5 {
+  text-align: right;
+}
+
 .emotion-3 {
   color: #231f20;
 }
@@ -262,7 +266,7 @@ exports[`CommunityTreatmentOrderSummary matches snapshot: wrapper mount 1`] = `
             </CommunityTreatmentOrderSummaryRestrictions>
           </div>
           <div
-            className="emotion-2"
+            className="emotion-5"
           >
             <PeriodSummary
               period={
