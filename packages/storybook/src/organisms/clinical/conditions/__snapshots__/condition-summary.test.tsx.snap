@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ConditionSummary matches snapshot: wrapper mount 1`] = `
-.emotion-6 {
+.emotion-4 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -12,34 +12,50 @@ exports[`ConditionSummary matches snapshot: wrapper mount 1`] = `
   justify-content: center;
 }
 
+.emotion-1 {
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  text-align: left;
+}
+
+.emotion-0 {
+  color: #768692;
+}
+
+.emotion-3 {
+  text-align: right;
+}
+
 .emotion-2 {
+  color: #231f20;
+}
+
+.emotion-7 {
   -webkit-box-flex: 1;
   -webkit-flex-grow: 1;
   -ms-flex-positive: 1;
   flex-grow: 1;
 }
 
-.emotion-0 {
+.emotion-5 {
   color: #231f20;
   text-align: left;
 }
 
-.emotion-1 {
+.emotion-6 {
   color: -v-a-l-u-e:#768692;
   -d-a-r-k-e-r25: #59656e;
   -l-i-g-h-t-e-r25: #98a4ad;
   text-align: left;
 }
 
-.emotion-5 {
+.emotion-10 {
   text-align: right;
 }
 
-.emotion-3 {
-  color: #231f20;
-}
-
-.emotion-4 {
+.emotion-9 {
   color: -v-a-l-u-e:#768692;
   -d-a-r-k-e-r25: #59656e;
   -l-i-g-h-t-e-r25: #98a4ad;
@@ -135,7 +151,7 @@ exports[`ConditionSummary matches snapshot: wrapper mount 1`] = `
               "display": "Mock",
             },
           ],
-          "isRedacted": true,
+          "isRedacted": false,
           "requestedWhen": "",
         },
         "severity": Object {
@@ -217,217 +233,48 @@ exports[`ConditionSummary matches snapshot: wrapper mount 1`] = `
         }
       >
         <div
-          className="emotion-6"
+          className="emotion-4"
           role="link"
         >
-          <div
-            className="emotion-2"
+          <RedactedDateSummaryItem
+            datetime={
+              Object {
+                "kind": "DATE",
+                "value": "2020-02-01T00:00:00+00:00",
+              }
+            }
+            position="LEFT"
           >
-            <ConditionTitle
-              condition={
-                Object {
-                  "assertedDate": Object {
+            <div
+              className="emotion-1"
+            >
+              <RedactedDescription>
+                <div
+                  className="emotion-0"
+                >
+                  Insufficient privileges
+                </div>
+              </RedactedDescription>
+            </div>
+            <div
+              className="emotion-3"
+            >
+              <DateSummary
+                datetime={
+                  Object {
                     "kind": "DATE",
                     "value": "2020-02-01T00:00:00+00:00",
-                  },
-                  "category": Array [
-                    Object {
-                      "coding": Array [
-                        Object {
-                          "code": "55607006",
-                          "display": "Problem",
-                        },
-                      ],
-                      "text": "Problem",
-                    },
-                  ],
-                  "clinicalStatus": "ACTIVE",
-                  "code": Object {
-                    "coding": Array [
-                      Object {
-                        "code": "60123008",
-                        "display": "Delusional disorder, mixed type",
-                        "system": "HEALTHPLUG",
-                      },
-                    ],
-                    "text": "Delusional disorder, mixed type",
-                  },
-                  "id": "017ca927-67e0-e581-a2c7-115087226fg2|condition",
-                  "metadata": Object {
-                    "dataSources": Array [
-                      Object {
-                        "display": "Mock",
-                      },
-                    ],
-                    "isRedacted": true,
-                    "requestedWhen": "",
-                  },
-                  "severity": Object {
-                    "coding": Array [
-                      Object {
-                        "code": "2448400",
-                        "display": "Severe",
-                      },
-                    ],
-                    "text": "Severe",
-                  },
-                  "subject": Object {
-                    "display": "Mr Peter Humble",
-                    "typeName": "test",
-                  },
-                  "verificationStatus": "CONFIRMED",
+                  }
                 }
-              }
-            >
-              <div
-                className="emotion-0"
               >
-                Delusional disorder, mixed type
-              </div>
-            </ConditionTitle>
-            <ConditionCategory
-              condition={
-                Object {
-                  "assertedDate": Object {
-                    "kind": "DATE",
-                    "value": "2020-02-01T00:00:00+00:00",
-                  },
-                  "category": Array [
-                    Object {
-                      "coding": Array [
-                        Object {
-                          "code": "55607006",
-                          "display": "Problem",
-                        },
-                      ],
-                      "text": "Problem",
-                    },
-                  ],
-                  "clinicalStatus": "ACTIVE",
-                  "code": Object {
-                    "coding": Array [
-                      Object {
-                        "code": "60123008",
-                        "display": "Delusional disorder, mixed type",
-                        "system": "HEALTHPLUG",
-                      },
-                    ],
-                    "text": "Delusional disorder, mixed type",
-                  },
-                  "id": "017ca927-67e0-e581-a2c7-115087226fg2|condition",
-                  "metadata": Object {
-                    "dataSources": Array [
-                      Object {
-                        "display": "Mock",
-                      },
-                    ],
-                    "isRedacted": true,
-                    "requestedWhen": "",
-                  },
-                  "severity": Object {
-                    "coding": Array [
-                      Object {
-                        "code": "2448400",
-                        "display": "Severe",
-                      },
-                    ],
-                    "text": "Severe",
-                  },
-                  "subject": Object {
-                    "display": "Mr Peter Humble",
-                    "typeName": "test",
-                  },
-                  "verificationStatus": "CONFIRMED",
-                }
-              }
-            >
-              <div
-                className="emotion-1"
-              >
-                Problem - Severe
-              </div>
-            </ConditionCategory>
-          </div>
-          <div
-            className="emotion-5"
-          >
-            <DateSummary
-              datetime={
-                Object {
-                  "kind": "DATE",
-                  "value": "2020-02-01T00:00:00+00:00",
-                }
-              }
-            >
-              <div
-                className="emotion-3"
-              >
-                01-Feb-2020
-              </div>
-            </DateSummary>
-            <ConditionStatus
-              condition={
-                Object {
-                  "assertedDate": Object {
-                    "kind": "DATE",
-                    "value": "2020-02-01T00:00:00+00:00",
-                  },
-                  "category": Array [
-                    Object {
-                      "coding": Array [
-                        Object {
-                          "code": "55607006",
-                          "display": "Problem",
-                        },
-                      ],
-                      "text": "Problem",
-                    },
-                  ],
-                  "clinicalStatus": "ACTIVE",
-                  "code": Object {
-                    "coding": Array [
-                      Object {
-                        "code": "60123008",
-                        "display": "Delusional disorder, mixed type",
-                        "system": "HEALTHPLUG",
-                      },
-                    ],
-                    "text": "Delusional disorder, mixed type",
-                  },
-                  "id": "017ca927-67e0-e581-a2c7-115087226fg2|condition",
-                  "metadata": Object {
-                    "dataSources": Array [
-                      Object {
-                        "display": "Mock",
-                      },
-                    ],
-                    "isRedacted": true,
-                    "requestedWhen": "",
-                  },
-                  "severity": Object {
-                    "coding": Array [
-                      Object {
-                        "code": "2448400",
-                        "display": "Severe",
-                      },
-                    ],
-                    "text": "Severe",
-                  },
-                  "subject": Object {
-                    "display": "Mr Peter Humble",
-                    "typeName": "test",
-                  },
-                  "verificationStatus": "CONFIRMED",
-                }
-              }
-            >
-              <div
-                className="emotion-4"
-              >
-                Active - Confirmed
-              </div>
-            </ConditionStatus>
-          </div>
+                <div
+                  className="emotion-2"
+                >
+                  01-Feb-2020
+                </div>
+              </DateSummary>
+            </div>
+          </RedactedDateSummaryItem>
         </div>
       </ConditionSummaryItem>
     </li>
@@ -472,7 +319,7 @@ exports[`ConditionSummary matches snapshot: wrapper mount 1`] = `
                   "display": "Mock",
                 },
               ],
-              "isRedacted": true,
+              "isRedacted": false,
               "requestedWhen": "",
             },
             "severity": Object {
@@ -493,11 +340,11 @@ exports[`ConditionSummary matches snapshot: wrapper mount 1`] = `
         }
       >
         <div
-          className="emotion-6"
+          className="emotion-4"
           role="link"
         >
           <div
-            className="emotion-2"
+            className="emotion-7"
           >
             <ConditionTitle
               condition={
@@ -535,7 +382,7 @@ exports[`ConditionSummary matches snapshot: wrapper mount 1`] = `
                         "display": "Mock",
                       },
                     ],
-                    "isRedacted": true,
+                    "isRedacted": false,
                     "requestedWhen": "",
                   },
                   "severity": Object {
@@ -556,7 +403,7 @@ exports[`ConditionSummary matches snapshot: wrapper mount 1`] = `
               }
             >
               <div
-                className="emotion-0"
+                className="emotion-5"
               >
                 Diabetes mellitus type 2
               </div>
@@ -597,7 +444,7 @@ exports[`ConditionSummary matches snapshot: wrapper mount 1`] = `
                         "display": "Mock",
                       },
                     ],
-                    "isRedacted": true,
+                    "isRedacted": false,
                     "requestedWhen": "",
                   },
                   "severity": Object {
@@ -618,14 +465,14 @@ exports[`ConditionSummary matches snapshot: wrapper mount 1`] = `
               }
             >
               <div
-                className="emotion-1"
+                className="emotion-6"
               >
                 Problem - Mild
               </div>
             </ConditionCategory>
           </div>
           <div
-            className="emotion-5"
+            className="emotion-10"
           >
             <DateSummary
               datetime={
@@ -636,7 +483,7 @@ exports[`ConditionSummary matches snapshot: wrapper mount 1`] = `
               }
             >
               <div
-                className="emotion-3"
+                className="emotion-2"
               >
                 01-Jan-2020
               </div>
@@ -677,7 +524,7 @@ exports[`ConditionSummary matches snapshot: wrapper mount 1`] = `
                         "display": "Mock",
                       },
                     ],
-                    "isRedacted": true,
+                    "isRedacted": false,
                     "requestedWhen": "",
                   },
                   "severity": Object {
@@ -698,7 +545,7 @@ exports[`ConditionSummary matches snapshot: wrapper mount 1`] = `
               }
             >
               <div
-                className="emotion-4"
+                className="emotion-9"
               >
                 Remission - Refuted
               </div>

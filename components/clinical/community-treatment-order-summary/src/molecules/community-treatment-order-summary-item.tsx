@@ -2,8 +2,8 @@
 import React from 'react'
 import { css, jsx } from '@emotion/core'
 
-import { LypftCommunityTreatmentOrder } from '@ltht-react/types'
-import { PeriodSummary } from '@ltht-react/summary'
+import { LypftCommunityTreatmentOrder, RedactedPosition } from '@ltht-react/types'
+import { PeriodSummary, RedactedPeriodSummaryItem } from '@ltht-react/summary'
 
 import Consent from '../atoms/community-treatment-order-summary-consent'
 import Restrictions from '../atoms/community-treatment-order-summary-restrictions'
@@ -17,6 +17,9 @@ const styles = {
   description: css`
     flex-grow: 1;
   `,
+  date: css`
+    text-align: right;
+  `,
 }
 
 const CommunityTreatmentOrderSummaryItem: React.FC<Props> = ({ communityTreatmentOrder, clickHandler }) => {
@@ -24,16 +27,27 @@ const CommunityTreatmentOrderSummaryItem: React.FC<Props> = ({ communityTreatmen
     e.preventDefault()
     clickHandler && clickHandler(communityTreatmentOrder)
   }
-  return (
-    <div css={styles.root} role="link" onClick={clickHandler && handleClick}>
+
+  const summaryMarkup = (
+    <React.Fragment>
       <div css={styles.description}>
         <Status communityTreatmentOrder={communityTreatmentOrder} />
         <Restrictions communityTreatmentOrder={communityTreatmentOrder} />
       </div>
-      <div css={styles.description}>
+      <div css={styles.date}>
         <PeriodSummary period={communityTreatmentOrder.period} />
         <Consent communityTreatmentOrder={communityTreatmentOrder} />
       </div>
+    </React.Fragment>
+  )
+
+  return (
+    <div css={styles.root} role="link" onClick={clickHandler && handleClick}>
+      {communityTreatmentOrder.metadata.isRedacted ? (
+        <RedactedPeriodSummaryItem period={communityTreatmentOrder.period} position={RedactedPosition.Left} />
+      ) : (
+        summaryMarkup
+      )}
     </div>
   )
 }

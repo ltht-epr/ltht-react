@@ -6,6 +6,16 @@ const mockMetadata: Metadata = {
       display: 'Mock',
     },
   ],
+  isRedacted: false,
+  requestedWhen: '',
+}
+
+const redactedMetadata: Metadata = {
+  dataSources: [
+    {
+      display: 'Mock',
+    },
+  ],
   isRedacted: true,
   requestedWhen: '',
 }
@@ -34,7 +44,7 @@ const guidanceOne: Guidance = {
 
 const guidanceTwo: Guidance = {
   id: 'c2ee5d22-6fcd-4ec8-b12a-e9c6e83876b1',
-  metadata: mockMetadata,
+  metadata: redactedMetadata,
   text: {
     div: '',
     text: 'As the information entered indicates that the patient has breathing issues, please consider the need for:',

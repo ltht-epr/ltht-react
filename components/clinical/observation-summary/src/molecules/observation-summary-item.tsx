@@ -3,6 +3,7 @@ import React from 'react'
 import { css, jsx } from '@emotion/core'
 
 import { Observation } from '@ltht-react/types'
+import { RedactedSummaryItem } from '@ltht-react/summary'
 import Status from '../atoms/observation-status'
 import Value from '../atoms/observation-value'
 
@@ -21,14 +22,21 @@ const ObservationSummaryItem: React.FC<Props> = ({ observation, clickHandler }) 
     e.preventDefault()
     clickHandler && clickHandler(observation)
   }
-  return (
-    <div role="link" css={styles.root} onClick={clickHandler && handleClick}>
+
+  const summaryMarkup = (
+    <React.Fragment>
       <div>
         <Value observation={observation} />
       </div>
       <div>
         <Status observation={observation} />
       </div>
+    </React.Fragment>
+  )
+
+  return (
+    <div role="link" css={styles.root} onClick={clickHandler && handleClick}>
+      {observation.metadata.isRedacted ? <RedactedSummaryItem /> : summaryMarkup}
     </div>
   )
 }

@@ -38,7 +38,7 @@ exports[`CommunityTreatmentOrderSummary matches snapshot: wrapper mount 1`] = `
             "display": "Mock",
           },
         ],
-        "isRedacted": true,
+        "isRedacted": false,
         "requestedWhen": "",
       },
       "period": Object {

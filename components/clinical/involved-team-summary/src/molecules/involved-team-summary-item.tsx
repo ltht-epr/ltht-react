@@ -2,8 +2,8 @@
 import React from 'react'
 import { css, jsx } from '@emotion/core'
 
-import { EpisodeOfCare } from '@ltht-react/types'
-import { PeriodSummary } from '@ltht-react/summary'
+import { EpisodeOfCare, RedactedPosition } from '@ltht-react/types'
+import { PeriodSummary, RedactedPeriodSummaryItem } from '@ltht-react/summary'
 
 import Description from '../atoms/involved-team-description'
 import Type from '../atoms/involved-team-type'
@@ -28,8 +28,9 @@ const InvolvedTeamSummaryItem: React.FC<Props> = ({ episodeOfCare, clickHandler 
     e.preventDefault()
     clickHandler && clickHandler(episodeOfCare)
   }
-  return (
-    <div role="link" css={styles.root} onClick={clickHandler && handleClick}>
+
+  const summaryMarkup = (
+    <React.Fragment>
       <div>
         <Title episodeOfCare={episodeOfCare} />
         <Description episodeOfCare={episodeOfCare} />
@@ -38,6 +39,16 @@ const InvolvedTeamSummaryItem: React.FC<Props> = ({ episodeOfCare, clickHandler 
         <PeriodSummary period={episodeOfCare.period} />
         <Type episodeOfCare={episodeOfCare} />
       </div>
+    </React.Fragment>
+  )
+
+  return (
+    <div role="link" css={styles.root} onClick={clickHandler && handleClick}>
+      {episodeOfCare.metadata.isRedacted ? (
+        <RedactedPeriodSummaryItem period={episodeOfCare.period} position={RedactedPosition.Left} />
+      ) : (
+        summaryMarkup
+      )}
     </div>
   )
 }

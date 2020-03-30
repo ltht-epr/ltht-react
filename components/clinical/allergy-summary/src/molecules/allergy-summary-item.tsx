@@ -2,8 +2,8 @@
 import React from 'react'
 import { css, jsx } from '@emotion/core'
 
-import { AllergyIntolerance } from '@ltht-react/types'
-import { DateSummary } from '@ltht-react/summary'
+import { AllergyIntolerance, RedactedPosition } from '@ltht-react/types'
+import { DateSummary, RedactedDateSummaryItem } from '@ltht-react/summary'
 
 import Title from '../atoms/allergy-title'
 import Description from '../atoms/allergy-description'
@@ -32,8 +32,9 @@ const AllergySummaryItem: React.FC<Props> = ({ allergy, clickHandler }) => {
     e.preventDefault()
     clickHandler && clickHandler(allergy)
   }
-  return (
-    <div css={styles.root} role="link" onClick={clickHandler && handleClick}>
+
+  const summaryMarkup = (
+    <React.Fragment>
       <div css={styles.icon}>
         <Icon allergy={allergy} />
       </div>
@@ -45,6 +46,16 @@ const AllergySummaryItem: React.FC<Props> = ({ allergy, clickHandler }) => {
         <DateSummary datetime={allergy.assertedDate} />
         <Status allergy={allergy} />
       </div>
+    </React.Fragment>
+  )
+
+  return (
+    <div css={styles.root} role="link" onClick={clickHandler && handleClick}>
+      {allergy.metadata.isRedacted ? (
+        <RedactedDateSummaryItem datetime={allergy.assertedDate} position={RedactedPosition.Left} />
+      ) : (
+        summaryMarkup
+      )}
     </div>
   )
 }

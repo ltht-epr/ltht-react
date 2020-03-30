@@ -6,6 +6,16 @@ const mockMetadata: Metadata = {
       display: 'Mock',
     },
   ],
+  isRedacted: false,
+  requestedWhen: '',
+}
+
+const redactedMetadata: Metadata = {
+  dataSources: [
+    {
+      display: 'Mock',
+    },
+  ],
   isRedacted: true,
   requestedWhen: '',
 }
@@ -38,7 +48,7 @@ const AppointmentOne: Encounter = {
 
 const AppointmentTwo: Encounter = {
   id: '941ca927-34e0-e911-a2c7-005087226fe4|appointment',
-  metadata: mockMetadata,
+  metadata: redactedMetadata,
   text: {
     text: 'Chest x-ray for recent car accident',
     div: 'test',

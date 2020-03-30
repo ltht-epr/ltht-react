@@ -1,5 +1,6 @@
 import React from 'react'
 import { Guidance } from '@ltht-react/types'
+import { RedactedSummaryItem } from '@ltht-react/summary'
 import { UnorderedList, ListItem } from '@ltht-react/list'
 
 const GuidanceItem: React.FC<Props> = ({ guidance = undefined }) => {
@@ -9,11 +10,13 @@ const GuidanceItem: React.FC<Props> = ({ guidance = undefined }) => {
 
   const notes = guidance.note?.map((x, idx) => <ListItem key={idx}>{x?.text}</ListItem>)
 
-  return (
-    <div>
+  return guidance.metadata.isRedacted ? (
+    <RedactedSummaryItem />
+  ) : (
+    <>
       <div>{guidance.text?.text}</div>
       {notes ? <UnorderedList bullet="disc">{notes}</UnorderedList> : null}
-    </div>
+    </>
   )
 }
 

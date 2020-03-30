@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CarePlanSummary matches snapshot: wrapper mount 1`] = `
-.emotion-6 {
+.emotion-4 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -12,34 +12,50 @@ exports[`CarePlanSummary matches snapshot: wrapper mount 1`] = `
   justify-content: center;
 }
 
+.emotion-1 {
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  text-align: left;
+}
+
+.emotion-0 {
+  color: #768692;
+}
+
+.emotion-3 {
+  text-align: right;
+}
+
 .emotion-2 {
+  color: #231f20;
+}
+
+.emotion-7 {
   -webkit-box-flex: 1;
   -webkit-flex-grow: 1;
   -ms-flex-positive: 1;
   flex-grow: 1;
 }
 
-.emotion-0 {
+.emotion-5 {
   color: #231f20;
   text-align: left;
 }
 
-.emotion-1 {
+.emotion-6 {
   color: -v-a-l-u-e:#768692;
   -d-a-r-k-e-r25: #59656e;
   -l-i-g-h-t-e-r25: #98a4ad;
   text-align: left;
 }
 
-.emotion-5 {
+.emotion-10 {
   text-align: right;
 }
 
-.emotion-3 {
-  color: #231f20;
-}
-
-.emotion-4 {
+.emotion-9 {
   color: -v-a-l-u-e:#768692;
   -d-a-r-k-e-r25: #59656e;
   -l-i-g-h-t-e-r25: #98a4ad;
@@ -116,7 +132,7 @@ exports[`CarePlanSummary matches snapshot: wrapper mount 1`] = `
               "display": "Mock",
             },
           ],
-          "isRedacted": true,
+          "isRedacted": false,
           "requestedWhen": "",
         },
         "period": Object {
@@ -190,44 +206,41 @@ exports[`CarePlanSummary matches snapshot: wrapper mount 1`] = `
         }
       >
         <div
-          className="emotion-6"
+          className="emotion-4"
           role="link"
         >
-          <div
-            className="emotion-2"
+          <RedactedPeriodSummaryItem
+            period={
+              Object {
+                "end": Object {
+                  "kind": "DATE",
+                  "value": "2014-02-02T00:00:00+00:00",
+                },
+                "start": Object {
+                  "kind": "DATE",
+                  "value": "2013-01-01T00:00:00+00:00",
+                },
+              }
+            }
+            position="LEFT"
           >
-            <CarePlanTitle
-              carePlan={
-                Object {
-                  "author": Array [
-                    Object {
-                      "display": "Dr Joe Bloggs",
-                      "typeName": "Test",
-                    },
-                    Object {
-                      "display": "Dr Adam Careplan",
-                      "typeName": "Test",
-                    },
-                  ],
-                  "careTeam": Array [
-                    Object {
-                      "display": "LYPFT Care Team 1",
-                      "typeName": "Team",
-                    },
-                  ],
-                  "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo",
-                  "id": "580ca927-34e0-e911-a2c7-005056926fe4|careplan",
-                  "intent": "PLAN",
-                  "metadata": Object {
-                    "dataSources": Array [
-                      Object {
-                        "display": "Mock",
-                      },
-                    ],
-                    "isRedacted": true,
-                    "requestedWhen": "",
-                  },
-                  "period": Object {
+            <div
+              className="emotion-1"
+            >
+              <RedactedDescription>
+                <div
+                  className="emotion-0"
+                >
+                  Insufficient privileges
+                </div>
+              </RedactedDescription>
+            </div>
+            <div
+              className="emotion-3"
+            >
+              <PeriodSummary
+                period={
+                  Object {
                     "end": Object {
                       "kind": "DATE",
                       "value": "2014-02-02T00:00:00+00:00",
@@ -236,159 +249,17 @@ exports[`CarePlanSummary matches snapshot: wrapper mount 1`] = `
                       "kind": "DATE",
                       "value": "2013-01-01T00:00:00+00:00",
                     },
-                  },
-                  "status": "ACTIVE",
-                  "text": Object {
-                    "div": "",
-                    "text": "Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
-                  },
-                  "title": "Mental Health Crisis Plan",
+                  }
                 }
-              }
-            >
-              <div
-                className="emotion-0"
               >
-                Mental Health Crisis Plan
-              </div>
-            </CarePlanTitle>
-            <CarePlanDescription
-              carePlan={
-                Object {
-                  "author": Array [
-                    Object {
-                      "display": "Dr Joe Bloggs",
-                      "typeName": "Test",
-                    },
-                    Object {
-                      "display": "Dr Adam Careplan",
-                      "typeName": "Test",
-                    },
-                  ],
-                  "careTeam": Array [
-                    Object {
-                      "display": "LYPFT Care Team 1",
-                      "typeName": "Team",
-                    },
-                  ],
-                  "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo",
-                  "id": "580ca927-34e0-e911-a2c7-005056926fe4|careplan",
-                  "intent": "PLAN",
-                  "metadata": Object {
-                    "dataSources": Array [
-                      Object {
-                        "display": "Mock",
-                      },
-                    ],
-                    "isRedacted": true,
-                    "requestedWhen": "",
-                  },
-                  "period": Object {
-                    "end": Object {
-                      "kind": "DATE",
-                      "value": "2014-02-02T00:00:00+00:00",
-                    },
-                    "start": Object {
-                      "kind": "DATE",
-                      "value": "2013-01-01T00:00:00+00:00",
-                    },
-                  },
-                  "status": "ACTIVE",
-                  "text": Object {
-                    "div": "",
-                    "text": "Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
-                  },
-                  "title": "Mental Health Crisis Plan",
-                }
-              }
-            >
-              <div
-                className="emotion-1"
-              >
-                Dr Joe Bloggs, Dr Adam Careplan - LYPFT Care Team 1
-              </div>
-            </CarePlanDescription>
-          </div>
-          <div
-            className="emotion-5"
-          >
-            <PeriodSummary
-              period={
-                Object {
-                  "end": Object {
-                    "kind": "DATE",
-                    "value": "2014-02-02T00:00:00+00:00",
-                  },
-                  "start": Object {
-                    "kind": "DATE",
-                    "value": "2013-01-01T00:00:00+00:00",
-                  },
-                }
-              }
-            >
-              <div
-                className="emotion-3"
-              >
-                01-Jan-2013 to 02-Feb-2014
-              </div>
-            </PeriodSummary>
-            <CarePlanStatus
-              carePlan={
-                Object {
-                  "author": Array [
-                    Object {
-                      "display": "Dr Joe Bloggs",
-                      "typeName": "Test",
-                    },
-                    Object {
-                      "display": "Dr Adam Careplan",
-                      "typeName": "Test",
-                    },
-                  ],
-                  "careTeam": Array [
-                    Object {
-                      "display": "LYPFT Care Team 1",
-                      "typeName": "Team",
-                    },
-                  ],
-                  "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo",
-                  "id": "580ca927-34e0-e911-a2c7-005056926fe4|careplan",
-                  "intent": "PLAN",
-                  "metadata": Object {
-                    "dataSources": Array [
-                      Object {
-                        "display": "Mock",
-                      },
-                    ],
-                    "isRedacted": true,
-                    "requestedWhen": "",
-                  },
-                  "period": Object {
-                    "end": Object {
-                      "kind": "DATE",
-                      "value": "2014-02-02T00:00:00+00:00",
-                    },
-                    "start": Object {
-                      "kind": "DATE",
-                      "value": "2013-01-01T00:00:00+00:00",
-                    },
-                  },
-                  "status": "ACTIVE",
-                  "text": Object {
-                    "div": "",
-                    "text": "Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
-                  },
-                  "title": "Mental Health Crisis Plan",
-                }
-              }
-            >
-              <div
-                className="emotion-4"
-              >
-                Plan - Active
-              </div>
-            </CarePlanStatus>
-          </div>
+                <div
+                  className="emotion-2"
+                >
+                  01-Jan-2013 to 02-Feb-2014
+                </div>
+              </PeriodSummary>
+            </div>
+          </RedactedPeriodSummaryItem>
         </div>
       </CarePlanSummaryItem>
     </li>
@@ -420,7 +291,7 @@ exports[`CarePlanSummary matches snapshot: wrapper mount 1`] = `
                   "display": "Mock",
                 },
               ],
-              "isRedacted": true,
+              "isRedacted": false,
               "requestedWhen": "",
             },
             "period": Object {
@@ -439,11 +310,11 @@ exports[`CarePlanSummary matches snapshot: wrapper mount 1`] = `
         }
       >
         <div
-          className="emotion-6"
+          className="emotion-4"
           role="link"
         >
           <div
-            className="emotion-2"
+            className="emotion-7"
           >
             <CarePlanTitle
               carePlan={
@@ -468,7 +339,7 @@ exports[`CarePlanSummary matches snapshot: wrapper mount 1`] = `
                         "display": "Mock",
                       },
                     ],
-                    "isRedacted": true,
+                    "isRedacted": false,
                     "requestedWhen": "",
                   },
                   "period": Object {
@@ -487,7 +358,7 @@ exports[`CarePlanSummary matches snapshot: wrapper mount 1`] = `
               }
             >
               <div
-                className="emotion-0"
+                className="emotion-5"
               >
                 Test Care Plan
               </div>
@@ -515,7 +386,7 @@ exports[`CarePlanSummary matches snapshot: wrapper mount 1`] = `
                         "display": "Mock",
                       },
                     ],
-                    "isRedacted": true,
+                    "isRedacted": false,
                     "requestedWhen": "",
                   },
                   "period": Object {
@@ -534,14 +405,14 @@ exports[`CarePlanSummary matches snapshot: wrapper mount 1`] = `
               }
             >
               <div
-                className="emotion-1"
+                className="emotion-6"
               >
                 John Mclane - LYPFT Care Team 2
               </div>
             </CarePlanDescription>
           </div>
           <div
-            className="emotion-5"
+            className="emotion-10"
           >
             <PeriodSummary
               period={
@@ -558,7 +429,7 @@ exports[`CarePlanSummary matches snapshot: wrapper mount 1`] = `
               }
             >
               <div
-                className="emotion-3"
+                className="emotion-2"
               >
                 02-Feb-2014 to 04-Mar-2015
               </div>
@@ -586,7 +457,7 @@ exports[`CarePlanSummary matches snapshot: wrapper mount 1`] = `
                         "display": "Mock",
                       },
                     ],
-                    "isRedacted": true,
+                    "isRedacted": false,
                     "requestedWhen": "",
                   },
                   "period": Object {
@@ -605,7 +476,7 @@ exports[`CarePlanSummary matches snapshot: wrapper mount 1`] = `
               }
             >
               <div
-                className="emotion-4"
+                className="emotion-9"
               >
                 Proposal - Completed
               </div>

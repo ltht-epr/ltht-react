@@ -6,6 +6,16 @@ const mockMetadata: Metadata = {
       display: 'Mock',
     },
   ],
+  isRedacted: false,
+  requestedWhen: '',
+}
+
+const redactedMetadata: Metadata = {
+  dataSources: [
+    {
+      display: 'Mock',
+    },
+  ],
   isRedacted: true,
   requestedWhen: '',
 }
@@ -33,7 +43,7 @@ const CommunityTreatmentOrderOne: LypftCommunityTreatmentOrder = {
 
 const CommunityTreatmentOrderTwo: LypftCommunityTreatmentOrder = {
   id: '690ca927-68e0-c511-b2c7-898056926ze4|communityTreatmentOrder',
-  metadata: mockMetadata,
+  metadata: redactedMetadata,
   consentToTreat: 'Consent Given',
   legalStatus: {
     coding: [{ display: 'Pending', code: '779007' }],

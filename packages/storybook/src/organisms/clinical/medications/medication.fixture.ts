@@ -13,13 +13,23 @@ const mockMetadata: Metadata = {
       display: 'Mock',
     },
   ],
+  isRedacted: false,
+  requestedWhen: '',
+}
+
+const redactedMetadata: Metadata = {
+  dataSources: [
+    {
+      display: 'Mock',
+    },
+  ],
   isRedacted: true,
   requestedWhen: '',
 }
 
 const medicationOne: Medication = {
   id: '146dd7ae-8fa9-4abe-a909-dde929c96e36',
-  metadata: mockMetadata,
+  metadata: redactedMetadata,
   code: {
     coding: [
       {

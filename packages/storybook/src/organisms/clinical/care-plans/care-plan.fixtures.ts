@@ -14,13 +14,23 @@ const mockMetadata: Metadata = {
       display: 'Mock',
     },
   ],
+  isRedacted: false,
+  requestedWhen: '',
+}
+
+const redactedMetadata: Metadata = {
+  dataSources: [
+    {
+      display: 'Mock',
+    },
+  ],
   isRedacted: true,
   requestedWhen: '',
 }
 
 const CarePlanOne: CarePlan = {
   id: '580ca927-34e0-e911-a2c7-005056926fe4|careplan',
-  metadata: mockMetadata,
+  metadata: redactedMetadata,
   author: [
     { display: 'Dr Joe Bloggs', typeName: 'Test' },
     { display: 'Dr Adam Careplan', typeName: 'Test' },

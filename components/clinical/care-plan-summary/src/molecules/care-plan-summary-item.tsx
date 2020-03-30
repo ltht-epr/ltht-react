@@ -2,8 +2,8 @@
 import React from 'react'
 import { css, jsx } from '@emotion/core'
 
-import { CarePlan } from '@ltht-react/types'
-import { PeriodSummary } from '@ltht-react/summary'
+import { CarePlan, RedactedPosition } from '@ltht-react/types'
+import { PeriodSummary, RedactedPeriodSummaryItem } from '@ltht-react/summary'
 
 import Description from '../atoms/care-plan-description'
 import Status from '../atoms/care-plan-status'
@@ -27,8 +27,9 @@ const CarePlanSummaryItem: React.FC<Props> = ({ carePlan, clickHandler }) => {
     e.preventDefault()
     clickHandler && clickHandler(carePlan)
   }
-  return (
-    <div css={styles.root} role="link" onClick={clickHandler && handleClick}>
+
+  const summaryMarkup = (
+    <React.Fragment>
       <div css={styles.description}>
         <Title carePlan={carePlan} />
         <Description carePlan={carePlan} />
@@ -37,6 +38,16 @@ const CarePlanSummaryItem: React.FC<Props> = ({ carePlan, clickHandler }) => {
         <PeriodSummary period={carePlan.period} />
         <Status carePlan={carePlan} />
       </div>
+    </React.Fragment>
+  )
+
+  return (
+    <div css={styles.root} role="link" onClick={clickHandler && handleClick}>
+      {carePlan.metadata.isRedacted ? (
+        <RedactedPeriodSummaryItem period={carePlan.period} position={RedactedPosition.Left} />
+      ) : (
+        summaryMarkup
+      )}
     </div>
   )
 }

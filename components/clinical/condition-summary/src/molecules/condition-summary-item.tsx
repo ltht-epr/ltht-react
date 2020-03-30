@@ -2,8 +2,8 @@
 import React from 'react'
 import { css, jsx } from '@emotion/core'
 
-import { Condition } from '@ltht-react/types'
-import { DateSummary } from '@ltht-react/summary'
+import { Condition, RedactedPosition } from '@ltht-react/types'
+import { DateSummary, RedactedDateSummaryItem } from '@ltht-react/summary'
 
 import Category from '../atoms/condition-category'
 import Status from '../atoms/condition-status'
@@ -27,8 +27,9 @@ const ConditionSummaryItem: React.FC<Props> = ({ condition, clickHandler }) => {
     e.preventDefault()
     clickHandler && clickHandler(condition)
   }
-  return (
-    <div role="link" css={styles.root} onClick={clickHandler && handleClick}>
+
+  const summaryMarkup = (
+    <React.Fragment>
       <div css={styles.description}>
         <Title condition={condition} />
         <Category condition={condition} />
@@ -37,6 +38,16 @@ const ConditionSummaryItem: React.FC<Props> = ({ condition, clickHandler }) => {
         <DateSummary datetime={condition?.assertedDate} />
         <Status condition={condition} />
       </div>
+    </React.Fragment>
+  )
+
+  return (
+    <div role="link" css={styles.root} onClick={clickHandler && handleClick}>
+      {condition.metadata.isRedacted ? (
+        <RedactedDateSummaryItem datetime={condition?.assertedDate} position={RedactedPosition.Left} />
+      ) : (
+        summaryMarkup
+      )}
     </div>
   )
 }

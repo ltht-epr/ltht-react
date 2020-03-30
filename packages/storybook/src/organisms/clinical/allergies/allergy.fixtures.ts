@@ -15,6 +15,16 @@ const mockMetadata: Metadata = {
       display: 'Mock',
     },
   ],
+  isRedacted: false,
+  requestedWhen: '',
+}
+
+const redactedMetadata: Metadata = {
+  dataSources: [
+    {
+      display: 'Mock',
+    },
+  ],
   isRedacted: true,
   requestedWhen: '',
 }
@@ -38,7 +48,7 @@ const AllergyOne: AllergyIntolerance = {
 
 const AllergyTwo: AllergyIntolerance = {
   id: '690ca927-68e0-c511-b2c7-898056926ze4|allergyalert',
-  metadata: mockMetadata,
+  metadata: redactedMetadata,
   assertedDate: {
     value: '2013-01-01T00:00:00+00:00',
     kind: PartialDateTimeKindCode.Year,

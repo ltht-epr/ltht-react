@@ -34,6 +34,22 @@ exports[`HospitalStaySummary matches snapshot: wrapper mount 1`] = `
   text-align: right;
 }
 
+.emotion-5 {
+  text-align: left;
+}
+
+.emotion-7 {
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  text-align: right;
+}
+
+.emotion-6 {
+  color: #768692;
+}
+
 <HospitalStaySummary
   hospitalStays={
     Array [
@@ -45,7 +61,7 @@ exports[`HospitalStaySummary matches snapshot: wrapper mount 1`] = `
               "display": "Mock",
             },
           ],
-          "isRedacted": true,
+          "isRedacted": false,
           "requestedWhen": "",
         },
         "period": Object {
@@ -102,7 +118,7 @@ exports[`HospitalStaySummary matches snapshot: wrapper mount 1`] = `
                   "display": "Mock",
                 },
               ],
-              "isRedacted": true,
+              "isRedacted": false,
               "requestedWhen": "",
             },
             "period": Object {
@@ -161,7 +177,7 @@ exports[`HospitalStaySummary matches snapshot: wrapper mount 1`] = `
                         "display": "Mock",
                       },
                     ],
-                    "isRedacted": true,
+                    "isRedacted": false,
                     "requestedWhen": "",
                   },
                   "period": Object {
@@ -226,60 +242,49 @@ exports[`HospitalStaySummary matches snapshot: wrapper mount 1`] = `
           className="emotion-3"
           role="link"
         >
-          <div
-            className="emotion-1"
-          >
-            <PeriodSummary
-              period={
-                Object {
-                  "start": Object {
-                    "kind": "DATE",
-                    "value": "2020-01-01T00:00:00+00:00",
-                  },
-                }
+          <RedactedPeriodSummaryItem
+            period={
+              Object {
+                "start": Object {
+                  "kind": "DATE",
+                  "value": "2020-01-01T00:00:00+00:00",
+                },
               }
+            }
+            position="RIGHT"
+          >
+            <div
+              className="emotion-5"
             >
-              <div
-                className="emotion-0"
-              >
-                01-Jan-2020 to Present
-              </div>
-            </PeriodSummary>
-          </div>
-          <div>
-            <HospitalStayServiceProvider
-              encounter={
-                Object {
-                  "id": "690ca927-68e0-c511-b2c7-898056926ze4|hospitalstay",
-                  "metadata": Object {
-                    "dataSources": Array [
-                      Object {
-                        "display": "Mock",
-                      },
-                    ],
-                    "isRedacted": true,
-                    "requestedWhen": "",
-                  },
-                  "period": Object {
+              <PeriodSummary
+                period={
+                  Object {
                     "start": Object {
                       "kind": "DATE",
                       "value": "2020-01-01T00:00:00+00:00",
                     },
-                  },
-                  "serviceProvider": Object {
-                    "display": "Beaumont Hospital",
-                    "typeName": "Hospital",
-                  },
+                  }
                 }
-              }
-            >
-              <div
-                className="emotion-2"
               >
-                Beaumont Hospital
-              </div>
-            </HospitalStayServiceProvider>
-          </div>
+                <div
+                  className="emotion-0"
+                >
+                  01-Jan-2020 to Present
+                </div>
+              </PeriodSummary>
+            </div>
+            <div
+              className="emotion-7"
+            >
+              <RedactedDescription>
+                <div
+                  className="emotion-6"
+                >
+                  Insufficient privileges
+                </div>
+              </RedactedDescription>
+            </div>
+          </RedactedPeriodSummaryItem>
         </div>
       </HospitalStaySummaryItem>
     </li>

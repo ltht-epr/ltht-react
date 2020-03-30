@@ -2,8 +2,8 @@
 import React from 'react'
 import { css, jsx } from '@emotion/core'
 
-import { Encounter } from '@ltht-react/types'
-import { DateSummary } from '@ltht-react/summary'
+import { Encounter, RedactedPosition } from '@ltht-react/types'
+import { DateSummary, RedactedDateSummaryItem } from '@ltht-react/summary'
 
 import ServiceProvider from '../atoms/appointment-service-provider'
 import Description from '../atoms/appointment-description'
@@ -27,8 +27,9 @@ const AppointmentSummaryItem: React.FC<Props> = ({ encounter, clickHandler }) =>
     e.preventDefault()
     clickHandler && clickHandler(encounter)
   }
-  return (
-    <div role="link" css={styles.root} onClick={clickHandler && handleClick}>
+
+  const summaryMarkup = (
+    <React.Fragment>
       <div css={styles.date}>
         <DateSummary datetime={encounter?.period?.start} />
       </div>
@@ -39,6 +40,16 @@ const AppointmentSummaryItem: React.FC<Props> = ({ encounter, clickHandler }) =>
         <ServiceProvider encounter={encounter} />
         <Status encounter={encounter} />
       </div>
+    </React.Fragment>
+  )
+
+  return (
+    <div role="link" css={styles.root} onClick={clickHandler && handleClick}>
+      {encounter.metadata.isRedacted ? (
+        <RedactedDateSummaryItem datetime={encounter?.period?.start} position={RedactedPosition.Right} />
+      ) : (
+        summaryMarkup
+      )}
     </div>
   )
 }

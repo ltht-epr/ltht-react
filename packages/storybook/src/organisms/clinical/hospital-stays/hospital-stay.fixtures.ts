@@ -6,6 +6,16 @@ const mockMetadata: Metadata = {
       display: 'Mock',
     },
   ],
+  isRedacted: false,
+  requestedWhen: '',
+}
+
+const redactedMetadata: Metadata = {
+  dataSources: [
+    {
+      display: 'Mock',
+    },
+  ],
   isRedacted: true,
   requestedWhen: '',
 }
@@ -28,7 +38,7 @@ const HospitalStayOne: Encounter = {
 
 const HospitalStayTwo: Encounter = {
   id: '690ca927-68e0-c511-b2c7-898056926ze4|hospitalstay',
-  metadata: mockMetadata,
+  metadata: redactedMetadata,
   serviceProvider: { display: 'Beaumont Hospital', typeName: 'Hospital' },
   period: {
     start: {

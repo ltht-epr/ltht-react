@@ -12,13 +12,23 @@ const mockMetadata: Metadata = {
       display: 'Mock',
     },
   ],
+  isRedacted: false,
+  requestedWhen: '',
+}
+
+const redactedMetadata: Metadata = {
+  dataSources: [
+    {
+      display: 'Mock',
+    },
+  ],
   isRedacted: true,
   requestedWhen: '',
 }
 
 const ConditionOne: Condition = {
   id: '017ca927-67e0-e581-a2c7-115087226fg2|condition',
-  metadata: mockMetadata,
+  metadata: redactedMetadata,
   category: [
     {
       coding: [

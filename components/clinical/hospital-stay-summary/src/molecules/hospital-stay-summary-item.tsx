@@ -2,8 +2,8 @@
 import React from 'react'
 import { css, jsx } from '@emotion/core'
 
-import { Encounter } from '@ltht-react/types'
-import { PeriodSummary } from '@ltht-react/summary'
+import { Encounter, RedactedPosition } from '@ltht-react/types'
+import { PeriodSummary, RedactedPeriodSummaryItem } from '@ltht-react/summary'
 
 import ServiceProvider from '../atoms/hospital-stay-service-provider'
 
@@ -26,14 +26,25 @@ const HospitalStaySummaryItem: React.FC<Props> = ({ hospitalStay, clickHandler }
     e.preventDefault()
     clickHandler && clickHandler(hospitalStay)
   }
-  return (
-    <div role="link" css={styles.root} onClick={clickHandler && handleClick}>
+
+  const summaryMarkup = (
+    <React.Fragment>
       <div css={styles.date}>
         <PeriodSummary period={hospitalStay.period} />
       </div>
       <div>
         <ServiceProvider encounter={hospitalStay} />
       </div>
+    </React.Fragment>
+  )
+
+  return (
+    <div role="link" css={styles.root} onClick={clickHandler && handleClick}>
+      {hospitalStay.metadata.isRedacted ? (
+        <RedactedPeriodSummaryItem period={hospitalStay.period} position={RedactedPosition.Right} />
+      ) : (
+        summaryMarkup
+      )}
     </div>
   )
 }

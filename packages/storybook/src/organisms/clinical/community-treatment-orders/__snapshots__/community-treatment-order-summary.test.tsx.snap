@@ -42,6 +42,22 @@ exports[`CommunityTreatmentOrderSummary matches snapshot: wrapper mount 1`] = `
   text-align: right;
 }
 
+.emotion-8 {
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  text-align: left;
+}
+
+.emotion-7 {
+  color: #768692;
+}
+
+.emotion-10 {
+  text-align: right;
+}
+
 <CommunityTreatmentOrderSummary
   communityTreatmentOrders={
     Array [
@@ -63,7 +79,7 @@ exports[`CommunityTreatmentOrderSummary matches snapshot: wrapper mount 1`] = `
               "display": "Mock",
             },
           ],
-          "isRedacted": true,
+          "isRedacted": false,
           "requestedWhen": "",
         },
         "period": Object {
@@ -134,7 +150,7 @@ exports[`CommunityTreatmentOrderSummary matches snapshot: wrapper mount 1`] = `
                   "display": "Mock",
                 },
               ],
-              "isRedacted": true,
+              "isRedacted": false,
               "requestedWhen": "",
             },
             "period": Object {
@@ -178,7 +194,7 @@ exports[`CommunityTreatmentOrderSummary matches snapshot: wrapper mount 1`] = `
                         "display": "Mock",
                       },
                     ],
-                    "isRedacted": true,
+                    "isRedacted": false,
                     "requestedWhen": "",
                   },
                   "period": Object {
@@ -221,7 +237,7 @@ exports[`CommunityTreatmentOrderSummary matches snapshot: wrapper mount 1`] = `
                         "display": "Mock",
                       },
                     ],
-                    "isRedacted": true,
+                    "isRedacted": false,
                     "requestedWhen": "",
                   },
                   "period": Object {
@@ -288,7 +304,7 @@ exports[`CommunityTreatmentOrderSummary matches snapshot: wrapper mount 1`] = `
                         "display": "Mock",
                       },
                     ],
-                    "isRedacted": true,
+                    "isRedacted": false,
                     "requestedWhen": "",
                   },
                   "period": Object {
@@ -357,147 +373,49 @@ exports[`CommunityTreatmentOrderSummary matches snapshot: wrapper mount 1`] = `
           className="emotion-6"
           role="link"
         >
-          <div
-            className="emotion-2"
+          <RedactedPeriodSummaryItem
+            period={
+              Object {
+                "start": Object {
+                  "kind": "DATE",
+                  "value": "2020-01-02T00:00:00+00:00",
+                },
+              }
+            }
+            position="LEFT"
           >
-            <CommunityTreatmentOrderConsent
-              communityTreatmentOrder={
-                Object {
-                  "consentToTreat": "Consent Given",
-                  "id": "690ca927-68e0-c511-b2c7-898056926ze4|communityTreatmentOrder",
-                  "legalStatus": Object {
-                    "coding": Array [
-                      Object {
-                        "code": "779007",
-                        "display": "Pending",
-                      },
-                    ],
-                    "text": "Pending",
-                  },
-                  "metadata": Object {
-                    "dataSources": Array [
-                      Object {
-                        "display": "Mock",
-                      },
-                    ],
-                    "isRedacted": true,
-                    "requestedWhen": "",
-                  },
-                  "period": Object {
+            <div
+              className="emotion-8"
+            >
+              <RedactedDescription>
+                <div
+                  className="emotion-7"
+                >
+                  Insufficient privileges
+                </div>
+              </RedactedDescription>
+            </div>
+            <div
+              className="emotion-10"
+            >
+              <PeriodSummary
+                period={
+                  Object {
                     "start": Object {
                       "kind": "DATE",
                       "value": "2020-01-02T00:00:00+00:00",
                     },
-                  },
-                  "restrictions": "No Restrictions",
+                  }
                 }
-              }
-            >
-              <div
-                className="emotion-0"
               >
-                Pending
-              </div>
-            </CommunityTreatmentOrderConsent>
-            <CommunityTreatmentOrderSummaryRestrictions
-              communityTreatmentOrder={
-                Object {
-                  "consentToTreat": "Consent Given",
-                  "id": "690ca927-68e0-c511-b2c7-898056926ze4|communityTreatmentOrder",
-                  "legalStatus": Object {
-                    "coding": Array [
-                      Object {
-                        "code": "779007",
-                        "display": "Pending",
-                      },
-                    ],
-                    "text": "Pending",
-                  },
-                  "metadata": Object {
-                    "dataSources": Array [
-                      Object {
-                        "display": "Mock",
-                      },
-                    ],
-                    "isRedacted": true,
-                    "requestedWhen": "",
-                  },
-                  "period": Object {
-                    "start": Object {
-                      "kind": "DATE",
-                      "value": "2020-01-02T00:00:00+00:00",
-                    },
-                  },
-                  "restrictions": "No Restrictions",
-                }
-              }
-            >
-              <div
-                className="emotion-1"
-              >
-                No Restrictions
-              </div>
-            </CommunityTreatmentOrderSummaryRestrictions>
-          </div>
-          <div
-            className="emotion-2"
-          >
-            <PeriodSummary
-              period={
-                Object {
-                  "start": Object {
-                    "kind": "DATE",
-                    "value": "2020-01-02T00:00:00+00:00",
-                  },
-                }
-              }
-            >
-              <div
-                className="emotion-3"
-              >
-                02-Jan-2020 to Present
-              </div>
-            </PeriodSummary>
-            <CommunityTreatmentOrderSummaryConsent
-              communityTreatmentOrder={
-                Object {
-                  "consentToTreat": "Consent Given",
-                  "id": "690ca927-68e0-c511-b2c7-898056926ze4|communityTreatmentOrder",
-                  "legalStatus": Object {
-                    "coding": Array [
-                      Object {
-                        "code": "779007",
-                        "display": "Pending",
-                      },
-                    ],
-                    "text": "Pending",
-                  },
-                  "metadata": Object {
-                    "dataSources": Array [
-                      Object {
-                        "display": "Mock",
-                      },
-                    ],
-                    "isRedacted": true,
-                    "requestedWhen": "",
-                  },
-                  "period": Object {
-                    "start": Object {
-                      "kind": "DATE",
-                      "value": "2020-01-02T00:00:00+00:00",
-                    },
-                  },
-                  "restrictions": "No Restrictions",
-                }
-              }
-            >
-              <div
-                className="emotion-4"
-              >
-                Consent Given
-              </div>
-            </CommunityTreatmentOrderSummaryConsent>
-          </div>
+                <div
+                  className="emotion-3"
+                >
+                  02-Jan-2020 to Present
+                </div>
+              </PeriodSummary>
+            </div>
+          </RedactedPeriodSummaryItem>
         </div>
       </CommunityTreatmentOrderSummaryItem>
     </li>
