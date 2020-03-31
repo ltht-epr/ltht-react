@@ -417,14 +417,47 @@ exports[`AppointmentSummary matches snapshot: wrapper mount 1`] = `
           className="emotion-6"
           role="link"
         >
-          <RedactedDateSummaryItem
-            datetime={
+          <AppointmentRedacted
+            appointment={
               Object {
-                "kind": "DATE",
-                "value": "2019-12-12T00:00:00+00:00",
+                "id": "941ca927-34e0-e911-a2c7-005087226fe4|appointment",
+                "metadata": Object {
+                  "dataSources": Array [
+                    Object {
+                      "display": "Mock",
+                    },
+                  ],
+                  "isRedacted": true,
+                  "requestedWhen": "",
+                },
+                "period": Object {
+                  "start": Object {
+                    "kind": "DATE",
+                    "value": "2019-12-12T00:00:00+00:00",
+                  },
+                },
+                "serviceProvider": Object {
+                  "display": "Chapel Allerton Hospital",
+                  "typeName": "Hospital",
+                },
+                "status": "FINISHED",
+                "text": Object {
+                  "div": "test",
+                  "text": "Chest x-ray for recent car accident",
+                },
+                "type": Array [
+                  Object {
+                    "coding": Array [
+                      Object {
+                        "code": "26706",
+                        "display": "Hospital",
+                      },
+                    ],
+                    "text": "Chest x-ray for recent car accident",
+                  },
+                ],
               }
             }
-            position="RIGHT"
           >
             <div
               className="emotion-8"
@@ -455,7 +488,7 @@ exports[`AppointmentSummary matches snapshot: wrapper mount 1`] = `
                 </div>
               </RedactedDescription>
             </div>
-          </RedactedDateSummaryItem>
+          </AppointmentRedacted>
         </div>
       </AppointmentSummaryItem>
     </li>

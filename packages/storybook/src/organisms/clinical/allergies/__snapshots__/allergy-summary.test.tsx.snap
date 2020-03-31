@@ -448,14 +448,30 @@ exports[`AllergySummary matches snapshot: wrapper mount 1`] = `
           className="emotion-9"
           role="link"
         >
-          <RedactedDateSummaryItem
-            datetime={
+          <AllergyRedacted
+            allergy={
               Object {
-                "kind": "YEAR",
-                "value": "2013-01-01T00:00:00+00:00",
+                "assertedDate": Object {
+                  "kind": "YEAR",
+                  "value": "2013-01-01T00:00:00+00:00",
+                },
+                "clinicalStatus": "RESOLVED",
+                "code": Object {
+                  "text": "Kiwi fruit",
+                },
+                "id": "690ca927-68e0-c511-b2c7-898056926ze4|allergyalert",
+                "metadata": Object {
+                  "dataSources": Array [
+                    Object {
+                      "display": "Mock",
+                    },
+                  ],
+                  "isRedacted": true,
+                  "requestedWhen": "",
+                },
+                "type": "INTOLERANCE",
               }
             }
-            position="LEFT"
           >
             <div
               className="emotion-11"
@@ -486,7 +502,7 @@ exports[`AllergySummary matches snapshot: wrapper mount 1`] = `
                 </div>
               </DateSummary>
             </div>
-          </RedactedDateSummaryItem>
+          </AllergyRedacted>
         </div>
       </AllergySummaryItem>
     </li>

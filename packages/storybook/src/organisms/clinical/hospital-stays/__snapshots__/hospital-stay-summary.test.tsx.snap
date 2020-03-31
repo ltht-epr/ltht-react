@@ -242,16 +242,31 @@ exports[`HospitalStaySummary matches snapshot: wrapper mount 1`] = `
           className="emotion-3"
           role="link"
         >
-          <RedactedPeriodSummaryItem
-            period={
+          <HospitalStayRedacted
+            hospitalStay={
               Object {
-                "start": Object {
-                  "kind": "DATE",
-                  "value": "2020-01-01T00:00:00+00:00",
+                "id": "690ca927-68e0-c511-b2c7-898056926ze4|hospitalstay",
+                "metadata": Object {
+                  "dataSources": Array [
+                    Object {
+                      "display": "Mock",
+                    },
+                  ],
+                  "isRedacted": true,
+                  "requestedWhen": "",
+                },
+                "period": Object {
+                  "start": Object {
+                    "kind": "DATE",
+                    "value": "2020-01-01T00:00:00+00:00",
+                  },
+                },
+                "serviceProvider": Object {
+                  "display": "Beaumont Hospital",
+                  "typeName": "Hospital",
                 },
               }
             }
-            position="RIGHT"
           >
             <div
               className="emotion-5"
@@ -284,7 +299,7 @@ exports[`HospitalStaySummary matches snapshot: wrapper mount 1`] = `
                 </div>
               </RedactedDescription>
             </div>
-          </RedactedPeriodSummaryItem>
+          </HospitalStayRedacted>
         </div>
       </HospitalStaySummaryItem>
     </li>

@@ -209,20 +209,55 @@ exports[`CarePlanSummary matches snapshot: wrapper mount 1`] = `
           className="emotion-4"
           role="link"
         >
-          <RedactedPeriodSummaryItem
-            period={
+          <CarePlanRedacted
+            carePlan={
               Object {
-                "end": Object {
-                  "kind": "DATE",
-                  "value": "2014-02-02T00:00:00+00:00",
+                "author": Array [
+                  Object {
+                    "display": "Dr Joe Bloggs",
+                    "typeName": "Test",
+                  },
+                  Object {
+                    "display": "Dr Adam Careplan",
+                    "typeName": "Test",
+                  },
+                ],
+                "careTeam": Array [
+                  Object {
+                    "display": "LYPFT Care Team 1",
+                    "typeName": "Team",
+                  },
+                ],
+                "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo",
+                "id": "580ca927-34e0-e911-a2c7-005056926fe4|careplan",
+                "intent": "PLAN",
+                "metadata": Object {
+                  "dataSources": Array [
+                    Object {
+                      "display": "Mock",
+                    },
+                  ],
+                  "isRedacted": true,
+                  "requestedWhen": "",
                 },
-                "start": Object {
-                  "kind": "DATE",
-                  "value": "2013-01-01T00:00:00+00:00",
+                "period": Object {
+                  "end": Object {
+                    "kind": "DATE",
+                    "value": "2014-02-02T00:00:00+00:00",
+                  },
+                  "start": Object {
+                    "kind": "DATE",
+                    "value": "2013-01-01T00:00:00+00:00",
+                  },
                 },
+                "status": "ACTIVE",
+                "text": Object {
+                  "div": "",
+                  "text": "Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
+                },
+                "title": "Mental Health Crisis Plan",
               }
             }
-            position="LEFT"
           >
             <div
               className="emotion-1"
@@ -259,7 +294,7 @@ exports[`CarePlanSummary matches snapshot: wrapper mount 1`] = `
                 </div>
               </PeriodSummary>
             </div>
-          </RedactedPeriodSummaryItem>
+          </CarePlanRedacted>
         </div>
       </CarePlanSummaryItem>
     </li>

@@ -377,16 +377,38 @@ exports[`CommunityTreatmentOrderSummary matches snapshot: wrapper mount 1`] = `
           className="emotion-6"
           role="link"
         >
-          <RedactedPeriodSummaryItem
-            period={
+          <CommunityTreatmentOrderRedacted
+            communityTreatmentOrder={
               Object {
-                "start": Object {
-                  "kind": "DATE",
-                  "value": "2020-01-02T00:00:00+00:00",
+                "consentToTreat": "Consent Given",
+                "id": "690ca927-68e0-c511-b2c7-898056926ze4|communityTreatmentOrder",
+                "legalStatus": Object {
+                  "coding": Array [
+                    Object {
+                      "code": "779007",
+                      "display": "Pending",
+                    },
+                  ],
+                  "text": "Pending",
                 },
+                "metadata": Object {
+                  "dataSources": Array [
+                    Object {
+                      "display": "Mock",
+                    },
+                  ],
+                  "isRedacted": true,
+                  "requestedWhen": "",
+                },
+                "period": Object {
+                  "start": Object {
+                    "kind": "DATE",
+                    "value": "2020-01-02T00:00:00+00:00",
+                  },
+                },
+                "restrictions": "No Restrictions",
               }
             }
-            position="LEFT"
           >
             <div
               className="emotion-8"
@@ -419,7 +441,7 @@ exports[`CommunityTreatmentOrderSummary matches snapshot: wrapper mount 1`] = `
                 </div>
               </PeriodSummary>
             </div>
-          </RedactedPeriodSummaryItem>
+          </CommunityTreatmentOrderRedacted>
         </div>
       </CommunityTreatmentOrderSummaryItem>
     </li>

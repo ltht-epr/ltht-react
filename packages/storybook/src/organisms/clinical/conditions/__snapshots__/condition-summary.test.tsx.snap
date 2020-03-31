@@ -236,14 +236,61 @@ exports[`ConditionSummary matches snapshot: wrapper mount 1`] = `
           className="emotion-4"
           role="link"
         >
-          <RedactedDateSummaryItem
-            datetime={
+          <ConditionRedacted
+            condition={
               Object {
-                "kind": "DATE",
-                "value": "2020-02-01T00:00:00+00:00",
+                "assertedDate": Object {
+                  "kind": "DATE",
+                  "value": "2020-02-01T00:00:00+00:00",
+                },
+                "category": Array [
+                  Object {
+                    "coding": Array [
+                      Object {
+                        "code": "55607006",
+                        "display": "Problem",
+                      },
+                    ],
+                    "text": "Problem",
+                  },
+                ],
+                "clinicalStatus": "ACTIVE",
+                "code": Object {
+                  "coding": Array [
+                    Object {
+                      "code": "60123008",
+                      "display": "Delusional disorder, mixed type",
+                      "system": "HEALTHPLUG",
+                    },
+                  ],
+                  "text": "Delusional disorder, mixed type",
+                },
+                "id": "017ca927-67e0-e581-a2c7-115087226fg2|condition",
+                "metadata": Object {
+                  "dataSources": Array [
+                    Object {
+                      "display": "Mock",
+                    },
+                  ],
+                  "isRedacted": true,
+                  "requestedWhen": "",
+                },
+                "severity": Object {
+                  "coding": Array [
+                    Object {
+                      "code": "2448400",
+                      "display": "Severe",
+                    },
+                  ],
+                  "text": "Severe",
+                },
+                "subject": Object {
+                  "display": "Mr Peter Humble",
+                  "typeName": "test",
+                },
+                "verificationStatus": "CONFIRMED",
               }
             }
-            position="LEFT"
           >
             <div
               className="emotion-1"
@@ -274,7 +321,7 @@ exports[`ConditionSummary matches snapshot: wrapper mount 1`] = `
                 </div>
               </DateSummary>
             </div>
-          </RedactedDateSummaryItem>
+          </ConditionRedacted>
         </div>
       </ConditionSummaryItem>
     </li>
