@@ -3,9 +3,9 @@ import React from 'react'
 import { css, jsx } from '@emotion/core'
 
 import { Observation } from '@ltht-react/types'
-import { RedactedSummaryItem } from '@ltht-react/summary'
 import Status from '../atoms/observation-status'
 import Value from '../atoms/observation-value'
+import Redacted from '../molecules/observation-redacted'
 
 const styles = {
   root: css`
@@ -36,7 +36,7 @@ const ObservationSummaryItem: React.FC<Props> = ({ observation, clickHandler }) 
 
   return (
     <div role="link" css={styles.root} onClick={clickHandler && handleClick}>
-      {observation.metadata.isRedacted ? <RedactedSummaryItem /> : summaryMarkup}
+      {observation.metadata.isRedacted ? <Redacted /> : summaryMarkup}
     </div>
   )
 }

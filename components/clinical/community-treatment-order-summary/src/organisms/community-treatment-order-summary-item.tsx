@@ -2,12 +2,13 @@
 import React from 'react'
 import { css, jsx } from '@emotion/core'
 
-import { LypftCommunityTreatmentOrder, RedactedPosition } from '@ltht-react/types'
-import { PeriodSummary, RedactedPeriodSummaryItem } from '@ltht-react/summary'
+import { LypftCommunityTreatmentOrder } from '@ltht-react/types'
+import { PeriodSummary } from '@ltht-react/summary'
 
 import Consent from '../atoms/community-treatment-order-summary-consent'
 import Restrictions from '../atoms/community-treatment-order-summary-restrictions'
 import Status from '../atoms/community-treatment-order-summary-status'
+import Redacted from '../molecules/community-treatment-order-redacted'
 
 const styles = {
   root: css`
@@ -44,7 +45,7 @@ const CommunityTreatmentOrderSummaryItem: React.FC<Props> = ({ communityTreatmen
   return (
     <div css={styles.root} role="link" onClick={clickHandler && handleClick}>
       {communityTreatmentOrder.metadata.isRedacted ? (
-        <RedactedPeriodSummaryItem period={communityTreatmentOrder.period} position={RedactedPosition.Left} />
+        <Redacted communityTreatmentOrder={communityTreatmentOrder} />
       ) : (
         summaryMarkup
       )}

@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Observation } from '@ltht-react/types'
 import { ListItem } from '@ltht-react/list'
-import ObservationSumaryItem from './molecules/observation-summary-item'
+import ObservationSumaryItem from './organisms/observation-summary-item'
 
 const ObservationSummary: React.FC<Props> = ({ observations = [], clickHandler }) => {
   return (

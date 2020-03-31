@@ -1019,8 +1019,3 @@ export type YhcrEncountersArgs = {
 export type YhcrObservationsArgs = {
   nhsNumber: Scalars['String']
 }
-
-export enum RedactedPosition {
-  Left = 'LEFT',
-  Right = 'RIGHT',
-}

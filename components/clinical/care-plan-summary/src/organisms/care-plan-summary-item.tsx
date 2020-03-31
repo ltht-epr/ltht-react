@@ -2,12 +2,13 @@
 import React from 'react'
 import { css, jsx } from '@emotion/core'
 
-import { CarePlan, RedactedPosition } from '@ltht-react/types'
-import { PeriodSummary, RedactedPeriodSummaryItem } from '@ltht-react/summary'
+import { CarePlan } from '@ltht-react/types'
+import { PeriodSummary } from '@ltht-react/summary'
 
 import Description from '../atoms/care-plan-description'
 import Status from '../atoms/care-plan-status'
 import Title from '../atoms/care-plan-title'
+import Redacted from '../molecules/care-plan-redacted'
 
 const styles = {
   root: css`
@@ -43,11 +44,7 @@ const CarePlanSummaryItem: React.FC<Props> = ({ carePlan, clickHandler }) => {
 
   return (
     <div css={styles.root} role="link" onClick={clickHandler && handleClick}>
-      {carePlan.metadata.isRedacted ? (
-        <RedactedPeriodSummaryItem period={carePlan.period} position={RedactedPosition.Left} />
-      ) : (
-        summaryMarkup
-      )}
+      {carePlan.metadata.isRedacted ? <Redacted carePlan={carePlan} /> : summaryMarkup}
     </div>
   )
 }

@@ -2,12 +2,13 @@
 import React from 'react'
 import { css, jsx } from '@emotion/core'
 
-import { EpisodeOfCare, RedactedPosition } from '@ltht-react/types'
-import { PeriodSummary, RedactedPeriodSummaryItem } from '@ltht-react/summary'
+import { EpisodeOfCare } from '@ltht-react/types'
+import { PeriodSummary } from '@ltht-react/summary'
 
 import Description from '../atoms/involved-team-description'
 import Type from '../atoms/involved-team-type'
 import Title from '../atoms/involved-team-title'
+import Redacted from '../molecules/involved-team-redacted'
 
 const styles = {
   root: css`
@@ -44,11 +45,7 @@ const InvolvedTeamSummaryItem: React.FC<Props> = ({ episodeOfCare, clickHandler 
 
   return (
     <div role="link" css={styles.root} onClick={clickHandler && handleClick}>
-      {episodeOfCare.metadata.isRedacted ? (
-        <RedactedPeriodSummaryItem period={episodeOfCare.period} position={RedactedPosition.Left} />
-      ) : (
-        summaryMarkup
-      )}
+      {episodeOfCare.metadata.isRedacted ? <Redacted episodeOfCare={episodeOfCare} /> : summaryMarkup}
     </div>
   )
 }

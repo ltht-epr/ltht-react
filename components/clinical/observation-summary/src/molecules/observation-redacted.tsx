@@ -2,7 +2,7 @@
 import React from 'react'
 import { css, jsx } from '@emotion/core'
 
-import { RedactedDescription } from '../atoms'
+import { RedactedDescription } from '@ltht-react/summary'
 
 const styles = {
   description: css`
@@ -11,7 +11,7 @@ const styles = {
   `,
 }
 
-const RedactedSummaryItem: React.FC = () => {
+const ObservationRedacted: React.FC = () => {
   return (
     <React.Fragment>
       <div css={styles.description}>
@@ -21,4 +21,4 @@ const RedactedSummaryItem: React.FC = () => {
   )
 }
 
-export default RedactedSummaryItem
+export default ObservationRedacted

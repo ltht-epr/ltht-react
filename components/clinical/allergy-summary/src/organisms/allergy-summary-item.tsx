@@ -2,13 +2,14 @@
 import React from 'react'
 import { css, jsx } from '@emotion/core'
 
-import { AllergyIntolerance, RedactedPosition } from '@ltht-react/types'
-import { DateSummary, RedactedDateSummaryItem } from '@ltht-react/summary'
+import { AllergyIntolerance } from '@ltht-react/types'
+import { DateSummary } from '@ltht-react/summary'
 
 import Title from '../atoms/allergy-title'
 import Description from '../atoms/allergy-description'
 import Status from '../atoms/allergy-status'
 import Icon from '../atoms/allergy-icon'
+import Redacted from '../molecules/allergy-redacted'
 
 const styles = {
   root: css`
@@ -51,11 +52,7 @@ const AllergySummaryItem: React.FC<Props> = ({ allergy, clickHandler }) => {
 
   return (
     <div css={styles.root} role="link" onClick={clickHandler && handleClick}>
-      {allergy.metadata.isRedacted ? (
-        <RedactedDateSummaryItem datetime={allergy.assertedDate} position={RedactedPosition.Left} />
-      ) : (
-        summaryMarkup
-      )}
+      {allergy.metadata.isRedacted ? <Redacted allergy={allergy} /> : summaryMarkup}
     </div>
   )
 }

@@ -2,12 +2,13 @@
 import React from 'react'
 import { css, jsx } from '@emotion/core'
 
-import { Condition, RedactedPosition } from '@ltht-react/types'
-import { DateSummary, RedactedDateSummaryItem } from '@ltht-react/summary'
+import { Condition } from '@ltht-react/types'
+import { DateSummary } from '@ltht-react/summary'
 
 import Category from '../atoms/condition-category'
 import Status from '../atoms/condition-status'
 import Title from '../atoms/condition-title'
+import Redacted from '../molecules/condition-redacted'
 
 const styles = {
   root: css`
@@ -43,11 +44,7 @@ const ConditionSummaryItem: React.FC<Props> = ({ condition, clickHandler }) => {
 
   return (
     <div role="link" css={styles.root} onClick={clickHandler && handleClick}>
-      {condition.metadata.isRedacted ? (
-        <RedactedDateSummaryItem datetime={condition?.assertedDate} position={RedactedPosition.Left} />
-      ) : (
-        summaryMarkup
-      )}
+      {condition.metadata.isRedacted ? <Redacted condition={condition} /> : summaryMarkup}
     </div>
   )
 }

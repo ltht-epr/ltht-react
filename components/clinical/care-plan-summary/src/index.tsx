@@ -2,7 +2,7 @@ import React from 'react'
 
 import { CarePlan } from '@ltht-react/types'
 import { ListItem } from '@ltht-react/list'
-import CarePlanSummaryItem from './molecules/care-plan-summary-item'
+import CarePlanSummaryItem from './organisms/care-plan-summary-item'
 
 const CarePlanSummary: React.FC<Props> = ({ carePlans = [], clickHandler }) => {
   return (

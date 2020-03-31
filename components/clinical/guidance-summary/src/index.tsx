@@ -4,7 +4,7 @@ import { css, jsx } from '@emotion/core'
 
 import { CARD_BORDER_COLOUR } from '@ltht-react/styles'
 import { GuidanceList } from '@ltht-react/types'
-import GuidanceItem from './guidance-item'
+import GuidanceSummaryItem from './organisms/guidance-summary-item'
 
 const styles = {
   root: css`
@@ -30,7 +30,7 @@ const GuidanceSummary: React.FC<Props> = ({ guidanceList = undefined }) => {
   return (
     <div css={styles.root}>
       {guidanceList.guidance.map(x => (
-        <GuidanceItem guidance={x} />
+        <GuidanceSummaryItem guidance={x} />
       ))}
     </div>
   )

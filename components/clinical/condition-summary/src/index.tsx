@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Condition } from '@ltht-react/types'
 import { ListItem } from '@ltht-react/list'
-import ConditionSummaryItem from './molecules/condition-summary-item'
+import ConditionSummaryItem from './organisms/condition-summary-item'
 
 const ConditionSummary: React.FC<Props> = ({ conditions = [], clickHandler }) => {
   const elements = conditions.map(condition => (

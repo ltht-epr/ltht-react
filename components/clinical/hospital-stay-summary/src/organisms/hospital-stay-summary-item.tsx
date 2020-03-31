@@ -2,10 +2,11 @@
 import React from 'react'
 import { css, jsx } from '@emotion/core'
 
-import { Encounter, RedactedPosition } from '@ltht-react/types'
-import { PeriodSummary, RedactedPeriodSummaryItem } from '@ltht-react/summary'
+import { Encounter } from '@ltht-react/types'
+import { PeriodSummary } from '@ltht-react/summary'
 
 import ServiceProvider from '../atoms/hospital-stay-service-provider'
+import Redacted from '../molecules/hospital-stay-redacted'
 
 const styles = {
   root: css`
@@ -40,11 +41,7 @@ const HospitalStaySummaryItem: React.FC<Props> = ({ hospitalStay, clickHandler }
 
   return (
     <div role="link" css={styles.root} onClick={clickHandler && handleClick}>
-      {hospitalStay.metadata.isRedacted ? (
-        <RedactedPeriodSummaryItem period={hospitalStay.period} position={RedactedPosition.Right} />
-      ) : (
-        summaryMarkup
-      )}
+      {hospitalStay.metadata.isRedacted ? <Redacted hospitalStay={hospitalStay} /> : summaryMarkup}
     </div>
   )
 }

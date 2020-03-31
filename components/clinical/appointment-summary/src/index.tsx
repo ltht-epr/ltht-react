@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Encounter } from '@ltht-react/types'
 import { ListItem } from '@ltht-react/list'
-import AppointmentSummaryItem from './molecules/appointment-summary-item'
+import AppointmentSummaryItem from './organisms/appointment-summary-item'
 
 const AppointmentSummary: React.FC<Props> = ({ encounters = [], clickHandler }) => {
   return (

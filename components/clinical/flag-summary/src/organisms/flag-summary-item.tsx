@@ -2,12 +2,13 @@
 import React from 'react'
 import { css, jsx } from '@emotion/core'
 
-import { Flag, RedactedPosition } from '@ltht-react/types'
-import { PeriodSummary, RedactedPeriodSummaryItem } from '@ltht-react/summary'
+import { Flag } from '@ltht-react/types'
+import { PeriodSummary } from '@ltht-react/summary'
 
 import Title from '../atoms/flag-title'
 import Description from '../atoms/flag-description'
 import Status from '../atoms/flag-status'
+import Redacted from '../molecules/flag-redacted'
 
 const styles = {
   root: css`
@@ -43,11 +44,7 @@ const FlagSummaryItem: React.FC<Props> = ({ flag, clickHandler }) => {
 
   return (
     <div css={styles.root} role="link" onClick={clickHandler && handleClick}>
-      {flag.metadata.isRedacted ? (
-        <RedactedPeriodSummaryItem period={flag.period} position={RedactedPosition.Left} />
-      ) : (
-        summaryMarkup
-      )}
+      {flag.metadata.isRedacted ? <Redacted flag={flag} /> : summaryMarkup}
     </div>
   )
 }

@@ -3,7 +3,7 @@ import React from 'react'
 import { AllergyIntolerance } from '@ltht-react/types'
 import { ListItem } from '@ltht-react/list'
 
-import AllergySummaryItem from './molecules/allergy-summary-item'
+import AllergySummaryItem from './organisms/allergy-summary-item'
 
 const AllergySummary: React.FC<Props> = ({ allergies = [], clickHandler }) => {
   return (

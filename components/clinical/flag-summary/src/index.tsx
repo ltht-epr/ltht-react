@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Flag } from '@ltht-react/types'
 import { ListItem } from '@ltht-react/list'
-import FlagSummaryItem from './molecules/flag-summary-item'
+import FlagSummaryItem from './organisms/flag-summary-item'
 
 const FlagSummary: React.FC<Props> = ({ flags = [], clickHandler }) => {
   return (
