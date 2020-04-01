@@ -57,6 +57,7 @@
     "@ltht-react/condition-summary": "^0.0.6",
     "@ltht-react/description-list": "^0.1.6",
     "@ltht-react/detail": "^0.1.6",
+    "@ltht-react/document-summary": "^0.0.0",
     "@ltht-react/flag-detail": "^0.1.6",
     "@ltht-react/flag-summary": "^0.1.6",
     "@ltht-react/form": "^0.0.1",
