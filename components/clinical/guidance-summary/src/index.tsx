@@ -15,7 +15,7 @@ const styles = {
         padding: 0.25rem 0 0 1rem;
       }
     }
-    > div:not(:first-child) {
+    > div:not(:first-of-type) {
       border-top: 1px solid ${CARD_BORDER_COLOUR};
       padding-top: 0.5rem;
     }

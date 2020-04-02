@@ -1,0 +1,345 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GuidanceSummaryy matches snapshot: wrapper mount 1`] = `
+.emotion-3 > div {
+  margin-right: -0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.emotion-3 > div > ul {
+  padding: 0.25rem 0 0 1rem;
+}
+
+.emotion-3 > div:not(:first-of-type) {
+  border-top: 1px solid #b0b0b0;
+  padding-top: 0.5rem;
+}
+
+.emotion-0 {
+  list-style-type: disc;
+}
+
+.emotion-2 {
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  text-align: left;
+}
+
+.emotion-1 {
+  color: #768692;
+}
+
+<GuidanceSummary
+  guidanceList={
+    Object {
+      "guidance": Array [
+        Object {
+          "id": "c2ee5d22-6fcd-4ec8-b12a-e9c6e83876b1",
+          "metadata": Object {
+            "dataSources": Array [
+              Object {
+                "display": "Mock",
+              },
+            ],
+            "isRedacted": false,
+            "requestedWhen": "",
+          },
+          "note": Array [
+            Object {
+              "text": "Advice from MCA / MHA team",
+            },
+            Object {
+              "text": "Advice from Psychiatric Liaison Team (if appropriate)",
+            },
+            Object {
+              "text": "Assessment and Care of Psychological Health Care Plan",
+            },
+            Object {
+              "text": "Enhanced care",
+            },
+            Object {
+              "text": "Further assessment and / or referral to Mental Health team",
+            },
+            Object {
+              "text": "Hospital passport",
+            },
+            Object {
+              "text": "‘Know Who I Am’ booklet (Forget Me Not)",
+            },
+            Object {
+              "text": "Restrictive Intervention Care Plan",
+            },
+            Object {
+              "text": "Self-Harm or Harm to Others Care Plan",
+            },
+            Object {
+              "text": "Utilising the 'Use of Restraint' policy and Good Practice Guidance",
+            },
+          ],
+          "text": Object {
+            "div": "",
+            "text": "As the information entered indicates that the patient has cognition and mental capacity issues, please consider the need for:",
+          },
+        },
+        Object {
+          "id": "c2ee5d22-6fcd-4ec8-b12a-e9c6e83876b1",
+          "metadata": Object {
+            "dataSources": Array [
+              Object {
+                "display": "Mock",
+              },
+            ],
+            "isRedacted": true,
+            "requestedWhen": "",
+          },
+          "note": Array [
+            Object {
+              "text": "Oxygen prescription",
+            },
+            Object {
+              "text": "Tracheostomy Care Plan\\"",
+            },
+          ],
+          "text": Object {
+            "div": "",
+            "text": "As the information entered indicates that the patient has breathing issues, please consider the need for:",
+          },
+        },
+        Object {
+          "id": "1e4fd41d-5c55-4c46-acc9-e216b3dc2732",
+          "metadata": Object {
+            "dataSources": Array [
+              Object {
+                "display": "Mock",
+              },
+            ],
+            "isRedacted": false,
+            "requestedWhen": "",
+          },
+          "text": Object {
+            "div": "",
+            "text": "As you have indicated that the patient has hydration issues, please alert the Medical Team of the patient's AKI status",
+          },
+        },
+      ],
+      "id": "88686ed1-ac86-4e14-8c73-fc020f1b0e5b",
+      "metadata": Object {
+        "dataSources": Array [
+          Object {
+            "display": "Mock",
+          },
+        ],
+        "isRedacted": false,
+        "requestedWhen": "",
+      },
+    }
+  }
+>
+  <div
+    className="emotion-3"
+  >
+    <GuidanceSummaryItem
+      guidance={
+        Object {
+          "id": "c2ee5d22-6fcd-4ec8-b12a-e9c6e83876b1",
+          "metadata": Object {
+            "dataSources": Array [
+              Object {
+                "display": "Mock",
+              },
+            ],
+            "isRedacted": false,
+            "requestedWhen": "",
+          },
+          "note": Array [
+            Object {
+              "text": "Advice from MCA / MHA team",
+            },
+            Object {
+              "text": "Advice from Psychiatric Liaison Team (if appropriate)",
+            },
+            Object {
+              "text": "Assessment and Care of Psychological Health Care Plan",
+            },
+            Object {
+              "text": "Enhanced care",
+            },
+            Object {
+              "text": "Further assessment and / or referral to Mental Health team",
+            },
+            Object {
+              "text": "Hospital passport",
+            },
+            Object {
+              "text": "‘Know Who I Am’ booklet (Forget Me Not)",
+            },
+            Object {
+              "text": "Restrictive Intervention Care Plan",
+            },
+            Object {
+              "text": "Self-Harm or Harm to Others Care Plan",
+            },
+            Object {
+              "text": "Utilising the 'Use of Restraint' policy and Good Practice Guidance",
+            },
+          ],
+          "text": Object {
+            "div": "",
+            "text": "As the information entered indicates that the patient has cognition and mental capacity issues, please consider the need for:",
+          },
+        }
+      }
+    >
+      <div>
+        As the information entered indicates that the patient has cognition and mental capacity issues, please consider the need for:
+      </div>
+      <UnorderedList
+        bullet="disc"
+      >
+        <ul
+          className="emotion-0"
+        >
+          <ListItem
+            key="0"
+          >
+            <li>
+              Advice from MCA / MHA team
+            </li>
+          </ListItem>
+          <ListItem
+            key="1"
+          >
+            <li>
+              Advice from Psychiatric Liaison Team (if appropriate)
+            </li>
+          </ListItem>
+          <ListItem
+            key="2"
+          >
+            <li>
+              Assessment and Care of Psychological Health Care Plan
+            </li>
+          </ListItem>
+          <ListItem
+            key="3"
+          >
+            <li>
+              Enhanced care
+            </li>
+          </ListItem>
+          <ListItem
+            key="4"
+          >
+            <li>
+              Further assessment and / or referral to Mental Health team
+            </li>
+          </ListItem>
+          <ListItem
+            key="5"
+          >
+            <li>
+              Hospital passport
+            </li>
+          </ListItem>
+          <ListItem
+            key="6"
+          >
+            <li>
+              ‘Know Who I Am’ booklet (Forget Me Not)
+            </li>
+          </ListItem>
+          <ListItem
+            key="7"
+          >
+            <li>
+              Restrictive Intervention Care Plan
+            </li>
+          </ListItem>
+          <ListItem
+            key="8"
+          >
+            <li>
+              Self-Harm or Harm to Others Care Plan
+            </li>
+          </ListItem>
+          <ListItem
+            key="9"
+          >
+            <li>
+              Utilising the 'Use of Restraint' policy and Good Practice Guidance
+            </li>
+          </ListItem>
+        </ul>
+      </UnorderedList>
+    </GuidanceSummaryItem>
+    <GuidanceSummaryItem
+      guidance={
+        Object {
+          "id": "c2ee5d22-6fcd-4ec8-b12a-e9c6e83876b1",
+          "metadata": Object {
+            "dataSources": Array [
+              Object {
+                "display": "Mock",
+              },
+            ],
+            "isRedacted": true,
+            "requestedWhen": "",
+          },
+          "note": Array [
+            Object {
+              "text": "Oxygen prescription",
+            },
+            Object {
+              "text": "Tracheostomy Care Plan\\"",
+            },
+          ],
+          "text": Object {
+            "div": "",
+            "text": "As the information entered indicates that the patient has breathing issues, please consider the need for:",
+          },
+        }
+      }
+    >
+      <GuidanceRedacted>
+        <div
+          className="emotion-2"
+        >
+          <RedactedDescription>
+            <div
+              className="emotion-1"
+            >
+              Insufficient privileges
+            </div>
+          </RedactedDescription>
+        </div>
+      </GuidanceRedacted>
+    </GuidanceSummaryItem>
+    <GuidanceSummaryItem
+      guidance={
+        Object {
+          "id": "1e4fd41d-5c55-4c46-acc9-e216b3dc2732",
+          "metadata": Object {
+            "dataSources": Array [
+              Object {
+                "display": "Mock",
+              },
+            ],
+            "isRedacted": false,
+            "requestedWhen": "",
+          },
+          "text": Object {
+            "div": "",
+            "text": "As you have indicated that the patient has hydration issues, please alert the Medical Team of the patient's AKI status",
+          },
+        }
+      }
+    >
+      <div>
+        As you have indicated that the patient has hydration issues, please alert the Medical Team of the patient's AKI status
+      </div>
+    </GuidanceSummaryItem>
+  </div>
+</GuidanceSummary>
+`;
