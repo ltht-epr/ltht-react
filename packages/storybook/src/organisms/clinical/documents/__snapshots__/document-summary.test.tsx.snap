@@ -1,0 +1,530 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DocumentSummaryy matches snapshot: wrapper mount 1`] = `
+.emotion-7 {
+  margin-right: -0.5rem;
+}
+
+.emotion-7 > ul li:first-of-type {
+  font-weight: bold;
+}
+
+.emotion-7 > ul li:not(:first-of-type) {
+  border-top: 1px solid #b0b0b0;
+  padding-top: 0.25rem;
+}
+
+.emotion-7 > ul li {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  padding-bottom: 0.25rem;
+  padding-right: 0.5rem;
+}
+
+.emotion-7 > ul li > div {
+  -webkit-flex: auto;
+  -ms-flex: auto;
+  flex: auto;
+  padding-left: 1rem;
+}
+
+.emotion-7 > ul li > div:first-of-type {
+  -webkit-flex: 0 0 6rem;
+  -ms-flex: 0 0 6rem;
+  flex: 0 0 6rem;
+  padding-left: 0;
+}
+
+.emotion-7 > ul li > div.source {
+  -webkit-flex: 0 0 15rem;
+  -ms-flex: 0 0 15rem;
+  flex: 0 0 15rem;
+}
+
+.emotion-7 > ul li > div.source > div:last-of-type {
+  color: #768692;
+  font-weight: normal;
+}
+
+.emotion-7 > ul li > div:last-of-type {
+  -webkit-flex: 0 0 2.25rem;
+  -ms-flex: 0 0 2.25rem;
+  flex: 0 0 2.25rem;
+}
+
+.emotion-6 {
+  list-style-type: none;
+}
+
+.emotion-0 {
+  color: -v-a-l-u-e:#768692;
+  -d-a-r-k-e-r25: #59656e;
+  -l-i-g-h-t-e-r25: #98a4ad;
+}
+
+<DocumentSummary
+  documents={
+    Array [
+      Object {
+        "content": Array [],
+        "created": Object {
+          "value": "2020-04-01T00:00:00+00:00",
+        },
+        "description": "Description of document one",
+        "id": "6b554095-bd5f-4134-8dbb-a21971959fd2",
+        "indexed": Object {
+          "value": "2020-04-01T00:00:00+00:00",
+        },
+        "metadata": Object {
+          "dataSources": Array [
+            Object {
+              "display": "Mock",
+            },
+          ],
+          "isRedacted": false,
+          "requestedWhen": "",
+        },
+        "status": "CURRENT",
+        "type": Object {},
+      },
+      Object {
+        "content": Array [],
+        "created": Object {
+          "value": "2019-10-11T00:00:00+00:00",
+        },
+        "description": "Description of document two",
+        "id": "2d889a55-d7ec-46ae-b674-23dfc6666018",
+        "indexed": Object {
+          "value": "2019-10-11T00:00:00+00:00",
+        },
+        "metadata": Object {
+          "dataSources": Array [
+            Object {
+              "display": "Mock",
+            },
+          ],
+          "isRedacted": false,
+          "requestedWhen": "",
+        },
+        "status": "ENTERED_IN_ERROR",
+        "type": Object {},
+      },
+      Object {
+        "content": Array [],
+        "created": Object {
+          "value": "2020-01-23T00:00:00+00:00",
+        },
+        "description": "Description of document three",
+        "id": "38962be0-4e5e-4640-a23e-af45da7c0578",
+        "indexed": Object {
+          "value": "2020-01-23T00:00:00+00:00",
+        },
+        "metadata": Object {
+          "dataSources": Array [
+            Object {
+              "display": "Mock",
+            },
+          ],
+          "isRedacted": false,
+          "requestedWhen": "",
+        },
+        "status": "SUPERSEDED",
+        "type": Object {},
+      },
+    ]
+  }
+>
+  <div
+    className="emotion-7"
+  >
+    <UnorderedList>
+      <ul
+        className="emotion-6"
+      >
+        <ListItem
+          key="0"
+        >
+          <li>
+            <DocumentSummaryContent
+              clickable={false}
+              created="Created"
+              description="Description"
+              source="Source"
+              status="Status"
+            >
+              <div>
+                Created
+              </div>
+              <div>
+                Description
+              </div>
+              <div
+                className="source"
+              >
+                <div>
+                  Source
+                </div>
+                <div>
+                  Status
+                </div>
+              </div>
+              <div />
+            </DocumentSummaryContent>
+          </li>
+        </ListItem>
+        <DocumentSummaryItem
+          document={
+            Object {
+              "content": Array [],
+              "created": Object {
+                "value": "2020-04-01T00:00:00+00:00",
+              },
+              "description": "Description of document one",
+              "id": "6b554095-bd5f-4134-8dbb-a21971959fd2",
+              "indexed": Object {
+                "value": "2020-04-01T00:00:00+00:00",
+              },
+              "metadata": Object {
+                "dataSources": Array [
+                  Object {
+                    "display": "Mock",
+                  },
+                ],
+                "isRedacted": false,
+                "requestedWhen": "",
+              },
+              "status": "CURRENT",
+              "type": Object {},
+            }
+          }
+        >
+          <ListItem
+            key="6b554095-bd5f-4134-8dbb-a21971959fd2"
+          >
+            <li>
+              <DocumentSummaryContent
+                clickable={true}
+                created="01/04/2020"
+                description="Description of document one"
+                source="[SOURCE HERE]"
+                status="CURRENT"
+              >
+                <div>
+                  01/04/2020
+                </div>
+                <div>
+                  Description of document one
+                </div>
+                <div
+                  className="source"
+                >
+                  <div>
+                    [SOURCE HERE]
+                  </div>
+                  <div>
+                    CURRENT
+                  </div>
+                </div>
+                <div>
+                  <ChevronIcon
+                    direction="right"
+                    size="large"
+                  >
+                    <FontAwesomeIcon
+                      border={false}
+                      className="emotion-0"
+                      fixedWidth={false}
+                      flip={null}
+                      icon={
+                        Object {
+                          "icon": Array [
+                            320,
+                            512,
+                            Array [],
+                            "f054",
+                            "M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z",
+                          ],
+                          "iconName": "chevron-right",
+                          "prefix": "fas",
+                        }
+                      }
+                      inverse={false}
+                      listItem={false}
+                      mask={null}
+                      pull={null}
+                      pulse={false}
+                      rotation={null}
+                      size="lg"
+                      spin={false}
+                      swapOpacity={false}
+                      symbol={false}
+                      title=""
+                      transform={null}
+                    >
+                      <svg
+                        aria-hidden="true"
+                        className="svg-inline--fa fa-chevron-right fa-w-10 fa-lg emotion-0"
+                        data-icon="chevron-right"
+                        data-prefix="fas"
+                        focusable="false"
+                        role="img"
+                        style={Object {}}
+                        viewBox="0 0 320 512"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"
+                          fill="currentColor"
+                          style={Object {}}
+                        />
+                      </svg>
+                    </FontAwesomeIcon>
+                  </ChevronIcon>
+                </div>
+              </DocumentSummaryContent>
+            </li>
+          </ListItem>
+        </DocumentSummaryItem>
+        <DocumentSummaryItem
+          document={
+            Object {
+              "content": Array [],
+              "created": Object {
+                "value": "2019-10-11T00:00:00+00:00",
+              },
+              "description": "Description of document two",
+              "id": "2d889a55-d7ec-46ae-b674-23dfc6666018",
+              "indexed": Object {
+                "value": "2019-10-11T00:00:00+00:00",
+              },
+              "metadata": Object {
+                "dataSources": Array [
+                  Object {
+                    "display": "Mock",
+                  },
+                ],
+                "isRedacted": false,
+                "requestedWhen": "",
+              },
+              "status": "ENTERED_IN_ERROR",
+              "type": Object {},
+            }
+          }
+        >
+          <ListItem
+            key="2d889a55-d7ec-46ae-b674-23dfc6666018"
+          >
+            <li>
+              <DocumentSummaryContent
+                clickable={true}
+                created="11/10/2019"
+                description="Description of document two"
+                source="[SOURCE HERE]"
+                status="ENTERED_IN_ERROR"
+              >
+                <div>
+                  11/10/2019
+                </div>
+                <div>
+                  Description of document two
+                </div>
+                <div
+                  className="source"
+                >
+                  <div>
+                    [SOURCE HERE]
+                  </div>
+                  <div>
+                    ENTERED_IN_ERROR
+                  </div>
+                </div>
+                <div>
+                  <ChevronIcon
+                    direction="right"
+                    size="large"
+                  >
+                    <FontAwesomeIcon
+                      border={false}
+                      className="emotion-0"
+                      fixedWidth={false}
+                      flip={null}
+                      icon={
+                        Object {
+                          "icon": Array [
+                            320,
+                            512,
+                            Array [],
+                            "f054",
+                            "M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z",
+                          ],
+                          "iconName": "chevron-right",
+                          "prefix": "fas",
+                        }
+                      }
+                      inverse={false}
+                      listItem={false}
+                      mask={null}
+                      pull={null}
+                      pulse={false}
+                      rotation={null}
+                      size="lg"
+                      spin={false}
+                      swapOpacity={false}
+                      symbol={false}
+                      title=""
+                      transform={null}
+                    >
+                      <svg
+                        aria-hidden="true"
+                        className="svg-inline--fa fa-chevron-right fa-w-10 fa-lg emotion-0"
+                        data-icon="chevron-right"
+                        data-prefix="fas"
+                        focusable="false"
+                        role="img"
+                        style={Object {}}
+                        viewBox="0 0 320 512"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"
+                          fill="currentColor"
+                          style={Object {}}
+                        />
+                      </svg>
+                    </FontAwesomeIcon>
+                  </ChevronIcon>
+                </div>
+              </DocumentSummaryContent>
+            </li>
+          </ListItem>
+        </DocumentSummaryItem>
+        <DocumentSummaryItem
+          document={
+            Object {
+              "content": Array [],
+              "created": Object {
+                "value": "2020-01-23T00:00:00+00:00",
+              },
+              "description": "Description of document three",
+              "id": "38962be0-4e5e-4640-a23e-af45da7c0578",
+              "indexed": Object {
+                "value": "2020-01-23T00:00:00+00:00",
+              },
+              "metadata": Object {
+                "dataSources": Array [
+                  Object {
+                    "display": "Mock",
+                  },
+                ],
+                "isRedacted": false,
+                "requestedWhen": "",
+              },
+              "status": "SUPERSEDED",
+              "type": Object {},
+            }
+          }
+        >
+          <ListItem
+            key="38962be0-4e5e-4640-a23e-af45da7c0578"
+          >
+            <li>
+              <DocumentSummaryContent
+                clickable={true}
+                created="23/01/2020"
+                description="Description of document three"
+                source="[SOURCE HERE]"
+                status="SUPERSEDED"
+              >
+                <div>
+                  23/01/2020
+                </div>
+                <div>
+                  Description of document three
+                </div>
+                <div
+                  className="source"
+                >
+                  <div>
+                    [SOURCE HERE]
+                  </div>
+                  <div>
+                    SUPERSEDED
+                  </div>
+                </div>
+                <div>
+                  <ChevronIcon
+                    direction="right"
+                    size="large"
+                  >
+                    <FontAwesomeIcon
+                      border={false}
+                      className="emotion-0"
+                      fixedWidth={false}
+                      flip={null}
+                      icon={
+                        Object {
+                          "icon": Array [
+                            320,
+                            512,
+                            Array [],
+                            "f054",
+                            "M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z",
+                          ],
+                          "iconName": "chevron-right",
+                          "prefix": "fas",
+                        }
+                      }
+                      inverse={false}
+                      listItem={false}
+                      mask={null}
+                      pull={null}
+                      pulse={false}
+                      rotation={null}
+                      size="lg"
+                      spin={false}
+                      swapOpacity={false}
+                      symbol={false}
+                      title=""
+                      transform={null}
+                    >
+                      <svg
+                        aria-hidden="true"
+                        className="svg-inline--fa fa-chevron-right fa-w-10 fa-lg emotion-0"
+                        data-icon="chevron-right"
+                        data-prefix="fas"
+                        focusable="false"
+                        role="img"
+                        style={Object {}}
+                        viewBox="0 0 320 512"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"
+                          fill="currentColor"
+                          style={Object {}}
+                        />
+                      </svg>
+                    </FontAwesomeIcon>
+                  </ChevronIcon>
+                </div>
+              </DocumentSummaryContent>
+            </li>
+          </ListItem>
+        </DocumentSummaryItem>
+      </ul>
+    </UnorderedList>
+  </div>
+</DocumentSummary>
+`;

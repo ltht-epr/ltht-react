@@ -36,7 +36,7 @@ const Document2: DocumentReference = {
   created: {
     value: '2019-10-11T00:00:00+00:00',
   },
-  status: DocumentReferenceStatusCode.Current,
+  status: DocumentReferenceStatusCode.EnteredInError,
   type: {},
 }
 
@@ -51,7 +51,7 @@ const Document3: DocumentReference = {
   created: {
     value: '2020-01-23T00:00:00+00:00',
   },
-  status: DocumentReferenceStatusCode.Current,
+  status: DocumentReferenceStatusCode.Superseded,
   type: {},
 }
 
