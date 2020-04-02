@@ -6,8 +6,8 @@ exports[`GuidanceSummaryy matches snapshot: wrapper mount 1`] = `
   padding-bottom: 0.5rem;
 }
 
-.emotion-3 > div > ul {
-  padding: 0.25rem 0 0 1rem;
+.emotion-3 > ul {
+  padding: 0 0 0.75rem 1.25rem;
 }
 
 .emotion-3 > div:not(:first-of-type) {

@@ -11,9 +11,9 @@ const styles = {
     > div {
       margin-right: -0.5rem;
       padding-bottom: 0.5rem;
-      > ul {
-        padding: 0.25rem 0 0 1rem;
-      }
+    }
+    > ul {
+      padding: 0 0 0.75rem 1.25rem;
     }
     > div:not(:first-of-type) {
       border-top: 1px solid ${CARD_BORDER_COLOUR};
