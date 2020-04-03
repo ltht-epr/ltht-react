@@ -148,6 +148,91 @@ exports[`CarePlanSummary matches snapshot: wrapper mount 1`] = `
         "status": "COMPLETED",
         "title": "Test Care Plan",
       },
+      Object {
+        "activity": Object {
+          "detail": Object {
+            "performer": Array [
+              Object {
+                "display": "Nurse Nancy",
+                "reference": "Practitioner/13",
+                "typeName": "",
+              },
+            ],
+            "status": "COMPLETED",
+          },
+          "outcomeReference": Array [
+            Object {
+              "display": "",
+              "reference": "Encounter/example",
+              "typeName": "",
+            },
+          ],
+        },
+        "addresses": Array [
+          Object {
+            "display": "obesity",
+            "reference": "#p1",
+            "typeName": "",
+          },
+        ],
+        "author": Array [
+          Object {
+            "display": "Dr Joe Bloggs",
+            "typeName": "Test",
+          },
+          Object {
+            "display": "Dr Adam Careplan",
+            "typeName": "Test",
+          },
+        ],
+        "careTeam": Array [
+          Object {
+            "display": "",
+            "reference": "#careteam",
+            "typeName": "",
+          },
+        ],
+        "goal": Array [
+          Object {
+            "display": "",
+            "reference": "#goal",
+            "typeName": "",
+          },
+        ],
+        "id": "gpvisit",
+        "intent": "PLAN",
+        "metadata": Object {
+          "dataSources": Array [
+            Object {
+              "display": "Mock",
+            },
+          ],
+          "isRedacted": false,
+          "requestedWhen": "",
+        },
+        "period": Object {
+          "start": Object {
+            "kind": "DATE",
+            "value": "2014-02-02T00:00:00+00:00",
+          },
+        },
+        "status": "ACTIVE",
+        "text": Object {
+          "div": "<div xmlns=\\"http://www.w3.org/1999/xhtml\\">
+      <p>  Represents the flow of a patient within a practice. The plan is created when
+        they arrive and represents the 'care' of the patient over the course of that encounter.
+        They first see the nurse for basic observations (BP, pulse, temp) then the doctor for
+        the consultation and finally the nurse again for a tetanus immunization. As the plan is
+        updated (e.g. a new activity added), different versions of the plan exist, and workflow timings
+        for reporting can be gained by examining the plan history. This example is the version after
+        seeing the doctor, and waiting for the nurse.The plan can either be created 'ad hoc' and modified as
+        the parient progresses, or start with a standard template (which can, of course, be altered to suit the patient.</p>
+    </div>",
+          "status": "ADDITIONAL",
+          "text": "",
+        },
+        "title": "Test Care Plan",
+      },
     ]
   }
 >
@@ -514,6 +599,416 @@ exports[`CarePlanSummary matches snapshot: wrapper mount 1`] = `
                 className="emotion-9"
               >
                 Proposal - Completed
+              </div>
+            </CarePlanStatus>
+          </div>
+        </div>
+      </CarePlanSummaryItem>
+    </li>
+  </ListItem>
+  <ListItem
+    key="gpvisit"
+  >
+    <li>
+      <CarePlanSummaryItem
+        carePlan={
+          Object {
+            "activity": Object {
+              "detail": Object {
+                "performer": Array [
+                  Object {
+                    "display": "Nurse Nancy",
+                    "reference": "Practitioner/13",
+                    "typeName": "",
+                  },
+                ],
+                "status": "COMPLETED",
+              },
+              "outcomeReference": Array [
+                Object {
+                  "display": "",
+                  "reference": "Encounter/example",
+                  "typeName": "",
+                },
+              ],
+            },
+            "addresses": Array [
+              Object {
+                "display": "obesity",
+                "reference": "#p1",
+                "typeName": "",
+              },
+            ],
+            "author": Array [
+              Object {
+                "display": "Dr Joe Bloggs",
+                "typeName": "Test",
+              },
+              Object {
+                "display": "Dr Adam Careplan",
+                "typeName": "Test",
+              },
+            ],
+            "careTeam": Array [
+              Object {
+                "display": "",
+                "reference": "#careteam",
+                "typeName": "",
+              },
+            ],
+            "goal": Array [
+              Object {
+                "display": "",
+                "reference": "#goal",
+                "typeName": "",
+              },
+            ],
+            "id": "gpvisit",
+            "intent": "PLAN",
+            "metadata": Object {
+              "dataSources": Array [
+                Object {
+                  "display": "Mock",
+                },
+              ],
+              "isRedacted": false,
+              "requestedWhen": "",
+            },
+            "period": Object {
+              "start": Object {
+                "kind": "DATE",
+                "value": "2014-02-02T00:00:00+00:00",
+              },
+            },
+            "status": "ACTIVE",
+            "text": Object {
+              "div": "<div xmlns=\\"http://www.w3.org/1999/xhtml\\">
+      <p>  Represents the flow of a patient within a practice. The plan is created when
+        they arrive and represents the 'care' of the patient over the course of that encounter.
+        They first see the nurse for basic observations (BP, pulse, temp) then the doctor for
+        the consultation and finally the nurse again for a tetanus immunization. As the plan is
+        updated (e.g. a new activity added), different versions of the plan exist, and workflow timings
+        for reporting can be gained by examining the plan history. This example is the version after
+        seeing the doctor, and waiting for the nurse.The plan can either be created 'ad hoc' and modified as
+        the parient progresses, or start with a standard template (which can, of course, be altered to suit the patient.</p>
+    </div>",
+              "status": "ADDITIONAL",
+              "text": "",
+            },
+            "title": "Test Care Plan",
+          }
+        }
+      >
+        <div
+          className="emotion-4"
+          role="link"
+        >
+          <div
+            className="emotion-7"
+          >
+            <CarePlanTitle
+              carePlan={
+                Object {
+                  "activity": Object {
+                    "detail": Object {
+                      "performer": Array [
+                        Object {
+                          "display": "Nurse Nancy",
+                          "reference": "Practitioner/13",
+                          "typeName": "",
+                        },
+                      ],
+                      "status": "COMPLETED",
+                    },
+                    "outcomeReference": Array [
+                      Object {
+                        "display": "",
+                        "reference": "Encounter/example",
+                        "typeName": "",
+                      },
+                    ],
+                  },
+                  "addresses": Array [
+                    Object {
+                      "display": "obesity",
+                      "reference": "#p1",
+                      "typeName": "",
+                    },
+                  ],
+                  "author": Array [
+                    Object {
+                      "display": "Dr Joe Bloggs",
+                      "typeName": "Test",
+                    },
+                    Object {
+                      "display": "Dr Adam Careplan",
+                      "typeName": "Test",
+                    },
+                  ],
+                  "careTeam": Array [
+                    Object {
+                      "display": "",
+                      "reference": "#careteam",
+                      "typeName": "",
+                    },
+                  ],
+                  "goal": Array [
+                    Object {
+                      "display": "",
+                      "reference": "#goal",
+                      "typeName": "",
+                    },
+                  ],
+                  "id": "gpvisit",
+                  "intent": "PLAN",
+                  "metadata": Object {
+                    "dataSources": Array [
+                      Object {
+                        "display": "Mock",
+                      },
+                    ],
+                    "isRedacted": false,
+                    "requestedWhen": "",
+                  },
+                  "period": Object {
+                    "start": Object {
+                      "kind": "DATE",
+                      "value": "2014-02-02T00:00:00+00:00",
+                    },
+                  },
+                  "status": "ACTIVE",
+                  "text": Object {
+                    "div": "<div xmlns=\\"http://www.w3.org/1999/xhtml\\">
+      <p>  Represents the flow of a patient within a practice. The plan is created when
+        they arrive and represents the 'care' of the patient over the course of that encounter.
+        They first see the nurse for basic observations (BP, pulse, temp) then the doctor for
+        the consultation and finally the nurse again for a tetanus immunization. As the plan is
+        updated (e.g. a new activity added), different versions of the plan exist, and workflow timings
+        for reporting can be gained by examining the plan history. This example is the version after
+        seeing the doctor, and waiting for the nurse.The plan can either be created 'ad hoc' and modified as
+        the parient progresses, or start with a standard template (which can, of course, be altered to suit the patient.</p>
+    </div>",
+                    "status": "ADDITIONAL",
+                    "text": "",
+                  },
+                  "title": "Test Care Plan",
+                }
+              }
+            >
+              <div
+                className="emotion-5"
+              >
+                Test Care Plan
+              </div>
+            </CarePlanTitle>
+            <CarePlanDescription
+              carePlan={
+                Object {
+                  "activity": Object {
+                    "detail": Object {
+                      "performer": Array [
+                        Object {
+                          "display": "Nurse Nancy",
+                          "reference": "Practitioner/13",
+                          "typeName": "",
+                        },
+                      ],
+                      "status": "COMPLETED",
+                    },
+                    "outcomeReference": Array [
+                      Object {
+                        "display": "",
+                        "reference": "Encounter/example",
+                        "typeName": "",
+                      },
+                    ],
+                  },
+                  "addresses": Array [
+                    Object {
+                      "display": "obesity",
+                      "reference": "#p1",
+                      "typeName": "",
+                    },
+                  ],
+                  "author": Array [
+                    Object {
+                      "display": "Dr Joe Bloggs",
+                      "typeName": "Test",
+                    },
+                    Object {
+                      "display": "Dr Adam Careplan",
+                      "typeName": "Test",
+                    },
+                  ],
+                  "careTeam": Array [
+                    Object {
+                      "display": "",
+                      "reference": "#careteam",
+                      "typeName": "",
+                    },
+                  ],
+                  "goal": Array [
+                    Object {
+                      "display": "",
+                      "reference": "#goal",
+                      "typeName": "",
+                    },
+                  ],
+                  "id": "gpvisit",
+                  "intent": "PLAN",
+                  "metadata": Object {
+                    "dataSources": Array [
+                      Object {
+                        "display": "Mock",
+                      },
+                    ],
+                    "isRedacted": false,
+                    "requestedWhen": "",
+                  },
+                  "period": Object {
+                    "start": Object {
+                      "kind": "DATE",
+                      "value": "2014-02-02T00:00:00+00:00",
+                    },
+                  },
+                  "status": "ACTIVE",
+                  "text": Object {
+                    "div": "<div xmlns=\\"http://www.w3.org/1999/xhtml\\">
+      <p>  Represents the flow of a patient within a practice. The plan is created when
+        they arrive and represents the 'care' of the patient over the course of that encounter.
+        They first see the nurse for basic observations (BP, pulse, temp) then the doctor for
+        the consultation and finally the nurse again for a tetanus immunization. As the plan is
+        updated (e.g. a new activity added), different versions of the plan exist, and workflow timings
+        for reporting can be gained by examining the plan history. This example is the version after
+        seeing the doctor, and waiting for the nurse.The plan can either be created 'ad hoc' and modified as
+        the parient progresses, or start with a standard template (which can, of course, be altered to suit the patient.</p>
+    </div>",
+                    "status": "ADDITIONAL",
+                    "text": "",
+                  },
+                  "title": "Test Care Plan",
+                }
+              }
+            >
+              <div
+                className="emotion-6"
+              >
+                Dr Joe Bloggs, Dr Adam Careplan
+              </div>
+            </CarePlanDescription>
+          </div>
+          <div
+            className="emotion-10"
+          >
+            <PeriodSummary
+              period={
+                Object {
+                  "start": Object {
+                    "kind": "DATE",
+                    "value": "2014-02-02T00:00:00+00:00",
+                  },
+                }
+              }
+            >
+              <div
+                className="emotion-2"
+              >
+                02-Feb-2014 to Present
+              </div>
+            </PeriodSummary>
+            <CarePlanStatus
+              carePlan={
+                Object {
+                  "activity": Object {
+                    "detail": Object {
+                      "performer": Array [
+                        Object {
+                          "display": "Nurse Nancy",
+                          "reference": "Practitioner/13",
+                          "typeName": "",
+                        },
+                      ],
+                      "status": "COMPLETED",
+                    },
+                    "outcomeReference": Array [
+                      Object {
+                        "display": "",
+                        "reference": "Encounter/example",
+                        "typeName": "",
+                      },
+                    ],
+                  },
+                  "addresses": Array [
+                    Object {
+                      "display": "obesity",
+                      "reference": "#p1",
+                      "typeName": "",
+                    },
+                  ],
+                  "author": Array [
+                    Object {
+                      "display": "Dr Joe Bloggs",
+                      "typeName": "Test",
+                    },
+                    Object {
+                      "display": "Dr Adam Careplan",
+                      "typeName": "Test",
+                    },
+                  ],
+                  "careTeam": Array [
+                    Object {
+                      "display": "",
+                      "reference": "#careteam",
+                      "typeName": "",
+                    },
+                  ],
+                  "goal": Array [
+                    Object {
+                      "display": "",
+                      "reference": "#goal",
+                      "typeName": "",
+                    },
+                  ],
+                  "id": "gpvisit",
+                  "intent": "PLAN",
+                  "metadata": Object {
+                    "dataSources": Array [
+                      Object {
+                        "display": "Mock",
+                      },
+                    ],
+                    "isRedacted": false,
+                    "requestedWhen": "",
+                  },
+                  "period": Object {
+                    "start": Object {
+                      "kind": "DATE",
+                      "value": "2014-02-02T00:00:00+00:00",
+                    },
+                  },
+                  "status": "ACTIVE",
+                  "text": Object {
+                    "div": "<div xmlns=\\"http://www.w3.org/1999/xhtml\\">
+      <p>  Represents the flow of a patient within a practice. The plan is created when
+        they arrive and represents the 'care' of the patient over the course of that encounter.
+        They first see the nurse for basic observations (BP, pulse, temp) then the doctor for
+        the consultation and finally the nurse again for a tetanus immunization. As the plan is
+        updated (e.g. a new activity added), different versions of the plan exist, and workflow timings
+        for reporting can be gained by examining the plan history. This example is the version after
+        seeing the doctor, and waiting for the nurse.The plan can either be created 'ad hoc' and modified as
+        the parient progresses, or start with a standard template (which can, of course, be altered to suit the patient.</p>
+    </div>",
+                    "status": "ADDITIONAL",
+                    "text": "",
+                  },
+                  "title": "Test Care Plan",
+                }
+              }
+            >
+              <div
+                className="emotion-9"
+              >
+                Plan - Active
               </div>
             </CarePlanStatus>
           </div>

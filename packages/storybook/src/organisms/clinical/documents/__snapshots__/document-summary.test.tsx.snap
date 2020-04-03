@@ -216,11 +216,9 @@ exports[`DocumentSummaryy matches snapshot: wrapper mount 1`] = `
               "type": Object {},
             }
           }
-          key="6b554095-bd5f-4134-8dbb-a21971959fd2"
+          key="6b554095-bd5f-4134-8dbb-a21971959fd3"
         >
-          <ListItem
-            key="6b554095-bd5f-4134-8dbb-a21971959fd3"
-          >
+          <ListItem>
             <li>
               <DocumentSummaryContent
                 clickHandler={[Function]}
@@ -334,11 +332,9 @@ exports[`DocumentSummaryy matches snapshot: wrapper mount 1`] = `
               "type": Object {},
             }
           }
-          key="2d889a55-d7ec-46ae-b674-23dfc6666018"
+          key="2d889a55-d7ec-46ae-b674-23dfc6666014"
         >
-          <ListItem
-            key="2d889a55-d7ec-46ae-b674-23dfc6666014"
-          >
+          <ListItem>
             <li>
               <DocumentSummaryContent
                 clickHandler={[Function]}
