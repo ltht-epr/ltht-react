@@ -16,6 +16,7 @@ import DocumentSummary from '@ltht-react/document-summary'
 
 ### Properties
 
-| Prop        | Required | Default | Type                | Description                     |
-| :---------- | :------- | :------ | :------------------ | :------------------------------ |
-| `documents` | No       |         | DocumentReference[] | An array of document references |
+| Prop           | Required | Default | Type                                      | Description                                            |
+| :------------- | :------- | :------ | :---------------------------------------- | :----------------------------------------------------- |
+| `documents`    | No       |         | DocumentReference[]                       | An array of document references                        |
+| `clickHandler` | No       |         | clickHandler(document: DocumentReference) | A click handler that will return the selected document |

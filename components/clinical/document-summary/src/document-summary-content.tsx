@@ -28,10 +28,10 @@ const DocumentSummaryContent: React.FC<Props> = ({
 }
 
 interface Props {
-  description: string | undefined
-  created: string | undefined
-  source: string | undefined
-  status: string | undefined
+  description?: string
+  created?: string
+  source?: string
+  status?: string
   clickHandler?(): void
 }
 

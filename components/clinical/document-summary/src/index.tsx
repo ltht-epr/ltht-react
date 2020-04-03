@@ -51,7 +51,7 @@ const styles = {
   `,
 }
 
-const DocumentSummary: React.FC<Props> = ({ documents = undefined, clickHandler = undefined }) => {
+const DocumentSummary: React.FC<Props> = ({ documents, clickHandler }) => {
   if (!documents) {
     return null
   }
@@ -71,7 +71,7 @@ const DocumentSummary: React.FC<Props> = ({ documents = undefined, clickHandler 
 }
 
 interface Props {
-  documents: DocumentReference[] | undefined
+  documents?: DocumentReference[]
   clickHandler?(document: DocumentReference): void
 }
 
