@@ -30,7 +30,7 @@ const GuidanceSummary: React.FC<Props> = ({ guidanceList = undefined }) => {
   return (
     <div css={styles.root}>
       {guidanceList.guidance.map(x => (
-        <GuidanceSummaryItem guidance={x} />
+        <GuidanceSummaryItem key={x?.id} guidance={x} />
       ))}
     </div>
   )

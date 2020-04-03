@@ -9,7 +9,7 @@ const GuidanceSummaryItem: React.FC<Props> = ({ guidance = undefined }) => {
     return null
   }
 
-  const notes = guidance.note?.map((x, idx) => <ListItem key={idx.toString()}>{x?.text}</ListItem>)
+  const notes = guidance.note?.map(x => <ListItem key={x?.text}>{x?.text}</ListItem>)
 
   const summaryMarkup = (
     <>
