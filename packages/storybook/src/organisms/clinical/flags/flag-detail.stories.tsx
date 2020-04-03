@@ -4,7 +4,7 @@ import JSXAddon from 'storybook-addon-jsx'
 
 import FlagDetail from '@ltht-react/flag-detail'
 import readme from '@ltht-react/flag-detail/README.md'
-import * as fixtures from './flag.fixtures'
+import flags from './flag.fixtures'
 
 const stories = storiesOf('Organisms - Clinical|Flag', module)
 
@@ -16,4 +16,4 @@ stories.addParameters({
   },
 })
 
-stories.addWithJSX('Detail', () => <FlagDetail flag={fixtures.FlagOne} />)
+stories.addWithJSX('Detail', () => <FlagDetail flag={flags[0]} />)

@@ -84,7 +84,7 @@ exports[`GuidanceSummaryy matches snapshot: wrapper mount 1`] = `
           },
         },
         Object {
-          "id": "c2ee5d22-6fcd-4ec8-b12a-e9c6e83876b1",
+          "id": "c2ee5d22-6fcd-4ec8-b12a-e9c6e83876b2",
           "metadata": Object {
             "dataSources": Array [
               Object {
@@ -202,70 +202,70 @@ exports[`GuidanceSummaryy matches snapshot: wrapper mount 1`] = `
           className="emotion-0"
         >
           <ListItem
-            key="0"
+            key="c2ee5d22-6fcd-4ec8-b12a-e9c6e83876b1_0"
           >
             <li>
               Advice from MCA / MHA team
             </li>
           </ListItem>
           <ListItem
-            key="1"
+            key="c2ee5d22-6fcd-4ec8-b12a-e9c6e83876b1_1"
           >
             <li>
               Advice from Psychiatric Liaison Team (if appropriate)
             </li>
           </ListItem>
           <ListItem
-            key="2"
+            key="c2ee5d22-6fcd-4ec8-b12a-e9c6e83876b1_2"
           >
             <li>
               Assessment and Care of Psychological Health Care Plan
             </li>
           </ListItem>
           <ListItem
-            key="3"
+            key="c2ee5d22-6fcd-4ec8-b12a-e9c6e83876b1_3"
           >
             <li>
               Enhanced care
             </li>
           </ListItem>
           <ListItem
-            key="4"
+            key="c2ee5d22-6fcd-4ec8-b12a-e9c6e83876b1_4"
           >
             <li>
               Further assessment and / or referral to Mental Health team
             </li>
           </ListItem>
           <ListItem
-            key="5"
+            key="c2ee5d22-6fcd-4ec8-b12a-e9c6e83876b1_5"
           >
             <li>
               Hospital passport
             </li>
           </ListItem>
           <ListItem
-            key="6"
+            key="c2ee5d22-6fcd-4ec8-b12a-e9c6e83876b1_6"
           >
             <li>
               ‘Know Who I Am’ booklet (Forget Me Not)
             </li>
           </ListItem>
           <ListItem
-            key="7"
+            key="c2ee5d22-6fcd-4ec8-b12a-e9c6e83876b1_7"
           >
             <li>
               Restrictive Intervention Care Plan
             </li>
           </ListItem>
           <ListItem
-            key="8"
+            key="c2ee5d22-6fcd-4ec8-b12a-e9c6e83876b1_8"
           >
             <li>
               Self-Harm or Harm to Others Care Plan
             </li>
           </ListItem>
           <ListItem
-            key="9"
+            key="c2ee5d22-6fcd-4ec8-b12a-e9c6e83876b1_9"
           >
             <li>
               Utilising the 'Use of Restraint' policy and Good Practice Guidance
@@ -277,7 +277,7 @@ exports[`GuidanceSummaryy matches snapshot: wrapper mount 1`] = `
     <GuidanceSummaryItem
       guidance={
         Object {
-          "id": "c2ee5d22-6fcd-4ec8-b12a-e9c6e83876b1",
+          "id": "c2ee5d22-6fcd-4ec8-b12a-e9c6e83876b2",
           "metadata": Object {
             "dataSources": Array [
               Object {

@@ -72,4 +72,6 @@ const AppointmentTwo: Encounter = {
   status: EncounterStatusCode.Finished,
 }
 
-export { AppointmentOne, AppointmentTwo }
+const appointments: Encounter[] = [AppointmentOne, AppointmentTwo]
+
+export default appointments

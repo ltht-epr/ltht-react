@@ -3,7 +3,6 @@ import React from 'react'
 import { css, jsx, SerializedStyles } from '@emotion/core'
 
 import { CARD_BORDER_COLOUR, CARD_LIST_ITEM_BACKGROUND_HOVER } from '@ltht-react/styles'
-import useCard from '../store/card-hook'
 
 const computeStyles = (collapsed: boolean, clickable?: boolean): SerializedStyles => {
   return css`
@@ -21,13 +20,16 @@ const computeStyles = (collapsed: boolean, clickable?: boolean): SerializedStyle
   `
 }
 
-const CardList: React.FC<Props> = ({ children, clickable }) => {
-  const { collapseButton } = useCard()
-  return <ul css={computeStyles(collapseButton.collapsed, clickable)}>{children}</ul>
+const CardList: React.FC<Props> = ({ children, clickable, collapsed = false }) => {
+  // const { collapseButton } = useCard()
+  return <ul css={computeStyles(collapsed, clickable)}>{children}</ul>
 }
+
+// collapseButton.collapsed
 
 interface Props {
   clickable?: boolean
+  collapsed?: boolean
 }
 
 export default CardList

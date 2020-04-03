@@ -3,7 +3,8 @@ import { storiesOf } from '@storybook/react'
 import JSXAddon from 'storybook-addon-jsx'
 import InvolvedTeamSummary from '@ltht-react/involved-team-summary'
 import readme from '@ltht-react/involved-team-summary/README.md'
-import * as fixtures from './involved-team-summary.fixtures'
+import { Card, CardHeader, CardBody, CardList } from '@ltht-react/card'
+import episodes from './involved-team-summary.fixtures'
 
 const stories = storiesOf('Organisms - Clinical|Involved Team', module)
 
@@ -16,5 +17,14 @@ stories.addParameters({
 })
 
 stories.addWithJSX('Summary', () => (
-  <InvolvedTeamSummary episodeOfCares={[fixtures.InvolvedTeamOne, fixtures.InvolvedTeamTwo]} />
+  <Card noData={!episodes}>
+    <CardHeader>
+      <h3>Involved Teams</h3>
+    </CardHeader>
+    <CardBody>
+      <CardList>
+        <InvolvedTeamSummary episodeOfCares={episodes} />
+      </CardList>
+    </CardBody>
+  </Card>
 ))

@@ -106,4 +106,6 @@ const ConditionTwo: Condition = {
   },
 }
 
-export { ConditionOne, ConditionTwo }
+const conditions: Condition[] = [ConditionOne, ConditionTwo]
+
+export default conditions

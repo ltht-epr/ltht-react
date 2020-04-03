@@ -58,4 +58,6 @@ const CommunityTreatmentOrderTwo: LypftCommunityTreatmentOrder = {
   restrictions: 'No Restrictions',
 }
 
-export { CommunityTreatmentOrderOne, CommunityTreatmentOrderTwo }
+const orders: LypftCommunityTreatmentOrder[] = [CommunityTreatmentOrderOne, CommunityTreatmentOrderTwo]
+
+export default orders

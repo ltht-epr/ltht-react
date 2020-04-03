@@ -10,13 +10,16 @@ import FlagSummary from '@ltht-react/flag-summary'
 import HospitalStaySummary from '@ltht-react/hospital-stay-summary'
 import InvolvedTeamSummary from '@ltht-react/involved-team-summary'
 
-import * as allergies from '../../clinical/allergies/allergy.fixtures'
-import * as appointments from '../../clinical/appointments/appointment-summary.fixtures'
-import * as carePlans from '../../clinical/care-plans/care-plan.fixtures'
-import * as communityOrders from '../../clinical/community-treatment-orders/community-treatment-order.fixtures'
-import * as episodeOfCares from '../../clinical/involved-teams/involved-team-summary.fixtures'
-import * as flags from '../../clinical/flags/flag.fixtures'
-import * as hospitalStays from '../../clinical/hospital-stays/hospital-stay.fixtures'
+import DocumentSummary from '@ltht-react/document-summary'
+import { Card, CardHeader, CardBody, CardList } from '@ltht-react/card'
+import allergies from '../../clinical/allergies/allergy.fixtures'
+import documents from '../../clinical/documents/document-summary.fixture'
+import appointments from '../../clinical/appointments/appointment-summary.fixtures'
+import carePlans from '../../clinical/care-plans/care-plan.fixtures'
+import communityOrders from '../../clinical/community-treatment-orders/community-treatment-order.fixtures'
+import episodeOfCares from '../../clinical/involved-teams/involved-team-summary.fixtures'
+import flags from '../../clinical/flags/flag.fixtures'
+import hospitalStays from '../../clinical/hospital-stays/hospital-stay.fixtures'
 
 import { Container, Column } from './dashboard'
 
@@ -32,22 +35,86 @@ stories.addWithJSX('Readonly Cards', () => {
   return (
     <Container>
       <Column>
-        <FlagSummary flags={[flags.FlagOne, flags.FlagTwo]} />
-        <AllergySummary allergies={[allergies.AllergyOne, allergies.AllergyTwo]} />
-        <CommunityTreatmentOrderSummary
-          communityTreatmentOrders={[
-            communityOrders.CommunityTreatmentOrderOne,
-            communityOrders.CommunityTreatmentOrderTwo,
-          ]}
-        />
-        <CarePlanSummary carePlans={[carePlans.CarePlanOne, carePlans.CarePlanTwo]} />
+        <Card noData={!flags}>
+          <CardHeader>
+            <h3>Flags</h3>
+          </CardHeader>
+          <CardBody>
+            <CardList>
+              <FlagSummary flags={flags} />
+            </CardList>
+          </CardBody>
+        </Card>
+        <Card noData={!allergies}>
+          <CardHeader>
+            <h3>Allergies</h3>
+          </CardHeader>
+          <CardBody>
+            <CardList>
+              <AllergySummary allergies={allergies} />
+            </CardList>
+          </CardBody>
+        </Card>
+        <Card noData={!communityOrders}>
+          <CardHeader>
+            <h3>Community Treatment Orders</h3>
+          </CardHeader>
+          <CardBody>
+            <CardList>
+              <CommunityTreatmentOrderSummary communityTreatmentOrders={communityOrders} />
+            </CardList>
+          </CardBody>
+        </Card>
+        <Card noData={!carePlans}>
+          <CardHeader>
+            <h3>Care Plans</h3>
+          </CardHeader>
+          <CardBody>
+            <CardList>
+              <CarePlanSummary carePlans={carePlans} />
+            </CardList>
+          </CardBody>
+        </Card>
       </Column>
       <Column>
-        <InvolvedTeamSummary episodeOfCares={[episodeOfCares.InvolvedTeamOne, episodeOfCares.InvolvedTeamTwo]} />
-        <AppointmentSummary encounters={[]} />
-        <AppointmentSummary encounters={[appointments.AppointmentOne, appointments.AppointmentTwo]} />
-        <AppointmentSummary encounters={[appointments.AppointmentOne, appointments.AppointmentTwo]} />
-        <HospitalStaySummary hospitalStays={[hospitalStays.HospitalStayOne, hospitalStays.HospitalStayTwo]} />
+        <Card noData={!episodeOfCares}>
+          <CardHeader>
+            <h3>Involved Teams</h3>
+          </CardHeader>
+          <CardBody>
+            <CardList>
+              <InvolvedTeamSummary episodeOfCares={episodeOfCares} />
+            </CardList>
+          </CardBody>
+        </Card>
+        <Card noData={!appointments}>
+          <CardHeader>
+            <h3>Appointments</h3>
+          </CardHeader>
+          <CardBody>
+            <CardList>
+              <AppointmentSummary encounters={appointments} />
+            </CardList>
+          </CardBody>
+        </Card>
+        <Card noData={!documents}>
+          <CardHeader>
+            <h3>Documents</h3>
+          </CardHeader>
+          <CardBody>
+            <DocumentSummary documents={documents} />
+          </CardBody>
+        </Card>
+        <Card noData={!hospitalStays}>
+          <CardHeader>
+            <h3>Hospital Stays</h3>
+          </CardHeader>
+          <CardBody>
+            <CardList>
+              <HospitalStaySummary hospitalStays={hospitalStays} />
+            </CardList>
+          </CardBody>
+        </Card>
       </Column>
     </Container>
   )

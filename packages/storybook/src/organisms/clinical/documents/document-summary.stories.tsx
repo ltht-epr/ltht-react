@@ -5,7 +5,7 @@ import JSXAddon from 'storybook-addon-jsx'
 import DocumentSummary from '@ltht-react/document-summary'
 import readme from '@ltht-react/document-summary/README.md'
 import { Card, CardHeader, CardBody } from '@ltht-react/card'
-import * as fixture from './document-summary.fixture'
+import documents from './document-summary.fixture'
 
 const stories = storiesOf('Organisms - Clinical|Document', module)
 
@@ -16,8 +16,6 @@ stories.addParameters({
     sidebar: readme,
   },
 })
-
-const documents = [fixture.Document1, fixture.Document2, fixture.Document3]
 
 stories.addWithJSX('Summary', () => {
   return (

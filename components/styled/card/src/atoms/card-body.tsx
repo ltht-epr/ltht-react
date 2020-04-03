@@ -1,7 +1,6 @@
 /** @jsx jsx */
 import React from 'react'
 import { css, jsx, SerializedStyles } from '@emotion/core'
-import useCard from '../store/card-hook'
 
 const bodyAfter = css`
   &:after {
@@ -26,9 +25,14 @@ const styles = (collapsed: boolean, childrenCount: number): SerializedStyles => 
   `
 }
 
-const CardBody: React.FC = ({ children }) => {
-  const { collapseButton, childrenCount } = useCard()
-  return <div css={styles(collapseButton.collapsed, childrenCount)}>{children}</div>
+const CardBody: React.FC<Props> = ({ children, collapsed = false }) => {
+  return <div css={styles(collapsed, React.Children.count(children))}>{children}</div>
+}
+
+// collapseButton.collapsed
+
+interface Props {
+  collapsed?: boolean
 }
 
 export default CardBody

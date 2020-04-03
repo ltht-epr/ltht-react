@@ -21,10 +21,10 @@ stories.addParameters({
 stories.addWithJSX('Summary', () => {
   return (
     <Card noData={!GuidanceData}>
-      <CardHeader>
+      <CardHeader titleText="Test">
         <h3>Guidance</h3>
       </CardHeader>
-      <CardBody>
+      <CardBody collapsed={false}>
         <GuidanceSummary guidanceList={GuidanceData} />
       </CardBody>
     </Card>

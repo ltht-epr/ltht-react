@@ -3,10 +3,9 @@ import { mount } from 'enzyme'
 import ReactDOM from 'react-dom'
 
 import ConditionSummary from '@ltht-react/condition-summary'
-import { ConditionOne, ConditionTwo } from './condition-summary.fixtures'
+import conditions from './condition-summary.fixtures'
 
 describe('ConditionSummary', () => {
-  const conditions = [ConditionOne, ConditionTwo]
   it('renders without crashing', () => {
     const ul = document.createElement('ul')
     ReactDOM.render(<ConditionSummary conditions={conditions} />, ul)

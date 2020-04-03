@@ -77,4 +77,6 @@ const AllergyThree: AllergyIntolerance = {
   criticality: AllergyIntoleranceCriticalityCode.High,
 }
 
-export { AllergyOne, AllergyTwo, AllergyThree }
+const allergyList: AllergyIntolerance[] = [AllergyOne, AllergyTwo, AllergyThree]
+
+export default allergyList

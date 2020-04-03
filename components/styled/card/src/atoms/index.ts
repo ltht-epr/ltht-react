@@ -1,4 +1,4 @@
-export { default as Card } from './card'
+export { default as CardEmpty } from './card-empty'
 export { default as CardBody } from './card-body'
 export { default as CardFooter } from './card-footer'
 export { default as CardHeader } from './card-header'

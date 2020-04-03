@@ -2,7 +2,7 @@
 
 exports[`Card matches snapshot: wrapper mount 1`] = `
 Array [
-  .emotion-5 {
+  .emotion-3 {
   color: #231f20;
   font-family: 'SF Pro Text','SF Pro Icons','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 0.8rem;
@@ -15,54 +15,54 @@ Array [
   -webkit-font-smoothing: antialiased;
 }
 
-.emotion-5 *,
-.emotion-5 ::before,
-.emotion-5 ::after {
+.emotion-3 *,
+.emotion-3 ::before,
+.emotion-3 ::after {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
 
-.emotion-5 * {
+.emotion-3 * {
   margin: 0;
   padding: 0;
 }
 
-.emotion-5 h3 {
+.emotion-3 h3 {
   font-size: 1rem;
 }
 
 @media only screen and (min-width:768px) {
-  .emotion-5 {
+  .emotion-3 {
     font-size: 0.9rem;
   }
 
-  .emotion-5 h3 {
+  .emotion-3 h3 {
     font-size: 1.1rem;
   }
 }
 
 @media only screen and (min-width:1024px) {
-  .emotion-5 {
+  .emotion-3 {
     font-size: 1rem;
   }
 
-  .emotion-5 h3 {
+  .emotion-3 h3 {
     font-size: 1.2rem;
   }
 }
 
 @media only screen and (min-width:1200px) {
-  .emotion-5 {
+  .emotion-3 {
     font-size: 1.1rem;
   }
 
-  .emotion-5 h3 {
+  .emotion-3 h3 {
     font-size: 1.3rem;
   }
 }
 
-.emotion-2 {
+.emotion-0 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -74,134 +74,55 @@ Array [
   padding: 0.5rem;
 }
 
-.emotion-2:hover {
-  cursor: pointer;
-}
-
-.emotion-0 {
-  color: -v-a-l-u-e:#768692;
-  -d-a-r-k-e-r25: #59656e;
-  -l-i-g-h-t-e-r25: #98a4ad;
-}
-
-.emotion-3 {
+.emotion-1 {
   padding: 0.5rem;
 }
 
-.emotion-3:before {
+.emotion-1:before {
   content: '';
   display: block;
   border-top: 1px solid #b0b0b0;
   margin: -0.5rem -0.5rem 0.5rem 0;
 }
 
-.emotion-3:after {
-  content: '';
-  display: block;
-  border-top: 1px solid #b0b0b0;
-  margin: 0.5rem -0.5rem -0.5rem 0;
-}
-
-.emotion-4 {
+.emotion-2 {
   padding: 0.5rem;
 }
 
 <Card>
-    <CardProvider
-      childrenCount={3}
-      collapsible={true}
-      noData={false}
+    <div
+      className="emotion-3"
     >
-      <div
-        className="emotion-5"
-      >
-        <CardHeader>
-          <div
-            className="emotion-2"
-            onClick={[Function]}
-            title="Click to collapse"
-          >
-            <div>
-              <h3>
-                Heading
-              </h3>
-            </div>
-            <div>
-              <ChevronCircleIcon
-                direction="down"
-                size="medium"
-              >
-                <FontAwesomeIcon
-                  border={false}
-                  className="emotion-0"
-                  fixedWidth={false}
-                  flip={null}
-                  icon={
-                    Object {
-                      "icon": Array [
-                        512,
-                        512,
-                        Array [],
-                        "f13a",
-                        "M504 256c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zM273 369.9l135.5-135.5c9.4-9.4 9.4-24.6 0-33.9l-17-17c-9.4-9.4-24.6-9.4-33.9 0L256 285.1 154.4 183.5c-9.4-9.4-24.6-9.4-33.9 0l-17 17c-9.4 9.4-9.4 24.6 0 33.9L239 369.9c9.4 9.4 24.6 9.4 34 0z",
-                      ],
-                      "iconName": "chevron-circle-down",
-                      "prefix": "fas",
-                    }
-                  }
-                  inverse={false}
-                  listItem={false}
-                  mask={null}
-                  pull={null}
-                  pulse={false}
-                  rotation={null}
-                  size="sm"
-                  spin={false}
-                  swapOpacity={false}
-                  symbol={false}
-                  title=""
-                  transform={null}
-                >
-                  <svg
-                    aria-hidden="true"
-                    className="svg-inline--fa fa-chevron-circle-down fa-w-16 fa-sm emotion-0"
-                    data-icon="chevron-circle-down"
-                    data-prefix="fas"
-                    focusable="false"
-                    role="img"
-                    style={Object {}}
-                    viewBox="0 0 512 512"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M504 256c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zM273 369.9l135.5-135.5c9.4-9.4 9.4-24.6 0-33.9l-17-17c-9.4-9.4-24.6-9.4-33.9 0L256 285.1 154.4 183.5c-9.4-9.4-24.6-9.4-33.9 0l-17 17c-9.4 9.4-9.4 24.6 0 33.9L239 369.9c9.4 9.4 24.6 9.4 34 0z"
-                      fill="currentColor"
-                      style={Object {}}
-                    />
-                  </svg>
-                </FontAwesomeIcon>
-              </ChevronCircleIcon>
-            </div>
+      <CardHeader>
+        <div
+          className="emotion-0"
+          onClick={[Function]}
+          title=""
+        >
+          <div>
+            <h3>
+              Heading
+            </h3>
           </div>
-        </CardHeader>
-        <CardBody>
-          <div
-            className="emotion-3"
-          >
-            Body
-          </div>
-        </CardBody>
-        <CardFooter>
-          <div
-            className="emotion-4"
-          >
-            Footer
-          </div>
-        </CardFooter>
-      </div>
-    </CardProvider>
+        </div>
+      </CardHeader>
+      <CardBody>
+        <div
+          className="emotion-1"
+        >
+          Body
+        </div>
+      </CardBody>
+      <CardFooter>
+        <div
+          className="emotion-2"
+        >
+          Footer
+        </div>
+      </CardFooter>
+    </div>
   </Card>,
-  .emotion-5 {
+  .emotion-3 {
   color: #231f20;
   font-family: 'SF Pro Text','SF Pro Icons','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 0.8rem;
@@ -214,54 +135,54 @@ Array [
   -webkit-font-smoothing: antialiased;
 }
 
-.emotion-5 *,
-.emotion-5 ::before,
-.emotion-5 ::after {
+.emotion-3 *,
+.emotion-3 ::before,
+.emotion-3 ::after {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
 
-.emotion-5 * {
+.emotion-3 * {
   margin: 0;
   padding: 0;
 }
 
-.emotion-5 h3 {
+.emotion-3 h3 {
   font-size: 1rem;
 }
 
 @media only screen and (min-width:768px) {
-  .emotion-5 {
+  .emotion-3 {
     font-size: 0.9rem;
   }
 
-  .emotion-5 h3 {
+  .emotion-3 h3 {
     font-size: 1.1rem;
   }
 }
 
 @media only screen and (min-width:1024px) {
-  .emotion-5 {
+  .emotion-3 {
     font-size: 1rem;
   }
 
-  .emotion-5 h3 {
+  .emotion-3 h3 {
     font-size: 1.2rem;
   }
 }
 
 @media only screen and (min-width:1200px) {
-  .emotion-5 {
+  .emotion-3 {
     font-size: 1.1rem;
   }
 
-  .emotion-5 h3 {
+  .emotion-3 h3 {
     font-size: 1.3rem;
   }
 }
 
-.emotion-2 {
+.emotion-0 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -273,133 +194,61 @@ Array [
   padding: 0.5rem;
 }
 
-.emotion-2:hover {
-  cursor: pointer;
-}
-
-.emotion-0 {
-  color: -v-a-l-u-e:#768692;
-  -d-a-r-k-e-r25: #59656e;
-  -l-i-g-h-t-e-r25: #98a4ad;
-}
-
-.emotion-4 {
+.emotion-2 {
   padding: 0.5rem;
 }
 
-.emotion-3 {
+.emotion-1 {
   list-style: none;
   padding-left: 0.5rem;
 }
 
-.emotion-3 li {
+.emotion-1 li {
   border-top: 1px solid #b0b0b0;
   padding: 0.5rem 0.5rem 0.5rem 0;
 }
 
 <Card>
-    <CardProvider
-      childrenCount={3}
-      collapsible={true}
-      noData={false}
+    <div
+      className="emotion-3"
     >
-      <div
-        className="emotion-5"
-      >
-        <CardHeader>
-          <div
-            className="emotion-2"
-            onClick={[Function]}
-            title="Click to collapse"
-          >
-            <div>
-              <h3>
-                Heading
-              </h3>
-            </div>
-            <div>
-              <ChevronCircleIcon
-                direction="down"
-                size="medium"
-              >
-                <FontAwesomeIcon
-                  border={false}
-                  className="emotion-0"
-                  fixedWidth={false}
-                  flip={null}
-                  icon={
-                    Object {
-                      "icon": Array [
-                        512,
-                        512,
-                        Array [],
-                        "f13a",
-                        "M504 256c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zM273 369.9l135.5-135.5c9.4-9.4 9.4-24.6 0-33.9l-17-17c-9.4-9.4-24.6-9.4-33.9 0L256 285.1 154.4 183.5c-9.4-9.4-24.6-9.4-33.9 0l-17 17c-9.4 9.4-9.4 24.6 0 33.9L239 369.9c9.4 9.4 24.6 9.4 34 0z",
-                      ],
-                      "iconName": "chevron-circle-down",
-                      "prefix": "fas",
-                    }
-                  }
-                  inverse={false}
-                  listItem={false}
-                  mask={null}
-                  pull={null}
-                  pulse={false}
-                  rotation={null}
-                  size="sm"
-                  spin={false}
-                  swapOpacity={false}
-                  symbol={false}
-                  title=""
-                  transform={null}
-                >
-                  <svg
-                    aria-hidden="true"
-                    className="svg-inline--fa fa-chevron-circle-down fa-w-16 fa-sm emotion-0"
-                    data-icon="chevron-circle-down"
-                    data-prefix="fas"
-                    focusable="false"
-                    role="img"
-                    style={Object {}}
-                    viewBox="0 0 512 512"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M504 256c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zM273 369.9l135.5-135.5c9.4-9.4 9.4-24.6 0-33.9l-17-17c-9.4-9.4-24.6-9.4-33.9 0L256 285.1 154.4 183.5c-9.4-9.4-24.6-9.4-33.9 0l-17 17c-9.4 9.4-9.4 24.6 0 33.9L239 369.9c9.4 9.4 24.6 9.4 34 0z"
-                      fill="currentColor"
-                      style={Object {}}
-                    />
-                  </svg>
-                </FontAwesomeIcon>
-              </ChevronCircleIcon>
-            </div>
+      <CardHeader>
+        <div
+          className="emotion-0"
+          onClick={[Function]}
+          title=""
+        >
+          <div>
+            <h3>
+              Heading
+            </h3>
           </div>
-        </CardHeader>
-        <CardList>
-          <ul
-            className="emotion-3"
-          >
-            <ListItem>
-              <li>
-                Item 1
-              </li>
-            </ListItem>
-            <ListItem>
-              <li>
-                Item 2
-              </li>
-            </ListItem>
-          </ul>
-        </CardList>
-        <CardFooter>
-          <div
-            className="emotion-4"
-          >
-            Footer
-          </div>
-        </CardFooter>
-      </div>
-    </CardProvider>
+        </div>
+      </CardHeader>
+      <CardList>
+        <ul
+          className="emotion-1"
+        >
+          <ListItem>
+            <li>
+              Item 1
+            </li>
+          </ListItem>
+          <ListItem>
+            <li>
+              Item 2
+            </li>
+          </ListItem>
+        </ul>
+      </CardList>
+      <CardFooter>
+        <div
+          className="emotion-2"
+        >
+          Footer
+        </div>
+      </CardFooter>
+    </div>
   </Card>,
 ]
 `;

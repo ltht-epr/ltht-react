@@ -83,4 +83,6 @@ const FlagTwo: Flag = {
   status: FlagStatusCode.Inactive,
 }
 
-export { FlagOne, FlagTwo }
+const flags: Flag[] = [FlagOne, FlagTwo]
+
+export default flags

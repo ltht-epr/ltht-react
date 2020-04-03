@@ -3,7 +3,7 @@ import React from 'react'
 import { css, jsx, SerializedStyles } from '@emotion/core'
 
 import { CSS_RESET, TEXT_COLOURS, CARD_BACKGROUND_COLOUR, CARD_BACKGROUND_COLOUR_NO_DATA } from '@ltht-react/styles'
-import { CardProvider, ProviderProps } from '../store/card-context'
+// import { CardProvider, ProviderProps } from '../store/card-context'
 import CardEmpty from '../atoms/card-empty'
 
 const styles = (noData: boolean): SerializedStyles => {
@@ -22,23 +22,23 @@ const styles = (noData: boolean): SerializedStyles => {
 `
 }
 
-const Card: React.FC<Props> = ({ children, collapsible = true, collapsed, noData = false }) => {
+const Card: React.FC<Props> = ({ children, noData = false }) => {
   return (
-    <CardProvider
-      collapsible={collapsible}
-      collapsed={collapsed}
-      noData={noData}
-      childrenCount={React.Children.count(children)}
-    >
-      <div css={styles(noData)}>
-        {children}
-        {noData && <CardEmpty />}
-      </div>
-    </CardProvider>
+    // <CardProvider
+    //   collapsible={collapsible}
+    //   collapsed={collapsed}
+    //   noData={noData}
+    //   childrenCount={React.Children.count(children)}
+    // >
+    <div css={styles(noData)}>
+      {children}
+      {noData && <CardEmpty />}
+    </div>
+    // </CardProvider>
   )
 }
 
-interface Props extends ProviderProps {
+interface Props {
   noData?: boolean
 }
 

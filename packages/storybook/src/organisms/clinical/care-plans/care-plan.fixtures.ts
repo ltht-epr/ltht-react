@@ -152,4 +152,6 @@ const CarePlanThree: CarePlan = {
   },
 }
 
-export { CarePlanOne, CarePlanTwo, CarePlanThree }
+const carePlans: CarePlan[] = [CarePlanOne, CarePlanTwo, CarePlanThree]
+
+export default carePlans

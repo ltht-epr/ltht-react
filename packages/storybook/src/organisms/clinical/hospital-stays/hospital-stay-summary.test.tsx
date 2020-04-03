@@ -3,15 +3,14 @@ import { mount } from 'enzyme'
 import ReactDOM from 'react-dom'
 
 import HospitalStaySummary from '@ltht-react/hospital-stay-summary'
-import { HospitalStayOne, HospitalStayTwo } from './hospital-stay.fixtures'
+import stays from './hospital-stay.fixtures'
 
 describe('HospitalStaySummary', () => {
-  const hospitalStays = [HospitalStayOne, HospitalStayTwo]
   it('renders without crashing', () => {
     const div = document.createElement('div')
-    ReactDOM.render(<HospitalStaySummary hospitalStays={hospitalStays} />, div)
+    ReactDOM.render(<HospitalStaySummary hospitalStays={stays} />, div)
   })
   it('matches snapshot', () => {
-    expect(mount(<HospitalStaySummary hospitalStays={hospitalStays} />)).toMatchSnapshot('wrapper mount')
+    expect(mount(<HospitalStaySummary hospitalStays={stays} />)).toMatchSnapshot('wrapper mount')
   })
 })

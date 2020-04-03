@@ -62,4 +62,6 @@ const InvolvedTeamTwo: EpisodeOfCare = {
   status: EpisodeOfCareStatusCode.Active,
 }
 
-export { InvolvedTeamOne, InvolvedTeamTwo }
+const episodes: EpisodeOfCare[] = [InvolvedTeamOne, InvolvedTeamTwo]
+
+export default episodes

@@ -185,4 +185,6 @@ const HospitalStayThree: Encounter = {
   metadata: mockMetadata,
 }
 
-export { HospitalStayOne, HospitalStayTwo, HospitalStayThree }
+const stays: Encounter[] = [HospitalStayOne, HospitalStayTwo, HospitalStayThree]
+
+export default stays

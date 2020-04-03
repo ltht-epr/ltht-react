@@ -51,7 +51,7 @@ stories.addWithJSX('Radio', () => {
 
   return (
     <div css={styles.base}>
-      <Card collapsible={false}>
+      <Card>
         <CardHeader>
           <h3>Form example</h3>
         </CardHeader>

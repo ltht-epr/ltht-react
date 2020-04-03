@@ -4,7 +4,8 @@ import JSXAddon from 'storybook-addon-jsx'
 
 import AllergyDetailItem from '@ltht-react/allergy-detail'
 import readme from '@ltht-react/allergy-summary/README.md'
-import * as fixtures from './allergy.fixtures'
+import { Card, CardHeader, CardBody } from '@ltht-react/card'
+import allergies from './allergy.fixtures'
 
 const stories = storiesOf('Organisms - Clinical|Allergy', module)
 
@@ -16,4 +17,13 @@ stories.addParameters({
   },
 })
 
-stories.addWithJSX('Detail', () => <AllergyDetailItem allergy={fixtures.AllergyOne} />)
+stories.addWithJSX('Detail', () => (
+  <Card noData={!allergies[0]}>
+    <CardHeader>
+      <h3>Allergy</h3>
+    </CardHeader>
+    <CardBody>
+      <AllergyDetailItem allergy={allergies[0]} />
+    </CardBody>
+  </Card>
+))

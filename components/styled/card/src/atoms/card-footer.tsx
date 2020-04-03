@@ -1,7 +1,6 @@
 /** @jsx jsx */
 import React from 'react'
 import { css, jsx, SerializedStyles } from '@emotion/core'
-import useCard from '../store/card-hook'
 
 const styles = (collapsed: boolean): SerializedStyles => {
   return css`
@@ -10,9 +9,14 @@ const styles = (collapsed: boolean): SerializedStyles => {
   `
 }
 
-const CardFooter: React.FC = ({ children }) => {
-  const { collapseButton } = useCard()
-  return <div css={styles(collapseButton.collapsed)}>{children}</div>
+const CardFooter: React.FC<Props> = ({ children, collapsed = false }) => {
+  return <div css={styles(collapsed)}>{children}</div>
+}
+
+// collapseButton.collapsed
+
+interface Props {
+  collapsed?: boolean
 }
 
 export default CardFooter

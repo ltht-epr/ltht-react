@@ -4,7 +4,8 @@ import JSXAddon from 'storybook-addon-jsx'
 
 import CarePlanSummary from '@ltht-react/care-plan-summary'
 import readme from '@ltht-react/care-plan-summary/README.md'
-import * as fixtures from './care-plan.fixtures'
+import { Card, CardHeader, CardBody, CardList } from '@ltht-react/card'
+import careplans from './care-plan.fixtures'
 
 const stories = storiesOf('Organisms - Clinical|Care Plan', module)
 
@@ -16,4 +17,15 @@ stories.addParameters({
   },
 })
 
-stories.addWithJSX('Summary', () => <CarePlanSummary carePlans={[fixtures.CarePlanOne, fixtures.CarePlanTwo]} />)
+stories.addWithJSX('Summary', () => (
+  <Card noData={!careplans}>
+    <CardHeader>
+      <h3>Care Plans</h3>
+    </CardHeader>
+    <CardBody>
+      <CardList>
+        <CarePlanSummary carePlans={careplans} />
+      </CardList>
+    </CardBody>
+  </Card>
+))

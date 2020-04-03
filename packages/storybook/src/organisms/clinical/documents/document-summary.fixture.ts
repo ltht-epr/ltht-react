@@ -11,7 +11,7 @@ const mockMetadata: Metadata = {
 }
 
 const Document1: DocumentReference = {
-  id: '6b554095-bd5f-4134-8dbb-a21971959fd2',
+  id: '6b554095-bd5f-4134-8dbb-a21971959fd3',
   metadata: mockMetadata,
   content: [],
   description: 'Description of document one',
@@ -26,7 +26,7 @@ const Document1: DocumentReference = {
 }
 
 const Document2: DocumentReference = {
-  id: '2d889a55-d7ec-46ae-b674-23dfc6666018',
+  id: '2d889a55-d7ec-46ae-b674-23dfc6666014',
   metadata: mockMetadata,
   content: [],
   description: 'Description of document two',
@@ -55,4 +55,6 @@ const Document3: DocumentReference = {
   type: {},
 }
 
-export { Document1, Document2, Document3 }
+const documents: DocumentReference[] = [Document1, Document2, Document3]
+
+export default documents

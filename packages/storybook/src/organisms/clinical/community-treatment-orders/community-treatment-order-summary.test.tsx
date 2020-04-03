@@ -3,17 +3,14 @@ import { mount } from 'enzyme'
 import ReactDOM from 'react-dom'
 
 import CommunityTreatmentOrderSummary from '@ltht-react/community-treatment-order-summary'
-import { CommunityTreatmentOrderOne, CommunityTreatmentOrderTwo } from './community-treatment-order.fixtures'
+import orders from './community-treatment-order.fixtures'
 
 describe('CommunityTreatmentOrderSummary', () => {
-  const communityTreatmentOrders = [CommunityTreatmentOrderOne, CommunityTreatmentOrderTwo]
   it('renders without crashing', () => {
     const div = document.createElement('div')
-    ReactDOM.render(<CommunityTreatmentOrderSummary communityTreatmentOrders={communityTreatmentOrders} />, div)
+    ReactDOM.render(<CommunityTreatmentOrderSummary communityTreatmentOrders={orders} />, div)
   })
   it('matches snapshot', () => {
-    expect(
-      mount(<CommunityTreatmentOrderSummary communityTreatmentOrders={communityTreatmentOrders} />)
-    ).toMatchSnapshot('wrapper mount')
+    expect(mount(<CommunityTreatmentOrderSummary communityTreatmentOrders={orders} />)).toMatchSnapshot('wrapper mount')
   })
 })

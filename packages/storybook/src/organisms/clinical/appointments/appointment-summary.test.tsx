@@ -3,10 +3,9 @@ import { mount } from 'enzyme'
 import ReactDOM from 'react-dom'
 
 import AppointmentSummary from '@ltht-react/appointment-summary'
-import { AppointmentOne, AppointmentTwo } from './appointment-summary.fixtures'
+import appointments from './appointment-summary.fixtures'
 
 describe('AppointmentSummary', () => {
-  const appointments = [AppointmentOne, AppointmentTwo]
   it('renders without crashing', () => {
     const div = document.createElement('div')
     ReactDOM.render(<AppointmentSummary encounters={appointments} />, div)

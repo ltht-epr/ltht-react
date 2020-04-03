@@ -4,7 +4,9 @@ import JSXAddon from 'storybook-addon-jsx'
 
 import CommunityTreatmentOrderDetail from '@ltht-react/community-treatment-order-detail'
 import readme from '@ltht-react/community-treatment-order-detail/README.md'
-import { CommunityTreatmentOrderOne } from './community-treatment-order.fixtures'
+import { Card, CardHeader, CardBody } from '@ltht-react/card'
+
+import orders from './community-treatment-order.fixtures'
 
 const stories = storiesOf('Organisms - Clinical|Community Treatment Order', module)
 
@@ -17,5 +19,12 @@ stories.addParameters({
 })
 
 stories.addWithJSX('Detail', () => (
-  <CommunityTreatmentOrderDetail communityTreatmentOrder={CommunityTreatmentOrderOne} />
+  <Card noData={!orders}>
+    <CardHeader>
+      <h3>Order</h3>
+    </CardHeader>
+    <CardBody>
+      <CommunityTreatmentOrderDetail communityTreatmentOrder={orders[0]} />
+    </CardBody>
+  </Card>
 ))

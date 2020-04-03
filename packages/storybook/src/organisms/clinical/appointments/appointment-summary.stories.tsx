@@ -4,7 +4,8 @@ import JSXAddon from 'storybook-addon-jsx'
 
 import AppointmentSummary from '@ltht-react/appointment-summary'
 import readme from '@ltht-react/appointment-summary/README.md'
-import * as fixtures from './appointment-summary.fixtures'
+import { Card, CardHeader, CardBody, CardList } from '@ltht-react/card'
+import encounters from './appointment-summary.fixtures'
 
 const stories = storiesOf('Organisms - Clinical|Appointment', module)
 
@@ -17,5 +18,14 @@ stories.addParameters({
 })
 
 stories.addWithJSX('Summary', () => (
-  <AppointmentSummary encounters={[fixtures.AppointmentOne, fixtures.AppointmentTwo]} />
+  <Card noData={!encounters}>
+    <CardHeader>
+      <h3>Appointments</h3>
+    </CardHeader>
+    <CardBody>
+      <CardList>
+        <AppointmentSummary encounters={encounters} />
+      </CardList>
+    </CardBody>
+  </Card>
 ))
