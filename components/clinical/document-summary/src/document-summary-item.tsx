@@ -7,7 +7,7 @@ import { ListItem } from '@ltht-react/list'
 import Redacted from './document-redacted'
 import DocumentSummaryContent from './document-summary-content'
 
-const DocumentSummaryItem: React.FC<Props> = ({ document = undefined }) => {
+const DocumentSummaryItem: React.FC<Props> = ({ document = undefined, clickHandler }) => {
   if (!document) {
     return <div>No data!</div>
   }
@@ -16,14 +16,20 @@ const DocumentSummaryItem: React.FC<Props> = ({ document = undefined }) => {
     ? new Date(Date.parse(document.created.value ?? '')).toLocaleDateString('en-gb')
     : null
 
+  const source = document.metadata.dataSources ? document.metadata.dataSources[0]?.display : undefined
+
+  const handleClick = (): void => {
+    clickHandler && clickHandler(document)
+  }
+
   const summaryItem = (
     <ListItem key={document.id}>
       <DocumentSummaryContent
         description={document.description ?? undefined}
         created={created ?? undefined}
-        source="[SOURCE HERE]"
+        source={source}
         status={document.status}
-        clickable
+        clickHandler={handleClick}
       />
     </ListItem>
   )
@@ -33,6 +39,7 @@ const DocumentSummaryItem: React.FC<Props> = ({ document = undefined }) => {
 
 interface Props {
   document: DocumentReference | undefined
+  clickHandler?(document: DocumentReference): void
 }
 
 export default DocumentSummaryItem

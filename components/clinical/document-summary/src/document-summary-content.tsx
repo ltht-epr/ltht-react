@@ -7,18 +7,23 @@ const DocumentSummaryContent: React.FC<Props> = ({
   created = undefined,
   source = undefined,
   status = undefined,
-  clickable = false,
+  clickHandler,
 }) => {
+  const handleClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>): void => {
+    e.preventDefault()
+    clickHandler && clickHandler()
+  }
+
   return (
-    <>
+    <div onClick={clickHandler && handleClick}>
       <div>{created}</div>
       <div>{description}</div>
       <div className="source">
         <div>{source}</div>
         <div>{status}</div>
       </div>
-      <div>{clickable ? <ChevronIcon direction="right" size="large" /> : null}</div>
-    </>
+      <div>{clickHandler ? <ChevronIcon direction="right" size="large" /> : null}</div>
+    </div>
   )
 }
 
@@ -27,7 +32,7 @@ interface Props {
   created: string | undefined
   source: string | undefined
   status: string | undefined
-  clickable: boolean | undefined
+  clickHandler?(): void
 }
 
 export default DocumentSummaryContent

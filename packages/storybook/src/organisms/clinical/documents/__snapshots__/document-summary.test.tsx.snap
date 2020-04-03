@@ -14,7 +14,12 @@ exports[`DocumentSummaryy matches snapshot: wrapper mount 1`] = `
   padding-top: 0.25rem;
 }
 
-.emotion-7 > ul li {
+.emotion-7 > ul li:not(:first-of-type):hover {
+  cursor: pointer;
+  background: #E8EDEE;
+}
+
+.emotion-7 > ul li > div {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -33,32 +38,32 @@ exports[`DocumentSummaryy matches snapshot: wrapper mount 1`] = `
   padding-right: 0.5rem;
 }
 
-.emotion-7 > ul li > div {
+.emotion-7 > ul li > div > div {
   -webkit-flex: auto;
   -ms-flex: auto;
   flex: auto;
   padding-left: 1rem;
 }
 
-.emotion-7 > ul li > div:first-of-type {
+.emotion-7 > ul li > div > div:first-of-type {
   -webkit-flex: 0 0 6rem;
   -ms-flex: 0 0 6rem;
   flex: 0 0 6rem;
   padding-left: 0;
 }
 
-.emotion-7 > ul li > div.source {
+.emotion-7 > ul li > div > div.source {
   -webkit-flex: 0 0 15rem;
   -ms-flex: 0 0 15rem;
   flex: 0 0 15rem;
 }
 
-.emotion-7 > ul li > div.source > div:last-of-type {
+.emotion-7 > ul li > div > div.source > div:last-of-type {
   color: #768692;
   font-weight: normal;
 }
 
-.emotion-7 > ul li > div:last-of-type {
+.emotion-7 > ul li > div > div:last-of-type {
   -webkit-flex: 0 0 2.25rem;
   -ms-flex: 0 0 2.25rem;
   flex: 0 0 2.25rem;
@@ -158,29 +163,30 @@ exports[`DocumentSummaryy matches snapshot: wrapper mount 1`] = `
         >
           <li>
             <DocumentSummaryContent
-              clickable={false}
               created="Created"
               description="Description"
               source="Source"
               status="Status"
             >
               <div>
-                Created
-              </div>
-              <div>
-                Description
-              </div>
-              <div
-                className="source"
-              >
                 <div>
-                  Source
+                  Created
                 </div>
                 <div>
-                  Status
+                  Description
                 </div>
+                <div
+                  className="source"
+                >
+                  <div>
+                    Source
+                  </div>
+                  <div>
+                    Status
+                  </div>
+                </div>
+                <div />
               </div>
-              <div />
             </DocumentSummaryContent>
           </li>
         </ListItem>
@@ -215,83 +221,87 @@ exports[`DocumentSummaryy matches snapshot: wrapper mount 1`] = `
           >
             <li>
               <DocumentSummaryContent
-                clickable={true}
+                clickHandler={[Function]}
                 created="01/04/2020"
                 description="Description of document one"
-                source="[SOURCE HERE]"
+                source="Mock"
                 status="CURRENT"
               >
-                <div>
-                  01/04/2020
-                </div>
-                <div>
-                  Description of document one
-                </div>
                 <div
-                  className="source"
+                  onClick={[Function]}
                 >
                   <div>
-                    [SOURCE HERE]
+                    01/04/2020
                   </div>
                   <div>
-                    CURRENT
+                    Description of document one
                   </div>
-                </div>
-                <div>
-                  <ChevronIcon
-                    direction="right"
-                    size="large"
+                  <div
+                    className="source"
                   >
-                    <FontAwesomeIcon
-                      border={false}
-                      className="emotion-0"
-                      fixedWidth={false}
-                      flip={null}
-                      icon={
-                        Object {
-                          "icon": Array [
-                            320,
-                            512,
-                            Array [],
-                            "f054",
-                            "M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z",
-                          ],
-                          "iconName": "chevron-right",
-                          "prefix": "fas",
-                        }
-                      }
-                      inverse={false}
-                      listItem={false}
-                      mask={null}
-                      pull={null}
-                      pulse={false}
-                      rotation={null}
-                      size="lg"
-                      spin={false}
-                      swapOpacity={false}
-                      symbol={false}
-                      title=""
-                      transform={null}
+                    <div>
+                      Mock
+                    </div>
+                    <div>
+                      CURRENT
+                    </div>
+                  </div>
+                  <div>
+                    <ChevronIcon
+                      direction="right"
+                      size="large"
                     >
-                      <svg
-                        aria-hidden="true"
-                        className="svg-inline--fa fa-chevron-right fa-w-10 fa-lg emotion-0"
-                        data-icon="chevron-right"
-                        data-prefix="fas"
-                        focusable="false"
-                        role="img"
-                        style={Object {}}
-                        viewBox="0 0 320 512"
-                        xmlns="http://www.w3.org/2000/svg"
+                      <FontAwesomeIcon
+                        border={false}
+                        className="emotion-0"
+                        fixedWidth={false}
+                        flip={null}
+                        icon={
+                          Object {
+                            "icon": Array [
+                              320,
+                              512,
+                              Array [],
+                              "f054",
+                              "M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z",
+                            ],
+                            "iconName": "chevron-right",
+                            "prefix": "fas",
+                          }
+                        }
+                        inverse={false}
+                        listItem={false}
+                        mask={null}
+                        pull={null}
+                        pulse={false}
+                        rotation={null}
+                        size="lg"
+                        spin={false}
+                        swapOpacity={false}
+                        symbol={false}
+                        title=""
+                        transform={null}
                       >
-                        <path
-                          d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"
-                          fill="currentColor"
+                        <svg
+                          aria-hidden="true"
+                          className="svg-inline--fa fa-chevron-right fa-w-10 fa-lg emotion-0"
+                          data-icon="chevron-right"
+                          data-prefix="fas"
+                          focusable="false"
+                          role="img"
                           style={Object {}}
-                        />
-                      </svg>
-                    </FontAwesomeIcon>
-                  </ChevronIcon>
+                          viewBox="0 0 320 512"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"
+                            fill="currentColor"
+                            style={Object {}}
+                          />
+                        </svg>
+                      </FontAwesomeIcon>
+                    </ChevronIcon>
+                  </div>
                 </div>
               </DocumentSummaryContent>
             </li>
@@ -328,83 +338,87 @@ exports[`DocumentSummaryy matches snapshot: wrapper mount 1`] = `
           >
             <li>
               <DocumentSummaryContent
-                clickable={true}
+                clickHandler={[Function]}
                 created="11/10/2019"
                 description="Description of document two"
-                source="[SOURCE HERE]"
+                source="Mock"
                 status="ENTERED_IN_ERROR"
               >
-                <div>
-                  11/10/2019
-                </div>
-                <div>
-                  Description of document two
-                </div>
                 <div
-                  className="source"
+                  onClick={[Function]}
                 >
                   <div>
-                    [SOURCE HERE]
+                    11/10/2019
                   </div>
                   <div>
-                    ENTERED_IN_ERROR
+                    Description of document two
                   </div>
-                </div>
-                <div>
-                  <ChevronIcon
-                    direction="right"
-                    size="large"
+                  <div
+                    className="source"
                   >
-                    <FontAwesomeIcon
-                      border={false}
-                      className="emotion-0"
-                      fixedWidth={false}
-                      flip={null}
-                      icon={
-                        Object {
-                          "icon": Array [
-                            320,
-                            512,
-                            Array [],
-                            "f054",
-                            "M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z",
-                          ],
-                          "iconName": "chevron-right",
-                          "prefix": "fas",
-                        }
-                      }
-                      inverse={false}
-                      listItem={false}
-                      mask={null}
-                      pull={null}
-                      pulse={false}
-                      rotation={null}
-                      size="lg"
-                      spin={false}
-                      swapOpacity={false}
-                      symbol={false}
-                      title=""
-                      transform={null}
+                    <div>
+                      Mock
+                    </div>
+                    <div>
+                      ENTERED_IN_ERROR
+                    </div>
+                  </div>
+                  <div>
+                    <ChevronIcon
+                      direction="right"
+                      size="large"
                     >
-                      <svg
-                        aria-hidden="true"
-                        className="svg-inline--fa fa-chevron-right fa-w-10 fa-lg emotion-0"
-                        data-icon="chevron-right"
-                        data-prefix="fas"
-                        focusable="false"
-                        role="img"
-                        style={Object {}}
-                        viewBox="0 0 320 512"
-                        xmlns="http://www.w3.org/2000/svg"
+                      <FontAwesomeIcon
+                        border={false}
+                        className="emotion-0"
+                        fixedWidth={false}
+                        flip={null}
+                        icon={
+                          Object {
+                            "icon": Array [
+                              320,
+                              512,
+                              Array [],
+                              "f054",
+                              "M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z",
+                            ],
+                            "iconName": "chevron-right",
+                            "prefix": "fas",
+                          }
+                        }
+                        inverse={false}
+                        listItem={false}
+                        mask={null}
+                        pull={null}
+                        pulse={false}
+                        rotation={null}
+                        size="lg"
+                        spin={false}
+                        swapOpacity={false}
+                        symbol={false}
+                        title=""
+                        transform={null}
                       >
-                        <path
-                          d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"
-                          fill="currentColor"
+                        <svg
+                          aria-hidden="true"
+                          className="svg-inline--fa fa-chevron-right fa-w-10 fa-lg emotion-0"
+                          data-icon="chevron-right"
+                          data-prefix="fas"
+                          focusable="false"
+                          role="img"
                           style={Object {}}
-                        />
-                      </svg>
-                    </FontAwesomeIcon>
-                  </ChevronIcon>
+                          viewBox="0 0 320 512"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"
+                            fill="currentColor"
+                            style={Object {}}
+                          />
+                        </svg>
+                      </FontAwesomeIcon>
+                    </ChevronIcon>
+                  </div>
                 </div>
               </DocumentSummaryContent>
             </li>
@@ -441,83 +455,87 @@ exports[`DocumentSummaryy matches snapshot: wrapper mount 1`] = `
           >
             <li>
               <DocumentSummaryContent
-                clickable={true}
+                clickHandler={[Function]}
                 created="23/01/2020"
                 description="Description of document three"
-                source="[SOURCE HERE]"
+                source="Mock"
                 status="SUPERSEDED"
               >
-                <div>
-                  23/01/2020
-                </div>
-                <div>
-                  Description of document three
-                </div>
                 <div
-                  className="source"
+                  onClick={[Function]}
                 >
                   <div>
-                    [SOURCE HERE]
+                    23/01/2020
                   </div>
                   <div>
-                    SUPERSEDED
+                    Description of document three
                   </div>
-                </div>
-                <div>
-                  <ChevronIcon
-                    direction="right"
-                    size="large"
+                  <div
+                    className="source"
                   >
-                    <FontAwesomeIcon
-                      border={false}
-                      className="emotion-0"
-                      fixedWidth={false}
-                      flip={null}
-                      icon={
-                        Object {
-                          "icon": Array [
-                            320,
-                            512,
-                            Array [],
-                            "f054",
-                            "M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z",
-                          ],
-                          "iconName": "chevron-right",
-                          "prefix": "fas",
-                        }
-                      }
-                      inverse={false}
-                      listItem={false}
-                      mask={null}
-                      pull={null}
-                      pulse={false}
-                      rotation={null}
-                      size="lg"
-                      spin={false}
-                      swapOpacity={false}
-                      symbol={false}
-                      title=""
-                      transform={null}
+                    <div>
+                      Mock
+                    </div>
+                    <div>
+                      SUPERSEDED
+                    </div>
+                  </div>
+                  <div>
+                    <ChevronIcon
+                      direction="right"
+                      size="large"
                     >
-                      <svg
-                        aria-hidden="true"
-                        className="svg-inline--fa fa-chevron-right fa-w-10 fa-lg emotion-0"
-                        data-icon="chevron-right"
-                        data-prefix="fas"
-                        focusable="false"
-                        role="img"
-                        style={Object {}}
-                        viewBox="0 0 320 512"
-                        xmlns="http://www.w3.org/2000/svg"
+                      <FontAwesomeIcon
+                        border={false}
+                        className="emotion-0"
+                        fixedWidth={false}
+                        flip={null}
+                        icon={
+                          Object {
+                            "icon": Array [
+                              320,
+                              512,
+                              Array [],
+                              "f054",
+                              "M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z",
+                            ],
+                            "iconName": "chevron-right",
+                            "prefix": "fas",
+                          }
+                        }
+                        inverse={false}
+                        listItem={false}
+                        mask={null}
+                        pull={null}
+                        pulse={false}
+                        rotation={null}
+                        size="lg"
+                        spin={false}
+                        swapOpacity={false}
+                        symbol={false}
+                        title=""
+                        transform={null}
                       >
-                        <path
-                          d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"
-                          fill="currentColor"
+                        <svg
+                          aria-hidden="true"
+                          className="svg-inline--fa fa-chevron-right fa-w-10 fa-lg emotion-0"
+                          data-icon="chevron-right"
+                          data-prefix="fas"
+                          focusable="false"
+                          role="img"
                           style={Object {}}
-                        />
-                      </svg>
-                    </FontAwesomeIcon>
-                  </ChevronIcon>
+                          viewBox="0 0 320 512"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"
+                            fill="currentColor"
+                            style={Object {}}
+                          />
+                        </svg>
+                      </FontAwesomeIcon>
+                    </ChevronIcon>
+                  </div>
                 </div>
               </DocumentSummaryContent>
             </li>
