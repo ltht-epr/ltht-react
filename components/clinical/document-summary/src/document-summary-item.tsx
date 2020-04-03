@@ -23,7 +23,7 @@ const DocumentSummaryItem: React.FC<Props> = ({ document = undefined, clickHandl
   }
 
   const summaryItem = (
-    <ListItem key={document.id}>
+    <ListItem>
       <DocumentSummaryContent
         description={document.description ?? undefined}
         created={created ?? undefined}

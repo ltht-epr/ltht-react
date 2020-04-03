@@ -84,7 +84,7 @@ exports[`GuidanceSummaryy matches snapshot: wrapper mount 1`] = `
           },
         },
         Object {
-          "id": "c2ee5d22-6fcd-4ec8-b12a-e9c6e83876b1",
+          "id": "e85d2555-b5f6-488c-9cf1-3115c688bbac",
           "metadata": Object {
             "dataSources": Array [
               Object {
@@ -191,6 +191,7 @@ exports[`GuidanceSummaryy matches snapshot: wrapper mount 1`] = `
           },
         }
       }
+      key="c2ee5d22-6fcd-4ec8-b12a-e9c6e83876b1"
     >
       <div>
         As the information entered indicates that the patient has cognition and mental capacity issues, please consider the need for:
@@ -202,70 +203,70 @@ exports[`GuidanceSummaryy matches snapshot: wrapper mount 1`] = `
           className="emotion-0"
         >
           <ListItem
-            key="0"
+            key="Advice from MCA / MHA team"
           >
             <li>
               Advice from MCA / MHA team
             </li>
           </ListItem>
           <ListItem
-            key="1"
+            key="Advice from Psychiatric Liaison Team (if appropriate)"
           >
             <li>
               Advice from Psychiatric Liaison Team (if appropriate)
             </li>
           </ListItem>
           <ListItem
-            key="2"
+            key="Assessment and Care of Psychological Health Care Plan"
           >
             <li>
               Assessment and Care of Psychological Health Care Plan
             </li>
           </ListItem>
           <ListItem
-            key="3"
+            key="Enhanced care"
           >
             <li>
               Enhanced care
             </li>
           </ListItem>
           <ListItem
-            key="4"
+            key="Further assessment and / or referral to Mental Health team"
           >
             <li>
               Further assessment and / or referral to Mental Health team
             </li>
           </ListItem>
           <ListItem
-            key="5"
+            key="Hospital passport"
           >
             <li>
               Hospital passport
             </li>
           </ListItem>
           <ListItem
-            key="6"
+            key="‘Know Who I Am’ booklet (Forget Me Not)"
           >
             <li>
               ‘Know Who I Am’ booklet (Forget Me Not)
             </li>
           </ListItem>
           <ListItem
-            key="7"
+            key="Restrictive Intervention Care Plan"
           >
             <li>
               Restrictive Intervention Care Plan
             </li>
           </ListItem>
           <ListItem
-            key="8"
+            key="Self-Harm or Harm to Others Care Plan"
           >
             <li>
               Self-Harm or Harm to Others Care Plan
             </li>
           </ListItem>
           <ListItem
-            key="9"
+            key="Utilising the 'Use of Restraint' policy and Good Practice Guidance"
           >
             <li>
               Utilising the 'Use of Restraint' policy and Good Practice Guidance
@@ -277,7 +278,7 @@ exports[`GuidanceSummaryy matches snapshot: wrapper mount 1`] = `
     <GuidanceSummaryItem
       guidance={
         Object {
-          "id": "c2ee5d22-6fcd-4ec8-b12a-e9c6e83876b1",
+          "id": "e85d2555-b5f6-488c-9cf1-3115c688bbac",
           "metadata": Object {
             "dataSources": Array [
               Object {
@@ -301,6 +302,7 @@ exports[`GuidanceSummaryy matches snapshot: wrapper mount 1`] = `
           },
         }
       }
+      key="e85d2555-b5f6-488c-9cf1-3115c688bbac"
     >
       <GuidanceRedacted>
         <div
@@ -335,6 +337,7 @@ exports[`GuidanceSummaryy matches snapshot: wrapper mount 1`] = `
           },
         }
       }
+      key="1e4fd41d-5c55-4c46-acc9-e216b3dc2732"
     >
       <div>
         As you have indicated that the patient has hydration issues, please alert the Medical Team of the patient's AKI status

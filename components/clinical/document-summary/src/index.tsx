@@ -56,13 +56,13 @@ const DocumentSummary: React.FC<Props> = ({ documents = undefined, clickHandler 
     return null
   }
 
-  const items = documents.map(x => <DocumentSummaryItem document={x} clickHandler={clickHandler} />)
+  const items = documents.map(doc => <DocumentSummaryItem key={doc.id} document={doc} clickHandler={clickHandler} />)
 
   return (
     <div css={styles.root}>
       <UnorderedList>
         <ListItem key="0">
-          <DocumentSummaryContent created="Created" description="Description" source="Source" status="Status" />
+          <DocumentSummaryContent key="1" created="Created" description="Description" source="Source" status="Status" />
         </ListItem>
         {items}
       </UnorderedList>
