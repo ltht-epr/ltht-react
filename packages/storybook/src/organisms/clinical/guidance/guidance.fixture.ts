@@ -43,11 +43,7 @@ const guidanceOne: Guidance = {
 }
 
 const guidanceTwo: Guidance = {
-<<<<<<< HEAD
   id: 'c2ee5d22-6fcd-4ec8-b12a-e9c6e83876b2',
-=======
-  id: 'e85d2555-b5f6-488c-9cf1-3115c688bbac',
->>>>>>> bb14eec09d3bbe06c990edd8fdaaa83a10f601af
   metadata: redactedMetadata,
   text: {
     div: '',
