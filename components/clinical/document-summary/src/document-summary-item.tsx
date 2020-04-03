@@ -16,7 +16,7 @@ const DocumentSummaryItem: React.FC<Props> = ({ document = undefined, clickHandl
     ? new Date(Date.parse(document.created.value ?? '')).toLocaleDateString('en-gb')
     : null
 
-  const source = document.metadata.dataSources ? document.metadata.dataSources[0]?.display : undefined
+  const source = document.metadata?.dataSources ? document.metadata.dataSources[0]?.display : undefined
 
   const handleClick = (): void => {
     clickHandler && clickHandler(document)
@@ -38,7 +38,7 @@ const DocumentSummaryItem: React.FC<Props> = ({ document = undefined, clickHandl
 }
 
 interface Props {
-  document: DocumentReference | undefined
+  document?: DocumentReference
   clickHandler?(document: DocumentReference): void
 }
 
