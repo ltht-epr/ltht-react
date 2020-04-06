@@ -29,8 +29,6 @@ const CardBody: React.FC<Props> = ({ children, collapsed = false }) => {
   return <div css={styles(collapsed, React.Children.count(children))}>{children}</div>
 }
 
-// collapseButton.collapsed
-
 interface Props {
   collapsed?: boolean
 }

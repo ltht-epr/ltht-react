@@ -21,11 +21,8 @@ const computeStyles = (collapsed: boolean, clickable?: boolean): SerializedStyle
 }
 
 const CardList: React.FC<Props> = ({ children, clickable, collapsed = false }) => {
-  // const { collapseButton } = useCard()
   return <ul css={computeStyles(collapsed, clickable)}>{children}</ul>
 }
-
-// collapseButton.collapsed
 
 interface Props {
   clickable?: boolean
