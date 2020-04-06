@@ -42,20 +42,20 @@ exports[`DocumentSummaryy matches snapshot: wrapper mount 1`] = `
   -webkit-flex: auto;
   -ms-flex: auto;
   flex: auto;
-  padding-left: 1rem;
+  padding-left: 0.75rem;
 }
 
 .emotion-7 > ul li > div > div:first-of-type {
-  -webkit-flex: 0 0 6rem;
-  -ms-flex: 0 0 6rem;
-  flex: 0 0 6rem;
+  -webkit-flex: 0 0 5em;
+  -ms-flex: 0 0 5em;
+  flex: 0 0 5em;
   padding-left: 0;
 }
 
 .emotion-7 > ul li > div > div.source {
-  -webkit-flex: 0 0 15rem;
-  -ms-flex: 0 0 15rem;
-  flex: 0 0 15rem;
+  -webkit-flex: 0 0 12em;
+  -ms-flex: 0 0 12em;
+  flex: 0 0 12em;
 }
 
 .emotion-7 > ul li > div > div.source > div:last-of-type {
@@ -64,9 +64,9 @@ exports[`DocumentSummaryy matches snapshot: wrapper mount 1`] = `
 }
 
 .emotion-7 > ul li > div > div:last-of-type {
-  -webkit-flex: 0 0 2.25rem;
-  -ms-flex: 0 0 2.25rem;
-  flex: 0 0 2.25rem;
+  -webkit-flex: 0 0 1.6em;
+  -ms-flex: 0 0 1.6em;
+  flex: 0 0 1.6em;
 }
 
 .emotion-6 {

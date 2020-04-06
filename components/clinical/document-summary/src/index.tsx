@@ -31,21 +31,21 @@ const styles = {
       padding-right: 0.5rem;
       > div {
         flex: auto;
-        padding-left: 1rem;
+        padding-left: 0.75rem;
       }
       > div:first-of-type {
-        flex: 0 0 6rem;
+        flex: 0 0 5em;
         padding-left: 0;
       }
       > div.source {
-        flex: 0 0 15rem;
+        flex: 0 0 12em;
         > div:last-of-type {
           color: ${TEXT_COLOURS.SECONDARY.VALUE};
           font-weight: normal;
         }
       }
       > div:last-of-type {
-        flex: 0 0 2.25rem;
+        flex: 0 0 1.6em;
       }
     }
   `,
