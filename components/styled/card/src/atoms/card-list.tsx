@@ -10,6 +10,7 @@ const computeStyles = (collapsed: boolean, clickable?: boolean): SerializedStyle
     & li {
       border-top: 1px solid ${CARD_LIST_ITEM_BORDER_COLOUR};
       padding: 0.5rem;
+      margin-right: -0.5rem;
     }
     & li:hover {
       ${clickable && `cursor: pointer;`}

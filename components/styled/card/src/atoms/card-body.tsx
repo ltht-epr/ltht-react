@@ -13,7 +13,7 @@ const bodyAfter = css`
 
 const styles = (collapsed: boolean, childrenCount: number): SerializedStyles => {
   return css`
-    padding: 0 0 0.5rem 0.5rem;
+    padding: 0.5rem;
     ${collapsed && 'display: none;'}
       > dl:first-of-type {
         margin-top: 0 !important;
