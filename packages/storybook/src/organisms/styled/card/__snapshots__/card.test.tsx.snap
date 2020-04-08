@@ -75,7 +75,7 @@ Array [
 }
 
 .emotion-1 {
-  padding: 0 0 0.5rem 0.5rem;
+  padding: 0.5rem;
 }
 
 .emotion-1 > dl:first-of-type {
@@ -202,6 +202,7 @@ Array [
 .emotion-1 li {
   border-top: 1px solid #d8d8d8;
   padding: 0.5rem;
+  margin-right: -0.5rem;
 }
 
 <Card>
