@@ -24,7 +24,7 @@ const CardHeader: React.FC<Props> = ({ children, position = 'space-between', tit
 
   return (
     <div css={styles(clickHandler != null, position)} onClick={handleClick} title={titleText}>
-      <div>{children}</div>
+      <React.Fragment>{children}</React.Fragment>
     </div>
   )
 }
