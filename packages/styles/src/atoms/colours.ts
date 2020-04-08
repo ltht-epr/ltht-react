@@ -24,6 +24,7 @@ export const CARD_BACKGROUND_COLOUR_NO_DATA = '#F2F2F2'
 export const CARD_BORDER_COLOUR = '#b0b0b0'
 export const CARD_SHADOW_COLOUR = '#666666'
 export const CARD_LIST_ITEM_BACKGROUND_HOVER = colours.NHS_PALE_GREY
+export const CARD_LIST_ITEM_BORDER_COLOUR = '#d8d8d8'
 export const CARD_LIST_ITEM_BORDER_HOVER = '#b0b0b0'
 
 export const BTN_COLOURS = {

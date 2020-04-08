@@ -20,7 +20,7 @@ stories.addParameters({
 
 stories.addWithJSX('Detail', () => (
   <Card noData={!stays[0]}>
-    <CardHeader>
+    <CardHeader position="center">
       <h3>Hospital Stay</h3>
     </CardHeader>
     <CardBody>

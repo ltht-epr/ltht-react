@@ -10,7 +10,6 @@ import DocumentSummaryContent from './document-summary-content'
 
 const styles = {
   root: css`
-    margin-right: -0.5rem;
     > ul li:first-of-type {
       font-weight: bold;
     }

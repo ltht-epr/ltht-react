@@ -20,7 +20,7 @@ stories.addParameters({
 
 stories.addWithJSX('Detail', () => (
   <Card noData={!flags}>
-    <CardHeader>
+    <CardHeader position="center">
       <h3>Flag</h3>
     </CardHeader>
     <CardBody>

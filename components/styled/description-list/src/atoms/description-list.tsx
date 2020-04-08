@@ -4,7 +4,7 @@ import { css, jsx } from '@emotion/core'
 
 const styles = css`
   list-style: none;
-  padding: 0rem 0.5rem;
+  margin-top: 1rem !important;
 `
 
 const DescriptionList: React.FC = ({ children }) => {

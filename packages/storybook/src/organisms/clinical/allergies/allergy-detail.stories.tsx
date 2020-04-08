@@ -19,7 +19,7 @@ stories.addParameters({
 
 stories.addWithJSX('Detail', () => (
   <Card noData={!allergies[0]}>
-    <CardHeader>
+    <CardHeader position="center">
       <h3>Allergy</h3>
     </CardHeader>
     <CardBody>

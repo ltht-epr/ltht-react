@@ -9,7 +9,6 @@ import GuidanceSummaryItem from './organisms/guidance-summary-item'
 const styles = {
   root: css`
     > div {
-      margin-right: -0.5rem;
       padding-bottom: 0.5rem;
     }
     > ul {

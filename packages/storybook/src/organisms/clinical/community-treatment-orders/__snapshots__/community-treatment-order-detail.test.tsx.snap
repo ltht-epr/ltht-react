@@ -3,19 +3,18 @@
 exports[`CommunityTreatmentOrderSummary matches snapshot: wrapper mount 1`] = `
 .emotion-2 {
   list-style: none;
-  padding: 0rem 0.5rem;
+  margin-top: 1rem !important;
 }
 
 .emotion-0 {
-  color: #231f20;
-  margin-top: 0.5rem;
+  color: #98a4ad !important;
+  margin-bottom: 0.25rem !important;
 }
 
 .emotion-1 {
   color: -v-a-l-u-e:#768692;
   -d-a-r-k-e-r25: #59656e;
   -l-i-g-h-t-e-r25: #98a4ad;
-  margin-top: 0.25rem;
 }
 
 <CommunityTreatmentOrderDetail

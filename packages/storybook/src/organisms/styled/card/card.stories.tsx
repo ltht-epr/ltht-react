@@ -41,10 +41,12 @@ stories.addWithJSX('List', () => (
       <CardHeader>
         <h3>Header</h3>
       </CardHeader>
-      <CardList>
-        <ListItem>Item 1</ListItem>
-        <ListItem>Item 2</ListItem>
-      </CardList>
+      <CardBody>
+        <CardList>
+          <ListItem>Item 1</ListItem>
+          <ListItem>Item 2</ListItem>
+        </CardList>
+      </CardBody>
       <CardFooter>Footer</CardFooter>
     </Card>
   </div>
@@ -56,19 +58,23 @@ stories.addWithJSX('List (Clickable)', () => (
       <CardHeader>
         <h3>Header</h3>
       </CardHeader>
-      <CardList clickable>
-        <ListItem>Item 1</ListItem>
-        <ListItem>Item 2</ListItem>
-      </CardList>
+      <CardBody>
+        <CardList clickable>
+          <ListItem>Item 1</ListItem>
+          <ListItem>Item 2</ListItem>
+        </CardList>
+      </CardBody>
       <CardFooter>Footer</CardFooter>
     </Card>
   </div>
 ))
 
 stories.addWithJSX('No Data', () => (
-  <Card noData>
-    <CardHeader>
-      <h3>Header</h3>
-    </CardHeader>
-  </Card>
+  <div>
+    <Card noData>
+      <CardHeader>
+        <h3>Header</h3>
+      </CardHeader>
+    </Card>
+  </div>
 ))

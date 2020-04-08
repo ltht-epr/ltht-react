@@ -2,15 +2,14 @@
 import React from 'react'
 import { css, jsx, SerializedStyles } from '@emotion/core'
 
-import { CARD_BORDER_COLOUR, CARD_LIST_ITEM_BACKGROUND_HOVER } from '@ltht-react/styles'
+import { CARD_LIST_ITEM_BORDER_COLOUR, CARD_LIST_ITEM_BACKGROUND_HOVER } from '@ltht-react/styles'
 
 const computeStyles = (collapsed: boolean, clickable?: boolean): SerializedStyles => {
   return css`
     list-style: none;
-    padding-left: 0.5rem;
     & li {
-      border-top: 1px solid ${CARD_BORDER_COLOUR};
-      padding: 0.5rem 0.5rem 0.5rem 0;
+      border-top: 1px solid ${CARD_LIST_ITEM_BORDER_COLOUR};
+      padding: 0.5rem;
     }
     & li:hover {
       ${clickable && `cursor: pointer;`}

@@ -75,14 +75,11 @@ Array [
 }
 
 .emotion-1 {
-  padding: 0.5rem;
+  padding: 0 0 0.5rem 0.5rem;
 }
 
-.emotion-1:before {
-  content: '';
-  display: block;
-  border-top: 1px solid #b0b0b0;
-  margin: -0.5rem -0.5rem 0.5rem 0;
+.emotion-1 > dl:first-of-type {
+  margin-top: 0 !important;
 }
 
 .emotion-2 {
@@ -200,12 +197,11 @@ Array [
 
 .emotion-1 {
   list-style: none;
-  padding-left: 0.5rem;
 }
 
 .emotion-1 li {
-  border-top: 1px solid #b0b0b0;
-  padding: 0.5rem 0.5rem 0.5rem 0;
+  border-top: 1px solid #d8d8d8;
+  padding: 0.5rem;
 }
 
 <Card>

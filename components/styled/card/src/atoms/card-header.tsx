@@ -2,10 +2,10 @@
 import React from 'react'
 import { css, jsx, SerializedStyles } from '@emotion/core'
 
-const styles = (hasClick: boolean): SerializedStyles => {
+const styles = (hasClick: boolean, position: 'space-between' | 'center'): SerializedStyles => {
   return css`
     display: flex;
-    justify-content: space-between;
+    justify-content: ${position};
     padding: 0.5rem;
 
     &:hover {
@@ -14,7 +14,7 @@ const styles = (hasClick: boolean): SerializedStyles => {
   `
 }
 
-const CardHeader: React.FC<Props> = ({ children, titleText = '', clickHandler = null }) => {
+const CardHeader: React.FC<Props> = ({ children, position = 'space-between', titleText = '', clickHandler = null }) => {
   const handleClick = (e: React.MouseEvent<HTMLElement, MouseEvent>): void => {
     e.preventDefault()
     if (clickHandler != null) {
@@ -23,7 +23,7 @@ const CardHeader: React.FC<Props> = ({ children, titleText = '', clickHandler = 
   }
 
   return (
-    <div css={styles(clickHandler != null)} onClick={handleClick} title={titleText}>
+    <div css={styles(clickHandler != null, position)} onClick={handleClick} title={titleText}>
       <div>{children}</div>
     </div>
   )
@@ -32,6 +32,7 @@ const CardHeader: React.FC<Props> = ({ children, titleText = '', clickHandler = 
 interface Props {
   clickHandler?(e: React.MouseEvent<HTMLElement, MouseEvent>): void
   titleText?: string
+  position?: 'space-between' | 'center'
 }
 
 export default CardHeader
