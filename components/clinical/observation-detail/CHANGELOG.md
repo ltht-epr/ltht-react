@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.8](https://github.com/ltht-epr/ltht-react/compare/@ltht-react/observation-detail@0.0.7...@ltht-react/observation-detail@0.0.8) (2020-04-09)
+
+**Note:** Version bump only for package @ltht-react/observation-detail
+
+
+
+
+
 ## [0.0.7](https://github.com/ltht-epr/ltht-react/compare/@ltht-react/observation-detail@0.0.6...@ltht-react/observation-detail@0.0.7) (2020-04-08)
 
 **Note:** Version bump only for package @ltht-react/observation-detail

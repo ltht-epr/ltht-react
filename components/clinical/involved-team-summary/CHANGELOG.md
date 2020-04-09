@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.9](https://github.com/ltht-epr/ltht-react/compare/@ltht-react/involved-team-summary@0.1.8...@ltht-react/involved-team-summary@0.1.9) (2020-04-09)
+
+**Note:** Version bump only for package @ltht-react/involved-team-summary
+
+
+
+
+
 ## [0.1.8](https://github.com/ltht-epr/ltht-react/compare/@ltht-react/involved-team-summary@0.1.7...@ltht-react/involved-team-summary@0.1.8) (2020-04-08)
 
 **Note:** Version bump only for package @ltht-react/involved-team-summary
