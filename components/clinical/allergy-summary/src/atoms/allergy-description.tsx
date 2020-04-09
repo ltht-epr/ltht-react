@@ -7,8 +7,10 @@ import { AllergyIntolerance } from '@ltht-react/types'
 import { codeableConceptCodeSummary, allergyIntoleranceCategoryCodeDisplaySummary, titleCase } from '@ltht-react/utils'
 
 const styles = css`
-  color: ${TEXT_COLOURS.SECONDARY};
+  color: ${TEXT_COLOURS.SECONDARY.VALUE};
   text-align: left;
+  font-size: smaller;
+  padding-top: 0.25rem;
 `
 
 const AllergyDescription: React.FC<Props> = ({ allergy }) => {

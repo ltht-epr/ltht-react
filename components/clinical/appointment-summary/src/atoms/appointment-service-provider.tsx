@@ -6,7 +6,7 @@ import { TEXT_COLOURS } from '@ltht-react/styles'
 import { Encounter } from '@ltht-react/types'
 
 const styles = css`
-  color: ${TEXT_COLOURS.SECONDARY};
+  color: ${TEXT_COLOURS.SECONDARY.VALUE};
   text-align: right;
 `
 

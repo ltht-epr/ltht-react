@@ -7,8 +7,10 @@ import { CarePlan } from '@ltht-react/types'
 import { resourceReferenceDisplaySummary } from '@ltht-react/utils'
 
 const styles = css`
-  color: ${TEXT_COLOURS.SECONDARY};
+  color: ${TEXT_COLOURS.SECONDARY.VALUE};
   text-align: left;
+  font-size: smaller;
+  padding-top: 0.25rem;
 `
 
 const CarePlanDescription: React.FC<Props> = ({ carePlan }) => {
