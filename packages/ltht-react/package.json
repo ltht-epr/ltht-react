@@ -26,6 +26,7 @@
     "@ltht-react/allergy-summary": "^0.1.8",
     "@ltht-react/appointment-detail": "^0.0.7",
     "@ltht-react/appointment-summary": "^0.1.8",
+    "@ltht-react/banner": "^0.0.0",
     "@ltht-react/button": "^0.0.3",
     "@ltht-react/card": "^0.1.11",
     "@ltht-react/care-plan-detail": "^0.1.8",

@@ -15,16 +15,16 @@ const styles = (collapsed: boolean, childrenCount: number): SerializedStyles => 
   return css`
     padding: 0.5rem;
     ${collapsed && 'display: none;'}
-      > dl:first-of-type {
-        margin-top: 0 !important;
+    > dl:first-of-type {
+      margin-top: 0 !important;
     }
     /* &:before {
       content: '';
       display: block;
       border-top: 1px solid #b0b0b0;
       margin: -0.5rem -0.5rem 0.5rem 0;
-    } */
-    /* ${childrenCount > 2 && bodyAfter} */
+    }
+    ${childrenCount > 2 && bodyAfter} */
   `
 }
 

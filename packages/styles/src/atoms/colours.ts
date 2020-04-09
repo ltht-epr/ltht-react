@@ -53,3 +53,22 @@ export const BTN_COLOURS = {
     TEXT: colours.NHS_WHITE,
   },
 }
+
+export const BANNER_COLOURS = {
+  DEFAULT: {
+    VALUE: colours.NHS_DARK_BLUE.VALUE,
+    TEXT: colours.NHS_BLACK,
+  },
+  PRIMARY: {
+    VALUE: colours.NHS_DARK_BLUE.VALUE,
+    TEXT: colours.NHS_WHITE,
+  },
+  WARNING: {
+    VALUE: colours.NHS_TRANSLUCENT_WARM_YELLOW,
+    TEXT: colours.NHS_BLACK,
+  },
+  ERROR: {
+    VALUE: colours.NHS_DARK_RED,
+    TEXT: colours.NHS_WHITE,
+  },
+}

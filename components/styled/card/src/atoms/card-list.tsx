@@ -17,6 +17,14 @@ const computeStyles = (collapsed: boolean, clickable?: boolean): SerializedStyle
       ${clickable && `background: ${CARD_LIST_ITEM_BACKGROUND_HOVER};`}
     }
     ${collapsed && 'display: none;'}
+    & #banner {
+      margin-left: -0.5rem;
+      margin-right: -0.5rem;
+    }
+    /* any first adjacent li after the banner has no top border */
+    #banner + li {
+      border-top: 0px !important;
+    }
   `
 }
 

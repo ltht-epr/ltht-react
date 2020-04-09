@@ -41,3 +41,5 @@ export const NHS_EMERGENCY_SERVICES_RED = '#DA291C'
 export const NHS_ORANGE = '#ED8B00'
 export const NHS_WARM_YELLOW = '#FFB81C'
 export const NHS_YELLOW = '#FAE100'
+
+export const NHS_TRANSLUCENT_WARM_YELLOW = 'rgba(255, 184, 28, 0.2)'
