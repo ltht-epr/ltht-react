@@ -45,10 +45,10 @@ exports[`CarePlanSummary matches snapshot: wrapper mount 1`] = `
 }
 
 .emotion-6 {
-  color: -v-a-l-u-e:#768692;
-  -d-a-r-k-e-r25: #59656e;
-  -l-i-g-h-t-e-r25: #98a4ad;
+  color: #768692;
   text-align: left;
+  font-size: smaller;
+  padding-top: 0.25rem;
 }
 
 .emotion-10 {
@@ -56,10 +56,10 @@ exports[`CarePlanSummary matches snapshot: wrapper mount 1`] = `
 }
 
 .emotion-9 {
-  color: -v-a-l-u-e:#768692;
-  -d-a-r-k-e-r25: #59656e;
-  -l-i-g-h-t-e-r25: #98a4ad;
+  color: #768692;
   text-align: right;
+  font-size: smaller;
+  padding-top: 0.25rem;
 }
 
 <CarePlanSummary
