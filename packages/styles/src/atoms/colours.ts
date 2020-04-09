@@ -13,6 +13,7 @@ export const TEXT_COLOURS = {
 
 export const ICON_COLOURS = {
   PRIMARY: colours.NHS_BLACK,
+  SECONDARY: colours.NHS_DARK_BLUE.VALUE,
   DANGER: colours.NHS_EMERGENCY_SERVICES_RED,
   WARNING: colours.NHS_ORANGE,
   SUCCESS: colours.NHS_GREEN,
