@@ -203,6 +203,15 @@ Array [
   margin-right: -0.5rem;
 }
 
+.emotion-1 #banner {
+  margin-left: -0.5rem;
+  margin-right: -0.5rem;
+}
+
+.emotion-1 #banner + li {
+  border-top: 0px !important;
+}
+
 <Card>
     <div
       className="emotion-3"
