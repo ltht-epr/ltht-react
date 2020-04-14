@@ -2,16 +2,16 @@ import React from 'react'
 import { mount } from 'enzyme'
 import ReactDOM from 'react-dom'
 
-import { BadgeIcon } from '@ltht-react/icon'
+import { CounterIcon } from '@ltht-react/icon'
 
 describe('BadgeIcon', () => {
   const Icons: React.FC = () => {
     return (
       <>
-        <BadgeIcon size="medium" status="secondary" />
-        <BadgeIcon size="medium" status="secondary" />
-        <BadgeIcon size="medium" status="secondary" />
-        <BadgeIcon size="medium" status="secondary" />
+        <CounterIcon size="medium" status="secondary" value={1} />
+        <CounterIcon size="medium" status="primary" value={2} />
+        <CounterIcon size="small" status="amber" value={5} />
+        <CounterIcon size="large" status="red" value={10} />
       </>
     )
   }

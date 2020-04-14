@@ -7,8 +7,8 @@ import JSXAddon from 'storybook-addon-jsx'
 import readme from '@ltht-react/card/README.md'
 import { ListItem } from '@ltht-react/list'
 import { Card, CardHeader, CardBody, CardFooter, CardList } from '@ltht-react/card'
-import { WarningBanner } from '@ltht-react/banner'
-import { ExclamationIcon, ChevronIcon } from '@ltht-react/icon'
+import { WarningBanner, InfoBanner } from '@ltht-react/banner'
+import { ExclamationIcon, ChevronIcon, CounterIcon } from '@ltht-react/icon'
 
 const stories = storiesOf('Organisms - Styled|Card', module)
 
@@ -82,7 +82,7 @@ const styles = css`
   padding-left: 0.5rem;
 `
 
-stories.addWithJSX('List With Missing Data', () => (
+stories.addWithJSX('List With Missing Data Banner', () => (
   <div>
     <Card>
       <CardHeader>
@@ -99,6 +99,38 @@ stories.addWithJSX('List With Missing Data', () => (
               <ChevronIcon size="large" direction="right" />
             </i>
           </WarningBanner>
+          <ListItem>Item 1</ListItem>
+          <ListItem>Item 2</ListItem>
+        </CardList>
+      </CardBody>
+      <CardFooter>Footer</CardFooter>
+    </Card>
+  </div>
+))
+
+stories.addWithJSX('List With Counter Banner', () => (
+  <div>
+    <Card>
+      <CardHeader position="center">
+        <h3>Header</h3>
+      </CardHeader>
+      <CardBody>
+        <CardList clickable>
+          <WarningBanner>
+            <CounterIcon size="large" status="amber" value={2} />
+            <div css={styles}>No Data</div>
+          </WarningBanner>
+          <ListItem>Item 1</ListItem>
+          <ListItem>Item 2</ListItem>
+          <WarningBanner>
+            <CounterIcon size="large" status="amber" value={2} />
+            <div css={styles}>Partial Data</div>
+          </WarningBanner>
+          <ListItem>Item 1</ListItem>
+          <InfoBanner>
+            <CounterIcon size="large" status="info" value={2} />
+            <div css={styles}>All Data</div>
+          </InfoBanner>
           <ListItem>Item 1</ListItem>
           <ListItem>Item 2</ListItem>
         </CardList>

@@ -3,9 +3,9 @@ import React from 'react'
 import { css, jsx } from '@emotion/core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircle } from '@fortawesome/free-solid-svg-icons'
-import { ICON_COLOURS, IconSizes } from '@ltht-react/styles'
+import { ICON_COLOURS, IconSizes, calculateIconSize } from '@ltht-react/styles'
 
-const BadgeIcon: React.FC<BadgeIconProps> = ({ status }) => {
+const CounterIcon: React.FC<CounterIconProps> = ({ status, size, value }) => {
   const styles = css`
     ${status === 'green' && `color: ${ICON_COLOURS.SUCCESS};`}
     ${status === 'amber' && `color: ${ICON_COLOURS.WARNING};`}
@@ -13,6 +13,7 @@ const BadgeIcon: React.FC<BadgeIconProps> = ({ status }) => {
     ${status === 'primary' && `color: ${ICON_COLOURS.PRIMARY};`}
     ${status === 'secondary' && `color: ${ICON_COLOURS.SECONDARY};`}
     ${status === 'default' && `color: ${ICON_COLOURS.DEFAULT};`}
+    ${status === 'info' && `color: ${ICON_COLOURS.INFO};`}
   `
 
   const numberStyles = css`
@@ -21,19 +22,18 @@ const BadgeIcon: React.FC<BadgeIconProps> = ({ status }) => {
 
   return (
     <span className="fa-layers fa-fw">
-      <i className="fas">
-        <FontAwesomeIcon css={styles} icon={faCircle} size="2x" />
-      </i>
+      <FontAwesomeIcon css={styles} icon={faCircle} size={calculateIconSize(size)} />
       <span className="fa-layers-text fa-inverse fa-xs" css={numberStyles}>
-        2
+        {value}
       </span>
     </span>
   )
 }
 
-type BadgeIconProps = {
-  status: 'red' | 'green' | 'amber' | 'primary' | 'secondary' | 'default'
+type CounterIconProps = {
+  status: 'red' | 'green' | 'amber' | 'primary' | 'secondary' | 'default' | 'info'
   size: IconSizes
+  value: number
 }
 
-export default BadgeIcon
+export default CounterIcon

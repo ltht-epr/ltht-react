@@ -18,6 +18,7 @@ export const ICON_COLOURS = {
   WARNING: colours.NHS_ORANGE,
   SUCCESS: colours.NHS_GREEN,
   DEFAULT: colours.NHS_MID_GREY,
+  INFO: colours.NHS_BRIGHT_BLUE,
 }
 
 export const CARD_BACKGROUND_COLOUR = colours.NHS_WHITE
@@ -64,9 +65,13 @@ export const BANNER_COLOURS = {
     VALUE: colours.NHS_DARK_BLUE.VALUE,
     TEXT: colours.NHS_WHITE,
   },
+  INFO: {
+    VALUE: colours.NHS_TRANSLUCENT_BRIGHT_BLUE,
+    TEXT: colours.NHS_DARK_BLUE.VALUE,
+  },
   WARNING: {
     VALUE: colours.NHS_TRANSLUCENT_WARM_YELLOW,
-    TEXT: colours.NHS_BLACK,
+    TEXT: colours.NHS_ORANGE,
   },
   ERROR: {
     VALUE: colours.NHS_DARK_RED,

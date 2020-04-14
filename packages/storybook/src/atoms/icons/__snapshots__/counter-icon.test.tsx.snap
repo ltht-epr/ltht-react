@@ -1,0 +1,282 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BadgeIcon matches snapshot: wrapper mount 1`] = `
+.emotion-0 {
+  color: #003087;
+}
+
+.emotion-2 {
+  font-weight: bold;
+}
+
+.emotion-3 {
+  color: #231f20;
+}
+
+.emotion-6 {
+  color: #ED8B00;
+}
+
+.emotion-9 {
+  color: #DA291C;
+}
+
+<Icons>
+  <CounterIcon
+    size="medium"
+    status="secondary"
+    value={1}
+  >
+    <span
+      className="fa-layers fa-fw"
+    >
+      <FontAwesomeIcon
+        border={false}
+        className="emotion-0"
+        fixedWidth={false}
+        flip={null}
+        icon={
+          Object {
+            "icon": Array [
+              512,
+              512,
+              Array [],
+              "f111",
+              "M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z",
+            ],
+            "iconName": "circle",
+            "prefix": "fas",
+          }
+        }
+        inverse={false}
+        listItem={false}
+        mask={null}
+        pull={null}
+        pulse={false}
+        rotation={null}
+        size="sm"
+        spin={false}
+        swapOpacity={false}
+        symbol={false}
+        title=""
+        transform={null}
+      >
+        <svg
+          aria-hidden="true"
+          className="svg-inline--fa fa-circle fa-w-16 fa-sm emotion-0"
+          data-icon="circle"
+          data-prefix="fas"
+          focusable="false"
+          role="img"
+          style={Object {}}
+          viewBox="0 0 512 512"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+            fill="currentColor"
+            style={Object {}}
+          />
+        </svg>
+      </FontAwesomeIcon>
+      <span
+        className="fa-layers-text fa-inverse fa-xs emotion-2"
+      >
+        1
+      </span>
+    </span>
+  </CounterIcon>
+  <CounterIcon
+    size="medium"
+    status="primary"
+    value={2}
+  >
+    <span
+      className="fa-layers fa-fw"
+    >
+      <FontAwesomeIcon
+        border={false}
+        className="emotion-3"
+        fixedWidth={false}
+        flip={null}
+        icon={
+          Object {
+            "icon": Array [
+              512,
+              512,
+              Array [],
+              "f111",
+              "M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z",
+            ],
+            "iconName": "circle",
+            "prefix": "fas",
+          }
+        }
+        inverse={false}
+        listItem={false}
+        mask={null}
+        pull={null}
+        pulse={false}
+        rotation={null}
+        size="sm"
+        spin={false}
+        swapOpacity={false}
+        symbol={false}
+        title=""
+        transform={null}
+      >
+        <svg
+          aria-hidden="true"
+          className="svg-inline--fa fa-circle fa-w-16 fa-sm emotion-3"
+          data-icon="circle"
+          data-prefix="fas"
+          focusable="false"
+          role="img"
+          style={Object {}}
+          viewBox="0 0 512 512"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+            fill="currentColor"
+            style={Object {}}
+          />
+        </svg>
+      </FontAwesomeIcon>
+      <span
+        className="fa-layers-text fa-inverse fa-xs emotion-2"
+      >
+        2
+      </span>
+    </span>
+  </CounterIcon>
+  <CounterIcon
+    size="small"
+    status="amber"
+    value={5}
+  >
+    <span
+      className="fa-layers fa-fw"
+    >
+      <FontAwesomeIcon
+        border={false}
+        className="emotion-6"
+        fixedWidth={false}
+        flip={null}
+        icon={
+          Object {
+            "icon": Array [
+              512,
+              512,
+              Array [],
+              "f111",
+              "M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z",
+            ],
+            "iconName": "circle",
+            "prefix": "fas",
+          }
+        }
+        inverse={false}
+        listItem={false}
+        mask={null}
+        pull={null}
+        pulse={false}
+        rotation={null}
+        size="xs"
+        spin={false}
+        swapOpacity={false}
+        symbol={false}
+        title=""
+        transform={null}
+      >
+        <svg
+          aria-hidden="true"
+          className="svg-inline--fa fa-circle fa-w-16 fa-xs emotion-6"
+          data-icon="circle"
+          data-prefix="fas"
+          focusable="false"
+          role="img"
+          style={Object {}}
+          viewBox="0 0 512 512"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+            fill="currentColor"
+            style={Object {}}
+          />
+        </svg>
+      </FontAwesomeIcon>
+      <span
+        className="fa-layers-text fa-inverse fa-xs emotion-2"
+      >
+        5
+      </span>
+    </span>
+  </CounterIcon>
+  <CounterIcon
+    size="large"
+    status="red"
+    value={10}
+  >
+    <span
+      className="fa-layers fa-fw"
+    >
+      <FontAwesomeIcon
+        border={false}
+        className="emotion-9"
+        fixedWidth={false}
+        flip={null}
+        icon={
+          Object {
+            "icon": Array [
+              512,
+              512,
+              Array [],
+              "f111",
+              "M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z",
+            ],
+            "iconName": "circle",
+            "prefix": "fas",
+          }
+        }
+        inverse={false}
+        listItem={false}
+        mask={null}
+        pull={null}
+        pulse={false}
+        rotation={null}
+        size="lg"
+        spin={false}
+        swapOpacity={false}
+        symbol={false}
+        title=""
+        transform={null}
+      >
+        <svg
+          aria-hidden="true"
+          className="svg-inline--fa fa-circle fa-w-16 fa-lg emotion-9"
+          data-icon="circle"
+          data-prefix="fas"
+          focusable="false"
+          role="img"
+          style={Object {}}
+          viewBox="0 0 512 512"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+            fill="currentColor"
+            style={Object {}}
+          />
+        </svg>
+      </FontAwesomeIcon>
+      <span
+        className="fa-layers-text fa-inverse fa-xs emotion-2"
+      >
+        10
+      </span>
+    </span>
+  </CounterIcon>
+</Icons>
+`;
