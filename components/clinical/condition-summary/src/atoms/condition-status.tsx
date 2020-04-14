@@ -8,7 +8,7 @@ import { titleCase } from '@ltht-react/utils'
 
 const styles = css`
   color: ${TEXT_COLOURS.SECONDARY.VALUE};
-  text-align: left;
+  text-align: right;
   font-size: smaller;
   padding-top: 0.25rem;
 `
