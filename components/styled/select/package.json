@@ -1,6 +1,6 @@
 {
   "name": "@ltht-react/select",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "ltht-react atoms Select component.",
   "author": "LTHT",
   "homepage": "",
@@ -27,7 +27,7 @@
   "dependencies": {
     "@emotion/core": "^10.0.27",
     "@emotion/styled": "^10.0.27",
-    "@ltht-react/styles": "^0.1.4",
+    "@ltht-react/styles": "^0.1.5",
     "@ltht-react/types": "^0.0.9",
     "@ltht-react/utils": "^0.1.5",
     "emotion": "^10.0.27",
