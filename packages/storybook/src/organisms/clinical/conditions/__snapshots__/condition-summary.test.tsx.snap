@@ -57,7 +57,7 @@ exports[`ConditionSummary matches snapshot: wrapper mount 1`] = `
 
 .emotion-9 {
   color: #768692;
-  text-align: left;
+  text-align: right;
   font-size: smaller;
   padding-top: 0.25rem;
 }
