@@ -15,7 +15,7 @@ stories.addParameters({
   },
 })
 
-stories.addWithJSX('Badge Icon', () => (
+stories.addWithJSX('Counter Icon', () => (
   <>
     <br />
     <CounterIcon size="small" status="primary" value={1} />
