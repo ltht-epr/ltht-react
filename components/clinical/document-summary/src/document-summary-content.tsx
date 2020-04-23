@@ -1,6 +1,25 @@
+/** @jsx jsx */
 import React from 'react'
+import { css, jsx } from '@emotion/core'
 
 import { ChevronIcon } from '@ltht-react/icon'
+import { TEXT_COLOURS } from '@ltht-react/styles'
+
+const styles = {
+  description: css`
+    flex-grow: 1;
+    margin: 0 0.5rem;
+    text-align: left;
+  `,
+  source: css`
+    margin-right: 0.5rem;
+    text-align: right;
+  `,
+  status: css`
+    color: ${TEXT_COLOURS.SECONDARY.VALUE};
+    font-size: smaller;
+  `,
+}
 
 const DocumentSummaryContent: React.FC<Props> = ({
   description = undefined,
@@ -17,10 +36,10 @@ const DocumentSummaryContent: React.FC<Props> = ({
   return (
     <div onClick={clickHandler && handleClick}>
       <div>{created}</div>
-      <div>{description}</div>
-      <div className="source">
+      <div css={styles.description}>{description}</div>
+      <div css={styles.source}>
         <div>{source}</div>
-        <div>{status}</div>
+        <div css={styles.status}>{status}</div>
       </div>
       <div>{clickHandler ? <ChevronIcon direction="right" size="large" /> : null}</div>
     </div>

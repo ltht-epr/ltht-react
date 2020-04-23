@@ -1,25 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`DocumentSummaryy matches snapshot: wrapper mount 1`] = `
-.emotion-7 {
+.emotion-16 {
   margin-right: -0.5rem;
 }
 
-.emotion-7 > ul li:first-of-type {
-  font-weight: bold;
-}
-
-.emotion-7 > ul li:not(:first-of-type) {
+.emotion-16 > ul li {
   border-top: 1px solid #b0b0b0;
   padding-top: 0.25rem;
 }
 
-.emotion-7 > ul li:not(:first-of-type):hover {
+.emotion-16 > ul li:hover {
   cursor: pointer;
   background: #E8EDEE;
 }
 
-.emotion-7 > ul li > div {
+.emotion-16 > ul li > div {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -38,42 +34,30 @@ exports[`DocumentSummaryy matches snapshot: wrapper mount 1`] = `
   padding-right: 0.5rem;
 }
 
-.emotion-7 > ul li > div > div {
-  -webkit-flex: auto;
-  -ms-flex: auto;
-  flex: auto;
-  padding-left: 0.75rem;
-}
-
-.emotion-7 > ul li > div > div:first-of-type {
-  -webkit-flex: 0 0 5em;
-  -ms-flex: 0 0 5em;
-  flex: 0 0 5em;
-  padding-left: 0;
-}
-
-.emotion-7 > ul li > div > div.source {
-  -webkit-flex: 0 0 12em;
-  -ms-flex: 0 0 12em;
-  flex: 0 0 12em;
-}
-
-.emotion-7 > ul li > div > div.source > div:last-of-type {
-  color: #768692;
-  font-weight: normal;
-}
-
-.emotion-7 > ul li > div > div:last-of-type {
-  -webkit-flex: 0 0 1.6em;
-  -ms-flex: 0 0 1.6em;
-  flex: 0 0 1.6em;
-}
-
-.emotion-6 {
+.emotion-15 {
   list-style-type: none;
 }
 
 .emotion-0 {
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  margin: 0 0.5rem;
+  text-align: left;
+}
+
+.emotion-2 {
+  margin-right: 0.5rem;
+  text-align: right;
+}
+
+.emotion-1 {
+  color: #768692;
+  font-size: smaller;
+}
+
+.emotion-3 {
   color: -v-a-l-u-e:#768692;
   -d-a-r-k-e-r25: #59656e;
   -l-i-g-h-t-e-r25: #98a4ad;
@@ -152,45 +136,12 @@ exports[`DocumentSummaryy matches snapshot: wrapper mount 1`] = `
   }
 >
   <div
-    className="emotion-7"
+    className="emotion-16"
   >
     <UnorderedList>
       <ul
-        className="emotion-6"
+        className="emotion-15"
       >
-        <ListItem
-          key="0"
-        >
-          <li>
-            <DocumentSummaryContent
-              created="Created"
-              description="Description"
-              key="1"
-              source="Source"
-              status="Status"
-            >
-              <div>
-                <div>
-                  Created
-                </div>
-                <div>
-                  Description
-                </div>
-                <div
-                  className="source"
-                >
-                  <div>
-                    Source
-                  </div>
-                  <div>
-                    Status
-                  </div>
-                </div>
-                <div />
-              </div>
-            </DocumentSummaryContent>
-          </li>
-        </ListItem>
         <DocumentSummaryItem
           document={
             Object {
@@ -233,16 +184,20 @@ exports[`DocumentSummaryy matches snapshot: wrapper mount 1`] = `
                   <div>
                     01/04/2020
                   </div>
-                  <div>
+                  <div
+                    className="emotion-0"
+                  >
                     Description of document one
                   </div>
                   <div
-                    className="source"
+                    className="emotion-2"
                   >
                     <div>
                       Mock
                     </div>
-                    <div>
+                    <div
+                      className="emotion-1"
+                    >
                       CURRENT
                     </div>
                   </div>
@@ -253,7 +208,7 @@ exports[`DocumentSummaryy matches snapshot: wrapper mount 1`] = `
                     >
                       <FontAwesomeIcon
                         border={false}
-                        className="emotion-0"
+                        className="emotion-3"
                         fixedWidth={false}
                         flip={null}
                         icon={
@@ -284,7 +239,7 @@ exports[`DocumentSummaryy matches snapshot: wrapper mount 1`] = `
                       >
                         <svg
                           aria-hidden="true"
-                          className="svg-inline--fa fa-chevron-right fa-w-10 fa-lg emotion-0"
+                          className="svg-inline--fa fa-chevron-right fa-w-10 fa-lg emotion-3"
                           data-icon="chevron-right"
                           data-prefix="fas"
                           focusable="false"
@@ -349,16 +304,20 @@ exports[`DocumentSummaryy matches snapshot: wrapper mount 1`] = `
                   <div>
                     11/10/2019
                   </div>
-                  <div>
+                  <div
+                    className="emotion-0"
+                  >
                     Description of document two
                   </div>
                   <div
-                    className="source"
+                    className="emotion-2"
                   >
                     <div>
                       Mock
                     </div>
-                    <div>
+                    <div
+                      className="emotion-1"
+                    >
                       ENTERED_IN_ERROR
                     </div>
                   </div>
@@ -369,7 +328,7 @@ exports[`DocumentSummaryy matches snapshot: wrapper mount 1`] = `
                     >
                       <FontAwesomeIcon
                         border={false}
-                        className="emotion-0"
+                        className="emotion-3"
                         fixedWidth={false}
                         flip={null}
                         icon={
@@ -400,7 +359,7 @@ exports[`DocumentSummaryy matches snapshot: wrapper mount 1`] = `
                       >
                         <svg
                           aria-hidden="true"
-                          className="svg-inline--fa fa-chevron-right fa-w-10 fa-lg emotion-0"
+                          className="svg-inline--fa fa-chevron-right fa-w-10 fa-lg emotion-3"
                           data-icon="chevron-right"
                           data-prefix="fas"
                           focusable="false"
@@ -465,16 +424,20 @@ exports[`DocumentSummaryy matches snapshot: wrapper mount 1`] = `
                   <div>
                     23/01/2020
                   </div>
-                  <div>
+                  <div
+                    className="emotion-0"
+                  >
                     Description of document three
                   </div>
                   <div
-                    className="source"
+                    className="emotion-2"
                   >
                     <div>
                       Mock
                     </div>
-                    <div>
+                    <div
+                      className="emotion-1"
+                    >
                       SUPERSEDED
                     </div>
                   </div>
@@ -485,7 +448,7 @@ exports[`DocumentSummaryy matches snapshot: wrapper mount 1`] = `
                     >
                       <FontAwesomeIcon
                         border={false}
-                        className="emotion-0"
+                        className="emotion-3"
                         fixedWidth={false}
                         flip={null}
                         icon={
@@ -516,7 +479,7 @@ exports[`DocumentSummaryy matches snapshot: wrapper mount 1`] = `
                       >
                         <svg
                           aria-hidden="true"
-                          className="svg-inline--fa fa-chevron-right fa-w-10 fa-lg emotion-0"
+                          className="svg-inline--fa fa-chevron-right fa-w-10 fa-lg emotion-3"
                           data-icon="chevron-right"
                           data-prefix="fas"
                           focusable="false"
