@@ -1,6 +1,6 @@
 {
   "name": "@ltht-react/storybook",
-  "version": "0.1.19",
+  "version": "0.1.20",
   "description": "> TODO: description",
   "author": "Jonny Smith <jonny.asmith@gmail.com>",
   "homepage": "",
@@ -58,7 +58,7 @@
     "@ltht-react/condition-summary": "^0.0.11",
     "@ltht-react/description-list": "^0.1.10",
     "@ltht-react/detail": "^0.1.10",
-    "@ltht-react/document-summary": "^0.0.8",
+    "@ltht-react/document-summary": "^0.0.9",
     "@ltht-react/flag-detail": "^0.1.10",
     "@ltht-react/flag-summary": "^0.1.11",
     "@ltht-react/form": "^0.0.5",
