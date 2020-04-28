@@ -1,6 +1,6 @@
 {
   "name": "@ltht-react/document-summary",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "ltht-react clinical DocumentSummary component.",
   "author": "LTHT",
   "homepage": "",
@@ -30,7 +30,7 @@
     "@ltht-react/icon": "^0.1.10",
     "@ltht-react/list": "^0.1.10",
     "@ltht-react/styles": "^0.1.5",
-    "@ltht-react/summary": "^0.0.4",
+    "@ltht-react/summary": "^0.0.5",
     "@ltht-react/types": "^0.0.12",
     "@ltht-react/utils": "^0.1.5",
     "emotion": "^10.0.27",

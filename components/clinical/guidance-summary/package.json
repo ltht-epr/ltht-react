@@ -1,6 +1,6 @@
 {
   "name": "@ltht-react/guidance-summary",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "ltht-react clinical GuidanceSummary component.",
   "author": "LTHT",
   "homepage": "",
@@ -29,7 +29,7 @@
     "@emotion/styled": "^10.0.27",
     "@ltht-react/list": "^0.1.10",
     "@ltht-react/styles": "^0.1.5",
-    "@ltht-react/summary": "^0.0.4",
+    "@ltht-react/summary": "^0.0.5",
     "@ltht-react/types": "^0.0.12",
     "@ltht-react/utils": "^0.1.5",
     "emotion": "^10.0.27",
