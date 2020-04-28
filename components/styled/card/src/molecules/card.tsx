@@ -10,13 +10,12 @@ const styles = (noData: boolean): SerializedStyles => {
   ${CSS_RESET}
   background: ${noData ? CARD_BACKGROUND_COLOUR_NO_DATA : CARD_BACKGROUND_COLOUR};
   color: ${noData ? TEXT_COLOURS.SECONDARY : TEXT_COLOURS.PRIMARY};
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
   border-radius: 4px;
   box-shadow: 
     0px 2px 1px -1px rgba(102, 102, 102, 0.1), 
     0px 1px 1px 0px rgba(102, 102, 102, 0.15), 
     0px 1px 3px 0px rgba(102, 102, 102,.6);
-  margin: 0 5px 10px 0;
   -webkit-font-smoothing: antialiased;
 `
 }
