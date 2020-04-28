@@ -30,6 +30,9 @@
     "@ltht-react/styles": "^0.1.5",
     "@ltht-react/types": "^0.0.12",
     "@ltht-react/utils": "^0.1.5",
+    "@ltht-react/list": "^0.1.10",
+    "@ltht-react/banner": "^0.0.2",
+    "@ltht-react/icon": "^0.1.10",
     "emotion": "^10.0.27",
     "react": "^16.12.0"
   }

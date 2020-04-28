@@ -1,14 +1,11 @@
-/** @jsx jsx */
 import React from 'react'
-import { css, jsx } from '@emotion/core'
 import { storiesOf } from '@storybook/react'
 import JSXAddon from 'storybook-addon-jsx'
 
 import readme from '@ltht-react/card/README.md'
 import { ListItem } from '@ltht-react/list'
+import { MissingDataSummary, MissingDataWarning } from '@ltht-react/summary'
 import { Card, CardHeader, CardBody, CardFooter, CardList } from '@ltht-react/card'
-import { WarningBanner, InfoBanner } from '@ltht-react/banner'
-import { ExclamationIcon, ChevronIcon, CounterIcon } from '@ltht-react/icon'
 
 const stories = storiesOf('Organisms - Styled|Card', module)
 
@@ -73,16 +70,7 @@ stories.addWithJSX('List (Clickable)', () => (
   </div>
 ))
 
-const handleClick = (e: React.MouseEvent<HTMLElement, MouseEvent>): void => {
-  e.preventDefault()
-}
-
-const styles = css`
-  flex-grow: 1;
-  padding-left: 0.5rem;
-`
-
-stories.addWithJSX('List With Missing Data Banner', () => (
+stories.addWithJSX('Missing Data Warning', () => (
   <div>
     <Card>
       <CardHeader>
@@ -90,15 +78,7 @@ stories.addWithJSX('List With Missing Data Banner', () => (
       </CardHeader>
       <CardBody>
         <CardList clickable>
-          <WarningBanner clickHandler={handleClick}>
-            <i>
-              <ExclamationIcon size="large" status="amber" />
-            </i>
-            <div css={styles}>Missing Data</div>
-            <i>
-              <ChevronIcon size="large" direction="right" />
-            </i>
-          </WarningBanner>
+          <MissingDataWarning />
           <ListItem>Item 1</ListItem>
           <ListItem>Item 2</ListItem>
         </CardList>
@@ -108,7 +88,7 @@ stories.addWithJSX('List With Missing Data Banner', () => (
   </div>
 ))
 
-stories.addWithJSX('List With Counter Banner', () => (
+stories.addWithJSX('Missing Data Summary', () => (
   <div>
     <Card>
       <CardHeader position="center">
@@ -116,23 +96,11 @@ stories.addWithJSX('List With Counter Banner', () => (
       </CardHeader>
       <CardBody>
         <CardList clickable>
-          <WarningBanner>
-            <CounterIcon size="large" status="amber" value={2} />
-            <div css={styles}>No Data</div>
-          </WarningBanner>
-          <ListItem>Item 1</ListItem>
-          <ListItem>Item 2</ListItem>
-          <WarningBanner>
-            <CounterIcon size="large" status="amber" value={2} />
-            <div css={styles}>Partial Data</div>
-          </WarningBanner>
-          <ListItem>Item 1</ListItem>
-          <InfoBanner>
-            <CounterIcon size="large" status="info" value={2} />
-            <div css={styles}>All Data</div>
-          </InfoBanner>
-          <ListItem>Item 1</ListItem>
-          <ListItem>Item 2</ListItem>
+          <MissingDataSummary
+            noData={['Item 1', 'Item 2']}
+            partialData={['Item 3', 'Item 4']}
+            allData={['Item 5', 'Item 6']}
+          />
         </CardList>
       </CardBody>
       <CardFooter>Footer</CardFooter>

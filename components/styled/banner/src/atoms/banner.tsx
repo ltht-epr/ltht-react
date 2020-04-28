@@ -26,7 +26,7 @@ export const styles = (
       align-items: center;
       white-space: nowrap;
       border: 1px solid transparent;
-      padding: 0.5rem;
+      padding: 0.25rem 0.5rem;
     `,
     default: css`
       color: ${BANNER_COLOURS.DEFAULT.TEXT};
@@ -48,7 +48,7 @@ export const styles = (
       ${clickable && onHover}
     `,
     warning: css`
-      color: ${BANNER_COLOURS.WARNING.TEXT};
+      color: darkgoldenrod;
       background-color: ${BANNER_COLOURS.WARNING.VALUE};
       ${clickable && onHover}
     `,
