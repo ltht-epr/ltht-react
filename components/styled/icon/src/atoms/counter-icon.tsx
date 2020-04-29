@@ -7,6 +7,7 @@ import { ICON_COLOURS, IconSizes, calculateIconSize } from '@ltht-react/styles'
 
 const CounterIcon: React.FC<CounterIconProps> = ({ status, size, value }) => {
   const styles = css`
+    width: 100% !important;
     ${status === 'green' && `color: ${ICON_COLOURS.SUCCESS.VALUE};`}
     ${status === 'amber' && `color: ${ICON_COLOURS.WARNING};`}
     ${status === 'red' && `color: ${ICON_COLOURS.DANGER};`}
