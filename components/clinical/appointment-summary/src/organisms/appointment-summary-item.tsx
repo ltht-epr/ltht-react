@@ -16,10 +16,15 @@ const styles = {
     justify-content: center;
   `,
   description: css`
-    flex-grow: 1;
+    flex: 1;
   `,
   date: css`
+    flex: 1;
     text-align: left;
+  `,
+  service: css`
+    flex: 1;
+    text-align: right;
   `,
 }
 
@@ -37,7 +42,7 @@ const AppointmentSummaryItem: React.FC<Props> = ({ encounter, clickHandler }) =>
       <div css={styles.description}>
         <Description encounter={encounter} />
       </div>
-      <div>
+      <div css={styles.service}>
         <ServiceProvider encounter={encounter} />
         <Status encounter={encounter} />
       </div>

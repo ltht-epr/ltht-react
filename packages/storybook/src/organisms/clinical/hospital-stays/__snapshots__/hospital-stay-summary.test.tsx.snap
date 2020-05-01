@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`HospitalStaySummary matches snapshot: wrapper mount 1`] = `
-.emotion-3 {
+.emotion-6 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -12,14 +12,10 @@ exports[`HospitalStaySummary matches snapshot: wrapper mount 1`] = `
   justify-content: center;
 }
 
-.emotion-3 > div {
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-}
-
 .emotion-1 {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
   text-align: left;
 }
 
@@ -27,18 +23,35 @@ exports[`HospitalStaySummary matches snapshot: wrapper mount 1`] = `
   color: #231f20;
 }
 
+.emotion-3 {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
 .emotion-2 {
-  color: -v-a-l-u-e:#768692;
-  -d-a-r-k-e-r25: #59656e;
-  -l-i-g-h-t-e-r25: #98a4ad;
-  text-align: right;
+  color: #231f20;
+  text-align: left;
+  margin-left: 0.5em;
 }
 
 .emotion-5 {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  text-align: right;
+}
+
+.emotion-4 {
+  color: #768692;
+  text-align: right;
+}
+
+.emotion-8 {
   text-align: left;
 }
 
-.emotion-7 {
+.emotion-10 {
   -webkit-box-flex: 1;
   -webkit-flex-grow: 1;
   -ms-flex-positive: 1;
@@ -46,7 +59,7 @@ exports[`HospitalStaySummary matches snapshot: wrapper mount 1`] = `
   text-align: right;
 }
 
-.emotion-6 {
+.emotion-9 {
   color: #768692;
 }
 
@@ -58,7 +71,7 @@ exports[`HospitalStaySummary matches snapshot: wrapper mount 1`] = `
         "metadata": Object {
           "dataSources": Array [
             Object {
-              "display": "Mock",
+              "display": "Mock Source",
             },
           ],
           "isRedacted": false,
@@ -78,13 +91,17 @@ exports[`HospitalStaySummary matches snapshot: wrapper mount 1`] = `
           "display": "Chapel Allerton Hospital",
           "typeName": "Hospital",
         },
+        "text": Object {
+          "div": "test",
+          "text": "Chest x-ray for recent car accident",
+        },
       },
       Object {
         "id": "690ca927-68e0-c511-b2c7-898056926ze4|hospitalstay",
         "metadata": Object {
           "dataSources": Array [
             Object {
-              "display": "Mock",
+              "display": "Mock Source",
             },
           ],
           "isRedacted": true,
@@ -99,6 +116,10 @@ exports[`HospitalStaySummary matches snapshot: wrapper mount 1`] = `
         "serviceProvider": Object {
           "display": "Beaumont Hospital",
           "typeName": "Hospital",
+        },
+        "text": Object {
+          "div": "test",
+          "text": "Chest x-ray for recent car accident",
         },
       },
       Object {
@@ -162,7 +183,7 @@ exports[`HospitalStaySummary matches snapshot: wrapper mount 1`] = `
         "metadata": Object {
           "dataSources": Array [
             Object {
-              "display": "Mock",
+              "display": "Mock Source",
             },
           ],
           "isRedacted": false,
@@ -206,11 +227,6 @@ exports[`HospitalStaySummary matches snapshot: wrapper mount 1`] = `
             "value": "2020-01-01T00:00:00+00:00",
           },
         },
-        "serviceProvider": Object {
-          "display": "Beaumont Hospital",
-          "reference": "https://phoenixqa.careworks.ie/Services/api/fhir/v3/organisation/324e18de-69d4-e911-a2c7-005056926fe4",
-          "typeName": "Organisation",
-        },
         "status": "ON_LEAVE",
         "statusHistory": Array [
           Object {
@@ -236,6 +252,10 @@ exports[`HospitalStaySummary matches snapshot: wrapper mount 1`] = `
             "status": "FINISHED",
           },
         ],
+        "text": Object {
+          "div": "test",
+          "text": "Chest x-ray for recent car accident",
+        },
         "type": Array [
           Object {
             "text": "Transferred from other hospital due to lack of space",
@@ -256,7 +276,7 @@ exports[`HospitalStaySummary matches snapshot: wrapper mount 1`] = `
             "metadata": Object {
               "dataSources": Array [
                 Object {
-                  "display": "Mock",
+                  "display": "Mock Source",
                 },
               ],
               "isRedacted": false,
@@ -276,11 +296,15 @@ exports[`HospitalStaySummary matches snapshot: wrapper mount 1`] = `
               "display": "Chapel Allerton Hospital",
               "typeName": "Hospital",
             },
+            "text": Object {
+              "div": "test",
+              "text": "Chest x-ray for recent car accident",
+            },
           }
         }
       >
         <div
-          className="emotion-3"
+          className="emotion-6"
           role="link"
         >
           <div
@@ -307,15 +331,17 @@ exports[`HospitalStaySummary matches snapshot: wrapper mount 1`] = `
               </div>
             </PeriodSummary>
           </div>
-          <div>
-            <HospitalStayServiceProvider
+          <div
+            className="emotion-3"
+          >
+            <HospitalStayDescription
               encounter={
                 Object {
                   "id": "580ca927-34e0-e911-a2c7-005056926fe4|hospitalstay",
                   "metadata": Object {
                     "dataSources": Array [
                       Object {
-                        "display": "Mock",
+                        "display": "Mock Source",
                       },
                     ],
                     "isRedacted": false,
@@ -335,11 +361,59 @@ exports[`HospitalStaySummary matches snapshot: wrapper mount 1`] = `
                     "display": "Chapel Allerton Hospital",
                     "typeName": "Hospital",
                   },
+                  "text": Object {
+                    "div": "test",
+                    "text": "Chest x-ray for recent car accident",
+                  },
                 }
               }
             >
               <div
                 className="emotion-2"
+              >
+                Chest x-ray for recent car accident
+              </div>
+            </HospitalStayDescription>
+          </div>
+          <div
+            className="emotion-5"
+          >
+            <HospitalStayServiceProvider
+              encounter={
+                Object {
+                  "id": "580ca927-34e0-e911-a2c7-005056926fe4|hospitalstay",
+                  "metadata": Object {
+                    "dataSources": Array [
+                      Object {
+                        "display": "Mock Source",
+                      },
+                    ],
+                    "isRedacted": false,
+                    "requestedWhen": "",
+                  },
+                  "period": Object {
+                    "end": Object {
+                      "kind": "DATE",
+                      "value": "2014-02-02T00:00:00+00:00",
+                    },
+                    "start": Object {
+                      "kind": "DATE",
+                      "value": "2013-01-01T00:00:00+00:00",
+                    },
+                  },
+                  "serviceProvider": Object {
+                    "display": "Chapel Allerton Hospital",
+                    "typeName": "Hospital",
+                  },
+                  "text": Object {
+                    "div": "test",
+                    "text": "Chest x-ray for recent car accident",
+                  },
+                }
+              }
+            >
+              <div
+                className="emotion-4"
               >
                 Chapel Allerton Hospital
               </div>
@@ -360,7 +434,7 @@ exports[`HospitalStaySummary matches snapshot: wrapper mount 1`] = `
             "metadata": Object {
               "dataSources": Array [
                 Object {
-                  "display": "Mock",
+                  "display": "Mock Source",
                 },
               ],
               "isRedacted": true,
@@ -376,11 +450,15 @@ exports[`HospitalStaySummary matches snapshot: wrapper mount 1`] = `
               "display": "Beaumont Hospital",
               "typeName": "Hospital",
             },
+            "text": Object {
+              "div": "test",
+              "text": "Chest x-ray for recent car accident",
+            },
           }
         }
       >
         <div
-          className="emotion-3"
+          className="emotion-6"
           role="link"
         >
           <HospitalStayRedacted
@@ -390,7 +468,7 @@ exports[`HospitalStaySummary matches snapshot: wrapper mount 1`] = `
                 "metadata": Object {
                   "dataSources": Array [
                     Object {
-                      "display": "Mock",
+                      "display": "Mock Source",
                     },
                   ],
                   "isRedacted": true,
@@ -406,11 +484,15 @@ exports[`HospitalStaySummary matches snapshot: wrapper mount 1`] = `
                   "display": "Beaumont Hospital",
                   "typeName": "Hospital",
                 },
+                "text": Object {
+                  "div": "test",
+                  "text": "Chest x-ray for recent car accident",
+                },
               }
             }
           >
             <div
-              className="emotion-5"
+              className="emotion-8"
             >
               <PeriodSummary
                 period={
@@ -430,11 +512,11 @@ exports[`HospitalStaySummary matches snapshot: wrapper mount 1`] = `
               </PeriodSummary>
             </div>
             <div
-              className="emotion-7"
+              className="emotion-10"
             >
               <RedactedDescription>
                 <div
-                  className="emotion-6"
+                  className="emotion-9"
                 >
                   Insufficient privileges
                 </div>
@@ -512,7 +594,7 @@ exports[`HospitalStaySummary matches snapshot: wrapper mount 1`] = `
             "metadata": Object {
               "dataSources": Array [
                 Object {
-                  "display": "Mock",
+                  "display": "Mock Source",
                 },
               ],
               "isRedacted": false,
@@ -556,11 +638,6 @@ exports[`HospitalStaySummary matches snapshot: wrapper mount 1`] = `
                 "value": "2020-01-01T00:00:00+00:00",
               },
             },
-            "serviceProvider": Object {
-              "display": "Beaumont Hospital",
-              "reference": "https://phoenixqa.careworks.ie/Services/api/fhir/v3/organisation/324e18de-69d4-e911-a2c7-005056926fe4",
-              "typeName": "Organisation",
-            },
             "status": "ON_LEAVE",
             "statusHistory": Array [
               Object {
@@ -586,6 +663,10 @@ exports[`HospitalStaySummary matches snapshot: wrapper mount 1`] = `
                 "status": "FINISHED",
               },
             ],
+            "text": Object {
+              "div": "test",
+              "text": "Chest x-ray for recent car accident",
+            },
             "type": Array [
               Object {
                 "text": "Transferred from other hospital due to lack of space",
@@ -595,7 +676,7 @@ exports[`HospitalStaySummary matches snapshot: wrapper mount 1`] = `
         }
       >
         <div
-          className="emotion-3"
+          className="emotion-6"
           role="link"
         >
           <div
@@ -618,7 +699,163 @@ exports[`HospitalStaySummary matches snapshot: wrapper mount 1`] = `
               </div>
             </PeriodSummary>
           </div>
-          <div>
+          <div
+            className="emotion-3"
+          >
+            <HospitalStayDescription
+              encounter={
+                Object {
+                  "episodeOfCare": Array [
+                    Object {
+                      "display": "Martin, Jack - (15/04/1980) [QA-CAS-000001-6537]",
+                      "reference": "https://phoenixqa.careworks.ie/Services/api/fhir/v3/episodeofcare/2aad27ef-6cd4-e911-a2c7-005056926fe4|case",
+                      "typeName": "EpisodeOfCare",
+                    },
+                  ],
+                  "hospitalization": Object {
+                    "admitSource": Object {
+                      "coding": Array [
+                        Object {
+                          "code": "305956004",
+                          "display": "Referral by physician",
+                          "system": "http://snomed.info/sct",
+                        },
+                      ],
+                    },
+                    "dischargeDisposition": Object {
+                      "coding": Array [
+                        Object {
+                          "code": "306689006",
+                          "display": "Discharge to home",
+                          "system": "http://snomed.info/sct",
+                        },
+                      ],
+                    },
+                    "extension": Array [
+                      Object {
+                        "url": "https://fhir.hl7.org.uk/STU3/StructureDefinition/Extension-CareConnect-AdmissionMethod-1",
+                        "valueCodeableConcept": Object {
+                          "coding": Array [
+                            Object {
+                              "display": "1. Transfer of an admitted PATIENT from another Hospital Provider in an emergency",
+                            },
+                          ],
+                        },
+                        "valueString": "",
+                      },
+                      Object {
+                        "url": "https://fhir.hl7.org.uk/STU3/StructureDefinition/Extension-CareConnect-AdmissionMethod-1",
+                        "valueCodeableConcept": Object {
+                          "coding": Array [
+                            Object {
+                              "display": "2. Transfer of an admitted PATIENT from another Hospital Provider in an emergency",
+                            },
+                          ],
+                        },
+                        "valueString": "",
+                      },
+                    ],
+                    "preAdmissionIdentifier": Object {
+                      "system": "http://www.bmc.nl/zorgportal/identifiers/pre-admissions",
+                      "use": "OFFICIAL",
+                      "value": "93042",
+                    },
+                  },
+                  "id": "2aad27ef-6cd4-e911-a2c7-005056926fe4|case",
+                  "metadata": Object {
+                    "dataSources": Array [
+                      Object {
+                        "display": "Mock Source",
+                      },
+                    ],
+                    "isRedacted": false,
+                    "requestedWhen": "",
+                  },
+                  "participant": Array [
+                    Object {
+                      "individual": Object {
+                        "display": "Guillermo Villar",
+                        "reference": "https://phoenixqa.careworks.ie/Services/api/fhir/v3/practitioner/c4434f96-633f-e911-a2c5-005056926fe4|systemuser",
+                        "typeName": "Practitioner",
+                      },
+                      "period": Object {
+                        "start": Object {
+                          "kind": "DATE",
+                          "value": "2020-01-01T00:00:00+00:00",
+                        },
+                      },
+                    },
+                    Object {
+                      "individual": Object {
+                        "display": "Man Test",
+                        "reference": "https://phoenixqa.careworks.ie/Services/api/fhir/v3/practitioner/c4434f96-633f-e911-a2c5-005056926fe4|systemuser",
+                        "typeName": "Nurse",
+                      },
+                      "period": Object {
+                        "end": Object {
+                          "kind": "DATE",
+                          "value": "2020-01-01T00:00:00+00:00",
+                        },
+                        "start": Object {
+                          "kind": "DATE",
+                          "value": "2019-01-01T00:00:00+00:00",
+                        },
+                      },
+                    },
+                  ],
+                  "period": Object {
+                    "start": Object {
+                      "kind": "DATE",
+                      "value": "2020-01-01T00:00:00+00:00",
+                    },
+                  },
+                  "status": "ON_LEAVE",
+                  "statusHistory": Array [
+                    Object {
+                      "period": Object {
+                        "start": Object {
+                          "kind": "DATE",
+                          "value": "2020-01-01T00:00:00+00:00",
+                        },
+                      },
+                      "status": "IN_PROGRESS",
+                    },
+                    Object {
+                      "period": Object {
+                        "end": Object {
+                          "kind": "DATE",
+                          "value": "2020-01-01T00:00:00+00:00",
+                        },
+                        "start": Object {
+                          "kind": "DATE",
+                          "value": "2019-01-01T00:00:00+00:00",
+                        },
+                      },
+                      "status": "FINISHED",
+                    },
+                  ],
+                  "text": Object {
+                    "div": "test",
+                    "text": "Chest x-ray for recent car accident",
+                  },
+                  "type": Array [
+                    Object {
+                      "text": "Transferred from other hospital due to lack of space",
+                    },
+                  ],
+                }
+              }
+            >
+              <div
+                className="emotion-2"
+              >
+                Chest x-ray for recent car accident
+              </div>
+            </HospitalStayDescription>
+          </div>
+          <div
+            className="emotion-5"
+          >
             <HospitalStayServiceProvider
               encounter={
                 Object {
@@ -682,7 +919,7 @@ exports[`HospitalStaySummary matches snapshot: wrapper mount 1`] = `
                   "metadata": Object {
                     "dataSources": Array [
                       Object {
-                        "display": "Mock",
+                        "display": "Mock Source",
                       },
                     ],
                     "isRedacted": false,
@@ -726,11 +963,6 @@ exports[`HospitalStaySummary matches snapshot: wrapper mount 1`] = `
                       "value": "2020-01-01T00:00:00+00:00",
                     },
                   },
-                  "serviceProvider": Object {
-                    "display": "Beaumont Hospital",
-                    "reference": "https://phoenixqa.careworks.ie/Services/api/fhir/v3/organisation/324e18de-69d4-e911-a2c7-005056926fe4",
-                    "typeName": "Organisation",
-                  },
                   "status": "ON_LEAVE",
                   "statusHistory": Array [
                     Object {
@@ -756,6 +988,10 @@ exports[`HospitalStaySummary matches snapshot: wrapper mount 1`] = `
                       "status": "FINISHED",
                     },
                   ],
+                  "text": Object {
+                    "div": "test",
+                    "text": "Chest x-ray for recent car accident",
+                  },
                   "type": Array [
                     Object {
                       "text": "Transferred from other hospital due to lack of space",
@@ -765,9 +1001,9 @@ exports[`HospitalStaySummary matches snapshot: wrapper mount 1`] = `
               }
             >
               <div
-                className="emotion-2"
+                className="emotion-4"
               >
-                Beaumont Hospital
+                Mock Source
               </div>
             </HospitalStayServiceProvider>
           </div>

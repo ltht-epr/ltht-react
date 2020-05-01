@@ -3,7 +3,7 @@ import { Encounter, PartialDateTimeKindCode, Metadata, EncounterStatusCode, Iden
 const mockMetadata: Metadata = {
   dataSources: [
     {
-      display: 'Mock',
+      display: 'Mock Source',
     },
   ],
   isRedacted: false,
@@ -13,7 +13,7 @@ const mockMetadata: Metadata = {
 const redactedMetadata: Metadata = {
   dataSources: [
     {
-      display: 'Mock',
+      display: 'Mock Source',
     },
   ],
   isRedacted: true,
@@ -24,6 +24,10 @@ const HospitalStayOne: Encounter = {
   id: '580ca927-34e0-e911-a2c7-005056926fe4|hospitalstay',
   metadata: mockMetadata,
   serviceProvider: { display: 'Chapel Allerton Hospital', typeName: 'Hospital' },
+  text: {
+    text: 'Chest x-ray for recent car accident',
+    div: 'test',
+  },
   period: {
     start: {
       value: '2013-01-01T00:00:00+00:00',
@@ -40,6 +44,10 @@ const HospitalStayTwo: Encounter = {
   id: '690ca927-68e0-c511-b2c7-898056926ze4|hospitalstay',
   metadata: redactedMetadata,
   serviceProvider: { display: 'Beaumont Hospital', typeName: 'Hospital' },
+  text: {
+    text: 'Chest x-ray for recent car accident',
+    div: 'test',
+  },
   period: {
     start: {
       value: '2020-01-01T00:00:00+00:00',
@@ -55,6 +63,10 @@ const HospitalStayThree: Encounter = {
       text: 'Transferred from other hospital due to lack of space',
     },
   ],
+  text: {
+    text: 'Chest x-ray for recent car accident',
+    div: 'test',
+  },
   status: EncounterStatusCode.OnLeave,
   statusHistory: [
     {
@@ -176,11 +188,6 @@ const HospitalStayThree: Encounter = {
         },
       },
     ],
-  },
-  serviceProvider: {
-    reference: 'https://phoenixqa.careworks.ie/Services/api/fhir/v3/organisation/324e18de-69d4-e911-a2c7-005056926fe4',
-    display: 'Beaumont Hospital',
-    typeName: 'Organisation',
   },
   metadata: mockMetadata,
 }
