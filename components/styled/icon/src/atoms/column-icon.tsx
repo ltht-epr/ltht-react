@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faColumns } from '@fortawesome/free-solid-svg-icons'
 import { ICON_COLOURS, IconSizes, calculateIconSize } from '@ltht-react/styles'
 
-const ColumnIcon: React.FC<ExclamationIconProps> = ({ status, size }) => {
+const ColumnIcon: React.FC<IconProps> = ({ status, size }) => {
   const styles = css`
     ${status === 'green' && `color: ${ICON_COLOURS.SUCCESS.VALUE};`}
     ${status === 'amber' && `color: ${ICON_COLOURS.WARNING};`}
@@ -16,7 +16,7 @@ const ColumnIcon: React.FC<ExclamationIconProps> = ({ status, size }) => {
   return <FontAwesomeIcon css={styles} icon={faColumns} size={calculateIconSize(size)} transform={{ rotate: 180 }} />
 }
 
-type ExclamationIconProps = {
+type IconProps = {
   status: 'red' | 'green' | 'amber' | 'default' | 'info'
   size: IconSizes
 }
