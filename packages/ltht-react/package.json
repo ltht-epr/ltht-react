@@ -1,6 +1,6 @@
 {
   "name": "@ltht-react/root",
-  "version": "0.1.26",
+  "version": "0.1.27",
   "description": "> TODO: description",
   "author": "Jonny Smith <jonny.asmith@gmail.com>",
   "homepage": "",
@@ -37,7 +37,7 @@
     "@ltht-react/condition-summary": "^0.0.15",
     "@ltht-react/description-list": "^0.1.10",
     "@ltht-react/detail": "^0.1.10",
-    "@ltht-react/document-summary": "^0.0.13",
+    "@ltht-react/document-summary": "^0.0.14",
     "@ltht-react/flag-detail": "^0.1.10",
     "@ltht-react/flag-summary": "^0.1.15",
     "@ltht-react/form": "^0.0.5",
