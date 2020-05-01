@@ -1,6 +1,6 @@
 {
   "name": "@ltht-react/involved-team-summary",
-  "version": "0.1.13",
+  "version": "0.1.14",
   "description": "ltht-react clinical InvolvedTeamSummary component.",
   "author": "LTHT",
   "homepage": "",
@@ -25,7 +25,7 @@
     "@emotion/styled": "^10.0.27",
     "@ltht-react/list": "^0.1.10",
     "@ltht-react/styles": "^0.1.5",
-    "@ltht-react/summary": "^0.0.7",
+    "@ltht-react/summary": "^0.0.8",
     "@ltht-react/types": "^0.0.12",
     "@ltht-react/utils": "^0.1.5",
     "emotion": "^10.0.27",

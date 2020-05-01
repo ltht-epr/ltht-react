@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.15](https://github.com/ltht-epr/ltht-react/compare/@ltht-react/allergy-summary@0.1.14...@ltht-react/allergy-summary@0.1.15) (2020-05-01)
+
+**Note:** Version bump only for package @ltht-react/allergy-summary
+
+
+
+
+
 ## [0.1.14](https://github.com/ltht-epr/ltht-react/compare/@ltht-react/allergy-summary@0.1.13...@ltht-react/allergy-summary@0.1.14) (2020-05-01)
 
 **Note:** Version bump only for package @ltht-react/allergy-summary
