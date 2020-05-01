@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.12](https://github.com/ltht-epr/ltht-react/compare/@ltht-react/icon@0.1.11...@ltht-react/icon@0.1.12) (2020-05-01)
+
+**Note:** Version bump only for package @ltht-react/icon
+
+
+
+
+
 ## [0.1.11](https://github.com/ltht-epr/ltht-react/compare/@ltht-react/icon@0.1.10...@ltht-react/icon@0.1.11) (2020-04-29)
 
 **Note:** Version bump only for package @ltht-react/icon
