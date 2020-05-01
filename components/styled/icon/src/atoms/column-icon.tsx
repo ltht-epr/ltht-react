@@ -11,12 +11,13 @@ const ColumnIcon: React.FC<ExclamationIconProps> = ({ status, size }) => {
     ${status === 'amber' && `color: ${ICON_COLOURS.WARNING};`}
     ${status === 'red' && `color: ${ICON_COLOURS.DANGER};`}
     ${status === 'default' && `color: ${ICON_COLOURS.DEFAULT.VALUE};`}
+    ${status === 'info' && `color: ${ICON_COLOURS.INFO};`}
   `
   return <FontAwesomeIcon css={styles} icon={faColumns} size={calculateIconSize(size)} transform={{ rotate: 180 }} />
 }
 
 type ExclamationIconProps = {
-  status: 'red' | 'green' | 'amber' | 'default'
+  status: 'red' | 'green' | 'amber' | 'default' | 'info'
   size: IconSizes
 }
 

@@ -11,12 +11,13 @@ const ExclamationIcon: React.FC<ExclamationIconProps> = ({ status, size }) => {
     ${status === 'amber' && `color: ${ICON_COLOURS.WARNING};`}
     ${status === 'red' && `color: ${ICON_COLOURS.DANGER};`}
     ${status === 'default' && `color: ${ICON_COLOURS.DEFAULT};`}
+    ${status === 'info' && `color: ${ICON_COLOURS.INFO};`}
   `
   return <FontAwesomeIcon css={styles} icon={faExclamationTriangle} size={calculateIconSize(size)} />
 }
 
 type ExclamationIconProps = {
-  status: 'red' | 'green' | 'amber' | 'default'
+  status: 'red' | 'green' | 'amber' | 'info' | 'default'
   size: IconSizes
 }
 
