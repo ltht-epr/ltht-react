@@ -4,6 +4,7 @@ import { css, jsx } from '@emotion/core'
 
 import { ChevronIcon } from '@ltht-react/icon'
 import { TEXT_COLOURS } from '@ltht-react/styles'
+import { titleCase } from '@ltht-react/utils'
 
 const styles = {
   description: css`
@@ -38,8 +39,8 @@ const DocumentSummaryContent: React.FC<Props> = ({
       <div>{created}</div>
       <div css={styles.description}>{description}</div>
       <div css={styles.source}>
-        <div>{source}</div>
-        <div css={styles.status}>{status}</div>
+        <div>{source && titleCase(source)}</div>
+        <div css={styles.status}>{status && titleCase(status)}</div>
       </div>
       <div>{clickHandler ? <ChevronIcon direction="right" size="large" /> : null}</div>
     </div>

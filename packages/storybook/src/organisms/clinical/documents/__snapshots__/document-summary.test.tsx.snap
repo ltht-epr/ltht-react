@@ -198,7 +198,7 @@ exports[`DocumentSummaryy matches snapshot: wrapper mount 1`] = `
                     <div
                       className="emotion-1"
                     >
-                      CURRENT
+                      Current
                     </div>
                   </div>
                   <div>
@@ -318,7 +318,7 @@ exports[`DocumentSummaryy matches snapshot: wrapper mount 1`] = `
                     <div
                       className="emotion-1"
                     >
-                      ENTERED_IN_ERROR
+                      Entered In Error
                     </div>
                   </div>
                   <div>
@@ -438,7 +438,7 @@ exports[`DocumentSummaryy matches snapshot: wrapper mount 1`] = `
                     <div
                       className="emotion-1"
                     >
-                      SUPERSEDED
+                      Superseded
                     </div>
                   </div>
                   <div>
