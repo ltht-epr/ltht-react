@@ -9,7 +9,7 @@ const computeStyles = (collapsed: boolean, clickable?: boolean): SerializedStyle
     list-style: none;
     & li {
       border-top: 1px solid ${CARD_LIST_ITEM_BORDER_COLOUR};
-      padding: 0.5rem;
+      padding: 0.5rem 0.5rem 0.5rem 0;
       margin-right: -0.5rem;
     }
     & li:hover {
