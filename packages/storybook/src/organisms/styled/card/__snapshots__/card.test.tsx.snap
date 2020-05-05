@@ -197,7 +197,7 @@ Array [
 
 .emotion-1 li {
   border-top: 1px solid #d8d8d8;
-  padding: 0.5rem;
+  padding: 0.5rem 0.5rem 0.5rem 0;
   margin-right: -0.5rem;
 }
 
