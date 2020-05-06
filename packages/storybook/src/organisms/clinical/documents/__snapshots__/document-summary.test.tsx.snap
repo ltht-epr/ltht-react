@@ -15,6 +15,11 @@ exports[`DocumentSummaryy matches snapshot: wrapper mount 1`] = `
   background: #E8EDEE;
 }
 
+.emotion-16 > ul li:focus {
+  background: rgba(0,114,206,0.2) !important;
+  outline: none !important;
+}
+
 .emotion-16 > ul li > div {
   -webkit-align-items: center;
   -webkit-box-align: center;
@@ -169,8 +174,12 @@ exports[`DocumentSummaryy matches snapshot: wrapper mount 1`] = `
           }
           key="6b554095-bd5f-4134-8dbb-a21971959fd3"
         >
-          <ListItem>
-            <li>
+          <ListItem
+            tabIndex={-1}
+          >
+            <li
+              tabIndex={-1}
+            >
               <DocumentSummaryContent
                 clickHandler={[Function]}
                 created="01/04/2020"
@@ -289,8 +298,12 @@ exports[`DocumentSummaryy matches snapshot: wrapper mount 1`] = `
           }
           key="2d889a55-d7ec-46ae-b674-23dfc6666014"
         >
-          <ListItem>
-            <li>
+          <ListItem
+            tabIndex={-1}
+          >
+            <li
+              tabIndex={-1}
+            >
               <DocumentSummaryContent
                 clickHandler={[Function]}
                 created="11/10/2019"
@@ -409,8 +422,12 @@ exports[`DocumentSummaryy matches snapshot: wrapper mount 1`] = `
           }
           key="38962be0-4e5e-4640-a23e-af45da7c0578"
         >
-          <ListItem>
-            <li>
+          <ListItem
+            tabIndex={-1}
+          >
+            <li
+              tabIndex={-1}
+            >
               <DocumentSummaryContent
                 clickHandler={[Function]}
                 created="23/01/2020"
