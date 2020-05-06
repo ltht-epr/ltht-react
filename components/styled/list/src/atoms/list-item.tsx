@@ -2,8 +2,14 @@
 import React from 'react'
 import { jsx } from '@emotion/core'
 
-const ListItem: React.FC = ({ children }) => {
+const ListItem: React.FC<Props> = ({ children, tabIndex }) => {
+  if (tabIndex) return <li tabIndex={tabIndex}>{children}</li>
+
   return <li>{children}</li>
+}
+
+interface Props {
+  tabIndex?: number
 }
 
 export default ListItem

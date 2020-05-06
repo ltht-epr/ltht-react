@@ -3,7 +3,7 @@ import React from 'react'
 import { css, jsx } from '@emotion/core'
 
 import { DocumentReference } from '@ltht-react/types'
-import { CARD_BORDER_COLOUR, CARD_LIST_ITEM_BACKGROUND_HOVER } from '@ltht-react/styles'
+import { CARD_BORDER_COLOUR, CARD_LIST_ITEM_BACKGROUND_HOVER, BANNER_COLOURS } from '@ltht-react/styles'
 import { UnorderedList } from '@ltht-react/list'
 import DocumentSummaryItem from './document-summary-item'
 
@@ -16,6 +16,10 @@ const styles = {
       &:hover {
         cursor: pointer;
         background: ${CARD_LIST_ITEM_BACKGROUND_HOVER};
+      }
+      &:focus {
+        background: ${BANNER_COLOURS.INFO.VALUE} !important;
+        outline: none !important;
       }
       > div {
         align-items: center;
