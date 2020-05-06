@@ -1,6 +1,6 @@
 {
   "name": "@ltht-react/appointment-summary",
-  "version": "0.1.15",
+  "version": "0.1.16",
   "description": "ltht-react clinical AppointmentSummary component.",
   "author": "LTHT",
   "homepage": "",
@@ -23,9 +23,9 @@
   "dependencies": {
     "@emotion/core": "^10.0.27",
     "@emotion/styled": "^10.0.27",
-    "@ltht-react/list": "^0.1.10",
+    "@ltht-react/list": "^0.1.11",
     "@ltht-react/styles": "^0.1.5",
-    "@ltht-react/summary": "^0.0.8",
+    "@ltht-react/summary": "^0.0.9",
     "@ltht-react/types": "^0.0.12",
     "@ltht-react/utils": "^0.1.5",
     "emotion": "^10.0.27",

@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.11](https://github.com/ltht-epr/ltht-react/compare/@ltht-react/flag-detail@0.1.10...@ltht-react/flag-detail@0.1.11) (2020-05-06)
+
+**Note:** Version bump only for package @ltht-react/flag-detail
+
+
+
+
+
 ## [0.1.10](https://github.com/ltht-epr/ltht-react/compare/@ltht-react/flag-detail@0.1.9...@ltht-react/flag-detail@0.1.10) (2020-04-14)
 
 **Note:** Version bump only for package @ltht-react/flag-detail
