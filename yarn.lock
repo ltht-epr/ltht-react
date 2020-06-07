@@ -2619,6 +2619,477 @@
     npmlog "^4.1.2"
     write-file-atomic "^2.3.0"
 
+"@ltht-react/allergy-detail@^0.1.11":
+  version "0.1.11"
+  resolved "https://registry.yarnpkg.com/@ltht-react/allergy-detail/-/allergy-detail-0.1.11.tgz#ed4e45397c610d9120603f996281dcd814221466"
+  integrity sha512-j7b2+4qMJZLH/3UAAdVFB1XH1PTcQQam4RYCw73Fi3yojdJDjSp6nQJRT5oMeGwzHa8DgMm6WXxXkX+MtMWLqQ==
+  dependencies:
+    "@emotion/core" "^10.0.27"
+    "@emotion/styled" "^10.0.27"
+    "@ltht-react/detail" "^0.1.11"
+    "@ltht-react/styles" "^0.1.5"
+    "@ltht-react/types" "^0.0.12"
+    "@ltht-react/utils" "^0.1.5"
+    emotion "^10.0.27"
+    react "^16.12.0"
+
+"@ltht-react/allergy-summary@^0.1.16":
+  version "0.1.16"
+  resolved "https://registry.yarnpkg.com/@ltht-react/allergy-summary/-/allergy-summary-0.1.16.tgz#726876052a5ee005e6483fb181d57720b5668ba7"
+  integrity sha512-aFJy0DAoM/6lSVvWxDt6aKk36y5DeL82XM8NksYs3q4UwHSxx8NRoQZeGK1UNO7TJ696ALChORX4itd6hTR3sQ==
+  dependencies:
+    "@emotion/core" "^10.0.27"
+    "@emotion/styled" "^10.0.27"
+    "@ltht-react/icon" "^0.1.13"
+    "@ltht-react/list" "^0.1.11"
+    "@ltht-react/styles" "^0.1.5"
+    "@ltht-react/summary" "^0.0.9"
+    "@ltht-react/types" "^0.0.12"
+    "@ltht-react/utils" "^0.1.5"
+    emotion "^10.0.27"
+    react "^16.12.0"
+
+"@ltht-react/appointment-detail@^0.0.9":
+  version "0.0.9"
+  resolved "https://registry.yarnpkg.com/@ltht-react/appointment-detail/-/appointment-detail-0.0.9.tgz#63608e4b3eb881159b35e8019000866d2e66d3ef"
+  integrity sha512-r5TYtWL6/Uffwm9o47q7Su1qkM0cJhWRHjz3m9sGreUjYlaW1FErNrGtm9PkuOpZsC2jBDIWtHqFgpoSQ65Twg==
+  dependencies:
+    "@emotion/core" "^10.0.27"
+    "@emotion/styled" "^10.0.27"
+    "@ltht-react/styles" "^0.1.5"
+    "@ltht-react/types" "^0.0.12"
+    "@ltht-react/utils" "^0.1.5"
+    emotion "^10.0.27"
+    react "^16.12.0"
+
+"@ltht-react/appointment-summary@^0.1.16":
+  version "0.1.16"
+  resolved "https://registry.yarnpkg.com/@ltht-react/appointment-summary/-/appointment-summary-0.1.16.tgz#66e7639f5c5d74729e8c067c09c28931fa0c6ada"
+  integrity sha512-KSjx5YXBCL49jVZ1f6D+aQHyzn8b67+hD3fVgivGQ4MtxrzCYDT7awvpSSOEh9SlW3fc0y86Axk/RiCb706czQ==
+  dependencies:
+    "@emotion/core" "^10.0.27"
+    "@emotion/styled" "^10.0.27"
+    "@ltht-react/list" "^0.1.11"
+    "@ltht-react/styles" "^0.1.5"
+    "@ltht-react/summary" "^0.0.9"
+    "@ltht-react/types" "^0.0.12"
+    "@ltht-react/utils" "^0.1.5"
+    emotion "^10.0.27"
+    react "^16.12.0"
+
+"@ltht-react/banner@^0.0.3":
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/@ltht-react/banner/-/banner-0.0.3.tgz#f15632a168c5e5ac0d7d7a533386d3d5e29fd9e0"
+  integrity sha512-RRx8sx8zJ4F090aOeihKML5uwDhctrDSUwS9+CjONeihT9CXzd1q/JtfHGXnWpYRmjItDZeR9T5Pegc4KoXxgQ==
+  dependencies:
+    "@emotion/core" "^10.0.27"
+    "@emotion/styled" "^10.0.27"
+    "@ltht-react/styles" "^0.1.5"
+    "@ltht-react/types" "^0.0.12"
+    "@ltht-react/utils" "^0.1.5"
+    emotion "^10.0.27"
+    react "^16.12.0"
+
+"@ltht-react/button@^0.0.5":
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/@ltht-react/button/-/button-0.0.5.tgz#d7523e3a5496f75a861ccea5e1fc53329209a25d"
+  integrity sha512-juYT3e8qI5FWVfuQn8awYXkmRiRHZ/tBVzGHfq8dq/5cmxUGY79Z3B6vlp45NUAoKy9p6pKptwB9FbnbKISiSQ==
+  dependencies:
+    "@emotion/core" "^10.0.27"
+    "@emotion/styled" "^10.0.27"
+    "@ltht-react/styles" "^0.1.5"
+    "@ltht-react/types" "^0.0.9"
+    "@ltht-react/utils" "^0.1.5"
+    emotion "^10.0.27"
+    react "^16.12.0"
+
+"@ltht-react/card@^0.1.19":
+  version "0.1.19"
+  resolved "https://registry.yarnpkg.com/@ltht-react/card/-/card-0.1.19.tgz#24b2b08ccb5e202f84280e30775da0b26af18a1e"
+  integrity sha512-qG/ILCAYjlAgzM0qUM4SBbefoChidPTvIRZH2VTQ6X/tm58TAFLQ9zHE4j0PMAEiimA/xLbJ+h2YZU8tJr9n/Q==
+  dependencies:
+    "@emotion/core" "^10.0.27"
+    "@emotion/styled" "^10.0.27"
+    "@ltht-react/icon" "^0.1.13"
+    "@ltht-react/styles" "^0.1.5"
+    "@ltht-react/types" "^0.0.12"
+    "@ltht-react/utils" "^0.1.5"
+    emotion "^10.0.27"
+    react "^16.12.0"
+
+"@ltht-react/care-plan-detail@^0.1.11":
+  version "0.1.11"
+  resolved "https://registry.yarnpkg.com/@ltht-react/care-plan-detail/-/care-plan-detail-0.1.11.tgz#dc750db6bf1268c9d0cdbfbfce744b2798f086b5"
+  integrity sha512-9zGvHeALfUdEbcfIu3W7DA5M2Gk14Brgkpf/S/dRJc5kq1qqKsJdolbNW/HebWvfIhAHkUXib4H39D3AJmm6lw==
+  dependencies:
+    "@emotion/core" "^10.0.27"
+    "@emotion/styled" "^10.0.27"
+    "@ltht-react/description-list" "^0.1.10"
+    "@ltht-react/detail" "^0.1.11"
+    "@ltht-react/styles" "^0.1.5"
+    "@ltht-react/types" "^0.0.12"
+    "@ltht-react/utils" "^0.1.5"
+    emotion "^10.0.27"
+    react "^16.12.0"
+
+"@ltht-react/care-plan-summary@^0.1.15":
+  version "0.1.15"
+  resolved "https://registry.yarnpkg.com/@ltht-react/care-plan-summary/-/care-plan-summary-0.1.15.tgz#bb67531bee9ac045867751a02f9af32d1bca8c3a"
+  integrity sha512-+V5PUUuBsUgQa0AcBJF04G4k2jARKayPMR7t51sJMi7f0XPAZKRv6wLHabzYg4mFaabaxIBigveqRR/FLl+LXA==
+  dependencies:
+    "@emotion/core" "^10.0.27"
+    "@emotion/styled" "^10.0.27"
+    "@ltht-react/list" "^0.1.11"
+    "@ltht-react/styles" "^0.1.5"
+    "@ltht-react/summary" "^0.0.9"
+    "@ltht-react/types" "^0.0.12"
+    "@ltht-react/utils" "^0.1.5"
+    emotion "^10.0.27"
+    react "^16.12.0"
+
+"@ltht-react/community-treatment-order-detail@^0.1.11":
+  version "0.1.11"
+  resolved "https://registry.yarnpkg.com/@ltht-react/community-treatment-order-detail/-/community-treatment-order-detail-0.1.11.tgz#613d14cb9e09e069c4f93d40607aa2124a5dceb9"
+  integrity sha512-uwYdBugHszjx3qS+/KyY8SgkG2hlJxzx96sOZkSim4Kn/MG3GPuJOs8i1Pof2hqZe4NNVSNHteQKofE0UXvCCA==
+  dependencies:
+    "@emotion/core" "^10.0.27"
+    "@emotion/styled" "^10.0.27"
+    "@ltht-react/detail" "^0.1.11"
+    "@ltht-react/styles" "^0.1.5"
+    "@ltht-react/types" "^0.0.12"
+    "@ltht-react/utils" "^0.1.5"
+    emotion "^10.0.27"
+    react "^16.12.0"
+
+"@ltht-react/community-treatment-order-summary@^0.1.15":
+  version "0.1.15"
+  resolved "https://registry.yarnpkg.com/@ltht-react/community-treatment-order-summary/-/community-treatment-order-summary-0.1.15.tgz#747ac747e1393decc645b1ae42ce29b40bcaac9d"
+  integrity sha512-7jq9NVqyHKsKQEiJzuOY7g1zLmqYzF06xL8avhOZTn44PIwoDCv+vtsOFL5oqbOB42idOjTIxWRYX5/hIWiXYw==
+  dependencies:
+    "@emotion/core" "^10.0.27"
+    "@emotion/styled" "^10.0.27"
+    "@ltht-react/list" "^0.1.11"
+    "@ltht-react/styles" "^0.1.5"
+    "@ltht-react/summary" "^0.0.9"
+    "@ltht-react/types" "^0.0.12"
+    "@ltht-react/utils" "^0.1.5"
+    emotion "^10.0.27"
+    react "^16.12.0"
+
+"@ltht-react/condition-detail@^0.0.9":
+  version "0.0.9"
+  resolved "https://registry.yarnpkg.com/@ltht-react/condition-detail/-/condition-detail-0.0.9.tgz#34ced4d1693f5acab32ce7e57fd0ae57bfd67b75"
+  integrity sha512-MHIwjzX89zNw8xpQ0DbvtFPYFRZdEE4ftlvHOjE5Qj80KnNyjSsC1IZXhwQVzhX1eJFazPHeKcluFLGGjmA1xQ==
+  dependencies:
+    "@emotion/core" "^10.0.27"
+    "@emotion/styled" "^10.0.27"
+    "@ltht-react/styles" "^0.1.5"
+    "@ltht-react/types" "^0.0.12"
+    "@ltht-react/utils" "^0.1.5"
+    emotion "^10.0.27"
+    react "^16.12.0"
+
+"@ltht-react/condition-summary@^0.0.16":
+  version "0.0.16"
+  resolved "https://registry.yarnpkg.com/@ltht-react/condition-summary/-/condition-summary-0.0.16.tgz#ec785a074344df0ba28c072720bba0b80b06b7c7"
+  integrity sha512-a5PDP59YqrH0+3P82675es+22QT7rU9PTUrLCtMKUdp+dsNezJdIZlOAtdS0TS8Gz0xEbOwDKJXOLXdrnFZytg==
+  dependencies:
+    "@emotion/core" "^10.0.27"
+    "@emotion/styled" "^10.0.27"
+    "@ltht-react/list" "^0.1.11"
+    "@ltht-react/styles" "^0.1.5"
+    "@ltht-react/summary" "^0.0.9"
+    "@ltht-react/types" "^0.0.12"
+    "@ltht-react/utils" "^0.1.5"
+    emotion "^10.0.27"
+    react "^16.12.0"
+
+"@ltht-react/description-list@^0.1.10":
+  version "0.1.10"
+  resolved "https://registry.yarnpkg.com/@ltht-react/description-list/-/description-list-0.1.10.tgz#f4006c0e6c8425dda2060a29cd5b709b6f43a69d"
+  integrity sha512-vjlF/x+JOTbxj5dA9/yWrGrZnSiZLRtb7msOJ02uLUGRgeBzCG3bt78NG5XOSgux5izUFEUXcTO6blDUJkedfg==
+  dependencies:
+    "@emotion/core" "^10.0.27"
+    "@emotion/styled" "^10.0.27"
+    "@ltht-react/styles" "^0.1.5"
+    "@ltht-react/types" "^0.0.12"
+    "@ltht-react/utils" "^0.1.5"
+    emotion "^10.0.27"
+    react "^16.12.0"
+
+"@ltht-react/detail@^0.1.11":
+  version "0.1.11"
+  resolved "https://registry.yarnpkg.com/@ltht-react/detail/-/detail-0.1.11.tgz#168944094cbcb0a9d48068c159242a0044f3978d"
+  integrity sha512-6n0rEvVfOOARMjurbwg0xvIuqYEeChkOm3Hogh7Qy6BVU+65TGOCpY76w4wOGJvfPTOz7ACakmCTME1vlSJghw==
+  dependencies:
+    "@emotion/core" "^10.0.27"
+    "@emotion/styled" "^10.0.27"
+    "@ltht-react/description-list" "^0.1.10"
+    "@ltht-react/list" "^0.1.11"
+    "@ltht-react/styles" "^0.1.5"
+    "@ltht-react/types" "^0.0.12"
+    "@ltht-react/utils" "^0.1.5"
+    emotion "^10.0.27"
+    react "^16.12.0"
+
+"@ltht-react/document-summary@^0.0.15":
+  version "0.0.15"
+  resolved "https://registry.yarnpkg.com/@ltht-react/document-summary/-/document-summary-0.0.15.tgz#6c0d9293b6dc517c7d5704127280d10581ecb89f"
+  integrity sha512-nBWZs6TdDBTyI88TAGdpMHtga7w1si1Tey7OaWU73rJpkn0yKoIJqfCNLWpwq34NIDf0fARsups6rNWOTMnLVA==
+  dependencies:
+    "@emotion/core" "^10.0.27"
+    "@emotion/styled" "^10.0.27"
+    "@ltht-react/icon" "^0.1.13"
+    "@ltht-react/list" "^0.1.11"
+    "@ltht-react/styles" "^0.1.5"
+    "@ltht-react/summary" "^0.0.9"
+    "@ltht-react/types" "^0.0.12"
+    "@ltht-react/utils" "^0.1.5"
+    emotion "^10.0.27"
+    react "^16.12.0"
+
+"@ltht-react/flag-detail@^0.1.11":
+  version "0.1.11"
+  resolved "https://registry.yarnpkg.com/@ltht-react/flag-detail/-/flag-detail-0.1.11.tgz#b85c9091ded266488f4669909930db2cd617da3b"
+  integrity sha512-hO572w4uSCmUk1jICbqX8kkxrPHmaQASEMgZPZWiioPJoMDqgBnAzBVLvAx/TZ3NkcrwkUauSQBczo/K9cH6mg==
+  dependencies:
+    "@emotion/core" "^10.0.27"
+    "@emotion/styled" "^10.0.27"
+    "@ltht-react/detail" "^0.1.11"
+    "@ltht-react/styles" "^0.1.5"
+    "@ltht-react/types" "^0.0.12"
+    "@ltht-react/utils" "^0.1.5"
+    emotion "^10.0.27"
+    react "^16.12.0"
+
+"@ltht-react/flag-summary@^0.1.16":
+  version "0.1.16"
+  resolved "https://registry.yarnpkg.com/@ltht-react/flag-summary/-/flag-summary-0.1.16.tgz#aa195a65b2df16b9fd23c4dc2fba5fc5c70f83c9"
+  integrity sha512-0OFfz+fZ7ZurELzekdTXLU20k5N+V5yNTdJ5s+/opfHZpOdm7ag8KZCooT0bm7MduVGm60jLgnfm6cpZsDM6Gg==
+  dependencies:
+    "@emotion/core" "^10.0.27"
+    "@emotion/styled" "^10.0.27"
+    "@ltht-react/icon" "^0.1.13"
+    "@ltht-react/list" "^0.1.11"
+    "@ltht-react/styles" "^0.1.5"
+    "@ltht-react/summary" "^0.0.9"
+    "@ltht-react/types" "^0.0.12"
+    "@ltht-react/utils" "^0.1.5"
+    emotion "^10.0.27"
+    react "^16.12.0"
+
+"@ltht-react/form@^0.0.5":
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/@ltht-react/form/-/form-0.0.5.tgz#4adf629b493b062d4480d03edf7ba79ff78d2e69"
+  integrity sha512-MAnRQ5gUGEqdznXnaaiJ6ZKxc3Qc8OH9Jf6oEWKpZxo/VD2lHiFjywCt1+EdOTxDY3PHSfaUH3uoeQhE3WxSmQ==
+  dependencies:
+    "@emotion/core" "^10.0.27"
+    "@emotion/styled" "^10.0.27"
+    "@ltht-react/styles" "^0.1.5"
+    "@ltht-react/types" "^0.0.9"
+    "@ltht-react/utils" "^0.1.5"
+    emotion "^10.0.27"
+    react "^16.12.0"
+
+"@ltht-react/guidance-summary@^0.0.13":
+  version "0.0.13"
+  resolved "https://registry.yarnpkg.com/@ltht-react/guidance-summary/-/guidance-summary-0.0.13.tgz#868b60ba711291c45aebf025d61f6ceb75710c4e"
+  integrity sha512-GJko72pvv5CbtYs/57Uxx1I7ensYCfiOAMlXvOAphChAAQdeoVNVCyRtXEz52Oe+SHy9li8KVSrELjgJr+WRAg==
+  dependencies:
+    "@emotion/core" "^10.0.27"
+    "@emotion/styled" "^10.0.27"
+    "@ltht-react/list" "^0.1.11"
+    "@ltht-react/styles" "^0.1.5"
+    "@ltht-react/summary" "^0.0.9"
+    "@ltht-react/types" "^0.0.12"
+    "@ltht-react/utils" "^0.1.5"
+    emotion "^10.0.27"
+    react "^16.12.0"
+
+"@ltht-react/header@^0.1.9":
+  version "0.1.9"
+  resolved "https://registry.yarnpkg.com/@ltht-react/header/-/header-0.1.9.tgz#51d79893f9a293e82d67a0f17b1bceeddca11b86"
+  integrity sha512-GglN3TWNbeW/uMXHGgkqAs5fs6Li/P7fYkbuTyBsbrzkjPH+toFY/feCEfcyEv+eX/vV23ijdB2mC727Sd7XYw==
+  dependencies:
+    "@emotion/core" "^10.0.27"
+    "@emotion/styled" "^10.0.27"
+    "@ltht-react/styles" "^0.1.5"
+    "@ltht-react/types" "^0.0.12"
+    "@ltht-react/utils" "^0.1.5"
+    emotion "^10.0.27"
+    react "^16.12.0"
+
+"@ltht-react/hospital-stay-detail@^0.0.11":
+  version "0.0.11"
+  resolved "https://registry.yarnpkg.com/@ltht-react/hospital-stay-detail/-/hospital-stay-detail-0.0.11.tgz#9a439739beda631ef329d6cb9e6f3426ad7d9540"
+  integrity sha512-y4kRAdm0pMyQYh9gr8L5wE0c0GmYFEdXqVmaxN1mzmK4IvFmZSvJOiaLRcDjShNum3pYOPeunIWfIRGJCr+xZg==
+  dependencies:
+    "@emotion/core" "^10.0.27"
+    "@emotion/styled" "^10.0.27"
+    "@ltht-react/description-list" "^0.1.10"
+    "@ltht-react/detail" "^0.1.11"
+    "@ltht-react/styles" "^0.1.5"
+    "@ltht-react/types" "^0.0.12"
+    "@ltht-react/utils" "^0.1.5"
+    emotion "^10.0.27"
+    react "^16.12.0"
+
+"@ltht-react/hospital-stay-summary@^0.1.16":
+  version "0.1.16"
+  resolved "https://registry.yarnpkg.com/@ltht-react/hospital-stay-summary/-/hospital-stay-summary-0.1.16.tgz#9e1a6a8243339b0dac6c0fe8ce9451e26cac91c1"
+  integrity sha512-heQ2ExxSQol8HNK1MRnoFNqRsY4kaq/KDKkXwQwFGbMoIYVHOdrwqsL94aEdx8EYd2CJyh1+Y47CNncTWqCVug==
+  dependencies:
+    "@emotion/core" "^10.0.27"
+    "@emotion/styled" "^10.0.27"
+    "@ltht-react/list" "^0.1.11"
+    "@ltht-react/styles" "^0.1.5"
+    "@ltht-react/summary" "^0.0.9"
+    "@ltht-react/types" "^0.0.12"
+    "@ltht-react/utils" "^0.1.5"
+    emotion "^10.0.27"
+    react "^16.12.0"
+
+"@ltht-react/icon@^0.1.13":
+  version "0.1.13"
+  resolved "https://registry.yarnpkg.com/@ltht-react/icon/-/icon-0.1.13.tgz#dd1a5769b9502fb097f1effdb7ae6b169b7cd1ae"
+  integrity sha512-Ro0wduyAfPbn83H20sxZ3LLFSkh79mAzxE7JZpQKl4mIOCrsIrSGZbAUcycPI3Q+lp3z+LRKe4riMfznHwqVpg==
+  dependencies:
+    "@emotion/core" "^10.0.27"
+    "@emotion/styled" "^10.0.27"
+    "@fortawesome/fontawesome-svg-core" "^1.2.26"
+    "@fortawesome/free-solid-svg-icons" "^5.12.0"
+    "@fortawesome/react-fontawesome" "^0.1.8"
+    "@ltht-react/styles" "^0.1.5"
+    "@ltht-react/types" "^0.0.12"
+    "@ltht-react/utils" "^0.1.5"
+    emotion "^10.0.27"
+    react "^16.12.0"
+
+"@ltht-react/input@^0.0.5":
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/@ltht-react/input/-/input-0.0.5.tgz#9a43f10d3ba71b87953926ae2e1313894435808c"
+  integrity sha512-zHXate9jA088lon3rM+IsUfgGo+r4fIAac1AmDb9ORxCem7CClAYX079Fpmw2MA93SbgOuE/dSOKtVTX36v9dg==
+  dependencies:
+    "@emotion/core" "^10.0.27"
+    "@emotion/styled" "^10.0.27"
+    "@ltht-react/styles" "^0.1.5"
+    "@ltht-react/types" "^0.0.12"
+    "@ltht-react/utils" "^0.1.5"
+    emotion "^10.0.27"
+    react "^16.12.0"
+
+"@ltht-react/involved-team-detail@^0.0.9":
+  version "0.0.9"
+  resolved "https://registry.yarnpkg.com/@ltht-react/involved-team-detail/-/involved-team-detail-0.0.9.tgz#52d4c2479437ed7760059d603699616374a69abb"
+  integrity sha512-YgrdTdTODoGhNcAgL1jROpqwmFPlpPfYhjMUnTaUIvEMhUYTF0GY4oWuDTTmR1xkh4shygc2J4Ln1Bjg+9IWEw==
+  dependencies:
+    "@emotion/core" "^10.0.27"
+    "@emotion/styled" "^10.0.27"
+    "@ltht-react/styles" "^0.1.5"
+    "@ltht-react/types" "^0.0.12"
+    "@ltht-react/utils" "^0.1.5"
+    emotion "^10.0.27"
+    react "^16.12.0"
+
+"@ltht-react/involved-team-summary@^0.1.15":
+  version "0.1.15"
+  resolved "https://registry.yarnpkg.com/@ltht-react/involved-team-summary/-/involved-team-summary-0.1.15.tgz#adf394e69129be62002f2a6b4fc0116d0fe468e2"
+  integrity sha512-7YdaidLjv67qOmI+Zk1mIant5Vm/pmqntw8HFwJtFpd8YtXYii1u5avfoHJgvd2hW+xry9BOd0UV1JC9cs+9rQ==
+  dependencies:
+    "@emotion/core" "^10.0.27"
+    "@emotion/styled" "^10.0.27"
+    "@ltht-react/list" "^0.1.11"
+    "@ltht-react/styles" "^0.1.5"
+    "@ltht-react/summary" "^0.0.9"
+    "@ltht-react/types" "^0.0.12"
+    "@ltht-react/utils" "^0.1.5"
+    emotion "^10.0.27"
+    react "^16.12.0"
+
+"@ltht-react/list@^0.1.11":
+  version "0.1.11"
+  resolved "https://registry.yarnpkg.com/@ltht-react/list/-/list-0.1.11.tgz#4e68605b45a4453bbd00d1ba9ce19564e431969a"
+  integrity sha512-usWN1za9voz9YewB2yBrH7UBjyz/2RjdTYsCWkXCq4Bb/jlFvHjIedbutt/SPtVvecc+3yWgVgpfNZwbzsse2A==
+  dependencies:
+    "@emotion/core" "^10.0.27"
+    "@emotion/styled" "^10.0.27"
+    "@ltht-react/styles" "^0.1.5"
+    "@ltht-react/types" "^0.0.12"
+    "@ltht-react/utils" "^0.1.5"
+    emotion "^10.0.27"
+    react "^16.12.0"
+
+"@ltht-react/medication-summary@^0.0.11":
+  version "0.0.11"
+  resolved "https://registry.yarnpkg.com/@ltht-react/medication-summary/-/medication-summary-0.0.11.tgz#fcdf8f8f7e483f022be6d555083b31b3934c6745"
+  integrity sha512-dgRqwbWJMMJ0lQCay3kY+pUsZYlSNVAWeD9BitCJQgx86j1UEZaXZ4iBiDHiJQSr1fFCW2+541/ekGDa6kp4nw==
+  dependencies:
+    "@emotion/core" "^10.0.27"
+    "@emotion/styled" "^10.0.27"
+    "@ltht-react/description-list" "^0.1.10"
+    "@ltht-react/styles" "^0.1.5"
+    "@ltht-react/types" "^0.0.12"
+    "@ltht-react/utils" "^0.1.5"
+    emotion "^10.0.27"
+    react "^16.12.0"
+
+"@ltht-react/observation-detail@^0.0.9":
+  version "0.0.9"
+  resolved "https://registry.yarnpkg.com/@ltht-react/observation-detail/-/observation-detail-0.0.9.tgz#dec9982c3c03d599cf72ffded56f520ece1e9fbd"
+  integrity sha512-kVKK8cJdszCfyLLWgDjOr4aI0cPClwlRN6SEj87s1NKQQYGYUhqP+6a0fGivXYvGJzZo3Bm1XmzxTFhFQWRR7g==
+  dependencies:
+    "@emotion/core" "^10.0.27"
+    "@emotion/styled" "^10.0.27"
+    "@ltht-react/styles" "^0.1.5"
+    "@ltht-react/types" "^0.0.12"
+    "@ltht-react/utils" "^0.1.5"
+    emotion "^10.0.27"
+    react "^16.12.0"
+
+"@ltht-react/observation-summary@^0.0.15":
+  version "0.0.15"
+  resolved "https://registry.yarnpkg.com/@ltht-react/observation-summary/-/observation-summary-0.0.15.tgz#c460e39600f087f1127dc2617d7a3575dcbd51a0"
+  integrity sha512-V4XwpFhPi5JEVENtKLkFQi+2MXdoQ23PphZfx0GVgPzaBInFcIgkGSZBcrABKvJZlVRfzn8cuxcYFe7U3JoQ4Q==
+  dependencies:
+    "@emotion/core" "^10.0.27"
+    "@emotion/styled" "^10.0.27"
+    "@ltht-react/list" "^0.1.11"
+    "@ltht-react/styles" "^0.1.5"
+    "@ltht-react/summary" "^0.0.9"
+    "@ltht-react/types" "^0.0.12"
+    "@ltht-react/utils" "^0.1.5"
+    emotion "^10.0.27"
+    react "^16.12.0"
+
+"@ltht-react/select@^0.0.5":
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/@ltht-react/select/-/select-0.0.5.tgz#2a16ae3cbcf0fd28e698973c336605d6777c2b9b"
+  integrity sha512-gTIGJn+j/uGStBuwimcWtiEuSOoNkT1jzxdC/oGHKlSu02DCPWvVlAE5dzqxgHPn10sw2rCBiEQKfgCaBTkutw==
+  dependencies:
+    "@emotion/core" "^10.0.27"
+    "@emotion/styled" "^10.0.27"
+    "@ltht-react/styles" "^0.1.5"
+    "@ltht-react/types" "^0.0.9"
+    "@ltht-react/utils" "^0.1.5"
+    emotion "^10.0.27"
+    react "^16.12.0"
+
+"@ltht-react/summary@^0.0.9":
+  version "0.0.9"
+  resolved "https://registry.yarnpkg.com/@ltht-react/summary/-/summary-0.0.9.tgz#0e6596df40fe64e684f5c68571a2eeb4b082b872"
+  integrity sha512-o7xLVmxhW9n/Vq1OQq/hsfUQX3TETdAM1yFt880dH/KNJpQDQnL0r9ELhLF3ZoywKneM/wyZwxUfRQ9DXLxNdg==
+  dependencies:
+    "@emotion/core" "^10.0.27"
+    "@emotion/styled" "^10.0.27"
+    "@ltht-react/banner" "^0.0.3"
+    "@ltht-react/icon" "^0.1.13"
+    "@ltht-react/list" "^0.1.11"
+    "@ltht-react/styles" "^0.1.5"
+    "@ltht-react/types" "^0.0.12"
+    "@ltht-react/utils" "^0.1.5"
+    emotion "^10.0.27"
+    react "^16.12.0"
+
 "@ltht-react/types@^0.0.9":
   version "0.0.9"
   resolved "https://registry.yarnpkg.com/@ltht-react/types/-/types-0.0.9.tgz#0303cbcba74fc42fec0a10e62e22740deb4cd678"
@@ -16642,9 +17113,9 @@ websocket-driver@>=0.5.1:
     websocket-extensions ">=0.1.1"
 
 websocket-extensions@>=0.1.1:
-  version "0.1.3"
-  resolved "https://registry.yarnpkg.com/websocket-extensions/-/websocket-extensions-0.1.3.tgz#5d2ff22977003ec687a4b87073dfbbac146ccf29"
-  integrity sha512-nqHUnMXmBzT0w570r2JpJxfiSD1IzoI+HGVdd3aZ0yNi3ngvQ4jv1dtHt5VGxfI2yj5yqImPhOK4vmIh2xMbGg==
+  version "0.1.4"
+  resolved "https://registry.yarnpkg.com/websocket-extensions/-/websocket-extensions-0.1.4.tgz#7f8473bc839dfd87608adb95d7eb075211578a42"
+  integrity sha512-OqedPIGOfsDlo31UNwYbCFMSaO9m9G/0faIHj5/dZFDMFqPTcx6UwqyOy3COEaEOg/9VsGIpdqn62W5KhoKSpg==
 
 whatwg-encoding@^1.0.1, whatwg-encoding@^1.0.3, whatwg-encoding@^1.0.5:
   version "1.0.5"
