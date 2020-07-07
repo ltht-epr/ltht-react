@@ -74,6 +74,7 @@
     "@ltht-react/medication-summary": "^0.0.11",
     "@ltht-react/observation-detail": "^0.0.9",
     "@ltht-react/observation-summary": "^0.0.15",
+    "@ltht-react/patient-banner": "^0.0.0",
     "@ltht-react/select": "^0.0.5",
     "@ltht-react/styles": "^0.1.5",
     "@ltht-react/summary": "^0.0.9",

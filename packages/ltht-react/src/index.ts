@@ -17,6 +17,7 @@ export { default as InvolvedTeamSummary } from '@ltht-react/involved-team-summar
 export { default as MedicationSummary } from '@ltht-react/medication-summary'
 export { default as ObservationDetail } from '@ltht-react/observation-detail'
 export { default as ObservationSummary } from '@ltht-react/observation-summary'
+export { default as PatientBanner } from '@ltht-react/patient-banner'
 export * from '@ltht-react/card'
 export * from '@ltht-react/button'
 export * from '@ltht-react/description-list'

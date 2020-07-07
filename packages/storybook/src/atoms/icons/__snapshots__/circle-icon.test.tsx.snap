@@ -1,0 +1,160 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CircleIcon matches snapshot: wrapper mount 1`] = `
+.emotion-0 {
+  color: #768692;
+}
+
+.emotion-2 {
+  color: #009639;
+}
+
+<Icons>
+  <TableIcon
+    size="small"
+    status="default"
+  >
+    <FontAwesomeIcon
+      border={false}
+      className="emotion-0"
+      fixedWidth={false}
+      flip={null}
+      icon={
+        Object {
+          "icon": Array [
+            512,
+            512,
+            Array [],
+            "f111",
+            "M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z",
+          ],
+          "iconName": "circle",
+          "prefix": "fas",
+        }
+      }
+      inverse={false}
+      listItem={false}
+      mask={null}
+      pull={null}
+      pulse={false}
+      rotation={null}
+      size="xs"
+      spin={false}
+      swapOpacity={false}
+      symbol={false}
+      title=""
+      transform={
+        Object {
+          "rotate": 180,
+        }
+      }
+    >
+      <svg
+        aria-hidden="true"
+        className="svg-inline--fa fa-circle fa-w-16 fa-xs emotion-0"
+        data-icon="circle"
+        data-prefix="fas"
+        focusable="false"
+        role="img"
+        style={
+          Object {
+            "transformOrigin": "0.5em 0.5em",
+          }
+        }
+        viewBox="0 0 512 512"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <g
+          style={Object {}}
+          transform="translate(256 256)"
+        >
+          <g
+            style={Object {}}
+            transform="translate(0, 0)  scale(1, 1)  rotate(180 0 0)"
+          >
+            <path
+              d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+              fill="currentColor"
+              style={Object {}}
+              transform="translate(-256 -256)"
+            />
+          </g>
+        </g>
+      </svg>
+    </FontAwesomeIcon>
+  </TableIcon>
+  <TableIcon
+    size="small"
+    status="green"
+  >
+    <FontAwesomeIcon
+      border={false}
+      className="emotion-2"
+      fixedWidth={false}
+      flip={null}
+      icon={
+        Object {
+          "icon": Array [
+            512,
+            512,
+            Array [],
+            "f111",
+            "M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z",
+          ],
+          "iconName": "circle",
+          "prefix": "fas",
+        }
+      }
+      inverse={false}
+      listItem={false}
+      mask={null}
+      pull={null}
+      pulse={false}
+      rotation={null}
+      size="xs"
+      spin={false}
+      swapOpacity={false}
+      symbol={false}
+      title=""
+      transform={
+        Object {
+          "rotate": 180,
+        }
+      }
+    >
+      <svg
+        aria-hidden="true"
+        className="svg-inline--fa fa-circle fa-w-16 fa-xs emotion-2"
+        data-icon="circle"
+        data-prefix="fas"
+        focusable="false"
+        role="img"
+        style={
+          Object {
+            "transformOrigin": "0.5em 0.5em",
+          }
+        }
+        viewBox="0 0 512 512"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <g
+          style={Object {}}
+          transform="translate(256 256)"
+        >
+          <g
+            style={Object {}}
+            transform="translate(0, 0)  scale(1, 1)  rotate(180 0 0)"
+          >
+            <path
+              d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+              fill="currentColor"
+              style={Object {}}
+              transform="translate(-256 -256)"
+            />
+          </g>
+        </g>
+      </svg>
+    </FontAwesomeIcon>
+  </TableIcon>
+</Icons>
+`;
