@@ -10,14 +10,7 @@ const TableIcon: React.FC<IconProps> = ({ status, size }) => {
     ${status === 'green' && `color: ${ICON_COLOURS.SUCCESS.VALUE};`}
     ${status === 'default' && `color: ${ICON_COLOURS.DEFAULT.VALUE};`}
   `
-  //return <FontAwesomeIcon css={styles} icon={faCircle} size={calculateIconSize(size)} transform={{ rotate: 180 }} border= />
-
-  return (
-    <span className="fa-stack">
-      <FontAwesomeIcon icon={faCircle} color="white" size={calculateIconSize(size)} />
-      <FontAwesomeIcon icon={faCircle} css={styles} size={calculateIconSize('small')} />
-    </span>
-  )
+  return <FontAwesomeIcon css={styles} icon={faCircle} size={calculateIconSize(size)} transform={{ rotate: 180 }} />
 }
 
 type IconProps = {

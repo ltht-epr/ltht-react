@@ -174,7 +174,7 @@ stories.addWithJSX('Banner', () => {
       <div css={[base(false, false), additional(false)]}>
         <div css={otherInfo}>
           <span>Address</span>
-          <span>St James's Hospital, Beckett Street, Leeds</span>
+          <span>St James Hospital, Beckett Street, Leeds</span>
         </div>
         <div css={otherInfo}>
           <span>PAS No.</span>
@@ -230,7 +230,7 @@ stories.addWithJSX('Banner:Deceased', () => {
       <div css={[base(false, true), additional(true)]}>
         <div css={otherInfo}>
           <span>Address</span>
-          <span>St James's Hospital, Beckett Street, Leeds</span>
+          <span>St James Hospital, Beckett Street, Leeds</span>
         </div>
         <div css={otherInfo}>
           <span>PAS No.</span>
