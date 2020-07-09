@@ -1,23 +1,32 @@
+/** @jsx jsx */
 import React from 'react'
-import { css } from '@emotion/core'
-
+import { css, jsx, SerializedStyles } from '@emotion/core'
 import { Patient } from '@ltht-react/types'
-import { partialDateTimeText } from '@ltht-react/utils'
 
-export const styles = css`
-  display: flex;
-  flex-direction: column;
-  margin: 0.5rem;
-`
+import PrimaryInformation from './molecules/primary-info'
+import SecondaryInformation from './molecules/secondary-info'
+
+const styles = (deceased: boolean): SerializedStyles => {
+  return css`
+    font-family: 'Arial';
+    border: ${deceased ? '0.1rem dashed #f5f7f8' : '0.1rem solid #56008c'};
+
+    & > div {
+      background-color: ${deceased ? '#231f20' : '#56008c'};
+    }
+  `
+}
+
 const PatientBanner: React.FC<Props> = ({ patient }) => {
+  const deceased = patient.deceased?.deceasedBoolean ?? false
+
   return (
-    <>
-      <div css={styles}>
-        <div>{patient?.name}</div>
-        <div>{patient?.gender}</div>
-        <div>{partialDateTimeText(patient?.birthDate)}</div>
+    <div css={styles(deceased)}>
+      <div>
+        <PrimaryInformation patient={patient} />
+        <SecondaryInformation patient={patient} />
       </div>
-    </>
+    </div>
   )
 }
 

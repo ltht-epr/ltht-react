@@ -4,9 +4,11 @@ import { css, jsx, SerializedStyles } from '@emotion/core'
 import { storiesOf } from '@storybook/react'
 import { ChevronCircleIcon } from '@ltht-react/icon'
 import JSXAddon from 'storybook-addon-jsx'
+import PatientBanner from '@ltht-react/patient-banner'
 
 import readme from '@ltht-react/patient-banner/README.md'
 import { TABLET_MEDIA_QUERY } from '@ltht-react/styles'
+import { DeceasedPatient } from './banner.fixtures'
 
 const verified = css`
   height: 0.6rem;
@@ -240,3 +242,5 @@ stories.addWithJSX('Banner:Deceased', () => {
     </div>
   )
 })
+
+stories.addWithJSX('WIP:Banner:Deceased', () => <PatientBanner patient={DeceasedPatient} />)

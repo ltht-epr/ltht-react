@@ -2,6 +2,7 @@
 import React from 'react'
 import { css, jsx } from '@emotion/core'
 import { Patient } from '@ltht-react/types'
+import { formatPatientAddress } from '@ltht-react/utils'
 
 const styles = css`
   span:first-of-type {
@@ -13,17 +14,17 @@ const styles = css`
     color: #333333;
     font-weight: bold;
     font-size: 0.8125rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
     margin-left: 0.5rem;
   }
 `
 
-const PasNumber: React.FC<Props> = ({ patient }) => {
-  const pasNo = patient.identifier?.find(x => x?.system === 'https://leedsth.nhs.uk/Id/pas-number')?.value
-
+const Address: React.FC<Props> = ({ patient }) => {
   return (
     <div css={styles}>
-      <span>Pas No.</span>
-      <span>{pasNo}</span>
+      <span>Address</span>
+      <span>{formatPatientAddress(patient)}</span>
     </div>
   )
 }
@@ -32,4 +33,4 @@ interface Props {
   patient: Patient
 }
 
-export default PasNumber
+export default Address

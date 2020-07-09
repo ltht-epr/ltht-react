@@ -1,0 +1,916 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PatientBanner matches snapshot: wrapper mount 1`] = `
+.emotion-10 {
+  font-family: 'Arial';
+  background-color: #231f20;
+  border: 0.1rem dashed #f5f7f8;
+}
+
+.emotion-9 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  background-color: inherit;
+  padding: 0.25rem;
+}
+
+@media only screen and (min-width:768px) {
+  .emotion-9 {
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+  }
+
+  .emotion-9 div:first-of-type {
+    margin-right: auto;
+    border-bottom: none;
+  }
+}
+
+.emotion-0 {
+  color: #fff;
+  font-weight: bold;
+  font-size: 0.875rem;
+}
+
+.emotion-3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.emotion-1 span:first-of-type {
+  color: #ccc;
+  font-weight: normal;
+  font-size: 0.75rem;
+}
+
+.emotion-1 span:last-of-type {
+  color: #fff;
+  font-weight: bold;
+  font-size: 0.875rem;
+}
+
+.emotion-2 span:first-of-type {
+  color: #ccc;
+  font-weight: normal;
+  font-size: 0.75rem;
+}
+
+.emotion-2 span:last-of-type {
+  color: #fff;
+  font-weight: bold;
+  font-size: 0.875rem;
+}
+
+.emotion-4 span:first-of-type {
+  color: #ccc;
+  font-weight: normal;
+  font-size: 0.75rem;
+}
+
+.emotion-4 span:last-of-type {
+  color: #fff;
+  font-weight: bold;
+  font-size: 0.875rem;
+}
+
+.emotion-5 span:first-of-type {
+  color: #ccc;
+  font-weight: normal;
+  font-size: 0.75rem;
+}
+
+.emotion-5 span:last-of-type {
+  color: #fff;
+  font-weight: bold;
+  font-size: 0.875rem;
+}
+
+.emotion-8 span:first-of-type {
+  color: #ccc;
+  font-weight: normal;
+  font-size: 0.75rem;
+}
+
+.emotion-8 span:last-of-type {
+  color: #fff;
+  font-weight: bold;
+  font-size: 0.875rem;
+}
+
+.emotion-7 {
+  height: 0.6rem;
+  width: 0.15rem;
+  border-radius: 50%;
+  display: inline-block;
+  border: 0.15rem solid #fff;
+  margin-left: 0.4rem;
+  margin-bottom: -0.1rem;
+  background-color: #888;
+  background-color: #4cc552 !important;
+}
+
+@media only screen and (min-width:768px) {
+  .emotion-7 {
+    margin-bottom: 0;
+  }
+}
+
+<PatientBanner
+  patient={
+    Object {
+      "active": true,
+      "address": Array [
+        Object {
+          "city": "Leeds",
+          "line": Array [
+            "18 Benson Gardens",
+          ],
+          "period": Object {
+            "start": Object {
+              "kind": "DATE",
+              "value": "2020-04-01T00:00:00+00:00",
+            },
+          },
+          "postalCode": "LS11 8HK",
+          "text": "18 Benson Gardens, Leeds, LS11 8HK",
+          "type": "BOTH",
+          "use": "HOME",
+        },
+      ],
+      "birthDate": Object {
+        "kind": "DATE",
+        "value": "1955-06-30T00:00:00+00:00",
+      },
+      "deceased": Object {
+        "deceasedBoolean": true,
+        "deceasedDateTime": Object {
+          "kind": "DATE",
+          "value": "2020-02-05T00:00:00+00:00",
+        },
+      },
+      "gender": "MALE",
+      "id": "829ca260-67e0-e357-b2c7-115087226fg2|patient",
+      "identifier": Array [
+        Object {
+          "extension": Array [
+            Object {
+              "url": "https://fhir.hl7.org.uk/STU3/StructureDefinition/Extension-CareConnect-NHSNumberVerificationStatus-1",
+              "valueCodeableConcept": Object {
+                "coding": Array [
+                  Object {
+                    "code": "01",
+                    "display": "Number present and verified",
+                    "system": "https://fhir.hl7.org.uk/STU3/ValueSet/CareConnect-NHSNumberVerificationStatus-1",
+                  },
+                ],
+              },
+              "valueString": "test",
+            },
+          ],
+          "system": "https://fhir.nhs.uk/Id/nhs-number",
+          "use": "OFFICIAL",
+          "value": "8967452301",
+        },
+        Object {
+          "system": "https://leedsth.nhs.uk/Id/pas-number",
+          "use": "OFFICIAL",
+          "value": "0056341",
+        },
+      ],
+      "metadata": Object {
+        "dataSources": Array [
+          Object {
+            "display": "Mock Source",
+          },
+        ],
+        "isRedacted": false,
+        "requestedWhen": "",
+      },
+      "name": Array [
+        Object {
+          "family": "Woo",
+          "given": Array [
+            "John",
+          ],
+          "prefix": Array [
+            "Mr",
+          ],
+          "text": "John Woo",
+          "use": "USUAL",
+        },
+      ],
+    }
+  }
+>
+  <div
+    className="emotion-10"
+  >
+    <PatientPrimaryInformation
+      patient={
+        Object {
+          "active": true,
+          "address": Array [
+            Object {
+              "city": "Leeds",
+              "line": Array [
+                "18 Benson Gardens",
+              ],
+              "period": Object {
+                "start": Object {
+                  "kind": "DATE",
+                  "value": "2020-04-01T00:00:00+00:00",
+                },
+              },
+              "postalCode": "LS11 8HK",
+              "text": "18 Benson Gardens, Leeds, LS11 8HK",
+              "type": "BOTH",
+              "use": "HOME",
+            },
+          ],
+          "birthDate": Object {
+            "kind": "DATE",
+            "value": "1955-06-30T00:00:00+00:00",
+          },
+          "deceased": Object {
+            "deceasedBoolean": true,
+            "deceasedDateTime": Object {
+              "kind": "DATE",
+              "value": "2020-02-05T00:00:00+00:00",
+            },
+          },
+          "gender": "MALE",
+          "id": "829ca260-67e0-e357-b2c7-115087226fg2|patient",
+          "identifier": Array [
+            Object {
+              "extension": Array [
+                Object {
+                  "url": "https://fhir.hl7.org.uk/STU3/StructureDefinition/Extension-CareConnect-NHSNumberVerificationStatus-1",
+                  "valueCodeableConcept": Object {
+                    "coding": Array [
+                      Object {
+                        "code": "01",
+                        "display": "Number present and verified",
+                        "system": "https://fhir.hl7.org.uk/STU3/ValueSet/CareConnect-NHSNumberVerificationStatus-1",
+                      },
+                    ],
+                  },
+                  "valueString": "test",
+                },
+              ],
+              "system": "https://fhir.nhs.uk/Id/nhs-number",
+              "use": "OFFICIAL",
+              "value": "8967452301",
+            },
+            Object {
+              "system": "https://leedsth.nhs.uk/Id/pas-number",
+              "use": "OFFICIAL",
+              "value": "0056341",
+            },
+          ],
+          "metadata": Object {
+            "dataSources": Array [
+              Object {
+                "display": "Mock Source",
+              },
+            ],
+            "isRedacted": false,
+            "requestedWhen": "",
+          },
+          "name": Array [
+            Object {
+              "family": "Woo",
+              "given": Array [
+                "John",
+              ],
+              "prefix": Array [
+                "Mr",
+              ],
+              "text": "John Woo",
+              "use": "USUAL",
+            },
+          ],
+        }
+      }
+    >
+      <div
+        className="emotion-9"
+      >
+        <div>
+          <PatientName
+            patient={
+              Object {
+                "active": true,
+                "address": Array [
+                  Object {
+                    "city": "Leeds",
+                    "line": Array [
+                      "18 Benson Gardens",
+                    ],
+                    "period": Object {
+                      "start": Object {
+                        "kind": "DATE",
+                        "value": "2020-04-01T00:00:00+00:00",
+                      },
+                    },
+                    "postalCode": "LS11 8HK",
+                    "text": "18 Benson Gardens, Leeds, LS11 8HK",
+                    "type": "BOTH",
+                    "use": "HOME",
+                  },
+                ],
+                "birthDate": Object {
+                  "kind": "DATE",
+                  "value": "1955-06-30T00:00:00+00:00",
+                },
+                "deceased": Object {
+                  "deceasedBoolean": true,
+                  "deceasedDateTime": Object {
+                    "kind": "DATE",
+                    "value": "2020-02-05T00:00:00+00:00",
+                  },
+                },
+                "gender": "MALE",
+                "id": "829ca260-67e0-e357-b2c7-115087226fg2|patient",
+                "identifier": Array [
+                  Object {
+                    "extension": Array [
+                      Object {
+                        "url": "https://fhir.hl7.org.uk/STU3/StructureDefinition/Extension-CareConnect-NHSNumberVerificationStatus-1",
+                        "valueCodeableConcept": Object {
+                          "coding": Array [
+                            Object {
+                              "code": "01",
+                              "display": "Number present and verified",
+                              "system": "https://fhir.hl7.org.uk/STU3/ValueSet/CareConnect-NHSNumberVerificationStatus-1",
+                            },
+                          ],
+                        },
+                        "valueString": "test",
+                      },
+                    ],
+                    "system": "https://fhir.nhs.uk/Id/nhs-number",
+                    "use": "OFFICIAL",
+                    "value": "8967452301",
+                  },
+                  Object {
+                    "system": "https://leedsth.nhs.uk/Id/pas-number",
+                    "use": "OFFICIAL",
+                    "value": "0056341",
+                  },
+                ],
+                "metadata": Object {
+                  "dataSources": Array [
+                    Object {
+                      "display": "Mock Source",
+                    },
+                  ],
+                  "isRedacted": false,
+                  "requestedWhen": "",
+                },
+                "name": Array [
+                  Object {
+                    "family": "Woo",
+                    "given": Array [
+                      "John",
+                    ],
+                    "prefix": Array [
+                      "Mr",
+                    ],
+                    "text": "John Woo",
+                    "use": "USUAL",
+                  },
+                ],
+              }
+            }
+          >
+            <span
+              className="emotion-0"
+            />
+          </PatientName>
+        </div>
+        <div
+          className="emotion-3"
+        >
+          <DateOfBirth
+            patient={
+              Object {
+                "active": true,
+                "address": Array [
+                  Object {
+                    "city": "Leeds",
+                    "line": Array [
+                      "18 Benson Gardens",
+                    ],
+                    "period": Object {
+                      "start": Object {
+                        "kind": "DATE",
+                        "value": "2020-04-01T00:00:00+00:00",
+                      },
+                    },
+                    "postalCode": "LS11 8HK",
+                    "text": "18 Benson Gardens, Leeds, LS11 8HK",
+                    "type": "BOTH",
+                    "use": "HOME",
+                  },
+                ],
+                "birthDate": Object {
+                  "kind": "DATE",
+                  "value": "1955-06-30T00:00:00+00:00",
+                },
+                "deceased": Object {
+                  "deceasedBoolean": true,
+                  "deceasedDateTime": Object {
+                    "kind": "DATE",
+                    "value": "2020-02-05T00:00:00+00:00",
+                  },
+                },
+                "gender": "MALE",
+                "id": "829ca260-67e0-e357-b2c7-115087226fg2|patient",
+                "identifier": Array [
+                  Object {
+                    "extension": Array [
+                      Object {
+                        "url": "https://fhir.hl7.org.uk/STU3/StructureDefinition/Extension-CareConnect-NHSNumberVerificationStatus-1",
+                        "valueCodeableConcept": Object {
+                          "coding": Array [
+                            Object {
+                              "code": "01",
+                              "display": "Number present and verified",
+                              "system": "https://fhir.hl7.org.uk/STU3/ValueSet/CareConnect-NHSNumberVerificationStatus-1",
+                            },
+                          ],
+                        },
+                        "valueString": "test",
+                      },
+                    ],
+                    "system": "https://fhir.nhs.uk/Id/nhs-number",
+                    "use": "OFFICIAL",
+                    "value": "8967452301",
+                  },
+                  Object {
+                    "system": "https://leedsth.nhs.uk/Id/pas-number",
+                    "use": "OFFICIAL",
+                    "value": "0056341",
+                  },
+                ],
+                "metadata": Object {
+                  "dataSources": Array [
+                    Object {
+                      "display": "Mock Source",
+                    },
+                  ],
+                  "isRedacted": false,
+                  "requestedWhen": "",
+                },
+                "name": Array [
+                  Object {
+                    "family": "Woo",
+                    "given": Array [
+                      "John",
+                    ],
+                    "prefix": Array [
+                      "Mr",
+                    ],
+                    "text": "John Woo",
+                    "use": "USUAL",
+                  },
+                ],
+              }
+            }
+          >
+            <div
+              className="emotion-1"
+            >
+              <span>
+                Born
+              </span>
+              <span>
+                30-Jun-1955
+                 
+                25y1955-06-30T00:00:00+00:00
+              </span>
+            </div>
+          </DateOfBirth>
+          <DateOfDeath
+            patient={
+              Object {
+                "active": true,
+                "address": Array [
+                  Object {
+                    "city": "Leeds",
+                    "line": Array [
+                      "18 Benson Gardens",
+                    ],
+                    "period": Object {
+                      "start": Object {
+                        "kind": "DATE",
+                        "value": "2020-04-01T00:00:00+00:00",
+                      },
+                    },
+                    "postalCode": "LS11 8HK",
+                    "text": "18 Benson Gardens, Leeds, LS11 8HK",
+                    "type": "BOTH",
+                    "use": "HOME",
+                  },
+                ],
+                "birthDate": Object {
+                  "kind": "DATE",
+                  "value": "1955-06-30T00:00:00+00:00",
+                },
+                "deceased": Object {
+                  "deceasedBoolean": true,
+                  "deceasedDateTime": Object {
+                    "kind": "DATE",
+                    "value": "2020-02-05T00:00:00+00:00",
+                  },
+                },
+                "gender": "MALE",
+                "id": "829ca260-67e0-e357-b2c7-115087226fg2|patient",
+                "identifier": Array [
+                  Object {
+                    "extension": Array [
+                      Object {
+                        "url": "https://fhir.hl7.org.uk/STU3/StructureDefinition/Extension-CareConnect-NHSNumberVerificationStatus-1",
+                        "valueCodeableConcept": Object {
+                          "coding": Array [
+                            Object {
+                              "code": "01",
+                              "display": "Number present and verified",
+                              "system": "https://fhir.hl7.org.uk/STU3/ValueSet/CareConnect-NHSNumberVerificationStatus-1",
+                            },
+                          ],
+                        },
+                        "valueString": "test",
+                      },
+                    ],
+                    "system": "https://fhir.nhs.uk/Id/nhs-number",
+                    "use": "OFFICIAL",
+                    "value": "8967452301",
+                  },
+                  Object {
+                    "system": "https://leedsth.nhs.uk/Id/pas-number",
+                    "use": "OFFICIAL",
+                    "value": "0056341",
+                  },
+                ],
+                "metadata": Object {
+                  "dataSources": Array [
+                    Object {
+                      "display": "Mock Source",
+                    },
+                  ],
+                  "isRedacted": false,
+                  "requestedWhen": "",
+                },
+                "name": Array [
+                  Object {
+                    "family": "Woo",
+                    "given": Array [
+                      "John",
+                    ],
+                    "prefix": Array [
+                      "Mr",
+                    ],
+                    "text": "John Woo",
+                    "use": "USUAL",
+                  },
+                ],
+              }
+            }
+          >
+            <div
+              className="emotion-2"
+            >
+              <span>
+                Died
+              </span>
+              <span>
+                05-Feb-2020
+              </span>
+            </div>
+          </DateOfDeath>
+        </div>
+        <div
+          className="emotion-3"
+        >
+          <Gender
+            patient={
+              Object {
+                "active": true,
+                "address": Array [
+                  Object {
+                    "city": "Leeds",
+                    "line": Array [
+                      "18 Benson Gardens",
+                    ],
+                    "period": Object {
+                      "start": Object {
+                        "kind": "DATE",
+                        "value": "2020-04-01T00:00:00+00:00",
+                      },
+                    },
+                    "postalCode": "LS11 8HK",
+                    "text": "18 Benson Gardens, Leeds, LS11 8HK",
+                    "type": "BOTH",
+                    "use": "HOME",
+                  },
+                ],
+                "birthDate": Object {
+                  "kind": "DATE",
+                  "value": "1955-06-30T00:00:00+00:00",
+                },
+                "deceased": Object {
+                  "deceasedBoolean": true,
+                  "deceasedDateTime": Object {
+                    "kind": "DATE",
+                    "value": "2020-02-05T00:00:00+00:00",
+                  },
+                },
+                "gender": "MALE",
+                "id": "829ca260-67e0-e357-b2c7-115087226fg2|patient",
+                "identifier": Array [
+                  Object {
+                    "extension": Array [
+                      Object {
+                        "url": "https://fhir.hl7.org.uk/STU3/StructureDefinition/Extension-CareConnect-NHSNumberVerificationStatus-1",
+                        "valueCodeableConcept": Object {
+                          "coding": Array [
+                            Object {
+                              "code": "01",
+                              "display": "Number present and verified",
+                              "system": "https://fhir.hl7.org.uk/STU3/ValueSet/CareConnect-NHSNumberVerificationStatus-1",
+                            },
+                          ],
+                        },
+                        "valueString": "test",
+                      },
+                    ],
+                    "system": "https://fhir.nhs.uk/Id/nhs-number",
+                    "use": "OFFICIAL",
+                    "value": "8967452301",
+                  },
+                  Object {
+                    "system": "https://leedsth.nhs.uk/Id/pas-number",
+                    "use": "OFFICIAL",
+                    "value": "0056341",
+                  },
+                ],
+                "metadata": Object {
+                  "dataSources": Array [
+                    Object {
+                      "display": "Mock Source",
+                    },
+                  ],
+                  "isRedacted": false,
+                  "requestedWhen": "",
+                },
+                "name": Array [
+                  Object {
+                    "family": "Woo",
+                    "given": Array [
+                      "John",
+                    ],
+                    "prefix": Array [
+                      "Mr",
+                    ],
+                    "text": "John Woo",
+                    "use": "USUAL",
+                  },
+                ],
+              }
+            }
+          >
+            <div
+              className="emotion-4"
+            >
+              <span>
+                Gender
+              </span>
+              <span>
+                Male
+              </span>
+            </div>
+          </Gender>
+          <PatientGender
+            patient={
+              Object {
+                "active": true,
+                "address": Array [
+                  Object {
+                    "city": "Leeds",
+                    "line": Array [
+                      "18 Benson Gardens",
+                    ],
+                    "period": Object {
+                      "start": Object {
+                        "kind": "DATE",
+                        "value": "2020-04-01T00:00:00+00:00",
+                      },
+                    },
+                    "postalCode": "LS11 8HK",
+                    "text": "18 Benson Gardens, Leeds, LS11 8HK",
+                    "type": "BOTH",
+                    "use": "HOME",
+                  },
+                ],
+                "birthDate": Object {
+                  "kind": "DATE",
+                  "value": "1955-06-30T00:00:00+00:00",
+                },
+                "deceased": Object {
+                  "deceasedBoolean": true,
+                  "deceasedDateTime": Object {
+                    "kind": "DATE",
+                    "value": "2020-02-05T00:00:00+00:00",
+                  },
+                },
+                "gender": "MALE",
+                "id": "829ca260-67e0-e357-b2c7-115087226fg2|patient",
+                "identifier": Array [
+                  Object {
+                    "extension": Array [
+                      Object {
+                        "url": "https://fhir.hl7.org.uk/STU3/StructureDefinition/Extension-CareConnect-NHSNumberVerificationStatus-1",
+                        "valueCodeableConcept": Object {
+                          "coding": Array [
+                            Object {
+                              "code": "01",
+                              "display": "Number present and verified",
+                              "system": "https://fhir.hl7.org.uk/STU3/ValueSet/CareConnect-NHSNumberVerificationStatus-1",
+                            },
+                          ],
+                        },
+                        "valueString": "test",
+                      },
+                    ],
+                    "system": "https://fhir.nhs.uk/Id/nhs-number",
+                    "use": "OFFICIAL",
+                    "value": "8967452301",
+                  },
+                  Object {
+                    "system": "https://leedsth.nhs.uk/Id/pas-number",
+                    "use": "OFFICIAL",
+                    "value": "0056341",
+                  },
+                ],
+                "metadata": Object {
+                  "dataSources": Array [
+                    Object {
+                      "display": "Mock Source",
+                    },
+                  ],
+                  "isRedacted": false,
+                  "requestedWhen": "",
+                },
+                "name": Array [
+                  Object {
+                    "family": "Woo",
+                    "given": Array [
+                      "John",
+                    ],
+                    "prefix": Array [
+                      "Mr",
+                    ],
+                    "text": "John Woo",
+                    "use": "USUAL",
+                  },
+                ],
+              }
+            }
+          >
+            <div
+              className="emotion-5"
+            >
+              <span>
+                Age at Death
+              </span>
+              <span>
+                25y1955-06-30T00:00:00+00:00
+              </span>
+            </div>
+          </PatientGender>
+        </div>
+        <div>
+          <NhsNumber
+            patient={
+              Object {
+                "active": true,
+                "address": Array [
+                  Object {
+                    "city": "Leeds",
+                    "line": Array [
+                      "18 Benson Gardens",
+                    ],
+                    "period": Object {
+                      "start": Object {
+                        "kind": "DATE",
+                        "value": "2020-04-01T00:00:00+00:00",
+                      },
+                    },
+                    "postalCode": "LS11 8HK",
+                    "text": "18 Benson Gardens, Leeds, LS11 8HK",
+                    "type": "BOTH",
+                    "use": "HOME",
+                  },
+                ],
+                "birthDate": Object {
+                  "kind": "DATE",
+                  "value": "1955-06-30T00:00:00+00:00",
+                },
+                "deceased": Object {
+                  "deceasedBoolean": true,
+                  "deceasedDateTime": Object {
+                    "kind": "DATE",
+                    "value": "2020-02-05T00:00:00+00:00",
+                  },
+                },
+                "gender": "MALE",
+                "id": "829ca260-67e0-e357-b2c7-115087226fg2|patient",
+                "identifier": Array [
+                  Object {
+                    "extension": Array [
+                      Object {
+                        "url": "https://fhir.hl7.org.uk/STU3/StructureDefinition/Extension-CareConnect-NHSNumberVerificationStatus-1",
+                        "valueCodeableConcept": Object {
+                          "coding": Array [
+                            Object {
+                              "code": "01",
+                              "display": "Number present and verified",
+                              "system": "https://fhir.hl7.org.uk/STU3/ValueSet/CareConnect-NHSNumberVerificationStatus-1",
+                            },
+                          ],
+                        },
+                        "valueString": "test",
+                      },
+                    ],
+                    "system": "https://fhir.nhs.uk/Id/nhs-number",
+                    "use": "OFFICIAL",
+                    "value": "8967452301",
+                  },
+                  Object {
+                    "system": "https://leedsth.nhs.uk/Id/pas-number",
+                    "use": "OFFICIAL",
+                    "value": "0056341",
+                  },
+                ],
+                "metadata": Object {
+                  "dataSources": Array [
+                    Object {
+                      "display": "Mock Source",
+                    },
+                  ],
+                  "isRedacted": false,
+                  "requestedWhen": "",
+                },
+                "name": Array [
+                  Object {
+                    "family": "Woo",
+                    "given": Array [
+                      "John",
+                    ],
+                    "prefix": Array [
+                      "Mr",
+                    ],
+                    "text": "John Woo",
+                    "use": "USUAL",
+                  },
+                ],
+              }
+            }
+          >
+            <div
+              className="emotion-8"
+            >
+              <span>
+                NHS No.
+              </span>
+              <span
+                className="emotion-7"
+                title="Verified"
+              />
+              <span>
+                896 745 2301
+              </span>
+            </div>
+          </NhsNumber>
+        </div>
+      </div>
+    </PatientPrimaryInformation>
+  </div>
+</PatientBanner>
+`;

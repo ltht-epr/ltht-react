@@ -1,31 +1,44 @@
-import { Patient } from '@ltht-react/types'
+import { Patient, HumanNameUseCode, AddressUseCode } from '@ltht-react/types'
 import { titleCase } from './title-case'
 
+const formatPatientAddress = (patient: Patient): string => {
+  let address
+  if (patient.address && patient.address.length > 0) {
+    address = patient.address.find(x => x?.use === AddressUseCode.Home && (!x?.period || !x.period?.end))
+  }
+
+  return address?.text ?? ''
+}
+
 const formatPatientAge = (patient: Patient): string => {
-  // ToDO formate patient current age / age at death
-  const dob = patient?.birthDate?.value
-  return `25y${dob}`
+  // ToDO format patient current age / age at death
+  const date = patient.birthDate?.value
+  return `${date?.substring(0, 0)}25y`
 }
 
 const formatPatientName = (patient: Patient): string => {
-  // ToDo re-factor - extracting patient name
-  let name
-  const family = patient?.name?.[0]?.family
-  const title = patient?.name?.[0]?.prefix?.[0]
-  const given = patient?.name?.[0]?.given?.join(' ')
+  let activeName = patient?.name?.find(x => (!x?.period || !x?.period?.end) && x?.use === HumanNameUseCode.Official)
+  if (!activeName) {
+    activeName = patient?.name?.find(x => (!x?.period || !x?.period?.end) && x?.use === HumanNameUseCode.Usual)
+  }
+
+  let patientName
+  const family = activeName?.family
+  const title = activeName?.prefix && activeName.prefix.length > 0 ? activeName.prefix[0] : ''
+  const given = activeName?.given?.join(' ')
 
   if (!given) {
-    name = family ? family.toUpperCase() : ''
+    patientName = family ? family.toUpperCase() : ''
   } else {
-    name = (family ? `${family.toUpperCase()}, ` : '') + titleCase(given)
+    patientName = (family ? `${family.toUpperCase()}, ` : '') + titleCase(given)
   }
 
   // Add title in brackets if specified.
   if (title) {
-    name += ` (${titleCase(title)})`
+    patientName += ` (${titleCase(title)})`
   }
 
-  return name
+  return patientName
 }
 
 const formatNHSNumber = (value?: string | null | undefined): string => {
@@ -40,4 +53,4 @@ const formatNHSNumber = (value?: string | null | undefined): string => {
   return value
 }
 
-export { formatPatientAge, formatPatientName, formatNHSNumber }
+export { formatPatientAddress, formatPatientAge, formatPatientName, formatNHSNumber }
