@@ -9,5 +9,5 @@ config:
     Milliseconds: number
     Seconds: number
 generates:
-  src/index.ts:
+  src/atoms/graphql-types.ts:
     - typescript
