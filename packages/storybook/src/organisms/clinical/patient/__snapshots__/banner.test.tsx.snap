@@ -2,12 +2,62 @@
 
 exports[`PatientBanner matches snapshot: wrapper mount 1`] = `
 .emotion-16 {
-  font-family: 'Arial';
-  border: 0.1rem dashed #f5f7f8;
+  color: #231f20;
+  font-family: 'SF Pro Text','SF Pro Icons','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 0.8rem;
+  border: 0.1rem dashed #231f20;
+  background-color: #fff;
+}
+
+.emotion-16 *,
+.emotion-16 ::before,
+.emotion-16 ::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.emotion-16 * {
+  margin: 0;
+  padding: 0;
+}
+
+.emotion-16 h3 {
+  font-size: 1rem;
+}
+
+@media only screen and (min-width:768px) {
+  .emotion-16 {
+    font-size: 0.9rem;
+  }
+
+  .emotion-16 h3 {
+    font-size: 1.1rem;
+  }
+}
+
+@media only screen and (min-width:1024px) {
+  .emotion-16 {
+    font-size: 1rem;
+  }
+
+  .emotion-16 h3 {
+    font-size: 1.2rem;
+  }
+}
+
+@media only screen and (min-width:1200px) {
+  .emotion-16 {
+    font-size: 1.1rem;
+  }
+
+  .emotion-16 h3 {
+    font-size: 1.3rem;
+  }
 }
 
 .emotion-16 > div {
-  background-color: #231f20;
+  border: none;
 }
 
 .emotion-12 {
@@ -18,7 +68,7 @@ exports[`PatientBanner matches snapshot: wrapper mount 1`] = `
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  background-color: inherit;
+  background-color: #231f20;
   padding: 0.5rem;
 }
 
@@ -29,11 +79,16 @@ exports[`PatientBanner matches snapshot: wrapper mount 1`] = `
   display: flex;
 }
 
-.emotion-12 > div:first-child {
+.emotion-12 > div:first-child,
+.emotion-12 > div:last-child {
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .emotion-12 > div:not(:first-child) {
@@ -49,7 +104,7 @@ exports[`PatientBanner matches snapshot: wrapper mount 1`] = `
   }
 
   .emotion-12 > div {
-    margin-left: 2rem;
+    margin-left: 2.5rem;
   }
 
   .emotion-12 > div:first-child {
@@ -60,12 +115,7 @@ exports[`PatientBanner matches snapshot: wrapper mount 1`] = `
   .emotion-12 > div:not(:first-child) {
     visibility: visible;
     height: auto !important;
-  }
-
-  .emotion-12 span {
-    height: -webkit-fit-content;
-    height: -moz-fit-content;
-    height: fit-content;
+    padding-top: 0;
   }
 }
 
@@ -163,21 +213,15 @@ exports[`PatientBanner matches snapshot: wrapper mount 1`] = `
 }
 
 .emotion-10 {
-  height: 0.6rem !important;
-  width: 0.6rem !important;
+  height: 0.5rem !important;
+  width: 0.5rem !important;
   border-radius: 50%;
   display: inline-block;
-  border: 0.15rem solid #fff;
+  border: 0.123rem solid #fff;
   margin-left: 0.4rem;
-  margin-bottom: -0.1rem;
+  margin-bottom: -0.05rem;
   background-color: #888;
   background-color: #4cc552 !important;
-}
-
-@media only screen and (min-width:768px) {
-  .emotion-10 {
-    margin-bottom: 0;
-  }
 }
 
 .emotion-15 {
@@ -680,7 +724,6 @@ exports[`PatientBanner matches snapshot: wrapper mount 1`] = `
                 </span>
                 <span>
                   30-Jun-1955
-                   
                 </span>
               </div>
             </DateOfBirth>
@@ -978,7 +1021,7 @@ exports[`PatientBanner matches snapshot: wrapper mount 1`] = `
                   Age at Death
                 </span>
                 <span>
-                  25y
+                  64y
                 </span>
               </div>
             </PatientGender>

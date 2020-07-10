@@ -8,7 +8,7 @@ import PatientBanner from '@ltht-react/patient-banner'
 
 import readme from '@ltht-react/patient-banner/README.md'
 import { TABLET_MEDIA_QUERY } from '@ltht-react/styles'
-import { DeceasedPatient } from './banner.fixtures'
+import { AlivePatient, DeceasedPatient } from './banner.fixtures'
 
 const verified = css`
   height: 0.6rem;
@@ -243,4 +243,5 @@ stories.addWithJSX('Banner:Deceased', () => {
   )
 })
 
+stories.addWithJSX('WIP:Banner:Alive', () => <PatientBanner patient={AlivePatient} />)
 stories.addWithJSX('WIP:Banner:Deceased', () => <PatientBanner patient={DeceasedPatient} />)

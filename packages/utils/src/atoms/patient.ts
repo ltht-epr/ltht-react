@@ -1,6 +1,10 @@
 import { Patient, HumanNameUseCode, AddressUseCode } from '@ltht-react/types'
 import { titleCase } from './title-case'
 
+const daysInMonth = (iMonth: number, iYear: number): number => {
+  return 32 - new Date(iYear, iMonth, 32).getDate()
+}
+
 const formatPatientAddress = (patient: Patient): string => {
   let address
   if (patient.address && patient.address.length > 0) {
@@ -11,9 +15,67 @@ const formatPatientAddress = (patient: Patient): string => {
 }
 
 const formatPatientAge = (patient: Patient): string => {
-  // ToDO format patient current age / age at death
-  const date = patient.birthDate?.value
-  return `${date?.substring(0, 0)}25y`
+  const start = patient.birthDate?.value ? new Date(patient.birthDate.value) : null
+  let end = null
+
+  // ToDO birth/death date Partial date time check
+  if (patient.deceased?.deceasedBoolean) {
+    end = patient.deceased.deceasedDateTime?.value ? new Date(patient.deceased.deceasedDateTime.value) : null
+  } else {
+    end = new Date()
+  }
+
+  if (start === null || end === null) return ''
+
+  // Calculate calendar age. This is complex because years and months are not constant lengths.
+  const yearEnd = end.getFullYear()
+  const monthEnd = end.getMonth()
+  const dateEnd = end.getDate()
+  let yearAge = yearEnd - start.getFullYear()
+  let monthAge = monthEnd - start.getMonth()
+  let dateAge = dateEnd - start.getDate()
+
+  if (dateAge < 0) {
+    monthAge -= 1
+    dateAge += daysInMonth(yearEnd, monthEnd - 1)
+  }
+
+  if (monthAge < 0) {
+    yearAge -= 1
+    monthAge += 12
+  }
+
+  // Adults (over 18 years): **years**.
+  if (yearAge >= 18) return `${yearAge}y`
+
+  // Children over two years: **years and months**.
+  if (yearAge >= 2) return `${yearAge}y${monthAge ? ` ${monthAge}m` : ''}`
+
+  // Children 12 to 24 months: **months and days**.
+  if (yearAge === 1) {
+    return `${12 + monthAge}m${dateAge ? ` ${dateAge}d` : ''}`
+  }
+
+  // Calculate age measured in simple units.
+  const age = end.getTime() - start.getTime()
+  const hourAge = Math.floor(age / (1000 * 60 * 60))
+  let dayAge = Math.floor(hourAge / 24)
+  const weekAge = Math.floor(dayAge / 7)
+
+  // Children four weeks to one year: **weeks and days**.
+  if (weekAge >= 4) {
+    dayAge -= weekAge * 7
+    return `${weekAge}w${dayAge ? ` ${dayAge}d` : ''}`
+  }
+
+  // Children two days to four weeks: **days**.
+  if (dayAge >= 2) return `${dayAge}d`
+
+  // Children two to 24 hours: **hours**.
+  if (hourAge >= 2) return `${hourAge}hrs`
+
+  // Children under two hours: **minutes**.
+  return `${Math.floor(age / (1000 * 60))}min`
 }
 
 const formatPatientName = (patient: Patient): string => {

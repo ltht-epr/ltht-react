@@ -12,30 +12,32 @@ import AgeAtDeath from '../atoms/age-at-death'
 import Gender from '../atoms/gender'
 import NhsNumber from '../atoms/nhs-number'
 
-const styles = (collapsed: boolean): SerializedStyles => {
+const styles = (collapsed: boolean, deceased: boolean): SerializedStyles => {
   return css`
     display: flex;
     flex-direction: column;
-    background-color: inherit;
+    background-color: ${deceased ? '#231f20' : '#56008c'};
     padding: 0.5rem;
 
     & > div {
       display: flex;
     }
 
-    & > div:first-child {
+    & > div:first-child,
+    & > div:last-child {
       justify-content: space-between;
+      align-items: center;
     }
 
     & > div:not(:first-child) {
-      ${collapsed && 'visibility: hidden; height: 0;'}
+      ${collapsed ? 'visibility: hidden; height: 0;' : 'padding-top: 0.25rem;'}
     }
 
     ${TABLET_MEDIA_QUERY} {
       flex-direction: row;
 
       & > div {
-        margin-left: 2rem;
+        margin-left: 2.5rem;
       }
 
       & > div:first-child {
@@ -46,10 +48,7 @@ const styles = (collapsed: boolean): SerializedStyles => {
       & > div:not(:first-child) {
         visibility: visible;
         height: auto !important;
-      }
-
-      span {
-        height: fit-content;
+        padding-top: 0;
       }
     }
   `
@@ -72,9 +71,10 @@ const PrimaryInformation: React.FC<Props> = ({ patient }) => {
   const handleClick = (): void => {
     setCollapsed(!collapsed)
   }
+  const deceased = patient.deceased?.deceasedBoolean ?? false
 
   return (
-    <div css={styles(collapsed)}>
+    <div css={styles(collapsed, deceased)}>
       <div>
         <Name patient={patient} />
         <span css={chevron}>

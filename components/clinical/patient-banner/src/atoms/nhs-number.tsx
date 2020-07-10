@@ -1,7 +1,6 @@
 /** @jsx jsx */
 import React from 'react'
 import { css, jsx } from '@emotion/core'
-import { TABLET_MEDIA_QUERY } from '@ltht-react/styles'
 
 import { Patient } from '@ltht-react/types'
 import { formatNHSNumber } from '@ltht-react/utils'
@@ -22,17 +21,14 @@ const styles = css`
 
 const iconStyles = {
   base: css`
-    height: 0.6rem !important;
-    width: 0.6rem !important;
+    height: 0.5rem !important;
+    width: 0.5rem !important;
     border-radius: 50%;
     display: inline-block;
-    border: 0.15rem solid #fff;
+    border: 0.123rem solid #fff;
     margin-left: 0.4rem;
-    margin-bottom: -0.1rem;
+    margin-bottom: -0.05rem;
     background-color: #888;
-    ${TABLET_MEDIA_QUERY} {
-      margin-bottom: 0;
-    }
   `,
   verified: css`
     background-color: #4cc552 !important;
