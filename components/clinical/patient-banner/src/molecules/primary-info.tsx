@@ -23,13 +23,13 @@ const styles = (collapsed: boolean, deceased: boolean): SerializedStyles => {
       display: flex;
     }
 
-    & > div:first-child,
-    & > div:last-child {
+    & > div:first-of-type,
+    & > div:last-of-type {
       justify-content: space-between;
       align-items: center;
     }
 
-    & > div:not(:first-child) {
+    & > div:not(:first-of-type) {
       ${collapsed ? 'visibility: hidden; height: 0;' : 'padding-top: 0.25rem;'}
     }
 
@@ -40,12 +40,12 @@ const styles = (collapsed: boolean, deceased: boolean): SerializedStyles => {
         margin-left: 2.5rem;
       }
 
-      & > div:first-child {
+      & > div:first-of-type {
         margin-left: 0;
         margin-right: auto;
       }
 
-      & > div:not(:first-child) {
+      & > div:not(:first-of-type) {
         visibility: visible;
         height: auto !important;
         padding-top: 0;

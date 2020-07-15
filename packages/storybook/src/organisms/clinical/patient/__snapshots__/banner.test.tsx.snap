@@ -79,8 +79,8 @@ exports[`PatientBanner matches snapshot: wrapper mount 1`] = `
   display: flex;
 }
 
-.emotion-12 > div:first-child,
-.emotion-12 > div:last-child {
+.emotion-12 > div:first-of-type,
+.emotion-12 > div:last-of-type {
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
@@ -91,7 +91,7 @@ exports[`PatientBanner matches snapshot: wrapper mount 1`] = `
   align-items: center;
 }
 
-.emotion-12 > div:not(:first-child) {
+.emotion-12 > div:not(:first-of-type) {
   visibility: hidden;
   height: 0;
 }
@@ -107,12 +107,12 @@ exports[`PatientBanner matches snapshot: wrapper mount 1`] = `
     margin-left: 2.5rem;
   }
 
-  .emotion-12 > div:first-child {
+  .emotion-12 > div:first-of-type {
     margin-left: 0;
     margin-right: auto;
   }
 
-  .emotion-12 > div:not(:first-child) {
+  .emotion-12 > div:not(:first-of-type) {
     visibility: visible;
     height: auto !important;
     padding-top: 0;
@@ -213,8 +213,8 @@ exports[`PatientBanner matches snapshot: wrapper mount 1`] = `
 }
 
 .emotion-10 {
-  height: 0.5rem !important;
-  width: 0.5rem !important;
+  height: 0.75rem !important;
+  width: 0.75rem !important;
   border-radius: 50%;
   display: inline-block;
   border: 0.123rem solid #fff;
@@ -225,10 +225,6 @@ exports[`PatientBanner matches snapshot: wrapper mount 1`] = `
 }
 
 .emotion-15 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
   visibility: hidden;
   height: 0;
 }
@@ -236,9 +232,13 @@ exports[`PatientBanner matches snapshot: wrapper mount 1`] = `
 @media only screen and (min-width:768px) {
   .emotion-15 {
     background-color: #fff;
-    padding: 0.5rem;
     height: auto;
     visibility: visible;
+    padding: 0.5rem;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
   }
 
   .emotion-15 > div {
@@ -246,18 +246,11 @@ exports[`PatientBanner matches snapshot: wrapper mount 1`] = `
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-    margin-left: 2rem;
   }
 
-  .emotion-15 > div:first-child {
+  .emotion-15 > div:first-of-type {
     margin-left: 0;
     margin-right: auto;
-  }
-
-  .emotion-15 span {
-    height: -webkit-fit-content;
-    height: -moz-fit-content;
-    height: fit-content;
   }
 }
 

@@ -8,28 +8,23 @@ import Address from '../atoms/address'
 import PasNumber from '../atoms/pas-number'
 
 const styles = css`
-  display: flex;
   visibility: hidden;
   height: 0;
 
   ${TABLET_MEDIA_QUERY} {
     background-color: #fff;
-    padding: 0.5rem;
     height: auto;
     visibility: visible;
+    padding: 0.5rem;
+    display: flex;
 
     & > div {
       display: flex;
-      margin-left: 2rem;
     }
 
-    & > div:first-child {
+    & > div:first-of-type {
       margin-left: 0;
       margin-right: auto;
-    }
-
-    span {
-      height: fit-content;
     }
   }
 `
