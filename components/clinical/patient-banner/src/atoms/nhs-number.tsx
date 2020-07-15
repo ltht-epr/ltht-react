@@ -2,8 +2,8 @@
 import React from 'react'
 import { css, jsx } from '@emotion/core'
 
-import { Patient } from '@ltht-react/types'
-import { formatNHSNumber } from '@ltht-react/utils'
+import { Patient, NhsNumberStatus } from '@ltht-react/types'
+import { formatNHSNumber, nhsNumberStatus, titleCase } from '@ltht-react/utils'
 
 const styles = css`
   span:first-of-type {
@@ -21,8 +21,8 @@ const styles = css`
 
 const iconStyles = {
   base: css`
-    height: 0.5rem !important;
-    width: 0.5rem !important;
+    height: 0.75rem !important;
+    width: 0.75rem !important;
     border-radius: 50%;
     display: inline-block;
     border: 0.123rem solid #fff;
@@ -39,32 +39,17 @@ const iconStyles = {
 }
 
 const NhsNumber: React.FC<Props> = ({ patient }) => {
-  // NhsNo verified possibly move to utils,  style refactor??
-  const nhsNo = patient.identifier?.find(x => x?.system === 'https://fhir.nhs.uk/Id/nhs-number')
-  let status = 'Unknown'
+  const status = nhsNumberStatus(patient)
   const iconCss = [iconStyles.base]
 
-  if (
-    nhsNo?.extension &&
-    nhsNo.extension.length > 0 &&
-    nhsNo.extension[0]?.valueCodeableConcept?.coding &&
-    nhsNo.extension[0].valueCodeableConcept.coding.length > 0
-  ) {
-    const verifiedCode = nhsNo.extension[0].valueCodeableConcept.coding[0]?.code
-    if (verifiedCode === '01') {
-      status = 'Verified'
-      iconCss.push(iconStyles.verified)
-    } else if (verifiedCode === '02') {
-      status = 'Not Verified'
-      iconCss.push(iconStyles.notVerified)
-    }
-  }
+  if (status === NhsNumberStatus.Verified) iconCss.push(iconStyles.verified)
+  if (status === NhsNumberStatus.NotVerified) iconCss.push(iconStyles.notVerified)
 
   return (
     <div css={styles}>
       <span>NHS No.</span>
-      <span css={iconCss} title={status} />
-      <span>{formatNHSNumber(nhsNo?.value)}</span>
+      <span css={iconCss} title={titleCase(status)} />
+      <span>{formatNHSNumber(patient)}</span>
     </div>
   )
 }

@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import React from 'react'
 import { css, jsx } from '@emotion/core'
-import { Patient } from '@ltht-react/types'
+import { Patient, PatientIdentifierType } from '@ltht-react/types'
 
 const styles = css`
   span:first-of-type {
@@ -18,7 +18,7 @@ const styles = css`
 `
 
 const PasNumber: React.FC<Props> = ({ patient }) => {
-  const pasNo = patient.identifier?.find(x => x?.system === 'https://leedsth.nhs.uk/Id/pas-number')?.value
+  const pasNo = patient.identifier?.find(x => x?.system === PatientIdentifierType.PasNumber)?.value
 
   return (
     <div css={styles}>

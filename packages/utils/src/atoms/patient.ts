@@ -1,4 +1,4 @@
-import { Patient, HumanNameUseCode, AddressUseCode } from '@ltht-react/types'
+import { Patient, HumanNameUseCode, AddressUseCode, NhsNumberStatus, PatientIdentifierType } from '@ltht-react/types'
 import { titleCase } from './title-case'
 
 const daysInMonth = (iMonth: number, iYear: number): number => {
@@ -103,7 +103,9 @@ const formatPatientName = (patient: Patient): string => {
   return patientName
 }
 
-const formatNHSNumber = (value?: string | null | undefined): string => {
+const formatNHSNumber = (patient: Patient): string => {
+  const value = patient?.identifier?.find(x => x?.system === PatientIdentifierType.NhsNumber)?.value
+
   if (!value || value.length === 0) {
     return ''
   }
@@ -115,4 +117,21 @@ const formatNHSNumber = (value?: string | null | undefined): string => {
   return value
 }
 
-export { formatPatientAddress, formatPatientAge, formatPatientName, formatNHSNumber }
+const nhsNumberStatus = (patient: Patient): NhsNumberStatus => {
+  const nhsNo = patient?.identifier?.find(x => x?.system === PatientIdentifierType.NhsNumber)
+
+  if (
+    nhsNo?.extension &&
+    nhsNo.extension.length > 0 &&
+    nhsNo.extension[0]?.valueCodeableConcept?.coding &&
+    nhsNo.extension[0].valueCodeableConcept.coding.length > 0
+  ) {
+    const verifiedCode = nhsNo.extension[0].valueCodeableConcept.coding[0]?.code
+    if (verifiedCode === '01') return NhsNumberStatus.Verified
+    if (verifiedCode === '02') return NhsNumberStatus.NotVerified
+  }
+
+  return NhsNumberStatus.Unknown
+}
+
+export { formatPatientAddress, formatPatientAge, formatPatientName, formatNHSNumber, nhsNumberStatus }
