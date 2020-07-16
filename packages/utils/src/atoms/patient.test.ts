@@ -118,8 +118,8 @@ describe('formatPatientAge', () => {
   })
 
   it('returns formatted age when birth date is specified (over 18)', () => {
-    let date = new Date()
-    let currentYear = date.getFullYear()
+    const date = new Date()
+    const currentYear = date.getFullYear()
     date.setFullYear(currentYear - 21)
 
     patient.birthDate = {
@@ -130,9 +130,9 @@ describe('formatPatientAge', () => {
   })
 
   it('returns formatted age when birth date is specified (under 18 and over 2)', () => {
-    let date = new Date()
-    let currentYear = date.getFullYear()
-    let currentMonth = date.getMonth()
+    const date = new Date()
+    const currentYear = date.getFullYear()
+    const currentMonth = date.getMonth()
     date.setFullYear(currentYear - 15)
     date.setMonth(0) // set to jan
 
@@ -144,9 +144,9 @@ describe('formatPatientAge', () => {
   })
 
   it('returns formatted age when birth date is specified (under 2 and over 1)', () => {
-    let date = new Date()
-    let currentYear = date.getFullYear()
-    let currentDate = date.getDate()
+    const date = new Date()
+    const currentYear = date.getFullYear()
+    const currentDate = date.getDate()
     date.setFullYear(currentYear - 1)
     date.setDate(0) // set to last day of previous month
 
