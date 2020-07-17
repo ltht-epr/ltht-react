@@ -4,6 +4,7 @@ import {
   NhsNumberStatus,
   AddressUseCode,
   PartialDateTimeKindCode,
+  HumanNameUseCode,
 } from '@ltht-react/types'
 import { formatNHSNumber, formatPatientAddress, formatPatientAge, formatPatientName, nhsNumberStatus } from './patient'
 
@@ -133,7 +134,7 @@ describe('formatPatientAge', () => {
     const date = new Date()
     const currentYear = date.getFullYear()
     const currentMonth = date.getMonth()
-    date.setFullYear(currentYear - 15)
+    date.setFullYear(currentYear - 15) // set to 15 years ago
     date.setMonth(0) // set to jan
 
     patient.birthDate = {
@@ -147,7 +148,7 @@ describe('formatPatientAge', () => {
     const date = new Date()
     const currentYear = date.getFullYear()
     const currentDate = date.getDate()
-    date.setFullYear(currentYear - 1)
+    date.setFullYear(currentYear - 1) // set to 1 year ago
     date.setDate(0) // set to last day of previous month
 
     patient.birthDate = {
@@ -156,11 +157,255 @@ describe('formatPatientAge', () => {
     }
     expect(formatPatientAge(patient)).toEqual(`12m ${currentDate + 1}d`)
   })
+
+  it('returns formatted age when birth date is specified (under 1 and over 4 weeks)', () => {
+    const date = new Date()
+    const currentDate = date.getDate()
+    date.setDate(currentDate - 36) // set to 5 weeks and 1 day ago
+    patient.birthDate = {
+      kind: PartialDateTimeKindCode.Date,
+      value: date.toISOString(),
+    }
+    expect(formatPatientAge(patient)).toEqual('5w 1d')
+  })
+
+  it('returns formatted age when birth date is specified (under 4 weeks and over 2 days)', () => {
+    const date = new Date()
+    const currentDate = date.getDate()
+    date.setDate(currentDate - 14) // set to two weeks ago
+    patient.birthDate = {
+      kind: PartialDateTimeKindCode.Date,
+      value: date.toISOString(),
+    }
+    expect(formatPatientAge(patient)).toEqual('14d')
+  })
+
+  it('returns formatted age when birth date is specified (under 4 weeks and over 2 days)', () => {
+    const date = new Date()
+    const currentDate = date.getDate()
+    date.setDate(currentDate - 14) // set to two weeks ago
+    patient.birthDate = {
+      kind: PartialDateTimeKindCode.Date,
+      value: date.toISOString(),
+    }
+    expect(formatPatientAge(patient)).toEqual('14d')
+  })
+
+  it('returns formatted age when birth date is specified (under 2 days and over 2 hours)', () => {
+    const date = new Date()
+    const currentHour = date.getHours()
+    date.setHours(currentHour - 5) // set to 5 hours ago
+    patient.birthDate = {
+      kind: PartialDateTimeKindCode.Date,
+      value: date.toISOString(),
+    }
+    expect(formatPatientAge(patient)).toEqual('5hrs')
+  })
+
+  it('returns formatted age when birth date is specified (under 2 hours)', () => {
+    const date = new Date()
+    const currentHour = date.getHours()
+    date.setHours(currentHour - 1) // set 1 hour ago
+    patient.birthDate = {
+      kind: PartialDateTimeKindCode.Date,
+      value: date.toISOString(),
+    }
+    expect(formatPatientAge(patient)).toEqual('60min')
+  })
+
+  it('returns empty string when patient is deceased and birth date is not specified', () => {
+    const date = new Date()
+    patient.deceased = {
+      deceasedBoolean: true,
+      deceasedDateTime: {
+        kind: PartialDateTimeKindCode.Date,
+        value: date.toISOString(),
+      },
+    }
+    expect(formatPatientAge(patient)).toEqual('')
+  })
+
+  it('returns formatted age when patient is deceased', () => {
+    const dod = new Date()
+    const dob = new Date()
+    dob.setFullYear(dod.getFullYear() - 45) // dob set to 45 years ago
+    patient.birthDate = {
+      kind: PartialDateTimeKindCode.Date,
+      value: dob.toISOString(),
+    }
+    patient.deceased = {
+      deceasedBoolean: true,
+      deceasedDateTime: {
+        kind: PartialDateTimeKindCode.Date,
+        value: dod.toISOString(),
+      },
+    }
+    expect(formatPatientAge(patient)).toEqual('45y')
+  })
+
+  it('returns formatted age when patient is deceased (under 18 and over 2)', () => {
+    const dod = new Date()
+    const dob = new Date()
+    dob.setFullYear(dod.getFullYear() - 15) // dob set to 15 years ago
+    dob.setMonth(0) // set to jan
+    patient.birthDate = {
+      kind: PartialDateTimeKindCode.Date,
+      value: dob.toISOString(),
+    }
+    patient.deceased = {
+      deceasedBoolean: true,
+      deceasedDateTime: {
+        kind: PartialDateTimeKindCode.Date,
+        value: dod.toISOString(),
+      },
+    }
+    expect(formatPatientAge(patient)).toEqual(`15y ${dod.getMonth()}m`)
+  })
+
+  it('returns formatted age when patient is deceased (under 2 and over 1)', () => {
+    const dod = new Date()
+    const dob = new Date()
+    dob.setFullYear(dod.getFullYear() - 1) // dob set to 1 year ago
+    dob.setDate(0) // set to last day of previous month
+    patient.birthDate = {
+      kind: PartialDateTimeKindCode.Date,
+      value: dob.toISOString(),
+    }
+    patient.deceased = {
+      deceasedBoolean: true,
+      deceasedDateTime: {
+        kind: PartialDateTimeKindCode.Date,
+        value: dod.toISOString(),
+      },
+    }
+    expect(formatPatientAge(patient)).toEqual(`12m ${dod.getDate() + 1}d`)
+  })
+
+  it('returns formatted age when patient is deceased (under 1 and over 4 weeks)', () => {
+    const dod = new Date()
+    const dob = new Date()
+    dob.setDate(dod.getDate() - 44) // set to 6 weeks and 2 days ago
+    patient.birthDate = {
+      kind: PartialDateTimeKindCode.Date,
+      value: dob.toISOString(),
+    }
+    patient.deceased = {
+      deceasedBoolean: true,
+      deceasedDateTime: {
+        kind: PartialDateTimeKindCode.Date,
+        value: dod.toISOString(),
+      },
+    }
+    expect(formatPatientAge(patient)).toEqual('6w 2d')
+  })
+
+  it('returns formatted age when patient is deceased (under 4 weeks and over 2 days)', () => {
+    const dod = new Date()
+    const dob = new Date()
+    dob.setDate(dod.getDate() - 17) // set to 17 days ago
+    patient.birthDate = {
+      kind: PartialDateTimeKindCode.Date,
+      value: dob.toISOString(),
+    }
+    patient.deceased = {
+      deceasedBoolean: true,
+      deceasedDateTime: {
+        kind: PartialDateTimeKindCode.Date,
+        value: dod.toISOString(),
+      },
+    }
+    expect(formatPatientAge(patient)).toEqual('17d')
+  })
+
+  it('returns formatted age when patient is deceased (under 2 days and over 2 hours)', () => {
+    const dod = new Date()
+    const dob = new Date()
+    dob.setHours(dod.getHours() - 27) // set to 27 hours ago
+    patient.birthDate = {
+      kind: PartialDateTimeKindCode.Date,
+      value: dob.toISOString(),
+    }
+    patient.deceased = {
+      deceasedBoolean: true,
+      deceasedDateTime: {
+        kind: PartialDateTimeKindCode.Date,
+        value: dod.toISOString(),
+      },
+    }
+    expect(formatPatientAge(patient)).toEqual('27hrs')
+  })
+
+  it('returns formatted age when patient is deceased (under 2 hours)', () => {
+    const dod = new Date()
+    const dob = new Date()
+    dob.setMinutes(dod.getMinutes() - 95) // set to 95 min ago
+    patient.birthDate = {
+      kind: PartialDateTimeKindCode.Date,
+      value: dob.toISOString(),
+    }
+    patient.deceased = {
+      deceasedBoolean: true,
+      deceasedDateTime: {
+        kind: PartialDateTimeKindCode.Date,
+        value: dod.toISOString(),
+      },
+    }
+    expect(formatPatientAge(patient)).toEqual('95min')
+  })
 })
 
 describe('formatPatientName', () => {
   it('returns empty string when name collection is empty', () => {
     expect(formatPatientName(patient)).toEqual('')
+  })
+
+  it('returns empty string when patient has no active name', () => {
+    patient.name.push({
+      period: {
+        end: {
+          kind: PartialDateTimeKindCode.Date,
+          value: '2020-02-03T13:15:16+00:00',
+        },
+      },
+    })
+    expect(formatPatientName(patient)).toEqual('')
+  })
+
+  it('returns empty string when patient has no active official/usual name', () => {
+    patient.name.push({
+      use: HumanNameUseCode.Maiden,
+      family: 'test',
+    })
+    expect(formatPatientName(patient)).toEqual('')
+  })
+
+  it('returns formatted name when patient has active official & usual name', () => {
+    patient.name.push({ use: HumanNameUseCode.Usual, family: 'test-usual' })
+    patient.name.push({ use: HumanNameUseCode.Official, family: 'test-official' })
+    expect(formatPatientName(patient)).toEqual('TEST-OFFICIAL')
+  })
+
+  it('returns formatted name when patient only has active usual name', () => {
+    patient.name.push({ use: HumanNameUseCode.Usual, family: 'usual', given: ['test'] })
+    expect(formatPatientName(patient)).toEqual('USUAL, Test')
+  })
+
+  it('returns formatted name when patient has active official name', () => {
+    patient.name.push({
+      use: HumanNameUseCode.Official,
+      family: 'official',
+      given: ['test', 'me'],
+      prefix: ['mr'],
+    })
+    expect(formatPatientName(patient)).toEqual('OFFICIAL, Test Me (Mr)')
+  })
+
+  it('returns formatted name when patient has active official name', () => {
+    patient.name.push({
+      use: HumanNameUseCode.Official,
+      given: ['test', 'me'],
+    })
+    expect(formatPatientName(patient)).toEqual('Test Me')
   })
 })
 
