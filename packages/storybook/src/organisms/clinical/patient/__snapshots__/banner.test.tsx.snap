@@ -562,7 +562,7 @@ exports[`PatientBanner matches snapshot: wrapper mount 1`] = `
             >
               <ChevronCircleIcon
                 clickHandler={[Function]}
-                direction="right"
+                direction="up"
                 size="medium"
               >
                 <FontAwesomeIcon
@@ -576,10 +576,10 @@ exports[`PatientBanner matches snapshot: wrapper mount 1`] = `
                         512,
                         512,
                         Array [],
-                        "f138",
-                        "M256 8c137 0 248 111 248 248S393 504 256 504 8 393 8 256 119 8 256 8zm113.9 231L234.4 103.5c-9.4-9.4-24.6-9.4-33.9 0l-17 17c-9.4 9.4-9.4 24.6 0 33.9L285.1 256 183.5 357.6c-9.4 9.4-9.4 24.6 0 33.9l17 17c9.4 9.4 24.6 9.4 33.9 0L369.9 273c9.4-9.4 9.4-24.6 0-34z",
+                        "f139",
+                        "M8 256C8 119 119 8 256 8s248 111 248 248-111 248-248 248S8 393 8 256zm231-113.9L103.5 277.6c-9.4 9.4-9.4 24.6 0 33.9l17 17c9.4 9.4 24.6 9.4 33.9 0L256 226.9l101.6 101.6c9.4 9.4 24.6 9.4 33.9 0l17-17c9.4-9.4 9.4-24.6 0-33.9L273 142.1c-9.4-9.4-24.6-9.4-34 0z",
                       ],
-                      "iconName": "chevron-circle-right",
+                      "iconName": "chevron-circle-up",
                       "prefix": "fas",
                     }
                   }
@@ -599,8 +599,8 @@ exports[`PatientBanner matches snapshot: wrapper mount 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    className="svg-inline--fa fa-chevron-circle-right fa-w-16 fa-sm emotion-1"
-                    data-icon="chevron-circle-right"
+                    className="svg-inline--fa fa-chevron-circle-up fa-w-16 fa-sm emotion-1"
+                    data-icon="chevron-circle-up"
                     data-prefix="fas"
                     focusable="false"
                     onClick={[Function]}
@@ -610,7 +610,7 @@ exports[`PatientBanner matches snapshot: wrapper mount 1`] = `
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
-                      d="M256 8c137 0 248 111 248 248S393 504 256 504 8 393 8 256 119 8 256 8zm113.9 231L234.4 103.5c-9.4-9.4-24.6-9.4-33.9 0l-17 17c-9.4 9.4-9.4 24.6 0 33.9L285.1 256 183.5 357.6c-9.4 9.4-9.4 24.6 0 33.9l17 17c9.4 9.4 24.6 9.4 33.9 0L369.9 273c9.4-9.4 9.4-24.6 0-34z"
+                      d="M8 256C8 119 119 8 256 8s248 111 248 248-111 248-248 248S8 393 8 256zm231-113.9L103.5 277.6c-9.4 9.4-9.4 24.6 0 33.9l17 17c9.4 9.4 24.6 9.4 33.9 0L256 226.9l101.6 101.6c9.4 9.4 24.6 9.4 33.9 0l17-17c9.4-9.4 9.4-24.6 0-33.9L273 142.1c-9.4-9.4-24.6-9.4-34 0z"
                       fill="currentColor"
                       style={Object {}}
                     />

@@ -149,13 +149,13 @@ describe('formatPatientAge', () => {
     const currentYear = date.getFullYear()
     const currentDate = date.getDate()
     date.setFullYear(currentYear - 1) // set to 1 year ago
-    date.setDate(0) // set to last day of previous month
+    date.setDate(1) // set to first day of current month
 
     patient.birthDate = {
       kind: PartialDateTimeKindCode.Date,
       value: date.toISOString(),
     }
-    expect(formatPatientAge(patient)).toEqual(`12m ${currentDate + 1}d`)
+    expect(formatPatientAge(patient)).toEqual(`12m ${currentDate - 1}d`)
   })
 
   it('returns formatted age when birth date is specified (under 1 and over 4 weeks)', () => {
@@ -266,7 +266,7 @@ describe('formatPatientAge', () => {
     const dod = new Date()
     const dob = new Date()
     dob.setFullYear(dod.getFullYear() - 1) // dob set to 1 year ago
-    dob.setDate(0) // set to last day of previous month
+    dob.setDate(1) // set to first day of current month
     patient.birthDate = {
       kind: PartialDateTimeKindCode.Date,
       value: dob.toISOString(),
@@ -278,7 +278,7 @@ describe('formatPatientAge', () => {
         value: dod.toISOString(),
       },
     }
-    expect(formatPatientAge(patient)).toEqual(`12m ${dod.getDate() + 1}d`)
+    expect(formatPatientAge(patient)).toEqual(`12m ${dod.getDate() - 1}d`)
   })
 
   it('returns formatted age when patient is deceased (under 1 and over 4 weeks)', () => {
