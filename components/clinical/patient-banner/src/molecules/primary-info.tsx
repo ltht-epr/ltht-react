@@ -78,7 +78,7 @@ const PrimaryInformation: React.FC<Props> = ({ patient }) => {
       <div>
         <Name patient={patient} />
         <span css={chevron}>
-          <ChevronCircleIcon direction={collapsed ? 'right' : 'down'} size="medium" clickHandler={handleClick} />
+          <ChevronCircleIcon direction={collapsed ? 'up' : 'down'} size="medium" clickHandler={handleClick} />
         </span>
       </div>
       <div css={column}>

@@ -38,6 +38,7 @@
     "@ltht-react/description-list": "^0.1.10",
     "@ltht-react/detail": "^0.1.11",
     "@ltht-react/document-summary": "^0.0.15",
+    "@ltht-react/eForm": "^0.0.0",
     "@ltht-react/flag-detail": "^0.1.11",
     "@ltht-react/flag-summary": "^0.1.16",
     "@ltht-react/form": "^0.0.5",

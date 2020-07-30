@@ -21,6 +21,8 @@ export const ICON_COLOURS = {
   INFO: colours.NHS_BRIGHT_BLUE,
 }
 
+export const EFORM_BACKGROUND_COLOUR = colours.NHS_WHITE
+
 export const CARD_BACKGROUND_COLOUR = colours.NHS_WHITE
 export const CARD_BACKGROUND_COLOUR_NO_DATA = '#F2F2F2'
 export const CARD_BORDER_COLOUR = '#b0b0b0'
