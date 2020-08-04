@@ -1,6 +1,6 @@
 {
   "name": "@ltht-react/community-treatment-order-detail",
-  "version": "0.1.11",
+  "version": "0.1.12",
   "description": "ltht-react clinical CommunityTreatmentOrderDetail component.",
   "author": "LTHT",
   "homepage": "",
@@ -27,10 +27,10 @@
   "dependencies": {
     "@emotion/core": "^10.0.27",
     "@emotion/styled": "^10.0.27",
-    "@ltht-react/detail": "^0.1.11",
-    "@ltht-react/styles": "^0.1.5",
-    "@ltht-react/types": "^0.0.12",
-    "@ltht-react/utils": "^0.1.5",
+    "@ltht-react/detail": "^0.1.12",
+    "@ltht-react/styles": "^0.1.6",
+    "@ltht-react/types": "^0.0.13",
+    "@ltht-react/utils": "^0.1.6",
     "emotion": "^10.0.27",
     "react": "^16.12.0"
   }

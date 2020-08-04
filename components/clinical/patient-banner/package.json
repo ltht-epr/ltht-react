@@ -1,6 +1,6 @@
 {
   "name": "@ltht-react/patient-banner",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "ltht-react clinical PatientBanner component.",
   "author": "LTHT",
   "homepage": "",
@@ -27,10 +27,10 @@
   "dependencies": {
     "@emotion/core": "^10.0.27",
     "@emotion/styled": "^10.0.27",
-    "@ltht-react/icon": "^0.1.13",
-    "@ltht-react/styles": "^0.1.5",
-    "@ltht-react/types": "^0.0.12",
-    "@ltht-react/utils": "^0.1.5",
+    "@ltht-react/icon": "^0.1.14",
+    "@ltht-react/styles": "^0.1.6",
+    "@ltht-react/types": "^0.0.13",
+    "@ltht-react/utils": "^0.1.6",
     "emotion": "^10.0.27",
     "react": "^16.12.0"
   }
