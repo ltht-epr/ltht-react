@@ -1,4 +1,3 @@
-
 # EForm
 
 <!-- STORY -->
@@ -6,7 +5,7 @@
 ### Import
 
 ```js
-import EForm from '@ltht-react/eForm'
+import EForm from '@ltht-react/eform'
 ```
 
 ### Usage
@@ -14,4 +13,3 @@ import EForm from '@ltht-react/eForm'
 ```jsx
 <EForm />
 ```
-  

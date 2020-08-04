@@ -59,7 +59,7 @@
     "@ltht-react/description-list": "^0.1.12",
     "@ltht-react/detail": "^0.1.13",
     "@ltht-react/document-summary": "^0.0.17",
-    "@ltht-react/eForm": "^0.0.2",
+    "@ltht-react/eform": "^0.0.2",
     "@ltht-react/flag-detail": "^0.1.13",
     "@ltht-react/flag-summary": "^0.1.18",
     "@ltht-react/form": "^0.0.7",
@@ -87,5 +87,5 @@
     "react-dom": "^16.12.0",
     "storybook-addon-jsx": "^7.1.13"
   },
-  "gitHead": "b259430b592502d8447f782482b2c8fd74e78fed"
+  "gitHead": "7f60ce3e26f4472b2390cf0ce6a2d020fea61ee5"
 }

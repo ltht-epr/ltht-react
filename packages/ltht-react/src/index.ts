@@ -7,7 +7,7 @@ export { default as CommunityTreatmentOrderDetail } from '@ltht-react/community-
 export { default as CommunityTreatmentOrderSummary } from '@ltht-react/community-treatment-order-summary'
 export { default as ConditionDetail } from '@ltht-react/condition-detail'
 export { default as ConditionSummary } from '@ltht-react/condition-summary'
-export { default as EForm } from '@ltht-react/eForm'
+export { default as EForm } from '@ltht-react/eform'
 export { default as FlagDetail } from '@ltht-react/flag-detail'
 export { default as FlagSummary } from '@ltht-react/flag-summary'
 export { default as GuidanceSummary } from '@ltht-react/guidance-summary'
