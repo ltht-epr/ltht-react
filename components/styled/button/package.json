@@ -1,6 +1,6 @@
 {
   "name": "@ltht-react/button",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "ltht-react atoms Button component.",
   "author": "LTHT",
   "homepage": "",
@@ -27,9 +27,9 @@
   "dependencies": {
     "@emotion/core": "^10.0.27",
     "@emotion/styled": "^10.0.27",
-    "@ltht-react/styles": "^0.1.9",
+    "@ltht-react/styles": "^0.1.10",
     "@ltht-react/types": "^0.0.9",
-    "@ltht-react/utils": "^0.1.9",
+    "@ltht-react/utils": "^0.1.10",
     "emotion": "^10.0.27",
     "react": "^16.12.0"
   },

@@ -1,6 +1,6 @@
 {
   "name": "@ltht-react/care-plan-summary",
-  "version": "0.1.19",
+  "version": "0.1.20",
   "description": "ltht-react clinical CarePlanSummary component.",
   "author": "LTHT",
   "homepage": "",
@@ -23,11 +23,11 @@
   "dependencies": {
     "@emotion/core": "^10.0.27",
     "@emotion/styled": "^10.0.27",
-    "@ltht-react/list": "^0.1.15",
-    "@ltht-react/styles": "^0.1.9",
-    "@ltht-react/summary": "^0.0.13",
-    "@ltht-react/types": "^0.0.16",
-    "@ltht-react/utils": "^0.1.9",
+    "@ltht-react/list": "^0.1.16",
+    "@ltht-react/styles": "^0.1.10",
+    "@ltht-react/summary": "^0.0.14",
+    "@ltht-react/types": "^0.0.17",
+    "@ltht-react/utils": "^0.1.10",
     "emotion": "^10.0.27",
     "react": "^16.12.0"
   },
