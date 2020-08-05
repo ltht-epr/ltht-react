@@ -1,6 +1,6 @@
 {
   "name": "@ltht-react/guidance-summary",
-  "version": "0.0.15",
+  "version": "0.0.16",
   "description": "ltht-react clinical GuidanceSummary component.",
   "author": "LTHT",
   "homepage": "",
@@ -27,11 +27,11 @@
   "dependencies": {
     "@emotion/core": "^10.0.27",
     "@emotion/styled": "^10.0.27",
-    "@ltht-react/list": "^0.1.13",
-    "@ltht-react/styles": "^0.1.7",
-    "@ltht-react/summary": "^0.0.11",
-    "@ltht-react/types": "^0.0.14",
-    "@ltht-react/utils": "^0.1.7",
+    "@ltht-react/list": "^0.1.14",
+    "@ltht-react/styles": "^0.1.8",
+    "@ltht-react/summary": "^0.0.12",
+    "@ltht-react/types": "^0.0.15",
+    "@ltht-react/utils": "^0.1.8",
     "emotion": "^10.0.27",
     "react": "^16.12.0"
   },

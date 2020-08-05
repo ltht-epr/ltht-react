@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.15](https://github.com/ltht-epr/ltht-react/compare/@ltht-react/types@0.0.14...@ltht-react/types@0.0.15) (2020-08-05)
+
+**Note:** Version bump only for package @ltht-react/types
+
+
+
+
+
 ## [0.0.13](https://github.com/ltht-epr/ltht-react/compare/@ltht-react/types@0.0.12...@ltht-react/types@0.0.13) (2020-08-04)
 
 **Note:** Version bump only for package @ltht-react/types
