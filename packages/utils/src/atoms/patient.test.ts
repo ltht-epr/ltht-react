@@ -372,7 +372,7 @@ describe('formatPatientName', () => {
   })
 
   it('returns formatted string when patient has an active name but use not specified', () => {
-    patient.name.push({ family: 'test' })
+    patient.name.push({ family: 'test', period: null, use: null })
     expect(formatPatientName(patient)).toEqual('TEST')
   })
 

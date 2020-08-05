@@ -13,6 +13,7 @@ const styles = (): SerializedStyles => {
     box-shadow: 0px 2px 1px -1px rgba(102, 102, 102, 0.1), 0px 1px 1px 0px rgba(102, 102, 102, 0.15),
       0px 1px 3px 0px rgba(102, 102, 102, 0.6);
     -webkit-font-smoothing: antialiased;
+    width: inherit;
 
     iframe {
         width: 100%;
