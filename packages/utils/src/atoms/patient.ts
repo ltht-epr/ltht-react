@@ -80,8 +80,13 @@ const formatPatientAge = (patient: Patient | undefined): string => {
 
 const formatPatientName = (patient: Patient | undefined): string => {
   let activeName = patient?.name?.find(x => (!x?.period || !x?.period?.end) && x?.use === HumanNameUseCode.Official)
+
   if (!activeName) {
     activeName = patient?.name?.find(x => (!x?.period || !x?.period?.end) && x?.use === HumanNameUseCode.Usual)
+  }
+
+  if (!activeName) {
+    activeName = patient?.name?.find(x => (!x?.period || !x?.period?.end) && !x?.use)
   }
 
   let patientName

@@ -371,17 +371,15 @@ describe('formatPatientName', () => {
     expect(formatPatientName(patient)).toEqual('')
   })
 
-  it('returns empty string when patient has no active official/usual name', () => {
-    patient.name.push({
-      use: HumanNameUseCode.Maiden,
-      family: 'test',
-    })
-    expect(formatPatientName(patient)).toEqual('')
+  it('returns formatted string when patient has an active name but use not specified', () => {
+    patient.name.push({ family: 'test' })
+    expect(formatPatientName(patient)).toEqual('TEST')
   })
 
-  it('returns formatted name when patient has active official & usual name', () => {
+  it('returns formatted name when patient has active official & usual 7 unspecified use name', () => {
     patient.name.push({ use: HumanNameUseCode.Usual, family: 'test-usual' })
     patient.name.push({ use: HumanNameUseCode.Official, family: 'test-official' })
+    patient.name.push({ use: HumanNameUseCode.Official, family: 'test' })
     expect(formatPatientName(patient)).toEqual('TEST-OFFICIAL')
   })
 
