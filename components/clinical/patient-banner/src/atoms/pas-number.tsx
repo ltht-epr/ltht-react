@@ -18,7 +18,7 @@ const styles = css`
 `
 
 const PasNumber: React.FC<Props> = ({ patient }) => {
-  const pasNo = patient.identifier?.find(x => x?.system === PatientIdentifierType.PasNumber)?.value
+  const pasNo = patient?.identifier?.find(x => x?.system === PatientIdentifierType.PasNumber)?.value
 
   return (
     <div css={styles}>
@@ -29,7 +29,7 @@ const PasNumber: React.FC<Props> = ({ patient }) => {
 }
 
 interface Props {
-  patient: Patient
+  patient: Patient | undefined
 }
 
 export default PasNumber

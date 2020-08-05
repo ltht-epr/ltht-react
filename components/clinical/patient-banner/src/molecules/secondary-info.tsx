@@ -43,7 +43,7 @@ const SecondaryInformation: React.FC<Props> = ({ patient }) => {
 }
 
 interface Props {
-  patient: Patient
+  patient: Patient | undefined
 }
 
 export default SecondaryInformation

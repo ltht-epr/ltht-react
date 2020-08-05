@@ -20,7 +20,7 @@ const styles = css`
 `
 
 const DateOfDeath: React.FC<Props> = ({ patient }) => {
-  if (patient.deceased?.deceasedBoolean) {
+  if (patient?.deceased?.deceasedBoolean) {
     return (
       <div css={styles}>
         <span>Died</span>
@@ -33,7 +33,7 @@ const DateOfDeath: React.FC<Props> = ({ patient }) => {
 }
 
 interface Props {
-  patient: Patient
+  patient: Patient | undefined
 }
 
 export default DateOfDeath

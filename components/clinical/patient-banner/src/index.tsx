@@ -20,7 +20,7 @@ const styles = (deceased: boolean): SerializedStyles => {
 }
 
 const PatientBanner: React.FC<Props> = ({ patient }) => {
-  const deceased = patient.deceased?.deceasedBoolean ?? false
+  const deceased = patient?.deceased?.deceasedBoolean ?? false
 
   return (
     <div css={styles(deceased)}>
@@ -33,7 +33,7 @@ const PatientBanner: React.FC<Props> = ({ patient }) => {
 }
 
 interface Props {
-  patient: Patient
+  patient: Patient | undefined
 }
 
 export default PatientBanner

@@ -71,7 +71,7 @@ const PrimaryInformation: React.FC<Props> = ({ patient }) => {
   const handleClick = (): void => {
     setCollapsed(!collapsed)
   }
-  const deceased = patient.deceased?.deceasedBoolean ?? false
+  const deceased = patient?.deceased?.deceasedBoolean ?? false
 
   return (
     <div css={styles(collapsed, deceased)}>
@@ -97,7 +97,7 @@ const PrimaryInformation: React.FC<Props> = ({ patient }) => {
 }
 
 interface Props {
-  patient: Patient
+  patient: Patient | undefined
 }
 
 export default PrimaryInformation

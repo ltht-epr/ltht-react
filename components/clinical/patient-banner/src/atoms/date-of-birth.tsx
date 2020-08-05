@@ -24,15 +24,15 @@ const DateOfBirth: React.FC<Props> = ({ patient }) => {
     <div css={styles}>
       <span>Born</span>
       <span>
-        {partialDateTimeText(patient.birthDate)}
-        {!patient.deceased?.deceasedBoolean && ` (${formatPatientAge(patient)})`}
+        {partialDateTimeText(patient?.birthDate)}
+        {!patient?.deceased?.deceasedBoolean && ` (${formatPatientAge(patient)})`}
       </span>
     </div>
   )
 }
 
 interface Props {
-  patient: Patient
+  patient: Patient | undefined
 }
 
 export default DateOfBirth

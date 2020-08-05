@@ -20,7 +20,7 @@ const styles = css`
 `
 
 const PatientGender: React.FC<Props> = ({ patient }) => {
-  if (patient.deceased?.deceasedBoolean) {
+  if (patient?.deceased?.deceasedBoolean) {
     return (
       <div css={styles}>
         <span>Age at Death</span>
@@ -33,7 +33,7 @@ const PatientGender: React.FC<Props> = ({ patient }) => {
 }
 
 interface Props {
-  patient: Patient
+  patient: Patient | undefined
 }
 
 export default PatientGender

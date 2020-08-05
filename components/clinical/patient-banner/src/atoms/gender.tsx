@@ -23,13 +23,13 @@ const Gender: React.FC<Props> = ({ patient }) => {
   return (
     <div css={styles}>
       <span>Gender</span>
-      <span>{patient.gender && titleCase(patient.gender)}</span>
+      <span>{patient?.gender && titleCase(patient.gender)}</span>
     </div>
   )
 }
 
 interface Props {
-  patient: Patient
+  patient: Patient | undefined
 }
 
 export default Gender

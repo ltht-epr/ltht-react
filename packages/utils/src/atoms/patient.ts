@@ -5,21 +5,21 @@ const daysInMonth = (iMonth: number, iYear: number): number => {
   return 32 - new Date(iYear, iMonth, 32).getDate()
 }
 
-const formatPatientAddress = (patient: Patient): string => {
+const formatPatientAddress = (patient: Patient | undefined): string => {
   let address
-  if (patient.address && patient.address.length > 0) {
+  if (patient?.address && patient.address.length > 0) {
     address = patient.address.find(x => x?.use === AddressUseCode.Home && (!x?.period || !x.period?.end))
   }
 
   return address?.text ?? ''
 }
 
-const formatPatientAge = (patient: Patient): string => {
-  const start = patient.birthDate?.value ? new Date(patient.birthDate.value) : null
+const formatPatientAge = (patient: Patient | undefined): string => {
+  const start = patient?.birthDate?.value ? new Date(patient.birthDate.value) : null
   let end = null
 
   // ToDO birth/death date Partial date time check
-  if (patient.deceased?.deceasedBoolean) {
+  if (patient?.deceased?.deceasedBoolean) {
     end = patient.deceased.deceasedDateTime?.value ? new Date(patient.deceased.deceasedDateTime.value) : null
   } else {
     end = new Date()
@@ -78,7 +78,7 @@ const formatPatientAge = (patient: Patient): string => {
   return `${Math.floor(age / (1000 * 60))}min`
 }
 
-const formatPatientName = (patient: Patient): string => {
+const formatPatientName = (patient: Patient | undefined): string => {
   let activeName = patient?.name?.find(x => (!x?.period || !x?.period?.end) && x?.use === HumanNameUseCode.Official)
   if (!activeName) {
     activeName = patient?.name?.find(x => (!x?.period || !x?.period?.end) && x?.use === HumanNameUseCode.Usual)
@@ -103,7 +103,7 @@ const formatPatientName = (patient: Patient): string => {
   return patientName
 }
 
-const formatNHSNumber = (patient: Patient): string => {
+const formatNHSNumber = (patient: Patient | undefined): string => {
   const value = patient?.identifier?.find(x => x?.system === PatientIdentifierType.NhsNumber)?.value
 
   if (!value || value.length === 0) {
@@ -117,7 +117,7 @@ const formatNHSNumber = (patient: Patient): string => {
   return value
 }
 
-const nhsNumberStatus = (patient: Patient): NhsNumberStatus => {
+const nhsNumberStatus = (patient: Patient | undefined): NhsNumberStatus => {
   const nhsNo = patient?.identifier?.find(x => x?.system === PatientIdentifierType.NhsNumber)
 
   if (
