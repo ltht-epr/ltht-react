@@ -1,6 +1,6 @@
 {
   "name": "@ltht-react/observation-detail",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "ltht-react clinical ObservationDetail component.",
   "author": "LTHT",
   "homepage": "",
@@ -27,9 +27,9 @@
   "dependencies": {
     "@emotion/core": "^10.0.27",
     "@emotion/styled": "^10.0.27",
-    "@ltht-react/styles": "^0.1.8",
-    "@ltht-react/types": "^0.0.15",
-    "@ltht-react/utils": "^0.1.8",
+    "@ltht-react/styles": "^0.1.9",
+    "@ltht-react/types": "^0.0.16",
+    "@ltht-react/utils": "^0.1.9",
     "emotion": "^10.0.27",
     "react": "^16.12.0"
   },
