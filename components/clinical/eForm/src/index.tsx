@@ -14,9 +14,11 @@ const styles = (): SerializedStyles => {
       0px 1px 3px 0px rgba(102, 102, 102, 0.6);
     -webkit-font-smoothing: antialiased;
     width: inherit;
+    height: inherit;
 
     iframe {
         width: 100%;
+        height: 100%;
         border: none;
     }
   `
