@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.22](https://github.com/ltht-epr/ltht-react/compare/@ltht-react/appointment-summary@0.1.21...@ltht-react/appointment-summary@0.1.22) (2020-08-10)
+
+**Note:** Version bump only for package @ltht-react/appointment-summary
+
+
+
+
+
 ## [0.1.21](https://github.com/ltht-epr/ltht-react/compare/@ltht-react/appointment-summary@0.1.20...@ltht-react/appointment-summary@0.1.21) (2020-08-05)
 
 **Note:** Version bump only for package @ltht-react/appointment-summary
