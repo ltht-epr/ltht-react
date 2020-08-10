@@ -8,18 +8,21 @@ const styles = (): SerializedStyles => {
   return css`
     ${CSS_RESET}
     background: ${EFORM_BACKGROUND_COLOUR};
-    padding: 0.5rem;
     border-radius: 4px;
     box-shadow: 0px 2px 1px -1px rgba(102, 102, 102, 0.1), 0px 1px 1px 0px rgba(102, 102, 102, 0.15),
       0px 1px 3px 0px rgba(102, 102, 102, 0.6);
     -webkit-font-smoothing: antialiased;
-    width: inherit;
-    height: inherit;
+    overflow: hidden;
+    position: relative;
+    padding-top: 100%;
 
     iframe {
         width: 100%;
         height: 100%;
-        border: none;
+        border: 0;
+        position: absolute;
+        left: 0;
+        top: 0;
     }
   `
 }
