@@ -15,6 +15,7 @@ const styles = (): SerializedStyles => {
     overflow: hidden;
     position: relative;
     padding-top: 100%;
+    width: 100%;
 
     iframe {
         width: 100%;
@@ -28,13 +29,18 @@ const styles = (): SerializedStyles => {
 }
 
 const EForm: React.FC<Props> = ({ url, messageHandler }) => {
+  const innerRef = React.useRef<HTMLDivElement | null>(null)
+
   React.useEffect(() => {
-    window.addEventListener('message', messageHandler)
-    return (): void => window.removeEventListener('message', messageHandler)
+    const el = innerRef.current
+
+    el?.addEventListener('message', messageHandler)
+
+    return (): void => el?.removeEventListener('message', messageHandler)
   })
 
   return (
-    <div css={styles}>
+    <div css={styles} ref={innerRef}>
       <iframe src={url} title="eForm" />
     </div>
   )
