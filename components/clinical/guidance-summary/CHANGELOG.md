@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.20](https://github.com/ltht-epr/ltht-react/compare/@ltht-react/guidance-summary@0.0.19...@ltht-react/guidance-summary@0.0.20) (2020-08-11)
+
+**Note:** Version bump only for package @ltht-react/guidance-summary
+
+
+
+
+
 ## [0.0.19](https://github.com/ltht-epr/ltht-react/compare/@ltht-react/guidance-summary@0.0.18...@ltht-react/guidance-summary@0.0.19) (2020-08-10)
 
 **Note:** Version bump only for package @ltht-react/guidance-summary

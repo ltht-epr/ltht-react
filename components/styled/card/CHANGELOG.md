@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.26](https://github.com/ltht-epr/ltht-react/compare/@ltht-react/card@0.1.25...@ltht-react/card@0.1.26) (2020-08-11)
+
+**Note:** Version bump only for package @ltht-react/card
+
+
+
+
+
 ## [0.1.25](https://github.com/ltht-epr/ltht-react/compare/@ltht-react/card@0.1.24...@ltht-react/card@0.1.25) (2020-08-10)
 
 **Note:** Version bump only for package @ltht-react/card
