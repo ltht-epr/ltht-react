@@ -31,10 +31,23 @@ const styles = (): SerializedStyles => {
 
 const EForm: React.FC<Props> = ({ url, messageHandler }) => {
   React.useLayoutEffect(() => {
-    window.addEventListener('message', messageHandler)
+    const handler = (event: MessageEvent): void => {
+      switch (event.data.eventType) {
+        case 'form-cancelled':
+        case 'form-closed':
+        case 'form-discarded':
+        case 'form-submitted':
+          messageHandler(event)
+          break
+        default:
+          break
+      }
+    }
 
-    return (): void => window.removeEventListener('message', messageHandler)
-  })
+    window.addEventListener('message', handler)
+
+    return (): void => window.removeEventListener('message', handler)
+  }, [messageHandler])
 
   return (
     <div css={styles}>
@@ -45,7 +58,7 @@ const EForm: React.FC<Props> = ({ url, messageHandler }) => {
 
 interface Props {
   url: string
-  messageHandler(event: unknown): void
+  messageHandler(event: MessageEvent): void
 }
 
 export default EForm
