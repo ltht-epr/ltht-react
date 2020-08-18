@@ -1,6 +1,6 @@
 {
   "name": "@ltht-react/medication-summary",
-  "version": "0.0.18",
+  "version": "0.0.19",
   "description": "ltht-react clinical MedicationSummary component.",
   "author": "LTHT",
   "homepage": "",
@@ -27,10 +27,10 @@
   "dependencies": {
     "@emotion/core": "^10.0.27",
     "@emotion/styled": "^10.0.27",
-    "@ltht-react/description-list": "^0.1.17",
-    "@ltht-react/styles": "^0.1.12",
-    "@ltht-react/types": "^0.0.19",
-    "@ltht-react/utils": "^0.1.12",
+    "@ltht-react/description-list": "^0.1.18",
+    "@ltht-react/styles": "^0.1.13",
+    "@ltht-react/types": "^0.0.20",
+    "@ltht-react/utils": "^0.1.13",
     "emotion": "^10.0.27",
     "react": "^16.12.0"
   },
