@@ -1,6 +1,6 @@
 {
   "name": "@ltht-react/utils",
-  "version": "0.1.13",
+  "version": "0.1.14",
   "description": "> TODO: description",
   "author": "Jonny Smith <jonny.asmith@gmail.com>",
   "homepage": "",
@@ -22,7 +22,7 @@
     "build": "tsc"
   },
   "dependencies": {
-    "@ltht-react/types": "^0.0.20"
+    "@ltht-react/types": "^0.0.21"
   },
   "gitHead": "4f3c72294fd0d63e671c06d3dcb4b68ac004818a"
 }

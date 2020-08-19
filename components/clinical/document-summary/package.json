@@ -1,6 +1,6 @@
 {
   "name": "@ltht-react/document-summary",
-  "version": "0.0.23",
+  "version": "0.0.24",
   "description": "ltht-react clinical DocumentSummary component.",
   "author": "LTHT",
   "homepage": "",
@@ -27,12 +27,12 @@
   "dependencies": {
     "@emotion/core": "^10.0.27",
     "@emotion/styled": "^10.0.27",
-    "@ltht-react/icon": "^0.1.21",
-    "@ltht-react/list": "^0.1.19",
-    "@ltht-react/styles": "^0.1.13",
-    "@ltht-react/summary": "^0.0.17",
-    "@ltht-react/types": "^0.0.20",
-    "@ltht-react/utils": "^0.1.13",
+    "@ltht-react/icon": "^0.1.22",
+    "@ltht-react/list": "^0.1.20",
+    "@ltht-react/styles": "^0.1.14",
+    "@ltht-react/summary": "^0.0.18",
+    "@ltht-react/types": "^0.0.21",
+    "@ltht-react/utils": "^0.1.14",
     "emotion": "^10.0.27",
     "react": "^16.12.0"
   },

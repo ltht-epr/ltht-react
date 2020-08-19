@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.18](https://github.com/ltht-epr/ltht-react/compare/@ltht-react/condition-detail@0.0.17...@ltht-react/condition-detail@0.0.18) (2020-08-19)
+
+**Note:** Version bump only for package @ltht-react/condition-detail
+
+
+
+
+
 ## [0.0.17](https://github.com/ltht-epr/ltht-react/compare/@ltht-react/condition-detail@0.0.16...@ltht-react/condition-detail@0.0.17) (2020-08-18)
 
 **Note:** Version bump only for package @ltht-react/condition-detail

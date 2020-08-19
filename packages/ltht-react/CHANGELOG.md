@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.39](https://github.com/ltht-epr/ltht-react/compare/@ltht-react/root@0.1.38...@ltht-react/root@0.1.39) (2020-08-19)
+
+**Note:** Version bump only for package @ltht-react/root
+
+
+
+
+
 ## [0.1.38](https://github.com/ltht-epr/ltht-react/compare/@ltht-react/root@0.1.37...@ltht-react/root@0.1.38) (2020-08-18)
 
 **Note:** Version bump only for package @ltht-react/root
