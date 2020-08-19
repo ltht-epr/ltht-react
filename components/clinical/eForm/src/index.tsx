@@ -13,18 +13,14 @@ const styles = (): SerializedStyles => {
       0px 1px 3px 0px rgba(102, 102, 102, 0.6);
     -webkit-font-smoothing: antialiased;
     overflow: hidden;
-    position: relative;
-    padding-top: 100%;
+    padding-top: 0;
     width: 100%;
-    height: 100vh;
+    height: 100%;
 
     iframe {
         width: 100%;
         height: 100%;
         border: 0;
-        position: absolute;
-        left: 0;
-        top: 0;
     }
   `
 }

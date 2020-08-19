@@ -20,6 +20,6 @@ const handler = (event: unknown): void => {
   console.log(event)
 }
 
-stories.addWithJSX('NEWS', () => {
+stories.addWithJSX('Wikipedia', () => {
   return <EForm url="https://www.wikipedia.org/" messageHandler={handler} />
 })
