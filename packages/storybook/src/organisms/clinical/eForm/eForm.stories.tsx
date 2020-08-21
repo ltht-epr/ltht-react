@@ -15,11 +15,6 @@ stories.addParameters({
   },
 })
 
-const handler = (event: unknown): void => {
-  // eslint-disable-next-line no-console
-  console.log(event)
-}
-
 stories.addWithJSX('Wikipedia', () => {
-  return <EForm url="https://www.wikipedia.org/" messageHandler={handler} />
+  return <EForm url="https://www.wikipedia.org/" />
 })
