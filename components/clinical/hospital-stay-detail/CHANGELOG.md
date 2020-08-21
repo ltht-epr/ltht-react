@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.22](https://github.com/ltht-epr/ltht-react/compare/@ltht-react/hospital-stay-detail@0.0.21...@ltht-react/hospital-stay-detail@0.0.22) (2020-08-21)
+
+**Note:** Version bump only for package @ltht-react/hospital-stay-detail
+
+
+
+
+
 ## [0.0.21](https://github.com/ltht-epr/ltht-react/compare/@ltht-react/hospital-stay-detail@0.0.20...@ltht-react/hospital-stay-detail@0.0.21) (2020-08-19)
 
 **Note:** Version bump only for package @ltht-react/hospital-stay-detail
