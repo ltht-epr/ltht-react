@@ -433,11 +433,11 @@ export type Dosage = {
 }
 
 export type Ehr = {
-  guidanceList?: Maybe<GuidanceList>
+  guidance?: Maybe<Array<Maybe<Guidance>>>
   patient?: Maybe<Patient>
 }
 
-export type EhrGuidanceListArgs = {
+export type EhrGuidanceArgs = {
   patientGuid: Scalars['String']
   instanceSetGuid: Scalars['String']
 }
@@ -682,18 +682,20 @@ export type Guidance = {
   id: Scalars['ID']
   metadata: Metadata
   note?: Maybe<Array<Maybe<Annotation>>>
+  occuranceDateTime?: Maybe<PartialDateTime>
+  reasonCode?: Maybe<CodeableConcept>
+  requestIdentifier?: Maybe<Identifier>
+  status: GuidanceStatusCode
   text?: Maybe<Narrative>
 }
 
-export type GuidanceList = {
-  code?: Maybe<CodeableConcept>
-  date?: Maybe<PartialDateTime>
-  entry?: Maybe<EntryType>
-  extension?: Maybe<Array<Maybe<Extension>>>
-  guidance?: Maybe<Array<Maybe<Guidance>>>
-  id: Scalars['ID']
-  metadata: Metadata
-  text?: Maybe<Narrative>
+export enum GuidanceStatusCode {
+  Success = 'SUCCESS',
+  DataRequested = 'DATA_REQUESTED',
+  DataRequired = 'DATA_REQUIRED',
+  InProgress = 'IN_PROGRESS',
+  Failure = 'FAILURE',
+  EnteredInError = 'ENTERED_IN_ERROR',
 }
 
 export type HumanName = {

@@ -3,7 +3,7 @@ import React from 'react'
 import { css, jsx } from '@emotion/core'
 
 import { CARD_BORDER_COLOUR } from '@ltht-react/styles'
-import { GuidanceList } from '@ltht-react/types'
+import { Guidance } from '@ltht-react/types'
 import GuidanceSummaryItem from './organisms/guidance-summary-item'
 
 const styles = {
@@ -23,13 +23,13 @@ const styles = {
 }
 
 const GuidanceSummary: React.FC<Props> = ({ guidanceList = undefined }) => {
-  if (!guidanceList?.guidance) {
+  if (!guidanceList) {
     return null
   }
 
   return (
     <div css={styles.root}>
-      {guidanceList.guidance.map(x => (
+      {guidanceList.map(x => (
         <GuidanceSummaryItem key={x?.id} guidance={x} />
       ))}
     </div>
@@ -37,7 +37,7 @@ const GuidanceSummary: React.FC<Props> = ({ guidanceList = undefined }) => {
 }
 
 interface Props {
-  guidanceList: GuidanceList | undefined
+  guidanceList: Array<Guidance> | undefined
 }
 
 export default GuidanceSummary

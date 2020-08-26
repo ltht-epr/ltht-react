@@ -1,4 +1,4 @@
-import { Guidance, Metadata, GuidanceList } from '@ltht-react/types'
+import { Guidance, Metadata, GuidanceStatusCode } from '@ltht-react/types'
 
 const mockMetadata: Metadata = {
   dataSources: [
@@ -40,6 +40,10 @@ const guidanceOne: Guidance = {
     { text: 'Self-Harm or Harm to Others Care Plan' },
     { text: "Utilising the 'Use of Restraint' policy and Good Practice Guidance" },
   ],
+  status: GuidanceStatusCode.Success,
+  reasonCode: {
+    text: 'Risk - Communication',
+  },
 }
 
 const guidanceTwo: Guidance = {
@@ -50,6 +54,10 @@ const guidanceTwo: Guidance = {
     text: 'As the information entered indicates that the patient has breathing issues, please consider the need for:',
   },
   note: [{ text: 'Oxygen prescription' }, { text: 'Tracheostomy Care Plan"' }],
+  status: GuidanceStatusCode.Success,
+  reasonCode: {
+    text: 'Risk - Cognition and Mental Capacity',
+  },
 }
 
 const guidanceThree: Guidance = {
@@ -60,12 +68,18 @@ const guidanceThree: Guidance = {
     text:
       "As you have indicated that the patient has hydration issues, please alert the Medical Team of the patient's AKI status",
   },
+  status: GuidanceStatusCode.Success,
+  reasonCode: {
+    text: 'Risk - Unknown',
+  },
 }
 
-const guidanceList: GuidanceList = {
-  id: '88686ed1-ac86-4e14-8c73-fc020f1b0e5b',
-  metadata: mockMetadata,
-  guidance: [guidanceOne, guidanceTwo, guidanceThree],
-}
+const guidanceList: Guidance[] = [guidanceOne, guidanceTwo, guidanceThree]
+
+// const guidanceList: GuidanceList = {
+//   id: '88686ed1-ac86-4e14-8c73-fc020f1b0e5b',
+//   metadata: mockMetadata,
+//   guidance: [guidanceOne, guidanceTwo, guidanceThree],
+// }
 
 export default guidanceList

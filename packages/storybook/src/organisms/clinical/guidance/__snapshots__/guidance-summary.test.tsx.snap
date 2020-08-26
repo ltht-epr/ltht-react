@@ -33,108 +33,108 @@ exports[`GuidanceSummaryy matches snapshot: wrapper mount 1`] = `
 
 <GuidanceSummary
   guidanceList={
-    Object {
-      "guidance": Array [
-        Object {
-          "id": "c2ee5d22-6fcd-4ec8-b12a-e9c6e83876b1",
-          "metadata": Object {
-            "dataSources": Array [
-              Object {
-                "display": "Mock",
-              },
-            ],
-            "isRedacted": false,
-            "requestedWhen": "",
-          },
-          "note": Array [
+    Array [
+      Object {
+        "id": "c2ee5d22-6fcd-4ec8-b12a-e9c6e83876b1",
+        "metadata": Object {
+          "dataSources": Array [
             Object {
-              "text": "Advice from MCA / MHA team",
-            },
-            Object {
-              "text": "Advice from Psychiatric Liaison Team (if appropriate)",
-            },
-            Object {
-              "text": "Assessment and Care of Psychological Health Care Plan",
-            },
-            Object {
-              "text": "Enhanced care",
-            },
-            Object {
-              "text": "Further assessment and / or referral to Mental Health team",
-            },
-            Object {
-              "text": "Hospital passport",
-            },
-            Object {
-              "text": "‘Know Who I Am’ booklet (Forget Me Not)",
-            },
-            Object {
-              "text": "Restrictive Intervention Care Plan",
-            },
-            Object {
-              "text": "Self-Harm or Harm to Others Care Plan",
-            },
-            Object {
-              "text": "Utilising the 'Use of Restraint' policy and Good Practice Guidance",
+              "display": "Mock",
             },
           ],
-          "text": Object {
-            "div": "",
-            "text": "As the information entered indicates that the patient has cognition and mental capacity issues, please consider the need for:",
-          },
+          "isRedacted": false,
+          "requestedWhen": "",
         },
-        Object {
-          "id": "c2ee5d22-6fcd-4ec8-b12a-e9c6e83876b2",
-          "metadata": Object {
-            "dataSources": Array [
-              Object {
-                "display": "Mock",
-              },
-            ],
-            "isRedacted": true,
-            "requestedWhen": "",
-          },
-          "note": Array [
-            Object {
-              "text": "Oxygen prescription",
-            },
-            Object {
-              "text": "Tracheostomy Care Plan\\"",
-            },
-          ],
-          "text": Object {
-            "div": "",
-            "text": "As the information entered indicates that the patient has breathing issues, please consider the need for:",
-          },
-        },
-        Object {
-          "id": "1e4fd41d-5c55-4c46-acc9-e216b3dc2732",
-          "metadata": Object {
-            "dataSources": Array [
-              Object {
-                "display": "Mock",
-              },
-            ],
-            "isRedacted": false,
-            "requestedWhen": "",
-          },
-          "text": Object {
-            "div": "",
-            "text": "As you have indicated that the patient has hydration issues, please alert the Medical Team of the patient's AKI status",
-          },
-        },
-      ],
-      "id": "88686ed1-ac86-4e14-8c73-fc020f1b0e5b",
-      "metadata": Object {
-        "dataSources": Array [
+        "note": Array [
           Object {
-            "display": "Mock",
+            "text": "Advice from MCA / MHA team",
+          },
+          Object {
+            "text": "Advice from Psychiatric Liaison Team (if appropriate)",
+          },
+          Object {
+            "text": "Assessment and Care of Psychological Health Care Plan",
+          },
+          Object {
+            "text": "Enhanced care",
+          },
+          Object {
+            "text": "Further assessment and / or referral to Mental Health team",
+          },
+          Object {
+            "text": "Hospital passport",
+          },
+          Object {
+            "text": "‘Know Who I Am’ booklet (Forget Me Not)",
+          },
+          Object {
+            "text": "Restrictive Intervention Care Plan",
+          },
+          Object {
+            "text": "Self-Harm or Harm to Others Care Plan",
+          },
+          Object {
+            "text": "Utilising the 'Use of Restraint' policy and Good Practice Guidance",
           },
         ],
-        "isRedacted": false,
-        "requestedWhen": "",
+        "reasonCode": Object {
+          "text": "Risk - Communication",
+        },
+        "status": "SUCCESS",
+        "text": Object {
+          "div": "",
+          "text": "As the information entered indicates that the patient has cognition and mental capacity issues, please consider the need for:",
+        },
       },
-    }
+      Object {
+        "id": "c2ee5d22-6fcd-4ec8-b12a-e9c6e83876b2",
+        "metadata": Object {
+          "dataSources": Array [
+            Object {
+              "display": "Mock",
+            },
+          ],
+          "isRedacted": true,
+          "requestedWhen": "",
+        },
+        "note": Array [
+          Object {
+            "text": "Oxygen prescription",
+          },
+          Object {
+            "text": "Tracheostomy Care Plan\\"",
+          },
+        ],
+        "reasonCode": Object {
+          "text": "Risk - Cognition and Mental Capacity",
+        },
+        "status": "SUCCESS",
+        "text": Object {
+          "div": "",
+          "text": "As the information entered indicates that the patient has breathing issues, please consider the need for:",
+        },
+      },
+      Object {
+        "id": "1e4fd41d-5c55-4c46-acc9-e216b3dc2732",
+        "metadata": Object {
+          "dataSources": Array [
+            Object {
+              "display": "Mock",
+            },
+          ],
+          "isRedacted": false,
+          "requestedWhen": "",
+        },
+        "reasonCode": Object {
+          "text": "Risk - Unknown",
+        },
+        "status": "SUCCESS",
+        "text": Object {
+          "div": "",
+          "text": "As you have indicated that the patient has hydration issues, please alert the Medical Team of the patient's AKI status",
+        },
+      },
+    ]
   }
 >
   <div
@@ -185,6 +185,10 @@ exports[`GuidanceSummaryy matches snapshot: wrapper mount 1`] = `
               "text": "Utilising the 'Use of Restraint' policy and Good Practice Guidance",
             },
           ],
+          "reasonCode": Object {
+            "text": "Risk - Communication",
+          },
+          "status": "SUCCESS",
           "text": Object {
             "div": "",
             "text": "As the information entered indicates that the patient has cognition and mental capacity issues, please consider the need for:",
@@ -193,6 +197,9 @@ exports[`GuidanceSummaryy matches snapshot: wrapper mount 1`] = `
       }
       key="c2ee5d22-6fcd-4ec8-b12a-e9c6e83876b1"
     >
+      <h3>
+        Risk - Communication
+      </h3>
       <div>
         As the information entered indicates that the patient has cognition and mental capacity issues, please consider the need for:
       </div>
@@ -296,6 +303,10 @@ exports[`GuidanceSummaryy matches snapshot: wrapper mount 1`] = `
               "text": "Tracheostomy Care Plan\\"",
             },
           ],
+          "reasonCode": Object {
+            "text": "Risk - Cognition and Mental Capacity",
+          },
+          "status": "SUCCESS",
           "text": Object {
             "div": "",
             "text": "As the information entered indicates that the patient has breathing issues, please consider the need for:",
@@ -331,6 +342,10 @@ exports[`GuidanceSummaryy matches snapshot: wrapper mount 1`] = `
             "isRedacted": false,
             "requestedWhen": "",
           },
+          "reasonCode": Object {
+            "text": "Risk - Unknown",
+          },
+          "status": "SUCCESS",
           "text": Object {
             "div": "",
             "text": "As you have indicated that the patient has hydration issues, please alert the Medical Team of the patient's AKI status",
@@ -339,6 +354,9 @@ exports[`GuidanceSummaryy matches snapshot: wrapper mount 1`] = `
       }
       key="1e4fd41d-5c55-4c46-acc9-e216b3dc2732"
     >
+      <h3>
+        Risk - Unknown
+      </h3>
       <div>
         As you have indicated that the patient has hydration issues, please alert the Medical Team of the patient's AKI status
       </div>

@@ -13,6 +13,7 @@ const GuidanceSummaryItem: React.FC<Props> = ({ guidance = undefined }) => {
 
   const summaryMarkup = (
     <>
+      <h3>{guidance.reasonCode?.text}</h3>
       <div>{guidance.text?.text}</div>
       {notes ? <UnorderedList bullet="disc">{notes}</UnorderedList> : null}
     </>
