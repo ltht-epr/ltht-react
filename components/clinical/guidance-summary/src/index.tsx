@@ -10,14 +10,17 @@ const styles = {
   root: css`
     > div {
       margin-right: -0.5rem;
-      padding-bottom: 0.5rem;
+      padding: 0.5rem 0 0.5rem 0;
+      border-top: 1px solid ${CARD_BORDER_COLOUR};
     }
-    > ul {
-      padding: 0 0 0.75rem 1.25rem;
+    ul {
+      padding: 0.5rem 0 0 1.25rem;
+    }
+    span {
+      display: block;
+      padding: 0.5rem 0 0 1rem;
     }
     > div:not(:first-of-type) {
-      border-top: 1px solid ${CARD_BORDER_COLOUR};
-      padding-top: 0.5rem;
     }
   `,
 }
