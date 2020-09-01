@@ -1,6 +1,6 @@
 {
   "name": "@ltht-react/input",
-  "version": "0.0.16",
+  "version": "0.0.17",
   "description": "ltht-react styled Input component.",
   "author": "LTHT",
   "homepage": "",
@@ -27,9 +27,9 @@
   "dependencies": {
     "@emotion/core": "^10.0.27",
     "@emotion/styled": "^10.0.27",
-    "@ltht-react/styles": "^0.1.16",
-    "@ltht-react/types": "^0.0.23",
-    "@ltht-react/utils": "^0.1.16",
+    "@ltht-react/styles": "^0.1.17",
+    "@ltht-react/types": "^0.0.24",
+    "@ltht-react/utils": "^0.1.17",
     "emotion": "^10.0.27",
     "react": "^16.12.0"
   },

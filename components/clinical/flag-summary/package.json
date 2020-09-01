@@ -1,6 +1,6 @@
 {
   "name": "@ltht-react/flag-summary",
-  "version": "0.1.27",
+  "version": "0.1.28",
   "description": "> TODO: description",
   "author": "Jonny Smith <jonny.asmith@gmail.com>",
   "homepage": "",
@@ -24,12 +24,12 @@
   "dependencies": {
     "@emotion/core": "^10.0.27",
     "@emotion/styled": "^10.0.27",
-    "@ltht-react/icon": "^0.1.24",
-    "@ltht-react/list": "^0.1.22",
-    "@ltht-react/styles": "^0.1.16",
-    "@ltht-react/summary": "^0.0.20",
-    "@ltht-react/types": "^0.0.23",
-    "@ltht-react/utils": "^0.1.16",
+    "@ltht-react/icon": "^0.1.25",
+    "@ltht-react/list": "^0.1.23",
+    "@ltht-react/styles": "^0.1.17",
+    "@ltht-react/summary": "^0.0.21",
+    "@ltht-react/types": "^0.0.24",
+    "@ltht-react/utils": "^0.1.17",
     "emotion": "^10.0.27",
     "react": "^16.12.0"
   },
