@@ -7,7 +7,7 @@ import readme from '@ltht-react/allergy-summary/README.md'
 import { Card, CardHeader, CardBody } from '@ltht-react/card'
 import allergies from './allergy.fixtures'
 
-const stories = storiesOf('Organisms - Clinical|Allergy', module)
+const stories = storiesOf('Organisms - Clinical|Allergy', module) as any
 
 stories.addWithJSX = JSXAddon.addWithJSX
 

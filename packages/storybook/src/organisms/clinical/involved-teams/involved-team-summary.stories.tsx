@@ -6,7 +6,7 @@ import readme from '@ltht-react/involved-team-summary/README.md'
 import { Card, CardHeader, CardBody, CardList } from '@ltht-react/card'
 import episodes from './involved-team-summary.fixtures'
 
-const stories = storiesOf('Organisms - Clinical|Involved Team', module)
+const stories = storiesOf('Organisms - Clinical|Involved Team', module) as any
 
 stories.addWithJSX = JSXAddon.addWithJSX
 

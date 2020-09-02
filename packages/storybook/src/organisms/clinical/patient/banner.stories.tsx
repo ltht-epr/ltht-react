@@ -7,7 +7,7 @@ import PatientBanner from '@ltht-react/patient-banner'
 import readme from '@ltht-react/patient-banner/README.md'
 import { AlivePatient, DeceasedPatient } from './banner.fixtures'
 
-const stories = storiesOf('Organisms - Clinical|Patient', module)
+const stories = storiesOf('Organisms - Clinical|Patient', module) as any
 
 stories.addWithJSX = JSXAddon.addWithJSX
 

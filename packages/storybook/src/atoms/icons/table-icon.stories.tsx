@@ -5,7 +5,7 @@ import JSXAddon from 'storybook-addon-jsx'
 import { TableIcon } from '@ltht-react/icon'
 import TableIconReadMe from '@ltht-react/icon/README.md'
 
-const stories = storiesOf('Atoms|Icons', module)
+const stories = storiesOf('Atoms|Icons', module) as any
 
 stories.addWithJSX = JSXAddon.addWithJSX
 

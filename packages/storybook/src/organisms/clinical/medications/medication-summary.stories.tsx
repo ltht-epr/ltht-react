@@ -8,7 +8,7 @@ import { Card, CardHeader, CardBody, CardList } from '@ltht-react/card'
 
 import MedicationData from './medication.fixture'
 
-const stories = storiesOf('Organisms - Clinical|Medication', module)
+const stories = storiesOf('Organisms - Clinical|Medication', module) as any
 
 stories.addWithJSX = JSXAddon.addWithJSX
 

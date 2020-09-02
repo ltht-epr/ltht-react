@@ -5,7 +5,7 @@ import JSXAddon from 'storybook-addon-jsx'
 import dlreadme from '@ltht-react/list/README.md'
 import { ListItem, UnorderedList } from '@ltht-react/list'
 
-const stories = storiesOf('Atoms|Unordered List', module)
+const stories = storiesOf('Atoms|Unordered List', module) as any
 
 stories.addWithJSX = JSXAddon.addWithJSX
 

@@ -7,7 +7,7 @@ import readme from '@ltht-react/appointment-summary/README.md'
 import { Card, CardHeader, CardBody, CardList } from '@ltht-react/card'
 import encounters from './appointment-summary.fixtures'
 
-const stories = storiesOf('Organisms - Clinical|Appointment', module)
+const stories = storiesOf('Organisms - Clinical|Appointment', module) as any
 
 stories.addWithJSX = JSXAddon.addWithJSX
 

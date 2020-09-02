@@ -7,7 +7,7 @@ import { ListItem } from '@ltht-react/list'
 import { MissingDataSummary, MissingDataWarning } from '@ltht-react/summary'
 import { Card, CardHeader, CardBody, CardFooter, CardList } from '@ltht-react/card'
 
-const stories = storiesOf('Organisms - Styled|Card', module)
+const stories = storiesOf('Organisms - Styled|Card', module) as any
 
 stories.addWithJSX = JSXAddon.addWithJSX
 

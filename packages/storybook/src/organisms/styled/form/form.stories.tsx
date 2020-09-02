@@ -32,7 +32,8 @@ const styles = {
   `,
 }
 
-const stories = storiesOf('Organisms - Styled|Form', module)
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const stories = storiesOf('Organisms - Styled|Form', module) as any
 
 stories.addWithJSX = JSXAddon.addWithJSX
 

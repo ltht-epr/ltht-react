@@ -5,7 +5,7 @@ import JSXAddon from 'storybook-addon-jsx'
 import readme from '@ltht-react/detail/README.md'
 import { StringDetail } from '@ltht-react/detail'
 
-const stories = storiesOf('Molecules|Detail', module)
+const stories = storiesOf('Molecules|Detail', module) as any
 
 stories.addWithJSX = JSXAddon.addWithJSX
 

@@ -7,7 +7,7 @@ import readme from '@ltht-react/care-plan-summary/README.md'
 import { Card, CardHeader, CardBody, CardList } from '@ltht-react/card'
 import careplans from './care-plan.fixtures'
 
-const stories = storiesOf('Organisms - Clinical|Care Plan', module)
+const stories = storiesOf('Organisms - Clinical|Care Plan', module) as any
 
 stories.addWithJSX = JSXAddon.addWithJSX
 

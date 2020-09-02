@@ -1,5 +1,8 @@
 {
   "name": "@ltht-react/monorepo",
+  "engines": {
+    "node": "=12.18.3"
+  },
   "private": true,
   "dependencies": {
     "@emotion/core": "^10.0.27",
@@ -12,7 +15,6 @@
     "@types/async": "^3.0.3",
     "@types/enzyme": "^3.10.4",
     "@types/enzyme-adapter-react-16": "^1.0.5",
-    "@types/mkdirp-promise": "^5.0.0",
     "@types/react": "^16.9.17",
     "@types/react-dom": "^16.9.4",
     "@types/react-test-renderer": "^16.9.1",

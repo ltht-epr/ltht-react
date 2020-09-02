@@ -6,7 +6,7 @@ import readme from '@ltht-react/detail/README.md'
 import { ResourceReferenceDetail } from '@ltht-react/detail'
 import * as fixtures from './detail.fixtures'
 
-const stories = storiesOf('Molecules|Detail', module)
+const stories = storiesOf('Molecules|Detail', module) as any
 
 stories.addWithJSX = JSXAddon.addWithJSX
 

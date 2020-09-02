@@ -5,7 +5,7 @@ import JSXAddon from 'storybook-addon-jsx'
 import { CounterIcon } from '@ltht-react/icon'
 import ChevronIconReadMe from '@ltht-react/icon/README.md'
 
-const stories = storiesOf('Atoms|Icons', module)
+const stories = storiesOf('Atoms|Icons', module) as any
 
 stories.addWithJSX = JSXAddon.addWithJSX
 

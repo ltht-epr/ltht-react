@@ -5,7 +5,7 @@ import JSXAddon from 'storybook-addon-jsx'
 import EForm from '@ltht-react/eform'
 import readme from '@ltht-react/eform/README.md'
 
-const stories = storiesOf('Organisms - Clinical|EForm', module)
+const stories = storiesOf('Organisms - Clinical|EForm', module) as any
 
 stories.addWithJSX = JSXAddon.addWithJSX
 

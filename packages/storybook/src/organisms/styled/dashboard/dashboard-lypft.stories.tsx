@@ -23,7 +23,8 @@ import hospitalStays from '../../clinical/hospital-stays/hospital-stay.fixtures'
 
 import { Container, Column } from './dashboard'
 
-const stories = storiesOf('Organisms - Styled|Dashboard', module)
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const stories = storiesOf('Organisms - Styled|Dashboard', module) as any
 
 stories.addWithJSX = JSXAddon.addWithJSX
 

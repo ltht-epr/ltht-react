@@ -5,7 +5,8 @@ import JSXAddon from 'storybook-addon-jsx'
 import dlreadme from '@ltht-react/description-list/README.md'
 import { DescriptionList, DescriptionListTerm, DescriptionListDescription } from '@ltht-react/description-list'
 
-const stories = storiesOf('Atoms|Description List', module)
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const stories = storiesOf('Atoms|Description List', module) as any
 
 stories.addWithJSX = JSXAddon.addWithJSX
 

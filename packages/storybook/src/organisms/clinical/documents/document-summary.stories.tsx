@@ -9,7 +9,7 @@ import { Card, CardHeader, CardBody } from '@ltht-react/card'
 import { DocumentReference } from '@ltht-react/types'
 import documents from './document-summary.fixture'
 
-const stories = storiesOf('Organisms - Clinical|Document', module)
+const stories = storiesOf('Organisms - Clinical|Document', module) as any
 
 stories.addWithJSX = JSXAddon.addWithJSX
 

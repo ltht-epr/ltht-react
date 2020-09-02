@@ -7,7 +7,7 @@ import readme from '@ltht-react/condition-summary/README.md'
 import { Card, CardHeader, CardList, CardBody } from '@ltht-react/card'
 import conditions from './condition-summary.fixtures'
 
-const stories = storiesOf('Organisms - Clinical|Condition', module)
+const stories = storiesOf('Organisms - Clinical|Condition', module) as any
 
 stories.addWithJSX = JSXAddon.addWithJSX
 

@@ -8,7 +8,7 @@ import { Card, CardHeader, CardBody } from '@ltht-react/card'
 
 import orders from './community-treatment-order.fixtures'
 
-const stories = storiesOf('Organisms - Clinical|Community Treatment Order', module)
+const stories = storiesOf('Organisms - Clinical|Community Treatment Order', module) as any
 
 stories.addWithJSX = JSXAddon.addWithJSX
 

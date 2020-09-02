@@ -7,7 +7,7 @@ import readme from '@ltht-react/flag-summary/README.md'
 import { Card, CardHeader, CardBody, CardList } from '@ltht-react/card'
 import flags from './flag.fixtures'
 
-const stories = storiesOf('Organisms - Clinical|Flag', module)
+const stories = storiesOf('Organisms - Clinical|Flag', module) as any
 
 stories.addWithJSX = JSXAddon.addWithJSX
 
