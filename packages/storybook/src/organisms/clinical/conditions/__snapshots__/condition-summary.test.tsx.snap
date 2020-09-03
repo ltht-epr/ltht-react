@@ -317,7 +317,7 @@ exports[`ConditionSummary matches snapshot: wrapper mount 1`] = `
                 <div
                   className="emotion-2"
                 >
-                  01-Feb-2020
+                  Feb-01,-2020
                 </div>
               </DateSummary>
             </div>
@@ -532,7 +532,7 @@ exports[`ConditionSummary matches snapshot: wrapper mount 1`] = `
               <div
                 className="emotion-2"
               >
-                01-Jan-2020
+                Jan-01,-2020
               </div>
             </DateSummary>
             <ConditionStatus

@@ -284,7 +284,7 @@ exports[`AppointmentSummary matches snapshot: wrapper mount 1`] = `
               <div
                 className="emotion-0"
               >
-                01-Apr-2020
+                Apr-01,-2020
               </div>
             </DateSummary>
           </div>
@@ -508,7 +508,7 @@ exports[`AppointmentSummary matches snapshot: wrapper mount 1`] = `
               <div
                 className="emotion-0"
               >
-                12-Dec-2019
+                Dec-12,-2019
               </div>
             </DateSummary>
           </div>
@@ -728,7 +728,7 @@ exports[`AppointmentSummary matches snapshot: wrapper mount 1`] = `
               <div
                 className="emotion-0"
               >
-                12-Dec-2019
+                Dec-12,-2019
               </div>
             </DateSummary>
           </div>
@@ -974,7 +974,7 @@ exports[`AppointmentSummary matches snapshot: wrapper mount 1`] = `
                 <div
                   className="emotion-0"
                 >
-                  12-Dec-2019
+                  Dec-12,-2019
                 </div>
               </DateSummary>
             </div>

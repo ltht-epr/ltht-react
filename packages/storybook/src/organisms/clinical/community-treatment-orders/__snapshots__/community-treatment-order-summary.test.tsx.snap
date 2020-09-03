@@ -285,7 +285,7 @@ exports[`CommunityTreatmentOrderSummary matches snapshot: wrapper mount 1`] = `
               <div
                 className="emotion-3"
               >
-                01-Jan-2013 to 02-Feb-2014
+                Jan-01,-2013 to Feb-02,-2014
               </div>
             </PeriodSummary>
             <CommunityTreatmentOrderSummaryConsent
@@ -437,7 +437,7 @@ exports[`CommunityTreatmentOrderSummary matches snapshot: wrapper mount 1`] = `
                 <div
                   className="emotion-3"
                 >
-                  02-Jan-2020 to Present
+                  Jan-02,-2020 to Present
                 </div>
               </PeriodSummary>
             </div>

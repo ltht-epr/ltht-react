@@ -283,7 +283,7 @@ exports[`InvolvedTeamSummary matches snapshot: wrapper mount 1`] = `
                 <div
                   className="emotion-2"
                 >
-                  01-Dec-2018 to 02-Jan-2020
+                  Dec-01,-2018 to Jan-02,-2020
                 </div>
               </PeriodSummary>
             </div>
@@ -459,7 +459,7 @@ exports[`InvolvedTeamSummary matches snapshot: wrapper mount 1`] = `
               <div
                 className="emotion-2"
               >
-                01-Dec-2019 to Present
+                Dec-01,-2019 to Present
               </div>
             </PeriodSummary>
             <InvolvedTeamType

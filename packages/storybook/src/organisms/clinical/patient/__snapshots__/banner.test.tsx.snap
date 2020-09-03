@@ -716,7 +716,7 @@ exports[`PatientBanner matches snapshot: wrapper mount 1`] = `
                   Born
                 </span>
                 <span>
-                  30-Jun-1955
+                  Jun-30,-1955
                 </span>
               </div>
             </DateOfBirth>
@@ -814,7 +814,7 @@ exports[`PatientBanner matches snapshot: wrapper mount 1`] = `
                   Died
                 </span>
                 <span>
-                  05-Feb-2020
+                  Feb-05,-2020
                 </span>
               </div>
             </DateOfDeath>

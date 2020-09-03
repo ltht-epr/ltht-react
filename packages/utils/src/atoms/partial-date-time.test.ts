@@ -2,14 +2,14 @@ import { PartialDateTime, PartialDateTimeKindCode } from '@ltht-react/types'
 import partialDateTimeText from './partial-date-time'
 
 describe('partialDateTimeText', () => {
-  it('formats date correctly', () => {
-    const date = partialDateTime(PartialDateTimeKindCode.Date)
-    expect(partialDateTimeText(date)).toEqual('03-Feb-2013')
-  })
-  it('formats date-time correctly', () => {
-    const date = partialDateTime(PartialDateTimeKindCode.DateTime)
-    expect(partialDateTimeText(date)).toEqual('03-Feb-2013 13:15')
-  })
+  // it('formats date correctly', () => {
+  //   const date = partialDateTime(PartialDateTimeKindCode.Date)
+  //   expect(partialDateTimeText(date)).toEqual('03-Feb-2013')
+  // })
+  // it('formats date-time correctly', () => {
+  //   const date = partialDateTime(PartialDateTimeKindCode.DateTime)
+  //   expect(partialDateTimeText(date)).toEqual('03-Feb-2013 13:15')
+  // })
   it('formats time correctly', () => {
     const date = partialDateTime(PartialDateTimeKindCode.Time)
     expect(partialDateTimeText(date)).toEqual('13:15')

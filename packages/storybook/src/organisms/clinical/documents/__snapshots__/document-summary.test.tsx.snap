@@ -182,7 +182,7 @@ exports[`DocumentSummaryy matches snapshot: wrapper mount 1`] = `
             >
               <DocumentSummaryContent
                 clickHandler={[Function]}
-                created="01/04/2020"
+                created="4/1/2020"
                 description="Description of document one"
                 source="Mock"
                 status="CURRENT"
@@ -191,7 +191,7 @@ exports[`DocumentSummaryy matches snapshot: wrapper mount 1`] = `
                   onClick={[Function]}
                 >
                   <div>
-                    01/04/2020
+                    4/1/2020
                   </div>
                   <div
                     className="emotion-0"
@@ -306,7 +306,7 @@ exports[`DocumentSummaryy matches snapshot: wrapper mount 1`] = `
             >
               <DocumentSummaryContent
                 clickHandler={[Function]}
-                created="11/10/2019"
+                created="10/11/2019"
                 description="Description of document two"
                 source="Mock"
                 status="ENTERED_IN_ERROR"
@@ -315,7 +315,7 @@ exports[`DocumentSummaryy matches snapshot: wrapper mount 1`] = `
                   onClick={[Function]}
                 >
                   <div>
-                    11/10/2019
+                    10/11/2019
                   </div>
                   <div
                     className="emotion-0"
@@ -430,7 +430,7 @@ exports[`DocumentSummaryy matches snapshot: wrapper mount 1`] = `
             >
               <DocumentSummaryContent
                 clickHandler={[Function]}
-                created="23/01/2020"
+                created="1/23/2020"
                 description="Description of document three"
                 source="Mock"
                 status="SUPERSEDED"
@@ -439,7 +439,7 @@ exports[`DocumentSummaryy matches snapshot: wrapper mount 1`] = `
                   onClick={[Function]}
                 >
                   <div>
-                    23/01/2020
+                    1/23/2020
                   </div>
                   <div
                     className="emotion-0"

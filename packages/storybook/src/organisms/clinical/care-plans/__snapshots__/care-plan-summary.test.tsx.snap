@@ -375,7 +375,7 @@ exports[`CarePlanSummary matches snapshot: wrapper mount 1`] = `
                 <div
                   className="emotion-2"
                 >
-                  01-Jan-2013 to 02-Feb-2014
+                  Jan-01,-2013 to Feb-02,-2014
                 </div>
               </PeriodSummary>
             </div>
@@ -551,7 +551,7 @@ exports[`CarePlanSummary matches snapshot: wrapper mount 1`] = `
               <div
                 className="emotion-2"
               >
-                02-Feb-2014 to 04-Mar-2015
+                Feb-02,-2014 to Mar-04,-2015
               </div>
             </PeriodSummary>
             <CarePlanStatus
@@ -913,7 +913,7 @@ exports[`CarePlanSummary matches snapshot: wrapper mount 1`] = `
               <div
                 className="emotion-2"
               >
-                02-Feb-2014 to Present
+                Feb-02,-2014 to Present
               </div>
             </PeriodSummary>
             <CarePlanStatus

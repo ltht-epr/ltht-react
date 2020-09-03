@@ -503,7 +503,7 @@ exports[`FlagSummary matches snapshot: wrapper mount 1`] = `
               <div
                 className="emotion-2"
               >
-                01-Jan-2013 to 02-Feb-2014
+                Jan-01,-2013 to Feb-02,-2014
               </div>
             </PeriodSummary>
             <FlagStatus
