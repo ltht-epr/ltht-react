@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.13](https://github.com/ltht-epr/ltht-react/compare/@ltht-react/patient-banner@0.0.12...@ltht-react/patient-banner@0.0.13) (2020-09-10)
+
+**Note:** Version bump only for package @ltht-react/patient-banner
+
+
+
+
+
+
 ## [0.0.12](https://github.com/ltht-epr/ltht-react/compare/@ltht-react/patient-banner@0.0.11...@ltht-react/patient-banner@0.0.12) (2020-09-01)
 
 **Note:** Version bump only for package @ltht-react/patient-banner
