@@ -17,10 +17,9 @@ const styles = {
       padding: 0.5rem 0 0 1.25rem;
     }
     span {
-      display: block;
-      padding: 0.5rem 0 0 1rem;
-    }
-    > div:not(:first-of-type) {
+      display: block !important;
+      padding-top: 0.5rem;
+      padding-left: 1.25rem;
     }
   `,
 }
