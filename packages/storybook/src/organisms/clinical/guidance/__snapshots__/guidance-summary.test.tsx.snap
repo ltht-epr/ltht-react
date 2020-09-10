@@ -12,8 +12,9 @@ exports[`GuidanceSummaryy matches snapshot: wrapper mount 1`] = `
 }
 
 .emotion-3 span {
-  display: block;
-  padding: 0.5rem 0 0 1rem;
+  display: block !important;
+  padding-top: 0.5rem;
+  padding-left: 1.25rem;
 }
 
 .emotion-0 {
