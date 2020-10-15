@@ -6,7 +6,7 @@ const styles = (hasClick: boolean, position: 'space-between' | 'center'): Serial
   return css`
     display: flex;
     justify-content: ${position};
-    padding: 0.5rem;
+    padding: 0.5rem !important;
 
     &:hover {
       ${hasClick && 'cursor: pointer;'}

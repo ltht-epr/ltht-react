@@ -8,12 +8,15 @@ const styles = {
     display: flex;
     flex-direction: column;
 
-    & > div:last {
-      padding-right: 0;
+    & > div:last-of-type {
+      padding-right: 0 !important;
     }
 
     ${TABLET_MEDIA_QUERY} {
       flex-direction: row;
+      & > div {
+        padding-right: 0.5rem;
+      }
     }
   `,
   column: css`

@@ -69,11 +69,11 @@ exports[`Form matches snapshot: wrapper mount 1`] = `
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  padding: 0.5rem;
+  padding: 0.5rem !important;
 }
 
 .emotion-7 {
-  padding: 0.5rem;
+  padding: 0 0.5rem 0 0.5rem !important;
 }
 
 .emotion-7 > dl:first-of-type {

@@ -2,34 +2,18 @@
 import React from 'react'
 import { css, jsx, SerializedStyles } from '@emotion/core'
 
-const bodyAfter = css`
-  &:after {
-    content: '';
-    display: block;
-    border-top: 1px solid #b0b0b0;
-    margin: 0.5rem -0.5rem -0.5rem 0;
-  }
-`
-
-const styles = (collapsed: boolean, childrenCount: number): SerializedStyles => {
+const styles = (collapsed: boolean): SerializedStyles => {
   return css`
-    padding: 0.5rem;
+    padding: 0 0.5rem 0 0.5rem !important;
     ${collapsed && 'display: none;'}
     > dl:first-of-type {
       margin-top: 0 !important;
     }
-    /* &:before {
-      content: '';
-      display: block;
-      border-top: 1px solid #b0b0b0;
-      margin: -0.5rem -0.5rem 0.5rem 0;
-    }
-    ${childrenCount > 2 && bodyAfter} */
   `
 }
 
 const CardBody: React.FC<Props> = ({ children, collapsed = false }) => {
-  return <div css={styles(collapsed, React.Children.count(children))}>{children}</div>
+  return <div css={styles(collapsed)}>{children}</div>
 }
 
 interface Props {

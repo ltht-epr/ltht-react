@@ -4,7 +4,7 @@ import { css, jsx, SerializedStyles } from '@emotion/core'
 
 const styles = (collapsed: boolean): SerializedStyles => {
   return css`
-    padding: 0.5rem;
+    padding: 0 0.5rem 0 0.5rem !important;
     ${collapsed && 'display: none;'}
   `
 }

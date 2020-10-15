@@ -36,13 +36,13 @@ stories.addWithJSX('Readonly Cards', () => {
   return (
     <Container>
       <Column>
-        <Card noData={!flags}>
+        <Card noData>
           <CardHeader>
             <h3>Flags</h3>
           </CardHeader>
           <CardBody>
             <CardList>
-              <FlagSummary flags={flags} />
+              <FlagSummary flags={undefined} />
             </CardList>
           </CardBody>
         </Card>
@@ -73,6 +73,16 @@ stories.addWithJSX('Readonly Cards', () => {
           <CardBody>
             <CardList>
               <CarePlanSummary carePlans={carePlans} />
+            </CardList>
+          </CardBody>
+        </Card>
+        <Card>
+          <CardHeader>
+            <h3>Alerts</h3>
+          </CardHeader>
+          <CardBody>
+            <CardList>
+              <FlagSummary flags={flags} />
             </CardList>
           </CardBody>
         </Card>
