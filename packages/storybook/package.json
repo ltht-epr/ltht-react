@@ -1,6 +1,6 @@
 {
   "name": "@ltht-react/storybook",
-  "version": "0.1.43",
+  "version": "0.1.44",
   "description": "> TODO: description",
   "author": "Jonny Smith <jonny.asmith@gmail.com>",
   "homepage": "",
@@ -49,7 +49,7 @@
     "@ltht-react/appointment-summary": "^0.1.29",
     "@ltht-react/banner": "^0.0.16",
     "@ltht-react/button": "^0.0.18",
-    "@ltht-react/card": "^0.1.32",
+    "@ltht-react/card": "^0.1.33",
     "@ltht-react/care-plan-detail": "^0.1.24",
     "@ltht-react/care-plan-summary": "^0.1.28",
     "@ltht-react/community-treatment-order-detail": "^0.1.24",
