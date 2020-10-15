@@ -5,11 +5,20 @@ exports[`Form matches snapshot: wrapper mount 1`] = `
   color: #231f20;
   font-family: 'SF Pro Text','SF Pro Icons','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 0.8rem;
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  text-align: left;
   background: #FFFFFF;
   color: #231f20;
   margin-bottom: 1rem;
   border-radius: 4px;
-  box-shadow: 0px 2px 1px -1px rgba(102,102,102,0.1), 0px 1px 1px 0px rgba(102,102,102,0.15), 0px 1px 3px 0px rgba(102,102,102,.6);
+  box-shadow: 0px 2px 1px -1px rgba(102,102,102,0.1),0px 1px 1px 0px rgba(102,102,102,0.15), 0px 1px 3px 0px rgba(102,102,102,0.6);
   -webkit-font-smoothing: antialiased;
 }
 
@@ -60,24 +69,35 @@ exports[`Form matches snapshot: wrapper mount 1`] = `
   }
 }
 
+.emotion-8 > [class^='card__alert'] + .card__list,
+.emotion-8 > [class^='card__alert'] + .card__body,
+.emotion-8 > [class^='card__banner'] + .card__list,
+.emotion-8 > [class^='card__banner'] + .card__body,
+.emotion-8 > .card__list + .card__body,
+.emotion-8 > .card__list + .card__list,
+.emotion-8 > .card__list + .card__footer {
+  border-top-width: 0;
+}
+
 .emotion-0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  padding: 0.5rem !important;
+  padding: 0.75rem 0.75rem 0.75rem 0;
+  margin: 0 0 0 0.75rem;
 }
 
 .emotion-7 {
-  padding: 0 0.5rem 0 0.5rem !important;
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  min-height: 1px;
+  padding: 0.75rem 0.75rem 0.75rem 0;
+  margin: 0 0 0 0.75rem;
+  border-top: 1px solid rgba(0,0,0,0.125);
 }
 
-.emotion-7 > dl:first-of-type {
-  margin-top: 0 !important;
+.emotion-7:first-child {
+  border-top-width: 0;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
 }
 
 .emotion-6 {
@@ -160,115 +180,126 @@ exports[`Form matches snapshot: wrapper mount 1`] = `
 }
 
 <Card>
-  <div
-    className="emotion-8"
+  <Styled(div)
+    className="card"
+    textAlign="left"
   >
-    <CardHeader>
-      <div
-        className="emotion-0"
-        onClick={[Function]}
-        title=""
-      >
-        <h3>
-          Form example
-        </h3>
-      </div>
-    </CardHeader>
-    <CardBody>
-      <div
-        className="emotion-7"
-      >
-        <Form
-          submitHandler={[Function]}
+    <div
+      className="card emotion-8"
+    >
+      <Header>
+        <Styled(div)
+          className="card__header"
         >
-          <form
-            className="emotion-6"
-            onSubmit={[Function]}
+          <div
+            className="card__header emotion-0"
           >
-            <FormCheck>
-              <div
-                className="form-check emotion-2"
+            <h3>
+              Form example
+            </h3>
+          </div>
+        </Styled(div)>
+      </Header>
+      <Body>
+        <Styled(div)
+          className="card__body"
+        >
+          <div
+            className="card__body emotion-7"
+          >
+            <Form
+              submitHandler={[Function]}
+            >
+              <form
+                className="emotion-6"
+                onSubmit={[Function]}
               >
-                <RadioButton
-                  changeHandler={[Function]}
-                  checked={true}
-                  id="1"
-                  label="Option 1"
-                  value="1"
-                >
+                <FormCheck>
                   <div
-                    className="emotion-1"
+                    className="form-check emotion-2"
                   >
-                    <input
+                    <RadioButton
+                      changeHandler={[Function]}
                       checked={true}
                       id="1"
-                      onChange={[Function]}
-                      type="radio"
+                      label="Option 1"
                       value="1"
-                    />
-                    <label
-                      htmlFor="1"
                     >
-                      Option 1
-                    </label>
+                      <div
+                        className="emotion-1"
+                      >
+                        <input
+                          checked={true}
+                          id="1"
+                          onChange={[Function]}
+                          type="radio"
+                          value="1"
+                        />
+                        <label
+                          htmlFor="1"
+                        >
+                          Option 1
+                        </label>
+                      </div>
+                    </RadioButton>
                   </div>
-                </RadioButton>
-              </div>
-            </FormCheck>
-            <FormCheck>
-              <div
-                className="form-check emotion-2"
-              >
-                <RadioButton
-                  changeHandler={[Function]}
-                  checked={false}
-                  id="2"
-                  label="Option 2"
-                  value="2"
-                >
+                </FormCheck>
+                <FormCheck>
                   <div
-                    className="emotion-3"
+                    className="form-check emotion-2"
                   >
-                    <input
+                    <RadioButton
+                      changeHandler={[Function]}
                       checked={false}
                       id="2"
-                      onChange={[Function]}
-                      type="radio"
+                      label="Option 2"
                       value="2"
-                    />
-                    <label
-                      htmlFor="2"
                     >
-                      Option 2
-                    </label>
+                      <div
+                        className="emotion-3"
+                      >
+                        <input
+                          checked={false}
+                          id="2"
+                          onChange={[Function]}
+                          type="radio"
+                          value="2"
+                        />
+                        <label
+                          htmlFor="2"
+                        >
+                          Option 2
+                        </label>
+                      </div>
+                    </RadioButton>
                   </div>
-                </RadioButton>
-              </div>
-            </FormCheck>
-            <PrimaryButton
-              disabled={true}
-              type="submit"
-              value="Submit"
-            >
-              <Button
-                buttonStyle="primary"
-                disabled={true}
-                type="submit"
-                value="Submit"
-              >
-                <button
-                  className="emotion-5"
+                </FormCheck>
+                <PrimaryButton
                   disabled={true}
                   type="submit"
+                  value="Submit"
                 >
-                  Submit
-                </button>
-              </Button>
-            </PrimaryButton>
-          </form>
-        </Form>
-      </div>
-    </CardBody>
-  </div>
+                  <Button
+                    buttonStyle="primary"
+                    disabled={true}
+                    type="submit"
+                    value="Submit"
+                  >
+                    <button
+                      className="emotion-5"
+                      disabled={true}
+                      type="submit"
+                    >
+                      Submit
+                    </button>
+                  </Button>
+                </PrimaryButton>
+              </form>
+            </Form>
+          </div>
+        </Styled(div)>
+      </Body>
+    </div>
+  </Styled(div)>
 </Card>
 `;

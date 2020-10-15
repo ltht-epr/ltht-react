@@ -23,7 +23,7 @@ const CounterIcon: React.FC<CounterIconProps> = ({ status, size, value }) => {
 
   return (
     <span className="fa-layers fa-fw">
-      <FontAwesomeIcon css={styles} icon={faCircle} size={calculateIconSize(size)} />
+      <FontAwesomeIcon className="icon__counter" css={styles} icon={faCircle} size={calculateIconSize(size)} />
       <span className="fa-layers-text fa-inverse fa-xs" css={numberStyles}>
         {value}
       </span>

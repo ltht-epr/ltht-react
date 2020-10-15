@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`PatientBanner matches snapshot: wrapper mount 1`] = `
-.emotion-16 {
+.emotion-14 {
   color: #231f20;
   font-family: 'SF Pro Text','SF Pro Icons','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 0.8rem;
@@ -9,58 +9,58 @@ exports[`PatientBanner matches snapshot: wrapper mount 1`] = `
   background-color: #fff;
 }
 
-.emotion-16 *,
-.emotion-16 ::before,
-.emotion-16 ::after {
+.emotion-14 *,
+.emotion-14 ::before,
+.emotion-14 ::after {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
 
-.emotion-16 * {
+.emotion-14 * {
   margin: 0;
   padding: 0;
 }
 
-.emotion-16 h3 {
+.emotion-14 h3 {
   font-size: 1rem;
 }
 
 @media only screen and (min-width:768px) {
-  .emotion-16 {
+  .emotion-14 {
     font-size: 0.9rem;
   }
 
-  .emotion-16 h3 {
+  .emotion-14 h3 {
     font-size: 1.1rem;
   }
 }
 
 @media only screen and (min-width:1024px) {
-  .emotion-16 {
+  .emotion-14 {
     font-size: 1rem;
   }
 
-  .emotion-16 h3 {
+  .emotion-14 h3 {
     font-size: 1.2rem;
   }
 }
 
 @media only screen and (min-width:1200px) {
-  .emotion-16 {
+  .emotion-14 {
     font-size: 1.1rem;
   }
 
-  .emotion-16 h3 {
+  .emotion-14 h3 {
     font-size: 1.3rem;
   }
 }
 
-.emotion-16 > div {
+.emotion-14 > div {
   border: none;
 }
 
-.emotion-12 {
+.emotion-10 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -72,15 +72,15 @@ exports[`PatientBanner matches snapshot: wrapper mount 1`] = `
   padding: 0.5rem;
 }
 
-.emotion-12 > div {
+.emotion-10 > div {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
 }
 
-.emotion-12 > div:first-of-type,
-.emotion-12 > div:last-of-type {
+.emotion-10 > div:first-of-type,
+.emotion-10 > div:last-of-type {
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
@@ -91,28 +91,28 @@ exports[`PatientBanner matches snapshot: wrapper mount 1`] = `
   align-items: center;
 }
 
-.emotion-12 > div:not(:first-of-type) {
+.emotion-10 > div:not(:first-of-type) {
   visibility: hidden;
   height: 0;
 }
 
 @media only screen and (min-width:768px) {
-  .emotion-12 {
+  .emotion-10 {
     -webkit-flex-direction: row;
     -ms-flex-direction: row;
     flex-direction: row;
   }
 
-  .emotion-12 > div {
+  .emotion-10 > div {
     margin-left: 2.5rem;
   }
 
-  .emotion-12 > div:first-of-type {
+  .emotion-10 > div:first-of-type {
     margin-left: 0;
     margin-right: auto;
   }
 
-  .emotion-12 > div:not(:first-of-type) {
+  .emotion-10 > div:not(:first-of-type) {
     visibility: visible;
     height: auto !important;
     padding-top: 0;
@@ -125,35 +125,42 @@ exports[`PatientBanner matches snapshot: wrapper mount 1`] = `
   font-size: 0.875rem;
 }
 
-.emotion-3 {
+.emotion-1 {
   color: #fff;
 }
 
 @media only screen and (min-width:768px) {
-  .emotion-3 {
+  .emotion-1 {
     visibility: hidden;
   }
 }
 
-.emotion-1 {
-  color: -v-a-l-u-e:#768692;
-  -d-a-r-k-e-r25: #59656e;
-  -l-i-g-h-t-e-r25: #98a4ad;
-}
-
-.emotion-6 {
+.emotion-4 {
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
 }
 
-.emotion-4 span:first-of-type {
+.emotion-2 span:first-of-type {
   color: #ccc;
   font-weight: normal;
   font-size: 0.75rem;
 }
 
-.emotion-4 span:last-of-type {
+.emotion-2 span:last-of-type {
+  color: #fff;
+  font-weight: bold;
+  font-size: 0.875rem;
+  margin-left: 0.5rem;
+}
+
+.emotion-3 span:first-of-type {
+  color: #ccc;
+  font-weight: normal;
+  font-size: 0.75rem;
+}
+
+.emotion-3 span:last-of-type {
   color: #fff;
   font-weight: bold;
   font-size: 0.875rem;
@@ -173,46 +180,33 @@ exports[`PatientBanner matches snapshot: wrapper mount 1`] = `
   margin-left: 0.5rem;
 }
 
-.emotion-7 span:first-of-type {
+.emotion-6 span:first-of-type {
   color: #ccc;
   font-weight: normal;
   font-size: 0.75rem;
 }
 
-.emotion-7 span:last-of-type {
+.emotion-6 span:last-of-type {
   color: #fff;
   font-weight: bold;
   font-size: 0.875rem;
   margin-left: 0.5rem;
 }
 
-.emotion-8 span:first-of-type {
+.emotion-9 span:first-of-type {
   color: #ccc;
   font-weight: normal;
   font-size: 0.75rem;
 }
 
-.emotion-8 span:last-of-type {
+.emotion-9 span:last-of-type {
   color: #fff;
   font-weight: bold;
   font-size: 0.875rem;
   margin-left: 0.5rem;
 }
 
-.emotion-11 span:first-of-type {
-  color: #ccc;
-  font-weight: normal;
-  font-size: 0.75rem;
-}
-
-.emotion-11 span:last-of-type {
-  color: #fff;
-  font-weight: bold;
-  font-size: 0.875rem;
-  margin-left: 0.5rem;
-}
-
-.emotion-10 {
+.emotion-8 {
   height: 0.75rem !important;
   width: 0.75rem !important;
   border-radius: 50%;
@@ -224,13 +218,13 @@ exports[`PatientBanner matches snapshot: wrapper mount 1`] = `
   background-color: #4cc552 !important;
 }
 
-.emotion-15 {
+.emotion-13 {
   visibility: hidden;
   height: 0;
 }
 
 @media only screen and (min-width:768px) {
-  .emotion-15 {
+  .emotion-13 {
     background-color: #fff;
     height: auto;
     visibility: visible;
@@ -241,26 +235,26 @@ exports[`PatientBanner matches snapshot: wrapper mount 1`] = `
     display: flex;
   }
 
-  .emotion-15 > div {
+  .emotion-13 > div {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
   }
 
-  .emotion-15 > div:first-of-type {
+  .emotion-13 > div:first-of-type {
     margin-left: 0;
     margin-right: auto;
   }
 }
 
-.emotion-13 span:first-of-type {
+.emotion-11 span:first-of-type {
   color: #666;
   font-weight: normal;
   font-size: 0.75rem;
 }
 
-.emotion-13 span:last-of-type {
+.emotion-11 span:last-of-type {
   color: #333333;
   font-weight: bold;
   font-size: 0.8125rem;
@@ -269,13 +263,13 @@ exports[`PatientBanner matches snapshot: wrapper mount 1`] = `
   margin-left: 0.5rem;
 }
 
-.emotion-14 span:first-of-type {
+.emotion-12 span:first-of-type {
   color: #666;
   font-weight: normal;
   font-size: 0.75rem;
 }
 
-.emotion-14 span:last-of-type {
+.emotion-12 span:last-of-type {
   color: #333333;
   font-weight: bold;
   font-size: 0.8125rem;
@@ -370,7 +364,7 @@ exports[`PatientBanner matches snapshot: wrapper mount 1`] = `
   }
 >
   <div
-    className="emotion-16"
+    className="emotion-14"
   >
     <div>
       <PrimaryInformation
@@ -461,7 +455,7 @@ exports[`PatientBanner matches snapshot: wrapper mount 1`] = `
         }
       >
         <div
-          className="emotion-12"
+          className="emotion-10"
         >
           <div>
             <Name
@@ -558,7 +552,7 @@ exports[`PatientBanner matches snapshot: wrapper mount 1`] = `
               </span>
             </Name>
             <span
-              className="emotion-3"
+              className="emotion-1"
             >
               <ChevronCircleIcon
                 clickHandler={[Function]}
@@ -567,7 +561,7 @@ exports[`PatientBanner matches snapshot: wrapper mount 1`] = `
               >
                 <FontAwesomeIcon
                   border={false}
-                  className="emotion-1"
+                  className="icon__chevron-circle"
                   fixedWidth={false}
                   flip={null}
                   icon={
@@ -599,7 +593,7 @@ exports[`PatientBanner matches snapshot: wrapper mount 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    className="svg-inline--fa fa-chevron-circle-up fa-w-16 fa-sm emotion-1"
+                    className="svg-inline--fa fa-chevron-circle-up fa-w-16 fa-sm icon__chevron-circle"
                     data-icon="chevron-circle-up"
                     data-prefix="fas"
                     focusable="false"
@@ -620,7 +614,7 @@ exports[`PatientBanner matches snapshot: wrapper mount 1`] = `
             </span>
           </div>
           <div
-            className="emotion-6"
+            className="emotion-4"
           >
             <DateOfBirth
               patient={
@@ -710,7 +704,7 @@ exports[`PatientBanner matches snapshot: wrapper mount 1`] = `
               }
             >
               <div
-                className="emotion-4"
+                className="emotion-2"
               >
                 <span>
                   Born
@@ -808,7 +802,7 @@ exports[`PatientBanner matches snapshot: wrapper mount 1`] = `
               }
             >
               <div
-                className="emotion-5"
+                className="emotion-3"
               >
                 <span>
                   Died
@@ -820,7 +814,7 @@ exports[`PatientBanner matches snapshot: wrapper mount 1`] = `
             </DateOfDeath>
           </div>
           <div
-            className="emotion-6"
+            className="emotion-4"
           >
             <Gender
               patient={
@@ -910,7 +904,7 @@ exports[`PatientBanner matches snapshot: wrapper mount 1`] = `
               }
             >
               <div
-                className="emotion-7"
+                className="emotion-5"
               >
                 <span>
                   Gender
@@ -1008,7 +1002,7 @@ exports[`PatientBanner matches snapshot: wrapper mount 1`] = `
               }
             >
               <div
-                className="emotion-8"
+                className="emotion-6"
               >
                 <span>
                   Age at Death
@@ -1108,13 +1102,13 @@ exports[`PatientBanner matches snapshot: wrapper mount 1`] = `
               }
             >
               <div
-                className="emotion-11"
+                className="emotion-9"
               >
                 <span>
                   NHS No.
                 </span>
                 <span
-                  className="emotion-10"
+                  className="emotion-8"
                   title="Verified"
                 />
                 <span>
@@ -1213,7 +1207,7 @@ exports[`PatientBanner matches snapshot: wrapper mount 1`] = `
         }
       >
         <div
-          className="emotion-15"
+          className="emotion-13"
         >
           <div>
             <Address
@@ -1304,7 +1298,7 @@ exports[`PatientBanner matches snapshot: wrapper mount 1`] = `
               }
             >
               <div
-                className="emotion-13"
+                className="emotion-11"
               >
                 <span>
                   Address
@@ -1404,7 +1398,7 @@ exports[`PatientBanner matches snapshot: wrapper mount 1`] = `
               }
             >
               <div
-                className="emotion-14"
+                className="emotion-12"
               >
                 <span>
                   Pas No.

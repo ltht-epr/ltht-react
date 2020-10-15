@@ -5,7 +5,7 @@ import { storiesOf } from '@storybook/react'
 import JSXAddon from 'storybook-addon-jsx'
 
 import readme from '@ltht-react/form/README.md'
-import { Card, CardHeader, CardBody } from '@ltht-react/card'
+import Card from '@ltht-react/card'
 import { TEXT_COLOURS, DESKTOP_MEDIA_QUERY } from '@ltht-react/styles'
 import { Form, FormCheck } from '@ltht-react/form'
 import { RadioButton } from '@ltht-react/input'
@@ -53,10 +53,10 @@ stories.addWithJSX('Radio', () => {
   return (
     <div css={styles.base}>
       <Card>
-        <CardHeader>
-          <h3>Form example</h3>
-        </CardHeader>
-        <CardBody>
+        <Card.Header>
+          <Card.Title>Form Example</Card.Title>
+        </Card.Header>
+        <Card.Body>
           <Form submitHandler={handleSubmit}>
             <p css={styles.text}>Please select the option</p>
             <FormCheck>
@@ -67,7 +67,7 @@ stories.addWithJSX('Radio', () => {
             </FormCheck>
             <PrimaryButton type="submit" value="Submit" disabled={reason === ''} />
           </Form>
-        </CardBody>
+        </Card.Body>
       </Card>
     </div>
   )

@@ -3,14 +3,26 @@ import { mount } from 'enzyme'
 import ReactDOM from 'react-dom'
 
 import GuidanceSummary from '@ltht-react/guidance-summary'
-import GuidanceData from './guidance.fixture'
+import guidances from './guidance.fixture'
 
-describe('GuidanceSummaryy', () => {
+const Sut: React.FC = () => {
+  return (
+    <>
+      {guidances.map(guidance => (
+        <div key={guidance.id}>
+          <GuidanceSummary guidance={guidance} />
+        </div>
+      ))}
+    </>
+  )
+}
+
+describe('GuidanceSummary', () => {
   it('renders without crashing', () => {
     const div = document.createElement('div')
-    ReactDOM.render(<GuidanceSummary guidanceList={GuidanceData} />, div)
+    ReactDOM.render(<Sut />, div)
   })
   it('matches snapshot', () => {
-    expect(mount(<GuidanceSummary guidanceList={GuidanceData} />)).toMatchSnapshot('wrapper mount')
+    expect(mount(<Sut />)).toMatchSnapshot('wrapper mount')
   })
 })

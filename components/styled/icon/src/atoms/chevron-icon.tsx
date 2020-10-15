@@ -1,76 +1,41 @@
 /** @jsx jsx */
 import React from 'react'
-import { css, jsx } from '@emotion/core'
+import { jsx } from '@emotion/core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {
-  faChevronCircleDown,
-  faChevronCircleUp,
-  faChevronCircleLeft,
-  faChevronCircleRight,
-  faChevronDown,
-  faChevronUp,
-  faChevronLeft,
-  faChevronRight,
-} from '@fortawesome/free-solid-svg-icons'
-import { ICON_COLOURS, IconSizes, calculateIconSize } from '@ltht-react/styles'
+import { faChevronDown, faChevronUp, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
+import { IconSizes, calculateIconSize } from '@ltht-react/styles'
 
-const styles = css`
-  color: ${ICON_COLOURS.DEFAULT};
-`
-
-const calculateIconType = (direction: IconDirection, circleIcon: boolean): IconTypes => {
+const calculateIconType = (direction: IconDirection): IconTypes => {
   switch (direction) {
     default:
     case 'up':
-      return circleIcon ? faChevronCircleUp : faChevronUp
+      return faChevronUp
     case 'down':
-      return circleIcon ? faChevronCircleDown : faChevronDown
+      return faChevronDown
     case 'left':
-      return circleIcon ? faChevronCircleLeft : faChevronLeft
+      return faChevronLeft
     case 'right':
-      return circleIcon ? faChevronCircleRight : faChevronRight
+      return faChevronRight
   }
-}
-
-const ChevronCircleIcon: React.FC<Props> = ({ size, direction, clickHandler }) => {
-  const handleClick = (e: React.MouseEvent<SVGSVGElement, MouseEvent>): void => {
-    e.preventDefault()
-    clickHandler && clickHandler()
-  }
-  return (
-    <FontAwesomeIcon
-      css={styles}
-      icon={calculateIconType(direction, true)}
-      size={calculateIconSize(size)}
-      onClick={clickHandler && handleClick}
-    />
-  )
 }
 
 const ChevronIcon: React.FC<Props> = ({ size, direction, clickHandler }) => {
   const handleClick = (e: React.MouseEvent<SVGSVGElement, MouseEvent>): void => {
     e.preventDefault()
+    e.stopPropagation()
     clickHandler && clickHandler()
   }
   return (
     <FontAwesomeIcon
-      css={styles}
-      icon={calculateIconType(direction, false)}
+      className="icon__chevron"
+      icon={calculateIconType(direction)}
       size={calculateIconSize(size)}
       onClick={clickHandler && handleClick}
     />
   )
 }
 
-type IconTypes =
-  | typeof faChevronUp
-  | typeof faChevronDown
-  | typeof faChevronLeft
-  | typeof faChevronRight
-  | typeof faChevronCircleUp
-  | typeof faChevronCircleDown
-  | typeof faChevronCircleLeft
-  | typeof faChevronCircleRight
+type IconTypes = typeof faChevronUp | typeof faChevronDown | typeof faChevronLeft | typeof faChevronRight
 
 type IconDirection = 'up' | 'down' | 'left' | 'right'
 
@@ -80,4 +45,4 @@ interface Props {
   clickHandler?(): void
 }
 
-export { ChevronIcon, ChevronCircleIcon }
+export default ChevronIcon

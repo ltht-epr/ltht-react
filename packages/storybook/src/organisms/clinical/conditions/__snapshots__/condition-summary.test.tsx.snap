@@ -62,179 +62,69 @@ exports[`ConditionSummary matches snapshot: wrapper mount 1`] = `
   padding-top: 0.25rem;
 }
 
-<ConditionSummary
-  conditions={
-    Array [
-      Object {
-        "assertedDate": Object {
-          "kind": "DATE",
-          "value": "2020-02-01T00:00:00+00:00",
-        },
-        "category": Array [
-          Object {
-            "coding": Array [
-              Object {
-                "code": "55607006",
-                "display": "Problem",
-              },
-            ],
-            "text": "Problem",
-          },
-        ],
-        "clinicalStatus": "ACTIVE",
-        "code": Object {
-          "coding": Array [
-            Object {
-              "code": "60123008",
-              "display": "Delusional disorder, mixed type",
-              "system": "HEALTHPLUG",
-            },
-          ],
-          "text": "Delusional disorder, mixed type",
-        },
-        "id": "017ca927-67e0-e581-a2c7-115087226fg2|condition",
-        "metadata": Object {
-          "dataSources": Array [
-            Object {
-              "display": "Mock",
-            },
-          ],
-          "isRedacted": true,
-          "requestedWhen": "",
-        },
-        "severity": Object {
-          "coding": Array [
-            Object {
-              "code": "2448400",
-              "display": "Severe",
-            },
-          ],
-          "text": "Severe",
-        },
-        "subject": Object {
-          "display": "Mr Peter Humble",
-          "typeName": "test",
-        },
-        "verificationStatus": "CONFIRMED",
-      },
-      Object {
-        "assertedDate": Object {
-          "kind": "DATE",
-          "value": "2020-01-01T00:00:00+00:00",
-        },
-        "category": Array [
-          Object {
-            "coding": Array [
-              Object {
-                "code": "55607006",
-                "display": "Problem",
-              },
-            ],
-            "text": "Problem",
-          },
-        ],
-        "clinicalStatus": "REMISSION",
-        "code": Object {
-          "coding": Array [
-            Object {
-              "code": "44054006",
-              "display": "Diabetes mellitus type 2",
-              "system": "HEALTHPLUG",
-            },
-          ],
-          "text": "Diabetes mellitus type 2",
-        },
-        "id": "345ha927-34e0-e911-a2c7-005087226er3|condition",
-        "metadata": Object {
-          "dataSources": Array [
-            Object {
-              "display": "Mock",
-            },
-          ],
-          "isRedacted": false,
-          "requestedWhen": "",
-        },
-        "severity": Object {
-          "coding": Array [
-            Object {
-              "code": "2448402",
-              "display": "Mild",
-            },
-          ],
-          "text": "Mild",
-        },
-        "subject": Object {
-          "display": "Mr Joe BLoggs",
-          "typeName": "test",
-        },
-        "verificationStatus": "REFUTED",
-      },
-    ]
-  }
->
-  <ListItem
+<Sut>
+  <li
     key="017ca927-67e0-e581-a2c7-115087226fg2|condition"
   >
-    <li>
-      <ConditionSummaryItem
-        condition={
-          Object {
-            "assertedDate": Object {
-              "kind": "DATE",
-              "value": "2020-02-01T00:00:00+00:00",
+    <ConditionSummary
+      condition={
+        Object {
+          "assertedDate": Object {
+            "kind": "DATE",
+            "value": "2020-02-01T00:00:00+00:00",
+          },
+          "category": Array [
+            Object {
+              "coding": Array [
+                Object {
+                  "code": "55607006",
+                  "display": "Problem",
+                },
+              ],
+              "text": "Problem",
             },
-            "category": Array [
+          ],
+          "clinicalStatus": "ACTIVE",
+          "code": Object {
+            "coding": Array [
               Object {
-                "coding": Array [
-                  Object {
-                    "code": "55607006",
-                    "display": "Problem",
-                  },
-                ],
-                "text": "Problem",
+                "code": "60123008",
+                "display": "Delusional disorder, mixed type",
+                "system": "HEALTHPLUG",
               },
             ],
-            "clinicalStatus": "ACTIVE",
-            "code": Object {
-              "coding": Array [
-                Object {
-                  "code": "60123008",
-                  "display": "Delusional disorder, mixed type",
-                  "system": "HEALTHPLUG",
-                },
-              ],
-              "text": "Delusional disorder, mixed type",
-            },
-            "id": "017ca927-67e0-e581-a2c7-115087226fg2|condition",
-            "metadata": Object {
-              "dataSources": Array [
-                Object {
-                  "display": "Mock",
-                },
-              ],
-              "isRedacted": true,
-              "requestedWhen": "",
-            },
-            "severity": Object {
-              "coding": Array [
-                Object {
-                  "code": "2448400",
-                  "display": "Severe",
-                },
-              ],
-              "text": "Severe",
-            },
-            "subject": Object {
-              "display": "Mr Peter Humble",
-              "typeName": "test",
-            },
-            "verificationStatus": "CONFIRMED",
-          }
+            "text": "Delusional disorder, mixed type",
+          },
+          "id": "017ca927-67e0-e581-a2c7-115087226fg2|condition",
+          "metadata": Object {
+            "dataSources": Array [
+              Object {
+                "display": "Mock",
+              },
+            ],
+            "isRedacted": true,
+            "requestedWhen": "",
+          },
+          "severity": Object {
+            "coding": Array [
+              Object {
+                "code": "2448400",
+                "display": "Severe",
+              },
+            ],
+            "text": "Severe",
+          },
+          "subject": Object {
+            "display": "Mr Peter Humble",
+            "typeName": "test",
+          },
+          "verificationStatus": "CONFIRMED",
         }
-      >
+      }
+    >
+      <Styled(div)>
         <div
           className="emotion-4"
-          role="link"
         >
           <ConditionRedacted
             condition={
@@ -323,284 +213,287 @@ exports[`ConditionSummary matches snapshot: wrapper mount 1`] = `
             </div>
           </ConditionRedacted>
         </div>
-      </ConditionSummaryItem>
-    </li>
-  </ListItem>
-  <ListItem
+      </Styled(div)>
+    </ConditionSummary>
+  </li>
+  <li
     key="345ha927-34e0-e911-a2c7-005087226er3|condition"
   >
-    <li>
-      <ConditionSummaryItem
-        condition={
-          Object {
-            "assertedDate": Object {
-              "kind": "DATE",
-              "value": "2020-01-01T00:00:00+00:00",
+    <ConditionSummary
+      condition={
+        Object {
+          "assertedDate": Object {
+            "kind": "DATE",
+            "value": "2020-01-01T00:00:00+00:00",
+          },
+          "category": Array [
+            Object {
+              "coding": Array [
+                Object {
+                  "code": "55607006",
+                  "display": "Problem",
+                },
+              ],
+              "text": "Problem",
             },
-            "category": Array [
+          ],
+          "clinicalStatus": "REMISSION",
+          "code": Object {
+            "coding": Array [
               Object {
-                "coding": Array [
-                  Object {
-                    "code": "55607006",
-                    "display": "Problem",
-                  },
-                ],
-                "text": "Problem",
+                "code": "44054006",
+                "display": "Diabetes mellitus type 2",
+                "system": "HEALTHPLUG",
               },
             ],
-            "clinicalStatus": "REMISSION",
-            "code": Object {
-              "coding": Array [
-                Object {
-                  "code": "44054006",
-                  "display": "Diabetes mellitus type 2",
-                  "system": "HEALTHPLUG",
-                },
-              ],
-              "text": "Diabetes mellitus type 2",
-            },
-            "id": "345ha927-34e0-e911-a2c7-005087226er3|condition",
-            "metadata": Object {
-              "dataSources": Array [
-                Object {
-                  "display": "Mock",
-                },
-              ],
-              "isRedacted": false,
-              "requestedWhen": "",
-            },
-            "severity": Object {
-              "coding": Array [
-                Object {
-                  "code": "2448402",
-                  "display": "Mild",
-                },
-              ],
-              "text": "Mild",
-            },
-            "subject": Object {
-              "display": "Mr Joe BLoggs",
-              "typeName": "test",
-            },
-            "verificationStatus": "REFUTED",
-          }
+            "text": "Diabetes mellitus type 2",
+          },
+          "id": "345ha927-34e0-e911-a2c7-005087226er3|condition",
+          "metadata": Object {
+            "dataSources": Array [
+              Object {
+                "display": "Mock",
+              },
+            ],
+            "isRedacted": false,
+            "requestedWhen": "",
+          },
+          "severity": Object {
+            "coding": Array [
+              Object {
+                "code": "2448402",
+                "display": "Mild",
+              },
+            ],
+            "text": "Mild",
+          },
+          "subject": Object {
+            "display": "Mr Joe BLoggs",
+            "typeName": "test",
+          },
+          "verificationStatus": "REFUTED",
         }
-      >
+      }
+    >
+      <Styled(div)>
         <div
           className="emotion-4"
-          role="link"
         >
-          <div
-            className="emotion-7"
-          >
-            <ConditionTitle
-              condition={
-                Object {
-                  "assertedDate": Object {
-                    "kind": "DATE",
-                    "value": "2020-01-01T00:00:00+00:00",
-                  },
-                  "category": Array [
-                    Object {
+          <Styled(div)>
+            <div
+              className="emotion-7"
+            >
+              <ConditionTitle
+                condition={
+                  Object {
+                    "assertedDate": Object {
+                      "kind": "DATE",
+                      "value": "2020-01-01T00:00:00+00:00",
+                    },
+                    "category": Array [
+                      Object {
+                        "coding": Array [
+                          Object {
+                            "code": "55607006",
+                            "display": "Problem",
+                          },
+                        ],
+                        "text": "Problem",
+                      },
+                    ],
+                    "clinicalStatus": "REMISSION",
+                    "code": Object {
                       "coding": Array [
                         Object {
-                          "code": "55607006",
-                          "display": "Problem",
+                          "code": "44054006",
+                          "display": "Diabetes mellitus type 2",
+                          "system": "HEALTHPLUG",
                         },
                       ],
-                      "text": "Problem",
+                      "text": "Diabetes mellitus type 2",
                     },
-                  ],
-                  "clinicalStatus": "REMISSION",
-                  "code": Object {
-                    "coding": Array [
-                      Object {
-                        "code": "44054006",
-                        "display": "Diabetes mellitus type 2",
-                        "system": "HEALTHPLUG",
-                      },
-                    ],
-                    "text": "Diabetes mellitus type 2",
-                  },
-                  "id": "345ha927-34e0-e911-a2c7-005087226er3|condition",
-                  "metadata": Object {
-                    "dataSources": Array [
-                      Object {
-                        "display": "Mock",
-                      },
-                    ],
-                    "isRedacted": false,
-                    "requestedWhen": "",
-                  },
-                  "severity": Object {
-                    "coding": Array [
-                      Object {
-                        "code": "2448402",
-                        "display": "Mild",
-                      },
-                    ],
-                    "text": "Mild",
-                  },
-                  "subject": Object {
-                    "display": "Mr Joe BLoggs",
-                    "typeName": "test",
-                  },
-                  "verificationStatus": "REFUTED",
-                }
-              }
-            >
-              <div
-                className="emotion-5"
-              >
-                Diabetes mellitus type 2
-              </div>
-            </ConditionTitle>
-            <ConditionCategory
-              condition={
-                Object {
-                  "assertedDate": Object {
-                    "kind": "DATE",
-                    "value": "2020-01-01T00:00:00+00:00",
-                  },
-                  "category": Array [
-                    Object {
+                    "id": "345ha927-34e0-e911-a2c7-005087226er3|condition",
+                    "metadata": Object {
+                      "dataSources": Array [
+                        Object {
+                          "display": "Mock",
+                        },
+                      ],
+                      "isRedacted": false,
+                      "requestedWhen": "",
+                    },
+                    "severity": Object {
                       "coding": Array [
                         Object {
-                          "code": "55607006",
-                          "display": "Problem",
+                          "code": "2448402",
+                          "display": "Mild",
                         },
                       ],
-                      "text": "Problem",
+                      "text": "Mild",
                     },
-                  ],
-                  "clinicalStatus": "REMISSION",
-                  "code": Object {
-                    "coding": Array [
-                      Object {
-                        "code": "44054006",
-                        "display": "Diabetes mellitus type 2",
-                        "system": "HEALTHPLUG",
-                      },
-                    ],
-                    "text": "Diabetes mellitus type 2",
-                  },
-                  "id": "345ha927-34e0-e911-a2c7-005087226er3|condition",
-                  "metadata": Object {
-                    "dataSources": Array [
-                      Object {
-                        "display": "Mock",
-                      },
-                    ],
-                    "isRedacted": false,
-                    "requestedWhen": "",
-                  },
-                  "severity": Object {
-                    "coding": Array [
-                      Object {
-                        "code": "2448402",
-                        "display": "Mild",
-                      },
-                    ],
-                    "text": "Mild",
-                  },
-                  "subject": Object {
-                    "display": "Mr Joe BLoggs",
-                    "typeName": "test",
-                  },
-                  "verificationStatus": "REFUTED",
+                    "subject": Object {
+                      "display": "Mr Joe BLoggs",
+                      "typeName": "test",
+                    },
+                    "verificationStatus": "REFUTED",
+                  }
                 }
-              }
-            >
-              <div
-                className="emotion-6"
               >
-                Problem - Mild
-              </div>
-            </ConditionCategory>
-          </div>
-          <div
-            className="emotion-10"
-          >
-            <DateSummary
-              datetime={
-                Object {
-                  "kind": "DATE",
-                  "value": "2020-01-01T00:00:00+00:00",
-                }
-              }
-            >
-              <div
-                className="emotion-2"
-              >
-                Jan-01,-2020
-              </div>
-            </DateSummary>
-            <ConditionStatus
-              condition={
-                Object {
-                  "assertedDate": Object {
-                    "kind": "DATE",
-                    "value": "2020-01-01T00:00:00+00:00",
-                  },
-                  "category": Array [
-                    Object {
+                <div
+                  className="emotion-5"
+                >
+                  Diabetes mellitus type 2
+                </div>
+              </ConditionTitle>
+              <ConditionCategory
+                condition={
+                  Object {
+                    "assertedDate": Object {
+                      "kind": "DATE",
+                      "value": "2020-01-01T00:00:00+00:00",
+                    },
+                    "category": Array [
+                      Object {
+                        "coding": Array [
+                          Object {
+                            "code": "55607006",
+                            "display": "Problem",
+                          },
+                        ],
+                        "text": "Problem",
+                      },
+                    ],
+                    "clinicalStatus": "REMISSION",
+                    "code": Object {
                       "coding": Array [
                         Object {
-                          "code": "55607006",
-                          "display": "Problem",
+                          "code": "44054006",
+                          "display": "Diabetes mellitus type 2",
+                          "system": "HEALTHPLUG",
                         },
                       ],
-                      "text": "Problem",
+                      "text": "Diabetes mellitus type 2",
                     },
-                  ],
-                  "clinicalStatus": "REMISSION",
-                  "code": Object {
-                    "coding": Array [
-                      Object {
-                        "code": "44054006",
-                        "display": "Diabetes mellitus type 2",
-                        "system": "HEALTHPLUG",
-                      },
-                    ],
-                    "text": "Diabetes mellitus type 2",
-                  },
-                  "id": "345ha927-34e0-e911-a2c7-005087226er3|condition",
-                  "metadata": Object {
-                    "dataSources": Array [
-                      Object {
-                        "display": "Mock",
-                      },
-                    ],
-                    "isRedacted": false,
-                    "requestedWhen": "",
-                  },
-                  "severity": Object {
-                    "coding": Array [
-                      Object {
-                        "code": "2448402",
-                        "display": "Mild",
-                      },
-                    ],
-                    "text": "Mild",
-                  },
-                  "subject": Object {
-                    "display": "Mr Joe BLoggs",
-                    "typeName": "test",
-                  },
-                  "verificationStatus": "REFUTED",
+                    "id": "345ha927-34e0-e911-a2c7-005087226er3|condition",
+                    "metadata": Object {
+                      "dataSources": Array [
+                        Object {
+                          "display": "Mock",
+                        },
+                      ],
+                      "isRedacted": false,
+                      "requestedWhen": "",
+                    },
+                    "severity": Object {
+                      "coding": Array [
+                        Object {
+                          "code": "2448402",
+                          "display": "Mild",
+                        },
+                      ],
+                      "text": "Mild",
+                    },
+                    "subject": Object {
+                      "display": "Mr Joe BLoggs",
+                      "typeName": "test",
+                    },
+                    "verificationStatus": "REFUTED",
+                  }
                 }
-              }
-            >
-              <div
-                className="emotion-9"
               >
-                Remission - Refuted
-              </div>
-            </ConditionStatus>
-          </div>
+                <div
+                  className="emotion-6"
+                >
+                  Problem - Mild
+                </div>
+              </ConditionCategory>
+            </div>
+          </Styled(div)>
+          <Styled(div)>
+            <div
+              className="emotion-10"
+            >
+              <DateSummary
+                datetime={
+                  Object {
+                    "kind": "DATE",
+                    "value": "2020-01-01T00:00:00+00:00",
+                  }
+                }
+              >
+                <div
+                  className="emotion-2"
+                >
+                  Jan-01,-2020
+                </div>
+              </DateSummary>
+              <ConditionStatus
+                condition={
+                  Object {
+                    "assertedDate": Object {
+                      "kind": "DATE",
+                      "value": "2020-01-01T00:00:00+00:00",
+                    },
+                    "category": Array [
+                      Object {
+                        "coding": Array [
+                          Object {
+                            "code": "55607006",
+                            "display": "Problem",
+                          },
+                        ],
+                        "text": "Problem",
+                      },
+                    ],
+                    "clinicalStatus": "REMISSION",
+                    "code": Object {
+                      "coding": Array [
+                        Object {
+                          "code": "44054006",
+                          "display": "Diabetes mellitus type 2",
+                          "system": "HEALTHPLUG",
+                        },
+                      ],
+                      "text": "Diabetes mellitus type 2",
+                    },
+                    "id": "345ha927-34e0-e911-a2c7-005087226er3|condition",
+                    "metadata": Object {
+                      "dataSources": Array [
+                        Object {
+                          "display": "Mock",
+                        },
+                      ],
+                      "isRedacted": false,
+                      "requestedWhen": "",
+                    },
+                    "severity": Object {
+                      "coding": Array [
+                        Object {
+                          "code": "2448402",
+                          "display": "Mild",
+                        },
+                      ],
+                      "text": "Mild",
+                    },
+                    "subject": Object {
+                      "display": "Mr Joe BLoggs",
+                      "typeName": "test",
+                    },
+                    "verificationStatus": "REFUTED",
+                  }
+                }
+              >
+                <div
+                  className="emotion-9"
+                >
+                  Remission - Refuted
+                </div>
+              </ConditionStatus>
+            </div>
+          </Styled(div)>
         </div>
-      </ConditionSummaryItem>
-    </li>
-  </ListItem>
-</ConditionSummary>
+      </Styled(div)>
+    </ConditionSummary>
+  </li>
+</Sut>
 `;

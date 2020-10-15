@@ -13,7 +13,15 @@ const ColumnIcon: React.FC<IconProps> = ({ status, size }) => {
     ${status === 'default' && `color: ${ICON_COLOURS.DEFAULT.VALUE};`}
     ${status === 'info' && `color: ${ICON_COLOURS.INFO};`}
   `
-  return <FontAwesomeIcon css={styles} icon={faColumns} size={calculateIconSize(size)} transform={{ rotate: 180 }} />
+  return (
+    <FontAwesomeIcon
+      className="icon__column"
+      css={styles}
+      icon={faColumns}
+      size={calculateIconSize(size)}
+      transform={{ rotate: 180 }}
+    />
+  )
 }
 
 type IconProps = {

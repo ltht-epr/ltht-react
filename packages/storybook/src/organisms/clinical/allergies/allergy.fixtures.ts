@@ -77,6 +77,20 @@ const AllergyThree: AllergyIntolerance = {
   criticality: AllergyIntoleranceCriticalityCode.High,
 }
 
-const allergyList: AllergyIntolerance[] = [AllergyOne, AllergyTwo, AllergyThree]
+const AllergyFour: AllergyIntolerance = {
+  id: '690ca927-68e0-c511-b2c7-898056928xe4|allergyalert',
+  metadata: redactedMetadata,
+  assertedDate: {
+    value: '2013-01-01T00:00:00+00:00',
+    kind: PartialDateTimeKindCode.Year,
+  },
+  code: {
+    text: 'Kiwi fruit',
+  },
+  type: AllergyIntoleranceTypeCode.Intolerance,
+  clinicalStatus: AllergyIntoleranceClinicalStatusCode.Resolved,
+}
+
+const allergyList: AllergyIntolerance[] = [AllergyOne, AllergyTwo, AllergyThree, AllergyFour]
 
 export default allergyList

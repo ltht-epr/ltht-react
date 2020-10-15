@@ -2,253 +2,468 @@
 
 exports[`Card matches snapshot: wrapper mount 1`] = `
 Array [
-  .emotion-3 {
+  .emotion-4 {
   color: #231f20;
   font-family: 'SF Pro Text','SF Pro Icons','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 0.8rem;
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  text-align: left;
   background: #FFFFFF;
   color: #231f20;
   margin-bottom: 1rem;
   border-radius: 4px;
-  box-shadow: 0px 2px 1px -1px rgba(102,102,102,0.1), 0px 1px 1px 0px rgba(102,102,102,0.15), 0px 1px 3px 0px rgba(102,102,102,.6);
+  box-shadow: 0px 2px 1px -1px rgba(102,102,102,0.1),0px 1px 1px 0px rgba(102,102,102,0.15), 0px 1px 3px 0px rgba(102,102,102,0.6);
   -webkit-font-smoothing: antialiased;
 }
 
-.emotion-3 *,
-.emotion-3 ::before,
-.emotion-3 ::after {
+.emotion-4 *,
+.emotion-4 ::before,
+.emotion-4 ::after {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
 
-.emotion-3 * {
+.emotion-4 * {
   margin: 0;
   padding: 0;
 }
 
-.emotion-3 h3 {
+.emotion-4 h3 {
   font-size: 1rem;
 }
 
 @media only screen and (min-width:768px) {
-  .emotion-3 {
+  .emotion-4 {
     font-size: 0.9rem;
   }
 
-  .emotion-3 h3 {
+  .emotion-4 h3 {
     font-size: 1.1rem;
   }
 }
 
 @media only screen and (min-width:1024px) {
-  .emotion-3 {
+  .emotion-4 {
     font-size: 1rem;
   }
 
-  .emotion-3 h3 {
+  .emotion-4 h3 {
     font-size: 1.2rem;
   }
 }
 
 @media only screen and (min-width:1200px) {
-  .emotion-3 {
+  .emotion-4 {
     font-size: 1.1rem;
   }
 
-  .emotion-3 h3 {
+  .emotion-4 h3 {
     font-size: 1.3rem;
   }
 }
 
+.emotion-4 > [class^='card__alert'] + .card__list,
+.emotion-4 > [class^='card__alert'] + .card__body,
+.emotion-4 > [class^='card__banner'] + .card__list,
+.emotion-4 > [class^='card__banner'] + .card__body,
+.emotion-4 > .card__list + .card__body,
+.emotion-4 > .card__list + .card__list,
+.emotion-4 > .card__list + .card__footer {
+  border-top-width: 0;
+}
+
 .emotion-0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  padding: 0.5rem !important;
-}
-
-.emotion-1 {
-  padding: 0 0.5rem 0 0.5rem !important;
-}
-
-.emotion-1 > dl:first-of-type {
-  margin-top: 0 !important;
+  padding: 0.75rem 0.75rem 0.75rem 0;
+  margin: 0 0 0 0.75rem;
 }
 
 .emotion-2 {
-  padding: 0 0.5rem 0 0.5rem !important;
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  min-height: 1px;
+  padding: 0.75rem 0.75rem 0.75rem 0;
+  margin: 0 0 0 0.75rem;
+  border-top: 1px solid rgba(0,0,0,0.125);
+}
+
+.emotion-2:first-child {
+  border-top-width: 0;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+}
+
+.emotion-3 {
+  padding: 0.75rem 0.75rem 0.75rem 0;
+  margin: 0 0 0 0.75rem;
+  border-top: 1px solid rgba(0,0,0,0.125);
 }
 
 <Card>
-    <div
-      className="emotion-3"
+    <Styled(div)
+      className="card"
+      textAlign="left"
     >
-      <CardHeader>
-        <div
-          className="emotion-0"
-          onClick={[Function]}
-          title=""
-        >
-          <h3>
-            Heading
-          </h3>
-        </div>
-      </CardHeader>
-      <CardBody>
-        <div
-          className="emotion-1"
-        >
-          Body
-        </div>
-      </CardBody>
-      <CardFooter>
-        <div
-          className="emotion-2"
-        >
-          Footer
-        </div>
-      </CardFooter>
-    </div>
+      <div
+        className="card emotion-4"
+      >
+        <Header>
+          <Styled(div)
+            className="card__header"
+          >
+            <div
+              className="card__header emotion-0"
+            >
+              <Header>
+                <Styled(div)
+                  className="card__header"
+                >
+                  <div
+                    className="card__header emotion-0"
+                  >
+                    Heading
+                  </div>
+                </Styled(div)>
+              </Header>
+            </div>
+          </Styled(div)>
+        </Header>
+        <Body>
+          <Styled(div)
+            className="card__body"
+          >
+            <div
+              className="card__body emotion-2"
+            >
+              Body
+            </div>
+          </Styled(div)>
+        </Body>
+        <Footer>
+          <Styled(div)
+            className="card__footer"
+          >
+            <div
+              className="card__footer emotion-3"
+            >
+              Footer
+            </div>
+          </Styled(div)>
+        </Footer>
+      </div>
+    </Styled(div)>
   </Card>,
-  .emotion-3 {
+  .emotion-8 {
   color: #231f20;
   font-family: 'SF Pro Text','SF Pro Icons','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 0.8rem;
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  text-align: left;
   background: #FFFFFF;
   color: #231f20;
   margin-bottom: 1rem;
   border-radius: 4px;
-  box-shadow: 0px 2px 1px -1px rgba(102,102,102,0.1), 0px 1px 1px 0px rgba(102,102,102,0.15), 0px 1px 3px 0px rgba(102,102,102,.6);
+  box-shadow: 0px 2px 1px -1px rgba(102,102,102,0.1),0px 1px 1px 0px rgba(102,102,102,0.15), 0px 1px 3px 0px rgba(102,102,102,0.6);
   -webkit-font-smoothing: antialiased;
 }
 
-.emotion-3 *,
-.emotion-3 ::before,
-.emotion-3 ::after {
+.emotion-8 *,
+.emotion-8 ::before,
+.emotion-8 ::after {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
 
-.emotion-3 * {
+.emotion-8 * {
   margin: 0;
   padding: 0;
 }
 
-.emotion-3 h3 {
+.emotion-8 h3 {
   font-size: 1rem;
 }
 
 @media only screen and (min-width:768px) {
-  .emotion-3 {
+  .emotion-8 {
     font-size: 0.9rem;
   }
 
-  .emotion-3 h3 {
+  .emotion-8 h3 {
     font-size: 1.1rem;
   }
 }
 
 @media only screen and (min-width:1024px) {
-  .emotion-3 {
+  .emotion-8 {
     font-size: 1rem;
   }
 
-  .emotion-3 h3 {
+  .emotion-8 h3 {
     font-size: 1.2rem;
   }
 }
 
 @media only screen and (min-width:1200px) {
-  .emotion-3 {
+  .emotion-8 {
     font-size: 1.1rem;
   }
 
-  .emotion-3 h3 {
+  .emotion-8 h3 {
     font-size: 1.3rem;
   }
 }
 
+.emotion-8 > [class^='card__alert'] + .card__list,
+.emotion-8 > [class^='card__alert'] + .card__body,
+.emotion-8 > [class^='card__banner'] + .card__list,
+.emotion-8 > [class^='card__banner'] + .card__body,
+.emotion-8 > .card__list + .card__body,
+.emotion-8 > .card__list + .card__list,
+.emotion-8 > .card__list + .card__footer {
+  border-top-width: 0;
+}
+
 .emotion-0 {
+  padding: 0.75rem 0.75rem 0.75rem 0;
+  margin: 0 0 0 0.75rem;
+}
+
+.emotion-3 {
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  min-height: 1px;
+  padding: 0.75rem 0.75rem 0.75rem 0;
+  margin: 0 0 0 0.75rem;
+  border-top: 1px solid rgba(0,0,0,0.125);
+}
+
+.emotion-3:first-child {
+  border-top-width: 0;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+}
+
+.emotion-7 {
+  padding: 0.75rem 0.75rem 0.75rem 0;
+  margin: 0 0 0 0.75rem;
+  border-top: 1px solid rgba(0,0,0,0.125);
+}
+
+.emotion-2 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.emotion-2:last-child {
+  margin-bottom: 0;
+}
+
+.emotion-6 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  padding: 0.5rem !important;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding-left: 0;
+  margin-bottom: 0;
+  border-top: 1px solid rgba(0,0,0,0.125);
+  border-width: 1px 0 1px 0;
+  list-style-type: none;
 }
 
-.emotion-2 {
-  padding: 0 0.5rem 0 0.5rem !important;
+.emotion-6:first-child {
+  border-top-width: 0;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
 }
 
-.emotion-1 {
-  list-style: none;
+.emotion-6:last-child {
+  border-bottom-width: 0;
+  border-bottom-left-radius: inherit;
+  border-bottom-right-radius: inherit;
 }
 
-.emotion-1 li {
-  border-top: 1px solid #d8d8d8;
-  padding: 0.5rem 0.5rem 0.5rem 0;
-  margin-right: -0.5rem;
+.emotion-4 {
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 0.75rem;
+  margin: 0;
+  border: 1px solid #d6d6d6;
+  border-width: 1px 0 0 0;
+  background: inherit;
 }
 
-.emotion-1 #banner {
-  margin-left: -0.5rem;
-  margin-right: -0.5rem;
+.emotion-4:before {
+  content: '';
+  position: absolute;
+  border: 1px solid #fff;
+  border-width: 1px 0 0 0;
+  width: 0.75rem;
+  left: 0;
+  top: -1px;
+  bottom: -1px;
 }
 
-.emotion-1 #banner + li {
-  border-top: 0px !important;
+.card__list-item-selected.emotion-4:before,
+.card__list-item-selected.emotion-4 + .card__list-item:before,
+.emotion-4:hover:before,
+.emotion-4:hover + .card__list-item:before {
+  border-top-width: 1px;
+}
+
+.emotion-4 > :first-child {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+.emotion-4 > .icon__chevron {
+  margin-left: 0.5rem;
+  color: #98a4ad;
+}
+
+.emotion-4:hover {
+  background: inherit;
+  cursor: default;
+}
+
+.emotion-4:first-child {
+  border-top-width: 0;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+}
+
+.emotion-4:last-child {
+  border-bottom-width: 0;
+  border-bottom-left-radius: inherit;
+  border-bottom-right-radius: inherit;
 }
 
 <Card>
-    <div
-      className="emotion-3"
+    <Styled(div)
+      className="card"
+      textAlign="left"
     >
-      <CardHeader>
-        <div
-          className="emotion-0"
-          onClick={[Function]}
-          title=""
-        >
-          <h3>
-            Heading
-          </h3>
-        </div>
-      </CardHeader>
-      <CardList>
-        <ul
-          className="emotion-1"
-        >
-          <ListItem>
-            <li>
-              Item 1
-            </li>
-          </ListItem>
-          <ListItem>
-            <li>
-              Item 2
-            </li>
-          </ListItem>
-        </ul>
-      </CardList>
-      <CardFooter>
-        <div
-          className="emotion-2"
-        >
-          Footer
-        </div>
-      </CardFooter>
-    </div>
+      <div
+        className="card emotion-8"
+      >
+        <Header>
+          <Styled(div)
+            className="card__header"
+          >
+            <div
+              className="card__header emotion-0"
+            >
+              <Header>
+                <Styled(div)
+                  className="card__header"
+                >
+                  <div
+                    className="card__header emotion-0"
+                  >
+                    Heading
+                  </div>
+                </Styled(div)>
+              </Header>
+            </div>
+          </Styled(div)>
+        </Header>
+        <Body>
+          <Styled(div)
+            className="card__body"
+          >
+            <div
+              className="card__body emotion-3"
+            >
+              <Text>
+                <Styled(p)
+                  className="card__text"
+                >
+                  <p
+                    className="card__text emotion-2"
+                  >
+                    Body text
+                  </p>
+                </Styled(p)>
+              </Text>
+            </div>
+          </Styled(div)>
+        </Body>
+        <List>
+          <Styled(ul)
+            className="card__list"
+          >
+            <ul
+              className="card__list emotion-6"
+            >
+              <ListItem>
+                <Styled(li)
+                  className="card__list-item"
+                >
+                  <li
+                    className="card__list-item emotion-4"
+                  >
+                    Item 1
+                  </li>
+                </Styled(li)>
+              </ListItem>
+              <ListItem>
+                <Styled(li)
+                  className="card__list-item"
+                >
+                  <li
+                    className="card__list-item emotion-4"
+                  >
+                    Item 2
+                  </li>
+                </Styled(li)>
+              </ListItem>
+            </ul>
+          </Styled(ul)>
+        </List>
+        <Footer>
+          <Styled(div)
+            className="card__footer"
+          >
+            <div
+              className="card__footer emotion-7"
+            >
+              Footer
+            </div>
+          </Styled(div)>
+        </Footer>
+      </div>
+    </Styled(div)>
   </Card>,
 ]
 `;

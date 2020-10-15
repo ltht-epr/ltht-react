@@ -1,0 +1,100 @@
+/* eslint-disable react/jsx-props-no-spreading */
+import React, { LiHTMLAttributes } from 'react'
+import classNames from 'classnames'
+import styled from '@emotion/styled'
+import { ChevronIcon } from '@ltht-react/icon'
+import { CARD_LIST_ITEM_BACKGROUND_HOVER, CARD_LIST_ITEM_SELECTED_BACKGROUND, ICON_COLOURS } from '@ltht-react/styles'
+
+const shouldClick = (props: Props): boolean => props.onClick !== undefined
+
+const canClick = (props: Props): boolean => props.onClick !== undefined && !props.selected
+
+const background = (props: Props, defaultColour = 'inherit'): string =>
+  props.selected ? CARD_LIST_ITEM_SELECTED_BACKGROUND : defaultColour
+
+const hoverBackground = (props: Props): string => {
+  let colour = 'inherit'
+  if (shouldClick(props)) {
+    colour = CARD_LIST_ITEM_SELECTED_BACKGROUND
+    if (canClick(props)) {
+      colour = CARD_LIST_ITEM_BACKGROUND_HOVER
+    }
+  }
+  return colour
+}
+
+const hoverCursor = (props: Props): string => (canClick(props) ? 'pointer' : 'default')
+
+const StyledListItem = styled.li`
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.75rem;
+  margin: 0;
+  border: 1px solid #d6d6d6;
+  border-width: 1px 0 0 0;
+  background: ${(props: Props): string => background(props)};
+
+  &:before {
+    content: '';
+    position: absolute;
+    border: 1px solid #fff;
+    border-width: 1px 0 0 0;
+    width: 0.75rem;
+    left: 0;
+    top: -1px;
+    bottom: -1px;
+  }
+
+  .card__list-item-selected&:before,
+  .card__list-item-selected& + .card__list-item:before,
+  &:hover:before,
+  &:hover + .card__list-item:before {
+    border-top-width: ${(props: Props): string => (shouldClick(props) ? '0' : '1px')};
+  }
+
+  & > :first-child {
+    flex: 1;
+  }
+
+  & > .icon__chevron {
+    margin-left: 0.5rem;
+    color: ${ICON_COLOURS.DEFAULT.LIGHTER25};
+  }
+
+  &:hover {
+    background: ${(props: Props): string => hoverBackground(props)};
+    cursor: ${(props: Props): string => hoverCursor(props)};
+  }
+
+  &:first-child {
+    border-top-width: 0;
+    border-top-left-radius: inherit;
+    border-top-right-radius: inherit;
+  }
+
+  &:last-child {
+    border-bottom-width: 0;
+    border-bottom-left-radius: inherit;
+    border-bottom-right-radius: inherit;
+  }
+`
+
+const ListItem: React.FC<Props> = props => {
+  const { classes, children, ...rest } = props
+  const suffix = props?.selected === true ? '-selected' : ''
+  return (
+    <StyledListItem className={classNames(`card__list-item${suffix}`, classes)} {...rest}>
+      {children}
+      {shouldClick(props) && <ChevronIcon size="large" direction="right" />}
+    </StyledListItem>
+  )
+}
+
+export interface Props extends LiHTMLAttributes<HTMLLIElement> {
+  classes?: string
+  selected?: boolean
+}
+
+export default ListItem

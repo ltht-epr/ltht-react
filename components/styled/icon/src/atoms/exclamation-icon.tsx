@@ -7,17 +7,25 @@ import { ICON_COLOURS, IconSizes, calculateIconSize } from '@ltht-react/styles'
 
 const ExclamationIcon: React.FC<ExclamationIconProps> = ({ status, size }) => {
   const styles = css`
+    color: inherit;
     ${status === 'green' && `color: ${ICON_COLOURS.SUCCESS};`}
     ${status === 'amber' && `color: ${ICON_COLOURS.WARNING};`}
     ${status === 'red' && `color: ${ICON_COLOURS.DANGER};`}
     ${status === 'default' && `color: ${ICON_COLOURS.DEFAULT};`}
     ${status === 'info' && `color: ${ICON_COLOURS.INFO};`}
   `
-  return <FontAwesomeIcon css={styles} icon={faExclamationTriangle} size={calculateIconSize(size)} />
+  return (
+    <FontAwesomeIcon
+      className="icon__exclamation"
+      css={styles}
+      icon={faExclamationTriangle}
+      size={calculateIconSize(size)}
+    />
+  )
 }
 
 type ExclamationIconProps = {
-  status: 'red' | 'green' | 'amber' | 'info' | 'default'
+  status?: 'red' | 'green' | 'amber' | 'info' | 'default'
   size: IconSizes
 }
 

@@ -70,857 +70,722 @@ exports[`AppointmentSummary matches snapshot: wrapper mount 1`] = `
   color: #768692;
 }
 
-<AppointmentSummary
-  encounters={
-    Array [
-      Object {
-        "id": "346ca927-67e0-e951-a2c7-115087226fg2|appointment",
-        "metadata": Object {
-          "dataSources": Array [
-            Object {
-              "display": "Mock Source",
-            },
-          ],
-          "isRedacted": false,
-          "requestedWhen": "",
-        },
-        "period": Object {
-          "start": Object {
-            "kind": "DATE",
-            "value": "2020-04-01T00:00:00+00:00",
-          },
-        },
-        "serviceProvider": Object {
-          "display": "Beeston Village Surgery",
-          "typeName": "GP",
-        },
-        "status": "PLANNED",
-        "text": Object {
-          "div": "test",
-          "text": "See GP regarding sore throat",
-        },
-        "type": Array [
-          Object {
-            "coding": Array [
-              Object {
-                "code": "64706",
-                "display": "GP",
-              },
-            ],
-            "text": "See GP regarding sore throat",
-          },
-        ],
-      },
-      Object {
-        "id": "941ca927-31e0-e911-a2c7-005087226fe4|appointment",
-        "metadata": Object {
-          "dataSources": Array [
-            Object {
-              "display": "Mock Source",
-            },
-          ],
-          "isRedacted": false,
-          "requestedWhen": "",
-        },
-        "period": Object {
-          "start": Object {
-            "kind": "DATE",
-            "value": "2019-12-12T00:00:00+00:00",
-          },
-        },
-        "serviceProvider": Object {
-          "display": "Chapel Allerton Hospital",
-          "typeName": "Hospital",
-        },
-        "status": "FINISHED",
-        "text": Object {
-          "div": "test",
-          "text": "Chest x-ray for recent car accident",
-        },
-        "type": Array [
-          Object {
-            "coding": Array [
-              Object {
-                "code": "26706",
-                "display": "Hospital",
-              },
-            ],
-            "text": "Chest x-ray for recent car accident",
-          },
-        ],
-      },
-      Object {
-        "id": "941ca927-34e0-e9113a2c7-005087226fe4|appointment",
-        "metadata": Object {
-          "dataSources": Array [
-            Object {
-              "display": "Mock Source",
-            },
-          ],
-          "isRedacted": false,
-          "requestedWhen": "",
-        },
-        "period": Object {
-          "start": Object {
-            "kind": "DATE",
-            "value": "2019-12-12T00:00:00+00:00",
-          },
-        },
-        "status": "CANCELLED",
-        "text": Object {
-          "div": "test",
-          "text": "Chest x-ray for recent car accident",
-        },
-        "type": Array [
-          Object {
-            "coding": Array [
-              Object {
-                "code": "26706",
-                "display": "Hospital",
-              },
-            ],
-            "text": "Chest x-ray for recent car accident",
-          },
-        ],
-      },
-      Object {
-        "id": "941ca927-34e0-e911-a2c7-005087226f44|appointment",
-        "metadata": Object {
-          "dataSources": Array [
-            Object {
-              "display": "Mock Source",
-            },
-          ],
-          "isRedacted": true,
-          "requestedWhen": "",
-        },
-        "period": Object {
-          "start": Object {
-            "kind": "DATE",
-            "value": "2019-12-12T00:00:00+00:00",
-          },
-        },
-        "status": "CANCELLED",
-        "text": Object {
-          "div": "test",
-          "text": "Chest x-ray for recent car accident",
-        },
-        "type": Array [
-          Object {
-            "coding": Array [
-              Object {
-                "code": "26706",
-                "display": "Hospital",
-              },
-            ],
-            "text": "Chest x-ray for recent car accident",
-          },
-        ],
-      },
-    ]
-  }
->
-  <ListItem
+<Sut>
+  <div
     key="346ca927-67e0-e951-a2c7-115087226fg2|appointment"
   >
-    <li>
-      <AppointmentSummaryItem
-        encounter={
-          Object {
-            "id": "346ca927-67e0-e951-a2c7-115087226fg2|appointment",
-            "metadata": Object {
-              "dataSources": Array [
+    <AppointmentSummary
+      encounter={
+        Object {
+          "id": "346ca927-67e0-e951-a2c7-115087226fg2|appointment",
+          "metadata": Object {
+            "dataSources": Array [
+              Object {
+                "display": "Mock Source",
+              },
+            ],
+            "isRedacted": false,
+            "requestedWhen": "",
+          },
+          "period": Object {
+            "start": Object {
+              "kind": "DATE",
+              "value": "2020-04-01T00:00:00+00:00",
+            },
+          },
+          "serviceProvider": Object {
+            "display": "Beeston Village Surgery",
+            "typeName": "GP",
+          },
+          "status": "PLANNED",
+          "text": Object {
+            "div": "test",
+            "text": "See GP regarding sore throat",
+          },
+          "type": Array [
+            Object {
+              "coding": Array [
                 Object {
-                  "display": "Mock Source",
+                  "code": "64706",
+                  "display": "GP",
                 },
               ],
-              "isRedacted": false,
-              "requestedWhen": "",
-            },
-            "period": Object {
-              "start": Object {
-                "kind": "DATE",
-                "value": "2020-04-01T00:00:00+00:00",
-              },
-            },
-            "serviceProvider": Object {
-              "display": "Beeston Village Surgery",
-              "typeName": "GP",
-            },
-            "status": "PLANNED",
-            "text": Object {
-              "div": "test",
               "text": "See GP regarding sore throat",
             },
-            "type": Array [
-              Object {
-                "coding": Array [
-                  Object {
-                    "code": "64706",
-                    "display": "GP",
-                  },
-                ],
-                "text": "See GP regarding sore throat",
-              },
-            ],
-          }
+          ],
         }
-      >
+      }
+    >
+      <Styled(div)>
         <div
           className="emotion-7"
-          role="link"
         >
-          <div
-            className="emotion-1"
-          >
-            <DateSummary
-              datetime={
-                Object {
-                  "kind": "DATE",
-                  "value": "2020-04-01T00:00:00+00:00",
-                }
-              }
+          <Styled(div)>
+            <div
+              className="emotion-1"
             >
-              <div
-                className="emotion-0"
+              <DateSummary
+                datetime={
+                  Object {
+                    "kind": "DATE",
+                    "value": "2020-04-01T00:00:00+00:00",
+                  }
+                }
               >
-                Apr-01,-2020
-              </div>
-            </DateSummary>
-          </div>
-          <div
-            className="emotion-3"
-          >
-            <AppointmentDescription
-              encounter={
-                Object {
-                  "id": "346ca927-67e0-e951-a2c7-115087226fg2|appointment",
-                  "metadata": Object {
-                    "dataSources": Array [
-                      Object {
-                        "display": "Mock Source",
-                      },
-                    ],
-                    "isRedacted": false,
-                    "requestedWhen": "",
-                  },
-                  "period": Object {
-                    "start": Object {
-                      "kind": "DATE",
-                      "value": "2020-04-01T00:00:00+00:00",
-                    },
-                  },
-                  "serviceProvider": Object {
-                    "display": "Beeston Village Surgery",
-                    "typeName": "GP",
-                  },
-                  "status": "PLANNED",
-                  "text": Object {
-                    "div": "test",
-                    "text": "See GP regarding sore throat",
-                  },
-                  "type": Array [
-                    Object {
-                      "coding": Array [
+                <div
+                  className="emotion-0"
+                >
+                  Apr-01,-2020
+                </div>
+              </DateSummary>
+            </div>
+          </Styled(div)>
+          <Styled(div)>
+            <div
+              className="emotion-3"
+            >
+              <AppointmentDescription
+                encounter={
+                  Object {
+                    "id": "346ca927-67e0-e951-a2c7-115087226fg2|appointment",
+                    "metadata": Object {
+                      "dataSources": Array [
                         Object {
-                          "code": "64706",
-                          "display": "GP",
+                          "display": "Mock Source",
                         },
                       ],
+                      "isRedacted": false,
+                      "requestedWhen": "",
+                    },
+                    "period": Object {
+                      "start": Object {
+                        "kind": "DATE",
+                        "value": "2020-04-01T00:00:00+00:00",
+                      },
+                    },
+                    "serviceProvider": Object {
+                      "display": "Beeston Village Surgery",
+                      "typeName": "GP",
+                    },
+                    "status": "PLANNED",
+                    "text": Object {
+                      "div": "test",
                       "text": "See GP regarding sore throat",
                     },
-                  ],
-                }
-              }
-            >
-              <div
-                className="emotion-2"
-              >
-                See GP regarding sore throat
-              </div>
-            </AppointmentDescription>
-          </div>
-          <div
-            className="emotion-6"
-          >
-            <AppointmentServiceProvider
-              encounter={
-                Object {
-                  "id": "346ca927-67e0-e951-a2c7-115087226fg2|appointment",
-                  "metadata": Object {
-                    "dataSources": Array [
+                    "type": Array [
                       Object {
-                        "display": "Mock Source",
+                        "coding": Array [
+                          Object {
+                            "code": "64706",
+                            "display": "GP",
+                          },
+                        ],
+                        "text": "See GP regarding sore throat",
                       },
                     ],
-                    "isRedacted": false,
-                    "requestedWhen": "",
-                  },
-                  "period": Object {
-                    "start": Object {
-                      "kind": "DATE",
-                      "value": "2020-04-01T00:00:00+00:00",
-                    },
-                  },
-                  "serviceProvider": Object {
-                    "display": "Beeston Village Surgery",
-                    "typeName": "GP",
-                  },
-                  "status": "PLANNED",
-                  "text": Object {
-                    "div": "test",
-                    "text": "See GP regarding sore throat",
-                  },
-                  "type": Array [
-                    Object {
-                      "coding": Array [
+                  }
+                }
+              >
+                <div
+                  className="emotion-2"
+                >
+                  See GP regarding sore throat
+                </div>
+              </AppointmentDescription>
+            </div>
+          </Styled(div)>
+          <Styled(div)>
+            <div
+              className="emotion-6"
+            >
+              <AppointmentServiceProvider
+                encounter={
+                  Object {
+                    "id": "346ca927-67e0-e951-a2c7-115087226fg2|appointment",
+                    "metadata": Object {
+                      "dataSources": Array [
                         Object {
-                          "code": "64706",
-                          "display": "GP",
+                          "display": "Mock Source",
                         },
                       ],
+                      "isRedacted": false,
+                      "requestedWhen": "",
+                    },
+                    "period": Object {
+                      "start": Object {
+                        "kind": "DATE",
+                        "value": "2020-04-01T00:00:00+00:00",
+                      },
+                    },
+                    "serviceProvider": Object {
+                      "display": "Beeston Village Surgery",
+                      "typeName": "GP",
+                    },
+                    "status": "PLANNED",
+                    "text": Object {
+                      "div": "test",
                       "text": "See GP regarding sore throat",
                     },
-                  ],
-                }
-              }
-            >
-              <div
-                className="emotion-4"
-              >
-                Beeston Village Surgery
-              </div>
-            </AppointmentServiceProvider>
-            <AppointmentStatus
-              encounter={
-                Object {
-                  "id": "346ca927-67e0-e951-a2c7-115087226fg2|appointment",
-                  "metadata": Object {
-                    "dataSources": Array [
+                    "type": Array [
                       Object {
-                        "display": "Mock Source",
+                        "coding": Array [
+                          Object {
+                            "code": "64706",
+                            "display": "GP",
+                          },
+                        ],
+                        "text": "See GP regarding sore throat",
                       },
                     ],
-                    "isRedacted": false,
-                    "requestedWhen": "",
-                  },
-                  "period": Object {
-                    "start": Object {
-                      "kind": "DATE",
-                      "value": "2020-04-01T00:00:00+00:00",
-                    },
-                  },
-                  "serviceProvider": Object {
-                    "display": "Beeston Village Surgery",
-                    "typeName": "GP",
-                  },
-                  "status": "PLANNED",
-                  "text": Object {
-                    "div": "test",
-                    "text": "See GP regarding sore throat",
-                  },
-                  "type": Array [
-                    Object {
-                      "coding": Array [
+                  }
+                }
+              >
+                <div
+                  className="emotion-4"
+                >
+                  Beeston Village Surgery
+                </div>
+              </AppointmentServiceProvider>
+              <AppointmentStatus
+                encounter={
+                  Object {
+                    "id": "346ca927-67e0-e951-a2c7-115087226fg2|appointment",
+                    "metadata": Object {
+                      "dataSources": Array [
                         Object {
-                          "code": "64706",
-                          "display": "GP",
+                          "display": "Mock Source",
                         },
                       ],
+                      "isRedacted": false,
+                      "requestedWhen": "",
+                    },
+                    "period": Object {
+                      "start": Object {
+                        "kind": "DATE",
+                        "value": "2020-04-01T00:00:00+00:00",
+                      },
+                    },
+                    "serviceProvider": Object {
+                      "display": "Beeston Village Surgery",
+                      "typeName": "GP",
+                    },
+                    "status": "PLANNED",
+                    "text": Object {
+                      "div": "test",
                       "text": "See GP regarding sore throat",
                     },
-                  ],
+                    "type": Array [
+                      Object {
+                        "coding": Array [
+                          Object {
+                            "code": "64706",
+                            "display": "GP",
+                          },
+                        ],
+                        "text": "See GP regarding sore throat",
+                      },
+                    ],
+                  }
                 }
-              }
-            >
-              <div
-                className="emotion-5"
               >
-                Planned
-              </div>
-            </AppointmentStatus>
-          </div>
+                <div
+                  className="emotion-5"
+                >
+                  Planned
+                </div>
+              </AppointmentStatus>
+            </div>
+          </Styled(div)>
         </div>
-      </AppointmentSummaryItem>
-    </li>
-  </ListItem>
-  <ListItem
+      </Styled(div)>
+    </AppointmentSummary>
+  </div>
+  <div
     key="941ca927-31e0-e911-a2c7-005087226fe4|appointment"
   >
-    <li>
-      <AppointmentSummaryItem
-        encounter={
-          Object {
-            "id": "941ca927-31e0-e911-a2c7-005087226fe4|appointment",
-            "metadata": Object {
-              "dataSources": Array [
-                Object {
-                  "display": "Mock Source",
-                },
-              ],
-              "isRedacted": false,
-              "requestedWhen": "",
-            },
-            "period": Object {
-              "start": Object {
-                "kind": "DATE",
-                "value": "2019-12-12T00:00:00+00:00",
-              },
-            },
-            "serviceProvider": Object {
-              "display": "Chapel Allerton Hospital",
-              "typeName": "Hospital",
-            },
-            "status": "FINISHED",
-            "text": Object {
-              "div": "test",
-              "text": "Chest x-ray for recent car accident",
-            },
-            "type": Array [
+    <AppointmentSummary
+      encounter={
+        Object {
+          "id": "941ca927-31e0-e911-a2c7-005087226fe4|appointment",
+          "metadata": Object {
+            "dataSources": Array [
               Object {
-                "coding": Array [
-                  Object {
-                    "code": "26706",
-                    "display": "Hospital",
-                  },
-                ],
-                "text": "Chest x-ray for recent car accident",
+                "display": "Mock Source",
               },
             ],
-          }
+            "isRedacted": false,
+            "requestedWhen": "",
+          },
+          "period": Object {
+            "start": Object {
+              "kind": "DATE",
+              "value": "2019-12-12T00:00:00+00:00",
+            },
+          },
+          "serviceProvider": Object {
+            "display": "Chapel Allerton Hospital",
+            "typeName": "Hospital",
+          },
+          "status": "FINISHED",
+          "text": Object {
+            "div": "test",
+            "text": "Chest x-ray for recent car accident",
+          },
+          "type": Array [
+            Object {
+              "coding": Array [
+                Object {
+                  "code": "26706",
+                  "display": "Hospital",
+                },
+              ],
+              "text": "Chest x-ray for recent car accident",
+            },
+          ],
         }
-      >
+      }
+    >
+      <Styled(div)>
         <div
           className="emotion-7"
-          role="link"
         >
-          <div
-            className="emotion-1"
-          >
-            <DateSummary
-              datetime={
-                Object {
-                  "kind": "DATE",
-                  "value": "2019-12-12T00:00:00+00:00",
-                }
-              }
+          <Styled(div)>
+            <div
+              className="emotion-1"
             >
-              <div
-                className="emotion-0"
+              <DateSummary
+                datetime={
+                  Object {
+                    "kind": "DATE",
+                    "value": "2019-12-12T00:00:00+00:00",
+                  }
+                }
               >
-                Dec-12,-2019
-              </div>
-            </DateSummary>
-          </div>
-          <div
-            className="emotion-3"
-          >
-            <AppointmentDescription
-              encounter={
-                Object {
-                  "id": "941ca927-31e0-e911-a2c7-005087226fe4|appointment",
-                  "metadata": Object {
-                    "dataSources": Array [
-                      Object {
-                        "display": "Mock Source",
-                      },
-                    ],
-                    "isRedacted": false,
-                    "requestedWhen": "",
-                  },
-                  "period": Object {
-                    "start": Object {
-                      "kind": "DATE",
-                      "value": "2019-12-12T00:00:00+00:00",
-                    },
-                  },
-                  "serviceProvider": Object {
-                    "display": "Chapel Allerton Hospital",
-                    "typeName": "Hospital",
-                  },
-                  "status": "FINISHED",
-                  "text": Object {
-                    "div": "test",
-                    "text": "Chest x-ray for recent car accident",
-                  },
-                  "type": Array [
-                    Object {
-                      "coding": Array [
+                <div
+                  className="emotion-0"
+                >
+                  Dec-12,-2019
+                </div>
+              </DateSummary>
+            </div>
+          </Styled(div)>
+          <Styled(div)>
+            <div
+              className="emotion-3"
+            >
+              <AppointmentDescription
+                encounter={
+                  Object {
+                    "id": "941ca927-31e0-e911-a2c7-005087226fe4|appointment",
+                    "metadata": Object {
+                      "dataSources": Array [
                         Object {
-                          "code": "26706",
-                          "display": "Hospital",
+                          "display": "Mock Source",
                         },
                       ],
+                      "isRedacted": false,
+                      "requestedWhen": "",
+                    },
+                    "period": Object {
+                      "start": Object {
+                        "kind": "DATE",
+                        "value": "2019-12-12T00:00:00+00:00",
+                      },
+                    },
+                    "serviceProvider": Object {
+                      "display": "Chapel Allerton Hospital",
+                      "typeName": "Hospital",
+                    },
+                    "status": "FINISHED",
+                    "text": Object {
+                      "div": "test",
                       "text": "Chest x-ray for recent car accident",
                     },
-                  ],
-                }
-              }
-            >
-              <div
-                className="emotion-2"
-              >
-                Chest x-ray for recent car accident
-              </div>
-            </AppointmentDescription>
-          </div>
-          <div
-            className="emotion-6"
-          >
-            <AppointmentServiceProvider
-              encounter={
-                Object {
-                  "id": "941ca927-31e0-e911-a2c7-005087226fe4|appointment",
-                  "metadata": Object {
-                    "dataSources": Array [
+                    "type": Array [
                       Object {
-                        "display": "Mock Source",
+                        "coding": Array [
+                          Object {
+                            "code": "26706",
+                            "display": "Hospital",
+                          },
+                        ],
+                        "text": "Chest x-ray for recent car accident",
                       },
                     ],
-                    "isRedacted": false,
-                    "requestedWhen": "",
-                  },
-                  "period": Object {
-                    "start": Object {
-                      "kind": "DATE",
-                      "value": "2019-12-12T00:00:00+00:00",
-                    },
-                  },
-                  "serviceProvider": Object {
-                    "display": "Chapel Allerton Hospital",
-                    "typeName": "Hospital",
-                  },
-                  "status": "FINISHED",
-                  "text": Object {
-                    "div": "test",
-                    "text": "Chest x-ray for recent car accident",
-                  },
-                  "type": Array [
-                    Object {
-                      "coding": Array [
+                  }
+                }
+              >
+                <div
+                  className="emotion-2"
+                >
+                  Chest x-ray for recent car accident
+                </div>
+              </AppointmentDescription>
+            </div>
+          </Styled(div)>
+          <Styled(div)>
+            <div
+              className="emotion-6"
+            >
+              <AppointmentServiceProvider
+                encounter={
+                  Object {
+                    "id": "941ca927-31e0-e911-a2c7-005087226fe4|appointment",
+                    "metadata": Object {
+                      "dataSources": Array [
                         Object {
-                          "code": "26706",
-                          "display": "Hospital",
+                          "display": "Mock Source",
                         },
                       ],
+                      "isRedacted": false,
+                      "requestedWhen": "",
+                    },
+                    "period": Object {
+                      "start": Object {
+                        "kind": "DATE",
+                        "value": "2019-12-12T00:00:00+00:00",
+                      },
+                    },
+                    "serviceProvider": Object {
+                      "display": "Chapel Allerton Hospital",
+                      "typeName": "Hospital",
+                    },
+                    "status": "FINISHED",
+                    "text": Object {
+                      "div": "test",
                       "text": "Chest x-ray for recent car accident",
                     },
-                  ],
-                }
-              }
-            >
-              <div
-                className="emotion-4"
-              >
-                Chapel Allerton Hospital
-              </div>
-            </AppointmentServiceProvider>
-            <AppointmentStatus
-              encounter={
-                Object {
-                  "id": "941ca927-31e0-e911-a2c7-005087226fe4|appointment",
-                  "metadata": Object {
-                    "dataSources": Array [
+                    "type": Array [
                       Object {
-                        "display": "Mock Source",
+                        "coding": Array [
+                          Object {
+                            "code": "26706",
+                            "display": "Hospital",
+                          },
+                        ],
+                        "text": "Chest x-ray for recent car accident",
                       },
                     ],
-                    "isRedacted": false,
-                    "requestedWhen": "",
-                  },
-                  "period": Object {
-                    "start": Object {
-                      "kind": "DATE",
-                      "value": "2019-12-12T00:00:00+00:00",
-                    },
-                  },
-                  "serviceProvider": Object {
-                    "display": "Chapel Allerton Hospital",
-                    "typeName": "Hospital",
-                  },
-                  "status": "FINISHED",
-                  "text": Object {
-                    "div": "test",
-                    "text": "Chest x-ray for recent car accident",
-                  },
-                  "type": Array [
-                    Object {
-                      "coding": Array [
+                  }
+                }
+              >
+                <div
+                  className="emotion-4"
+                >
+                  Chapel Allerton Hospital
+                </div>
+              </AppointmentServiceProvider>
+              <AppointmentStatus
+                encounter={
+                  Object {
+                    "id": "941ca927-31e0-e911-a2c7-005087226fe4|appointment",
+                    "metadata": Object {
+                      "dataSources": Array [
                         Object {
-                          "code": "26706",
-                          "display": "Hospital",
+                          "display": "Mock Source",
                         },
                       ],
+                      "isRedacted": false,
+                      "requestedWhen": "",
+                    },
+                    "period": Object {
+                      "start": Object {
+                        "kind": "DATE",
+                        "value": "2019-12-12T00:00:00+00:00",
+                      },
+                    },
+                    "serviceProvider": Object {
+                      "display": "Chapel Allerton Hospital",
+                      "typeName": "Hospital",
+                    },
+                    "status": "FINISHED",
+                    "text": Object {
+                      "div": "test",
                       "text": "Chest x-ray for recent car accident",
                     },
-                  ],
+                    "type": Array [
+                      Object {
+                        "coding": Array [
+                          Object {
+                            "code": "26706",
+                            "display": "Hospital",
+                          },
+                        ],
+                        "text": "Chest x-ray for recent car accident",
+                      },
+                    ],
+                  }
                 }
-              }
-            >
-              <div
-                className="emotion-5"
               >
-                Finished
-              </div>
-            </AppointmentStatus>
-          </div>
+                <div
+                  className="emotion-5"
+                >
+                  Finished
+                </div>
+              </AppointmentStatus>
+            </div>
+          </Styled(div)>
         </div>
-      </AppointmentSummaryItem>
-    </li>
-  </ListItem>
-  <ListItem
+      </Styled(div)>
+    </AppointmentSummary>
+  </div>
+  <div
     key="941ca927-34e0-e9113a2c7-005087226fe4|appointment"
   >
-    <li>
-      <AppointmentSummaryItem
-        encounter={
-          Object {
-            "id": "941ca927-34e0-e9113a2c7-005087226fe4|appointment",
-            "metadata": Object {
-              "dataSources": Array [
-                Object {
-                  "display": "Mock Source",
-                },
-              ],
-              "isRedacted": false,
-              "requestedWhen": "",
-            },
-            "period": Object {
-              "start": Object {
-                "kind": "DATE",
-                "value": "2019-12-12T00:00:00+00:00",
-              },
-            },
-            "status": "CANCELLED",
-            "text": Object {
-              "div": "test",
-              "text": "Chest x-ray for recent car accident",
-            },
-            "type": Array [
+    <AppointmentSummary
+      encounter={
+        Object {
+          "id": "941ca927-34e0-e9113a2c7-005087226fe4|appointment",
+          "metadata": Object {
+            "dataSources": Array [
               Object {
-                "coding": Array [
-                  Object {
-                    "code": "26706",
-                    "display": "Hospital",
-                  },
-                ],
-                "text": "Chest x-ray for recent car accident",
+                "display": "Mock Source",
               },
             ],
-          }
+            "isRedacted": false,
+            "requestedWhen": "",
+          },
+          "period": Object {
+            "start": Object {
+              "kind": "DATE",
+              "value": "2019-12-12T00:00:00+00:00",
+            },
+          },
+          "status": "CANCELLED",
+          "text": Object {
+            "div": "test",
+            "text": "Chest x-ray for recent car accident",
+          },
+          "type": Array [
+            Object {
+              "coding": Array [
+                Object {
+                  "code": "26706",
+                  "display": "Hospital",
+                },
+              ],
+              "text": "Chest x-ray for recent car accident",
+            },
+          ],
         }
-      >
+      }
+    >
+      <Styled(div)>
         <div
           className="emotion-7"
-          role="link"
         >
-          <div
-            className="emotion-1"
-          >
-            <DateSummary
-              datetime={
-                Object {
-                  "kind": "DATE",
-                  "value": "2019-12-12T00:00:00+00:00",
-                }
-              }
+          <Styled(div)>
+            <div
+              className="emotion-1"
             >
-              <div
-                className="emotion-0"
+              <DateSummary
+                datetime={
+                  Object {
+                    "kind": "DATE",
+                    "value": "2019-12-12T00:00:00+00:00",
+                  }
+                }
               >
-                Dec-12,-2019
-              </div>
-            </DateSummary>
-          </div>
-          <div
-            className="emotion-3"
-          >
-            <AppointmentDescription
-              encounter={
-                Object {
-                  "id": "941ca927-34e0-e9113a2c7-005087226fe4|appointment",
-                  "metadata": Object {
-                    "dataSources": Array [
-                      Object {
-                        "display": "Mock Source",
-                      },
-                    ],
-                    "isRedacted": false,
-                    "requestedWhen": "",
-                  },
-                  "period": Object {
-                    "start": Object {
-                      "kind": "DATE",
-                      "value": "2019-12-12T00:00:00+00:00",
-                    },
-                  },
-                  "status": "CANCELLED",
-                  "text": Object {
-                    "div": "test",
-                    "text": "Chest x-ray for recent car accident",
-                  },
-                  "type": Array [
-                    Object {
-                      "coding": Array [
+                <div
+                  className="emotion-0"
+                >
+                  Dec-12,-2019
+                </div>
+              </DateSummary>
+            </div>
+          </Styled(div)>
+          <Styled(div)>
+            <div
+              className="emotion-3"
+            >
+              <AppointmentDescription
+                encounter={
+                  Object {
+                    "id": "941ca927-34e0-e9113a2c7-005087226fe4|appointment",
+                    "metadata": Object {
+                      "dataSources": Array [
                         Object {
-                          "code": "26706",
-                          "display": "Hospital",
+                          "display": "Mock Source",
                         },
                       ],
+                      "isRedacted": false,
+                      "requestedWhen": "",
+                    },
+                    "period": Object {
+                      "start": Object {
+                        "kind": "DATE",
+                        "value": "2019-12-12T00:00:00+00:00",
+                      },
+                    },
+                    "status": "CANCELLED",
+                    "text": Object {
+                      "div": "test",
                       "text": "Chest x-ray for recent car accident",
                     },
-                  ],
-                }
-              }
-            >
-              <div
-                className="emotion-2"
-              >
-                Chest x-ray for recent car accident
-              </div>
-            </AppointmentDescription>
-          </div>
-          <div
-            className="emotion-6"
-          >
-            <AppointmentServiceProvider
-              encounter={
-                Object {
-                  "id": "941ca927-34e0-e9113a2c7-005087226fe4|appointment",
-                  "metadata": Object {
-                    "dataSources": Array [
+                    "type": Array [
                       Object {
-                        "display": "Mock Source",
+                        "coding": Array [
+                          Object {
+                            "code": "26706",
+                            "display": "Hospital",
+                          },
+                        ],
+                        "text": "Chest x-ray for recent car accident",
                       },
                     ],
-                    "isRedacted": false,
-                    "requestedWhen": "",
-                  },
-                  "period": Object {
-                    "start": Object {
-                      "kind": "DATE",
-                      "value": "2019-12-12T00:00:00+00:00",
-                    },
-                  },
-                  "status": "CANCELLED",
-                  "text": Object {
-                    "div": "test",
-                    "text": "Chest x-ray for recent car accident",
-                  },
-                  "type": Array [
-                    Object {
-                      "coding": Array [
+                  }
+                }
+              >
+                <div
+                  className="emotion-2"
+                >
+                  Chest x-ray for recent car accident
+                </div>
+              </AppointmentDescription>
+            </div>
+          </Styled(div)>
+          <Styled(div)>
+            <div
+              className="emotion-6"
+            >
+              <AppointmentServiceProvider
+                encounter={
+                  Object {
+                    "id": "941ca927-34e0-e9113a2c7-005087226fe4|appointment",
+                    "metadata": Object {
+                      "dataSources": Array [
                         Object {
-                          "code": "26706",
-                          "display": "Hospital",
+                          "display": "Mock Source",
                         },
                       ],
+                      "isRedacted": false,
+                      "requestedWhen": "",
+                    },
+                    "period": Object {
+                      "start": Object {
+                        "kind": "DATE",
+                        "value": "2019-12-12T00:00:00+00:00",
+                      },
+                    },
+                    "status": "CANCELLED",
+                    "text": Object {
+                      "div": "test",
                       "text": "Chest x-ray for recent car accident",
                     },
-                  ],
-                }
-              }
-            >
-              <div
-                className="emotion-4"
-              >
-                Mock Source
-              </div>
-            </AppointmentServiceProvider>
-            <AppointmentStatus
-              encounter={
-                Object {
-                  "id": "941ca927-34e0-e9113a2c7-005087226fe4|appointment",
-                  "metadata": Object {
-                    "dataSources": Array [
+                    "type": Array [
                       Object {
-                        "display": "Mock Source",
+                        "coding": Array [
+                          Object {
+                            "code": "26706",
+                            "display": "Hospital",
+                          },
+                        ],
+                        "text": "Chest x-ray for recent car accident",
                       },
                     ],
-                    "isRedacted": false,
-                    "requestedWhen": "",
-                  },
-                  "period": Object {
-                    "start": Object {
-                      "kind": "DATE",
-                      "value": "2019-12-12T00:00:00+00:00",
-                    },
-                  },
-                  "status": "CANCELLED",
-                  "text": Object {
-                    "div": "test",
-                    "text": "Chest x-ray for recent car accident",
-                  },
-                  "type": Array [
-                    Object {
-                      "coding": Array [
+                  }
+                }
+              >
+                <div
+                  className="emotion-4"
+                >
+                  Mock Source
+                </div>
+              </AppointmentServiceProvider>
+              <AppointmentStatus
+                encounter={
+                  Object {
+                    "id": "941ca927-34e0-e9113a2c7-005087226fe4|appointment",
+                    "metadata": Object {
+                      "dataSources": Array [
                         Object {
-                          "code": "26706",
-                          "display": "Hospital",
+                          "display": "Mock Source",
                         },
                       ],
+                      "isRedacted": false,
+                      "requestedWhen": "",
+                    },
+                    "period": Object {
+                      "start": Object {
+                        "kind": "DATE",
+                        "value": "2019-12-12T00:00:00+00:00",
+                      },
+                    },
+                    "status": "CANCELLED",
+                    "text": Object {
+                      "div": "test",
                       "text": "Chest x-ray for recent car accident",
                     },
-                  ],
+                    "type": Array [
+                      Object {
+                        "coding": Array [
+                          Object {
+                            "code": "26706",
+                            "display": "Hospital",
+                          },
+                        ],
+                        "text": "Chest x-ray for recent car accident",
+                      },
+                    ],
+                  }
                 }
-              }
-            >
-              <div
-                className="emotion-5"
               >
-                Cancelled
-              </div>
-            </AppointmentStatus>
-          </div>
+                <div
+                  className="emotion-5"
+                >
+                  Cancelled
+                </div>
+              </AppointmentStatus>
+            </div>
+          </Styled(div)>
         </div>
-      </AppointmentSummaryItem>
-    </li>
-  </ListItem>
-  <ListItem
+      </Styled(div)>
+    </AppointmentSummary>
+  </div>
+  <div
     key="941ca927-34e0-e911-a2c7-005087226f44|appointment"
   >
-    <li>
-      <AppointmentSummaryItem
-        encounter={
-          Object {
-            "id": "941ca927-34e0-e911-a2c7-005087226f44|appointment",
-            "metadata": Object {
-              "dataSources": Array [
-                Object {
-                  "display": "Mock Source",
-                },
-              ],
-              "isRedacted": true,
-              "requestedWhen": "",
-            },
-            "period": Object {
-              "start": Object {
-                "kind": "DATE",
-                "value": "2019-12-12T00:00:00+00:00",
-              },
-            },
-            "status": "CANCELLED",
-            "text": Object {
-              "div": "test",
-              "text": "Chest x-ray for recent car accident",
-            },
-            "type": Array [
+    <AppointmentSummary
+      encounter={
+        Object {
+          "id": "941ca927-34e0-e911-a2c7-005087226f44|appointment",
+          "metadata": Object {
+            "dataSources": Array [
               Object {
-                "coding": Array [
-                  Object {
-                    "code": "26706",
-                    "display": "Hospital",
-                  },
-                ],
-                "text": "Chest x-ray for recent car accident",
+                "display": "Mock Source",
               },
             ],
-          }
+            "isRedacted": true,
+            "requestedWhen": "",
+          },
+          "period": Object {
+            "start": Object {
+              "kind": "DATE",
+              "value": "2019-12-12T00:00:00+00:00",
+            },
+          },
+          "status": "CANCELLED",
+          "text": Object {
+            "div": "test",
+            "text": "Chest x-ray for recent car accident",
+          },
+          "type": Array [
+            Object {
+              "coding": Array [
+                Object {
+                  "code": "26706",
+                  "display": "Hospital",
+                },
+              ],
+              "text": "Chest x-ray for recent car accident",
+            },
+          ],
         }
-      >
+      }
+    >
+      <Styled(div)>
         <div
           className="emotion-7"
-          role="link"
         >
           <AppointmentRedacted
             appointment={
@@ -991,8 +856,8 @@ exports[`AppointmentSummary matches snapshot: wrapper mount 1`] = `
             </div>
           </AppointmentRedacted>
         </div>
-      </AppointmentSummaryItem>
-    </li>
-  </ListItem>
-</AppointmentSummary>
+      </Styled(div)>
+    </AppointmentSummary>
+  </div>
+</Sut>
 `;

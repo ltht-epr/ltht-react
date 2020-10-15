@@ -14,7 +14,6 @@ export const styles = (
 ): {
   base: SerializedStyles
   default: SerializedStyles
-  primary: SerializedStyles
   warning: SerializedStyles
   info: SerializedStyles
   error: SerializedStyles
@@ -30,31 +29,24 @@ export const styles = (
     `,
     default: css`
       color: ${BANNER_COLOURS.DEFAULT.TEXT};
-      background-color: ${BANNER_COLOURS.DEFAULT.VALUE};
-      ${clickable} && &:hover {
-        cursor: pointer;
-      }
-    `,
-    primary: css`
-      color: ${BANNER_COLOURS.PRIMARY.TEXT};
-      background-color: ${BANNER_COLOURS.PRIMARY.VALUE};
+      background-color: ${BANNER_COLOURS.DEFAULT.BACKGROUND};
       ${clickable} && &:hover {
         cursor: pointer;
       }
     `,
     info: css`
       color: ${BANNER_COLOURS.INFO.TEXT};
-      background-color: ${BANNER_COLOURS.INFO.VALUE};
+      background-color: ${BANNER_COLOURS.INFO.BACKGROUND};
       ${clickable && onHover}
     `,
     warning: css`
-      color: darkgoldenrod;
-      background-color: ${BANNER_COLOURS.WARNING.VALUE};
+      color: ${BANNER_COLOURS.WARNING.TEXT};
+      background-color: ${BANNER_COLOURS.WARNING.BACKGROUND};
       ${clickable && onHover}
     `,
     error: css`
-      color: ${BANNER_COLOURS.ERROR.TEXT};
-      background-color: ${BANNER_COLOURS.ERROR.VALUE};
+      color: ${BANNER_COLOURS.DANGER.TEXT};
+      background-color: ${BANNER_COLOURS.DANGER.BACKGROUND};
       ${clickable} && &:hover {
         cursor: pointer;
       }
@@ -82,7 +74,7 @@ const Banner: React.FC<Props> = ({ children, bannerStyle = 'default', clickHandl
   )
 }
 
-type BannerStyle = 'default' | 'primary' | 'info' | 'warning' | 'error'
+type BannerStyle = 'default' | 'info' | 'warning' | 'error'
 
 interface Props extends BannerProps {
   bannerStyle?: BannerStyle

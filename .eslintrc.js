@@ -48,7 +48,7 @@ module.exports = {
     'import/resolver': {
       node: {
         extensions: ['.js', '.jsx', '.ts', '.tsx'],
-        paths: ['src', 'atoms', 'molecules', 'node_modules'],
+        paths: ['src', 'atoms', 'molecules', 'organisms', 'node_modules'],
       },
     },
   },

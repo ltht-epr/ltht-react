@@ -1,14 +1,13 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { useState } from '@storybook/addons'
 import JSXAddon from 'storybook-addon-jsx'
 
 import DocumentSummary from '@ltht-react/document-summary'
 import readme from '@ltht-react/document-summary/README.md'
-import { Card, CardHeader, CardBody } from '@ltht-react/card'
-import { DocumentReference } from '@ltht-react/types'
+import Card from '@ltht-react/card'
 import documents from './document-summary.fixture'
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const stories = storiesOf('Organisms - Clinical|Document', module) as any
 
 stories.addWithJSX = JSXAddon.addWithJSX
@@ -20,23 +19,18 @@ stories.addParameters({
 })
 
 stories.addWithJSX('Summary', () => {
-  const [doc, setDoc] = useState<DocumentReference | undefined>(undefined)
-
-  const clickHandler = (document: DocumentReference): void => {
-    setDoc(document)
-  }
-
   return (
-    <div>
-      <Card noData={!documents}>
-        <CardHeader>
-          <h3>Documents</h3>
-        </CardHeader>
-        <CardBody>
-          <DocumentSummary documents={documents} clickHandler={clickHandler} />
-        </CardBody>
-      </Card>
-      {doc && <div>{doc.id}</div>}
-    </div>
+    <Card>
+      <Card.Header>
+        <Card.Title>Documents</Card.Title>
+      </Card.Header>
+      <Card.List>
+        {documents.map(document => (
+          <Card.ListItem key={document.id}>
+            <DocumentSummary document={document} />
+          </Card.ListItem>
+        ))}
+      </Card.List>
+    </Card>
   )
 })

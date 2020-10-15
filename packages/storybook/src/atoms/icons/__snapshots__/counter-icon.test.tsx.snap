@@ -36,7 +36,7 @@ exports[`BadgeIcon matches snapshot: wrapper mount 1`] = `
     >
       <FontAwesomeIcon
         border={false}
-        className="emotion-0"
+        className="icon__counter emotion-0"
         fixedWidth={false}
         flip={null}
         icon={
@@ -67,7 +67,7 @@ exports[`BadgeIcon matches snapshot: wrapper mount 1`] = `
       >
         <svg
           aria-hidden="true"
-          className="svg-inline--fa fa-circle fa-w-16 fa-sm emotion-0"
+          className="svg-inline--fa fa-circle fa-w-16 fa-sm icon__counter emotion-0"
           data-icon="circle"
           data-prefix="fas"
           focusable="false"
@@ -100,7 +100,7 @@ exports[`BadgeIcon matches snapshot: wrapper mount 1`] = `
     >
       <FontAwesomeIcon
         border={false}
-        className="emotion-3"
+        className="icon__counter emotion-3"
         fixedWidth={false}
         flip={null}
         icon={
@@ -131,7 +131,7 @@ exports[`BadgeIcon matches snapshot: wrapper mount 1`] = `
       >
         <svg
           aria-hidden="true"
-          className="svg-inline--fa fa-circle fa-w-16 fa-sm emotion-3"
+          className="svg-inline--fa fa-circle fa-w-16 fa-sm icon__counter emotion-3"
           data-icon="circle"
           data-prefix="fas"
           focusable="false"
@@ -164,7 +164,7 @@ exports[`BadgeIcon matches snapshot: wrapper mount 1`] = `
     >
       <FontAwesomeIcon
         border={false}
-        className="emotion-6"
+        className="icon__counter emotion-6"
         fixedWidth={false}
         flip={null}
         icon={
@@ -195,7 +195,7 @@ exports[`BadgeIcon matches snapshot: wrapper mount 1`] = `
       >
         <svg
           aria-hidden="true"
-          className="svg-inline--fa fa-circle fa-w-16 fa-xs emotion-6"
+          className="svg-inline--fa fa-circle fa-w-16 fa-xs icon__counter emotion-6"
           data-icon="circle"
           data-prefix="fas"
           focusable="false"
@@ -228,7 +228,7 @@ exports[`BadgeIcon matches snapshot: wrapper mount 1`] = `
     >
       <FontAwesomeIcon
         border={false}
-        className="emotion-9"
+        className="icon__counter emotion-9"
         fixedWidth={false}
         flip={null}
         icon={
@@ -259,7 +259,7 @@ exports[`BadgeIcon matches snapshot: wrapper mount 1`] = `
       >
         <svg
           aria-hidden="true"
-          className="svg-inline--fa fa-circle fa-w-16 fa-lg emotion-9"
+          className="svg-inline--fa fa-circle fa-w-16 fa-lg icon__counter emotion-9"
           data-icon="circle"
           data-prefix="fas"
           focusable="false"

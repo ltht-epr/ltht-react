@@ -4,10 +4,11 @@ import JSXAddon from 'storybook-addon-jsx'
 
 import GuidanceSummary from '@ltht-react/guidance-summary'
 import readme from '@ltht-react/guidance-summary/README.md'
-import { Card, CardHeader, CardBody } from '@ltht-react/card'
+import Card from '@ltht-react/card'
 
-import GuidanceData from './guidance.fixture'
+import guidances from './guidance.fixture'
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const stories = storiesOf('Organisms - Clinical|Guidance', module) as any
 
 stories.addWithJSX = JSXAddon.addWithJSX
@@ -20,13 +21,17 @@ stories.addParameters({
 
 stories.addWithJSX('Summary', () => {
   return (
-    <Card noData={!GuidanceData}>
-      <CardHeader titleText="Test">
-        <h3>Guidance</h3>
-      </CardHeader>
-      <CardBody collapsed={false}>
-        <GuidanceSummary guidanceList={GuidanceData} />
-      </CardBody>
+    <Card>
+      <Card.Header>
+        <Card.Title>Guidance</Card.Title>
+      </Card.Header>
+      <Card.List>
+        {guidances.map(guidance => (
+          <Card.ListItem key={guidance.id}>
+            <GuidanceSummary guidance={guidance} />
+          </Card.ListItem>
+        ))}
+      </Card.List>
     </Card>
   )
 })

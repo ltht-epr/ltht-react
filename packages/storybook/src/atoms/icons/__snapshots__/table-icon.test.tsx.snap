@@ -24,7 +24,7 @@ exports[`TableIcon matches snapshot: wrapper mount 1`] = `
   >
     <FontAwesomeIcon
       border={false}
-      className="emotion-0"
+      className="icon__table emotion-0"
       fixedWidth={false}
       flip={null}
       icon={
@@ -59,7 +59,7 @@ exports[`TableIcon matches snapshot: wrapper mount 1`] = `
     >
       <svg
         aria-hidden="true"
-        className="svg-inline--fa fa-table fa-w-16 fa-xs emotion-0"
+        className="svg-inline--fa fa-table fa-w-16 fa-xs icon__table emotion-0"
         data-icon="table"
         data-prefix="fas"
         focusable="false"
@@ -97,7 +97,7 @@ exports[`TableIcon matches snapshot: wrapper mount 1`] = `
   >
     <FontAwesomeIcon
       border={false}
-      className="emotion-2"
+      className="icon__table emotion-2"
       fixedWidth={false}
       flip={null}
       icon={
@@ -132,7 +132,7 @@ exports[`TableIcon matches snapshot: wrapper mount 1`] = `
     >
       <svg
         aria-hidden="true"
-        className="svg-inline--fa fa-table fa-w-16 fa-xs emotion-2"
+        className="svg-inline--fa fa-table fa-w-16 fa-xs icon__table emotion-2"
         data-icon="table"
         data-prefix="fas"
         focusable="false"
@@ -170,7 +170,7 @@ exports[`TableIcon matches snapshot: wrapper mount 1`] = `
   >
     <FontAwesomeIcon
       border={false}
-      className="emotion-4"
+      className="icon__table emotion-4"
       fixedWidth={false}
       flip={null}
       icon={
@@ -205,7 +205,7 @@ exports[`TableIcon matches snapshot: wrapper mount 1`] = `
     >
       <svg
         aria-hidden="true"
-        className="svg-inline--fa fa-table fa-w-16 fa-xs emotion-4"
+        className="svg-inline--fa fa-table fa-w-16 fa-xs icon__table emotion-4"
         data-icon="table"
         data-prefix="fas"
         focusable="false"
@@ -243,7 +243,7 @@ exports[`TableIcon matches snapshot: wrapper mount 1`] = `
   >
     <FontAwesomeIcon
       border={false}
-      className="emotion-6"
+      className="icon__table emotion-6"
       fixedWidth={false}
       flip={null}
       icon={
@@ -278,7 +278,7 @@ exports[`TableIcon matches snapshot: wrapper mount 1`] = `
     >
       <svg
         aria-hidden="true"
-        className="svg-inline--fa fa-table fa-w-16 fa-xs emotion-6"
+        className="svg-inline--fa fa-table fa-w-16 fa-xs icon__table emotion-6"
         data-icon="table"
         data-prefix="fas"
         focusable="false"

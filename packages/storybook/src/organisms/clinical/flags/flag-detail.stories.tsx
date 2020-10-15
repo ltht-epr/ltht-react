@@ -4,10 +4,11 @@ import JSXAddon from 'storybook-addon-jsx'
 
 import FlagDetail from '@ltht-react/flag-detail'
 import readme from '@ltht-react/flag-detail/README.md'
-import { Card, CardHeader, CardBody } from '@ltht-react/card'
+import Card from '@ltht-react/card'
 
 import flags from './flag.fixtures'
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const stories = storiesOf('Organisms - Clinical|Flag', module) as any
 
 stories.addWithJSX = JSXAddon.addWithJSX
@@ -19,12 +20,12 @@ stories.addParameters({
 })
 
 stories.addWithJSX('Detail', () => (
-  <Card noData={!flags}>
-    <CardHeader position="center">
+  <Card>
+    <Card.Header>
       <h3>Flag</h3>
-    </CardHeader>
-    <CardBody>
+    </Card.Header>
+    <Card.Body>
       <FlagDetail flag={flags[0]} />
-    </CardBody>
+    </Card.Body>
   </Card>
 ))

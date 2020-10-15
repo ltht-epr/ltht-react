@@ -10,20 +10,20 @@ const styles = css`
   padding-left: 0.5rem;
 `
 
-const MissingDataSummary: React.FC<Props> = ({ noData, partialData, allData }) => {
-  const noDataSection =
-    noData != null ? (
+const MissingDataSummary: React.FC<Props> = ({ noData, partialData, completeData, missingData }) => {
+  const missingDataSection =
+    missingData != null ? (
       <React.Fragment>
         <WarningBanner>
-          <CounterIcon size="large" status="amber" value={noData.length} />
-          <div css={styles}>No Data</div>
+          <CounterIcon size="large" status="amber" value={missingData.length} />
+          <div css={styles}>Missing Data</div>
         </WarningBanner>
-        {noData.map(data => (
+        {missingData.map(data => (
           <ListItem>{data}</ListItem>
         ))}
       </React.Fragment>
     ) : (
-      <React.Fragment></React.Fragment>
+      <React.Fragment />
     )
 
   const partialDataSection =
@@ -38,37 +38,54 @@ const MissingDataSummary: React.FC<Props> = ({ noData, partialData, allData }) =
         ))}
       </React.Fragment>
     ) : (
-      <React.Fragment></React.Fragment>
+      <React.Fragment />
     )
 
-  const allDataSection =
-    allData != null ? (
+  const completeDataSection =
+    completeData != null ? (
       <React.Fragment>
         <InfoBanner>
-          <CounterIcon size="large" status="info" value={allData.length} />
-          <div css={styles}>All Data</div>
+          <CounterIcon size="large" status="info" value={completeData.length} />
+          <div css={styles}>Complete Data</div>
         </InfoBanner>
-        {allData.map(data => (
+        {completeData.map(data => (
           <ListItem>{data}</ListItem>
         ))}
       </React.Fragment>
     ) : (
-      <React.Fragment></React.Fragment>
+      <React.Fragment />
+    )
+
+  const noDataSection =
+    noData != null ? (
+      <React.Fragment>
+        <InfoBanner>
+          <CounterIcon size="large" status="info" value={noData.length} />
+          <div css={styles}>No Data</div>
+        </InfoBanner>
+        {noData.map(data => (
+          <ListItem>{data}</ListItem>
+        ))}
+      </React.Fragment>
+    ) : (
+      <React.Fragment />
     )
 
   return (
     <React.Fragment>
-      {noDataSection}
+      {missingDataSection}
       {partialDataSection}
-      {allDataSection}
+      {completeDataSection}
+      {noDataSection}
     </React.Fragment>
   )
 }
 
 interface Props {
-  noData?: Maybe<Array<string>>
+  missingData?: Maybe<Array<string>>
   partialData?: Maybe<Array<string>>
-  allData?: Maybe<Array<string>>
+  completeData?: Maybe<Array<string>>
+  noData?: Maybe<Array<string>>
 }
 
 export default MissingDataSummary

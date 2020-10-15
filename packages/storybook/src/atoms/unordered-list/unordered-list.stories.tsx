@@ -5,6 +5,7 @@ import JSXAddon from 'storybook-addon-jsx'
 import dlreadme from '@ltht-react/list/README.md'
 import { ListItem, UnorderedList } from '@ltht-react/list'
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const stories = storiesOf('Atoms|Unordered List', module) as any
 
 stories.addWithJSX = JSXAddon.addWithJSX

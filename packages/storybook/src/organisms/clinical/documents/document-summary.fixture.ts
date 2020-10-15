@@ -10,6 +10,12 @@ const mockMetadata: Metadata = {
   requestedWhen: '',
 }
 
+const redactedMetaData: Metadata = {
+  dataSources: [],
+  isRedacted: true,
+  requestedWhen: '',
+}
+
 const Document1: DocumentReference = {
   id: '6b554095-bd5f-4134-8dbb-a21971959fd3',
   metadata: mockMetadata,
@@ -42,6 +48,21 @@ const Document2: DocumentReference = {
 
 const Document3: DocumentReference = {
   id: '38962be0-4e5e-4640-a23e-af45da7c0578',
+  metadata: redactedMetaData,
+  content: [],
+  description: 'Description of document three',
+  indexed: {
+    value: '2020-01-23T00:00:00+00:00',
+  },
+  created: {
+    value: '2020-01-11T00:00:00+00:00',
+  },
+  status: DocumentReferenceStatusCode.Superseded,
+  type: {},
+}
+
+const Document4: DocumentReference = {
+  id: '38962be0-4e5e-4640-a23e-af45da7c0777',
   metadata: mockMetadata,
   content: [],
   description: 'Description of document three',
@@ -55,6 +76,6 @@ const Document3: DocumentReference = {
   type: {},
 }
 
-const documents: DocumentReference[] = [Document1, Document2, Document3]
+const documents: DocumentReference[] = [Document1, Document2, Document3, Document4]
 
 export default documents
