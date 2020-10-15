@@ -88,7 +88,7 @@ stories.addWithJSX('Info Summary', () => (
           <AllergySummary allergies={allergies} />
         </CardList>
       </CardBody>
-    </Card>    
+    </Card>
   </div>
 ))
 
@@ -104,7 +104,7 @@ stories.addWithJSX('Warning Summary', () => (
           <AllergySummary allergies={allergies} />
         </CardList>
       </CardBody>
-    </Card>    
+    </Card>
   </div>
 ))
 
@@ -116,11 +116,11 @@ stories.addWithJSX('Error Summary', () => (
       </CardHeader>
       <CardBody>
         <CardList clickable>
-          <ErrorSummary clickHandler={clickHandler} />          
+          <ErrorSummary clickHandler={clickHandler} />
           <ListItem>No Data</ListItem>
         </CardList>
       </CardBody>
-    </Card>    
+    </Card>
   </div>
 ))
 

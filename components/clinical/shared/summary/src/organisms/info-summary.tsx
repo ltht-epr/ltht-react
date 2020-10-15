@@ -9,7 +9,7 @@ const styles = css`
   padding-left: 0.5rem;
 `
 
-const InfoSummary: React.FC<Props> = ({ clickHandler }) => {  
+const InfoSummary: React.FC<Props> = ({ clickHandler }) => {
   const handleClick = (e: React.MouseEvent<HTMLElement, MouseEvent>): void => {
     e.preventDefault()
     clickHandler && clickHandler()
@@ -20,7 +20,7 @@ const InfoSummary: React.FC<Props> = ({ clickHandler }) => {
     <InfoBanner clickHandler={handleClick}>
       <InfoCircleIcon size="large" status="info" />
       <div css={styles}>View Data Sources</div>
-      {hasClickHandler && <ChevronIcon size="large" direction="right" />}      
+      {hasClickHandler && <ChevronIcon size="large" direction="right" />}
     </InfoBanner>
   )
 }

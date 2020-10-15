@@ -12,7 +12,7 @@ const styles = css`
 const ErrorSummary: React.FC<Props> = ({ clickHandler }) => {
   const handleClick = (e: React.MouseEvent<HTMLElement, MouseEvent>): void => {
     e.preventDefault()
-    clickHandler && clickHandler()    
+    clickHandler && clickHandler()
   }
   const hasClickHandler = clickHandler !== undefined
 
@@ -20,7 +20,7 @@ const ErrorSummary: React.FC<Props> = ({ clickHandler }) => {
     <ErrorBanner clickHandler={handleClick}>
       <ExclamationIcon size="large" status="default" />
       <div css={styles}>Regional Providers Unavailable</div>
-      {hasClickHandler && <ChevronIcon size="large" direction="right" />}      
+      {hasClickHandler && <ChevronIcon size="large" direction="right" />}
     </ErrorBanner>
   )
 }

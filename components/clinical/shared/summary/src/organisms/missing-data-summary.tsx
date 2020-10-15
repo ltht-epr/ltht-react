@@ -12,7 +12,7 @@ const styles = css`
 
 const MissingDataSummary: React.FC<Props> = ({ noData, partialData, completeData, missingData }) => {
   const missingDataSection =
-  missingData != null ? (
+    missingData != null ? (
       <React.Fragment>
         <WarningBanner>
           <CounterIcon size="large" status="amber" value={missingData.length} />
@@ -56,7 +56,7 @@ const MissingDataSummary: React.FC<Props> = ({ noData, partialData, completeData
       <React.Fragment></React.Fragment>
     )
 
-    const noDataSection =
+  const noDataSection =
     noData != null ? (
       <React.Fragment>
         <InfoBanner>

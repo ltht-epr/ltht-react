@@ -21,7 +21,7 @@ const WarningSummary: React.FC<Props> = ({ clickHandler }) => {
     <WarningBanner clickHandler={handleClick}>
       <ExclamationIcon size="large" status="default" />
       <div css={styles}>Incomplete Data</div>
-      {hasClickHandler && <ChevronIcon size="large" direction="right" />}      
+      {hasClickHandler && <ChevronIcon size="large" direction="right" />}
     </WarningBanner>
   )
 }
