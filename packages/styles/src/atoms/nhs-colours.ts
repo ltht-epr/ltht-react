@@ -10,6 +10,7 @@ export const NHS_DARK_BLUE = {
   VALUE: '#003087',
   DARKER25: '#002a6e',
   LIGHTER25: '#406aae',
+  LIGHTER50: '#7FAFFF',
 }
 export const NHS_BLACK = '#231f20'
 export const NHS_DARK_GREY = '#425563'

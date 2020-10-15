@@ -53,7 +53,7 @@
   },
   "scripts": {
     "bootstrap": "lerna bootstrap && lerna run build",
-    "build:package": "yarn lerna run build --scope=@ltht-react/flag-summary",
+    "build:package": "yarn lerna run build",
     "build:sort": "lerna run build --sort",
     "build:storybook": "cd packages/storybook && yarn build:storybook",
     "build": "lerna run build --parallel",

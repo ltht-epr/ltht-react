@@ -74,7 +74,7 @@ export const BANNER_COLOURS = {
   },
   INFO: {
     VALUE: colours.NHS_TRANSLUCENT_BRIGHT_BLUE,
-    TEXT: colours.NHS_DARK_BLUE.VALUE,
+    TEXT: colours.NHS_DARK_BLUE.LIGHTER25,
   },
   WARNING: {
     VALUE: colours.NHS_TRANSLUCENT_WARM_YELLOW,
