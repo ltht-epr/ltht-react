@@ -49,6 +49,17 @@ stories.addWithJSX('Basic', () => (
       <Card.Header>
         <h3>Header</h3>
       </Card.Header>
+      <Card.Alert>This is an alert</Card.Alert>
+      <Card.List>
+        <Card.ListItem>Item One</Card.ListItem>
+        <Card.ListItem>Item Two</Card.ListItem>
+        <Card.ListItem>Item Three</Card.ListItem>
+      </Card.List>
+    </Card>
+    <Card>
+      <Card.Header>
+        <h3>Header</h3>
+      </Card.Header>
       <Card.Body>
         <Card.Text>Body Text</Card.Text>
       </Card.Body>

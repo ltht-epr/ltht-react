@@ -9,7 +9,7 @@ export interface Props {
 const StyledHeader = styled.div`
   padding: 0.75rem 1.25rem 0.75rem 0;
   margin: 0 0 0 0.75rem;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+  /* border-bottom: 1px solid rgba(0, 0, 0, 0.125); */
 `
 
 const Header: React.FC<Props> = ({ classes, children }) => {

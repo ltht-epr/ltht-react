@@ -2,6 +2,7 @@ import React from 'react'
 import classNames from 'classnames'
 import styled from '@emotion/styled'
 import { CSS_RESET, TEXT_COLOURS, CARD_BACKGROUND_COLOUR } from '@ltht-react/styles'
+import Alert, { Props as AlertProps } from '../atoms/alert'
 import Body, { Props as BodyProps } from '../atoms/body'
 import Footer, { Props as FooterProps } from '../atoms/footer'
 import Header, { Props as HeaderProps } from '../atoms/header'
@@ -10,6 +11,7 @@ import List, { Props as ListProps } from '../atoms/list'
 import Text, { Props as TextProps } from '../atoms/text'
 
 interface CardComposition {
+  Alert: React.FC<AlertProps>
   Body: React.FC<BodyProps>
   Footer: React.FC<FooterProps>
   Header: React.FC<HeaderProps>
@@ -60,6 +62,7 @@ const Card: React.FC<Props> & CardComposition = ({ textAlign = 'left', classes, 
   )
 }
 
+Card.Alert = Alert
 Card.Body = Body
 Card.Footer = Footer
 Card.Header = Header
