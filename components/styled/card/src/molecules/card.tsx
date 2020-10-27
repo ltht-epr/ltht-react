@@ -8,7 +8,9 @@ import Footer, { Props as FooterProps } from '../atoms/footer'
 import Header, { Props as HeaderProps } from '../atoms/header'
 import ListItem, { Props as ListItemProps } from '../atoms/list-item'
 import List, { Props as ListProps } from '../atoms/list'
+import Subtitle, { Props as SubtitleProps } from '../atoms/subtitle'
 import Text, { Props as TextProps } from '../atoms/text'
+import Title, { Props as TitleProps } from '../atoms/title'
 
 interface CardComposition {
   Alert: React.FC<AlertProps>
@@ -17,7 +19,9 @@ interface CardComposition {
   Header: React.FC<HeaderProps>
   ListItem: React.FC<ListItemProps>
   List: React.FC<ListProps>
+  Subtitle: React.FC<SubtitleProps>
   Text: React.FC<TextProps>
+  Title: React.FC<TitleProps>
 }
 
 type TextAlignValues = 'left' | 'center' | 'right'
@@ -45,11 +49,9 @@ const StyledCard = styled.div`
     0px 1px 3px 0px rgba(102, 102, 102, 0.6);
   -webkit-font-smoothing: antialiased;
 
-  & > .card__list + .card__footer {
-    border-top-width: 0;
-  }
-
-  & > .card__header + .card__list {
+  & > .card__alert + .card__list,
+  > .card__alert + .card__body,
+  > .card__list + .card__footer {
     border-top-width: 0;
   }
 `
@@ -68,6 +70,8 @@ Card.Footer = Footer
 Card.Header = Header
 Card.ListItem = ListItem
 Card.List = List
+Card.Subtitle = Subtitle
 Card.Text = Text
+Card.Title = Title
 
 export default Card

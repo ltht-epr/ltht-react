@@ -29,15 +29,16 @@ stories.addWithJSX('Basic', () => (
   <>
     <Card>
       <Card.Header>
-        <h3>Header</h3>
+        <Card.Title>Header</Card.Title>
       </Card.Header>
       <Card.Body>
+        <Card.Subtitle>Subtitle</Card.Subtitle>
         <Card.Text>Body Text</Card.Text>
       </Card.Body>
     </Card>
     <Card>
       <Card.Header>
-        <h3>Header</h3>
+        <Card.Title>Header</Card.Title>
       </Card.Header>
       <Card.List>
         <Card.ListItem>Item One</Card.ListItem>
@@ -47,7 +48,7 @@ stories.addWithJSX('Basic', () => (
     </Card>
     <Card>
       <Card.Header>
-        <h3>Header</h3>
+        <Card.Title>Header</Card.Title>
       </Card.Header>
       <Card.Alert>This is an alert</Card.Alert>
       <Card.List>
@@ -58,8 +59,9 @@ stories.addWithJSX('Basic', () => (
     </Card>
     <Card>
       <Card.Header>
-        <h3>Header</h3>
+        <Card.Title>Header</Card.Title>
       </Card.Header>
+      <Card.Alert>This is an alert</Card.Alert>
       <Card.Body>
         <Card.Text>Body Text</Card.Text>
       </Card.Body>
@@ -82,6 +84,11 @@ stories.addWithJSX('Basic', () => (
         <Card.Text>Text Two</Card.Text>
         <Card.Text>Text Three</Card.Text>
       </Card.Body>
+    </Card>
+    <Card>
+      <Card.Header>Header</Card.Header>
+      <Card.Body>Body</Card.Body>
+      <Card.Footer>Footer</Card.Footer>
     </Card>
   </>
 ))
