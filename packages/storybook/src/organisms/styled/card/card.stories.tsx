@@ -5,10 +5,11 @@ import JSXAddon from 'storybook-addon-jsx'
 import readme from '@ltht-react/card/README.md'
 import { ListItem } from '@ltht-react/list'
 import { MissingDataSummary, InfoSummary, WarningSummary, ErrorSummary } from '@ltht-react/summary'
-import { Card, CardHeader, CardBody, CardFooter, CardList } from '@ltht-react/card'
+import Card from '@ltht-react/card'
 import AllergySummary from '@ltht-react/allergy-summary'
 import allergies from '../../clinical/allergies/allergy.fixtures'
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const stories = storiesOf('Organisms - Styled|Card', module) as any
 
 stories.addWithJSX = JSXAddon.addWithJSX
@@ -20,41 +21,83 @@ stories.addParameters({
 })
 
 const clickHandler = (): void => {
+  // eslint-disable-next-line no-console
   console.log('Handler clicked')
 }
 
 stories.addWithJSX('Basic', () => (
-  <Card>
-    <CardHeader>
-      <h3>Header</h3>
-    </CardHeader>
-    <CardBody>Body</CardBody>
-  </Card>
+  <>
+    <Card>
+      <Card.Header>
+        <h3>Header</h3>
+      </Card.Header>
+      <Card.Body>
+        <Card.Text>Body Text</Card.Text>
+      </Card.Body>
+    </Card>
+    <Card>
+      <Card.Header>
+        <h3>Header</h3>
+      </Card.Header>
+      <Card.List>
+        <Card.ListItem>Item One</Card.ListItem>
+        <Card.ListItem>Item Two</Card.ListItem>
+        <Card.ListItem>Item Three</Card.ListItem>
+      </Card.List>
+    </Card>
+    <Card>
+      <Card.Header>
+        <h3>Header</h3>
+      </Card.Header>
+      <Card.Body>
+        <Card.Text>Body Text</Card.Text>
+      </Card.Body>
+      <Card.List>
+        <Card.ListItem>Item One</Card.ListItem>
+        <Card.ListItem>Item Two</Card.ListItem>
+        <Card.ListItem>Item Three</Card.ListItem>
+      </Card.List>
+    </Card>
+    <Card>
+      <Card.List>
+        <Card.ListItem>Item One</Card.ListItem>
+        <Card.ListItem>Item Two</Card.ListItem>
+        <Card.ListItem>Item Three</Card.ListItem>
+      </Card.List>
+    </Card>
+    <Card>
+      <Card.Body>
+        <Card.Text>Text One</Card.Text>
+        <Card.Text>Text Two</Card.Text>
+        <Card.Text>Text Three</Card.Text>
+      </Card.Body>
+    </Card>
+  </>
 ))
 
 stories.addWithJSX('Footer', () => (
   <Card>
-    <CardHeader>
+    <Card.Header>
       <h3>Header</h3>
-    </CardHeader>
-    <CardBody>Body</CardBody>
-    <CardFooter>Footer</CardFooter>
+    </Card.Header>
+    <Card.Body>Body</Card.Body>
+    <Card.Footer>Footer</Card.Footer>
   </Card>
 ))
 
 stories.addWithJSX('List', () => (
   <div>
     <Card>
-      <CardHeader>
+      <Card.Header>
         <h3>Header</h3>
-      </CardHeader>
-      <CardBody>
-        <CardList>
-          <ListItem>Item 1</ListItem>
-          <ListItem>Item 2</ListItem>
-        </CardList>
-      </CardBody>
-      <CardFooter>Footer</CardFooter>
+      </Card.Header>
+      <Card.Body>
+        <Card.List>
+          <Card.ListItem>Item 1</Card.ListItem>
+          <Card.ListItem>Item 2</Card.ListItem>
+        </Card.List>
+      </Card.Body>
+      <Card.Footer>Footer</Card.Footer>
     </Card>
   </div>
 ))
@@ -62,16 +105,16 @@ stories.addWithJSX('List', () => (
 stories.addWithJSX('List (Clickable)', () => (
   <div>
     <Card>
-      <CardHeader>
+      <Card.Header>
         <h3>Header</h3>
-      </CardHeader>
-      <CardBody>
-        <CardList clickable>
-          <ListItem>Item 1</ListItem>
-          <ListItem>Item 2</ListItem>
-        </CardList>
-      </CardBody>
-      <CardFooter>Footer</CardFooter>
+      </Card.Header>
+      <Card.Body>
+        <Card.List>
+          <Card.ListItem>Item 1</Card.ListItem>
+          <Card.ListItem>Item 2</Card.ListItem>
+        </Card.List>
+      </Card.Body>
+      <Card.Footer>Footer</Card.Footer>
     </Card>
   </div>
 ))
@@ -79,15 +122,15 @@ stories.addWithJSX('List (Clickable)', () => (
 stories.addWithJSX('Info Summary', () => (
   <div>
     <Card>
-      <CardHeader>
+      <Card.Header>
         <h3>Allergies</h3>
-      </CardHeader>
-      <CardBody>
-        <CardList clickable>
+      </Card.Header>
+      <Card.Body>
+        <Card.List>
           <InfoSummary clickHandler={clickHandler} />
           <AllergySummary allergies={allergies} />
-        </CardList>
-      </CardBody>
+        </Card.List>
+      </Card.Body>
     </Card>
   </div>
 ))
@@ -95,15 +138,15 @@ stories.addWithJSX('Info Summary', () => (
 stories.addWithJSX('Warning Summary', () => (
   <div>
     <Card>
-      <CardHeader>
+      <Card.Header>
         <h3>Allergies</h3>
-      </CardHeader>
-      <CardBody>
-        <CardList clickable>
+      </Card.Header>
+      <Card.Body>
+        <Card.List>
           <WarningSummary clickHandler={clickHandler} />
           <AllergySummary allergies={allergies} />
-        </CardList>
-      </CardBody>
+        </Card.List>
+      </Card.Body>
     </Card>
   </div>
 ))
@@ -111,15 +154,15 @@ stories.addWithJSX('Warning Summary', () => (
 stories.addWithJSX('Error Summary', () => (
   <div>
     <Card>
-      <CardHeader>
+      <Card.Header>
         <h3>Allergies</h3>
-      </CardHeader>
-      <CardBody>
-        <CardList clickable>
+      </Card.Header>
+      <Card.Body>
+        <Card.List>
           <ErrorSummary clickHandler={clickHandler} />
           <ListItem>No Data</ListItem>
-        </CardList>
-      </CardBody>
+        </Card.List>
+      </Card.Body>
     </Card>
   </div>
 ))
@@ -127,29 +170,29 @@ stories.addWithJSX('Error Summary', () => (
 stories.addWithJSX('Missing Data Summary', () => (
   <div>
     <Card>
-      <CardHeader position="center">
+      <Card.Header>
         <h3>Allergies</h3>
-      </CardHeader>
-      <CardBody>
-        <CardList clickable>
+      </Card.Header>
+      <Card.Body>
+        <Card.List>
           <MissingDataSummary
             missingData={['Humber']}
             partialData={['York (2 missing)']}
             completeData={['Hull And East Yorkshire', 'Rotherham']}
             noData={['Bradford']}
           />
-        </CardList>
-      </CardBody>
+        </Card.List>
+      </Card.Body>
     </Card>
   </div>
 ))
 
 stories.addWithJSX('No Data', () => (
   <div>
-    <Card noData>
-      <CardHeader>
+    <Card>
+      <Card.Header>
         <h3>Header</h3>
-      </CardHeader>
+      </Card.Header>
     </Card>
   </div>
 ))

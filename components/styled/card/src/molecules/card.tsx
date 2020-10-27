@@ -1,36 +1,70 @@
-/** @jsx jsx */
 import React from 'react'
-import { css, jsx, SerializedStyles } from '@emotion/core'
+import classNames from 'classnames'
+import styled from '@emotion/styled'
+import { CSS_RESET, TEXT_COLOURS, CARD_BACKGROUND_COLOUR } from '@ltht-react/styles'
+import Body, { Props as BodyProps } from '../atoms/body'
+import Footer, { Props as FooterProps } from '../atoms/footer'
+import Header, { Props as HeaderProps } from '../atoms/header'
+import ListItem, { Props as ListItemProps } from '../atoms/list-item'
+import List, { Props as ListProps } from '../atoms/list'
+import Text, { Props as TextProps } from '../atoms/text'
 
-import { CSS_RESET, TEXT_COLOURS, CARD_BACKGROUND_COLOUR, CARD_BACKGROUND_COLOUR_NO_DATA } from '@ltht-react/styles'
-import CardEmpty from '../atoms/card-empty'
-
-const styles = (noData: boolean): SerializedStyles => {
-  return css`
-  ${CSS_RESET}
-  background: ${noData ? CARD_BACKGROUND_COLOUR_NO_DATA : CARD_BACKGROUND_COLOUR};
-  color: ${noData ? TEXT_COLOURS.SECONDARY : TEXT_COLOURS.PRIMARY};
-  margin-bottom: 1rem;
-  border-radius: 4px;
-  box-shadow: 
-    0px 2px 1px -1px rgba(102, 102, 102, 0.1), 
-    0px 1px 1px 0px rgba(102, 102, 102, 0.15), 
-    0px 1px 3px 0px rgba(102, 102, 102,.6);
-  -webkit-font-smoothing: antialiased;
-`
+interface CardComposition {
+  Body: React.FC<BodyProps>
+  Footer: React.FC<FooterProps>
+  Header: React.FC<HeaderProps>
+  ListItem: React.FC<ListItemProps>
+  List: React.FC<ListProps>
+  Text: React.FC<TextProps>
 }
 
-const Card: React.FC<Props> = ({ children, noData = false }) => {
-  return (
-    <div css={styles(noData)}>
-      {children}
-      {noData && <CardEmpty />}
-    </div>
-  )
+type TextAlignValues = 'left' | 'center' | 'right'
+
+interface StyledProps {
+  textAlign: TextAlignValues
 }
 
 interface Props {
-  noData?: boolean
+  textAlign?: TextAlignValues
+  classes?: string
 }
+
+const StyledCard = styled.div`
+  ${CSS_RESET}
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  text-align: ${(props: StyledProps): string => props.textAlign};
+  background: ${CARD_BACKGROUND_COLOUR};
+  color: ${TEXT_COLOURS.PRIMARY};
+  margin-bottom: 1rem;
+  border-radius: 4px;
+  box-shadow: 0px 2px 1px -1px rgba(102, 102, 102, 0.1), 0px 1px 1px 0px rgba(102, 102, 102, 0.15),
+    0px 1px 3px 0px rgba(102, 102, 102, 0.6);
+  -webkit-font-smoothing: antialiased;
+
+  & > .card__list + .card__footer {
+    border-top-width: 0;
+  }
+
+  & > .card__header + .card__list {
+    border-top-width: 0;
+  }
+`
+
+const Card: React.FC<Props> & CardComposition = ({ textAlign = 'left', classes, children }) => {
+  return (
+    <StyledCard textAlign={textAlign} className={classNames('card', classes)}>
+      {children}
+    </StyledCard>
+  )
+}
+
+Card.Body = Body
+Card.Footer = Footer
+Card.Header = Header
+Card.ListItem = ListItem
+Card.List = List
+Card.Text = Text
 
 export default Card

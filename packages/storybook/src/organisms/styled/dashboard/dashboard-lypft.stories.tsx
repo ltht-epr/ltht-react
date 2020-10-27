@@ -11,7 +11,7 @@ import HospitalStaySummary from '@ltht-react/hospital-stay-summary'
 import InvolvedTeamSummary from '@ltht-react/involved-team-summary'
 
 import DocumentSummary from '@ltht-react/document-summary'
-import { Card, CardHeader, CardBody, CardList } from '@ltht-react/card'
+import Card from '@ltht-react/card'
 import allergies from '../../clinical/allergies/allergy.fixtures'
 import documents from '../../clinical/documents/document-summary.fixture'
 import appointments from '../../clinical/appointments/appointment-summary.fixtures'
@@ -36,95 +36,95 @@ stories.addWithJSX('Readonly Cards', () => {
   return (
     <Container>
       <Column>
-        <Card noData>
-          <CardHeader>
+        <Card>
+          <Card.Header>
             <h3>Flags</h3>
-          </CardHeader>
-          <CardBody>
-            <CardList>
+          </Card.Header>
+          <Card.Body>
+            <Card.List>
               <FlagSummary flags={undefined} />
-            </CardList>
-          </CardBody>
-        </Card>
-        <Card noData={!allergies}>
-          <CardHeader>
-            <h3>Allergies</h3>
-          </CardHeader>
-          <CardBody>
-            <CardList>
-              <AllergySummary allergies={allergies} />
-            </CardList>
-          </CardBody>
-        </Card>
-        <Card noData={!communityOrders}>
-          <CardHeader>
-            <h3>Community Treatment Orders</h3>
-          </CardHeader>
-          <CardBody>
-            <CardList>
-              <CommunityTreatmentOrderSummary communityTreatmentOrders={communityOrders} />
-            </CardList>
-          </CardBody>
-        </Card>
-        <Card noData={!carePlans}>
-          <CardHeader>
-            <h3>Care Plans</h3>
-          </CardHeader>
-          <CardBody>
-            <CardList>
-              <CarePlanSummary carePlans={carePlans} />
-            </CardList>
-          </CardBody>
+            </Card.List>
+          </Card.Body>
         </Card>
         <Card>
-          <CardHeader>
+          <Card.Header>
+            <h3>Allergies</h3>
+          </Card.Header>
+          <Card.Body>
+            <Card.List>
+              <AllergySummary allergies={allergies} />
+            </Card.List>
+          </Card.Body>
+        </Card>
+        <Card>
+          <Card.Header>
+            <h3>Community Treatment Orders</h3>
+          </Card.Header>
+          <Card.Body>
+            <Card.List>
+              <CommunityTreatmentOrderSummary communityTreatmentOrders={communityOrders} />
+            </Card.List>
+          </Card.Body>
+        </Card>
+        <Card>
+          <Card.Header>
+            <h3>Care Plans</h3>
+          </Card.Header>
+          <Card.Body>
+            <Card.List>
+              <CarePlanSummary carePlans={carePlans} />
+            </Card.List>
+          </Card.Body>
+        </Card>
+        <Card>
+          <Card.Header>
             <h3>Alerts</h3>
-          </CardHeader>
-          <CardBody>
-            <CardList>
+          </Card.Header>
+          <Card.Body>
+            <Card.List>
               <FlagSummary flags={flags} />
-            </CardList>
-          </CardBody>
+            </Card.List>
+          </Card.Body>
         </Card>
       </Column>
       <Column>
-        <Card noData={!episodeOfCares}>
-          <CardHeader>
+        <Card>
+          <Card.Header>
             <h3>Involved Teams</h3>
-          </CardHeader>
-          <CardBody>
-            <CardList>
+          </Card.Header>
+          <Card.Body>
+            <Card.List>
               <InvolvedTeamSummary episodeOfCares={episodeOfCares} />
-            </CardList>
-          </CardBody>
+            </Card.List>
+          </Card.Body>
         </Card>
-        <Card noData={!appointments}>
-          <CardHeader>
+        <Card>
+          <Card.Header>
             <h3>Appointments</h3>
-          </CardHeader>
-          <CardBody>
-            <CardList>
+          </Card.Header>
+          <Card.Body>
+            <Card.List>
               <AppointmentSummary encounters={appointments} />
-            </CardList>
-          </CardBody>
+            </Card.List>
+          </Card.Body>
         </Card>
-        <Card noData={!documents}>
-          <CardHeader>
+        <Card>
+          <Card.Header>
             <h3>Documents</h3>
-          </CardHeader>
-          <CardBody>
+          </Card.Header>
+          <Card.Body>
             <DocumentSummary documents={documents} />
-          </CardBody>
+          </Card.Body>
         </Card>
-        <Card noData={!hospitalStays}>
-          <CardHeader>
+        <Card>
+          <Card.Header>
             <h3>Hospital Stays</h3>
-          </CardHeader>
-          <CardBody>
-            <CardList>
+          </Card.Header>
+          <Card.Body>
+            <Card.List>
               <HospitalStaySummary hospitalStays={hospitalStays} />
-            </CardList>
-          </CardBody>
+            </Card.List>
+          </Card.Body>
         </Card>
       </Column>
     </Container>

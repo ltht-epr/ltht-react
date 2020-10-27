@@ -4,7 +4,7 @@ import JSXAddon from 'storybook-addon-jsx'
 
 import HospitalStaySummary from '@ltht-react/hospital-stay-summary'
 import readme from '@ltht-react/hospital-stay-summary/README.md'
-import { Card, CardHeader, CardBody, CardList } from '@ltht-react/card'
+import Card from '@ltht-react/card'
 import stays from './hospital-stay.fixtures'
 
 const stories = storiesOf('Organisms - Clinical|Hospital Stay', module) as any
@@ -18,14 +18,12 @@ stories.addParameters({
 })
 
 stories.addWithJSX('Summary', () => (
-  <Card noData={!stays}>
-    <CardHeader>
+  <Card>
+    <Card.Header>
       <h3>Hospital Stays</h3>
-    </CardHeader>
-    <CardBody>
-      <CardList>
-        <HospitalStaySummary hospitalStays={stays} />
-      </CardList>
-    </CardBody>
+    </Card.Header>
+    <Card.List>
+      <HospitalStaySummary hospitalStays={stays} />
+    </Card.List>
   </Card>
 ))

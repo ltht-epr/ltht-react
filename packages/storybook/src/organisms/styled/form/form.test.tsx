@@ -2,7 +2,7 @@ import React from 'react'
 import { mount } from 'enzyme'
 import ReactDOM from 'react-dom'
 
-import { Card, CardBody, CardHeader } from '@ltht-react/card'
+import Card from '@ltht-react/card'
 import { FormCheck, Form } from '@ltht-react/form'
 import { RadioButton } from '@ltht-react/input'
 import { PrimaryButton } from '@ltht-react/button'
@@ -16,10 +16,10 @@ const handleSubmit = (evt: React.FormEvent<HTMLFormElement>): void => {
 
 const components = (
   <Card>
-    <CardHeader>
+    <Card.Header>
       <h3>Form example</h3>
-    </CardHeader>
-    <CardBody>
+    </Card.Header>
+    <Card.Body>
       <Form submitHandler={handleSubmit}>
         <FormCheck>
           <RadioButton id="1" value="1" label="Option 1" checked changeHandler={handleChange} />
@@ -29,7 +29,7 @@ const components = (
         </FormCheck>
         <PrimaryButton type="submit" value="Submit" disabled />
       </Form>
-    </CardBody>
+    </Card.Body>
   </Card>
 )
 

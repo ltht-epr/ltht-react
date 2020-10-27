@@ -4,7 +4,7 @@ import JSXAddon from 'storybook-addon-jsx'
 
 import MedicationSummary from '@ltht-react/medication-summary'
 import readme from '@ltht-react/medication-summary/README.md'
-import { Card, CardHeader, CardBody, CardList } from '@ltht-react/card'
+import Card from '@ltht-react/card'
 
 import MedicationData from './medication.fixture'
 
@@ -20,15 +20,13 @@ stories.addParameters({
 
 stories.addWithJSX('Summary', () => {
   return (
-    <Card noData={!MedicationData}>
-      <CardHeader>
+    <Card>
+      <Card.Header>
         <h3>Medications</h3>
-      </CardHeader>
-      <CardBody>
-        <CardList>
-          <MedicationSummary medicationlist={MedicationData} />
-        </CardList>
-      </CardBody>
+      </Card.Header>
+      <Card.List>
+        <MedicationSummary medicationlist={MedicationData} />
+      </Card.List>
     </Card>
   )
 })

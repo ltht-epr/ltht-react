@@ -5,7 +5,7 @@ import JSXAddon from 'storybook-addon-jsx'
 
 import DocumentSummary from '@ltht-react/document-summary'
 import readme from '@ltht-react/document-summary/README.md'
-import { Card, CardHeader, CardBody } from '@ltht-react/card'
+import Card from '@ltht-react/card'
 import { DocumentReference } from '@ltht-react/types'
 import documents from './document-summary.fixture'
 
@@ -28,13 +28,13 @@ stories.addWithJSX('Summary', () => {
 
   return (
     <div>
-      <Card noData={!documents}>
-        <CardHeader>
+      <Card>
+        <Card.Header>
           <h3>Documents</h3>
-        </CardHeader>
-        <CardBody>
+        </Card.Header>
+        <Card.Body>
           <DocumentSummary documents={documents} clickHandler={clickHandler} />
-        </CardBody>
+        </Card.Body>
       </Card>
       {doc && <div>{doc.id}</div>}
     </div>

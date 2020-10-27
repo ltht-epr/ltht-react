@@ -4,7 +4,7 @@ import JSXAddon from 'storybook-addon-jsx'
 
 import FlagSummary from '@ltht-react/flag-summary'
 import readme from '@ltht-react/flag-summary/README.md'
-import { Card, CardHeader, CardBody, CardList } from '@ltht-react/card'
+import Card from '@ltht-react/card'
 import flags from './flag.fixtures'
 
 const stories = storiesOf('Organisms - Clinical|Flag', module) as any
@@ -18,14 +18,12 @@ stories.addParameters({
 })
 
 stories.addWithJSX('Summary', () => (
-  <Card noData={!flags}>
-    <CardHeader>
+  <Card>
+    <Card.Header>
       <h3>Flags</h3>
-    </CardHeader>
-    <CardBody>
-      <CardList>
-        <FlagSummary flags={flags} />
-      </CardList>
-    </CardBody>
+    </Card.Header>
+    <Card.List>
+      <FlagSummary flags={flags} />
+    </Card.List>
   </Card>
 ))

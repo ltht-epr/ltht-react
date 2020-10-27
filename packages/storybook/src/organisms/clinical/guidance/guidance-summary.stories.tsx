@@ -4,7 +4,7 @@ import JSXAddon from 'storybook-addon-jsx'
 
 import GuidanceSummary from '@ltht-react/guidance-summary'
 import readme from '@ltht-react/guidance-summary/README.md'
-import { Card, CardHeader, CardBody } from '@ltht-react/card'
+import Card from '@ltht-react/card'
 
 import GuidanceData from './guidance.fixture'
 
@@ -20,13 +20,13 @@ stories.addParameters({
 
 stories.addWithJSX('Summary', () => {
   return (
-    <Card noData={!GuidanceData}>
-      <CardHeader titleText="Test">
+    <Card>
+      <Card.Header>
         <h3>Guidance</h3>
-      </CardHeader>
-      <CardBody collapsed={false}>
+      </Card.Header>
+      <Card.Body>
         <GuidanceSummary guidanceList={GuidanceData} />
-      </CardBody>
+      </Card.Body>
     </Card>
   )
 })
