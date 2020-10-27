@@ -9,7 +9,8 @@ export interface Props {
 const StyledBody = styled.div`
   flex: 1 1 auto;
   min-height: 1px;
-  padding: 0.75rem 1.25rem;
+  padding: 0.75rem 1.25rem 0.75rem 0;
+  margin: 0 0 0 0.75rem;
 `
 
 const Body: React.FC<Props> = ({ classes, children }) => {

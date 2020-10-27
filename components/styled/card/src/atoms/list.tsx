@@ -11,6 +11,7 @@ const StyledList = styled.ul`
   flex-direction: column;
   padding-left: 0;
   margin-bottom: 0;
+  margin-left: 0.75rem;
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-width: 1px 0 1px 0;
 
