@@ -7,6 +7,7 @@ import readme from '@ltht-react/condition-summary/README.md'
 import Card from '@ltht-react/card'
 import conditions from './condition-summary.fixtures'
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const stories = storiesOf('Organisms - Clinical|Condition', module) as any
 
 stories.addWithJSX = JSXAddon.addWithJSX
@@ -21,10 +22,14 @@ stories.addWithJSX('Summary', () => {
   return (
     <Card>
       <Card.Header>
-        <h3>Conditions</h3>
+        <Card.Title>Conditions</Card.Title>
       </Card.Header>
       <Card.List>
-        <ConditionSummary conditions={conditions} />
+        {conditions.map(condition => (
+          <Card.ListItem key={condition.id}>
+            <ConditionSummary condition={condition} />
+          </Card.ListItem>
+        ))}
       </Card.List>
     </Card>
   )

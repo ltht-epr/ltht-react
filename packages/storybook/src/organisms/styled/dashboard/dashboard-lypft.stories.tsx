@@ -9,6 +9,7 @@ import CommunityTreatmentOrderSummary from '@ltht-react/community-treatment-orde
 import FlagSummary from '@ltht-react/flag-summary'
 import HospitalStaySummary from '@ltht-react/hospital-stay-summary'
 import InvolvedTeamSummary from '@ltht-react/involved-team-summary'
+import ConditionSummary from '@ltht-react/condition-summary'
 
 import DocumentSummary from '@ltht-react/document-summary'
 import Card from '@ltht-react/card'
@@ -20,6 +21,7 @@ import communityOrders from '../../clinical/community-treatment-orders/community
 import episodeOfCares from '../../clinical/involved-teams/involved-team-summary.fixtures'
 import flags from '../../clinical/flags/flag.fixtures'
 import hospitalStays from '../../clinical/hospital-stays/hospital-stay.fixtures'
+import conditions from '../../clinical/conditions/condition-summary.fixtures'
 
 import { Container, Column } from './dashboard'
 
@@ -133,6 +135,18 @@ stories.addWithJSX('Readonly Cards', () => {
               <HospitalStaySummary hospitalStays={hospitalStays} />
             </Card.List>
           </Card.Body>
+        </Card>
+        <Card>
+          <Card.Header>
+            <Card.Title>Conditions</Card.Title>
+          </Card.Header>
+          <Card.List>
+            {conditions.map(condition => (
+              <Card.ListItem key={condition.id}>
+                <ConditionSummary condition={condition} />
+              </Card.ListItem>
+            ))}
+          </Card.List>
         </Card>
       </Column>
     </Container>
