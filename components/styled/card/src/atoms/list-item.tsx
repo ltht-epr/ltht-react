@@ -9,7 +9,7 @@ export interface Props {
 const StyledListItem = styled.li`
   position: relative;
   display: block;
-  padding: 0.75rem 1.25rem 0.75rem 0;
+  padding: 0.75rem 0.75rem 0.75rem 0;
   margin: 0;
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-width: 0 0 1px;

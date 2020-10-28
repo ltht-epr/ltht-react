@@ -9,7 +9,7 @@ export interface Props {
 const StyledBody = styled.div`
   flex: 1 1 auto;
   min-height: 1px;
-  padding: 0.75rem 1.25rem 0.75rem 0;
+  padding: 0.75rem 0.75rem 0.75rem 0;
   margin: 0 0 0 0.75rem;
   border-top: 1px solid rgba(0, 0, 0, 0.125);
 

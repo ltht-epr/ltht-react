@@ -7,7 +7,7 @@ export interface Props {
 }
 
 const StyledFooter = styled.div`
-  padding: 0.75rem 1.25rem 0.75rem 0;
+  padding: 0.75rem 0.75rem 0.75rem 0;
   margin: 0 0 0 0.75rem;
   border-top: 1px solid rgba(0, 0, 0, 0.125);
 `

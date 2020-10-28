@@ -49,8 +49,10 @@ const StyledCard = styled.div`
     0px 1px 3px 0px rgba(102, 102, 102, 0.6);
   -webkit-font-smoothing: antialiased;
 
-  & > .card__alert + .card__list,
-  > .card__alert + .card__body,
+  & > div[class^='card__alert'] + .card__list,
+  > div[class^='card__alert'] + .card__body,
+  > .card__list + .card__body,
+  > .card__list + .card__list,
   > .card__list + .card__footer {
     border-top-width: 0;
   }

@@ -7,6 +7,7 @@ import { ICON_COLOURS, IconSizes, calculateIconSize } from '@ltht-react/styles'
 
 const InfoCircleIcon: React.FC<IconProps> = ({ status, size }) => {
   const styles = css`
+  color: inherit;
   ${status === 'green' && `color: ${ICON_COLOURS.SUCCESS};`}
   ${status === 'amber' && `color: ${ICON_COLOURS.WARNING};`}
   ${status === 'red' && `color: ${ICON_COLOURS.DANGER};`}
@@ -17,7 +18,7 @@ const InfoCircleIcon: React.FC<IconProps> = ({ status, size }) => {
 }
 
 type IconProps = {
-  status: 'red' | 'green' | 'amber' | 'info' | 'default'
+  status?: 'red' | 'green' | 'amber' | 'info' | 'default'
   size: IconSizes
 }
 
