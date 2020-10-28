@@ -7,6 +7,7 @@ import readme from '@ltht-react/allergy-summary/README.md'
 import Card from '@ltht-react/card'
 import allergies from './allergy.fixtures'
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const stories = storiesOf('Organisms - Clinical|Allergy', module) as any
 
 stories.addWithJSX = JSXAddon.addWithJSX

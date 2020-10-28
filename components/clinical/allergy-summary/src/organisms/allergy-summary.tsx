@@ -28,7 +28,7 @@ const styles = {
   `,
 }
 
-const AllergySummaryItem: React.FC<Props> = ({ allergy, clickHandler }) => {
+const AllergySummary: React.FC<Props> = ({ allergy, clickHandler }) => {
   const handleClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>): void => {
     e.preventDefault()
     clickHandler && clickHandler(allergy)
@@ -62,4 +62,4 @@ interface Props {
   clickHandler?(allergy: AllergyIntolerance): void
 }
 
-export default AllergySummaryItem
+export default AllergySummary

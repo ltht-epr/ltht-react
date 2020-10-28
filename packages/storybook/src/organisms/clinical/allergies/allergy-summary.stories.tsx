@@ -7,6 +7,7 @@ import readme from '@ltht-react/allergy-summary/README.md'
 import Card from '@ltht-react/card'
 import allergies from './allergy.fixtures'
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const stories = storiesOf('Organisms - Clinical|Allergy', module) as any
 
 stories.addWithJSX = JSXAddon.addWithJSX
@@ -20,12 +21,14 @@ stories.addParameters({
 stories.addWithJSX('Summary', () => (
   <Card>
     <Card.Header>
-      <h3>Allergies</h3>
+      <Card.Title>Allergies</Card.Title>
     </Card.Header>
-    <Card.Body>
-      <Card.List>
-        <AllergySummary allergies={allergies} />
-      </Card.List>
-    </Card.Body>
+    <Card.List>
+      {allergies.map(allergy => (
+        <Card.ListItem>
+          <AllergySummary allergy={allergy} />
+        </Card.ListItem>
+      ))}
+    </Card.List>
   </Card>
 ))

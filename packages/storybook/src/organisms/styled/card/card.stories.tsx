@@ -168,7 +168,11 @@ stories.addWithJSX('Info Summary', () => (
       </Card.Header>
       <InfoSummary clickHandler={clickHandler} />
       <Card.List>
-        <AllergySummary allergies={allergies} />
+        {allergies.map(allergy => (
+          <Card.ListItem>
+            <AllergySummary allergy={allergy} />
+          </Card.ListItem>
+        ))}
       </Card.List>
       <InfoSummary clickHandler={clickHandler} />
       <Card.List>
@@ -191,7 +195,11 @@ stories.addWithJSX('Warning Summary', () => (
       </Card.Header>
       <WarningSummary clickHandler={clickHandler} />
       <Card.List>
-        <AllergySummary allergies={allergies} />
+        {allergies.map(allergy => (
+          <Card.ListItem>
+            <AllergySummary allergy={allergy} />
+          </Card.ListItem>
+        ))}
       </Card.List>
     </Card>
   </div>
