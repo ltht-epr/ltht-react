@@ -23,7 +23,7 @@ const styles = {
   `,
 }
 
-const CarePlanSummaryItem: React.FC<Props> = ({ carePlan, clickHandler }) => {
+const CarePlanSummary: React.FC<Props> = ({ carePlan, clickHandler }) => {
   const handleClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>): void => {
     e.preventDefault()
     clickHandler && clickHandler(carePlan)
@@ -54,4 +54,4 @@ interface Props {
   clickHandler?(carePlan: CarePlan): void
 }
 
-export default CarePlanSummaryItem
+export default CarePlanSummary
