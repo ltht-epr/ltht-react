@@ -62,146 +62,148 @@ exports[`CommunityTreatmentOrderSummary matches snapshot: wrapper mount 1`] = `
   text-align: right;
 }
 
-<CommunityTreatmentOrderSummary
-  communityTreatmentOrders={
-    Array [
-      Object {
-        "consentToTreat": "Consent Not Given",
-        "id": "580ca927-34e0-e911-a2c7-005056926fe4|communityTreatmentOrder",
-        "legalStatus": Object {
-          "coding": Array [
-            Object {
-              "code": "3309007",
-              "display": "Approved",
-            },
-          ],
-          "text": "Approved",
-        },
-        "metadata": Object {
-          "dataSources": Array [
-            Object {
-              "display": "Mock",
-            },
-          ],
-          "isRedacted": false,
-          "requestedWhen": "",
-        },
-        "period": Object {
-          "end": Object {
-            "kind": "DATE",
-            "value": "2014-02-02T00:00:00+00:00",
-          },
-          "start": Object {
-            "kind": "DATE",
-            "value": "2013-01-01T00:00:00+00:00",
-          },
-        },
-        "restrictions": "No restrictions",
-      },
-      Object {
-        "consentToTreat": "Consent Given",
-        "id": "690ca927-68e0-c511-b2c7-898056926ze4|communityTreatmentOrder",
-        "legalStatus": Object {
-          "coding": Array [
-            Object {
-              "code": "779007",
-              "display": "Pending",
-            },
-          ],
-          "text": "Pending",
-        },
-        "metadata": Object {
-          "dataSources": Array [
-            Object {
-              "display": "Mock",
-            },
-          ],
-          "isRedacted": true,
-          "requestedWhen": "",
-        },
-        "period": Object {
-          "start": Object {
-            "kind": "DATE",
-            "value": "2020-01-02T00:00:00+00:00",
-          },
-        },
-        "restrictions": "No Restrictions",
-      },
-    ]
-  }
->
-  <ListItem
-    key="580ca927-34e0-e911-a2c7-005056926fe4|communityTreatmentOrder"
-  >
-    <li>
-      <CommunityTreatmentOrderSummaryItem
-        communityTreatmentOrder={
-          Object {
-            "consentToTreat": "Consent Not Given",
-            "id": "580ca927-34e0-e911-a2c7-005056926fe4|communityTreatmentOrder",
-            "legalStatus": Object {
-              "coding": Array [
-                Object {
-                  "code": "3309007",
-                  "display": "Approved",
-                },
-              ],
-              "text": "Approved",
-            },
-            "metadata": Object {
-              "dataSources": Array [
-                Object {
-                  "display": "Mock",
-                },
-              ],
-              "isRedacted": false,
-              "requestedWhen": "",
-            },
-            "period": Object {
-              "end": Object {
-                "kind": "DATE",
-                "value": "2014-02-02T00:00:00+00:00",
+<Sut>
+  <div>
+    <CommunityTreatmentOrderSummary
+      communityTreatmentOrder={
+        Object {
+          "consentToTreat": "Consent Not Given",
+          "id": "580ca927-34e0-e911-a2c7-005056926fe4|communityTreatmentOrder",
+          "legalStatus": Object {
+            "coding": Array [
+              Object {
+                "code": "3309007",
+                "display": "Approved",
               },
-              "start": Object {
-                "kind": "DATE",
-                "value": "2013-01-01T00:00:00+00:00",
+            ],
+            "text": "Approved",
+          },
+          "metadata": Object {
+            "dataSources": Array [
+              Object {
+                "display": "Mock",
               },
+            ],
+            "isRedacted": false,
+            "requestedWhen": "",
+          },
+          "period": Object {
+            "end": Object {
+              "kind": "DATE",
+              "value": "2014-02-02T00:00:00+00:00",
             },
-            "restrictions": "No restrictions",
-          }
+            "start": Object {
+              "kind": "DATE",
+              "value": "2013-01-01T00:00:00+00:00",
+            },
+          },
+          "restrictions": "No restrictions",
         }
-      >
+      }
+    >
+      <Styled(div)>
         <div
           className="emotion-6"
-          role="link"
         >
-          <div
-            className="emotion-2"
-          >
-            <CommunityTreatmentOrderConsent
-              communityTreatmentOrder={
-                Object {
-                  "consentToTreat": "Consent Not Given",
-                  "id": "580ca927-34e0-e911-a2c7-005056926fe4|communityTreatmentOrder",
-                  "legalStatus": Object {
-                    "coding": Array [
-                      Object {
-                        "code": "3309007",
-                        "display": "Approved",
+          <Styled(div)>
+            <div
+              className="emotion-2"
+            >
+              <CommunityTreatmentOrderConsent
+                communityTreatmentOrder={
+                  Object {
+                    "consentToTreat": "Consent Not Given",
+                    "id": "580ca927-34e0-e911-a2c7-005056926fe4|communityTreatmentOrder",
+                    "legalStatus": Object {
+                      "coding": Array [
+                        Object {
+                          "code": "3309007",
+                          "display": "Approved",
+                        },
+                      ],
+                      "text": "Approved",
+                    },
+                    "metadata": Object {
+                      "dataSources": Array [
+                        Object {
+                          "display": "Mock",
+                        },
+                      ],
+                      "isRedacted": false,
+                      "requestedWhen": "",
+                    },
+                    "period": Object {
+                      "end": Object {
+                        "kind": "DATE",
+                        "value": "2014-02-02T00:00:00+00:00",
                       },
-                    ],
-                    "text": "Approved",
-                  },
-                  "metadata": Object {
-                    "dataSources": Array [
-                      Object {
-                        "display": "Mock",
+                      "start": Object {
+                        "kind": "DATE",
+                        "value": "2013-01-01T00:00:00+00:00",
                       },
-                    ],
-                    "isRedacted": false,
-                    "requestedWhen": "",
-                  },
-                  "period": Object {
+                    },
+                    "restrictions": "No restrictions",
+                  }
+                }
+              >
+                <div
+                  className="emotion-0"
+                >
+                  Approved
+                </div>
+              </CommunityTreatmentOrderConsent>
+              <CommunityTreatmentOrderSummaryRestrictions
+                communityTreatmentOrder={
+                  Object {
+                    "consentToTreat": "Consent Not Given",
+                    "id": "580ca927-34e0-e911-a2c7-005056926fe4|communityTreatmentOrder",
+                    "legalStatus": Object {
+                      "coding": Array [
+                        Object {
+                          "code": "3309007",
+                          "display": "Approved",
+                        },
+                      ],
+                      "text": "Approved",
+                    },
+                    "metadata": Object {
+                      "dataSources": Array [
+                        Object {
+                          "display": "Mock",
+                        },
+                      ],
+                      "isRedacted": false,
+                      "requestedWhen": "",
+                    },
+                    "period": Object {
+                      "end": Object {
+                        "kind": "DATE",
+                        "value": "2014-02-02T00:00:00+00:00",
+                      },
+                      "start": Object {
+                        "kind": "DATE",
+                        "value": "2013-01-01T00:00:00+00:00",
+                      },
+                    },
+                    "restrictions": "No restrictions",
+                  }
+                }
+              >
+                <div
+                  className="emotion-1"
+                >
+                  No restrictions
+                </div>
+              </CommunityTreatmentOrderSummaryRestrictions>
+            </div>
+          </Styled(div)>
+          <Styled(div)>
+            <div
+              className="emotion-5"
+            >
+              <PeriodSummary
+                period={
+                  Object {
                     "end": Object {
                       "kind": "DATE",
                       "value": "2014-02-02T00:00:00+00:00",
@@ -210,172 +212,101 @@ exports[`CommunityTreatmentOrderSummary matches snapshot: wrapper mount 1`] = `
                       "kind": "DATE",
                       "value": "2013-01-01T00:00:00+00:00",
                     },
-                  },
-                  "restrictions": "No restrictions",
+                  }
                 }
-              }
-            >
-              <div
-                className="emotion-0"
               >
-                Approved
-              </div>
-            </CommunityTreatmentOrderConsent>
-            <CommunityTreatmentOrderSummaryRestrictions
-              communityTreatmentOrder={
-                Object {
-                  "consentToTreat": "Consent Not Given",
-                  "id": "580ca927-34e0-e911-a2c7-005056926fe4|communityTreatmentOrder",
-                  "legalStatus": Object {
-                    "coding": Array [
-                      Object {
-                        "code": "3309007",
-                        "display": "Approved",
-                      },
-                    ],
-                    "text": "Approved",
-                  },
-                  "metadata": Object {
-                    "dataSources": Array [
-                      Object {
-                        "display": "Mock",
-                      },
-                    ],
-                    "isRedacted": false,
-                    "requestedWhen": "",
-                  },
-                  "period": Object {
-                    "end": Object {
-                      "kind": "DATE",
-                      "value": "2014-02-02T00:00:00+00:00",
+                <div
+                  className="emotion-3"
+                >
+                  Jan-01,-2013 to Feb-02,-2014
+                </div>
+              </PeriodSummary>
+              <CommunityTreatmentOrderSummaryConsent
+                communityTreatmentOrder={
+                  Object {
+                    "consentToTreat": "Consent Not Given",
+                    "id": "580ca927-34e0-e911-a2c7-005056926fe4|communityTreatmentOrder",
+                    "legalStatus": Object {
+                      "coding": Array [
+                        Object {
+                          "code": "3309007",
+                          "display": "Approved",
+                        },
+                      ],
+                      "text": "Approved",
                     },
-                    "start": Object {
-                      "kind": "DATE",
-                      "value": "2013-01-01T00:00:00+00:00",
+                    "metadata": Object {
+                      "dataSources": Array [
+                        Object {
+                          "display": "Mock",
+                        },
+                      ],
+                      "isRedacted": false,
+                      "requestedWhen": "",
                     },
-                  },
-                  "restrictions": "No restrictions",
+                    "period": Object {
+                      "end": Object {
+                        "kind": "DATE",
+                        "value": "2014-02-02T00:00:00+00:00",
+                      },
+                      "start": Object {
+                        "kind": "DATE",
+                        "value": "2013-01-01T00:00:00+00:00",
+                      },
+                    },
+                    "restrictions": "No restrictions",
+                  }
                 }
-              }
-            >
-              <div
-                className="emotion-1"
               >
-                No restrictions
-              </div>
-            </CommunityTreatmentOrderSummaryRestrictions>
-          </div>
-          <div
-            className="emotion-5"
-          >
-            <PeriodSummary
-              period={
-                Object {
-                  "end": Object {
-                    "kind": "DATE",
-                    "value": "2014-02-02T00:00:00+00:00",
-                  },
-                  "start": Object {
-                    "kind": "DATE",
-                    "value": "2013-01-01T00:00:00+00:00",
-                  },
-                }
-              }
-            >
-              <div
-                className="emotion-3"
-              >
-                Jan-01,-2013 to Feb-02,-2014
-              </div>
-            </PeriodSummary>
-            <CommunityTreatmentOrderSummaryConsent
-              communityTreatmentOrder={
-                Object {
-                  "consentToTreat": "Consent Not Given",
-                  "id": "580ca927-34e0-e911-a2c7-005056926fe4|communityTreatmentOrder",
-                  "legalStatus": Object {
-                    "coding": Array [
-                      Object {
-                        "code": "3309007",
-                        "display": "Approved",
-                      },
-                    ],
-                    "text": "Approved",
-                  },
-                  "metadata": Object {
-                    "dataSources": Array [
-                      Object {
-                        "display": "Mock",
-                      },
-                    ],
-                    "isRedacted": false,
-                    "requestedWhen": "",
-                  },
-                  "period": Object {
-                    "end": Object {
-                      "kind": "DATE",
-                      "value": "2014-02-02T00:00:00+00:00",
-                    },
-                    "start": Object {
-                      "kind": "DATE",
-                      "value": "2013-01-01T00:00:00+00:00",
-                    },
-                  },
-                  "restrictions": "No restrictions",
-                }
-              }
-            >
-              <div
-                className="emotion-4"
-              >
-                Consent Not Given
-              </div>
-            </CommunityTreatmentOrderSummaryConsent>
-          </div>
+                <div
+                  className="emotion-4"
+                >
+                  Consent Not Given
+                </div>
+              </CommunityTreatmentOrderSummaryConsent>
+            </div>
+          </Styled(div)>
         </div>
-      </CommunityTreatmentOrderSummaryItem>
-    </li>
-  </ListItem>
-  <ListItem
-    key="690ca927-68e0-c511-b2c7-898056926ze4|communityTreatmentOrder"
-  >
-    <li>
-      <CommunityTreatmentOrderSummaryItem
-        communityTreatmentOrder={
-          Object {
-            "consentToTreat": "Consent Given",
-            "id": "690ca927-68e0-c511-b2c7-898056926ze4|communityTreatmentOrder",
-            "legalStatus": Object {
-              "coding": Array [
-                Object {
-                  "code": "779007",
-                  "display": "Pending",
-                },
-              ],
-              "text": "Pending",
-            },
-            "metadata": Object {
-              "dataSources": Array [
-                Object {
-                  "display": "Mock",
-                },
-              ],
-              "isRedacted": true,
-              "requestedWhen": "",
-            },
-            "period": Object {
-              "start": Object {
-                "kind": "DATE",
-                "value": "2020-01-02T00:00:00+00:00",
+      </Styled(div)>
+    </CommunityTreatmentOrderSummary>
+  </div>
+  <div>
+    <CommunityTreatmentOrderSummary
+      communityTreatmentOrder={
+        Object {
+          "consentToTreat": "Consent Given",
+          "id": "690ca927-68e0-c511-b2c7-898056926ze4|communityTreatmentOrder",
+          "legalStatus": Object {
+            "coding": Array [
+              Object {
+                "code": "779007",
+                "display": "Pending",
               },
+            ],
+            "text": "Pending",
+          },
+          "metadata": Object {
+            "dataSources": Array [
+              Object {
+                "display": "Mock",
+              },
+            ],
+            "isRedacted": true,
+            "requestedWhen": "",
+          },
+          "period": Object {
+            "start": Object {
+              "kind": "DATE",
+              "value": "2020-01-02T00:00:00+00:00",
             },
-            "restrictions": "No Restrictions",
-          }
+          },
+          "restrictions": "No Restrictions",
         }
-      >
+      }
+    >
+      <Styled(div)>
         <div
           className="emotion-6"
-          role="link"
         >
           <CommunityTreatmentOrderRedacted
             communityTreatmentOrder={
@@ -443,8 +374,8 @@ exports[`CommunityTreatmentOrderSummary matches snapshot: wrapper mount 1`] = `
             </div>
           </CommunityTreatmentOrderRedacted>
         </div>
-      </CommunityTreatmentOrderSummaryItem>
-    </li>
-  </ListItem>
-</CommunityTreatmentOrderSummary>
+      </Styled(div)>
+    </CommunityTreatmentOrderSummary>
+  </div>
+</Sut>
 `;

@@ -11,7 +11,7 @@ import Description from '../atoms/appointment-description'
 import Status from '../atoms/appointment-status'
 import Redacted from '../molecules/appointment-redacted'
 
-const StyledAppointment = Styled.div`
+const StyledSummary = Styled.div`
   display: flex;
   justify-content: center;
 `
@@ -30,14 +30,14 @@ const StyledService = Styled.div`
 const AppointmentSummary: React.FC<Props> = ({ encounter }) => {
   if (encounter.metadata.isRedacted) {
     return (
-      <StyledAppointment>
+      <StyledSummary>
         <Redacted appointment={encounter} />
-      </StyledAppointment>
+      </StyledSummary>
     )
   }
 
   return (
-    <StyledAppointment>
+    <StyledSummary>
       <StyledDate>
         <DateSummary datetime={encounter?.period?.start} />
       </StyledDate>
@@ -48,7 +48,7 @@ const AppointmentSummary: React.FC<Props> = ({ encounter }) => {
         <ServiceProvider encounter={encounter} />
         <Status encounter={encounter} />
       </StyledService>
-    </StyledAppointment>
+    </StyledSummary>
   )
 }
 

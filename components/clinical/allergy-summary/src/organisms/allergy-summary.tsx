@@ -12,7 +12,7 @@ import Status from '../atoms/allergy-status'
 import Icon from '../atoms/allergy-icon'
 import Redacted from '../molecules/allergy-redacted'
 
-const StyledAllergy = Styled.div`
+const StyledSummary = Styled.div`
   display: flex;
   justify-content: center;
 `
@@ -33,14 +33,14 @@ const StyledDate = Styled.div`
 const AllergySummary: React.FC<Props> = ({ allergy }) => {
   if (allergy.metadata.isRedacted) {
     return (
-      <StyledAllergy>
+      <StyledSummary>
         <Redacted allergy={allergy} />
-      </StyledAllergy>
+      </StyledSummary>
     )
   }
 
   return (
-    <StyledAllergy>
+    <StyledSummary>
       <StyledIcon>
         <Icon allergy={allergy} />
       </StyledIcon>
@@ -52,7 +52,7 @@ const AllergySummary: React.FC<Props> = ({ allergy }) => {
         <DateSummary datetime={allergy.assertedDate} />
         <Status allergy={allergy} />
       </StyledDate>
-    </StyledAllergy>
+    </StyledSummary>
   )
 }
 

@@ -114,77 +114,42 @@ exports[`CarePlanSummary matches snapshot: wrapper mount 1`] = `
         }
       }
     >
-      <div
-        className="emotion-4"
-        role="link"
-      >
-        <CarePlanRedacted
-          carePlan={
-            Object {
-              "author": Array [
-                Object {
-                  "display": "Dr Joe Bloggs",
-                  "typeName": "Test",
-                },
-                Object {
-                  "display": "Dr Adam Careplan",
-                  "typeName": "Test",
-                },
-              ],
-              "careTeam": Array [
-                Object {
-                  "display": "LYPFT Care Team 1",
-                  "typeName": "Team",
-                },
-              ],
-              "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo",
-              "id": "580ca927-34e0-e911-a2c7-005056926fe4|careplan",
-              "intent": "PLAN",
-              "metadata": Object {
-                "dataSources": Array [
+      <Styled(div)>
+        <div
+          className="emotion-4"
+        >
+          <CarePlanRedacted
+            carePlan={
+              Object {
+                "author": Array [
                   Object {
-                    "display": "Mock",
+                    "display": "Dr Joe Bloggs",
+                    "typeName": "Test",
+                  },
+                  Object {
+                    "display": "Dr Adam Careplan",
+                    "typeName": "Test",
                   },
                 ],
-                "isRedacted": true,
-                "requestedWhen": "",
-              },
-              "period": Object {
-                "end": Object {
-                  "kind": "DATE",
-                  "value": "2014-02-02T00:00:00+00:00",
+                "careTeam": Array [
+                  Object {
+                    "display": "LYPFT Care Team 1",
+                    "typeName": "Team",
+                  },
+                ],
+                "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo",
+                "id": "580ca927-34e0-e911-a2c7-005056926fe4|careplan",
+                "intent": "PLAN",
+                "metadata": Object {
+                  "dataSources": Array [
+                    Object {
+                      "display": "Mock",
+                    },
+                  ],
+                  "isRedacted": true,
+                  "requestedWhen": "",
                 },
-                "start": Object {
-                  "kind": "DATE",
-                  "value": "2013-01-01T00:00:00+00:00",
-                },
-              },
-              "status": "ACTIVE",
-              "text": Object {
-                "div": "",
-                "text": "Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
-              },
-              "title": "Mental Health Crisis Plan",
-            }
-          }
-        >
-          <div
-            className="emotion-1"
-          >
-            <RedactedDescription>
-              <div
-                className="emotion-0"
-              >
-                Insufficient privileges
-              </div>
-            </RedactedDescription>
-          </div>
-          <div
-            className="emotion-3"
-          >
-            <PeriodSummary
-              period={
-                Object {
+                "period": Object {
                   "end": Object {
                     "kind": "DATE",
                     "value": "2014-02-02T00:00:00+00:00",
@@ -193,18 +158,54 @@ exports[`CarePlanSummary matches snapshot: wrapper mount 1`] = `
                     "kind": "DATE",
                     "value": "2013-01-01T00:00:00+00:00",
                   },
-                }
+                },
+                "status": "ACTIVE",
+                "text": Object {
+                  "div": "",
+                  "text": "Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
+                },
+                "title": "Mental Health Crisis Plan",
               }
+            }
+          >
+            <div
+              className="emotion-1"
             >
-              <div
-                className="emotion-2"
+              <RedactedDescription>
+                <div
+                  className="emotion-0"
+                >
+                  Insufficient privileges
+                </div>
+              </RedactedDescription>
+            </div>
+            <div
+              className="emotion-3"
+            >
+              <PeriodSummary
+                period={
+                  Object {
+                    "end": Object {
+                      "kind": "DATE",
+                      "value": "2014-02-02T00:00:00+00:00",
+                    },
+                    "start": Object {
+                      "kind": "DATE",
+                      "value": "2013-01-01T00:00:00+00:00",
+                    },
+                  }
+                }
               >
-                Jan-01,-2013 to Feb-02,-2014
-              </div>
-            </PeriodSummary>
-          </div>
-        </CarePlanRedacted>
-      </div>
+                <div
+                  className="emotion-2"
+                >
+                  Jan-01,-2013 to Feb-02,-2014
+                </div>
+              </PeriodSummary>
+            </div>
+          </CarePlanRedacted>
+        </div>
+      </Styled(div)>
     </CarePlanSummary>
   </div>
   <div>
@@ -249,180 +250,185 @@ exports[`CarePlanSummary matches snapshot: wrapper mount 1`] = `
         }
       }
     >
-      <div
-        className="emotion-4"
-        role="link"
-      >
+      <Styled(div)>
         <div
-          className="emotion-7"
+          className="emotion-4"
         >
-          <CarePlanTitle
-            carePlan={
-              Object {
-                "author": Array [
-                  Object {
-                    "display": "John Mclane",
-                    "typeName": "Test",
-                  },
-                ],
-                "careTeam": Array [
-                  Object {
-                    "display": "LYPFT Care Team 2",
-                    "typeName": "Team",
-                  },
-                ],
-                "id": "690ca927-68e0-c511-b2c7-898056926ze4|careplan",
-                "intent": "PROPOSAL",
-                "metadata": Object {
-                  "dataSources": Array [
-                    Object {
-                      "display": "Mock",
-                    },
-                  ],
-                  "isRedacted": false,
-                  "requestedWhen": "",
-                },
-                "period": Object {
-                  "end": Object {
-                    "kind": "DATE",
-                    "value": "2015-03-04T00:00:00+00:00",
-                  },
-                  "start": Object {
-                    "kind": "DATE",
-                    "value": "2014-02-02T00:00:00+00:00",
-                  },
-                },
-                "status": "COMPLETED",
-                "title": "Test Care Plan",
-              }
-            }
-          >
+          <Styled(div)>
             <div
-              className="emotion-5"
+              className="emotion-7"
             >
-              Test Care Plan
-            </div>
-          </CarePlanTitle>
-          <CarePlanDescription
-            carePlan={
-              Object {
-                "author": Array [
+              <CarePlanTitle
+                carePlan={
                   Object {
-                    "display": "John Mclane",
-                    "typeName": "Test",
-                  },
-                ],
-                "careTeam": Array [
-                  Object {
-                    "display": "LYPFT Care Team 2",
-                    "typeName": "Team",
-                  },
-                ],
-                "id": "690ca927-68e0-c511-b2c7-898056926ze4|careplan",
-                "intent": "PROPOSAL",
-                "metadata": Object {
-                  "dataSources": Array [
-                    Object {
-                      "display": "Mock",
+                    "author": Array [
+                      Object {
+                        "display": "John Mclane",
+                        "typeName": "Test",
+                      },
+                    ],
+                    "careTeam": Array [
+                      Object {
+                        "display": "LYPFT Care Team 2",
+                        "typeName": "Team",
+                      },
+                    ],
+                    "id": "690ca927-68e0-c511-b2c7-898056926ze4|careplan",
+                    "intent": "PROPOSAL",
+                    "metadata": Object {
+                      "dataSources": Array [
+                        Object {
+                          "display": "Mock",
+                        },
+                      ],
+                      "isRedacted": false,
+                      "requestedWhen": "",
                     },
-                  ],
-                  "isRedacted": false,
-                  "requestedWhen": "",
-                },
-                "period": Object {
-                  "end": Object {
-                    "kind": "DATE",
-                    "value": "2015-03-04T00:00:00+00:00",
-                  },
-                  "start": Object {
-                    "kind": "DATE",
-                    "value": "2014-02-02T00:00:00+00:00",
-                  },
-                },
-                "status": "COMPLETED",
-                "title": "Test Care Plan",
-              }
-            }
-          >
-            <div
-              className="emotion-6"
-            >
-              John Mclane - LYPFT Care Team 2
+                    "period": Object {
+                      "end": Object {
+                        "kind": "DATE",
+                        "value": "2015-03-04T00:00:00+00:00",
+                      },
+                      "start": Object {
+                        "kind": "DATE",
+                        "value": "2014-02-02T00:00:00+00:00",
+                      },
+                    },
+                    "status": "COMPLETED",
+                    "title": "Test Care Plan",
+                  }
+                }
+              >
+                <div
+                  className="emotion-5"
+                >
+                  Test Care Plan
+                </div>
+              </CarePlanTitle>
+              <CarePlanDescription
+                carePlan={
+                  Object {
+                    "author": Array [
+                      Object {
+                        "display": "John Mclane",
+                        "typeName": "Test",
+                      },
+                    ],
+                    "careTeam": Array [
+                      Object {
+                        "display": "LYPFT Care Team 2",
+                        "typeName": "Team",
+                      },
+                    ],
+                    "id": "690ca927-68e0-c511-b2c7-898056926ze4|careplan",
+                    "intent": "PROPOSAL",
+                    "metadata": Object {
+                      "dataSources": Array [
+                        Object {
+                          "display": "Mock",
+                        },
+                      ],
+                      "isRedacted": false,
+                      "requestedWhen": "",
+                    },
+                    "period": Object {
+                      "end": Object {
+                        "kind": "DATE",
+                        "value": "2015-03-04T00:00:00+00:00",
+                      },
+                      "start": Object {
+                        "kind": "DATE",
+                        "value": "2014-02-02T00:00:00+00:00",
+                      },
+                    },
+                    "status": "COMPLETED",
+                    "title": "Test Care Plan",
+                  }
+                }
+              >
+                <div
+                  className="emotion-6"
+                >
+                  John Mclane - LYPFT Care Team 2
+                </div>
+              </CarePlanDescription>
             </div>
-          </CarePlanDescription>
+          </Styled(div)>
+          <Styled(div)>
+            <div
+              className="emotion-10"
+            >
+              <PeriodSummary
+                period={
+                  Object {
+                    "end": Object {
+                      "kind": "DATE",
+                      "value": "2015-03-04T00:00:00+00:00",
+                    },
+                    "start": Object {
+                      "kind": "DATE",
+                      "value": "2014-02-02T00:00:00+00:00",
+                    },
+                  }
+                }
+              >
+                <div
+                  className="emotion-2"
+                >
+                  Feb-02,-2014 to Mar-04,-2015
+                </div>
+              </PeriodSummary>
+              <CarePlanStatus
+                carePlan={
+                  Object {
+                    "author": Array [
+                      Object {
+                        "display": "John Mclane",
+                        "typeName": "Test",
+                      },
+                    ],
+                    "careTeam": Array [
+                      Object {
+                        "display": "LYPFT Care Team 2",
+                        "typeName": "Team",
+                      },
+                    ],
+                    "id": "690ca927-68e0-c511-b2c7-898056926ze4|careplan",
+                    "intent": "PROPOSAL",
+                    "metadata": Object {
+                      "dataSources": Array [
+                        Object {
+                          "display": "Mock",
+                        },
+                      ],
+                      "isRedacted": false,
+                      "requestedWhen": "",
+                    },
+                    "period": Object {
+                      "end": Object {
+                        "kind": "DATE",
+                        "value": "2015-03-04T00:00:00+00:00",
+                      },
+                      "start": Object {
+                        "kind": "DATE",
+                        "value": "2014-02-02T00:00:00+00:00",
+                      },
+                    },
+                    "status": "COMPLETED",
+                    "title": "Test Care Plan",
+                  }
+                }
+              >
+                <div
+                  className="emotion-9"
+                >
+                  Proposal - Completed
+                </div>
+              </CarePlanStatus>
+            </div>
+          </Styled(div)>
         </div>
-        <div
-          className="emotion-10"
-        >
-          <PeriodSummary
-            period={
-              Object {
-                "end": Object {
-                  "kind": "DATE",
-                  "value": "2015-03-04T00:00:00+00:00",
-                },
-                "start": Object {
-                  "kind": "DATE",
-                  "value": "2014-02-02T00:00:00+00:00",
-                },
-              }
-            }
-          >
-            <div
-              className="emotion-2"
-            >
-              Feb-02,-2014 to Mar-04,-2015
-            </div>
-          </PeriodSummary>
-          <CarePlanStatus
-            carePlan={
-              Object {
-                "author": Array [
-                  Object {
-                    "display": "John Mclane",
-                    "typeName": "Test",
-                  },
-                ],
-                "careTeam": Array [
-                  Object {
-                    "display": "LYPFT Care Team 2",
-                    "typeName": "Team",
-                  },
-                ],
-                "id": "690ca927-68e0-c511-b2c7-898056926ze4|careplan",
-                "intent": "PROPOSAL",
-                "metadata": Object {
-                  "dataSources": Array [
-                    Object {
-                      "display": "Mock",
-                    },
-                  ],
-                  "isRedacted": false,
-                  "requestedWhen": "",
-                },
-                "period": Object {
-                  "end": Object {
-                    "kind": "DATE",
-                    "value": "2015-03-04T00:00:00+00:00",
-                  },
-                  "start": Object {
-                    "kind": "DATE",
-                    "value": "2014-02-02T00:00:00+00:00",
-                  },
-                },
-                "status": "COMPLETED",
-                "title": "Test Care Plan",
-              }
-            }
-          >
-            <div
-              className="emotion-9"
-            >
-              Proposal - Completed
-            </div>
-          </CarePlanStatus>
-        </div>
-      </div>
+      </Styled(div)>
     </CarePlanSummary>
   </div>
   <div>
@@ -515,86 +521,87 @@ exports[`CarePlanSummary matches snapshot: wrapper mount 1`] = `
         }
       }
     >
-      <div
-        className="emotion-4"
-        role="link"
-      >
+      <Styled(div)>
         <div
-          className="emotion-7"
+          className="emotion-4"
         >
-          <CarePlanTitle
-            carePlan={
-              Object {
-                "activity": Object {
-                  "detail": Object {
-                    "performer": Array [
+          <Styled(div)>
+            <div
+              className="emotion-7"
+            >
+              <CarePlanTitle
+                carePlan={
+                  Object {
+                    "activity": Object {
+                      "detail": Object {
+                        "performer": Array [
+                          Object {
+                            "display": "Nurse Nancy",
+                            "reference": "Practitioner/13",
+                            "typeName": "",
+                          },
+                        ],
+                        "status": "COMPLETED",
+                      },
+                      "outcomeReference": Array [
+                        Object {
+                          "display": "",
+                          "reference": "Encounter/example",
+                          "typeName": "",
+                        },
+                      ],
+                    },
+                    "addresses": Array [
                       Object {
-                        "display": "Nurse Nancy",
-                        "reference": "Practitioner/13",
+                        "display": "obesity",
+                        "reference": "#p1",
                         "typeName": "",
                       },
                     ],
-                    "status": "COMPLETED",
-                  },
-                  "outcomeReference": Array [
-                    Object {
-                      "display": "",
-                      "reference": "Encounter/example",
-                      "typeName": "",
+                    "author": Array [
+                      Object {
+                        "display": "Dr Joe Bloggs",
+                        "typeName": "Test",
+                      },
+                      Object {
+                        "display": "Dr Adam Careplan",
+                        "typeName": "Test",
+                      },
+                    ],
+                    "careTeam": Array [
+                      Object {
+                        "display": "",
+                        "reference": "#careteam",
+                        "typeName": "",
+                      },
+                    ],
+                    "goal": Array [
+                      Object {
+                        "display": "",
+                        "reference": "#goal",
+                        "typeName": "",
+                      },
+                    ],
+                    "id": "gpvisit",
+                    "intent": "PLAN",
+                    "metadata": Object {
+                      "dataSources": Array [
+                        Object {
+                          "display": "Mock",
+                        },
+                      ],
+                      "isRedacted": false,
+                      "requestedWhen": "",
                     },
-                  ],
-                },
-                "addresses": Array [
-                  Object {
-                    "display": "obesity",
-                    "reference": "#p1",
-                    "typeName": "",
-                  },
-                ],
-                "author": Array [
-                  Object {
-                    "display": "Dr Joe Bloggs",
-                    "typeName": "Test",
-                  },
-                  Object {
-                    "display": "Dr Adam Careplan",
-                    "typeName": "Test",
-                  },
-                ],
-                "careTeam": Array [
-                  Object {
-                    "display": "",
-                    "reference": "#careteam",
-                    "typeName": "",
-                  },
-                ],
-                "goal": Array [
-                  Object {
-                    "display": "",
-                    "reference": "#goal",
-                    "typeName": "",
-                  },
-                ],
-                "id": "gpvisit",
-                "intent": "PLAN",
-                "metadata": Object {
-                  "dataSources": Array [
-                    Object {
-                      "display": "Mock",
+                    "period": Object {
+                      "start": Object {
+                        "kind": "DATE",
+                        "value": "2014-02-02T00:00:00+00:00",
+                      },
                     },
-                  ],
-                  "isRedacted": false,
-                  "requestedWhen": "",
-                },
-                "period": Object {
-                  "start": Object {
-                    "kind": "DATE",
-                    "value": "2014-02-02T00:00:00+00:00",
-                  },
-                },
-                "status": "ACTIVE",
-                "text": Object {
-                  "div": "<div xmlns=\\"http://www.w3.org/1999/xhtml\\">
+                    "status": "ACTIVE",
+                    "text": Object {
+                      "div": "<div xmlns=\\"http://www.w3.org/1999/xhtml\\">
       <p>  Represents the flow of a patient within a practice. The plan is created when
         they arrive and represents the 'care' of the patient over the course of that encounter.
         They first see the nurse for basic observations (BP, pulse, temp) then the doctor for
@@ -604,92 +611,92 @@ exports[`CarePlanSummary matches snapshot: wrapper mount 1`] = `
         seeing the doctor, and waiting for the nurse.The plan can either be created 'ad hoc' and modified as
         the parient progresses, or start with a standard template (which can, of course, be altered to suit the patient.</p>
     </div>",
-                  "status": "ADDITIONAL",
-                  "text": "",
-                },
-                "title": "Test Care Plan",
-              }
-            }
-          >
-            <div
-              className="emotion-5"
-            >
-              Test Care Plan
-            </div>
-          </CarePlanTitle>
-          <CarePlanDescription
-            carePlan={
-              Object {
-                "activity": Object {
-                  "detail": Object {
-                    "performer": Array [
+                      "status": "ADDITIONAL",
+                      "text": "",
+                    },
+                    "title": "Test Care Plan",
+                  }
+                }
+              >
+                <div
+                  className="emotion-5"
+                >
+                  Test Care Plan
+                </div>
+              </CarePlanTitle>
+              <CarePlanDescription
+                carePlan={
+                  Object {
+                    "activity": Object {
+                      "detail": Object {
+                        "performer": Array [
+                          Object {
+                            "display": "Nurse Nancy",
+                            "reference": "Practitioner/13",
+                            "typeName": "",
+                          },
+                        ],
+                        "status": "COMPLETED",
+                      },
+                      "outcomeReference": Array [
+                        Object {
+                          "display": "",
+                          "reference": "Encounter/example",
+                          "typeName": "",
+                        },
+                      ],
+                    },
+                    "addresses": Array [
                       Object {
-                        "display": "Nurse Nancy",
-                        "reference": "Practitioner/13",
+                        "display": "obesity",
+                        "reference": "#p1",
                         "typeName": "",
                       },
                     ],
-                    "status": "COMPLETED",
-                  },
-                  "outcomeReference": Array [
-                    Object {
-                      "display": "",
-                      "reference": "Encounter/example",
-                      "typeName": "",
+                    "author": Array [
+                      Object {
+                        "display": "Dr Joe Bloggs",
+                        "typeName": "Test",
+                      },
+                      Object {
+                        "display": "Dr Adam Careplan",
+                        "typeName": "Test",
+                      },
+                    ],
+                    "careTeam": Array [
+                      Object {
+                        "display": "",
+                        "reference": "#careteam",
+                        "typeName": "",
+                      },
+                    ],
+                    "goal": Array [
+                      Object {
+                        "display": "",
+                        "reference": "#goal",
+                        "typeName": "",
+                      },
+                    ],
+                    "id": "gpvisit",
+                    "intent": "PLAN",
+                    "metadata": Object {
+                      "dataSources": Array [
+                        Object {
+                          "display": "Mock",
+                        },
+                      ],
+                      "isRedacted": false,
+                      "requestedWhen": "",
                     },
-                  ],
-                },
-                "addresses": Array [
-                  Object {
-                    "display": "obesity",
-                    "reference": "#p1",
-                    "typeName": "",
-                  },
-                ],
-                "author": Array [
-                  Object {
-                    "display": "Dr Joe Bloggs",
-                    "typeName": "Test",
-                  },
-                  Object {
-                    "display": "Dr Adam Careplan",
-                    "typeName": "Test",
-                  },
-                ],
-                "careTeam": Array [
-                  Object {
-                    "display": "",
-                    "reference": "#careteam",
-                    "typeName": "",
-                  },
-                ],
-                "goal": Array [
-                  Object {
-                    "display": "",
-                    "reference": "#goal",
-                    "typeName": "",
-                  },
-                ],
-                "id": "gpvisit",
-                "intent": "PLAN",
-                "metadata": Object {
-                  "dataSources": Array [
-                    Object {
-                      "display": "Mock",
+                    "period": Object {
+                      "start": Object {
+                        "kind": "DATE",
+                        "value": "2014-02-02T00:00:00+00:00",
+                      },
                     },
-                  ],
-                  "isRedacted": false,
-                  "requestedWhen": "",
-                },
-                "period": Object {
-                  "start": Object {
-                    "kind": "DATE",
-                    "value": "2014-02-02T00:00:00+00:00",
-                  },
-                },
-                "status": "ACTIVE",
-                "text": Object {
-                  "div": "<div xmlns=\\"http://www.w3.org/1999/xhtml\\">
+                    "status": "ACTIVE",
+                    "text": Object {
+                      "div": "<div xmlns=\\"http://www.w3.org/1999/xhtml\\">
       <p>  Represents the flow of a patient within a practice. The plan is created when
         they arrive and represents the 'care' of the patient over the course of that encounter.
         They first see the nurse for basic observations (BP, pulse, temp) then the doctor for
@@ -699,136 +706,140 @@ exports[`CarePlanSummary matches snapshot: wrapper mount 1`] = `
         seeing the doctor, and waiting for the nurse.The plan can either be created 'ad hoc' and modified as
         the parient progresses, or start with a standard template (which can, of course, be altered to suit the patient.</p>
     </div>",
-                  "status": "ADDITIONAL",
-                  "text": "",
-                },
-                "title": "Test Care Plan",
-              }
-            }
-          >
-            <div
-              className="emotion-6"
-            >
-              Dr Joe Bloggs, Dr Adam Careplan
+                      "status": "ADDITIONAL",
+                      "text": "",
+                    },
+                    "title": "Test Care Plan",
+                  }
+                }
+              >
+                <div
+                  className="emotion-6"
+                >
+                  Dr Joe Bloggs, Dr Adam Careplan
+                </div>
+              </CarePlanDescription>
             </div>
-          </CarePlanDescription>
+          </Styled(div)>
+          <Styled(div)>
+            <div
+              className="emotion-10"
+            >
+              <PeriodSummary
+                period={
+                  Object {
+                    "start": Object {
+                      "kind": "DATE",
+                      "value": "2014-02-02T00:00:00+00:00",
+                    },
+                  }
+                }
+              >
+                <div
+                  className="emotion-2"
+                >
+                  Feb-02,-2014 to Present
+                </div>
+              </PeriodSummary>
+              <CarePlanStatus
+                carePlan={
+                  Object {
+                    "activity": Object {
+                      "detail": Object {
+                        "performer": Array [
+                          Object {
+                            "display": "Nurse Nancy",
+                            "reference": "Practitioner/13",
+                            "typeName": "",
+                          },
+                        ],
+                        "status": "COMPLETED",
+                      },
+                      "outcomeReference": Array [
+                        Object {
+                          "display": "",
+                          "reference": "Encounter/example",
+                          "typeName": "",
+                        },
+                      ],
+                    },
+                    "addresses": Array [
+                      Object {
+                        "display": "obesity",
+                        "reference": "#p1",
+                        "typeName": "",
+                      },
+                    ],
+                    "author": Array [
+                      Object {
+                        "display": "Dr Joe Bloggs",
+                        "typeName": "Test",
+                      },
+                      Object {
+                        "display": "Dr Adam Careplan",
+                        "typeName": "Test",
+                      },
+                    ],
+                    "careTeam": Array [
+                      Object {
+                        "display": "",
+                        "reference": "#careteam",
+                        "typeName": "",
+                      },
+                    ],
+                    "goal": Array [
+                      Object {
+                        "display": "",
+                        "reference": "#goal",
+                        "typeName": "",
+                      },
+                    ],
+                    "id": "gpvisit",
+                    "intent": "PLAN",
+                    "metadata": Object {
+                      "dataSources": Array [
+                        Object {
+                          "display": "Mock",
+                        },
+                      ],
+                      "isRedacted": false,
+                      "requestedWhen": "",
+                    },
+                    "period": Object {
+                      "start": Object {
+                        "kind": "DATE",
+                        "value": "2014-02-02T00:00:00+00:00",
+                      },
+                    },
+                    "status": "ACTIVE",
+                    "text": Object {
+                      "div": "<div xmlns=\\"http://www.w3.org/1999/xhtml\\">
+      <p>  Represents the flow of a patient within a practice. The plan is created when
+        they arrive and represents the 'care' of the patient over the course of that encounter.
+        They first see the nurse for basic observations (BP, pulse, temp) then the doctor for
+        the consultation and finally the nurse again for a tetanus immunization. As the plan is
+        updated (e.g. a new activity added), different versions of the plan exist, and workflow timings
+        for reporting can be gained by examining the plan history. This example is the version after
+        seeing the doctor, and waiting for the nurse.The plan can either be created 'ad hoc' and modified as
+        the parient progresses, or start with a standard template (which can, of course, be altered to suit the patient.</p>
+    </div>",
+                      "status": "ADDITIONAL",
+                      "text": "",
+                    },
+                    "title": "Test Care Plan",
+                  }
+                }
+              >
+                <div
+                  className="emotion-9"
+                >
+                  Plan - Active
+                </div>
+              </CarePlanStatus>
+            </div>
+          </Styled(div)>
         </div>
-        <div
-          className="emotion-10"
-        >
-          <PeriodSummary
-            period={
-              Object {
-                "start": Object {
-                  "kind": "DATE",
-                  "value": "2014-02-02T00:00:00+00:00",
-                },
-              }
-            }
-          >
-            <div
-              className="emotion-2"
-            >
-              Feb-02,-2014 to Present
-            </div>
-          </PeriodSummary>
-          <CarePlanStatus
-            carePlan={
-              Object {
-                "activity": Object {
-                  "detail": Object {
-                    "performer": Array [
-                      Object {
-                        "display": "Nurse Nancy",
-                        "reference": "Practitioner/13",
-                        "typeName": "",
-                      },
-                    ],
-                    "status": "COMPLETED",
-                  },
-                  "outcomeReference": Array [
-                    Object {
-                      "display": "",
-                      "reference": "Encounter/example",
-                      "typeName": "",
-                    },
-                  ],
-                },
-                "addresses": Array [
-                  Object {
-                    "display": "obesity",
-                    "reference": "#p1",
-                    "typeName": "",
-                  },
-                ],
-                "author": Array [
-                  Object {
-                    "display": "Dr Joe Bloggs",
-                    "typeName": "Test",
-                  },
-                  Object {
-                    "display": "Dr Adam Careplan",
-                    "typeName": "Test",
-                  },
-                ],
-                "careTeam": Array [
-                  Object {
-                    "display": "",
-                    "reference": "#careteam",
-                    "typeName": "",
-                  },
-                ],
-                "goal": Array [
-                  Object {
-                    "display": "",
-                    "reference": "#goal",
-                    "typeName": "",
-                  },
-                ],
-                "id": "gpvisit",
-                "intent": "PLAN",
-                "metadata": Object {
-                  "dataSources": Array [
-                    Object {
-                      "display": "Mock",
-                    },
-                  ],
-                  "isRedacted": false,
-                  "requestedWhen": "",
-                },
-                "period": Object {
-                  "start": Object {
-                    "kind": "DATE",
-                    "value": "2014-02-02T00:00:00+00:00",
-                  },
-                },
-                "status": "ACTIVE",
-                "text": Object {
-                  "div": "<div xmlns=\\"http://www.w3.org/1999/xhtml\\">
-      <p>  Represents the flow of a patient within a practice. The plan is created when
-        they arrive and represents the 'care' of the patient over the course of that encounter.
-        They first see the nurse for basic observations (BP, pulse, temp) then the doctor for
-        the consultation and finally the nurse again for a tetanus immunization. As the plan is
-        updated (e.g. a new activity added), different versions of the plan exist, and workflow timings
-        for reporting can be gained by examining the plan history. This example is the version after
-        seeing the doctor, and waiting for the nurse.The plan can either be created 'ad hoc' and modified as
-        the parient progresses, or start with a standard template (which can, of course, be altered to suit the patient.</p>
-    </div>",
-                  "status": "ADDITIONAL",
-                  "text": "",
-                },
-                "title": "Test Care Plan",
-              }
-            }
-          >
-            <div
-              className="emotion-9"
-            >
-              Plan - Active
-            </div>
-          </CarePlanStatus>
-        </div>
-      </div>
+      </Styled(div)>
     </CarePlanSummary>
   </div>
 </Sut>

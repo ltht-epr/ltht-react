@@ -52,7 +52,7 @@ stories.addWithJSX('Readonly Cards', () => {
           </Card.Header>
           <Card.List>
             {allergies.map(allergy => (
-              <Card.ListItem>
+              <Card.ListItem key={allergy.id}>
                 <AllergySummary allergy={allergy} />
               </Card.ListItem>
             ))}
@@ -60,21 +60,23 @@ stories.addWithJSX('Readonly Cards', () => {
         </Card>
         <Card>
           <Card.Header>
-            <h3>Community Treatment Orders</h3>
+            <Card.Title>Community Treatment Orders</Card.Title>
           </Card.Header>
-          <Card.Body>
-            <Card.List>
-              <CommunityTreatmentOrderSummary communityTreatmentOrders={communityOrders} />
-            </Card.List>
-          </Card.Body>
+          <Card.List>
+            {communityOrders.map(order => (
+              <Card.ListItem key={order.id}>
+                <CommunityTreatmentOrderSummary communityTreatmentOrder={order} />
+              </Card.ListItem>
+            ))}
+          </Card.List>
         </Card>
         <Card>
           <Card.Header>
-            <h3>Care Plans</h3>
+            <Card.Title>Care Plans</Card.Title>
           </Card.Header>
           <Card.List>
             {carePlans.map(carePlan => (
-              <Card.ListItem>
+              <Card.ListItem key={carePlan.id}>
                 <CarePlanSummary carePlan={carePlan} />
               </Card.ListItem>
             ))}
@@ -108,7 +110,7 @@ stories.addWithJSX('Readonly Cards', () => {
           </Card.Header>
           <Card.List>
             {appointments.map(appointment => (
-              <Card.ListItem>
+              <Card.ListItem key={appointment.id}>
                 <AppointmentSummary encounter={appointment} />
               </Card.ListItem>
             ))}

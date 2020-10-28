@@ -11,7 +11,7 @@ import Status from '../atoms/care-plan-status'
 import Title from '../atoms/care-plan-title'
 import Redacted from '../molecules/care-plan-redacted'
 
-const StyledCarePlan = Styled.div`
+const StyledSummary = Styled.div`
   display: flex;
   justify-content: center;
 `
@@ -25,14 +25,14 @@ const StyledDate = Styled.div`
 const CarePlanSummary: React.FC<Props> = ({ carePlan }) => {
   if (carePlan.metadata.isRedacted) {
     return (
-      <StyledCarePlan>
+      <StyledSummary>
         <Redacted carePlan={carePlan} />
-      </StyledCarePlan>
+      </StyledSummary>
     )
   }
 
   return (
-    <StyledCarePlan>
+    <StyledSummary>
       <StyledDescription>
         <Title carePlan={carePlan} />
         <Description carePlan={carePlan} />
@@ -41,7 +41,7 @@ const CarePlanSummary: React.FC<Props> = ({ carePlan }) => {
         <PeriodSummary period={carePlan.period} />
         <Status carePlan={carePlan} />
       </StyledDate>
-    </StyledCarePlan>
+    </StyledSummary>
   )
 }
 

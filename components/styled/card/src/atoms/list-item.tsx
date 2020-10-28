@@ -28,7 +28,7 @@ const StyledListItem = styled.li`
 `
 
 const ListItem: React.FC<Props> = ({ classes, children }) => {
-  return <StyledListItem className={classNames('card__listitem', classes)}>{children}</StyledListItem>
+  return <StyledListItem className={classNames('card__list-item', classes)}>{children}</StyledListItem>
 }
 
 export default ListItem
