@@ -1,6 +1,7 @@
 /** @jsx jsx */
 import React from 'react'
-import { css, jsx } from '@emotion/core'
+import { jsx } from '@emotion/core'
+import Styled from '@emotion/styled'
 
 import { AllergyIntolerance } from '@ltht-react/types'
 import { DateSummary } from '@ltht-react/summary'
@@ -11,55 +12,52 @@ import Status from '../atoms/allergy-status'
 import Icon from '../atoms/allergy-icon'
 import Redacted from '../molecules/allergy-redacted'
 
-const styles = {
-  root: css`
-    display: flex;
-    justify-content: center;
-  `,
-  description: css`
-    flex-grow: 1;
-    padding-left: 0.5rem;
-  `,
-  icon: css`
-    min-width: 1rem;
-  `,
-  date: css`
-    text-align: right;
-  `,
-}
+const StyledAllergy = Styled.div`
+  display: flex;
+  justify-content: center;
+`
 
-const AllergySummary: React.FC<Props> = ({ allergy, clickHandler }) => {
-  const handleClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>): void => {
-    e.preventDefault()
-    clickHandler && clickHandler(allergy)
+const StyledIcon = Styled.div`
+  min-width: 1rem;
+`
+
+const StyledDescription = Styled.div`
+  flex-grow: 1;
+  padding-left: 0.5rem;
+`
+
+const StyledDate = Styled.div`
+  text-align: right;
+`
+
+const AllergySummary: React.FC<Props> = ({ allergy }) => {
+  if (allergy.metadata.isRedacted) {
+    return (
+      <StyledAllergy>
+        <Redacted allergy={allergy} />
+      </StyledAllergy>
+    )
   }
 
-  const summaryMarkup = (
-    <React.Fragment>
-      <div css={styles.icon}>
+  return (
+    <StyledAllergy>
+      <StyledIcon>
         <Icon allergy={allergy} />
-      </div>
-      <div css={styles.description}>
+      </StyledIcon>
+      <StyledDescription>
         <Title allergy={allergy} />
         <Description allergy={allergy} />
-      </div>
-      <div css={styles.date}>
+      </StyledDescription>
+      <StyledDate>
         <DateSummary datetime={allergy.assertedDate} />
         <Status allergy={allergy} />
-      </div>
-    </React.Fragment>
-  )
-
-  return (
-    <div css={styles.root} role="link" onClick={clickHandler && handleClick}>
-      {allergy.metadata.isRedacted ? <Redacted allergy={allergy} /> : summaryMarkup}
-    </div>
+      </StyledDate>
+    </StyledAllergy>
   )
 }
 
 interface Props {
   allergy: AllergyIntolerance
-  clickHandler?(allergy: AllergyIntolerance): void
 }
 
 export default AllergySummary
