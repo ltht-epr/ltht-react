@@ -54,7 +54,7 @@ stories.addWithJSX('Radio', () => {
     <div css={styles.base}>
       <Card>
         <Card.Header>
-          <h3>Form example</h3>
+          <Card.Title>Form Example</Card.Title>
         </Card.Header>
         <Card.Body>
           <Form submitHandler={handleSubmit}>

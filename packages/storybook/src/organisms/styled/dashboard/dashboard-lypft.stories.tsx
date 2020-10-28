@@ -104,11 +104,13 @@ stories.addWithJSX('Readonly Cards', () => {
           <Card.Header>
             <h3>Appointments</h3>
           </Card.Header>
-          <Card.Body>
-            <Card.List>
-              <AppointmentSummary encounters={appointments} />
-            </Card.List>
-          </Card.Body>
+          <Card.List>
+            {appointments.map(appointment => (
+              <Card.ListItem>
+                <AppointmentSummary encounter={appointment} />
+              </Card.ListItem>
+            ))}
+          </Card.List>
         </Card>
         <Card>
           <Card.Header>

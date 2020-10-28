@@ -8,15 +8,18 @@ const components = (
   <>
     <Card>
       <Card.Header>
-        <h3>Heading</h3>
+        <Card.Header>Heading</Card.Header>
       </Card.Header>
       <Card.Body>Body</Card.Body>
       <Card.Footer>Footer</Card.Footer>
     </Card>
     <Card>
       <Card.Header>
-        <h3>Heading</h3>
+        <Card.Header>Heading</Card.Header>
       </Card.Header>
+      <Card.Body>
+        <Card.Text>Body text</Card.Text>
+      </Card.Body>
       <Card.List>
         <Card.ListItem>Item 1</Card.ListItem>
         <Card.ListItem>Item 2</Card.ListItem>

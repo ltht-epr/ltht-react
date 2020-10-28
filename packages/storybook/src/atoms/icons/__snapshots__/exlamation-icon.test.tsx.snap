@@ -2,6 +2,7 @@
 
 exports[`SpinnerIcon matches snapshot: wrapper mount 1`] = `
 .emotion-0 {
+  color: inherit;
   color: #ED8B00;
 }
 

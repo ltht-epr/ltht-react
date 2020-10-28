@@ -2,15 +2,15 @@
 
 exports[`CircleIcon matches snapshot: wrapper mount 1`] = `
 .emotion-0 {
-  color: #768692;
+  color: [object Object];
 }
 
 .emotion-2 {
-  color: #009639;
+  color: [object Object];
 }
 
 <Icons>
-  <TableIcon
+  <CircleIcon
     size="small"
     status="default"
   >
@@ -82,8 +82,8 @@ exports[`CircleIcon matches snapshot: wrapper mount 1`] = `
         </g>
       </svg>
     </FontAwesomeIcon>
-  </TableIcon>
-  <TableIcon
+  </CircleIcon>
+  <CircleIcon
     size="small"
     status="green"
   >
@@ -155,6 +155,6 @@ exports[`CircleIcon matches snapshot: wrapper mount 1`] = `
         </g>
       </svg>
     </FontAwesomeIcon>
-  </TableIcon>
+  </CircleIcon>
 </Icons>
 `;

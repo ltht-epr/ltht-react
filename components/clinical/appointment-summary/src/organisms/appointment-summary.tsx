@@ -28,7 +28,7 @@ const styles = {
   `,
 }
 
-const AppointmentSummaryItem: React.FC<Props> = ({ encounter, clickHandler }) => {
+const AppointmentSummary: React.FC<Props> = ({ encounter, clickHandler }) => {
   const handleClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>): void => {
     e.preventDefault()
     clickHandler && clickHandler(encounter)
@@ -61,4 +61,4 @@ interface Props {
   clickHandler?(appointment: Encounter): void
 }
 
-export default AppointmentSummaryItem
+export default AppointmentSummary

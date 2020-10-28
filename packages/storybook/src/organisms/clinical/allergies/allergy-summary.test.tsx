@@ -9,7 +9,9 @@ const Sut: React.FC = () => {
   return (
     <>
       {allergies.map(allergy => (
-        <AllergySummary allergy={allergy} />
+        <div key={allergy.id}>
+          <AllergySummary allergy={allergy} />
+        </div>
       ))}
     </>
   )
