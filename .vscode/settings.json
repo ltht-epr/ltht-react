@@ -6,10 +6,14 @@
     "codings",
     "docgen",
     "eform",
+    "flowtype",
     "fontawesome",
     "fortawesome",
     "ghpages",
-    "ltht"
+    "ltht",
+    "postclean",
+    "predeploy",
+    "prettylint"
   ],
   "npm.packageManager": "yarn",
   "prettier.packageManager": "yarn",
