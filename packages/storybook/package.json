@@ -33,10 +33,10 @@
     "@storybook/addon-viewport": "^5.2.8",
     "@storybook/addons": "^5.3.18",
     "@storybook/storybook-deployer": "^2.8.1",
-    "@types/enzyme": "^3.10.4",
+    "@types/enzyme": "3.10.8",
     "awesome-typescript-loader": "^5.2.1",
     "babel-loader": "^8.0.6",
-    "core-js": "^3.6.1",
+    "core-js": "3.6.5",
     "react-docgen-typescript-webpack-plugin": "^1.1.0",
     "storybook-readme": "^5.0.8"
   },

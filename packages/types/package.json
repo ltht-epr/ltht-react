@@ -29,7 +29,7 @@
   "devDependencies": {
     "@graphql-codegen/cli": "1.19.0",
     "@graphql-codegen/typescript": "1.17.11",
-    "graphql": "^14.6.0",
+    "graphql": "15.4.0",
     "typescript": "4.0.5"
   },
   "gitHead": "4d364556bb11e294d86697c2dac66742f7aabc7f"
