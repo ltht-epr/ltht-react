@@ -5,6 +5,7 @@ import JSXAddon from 'storybook-addon-jsx'
 import { CounterIcon } from '@ltht-react/icon'
 import ChevronIconReadMe from '@ltht-react/icon/README.md'
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const stories = storiesOf('Atoms|Icons', module) as any
 
 stories.addWithJSX = JSXAddon.addWithJSX

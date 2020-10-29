@@ -8,6 +8,7 @@ import Card from '@ltht-react/card'
 
 import orders from './community-treatment-order.fixtures'
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const stories = storiesOf('Organisms - Clinical|Community Treatment Order', module) as any
 
 stories.addWithJSX = JSXAddon.addWithJSX

@@ -9,7 +9,7 @@ const Sut: React.FC = () => {
   return (
     <>
       {conditions.map(condition => (
-        <li>
+        <li key={condition.id}>
           <ConditionSummary condition={condition} />
         </li>
       ))}

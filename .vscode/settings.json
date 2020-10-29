@@ -4,8 +4,11 @@
     "Lypft",
     "clickable",
     "codings",
+    "docgen",
+    "eform",
     "fontawesome",
     "fortawesome",
+    "ghpages",
     "ltht"
   ],
   "npm.packageManager": "yarn",

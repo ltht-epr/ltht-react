@@ -378,10 +378,10 @@ Array [
             >
               <ListItem>
                 <Styled(li)
-                  className="card__listitem"
+                  className="card__list-item"
                 >
                   <li
-                    className="card__listitem emotion-4"
+                    className="card__list-item emotion-4"
                   >
                     Item 1
                   </li>
@@ -389,10 +389,10 @@ Array [
               </ListItem>
               <ListItem>
                 <Styled(li)
-                  className="card__listitem"
+                  className="card__list-item"
                 >
                   <li
-                    className="card__listitem emotion-4"
+                    className="card__list-item emotion-4"
                   >
                     Item 2
                   </li>

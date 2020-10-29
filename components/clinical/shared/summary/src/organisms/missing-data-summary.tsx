@@ -23,7 +23,7 @@ const MissingDataSummary: React.FC<Props> = ({ noData, partialData, completeData
         ))}
       </React.Fragment>
     ) : (
-      <React.Fragment></React.Fragment>
+      <React.Fragment />
     )
 
   const partialDataSection =
@@ -38,7 +38,7 @@ const MissingDataSummary: React.FC<Props> = ({ noData, partialData, completeData
         ))}
       </React.Fragment>
     ) : (
-      <React.Fragment></React.Fragment>
+      <React.Fragment />
     )
 
   const completeDataSection =
@@ -53,7 +53,7 @@ const MissingDataSummary: React.FC<Props> = ({ noData, partialData, completeData
         ))}
       </React.Fragment>
     ) : (
-      <React.Fragment></React.Fragment>
+      <React.Fragment />
     )
 
   const noDataSection =
@@ -68,7 +68,7 @@ const MissingDataSummary: React.FC<Props> = ({ noData, partialData, completeData
         ))}
       </React.Fragment>
     ) : (
-      <React.Fragment></React.Fragment>
+      <React.Fragment />
     )
 
   return (

@@ -63,7 +63,9 @@ exports[`CarePlanSummary matches snapshot: wrapper mount 1`] = `
 }
 
 <Sut>
-  <div>
+  <div
+    key="580ca927-34e0-e911-a2c7-005056926fe4|careplan"
+  >
     <CarePlanSummary
       carePlan={
         Object {
@@ -208,7 +210,9 @@ exports[`CarePlanSummary matches snapshot: wrapper mount 1`] = `
       </Styled(div)>
     </CarePlanSummary>
   </div>
-  <div>
+  <div
+    key="690ca927-68e0-c511-b2c7-898056926ze4|careplan"
+  >
     <CarePlanSummary
       carePlan={
         Object {
@@ -431,7 +435,9 @@ exports[`CarePlanSummary matches snapshot: wrapper mount 1`] = `
       </Styled(div)>
     </CarePlanSummary>
   </div>
-  <div>
+  <div
+    key="gpvisit"
+  >
     <CarePlanSummary
       carePlan={
         Object {

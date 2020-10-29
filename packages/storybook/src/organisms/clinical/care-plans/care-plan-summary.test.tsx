@@ -9,7 +9,7 @@ const Sut: React.FC = () => {
   return (
     <>
       {carePlans.map(carePlan => (
-        <div>
+        <div key={carePlan.id}>
           <CarePlanSummary carePlan={carePlan} />
         </div>
       ))}

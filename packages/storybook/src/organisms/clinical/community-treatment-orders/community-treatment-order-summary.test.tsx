@@ -9,7 +9,7 @@ const Sut: React.FC = () => {
   return (
     <>
       {orders.map(order => (
-        <div>
+        <div key={order.id}>
           <CommunityTreatmentOrderSummary communityTreatmentOrder={order} />
         </div>
       ))}

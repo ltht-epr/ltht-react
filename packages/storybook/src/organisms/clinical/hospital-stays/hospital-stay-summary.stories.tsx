@@ -7,6 +7,7 @@ import readme from '@ltht-react/hospital-stay-summary/README.md'
 import Card from '@ltht-react/card'
 import stays from './hospital-stay.fixtures'
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const stories = storiesOf('Organisms - Clinical|Hospital Stay', module) as any
 
 stories.addWithJSX = JSXAddon.addWithJSX

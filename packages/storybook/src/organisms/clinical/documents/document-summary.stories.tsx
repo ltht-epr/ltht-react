@@ -9,6 +9,7 @@ import Card from '@ltht-react/card'
 import { DocumentReference } from '@ltht-react/types'
 import documents from './document-summary.fixture'
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const stories = storiesOf('Organisms - Clinical|Document', module) as any
 
 stories.addWithJSX = JSXAddon.addWithJSX

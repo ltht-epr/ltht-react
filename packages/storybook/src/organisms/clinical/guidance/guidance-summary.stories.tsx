@@ -8,6 +8,7 @@ import Card from '@ltht-react/card'
 
 import GuidanceData from './guidance.fixture'
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const stories = storiesOf('Organisms - Clinical|Guidance', module) as any
 
 stories.addWithJSX = JSXAddon.addWithJSX

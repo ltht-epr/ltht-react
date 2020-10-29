@@ -8,6 +8,7 @@ import Card from '@ltht-react/card'
 
 import flags from './flag.fixtures'
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const stories = storiesOf('Organisms - Clinical|Flag', module) as any
 
 stories.addWithJSX = JSXAddon.addWithJSX

@@ -6,6 +6,7 @@ import readme from '@ltht-react/involved-team-summary/README.md'
 import Card from '@ltht-react/card'
 import episodes from './involved-team-summary.fixtures'
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const stories = storiesOf('Organisms - Clinical|Involved Team', module) as any
 
 stories.addWithJSX = JSXAddon.addWithJSX
