@@ -65,23 +65,27 @@ export const BTN_COLOURS = {
 
 export const BANNER_COLOURS = {
   DEFAULT: {
-    VALUE: colours.NHS_DARK_BLUE.VALUE,
-    TEXT: colours.NHS_BLACK,
-  },
-  PRIMARY: {
-    VALUE: colours.NHS_DARK_BLUE.VALUE,
-    TEXT: colours.NHS_WHITE,
+    BACKGROUND: '#edecec',
+    TEXT: '#626262',
+    BORDER: '#e4e4e4',
+    ICON: '#919090',
   },
   INFO: {
-    VALUE: colours.NHS_TRANSLUCENT_BRIGHT_BLUE,
-    TEXT: colours.NHS_DARK_BLUE.LIGHTER25,
+    BACKGROUND: '#cbdbee',
+    TEXT: '#0053c3',
+    BORDER: '#bdd2ec',
+    ICON: '#107dbd',
   },
   WARNING: {
-    VALUE: colours.NHS_TRANSLUCENT_WARM_YELLOW,
-    TEXT: colours.NHS_ORANGE,
+    BACKGROUND: '#fef3cd',
+    TEXT: '#926100',
+    BORDER: '#faeab4',
+    ICON: '#ffa500',
   },
-  ERROR: {
-    VALUE: colours.NHS_DARK_RED,
-    TEXT: colours.NHS_WHITE,
+  DANGER: {
+    BACKGROUND: '#eeacbd',
+    TEXT: '#a41e40',
+    BORDER: '#ec9bb0',
+    ICON: '#f50b47',
   },
 }

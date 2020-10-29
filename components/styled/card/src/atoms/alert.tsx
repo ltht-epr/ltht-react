@@ -2,6 +2,7 @@ import React from 'react'
 import classNames from 'classnames'
 import styled from '@emotion/styled'
 import { ChevronIcon, InfoCircleIcon, ExclamationIcon } from '@ltht-react/icon'
+import { BANNER_COLOURS } from '@ltht-react/styles'
 import Text from './text'
 
 type StatusTypes = 'default' | 'info' | 'danger' | 'warning'
@@ -19,35 +20,43 @@ const MatchColours = (status: StatusTypes): string => {
   switch (status) {
     case 'info':
       return `
-        background: #cbdbee;
-        color: #0053c3;
+        background: ${BANNER_COLOURS.INFO.BACKGROUND};
+        color: ${BANNER_COLOURS.INFO.TEXT};
+        border-top: 1px solid ${BANNER_COLOURS.INFO.BORDER};
+        border-bottom: 1px solid ${BANNER_COLOURS.INFO.BORDER};
         & > .fa-info-circle {
-          color: #107dbd;
+          color: ${BANNER_COLOURS.INFO.ICON};
         }
       `
     case 'warning':
       return `
-      background: #fef3cd;
-      color: #926100;
+      background: ${BANNER_COLOURS.WARNING.BACKGROUND};
+      color: ${BANNER_COLOURS.WARNING.TEXT};
+      border-top: 1px solid ${BANNER_COLOURS.WARNING.BORDER};
+      border-bottom: 1px solid ${BANNER_COLOURS.WARNING.BORDER};
       & > .fa-exclamation-triangle {
-        color: #ffa500;
+        color: ${BANNER_COLOURS.WARNING.ICON};
       }
       `
     case 'danger':
       return `
-      background: #eeacbd;
-      color: #a41e40;
+      background: ${BANNER_COLOURS.DANGER.BACKGROUND};
+      color: ${BANNER_COLOURS.DANGER.TEXT};
+      border-top: 1px solid ${BANNER_COLOURS.DANGER.BORDER};
+      border-bottom: 1px solid ${BANNER_COLOURS.DANGER.BORDER};
       & > .fa-exclamation-triangle {
-        color: #f50b47;
+        color: ${BANNER_COLOURS.DANGER.ICON};
       }
       `
     case 'default':
     default:
       return ` 
-      background: #edecec;
-      color: #626262;
+      background: ${BANNER_COLOURS.DEFAULT.BACKGROUND};
+      color: ${BANNER_COLOURS.DEFAULT.TEXT};
+      border-top: 1px solid ${BANNER_COLOURS.DEFAULT.BORDER};
+      border-bottom: 1px solid ${BANNER_COLOURS.DEFAULT.BORDER};
       & > .fa-info-circle {
-        color: #919090;
+        color: ${BANNER_COLOURS.DEFAULT.ICON};
       }
       `
   }
