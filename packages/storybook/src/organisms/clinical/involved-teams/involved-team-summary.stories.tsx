@@ -20,10 +20,14 @@ stories.addParameters({
 stories.addWithJSX('Summary', () => (
   <Card>
     <Card.Header>
-      <h3>Involved Teams</h3>
+      <Card.Title>Involved Teams</Card.Title>
     </Card.Header>
     <Card.List>
-      <InvolvedTeamSummary episodeOfCares={episodes} />
+      {episodes.map(episode => (
+        <Card.ListItem key={episode.id}>
+          <InvolvedTeamSummary episodeOfCare={episode} />
+        </Card.ListItem>
+      ))}
     </Card.List>
   </Card>
 ))

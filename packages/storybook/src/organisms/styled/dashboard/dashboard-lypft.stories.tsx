@@ -90,17 +90,19 @@ stories.addWithJSX('Readonly Cards', () => {
       <Column>
         <Card>
           <Card.Header>
-            <h3>Involved Teams</h3>
+            <Card.Title>Involved Teams</Card.Title>
           </Card.Header>
-          <Card.Body>
-            <Card.List>
-              <InvolvedTeamSummary episodeOfCares={episodeOfCares} />
-            </Card.List>
-          </Card.Body>
+          <Card.List>
+            {episodeOfCares.map(episode => (
+              <Card.ListItem key={episode.id}>
+                <InvolvedTeamSummary episodeOfCare={episode} />
+              </Card.ListItem>
+            ))}
+          </Card.List>
         </Card>
         <Card>
           <Card.Header>
-            <h3>Appointments</h3>
+            <Card.Title>Appointments</Card.Title>
           </Card.Header>
           <Card.List>
             {appointments.map(appointment => (
