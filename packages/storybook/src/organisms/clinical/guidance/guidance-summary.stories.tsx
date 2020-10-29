@@ -6,7 +6,7 @@ import GuidanceSummary from '@ltht-react/guidance-summary'
 import readme from '@ltht-react/guidance-summary/README.md'
 import Card from '@ltht-react/card'
 
-import GuidanceData from './guidance.fixture'
+import guidances from './guidance.fixture'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const stories = storiesOf('Organisms - Clinical|Guidance', module) as any
@@ -23,11 +23,15 @@ stories.addWithJSX('Summary', () => {
   return (
     <Card>
       <Card.Header>
-        <h3>Guidance</h3>
+        <Card.Title>Guidance</Card.Title>
       </Card.Header>
-      <Card.Body>
-        <GuidanceSummary guidanceList={GuidanceData} />
-      </Card.Body>
+      <Card.List>
+        {guidances.map(guidance => (
+          <Card.ListItem key={guidance.id}>
+            <GuidanceSummary guidance={guidance} />
+          </Card.ListItem>
+        ))}
+      </Card.List>
     </Card>
   )
 })

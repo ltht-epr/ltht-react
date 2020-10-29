@@ -268,7 +268,9 @@ exports[`HospitalStaySummary matches snapshot: wrapper mount 1`] = `
   <ListItem
     key="580ca927-34e0-e911-a2c7-005056926fe4|hospitalstay"
   >
-    <li>
+    <li
+      className="list__item"
+    >
       <HospitalStaySummaryItem
         hospitalStay={
           Object {
@@ -426,7 +428,9 @@ exports[`HospitalStaySummary matches snapshot: wrapper mount 1`] = `
   <ListItem
     key="690ca927-68e0-c511-b2c7-898056926ze4|hospitalstay"
   >
-    <li>
+    <li
+      className="list__item"
+    >
       <HospitalStaySummaryItem
         hospitalStay={
           Object {
@@ -530,7 +534,9 @@ exports[`HospitalStaySummary matches snapshot: wrapper mount 1`] = `
   <ListItem
     key="2aad27ef-6cd4-e911-a2c7-005056926fe4|case"
   >
-    <li>
+    <li
+      className="list__item"
+    >
       <HospitalStaySummaryItem
         hospitalStay={
           Object {

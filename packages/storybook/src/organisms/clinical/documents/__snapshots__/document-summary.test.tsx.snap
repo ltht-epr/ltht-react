@@ -41,6 +41,7 @@ exports[`DocumentSummaryy matches snapshot: wrapper mount 1`] = `
 
 .emotion-15 {
   list-style-type: none;
+  list-style-position: inside;
 }
 
 .emotion-0 {
@@ -145,7 +146,7 @@ exports[`DocumentSummaryy matches snapshot: wrapper mount 1`] = `
   >
     <UnorderedList>
       <ul
-        className="emotion-15"
+        className="list emotion-15"
       >
         <DocumentSummaryItem
           document={
