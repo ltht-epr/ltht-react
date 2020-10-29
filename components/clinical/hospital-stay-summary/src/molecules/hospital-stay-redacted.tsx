@@ -1,30 +1,33 @@
 /** @jsx jsx */
 import React from 'react'
-import { css, jsx } from '@emotion/core'
+import { jsx } from '@emotion/core'
+import Styled from '@emotion/styled'
 
 import { Encounter } from '@ltht-react/types'
 import { RedactedDescription, PeriodSummary } from '@ltht-react/summary'
 
-const styles = {
-  description: css`
-    flex-grow: 1;
-    text-align: right;
-  `,
-  date: css`
-    text-align: left;
-  `,
-}
+const StyledRedacted = Styled.div`
+  display: flex;
+`
+const StyledDate = Styled.div`
+  flex: 1;
+  text-align: left;
+`
+const StyledDescription = Styled.div`
+  flex: 1;
+  text-align: right;
+`
 
 const HospitalStayRedacted: React.FC<Props> = ({ hospitalStay }) => {
   return (
-    <React.Fragment>
-      <div css={styles.date}>
+    <StyledRedacted>
+      <StyledDate>
         <PeriodSummary period={hospitalStay.period} />
-      </div>
-      <div css={styles.description}>
+      </StyledDate>
+      <StyledDescription>
         <RedactedDescription />
-      </div>
-    </React.Fragment>
+      </StyledDescription>
+    </StyledRedacted>
   )
 }
 

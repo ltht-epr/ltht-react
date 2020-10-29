@@ -47,309 +47,66 @@ exports[`HospitalStaySummary matches snapshot: wrapper mount 1`] = `
   text-align: right;
 }
 
-.emotion-8 {
-  text-align: left;
-}
-
-.emotion-10 {
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  text-align: right;
+.emotion-11 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .emotion-9 {
   color: #768692;
 }
 
-<HospitalStaySummary
-  hospitalStays={
-    Array [
-      Object {
-        "id": "580ca927-34e0-e911-a2c7-005056926fe4|hospitalstay",
-        "metadata": Object {
-          "dataSources": Array [
-            Object {
-              "display": "Mock Source",
-            },
-          ],
-          "isRedacted": false,
-          "requestedWhen": "",
-        },
-        "period": Object {
-          "end": Object {
-            "kind": "DATE",
-            "value": "2014-02-02T00:00:00+00:00",
-          },
-          "start": Object {
-            "kind": "DATE",
-            "value": "2013-01-01T00:00:00+00:00",
-          },
-        },
-        "serviceProvider": Object {
-          "display": "Chapel Allerton Hospital",
-          "typeName": "Hospital",
-        },
-        "text": Object {
-          "div": "test",
-          "text": "Chest x-ray for recent car accident",
-        },
-      },
-      Object {
-        "id": "690ca927-68e0-c511-b2c7-898056926ze4|hospitalstay",
-        "metadata": Object {
-          "dataSources": Array [
-            Object {
-              "display": "Mock Source",
-            },
-          ],
-          "isRedacted": true,
-          "requestedWhen": "",
-        },
-        "period": Object {
-          "start": Object {
-            "kind": "DATE",
-            "value": "2020-01-01T00:00:00+00:00",
-          },
-        },
-        "serviceProvider": Object {
-          "display": "Beaumont Hospital",
-          "typeName": "Hospital",
-        },
-        "text": Object {
-          "div": "test",
-          "text": "Chest x-ray for recent car accident",
-        },
-      },
-      Object {
-        "episodeOfCare": Array [
-          Object {
-            "display": "Martin, Jack - (15/04/1980) [QA-CAS-000001-6537]",
-            "reference": "https://phoenixqa.careworks.ie/Services/api/fhir/v3/episodeofcare/2aad27ef-6cd4-e911-a2c7-005056926fe4|case",
-            "typeName": "EpisodeOfCare",
-          },
-        ],
-        "hospitalization": Object {
-          "admitSource": Object {
-            "coding": Array [
-              Object {
-                "code": "305956004",
-                "display": "Referral by physician",
-                "system": "http://snomed.info/sct",
-              },
-            ],
-          },
-          "dischargeDisposition": Object {
-            "coding": Array [
-              Object {
-                "code": "306689006",
-                "display": "Discharge to home",
-                "system": "http://snomed.info/sct",
-              },
-            ],
-          },
-          "extension": Array [
-            Object {
-              "url": "https://fhir.hl7.org.uk/STU3/StructureDefinition/Extension-CareConnect-AdmissionMethod-1",
-              "valueCodeableConcept": Object {
-                "coding": Array [
-                  Object {
-                    "display": "1. Transfer of an admitted PATIENT from another Hospital Provider in an emergency",
-                  },
-                ],
-              },
-              "valueString": "",
-            },
-            Object {
-              "url": "https://fhir.hl7.org.uk/STU3/StructureDefinition/Extension-CareConnect-AdmissionMethod-1",
-              "valueCodeableConcept": Object {
-                "coding": Array [
-                  Object {
-                    "display": "2. Transfer of an admitted PATIENT from another Hospital Provider in an emergency",
-                  },
-                ],
-              },
-              "valueString": "",
-            },
-          ],
-          "preAdmissionIdentifier": Object {
-            "system": "http://www.bmc.nl/zorgportal/identifiers/pre-admissions",
-            "use": "OFFICIAL",
-            "value": "93042",
-          },
-        },
-        "id": "2aad27ef-6cd4-e911-a2c7-005056926fe4|case",
-        "metadata": Object {
-          "dataSources": Array [
-            Object {
-              "display": "Mock Source",
-            },
-          ],
-          "isRedacted": false,
-          "requestedWhen": "",
-        },
-        "participant": Array [
-          Object {
-            "individual": Object {
-              "display": "Guillermo Villar",
-              "reference": "https://phoenixqa.careworks.ie/Services/api/fhir/v3/practitioner/c4434f96-633f-e911-a2c5-005056926fe4|systemuser",
-              "typeName": "Practitioner",
-            },
-            "period": Object {
-              "start": Object {
-                "kind": "DATE",
-                "value": "2020-01-01T00:00:00+00:00",
-              },
-            },
-          },
-          Object {
-            "individual": Object {
-              "display": "Man Test",
-              "reference": "https://phoenixqa.careworks.ie/Services/api/fhir/v3/practitioner/c4434f96-633f-e911-a2c5-005056926fe4|systemuser",
-              "typeName": "Nurse",
-            },
-            "period": Object {
-              "end": Object {
-                "kind": "DATE",
-                "value": "2020-01-01T00:00:00+00:00",
-              },
-              "start": Object {
-                "kind": "DATE",
-                "value": "2019-01-01T00:00:00+00:00",
-              },
-            },
-          },
-        ],
-        "period": Object {
-          "start": Object {
-            "kind": "DATE",
-            "value": "2020-01-01T00:00:00+00:00",
-          },
-        },
-        "status": "ON_LEAVE",
-        "statusHistory": Array [
-          Object {
-            "period": Object {
-              "start": Object {
-                "kind": "DATE",
-                "value": "2020-01-01T00:00:00+00:00",
-              },
-            },
-            "status": "IN_PROGRESS",
-          },
-          Object {
-            "period": Object {
-              "end": Object {
-                "kind": "DATE",
-                "value": "2020-01-01T00:00:00+00:00",
-              },
-              "start": Object {
-                "kind": "DATE",
-                "value": "2019-01-01T00:00:00+00:00",
-              },
-            },
-            "status": "FINISHED",
-          },
-        ],
-        "text": Object {
-          "div": "test",
-          "text": "Chest x-ray for recent car accident",
-        },
-        "type": Array [
-          Object {
-            "text": "Transferred from other hospital due to lack of space",
-          },
-        ],
-      },
-    ]
-  }
->
-  <ListItem
+<Sut>
+  <div
     key="580ca927-34e0-e911-a2c7-005056926fe4|hospitalstay"
   >
-    <li
-      className="list__item"
-    >
-      <HospitalStaySummaryItem
-        hospitalStay={
-          Object {
-            "id": "580ca927-34e0-e911-a2c7-005056926fe4|hospitalstay",
-            "metadata": Object {
-              "dataSources": Array [
-                Object {
-                  "display": "Mock Source",
-                },
-              ],
-              "isRedacted": false,
-              "requestedWhen": "",
-            },
-            "period": Object {
-              "end": Object {
-                "kind": "DATE",
-                "value": "2014-02-02T00:00:00+00:00",
+    <HospitalStaySummary
+      hospitalStay={
+        Object {
+          "id": "580ca927-34e0-e911-a2c7-005056926fe4|hospitalstay",
+          "metadata": Object {
+            "dataSources": Array [
+              Object {
+                "display": "Mock Source",
               },
-              "start": Object {
-                "kind": "DATE",
-                "value": "2013-01-01T00:00:00+00:00",
-              },
+            ],
+            "isRedacted": false,
+            "requestedWhen": "",
+          },
+          "period": Object {
+            "end": Object {
+              "kind": "DATE",
+              "value": "2014-02-02T00:00:00+00:00",
             },
-            "serviceProvider": Object {
-              "display": "Chapel Allerton Hospital",
-              "typeName": "Hospital",
+            "start": Object {
+              "kind": "DATE",
+              "value": "2013-01-01T00:00:00+00:00",
             },
-            "text": Object {
-              "div": "test",
-              "text": "Chest x-ray for recent car accident",
-            },
-          }
+          },
+          "serviceProvider": Object {
+            "display": "Chapel Allerton Hospital",
+            "typeName": "Hospital",
+          },
+          "text": Object {
+            "div": "test",
+            "text": "Chest x-ray for recent car accident",
+          },
         }
-      >
+      }
+    >
+      <Styled(div)>
         <div
           className="emotion-6"
-          role="link"
         >
-          <div
-            className="emotion-1"
-          >
-            <PeriodSummary
-              period={
-                Object {
-                  "end": Object {
-                    "kind": "DATE",
-                    "value": "2014-02-02T00:00:00+00:00",
-                  },
-                  "start": Object {
-                    "kind": "DATE",
-                    "value": "2013-01-01T00:00:00+00:00",
-                  },
-                }
-              }
+          <Styled(div)>
+            <div
+              className="emotion-1"
             >
-              <div
-                className="emotion-0"
-              >
-                Jan-01,-2013 to Feb-02,-2014
-              </div>
-            </PeriodSummary>
-          </div>
-          <div
-            className="emotion-3"
-          >
-            <HospitalStayDescription
-              encounter={
-                Object {
-                  "id": "580ca927-34e0-e911-a2c7-005056926fe4|hospitalstay",
-                  "metadata": Object {
-                    "dataSources": Array [
-                      Object {
-                        "display": "Mock Source",
-                      },
-                    ],
-                    "isRedacted": false,
-                    "requestedWhen": "",
-                  },
-                  "period": Object {
+              <PeriodSummary
+                period={
+                  Object {
                     "end": Object {
                       "kind": "DATE",
                       "value": "2014-02-02T00:00:00+00:00",
@@ -358,80 +115,147 @@ exports[`HospitalStaySummary matches snapshot: wrapper mount 1`] = `
                       "kind": "DATE",
                       "value": "2013-01-01T00:00:00+00:00",
                     },
-                  },
-                  "serviceProvider": Object {
-                    "display": "Chapel Allerton Hospital",
-                    "typeName": "Hospital",
-                  },
-                  "text": Object {
-                    "div": "test",
-                    "text": "Chest x-ray for recent car accident",
-                  },
+                  }
                 }
-              }
-            >
-              <div
-                className="emotion-2"
               >
-                Chest x-ray for recent car accident
-              </div>
-            </HospitalStayDescription>
-          </div>
-          <div
-            className="emotion-5"
-          >
-            <HospitalStayServiceProvider
-              encounter={
-                Object {
-                  "id": "580ca927-34e0-e911-a2c7-005056926fe4|hospitalstay",
-                  "metadata": Object {
-                    "dataSources": Array [
-                      Object {
-                        "display": "Mock Source",
+                <div
+                  className="emotion-0"
+                >
+                  Jan-01,-2013 to Feb-02,-2014
+                </div>
+              </PeriodSummary>
+            </div>
+          </Styled(div)>
+          <Styled(div)>
+            <div
+              className="emotion-3"
+            >
+              <HospitalStayDescription
+                encounter={
+                  Object {
+                    "id": "580ca927-34e0-e911-a2c7-005056926fe4|hospitalstay",
+                    "metadata": Object {
+                      "dataSources": Array [
+                        Object {
+                          "display": "Mock Source",
+                        },
+                      ],
+                      "isRedacted": false,
+                      "requestedWhen": "",
+                    },
+                    "period": Object {
+                      "end": Object {
+                        "kind": "DATE",
+                        "value": "2014-02-02T00:00:00+00:00",
                       },
-                    ],
-                    "isRedacted": false,
-                    "requestedWhen": "",
-                  },
-                  "period": Object {
-                    "end": Object {
-                      "kind": "DATE",
-                      "value": "2014-02-02T00:00:00+00:00",
+                      "start": Object {
+                        "kind": "DATE",
+                        "value": "2013-01-01T00:00:00+00:00",
+                      },
                     },
-                    "start": Object {
-                      "kind": "DATE",
-                      "value": "2013-01-01T00:00:00+00:00",
+                    "serviceProvider": Object {
+                      "display": "Chapel Allerton Hospital",
+                      "typeName": "Hospital",
                     },
-                  },
-                  "serviceProvider": Object {
-                    "display": "Chapel Allerton Hospital",
-                    "typeName": "Hospital",
-                  },
-                  "text": Object {
-                    "div": "test",
-                    "text": "Chest x-ray for recent car accident",
-                  },
+                    "text": Object {
+                      "div": "test",
+                      "text": "Chest x-ray for recent car accident",
+                    },
+                  }
                 }
-              }
-            >
-              <div
-                className="emotion-4"
               >
-                Chapel Allerton Hospital
-              </div>
-            </HospitalStayServiceProvider>
-          </div>
+                <div
+                  className="emotion-2"
+                >
+                  Chest x-ray for recent car accident
+                </div>
+              </HospitalStayDescription>
+            </div>
+          </Styled(div)>
+          <Styled(div)>
+            <div
+              className="emotion-5"
+            >
+              <HospitalStayServiceProvider
+                encounter={
+                  Object {
+                    "id": "580ca927-34e0-e911-a2c7-005056926fe4|hospitalstay",
+                    "metadata": Object {
+                      "dataSources": Array [
+                        Object {
+                          "display": "Mock Source",
+                        },
+                      ],
+                      "isRedacted": false,
+                      "requestedWhen": "",
+                    },
+                    "period": Object {
+                      "end": Object {
+                        "kind": "DATE",
+                        "value": "2014-02-02T00:00:00+00:00",
+                      },
+                      "start": Object {
+                        "kind": "DATE",
+                        "value": "2013-01-01T00:00:00+00:00",
+                      },
+                    },
+                    "serviceProvider": Object {
+                      "display": "Chapel Allerton Hospital",
+                      "typeName": "Hospital",
+                    },
+                    "text": Object {
+                      "div": "test",
+                      "text": "Chest x-ray for recent car accident",
+                    },
+                  }
+                }
+              >
+                <div
+                  className="emotion-4"
+                >
+                  Chapel Allerton Hospital
+                </div>
+              </HospitalStayServiceProvider>
+            </div>
+          </Styled(div)>
         </div>
-      </HospitalStaySummaryItem>
-    </li>
-  </ListItem>
-  <ListItem
+      </Styled(div)>
+    </HospitalStaySummary>
+  </div>
+  <div
     key="690ca927-68e0-c511-b2c7-898056926ze4|hospitalstay"
   >
-    <li
-      className="list__item"
+    <HospitalStaySummary
+      hospitalStay={
+        Object {
+          "id": "690ca927-68e0-c511-b2c7-898056926ze4|hospitalstay",
+          "metadata": Object {
+            "dataSources": Array [
+              Object {
+                "display": "Mock Source",
+              },
+            ],
+            "isRedacted": true,
+            "requestedWhen": "",
+          },
+          "period": Object {
+            "start": Object {
+              "kind": "DATE",
+              "value": "2020-01-01T00:00:00+00:00",
+            },
+          },
+          "serviceProvider": Object {
+            "display": "Beaumont Hospital",
+            "typeName": "Hospital",
+          },
+          "text": Object {
+            "div": "test",
+            "text": "Chest x-ray for recent car accident",
+          },
+        }
+      }
     >
-      <HospitalStaySummaryItem
+      <HospitalStayRedacted
         hospitalStay={
           Object {
             "id": "690ca927-68e0-c511-b2c7-898056926ze4|hospitalstay",
@@ -461,42 +285,204 @@ exports[`HospitalStaySummary matches snapshot: wrapper mount 1`] = `
           }
         }
       >
-        <div
-          className="emotion-6"
-          role="link"
-        >
-          <HospitalStayRedacted
-            hospitalStay={
-              Object {
-                "id": "690ca927-68e0-c511-b2c7-898056926ze4|hospitalstay",
-                "metadata": Object {
-                  "dataSources": Array [
+        <Styled(div)>
+          <div
+            className="emotion-11"
+          >
+            <Styled(div)>
+              <div
+                className="emotion-1"
+              >
+                <PeriodSummary
+                  period={
                     Object {
-                      "display": "Mock Source",
+                      "start": Object {
+                        "kind": "DATE",
+                        "value": "2020-01-01T00:00:00+00:00",
+                      },
+                    }
+                  }
+                >
+                  <div
+                    className="emotion-0"
+                  >
+                    Jan-01,-2020 to Present
+                  </div>
+                </PeriodSummary>
+              </div>
+            </Styled(div)>
+            <Styled(div)>
+              <div
+                className="emotion-5"
+              >
+                <RedactedDescription>
+                  <div
+                    className="emotion-9"
+                  >
+                    Insufficient privileges
+                  </div>
+                </RedactedDescription>
+              </div>
+            </Styled(div)>
+          </div>
+        </Styled(div)>
+      </HospitalStayRedacted>
+    </HospitalStaySummary>
+  </div>
+  <div
+    key="2aad27ef-6cd4-e911-a2c7-005056926fe4|case"
+  >
+    <HospitalStaySummary
+      hospitalStay={
+        Object {
+          "episodeOfCare": Array [
+            Object {
+              "display": "Martin, Jack - (15/04/1980) [QA-CAS-000001-6537]",
+              "reference": "https://phoenixqa.careworks.ie/Services/api/fhir/v3/episodeofcare/2aad27ef-6cd4-e911-a2c7-005056926fe4|case",
+              "typeName": "EpisodeOfCare",
+            },
+          ],
+          "hospitalization": Object {
+            "admitSource": Object {
+              "coding": Array [
+                Object {
+                  "code": "305956004",
+                  "display": "Referral by physician",
+                  "system": "http://snomed.info/sct",
+                },
+              ],
+            },
+            "dischargeDisposition": Object {
+              "coding": Array [
+                Object {
+                  "code": "306689006",
+                  "display": "Discharge to home",
+                  "system": "http://snomed.info/sct",
+                },
+              ],
+            },
+            "extension": Array [
+              Object {
+                "url": "https://fhir.hl7.org.uk/STU3/StructureDefinition/Extension-CareConnect-AdmissionMethod-1",
+                "valueCodeableConcept": Object {
+                  "coding": Array [
+                    Object {
+                      "display": "1. Transfer of an admitted PATIENT from another Hospital Provider in an emergency",
                     },
                   ],
-                  "isRedacted": true,
-                  "requestedWhen": "",
                 },
-                "period": Object {
-                  "start": Object {
-                    "kind": "DATE",
-                    "value": "2020-01-01T00:00:00+00:00",
-                  },
+                "valueString": "",
+              },
+              Object {
+                "url": "https://fhir.hl7.org.uk/STU3/StructureDefinition/Extension-CareConnect-AdmissionMethod-1",
+                "valueCodeableConcept": Object {
+                  "coding": Array [
+                    Object {
+                      "display": "2. Transfer of an admitted PATIENT from another Hospital Provider in an emergency",
+                    },
+                  ],
                 },
-                "serviceProvider": Object {
-                  "display": "Beaumont Hospital",
-                  "typeName": "Hospital",
+                "valueString": "",
+              },
+            ],
+            "preAdmissionIdentifier": Object {
+              "system": "http://www.bmc.nl/zorgportal/identifiers/pre-admissions",
+              "use": "OFFICIAL",
+              "value": "93042",
+            },
+          },
+          "id": "2aad27ef-6cd4-e911-a2c7-005056926fe4|case",
+          "metadata": Object {
+            "dataSources": Array [
+              Object {
+                "display": "Mock Source",
+              },
+            ],
+            "isRedacted": false,
+            "requestedWhen": "",
+          },
+          "participant": Array [
+            Object {
+              "individual": Object {
+                "display": "Guillermo Villar",
+                "reference": "https://phoenixqa.careworks.ie/Services/api/fhir/v3/practitioner/c4434f96-633f-e911-a2c5-005056926fe4|systemuser",
+                "typeName": "Practitioner",
+              },
+              "period": Object {
+                "start": Object {
+                  "kind": "DATE",
+                  "value": "2020-01-01T00:00:00+00:00",
                 },
-                "text": Object {
-                  "div": "test",
-                  "text": "Chest x-ray for recent car accident",
+              },
+            },
+            Object {
+              "individual": Object {
+                "display": "Man Test",
+                "reference": "https://phoenixqa.careworks.ie/Services/api/fhir/v3/practitioner/c4434f96-633f-e911-a2c5-005056926fe4|systemuser",
+                "typeName": "Nurse",
+              },
+              "period": Object {
+                "end": Object {
+                  "kind": "DATE",
+                  "value": "2020-01-01T00:00:00+00:00",
                 },
-              }
-            }
-          >
+                "start": Object {
+                  "kind": "DATE",
+                  "value": "2019-01-01T00:00:00+00:00",
+                },
+              },
+            },
+          ],
+          "period": Object {
+            "start": Object {
+              "kind": "DATE",
+              "value": "2020-01-01T00:00:00+00:00",
+            },
+          },
+          "status": "ON_LEAVE",
+          "statusHistory": Array [
+            Object {
+              "period": Object {
+                "start": Object {
+                  "kind": "DATE",
+                  "value": "2020-01-01T00:00:00+00:00",
+                },
+              },
+              "status": "IN_PROGRESS",
+            },
+            Object {
+              "period": Object {
+                "end": Object {
+                  "kind": "DATE",
+                  "value": "2020-01-01T00:00:00+00:00",
+                },
+                "start": Object {
+                  "kind": "DATE",
+                  "value": "2019-01-01T00:00:00+00:00",
+                },
+              },
+              "status": "FINISHED",
+            },
+          ],
+          "text": Object {
+            "div": "test",
+            "text": "Chest x-ray for recent car accident",
+          },
+          "type": Array [
+            Object {
+              "text": "Transferred from other hospital due to lack of space",
+            },
+          ],
+        }
+      }
+    >
+      <Styled(div)>
+        <div
+          className="emotion-6"
+        >
+          <Styled(div)>
             <div
-              className="emotion-8"
+              className="emotion-1"
             >
               <PeriodSummary
                 period={
@@ -515,507 +501,322 @@ exports[`HospitalStaySummary matches snapshot: wrapper mount 1`] = `
                 </div>
               </PeriodSummary>
             </div>
+          </Styled(div)>
+          <Styled(div)>
             <div
-              className="emotion-10"
+              className="emotion-3"
             >
-              <RedactedDescription>
+              <HospitalStayDescription
+                encounter={
+                  Object {
+                    "episodeOfCare": Array [
+                      Object {
+                        "display": "Martin, Jack - (15/04/1980) [QA-CAS-000001-6537]",
+                        "reference": "https://phoenixqa.careworks.ie/Services/api/fhir/v3/episodeofcare/2aad27ef-6cd4-e911-a2c7-005056926fe4|case",
+                        "typeName": "EpisodeOfCare",
+                      },
+                    ],
+                    "hospitalization": Object {
+                      "admitSource": Object {
+                        "coding": Array [
+                          Object {
+                            "code": "305956004",
+                            "display": "Referral by physician",
+                            "system": "http://snomed.info/sct",
+                          },
+                        ],
+                      },
+                      "dischargeDisposition": Object {
+                        "coding": Array [
+                          Object {
+                            "code": "306689006",
+                            "display": "Discharge to home",
+                            "system": "http://snomed.info/sct",
+                          },
+                        ],
+                      },
+                      "extension": Array [
+                        Object {
+                          "url": "https://fhir.hl7.org.uk/STU3/StructureDefinition/Extension-CareConnect-AdmissionMethod-1",
+                          "valueCodeableConcept": Object {
+                            "coding": Array [
+                              Object {
+                                "display": "1. Transfer of an admitted PATIENT from another Hospital Provider in an emergency",
+                              },
+                            ],
+                          },
+                          "valueString": "",
+                        },
+                        Object {
+                          "url": "https://fhir.hl7.org.uk/STU3/StructureDefinition/Extension-CareConnect-AdmissionMethod-1",
+                          "valueCodeableConcept": Object {
+                            "coding": Array [
+                              Object {
+                                "display": "2. Transfer of an admitted PATIENT from another Hospital Provider in an emergency",
+                              },
+                            ],
+                          },
+                          "valueString": "",
+                        },
+                      ],
+                      "preAdmissionIdentifier": Object {
+                        "system": "http://www.bmc.nl/zorgportal/identifiers/pre-admissions",
+                        "use": "OFFICIAL",
+                        "value": "93042",
+                      },
+                    },
+                    "id": "2aad27ef-6cd4-e911-a2c7-005056926fe4|case",
+                    "metadata": Object {
+                      "dataSources": Array [
+                        Object {
+                          "display": "Mock Source",
+                        },
+                      ],
+                      "isRedacted": false,
+                      "requestedWhen": "",
+                    },
+                    "participant": Array [
+                      Object {
+                        "individual": Object {
+                          "display": "Guillermo Villar",
+                          "reference": "https://phoenixqa.careworks.ie/Services/api/fhir/v3/practitioner/c4434f96-633f-e911-a2c5-005056926fe4|systemuser",
+                          "typeName": "Practitioner",
+                        },
+                        "period": Object {
+                          "start": Object {
+                            "kind": "DATE",
+                            "value": "2020-01-01T00:00:00+00:00",
+                          },
+                        },
+                      },
+                      Object {
+                        "individual": Object {
+                          "display": "Man Test",
+                          "reference": "https://phoenixqa.careworks.ie/Services/api/fhir/v3/practitioner/c4434f96-633f-e911-a2c5-005056926fe4|systemuser",
+                          "typeName": "Nurse",
+                        },
+                        "period": Object {
+                          "end": Object {
+                            "kind": "DATE",
+                            "value": "2020-01-01T00:00:00+00:00",
+                          },
+                          "start": Object {
+                            "kind": "DATE",
+                            "value": "2019-01-01T00:00:00+00:00",
+                          },
+                        },
+                      },
+                    ],
+                    "period": Object {
+                      "start": Object {
+                        "kind": "DATE",
+                        "value": "2020-01-01T00:00:00+00:00",
+                      },
+                    },
+                    "status": "ON_LEAVE",
+                    "statusHistory": Array [
+                      Object {
+                        "period": Object {
+                          "start": Object {
+                            "kind": "DATE",
+                            "value": "2020-01-01T00:00:00+00:00",
+                          },
+                        },
+                        "status": "IN_PROGRESS",
+                      },
+                      Object {
+                        "period": Object {
+                          "end": Object {
+                            "kind": "DATE",
+                            "value": "2020-01-01T00:00:00+00:00",
+                          },
+                          "start": Object {
+                            "kind": "DATE",
+                            "value": "2019-01-01T00:00:00+00:00",
+                          },
+                        },
+                        "status": "FINISHED",
+                      },
+                    ],
+                    "text": Object {
+                      "div": "test",
+                      "text": "Chest x-ray for recent car accident",
+                    },
+                    "type": Array [
+                      Object {
+                        "text": "Transferred from other hospital due to lack of space",
+                      },
+                    ],
+                  }
+                }
+              >
                 <div
-                  className="emotion-9"
+                  className="emotion-2"
                 >
-                  Insufficient privileges
+                  Chest x-ray for recent car accident
                 </div>
-              </RedactedDescription>
+              </HospitalStayDescription>
             </div>
-          </HospitalStayRedacted>
-        </div>
-      </HospitalStaySummaryItem>
-    </li>
-  </ListItem>
-  <ListItem
-    key="2aad27ef-6cd4-e911-a2c7-005056926fe4|case"
-  >
-    <li
-      className="list__item"
-    >
-      <HospitalStaySummaryItem
-        hospitalStay={
-          Object {
-            "episodeOfCare": Array [
-              Object {
-                "display": "Martin, Jack - (15/04/1980) [QA-CAS-000001-6537]",
-                "reference": "https://phoenixqa.careworks.ie/Services/api/fhir/v3/episodeofcare/2aad27ef-6cd4-e911-a2c7-005056926fe4|case",
-                "typeName": "EpisodeOfCare",
-              },
-            ],
-            "hospitalization": Object {
-              "admitSource": Object {
-                "coding": Array [
+          </Styled(div)>
+          <Styled(div)>
+            <div
+              className="emotion-5"
+            >
+              <HospitalStayServiceProvider
+                encounter={
                   Object {
-                    "code": "305956004",
-                    "display": "Referral by physician",
-                    "system": "http://snomed.info/sct",
-                  },
-                ],
-              },
-              "dischargeDisposition": Object {
-                "coding": Array [
-                  Object {
-                    "code": "306689006",
-                    "display": "Discharge to home",
-                    "system": "http://snomed.info/sct",
-                  },
-                ],
-              },
-              "extension": Array [
-                Object {
-                  "url": "https://fhir.hl7.org.uk/STU3/StructureDefinition/Extension-CareConnect-AdmissionMethod-1",
-                  "valueCodeableConcept": Object {
-                    "coding": Array [
+                    "episodeOfCare": Array [
                       Object {
-                        "display": "1. Transfer of an admitted PATIENT from another Hospital Provider in an emergency",
+                        "display": "Martin, Jack - (15/04/1980) [QA-CAS-000001-6537]",
+                        "reference": "https://phoenixqa.careworks.ie/Services/api/fhir/v3/episodeofcare/2aad27ef-6cd4-e911-a2c7-005056926fe4|case",
+                        "typeName": "EpisodeOfCare",
                       },
                     ],
-                  },
-                  "valueString": "",
-                },
-                Object {
-                  "url": "https://fhir.hl7.org.uk/STU3/StructureDefinition/Extension-CareConnect-AdmissionMethod-1",
-                  "valueCodeableConcept": Object {
-                    "coding": Array [
+                    "hospitalization": Object {
+                      "admitSource": Object {
+                        "coding": Array [
+                          Object {
+                            "code": "305956004",
+                            "display": "Referral by physician",
+                            "system": "http://snomed.info/sct",
+                          },
+                        ],
+                      },
+                      "dischargeDisposition": Object {
+                        "coding": Array [
+                          Object {
+                            "code": "306689006",
+                            "display": "Discharge to home",
+                            "system": "http://snomed.info/sct",
+                          },
+                        ],
+                      },
+                      "extension": Array [
+                        Object {
+                          "url": "https://fhir.hl7.org.uk/STU3/StructureDefinition/Extension-CareConnect-AdmissionMethod-1",
+                          "valueCodeableConcept": Object {
+                            "coding": Array [
+                              Object {
+                                "display": "1. Transfer of an admitted PATIENT from another Hospital Provider in an emergency",
+                              },
+                            ],
+                          },
+                          "valueString": "",
+                        },
+                        Object {
+                          "url": "https://fhir.hl7.org.uk/STU3/StructureDefinition/Extension-CareConnect-AdmissionMethod-1",
+                          "valueCodeableConcept": Object {
+                            "coding": Array [
+                              Object {
+                                "display": "2. Transfer of an admitted PATIENT from another Hospital Provider in an emergency",
+                              },
+                            ],
+                          },
+                          "valueString": "",
+                        },
+                      ],
+                      "preAdmissionIdentifier": Object {
+                        "system": "http://www.bmc.nl/zorgportal/identifiers/pre-admissions",
+                        "use": "OFFICIAL",
+                        "value": "93042",
+                      },
+                    },
+                    "id": "2aad27ef-6cd4-e911-a2c7-005056926fe4|case",
+                    "metadata": Object {
+                      "dataSources": Array [
+                        Object {
+                          "display": "Mock Source",
+                        },
+                      ],
+                      "isRedacted": false,
+                      "requestedWhen": "",
+                    },
+                    "participant": Array [
                       Object {
-                        "display": "2. Transfer of an admitted PATIENT from another Hospital Provider in an emergency",
+                        "individual": Object {
+                          "display": "Guillermo Villar",
+                          "reference": "https://phoenixqa.careworks.ie/Services/api/fhir/v3/practitioner/c4434f96-633f-e911-a2c5-005056926fe4|systemuser",
+                          "typeName": "Practitioner",
+                        },
+                        "period": Object {
+                          "start": Object {
+                            "kind": "DATE",
+                            "value": "2020-01-01T00:00:00+00:00",
+                          },
+                        },
+                      },
+                      Object {
+                        "individual": Object {
+                          "display": "Man Test",
+                          "reference": "https://phoenixqa.careworks.ie/Services/api/fhir/v3/practitioner/c4434f96-633f-e911-a2c5-005056926fe4|systemuser",
+                          "typeName": "Nurse",
+                        },
+                        "period": Object {
+                          "end": Object {
+                            "kind": "DATE",
+                            "value": "2020-01-01T00:00:00+00:00",
+                          },
+                          "start": Object {
+                            "kind": "DATE",
+                            "value": "2019-01-01T00:00:00+00:00",
+                          },
+                        },
                       },
                     ],
-                  },
-                  "valueString": "",
-                },
-              ],
-              "preAdmissionIdentifier": Object {
-                "system": "http://www.bmc.nl/zorgportal/identifiers/pre-admissions",
-                "use": "OFFICIAL",
-                "value": "93042",
-              },
-            },
-            "id": "2aad27ef-6cd4-e911-a2c7-005056926fe4|case",
-            "metadata": Object {
-              "dataSources": Array [
-                Object {
-                  "display": "Mock Source",
-                },
-              ],
-              "isRedacted": false,
-              "requestedWhen": "",
-            },
-            "participant": Array [
-              Object {
-                "individual": Object {
-                  "display": "Guillermo Villar",
-                  "reference": "https://phoenixqa.careworks.ie/Services/api/fhir/v3/practitioner/c4434f96-633f-e911-a2c5-005056926fe4|systemuser",
-                  "typeName": "Practitioner",
-                },
-                "period": Object {
-                  "start": Object {
-                    "kind": "DATE",
-                    "value": "2020-01-01T00:00:00+00:00",
-                  },
-                },
-              },
-              Object {
-                "individual": Object {
-                  "display": "Man Test",
-                  "reference": "https://phoenixqa.careworks.ie/Services/api/fhir/v3/practitioner/c4434f96-633f-e911-a2c5-005056926fe4|systemuser",
-                  "typeName": "Nurse",
-                },
-                "period": Object {
-                  "end": Object {
-                    "kind": "DATE",
-                    "value": "2020-01-01T00:00:00+00:00",
-                  },
-                  "start": Object {
-                    "kind": "DATE",
-                    "value": "2019-01-01T00:00:00+00:00",
-                  },
-                },
-              },
-            ],
-            "period": Object {
-              "start": Object {
-                "kind": "DATE",
-                "value": "2020-01-01T00:00:00+00:00",
-              },
-            },
-            "status": "ON_LEAVE",
-            "statusHistory": Array [
-              Object {
-                "period": Object {
-                  "start": Object {
-                    "kind": "DATE",
-                    "value": "2020-01-01T00:00:00+00:00",
-                  },
-                },
-                "status": "IN_PROGRESS",
-              },
-              Object {
-                "period": Object {
-                  "end": Object {
-                    "kind": "DATE",
-                    "value": "2020-01-01T00:00:00+00:00",
-                  },
-                  "start": Object {
-                    "kind": "DATE",
-                    "value": "2019-01-01T00:00:00+00:00",
-                  },
-                },
-                "status": "FINISHED",
-              },
-            ],
-            "text": Object {
-              "div": "test",
-              "text": "Chest x-ray for recent car accident",
-            },
-            "type": Array [
-              Object {
-                "text": "Transferred from other hospital due to lack of space",
-              },
-            ],
-          }
-        }
-      >
-        <div
-          className="emotion-6"
-          role="link"
-        >
-          <div
-            className="emotion-1"
-          >
-            <PeriodSummary
-              period={
-                Object {
-                  "start": Object {
-                    "kind": "DATE",
-                    "value": "2020-01-01T00:00:00+00:00",
-                  },
+                    "period": Object {
+                      "start": Object {
+                        "kind": "DATE",
+                        "value": "2020-01-01T00:00:00+00:00",
+                      },
+                    },
+                    "status": "ON_LEAVE",
+                    "statusHistory": Array [
+                      Object {
+                        "period": Object {
+                          "start": Object {
+                            "kind": "DATE",
+                            "value": "2020-01-01T00:00:00+00:00",
+                          },
+                        },
+                        "status": "IN_PROGRESS",
+                      },
+                      Object {
+                        "period": Object {
+                          "end": Object {
+                            "kind": "DATE",
+                            "value": "2020-01-01T00:00:00+00:00",
+                          },
+                          "start": Object {
+                            "kind": "DATE",
+                            "value": "2019-01-01T00:00:00+00:00",
+                          },
+                        },
+                        "status": "FINISHED",
+                      },
+                    ],
+                    "text": Object {
+                      "div": "test",
+                      "text": "Chest x-ray for recent car accident",
+                    },
+                    "type": Array [
+                      Object {
+                        "text": "Transferred from other hospital due to lack of space",
+                      },
+                    ],
+                  }
                 }
-              }
-            >
-              <div
-                className="emotion-0"
               >
-                Jan-01,-2020 to Present
-              </div>
-            </PeriodSummary>
-          </div>
-          <div
-            className="emotion-3"
-          >
-            <HospitalStayDescription
-              encounter={
-                Object {
-                  "episodeOfCare": Array [
-                    Object {
-                      "display": "Martin, Jack - (15/04/1980) [QA-CAS-000001-6537]",
-                      "reference": "https://phoenixqa.careworks.ie/Services/api/fhir/v3/episodeofcare/2aad27ef-6cd4-e911-a2c7-005056926fe4|case",
-                      "typeName": "EpisodeOfCare",
-                    },
-                  ],
-                  "hospitalization": Object {
-                    "admitSource": Object {
-                      "coding": Array [
-                        Object {
-                          "code": "305956004",
-                          "display": "Referral by physician",
-                          "system": "http://snomed.info/sct",
-                        },
-                      ],
-                    },
-                    "dischargeDisposition": Object {
-                      "coding": Array [
-                        Object {
-                          "code": "306689006",
-                          "display": "Discharge to home",
-                          "system": "http://snomed.info/sct",
-                        },
-                      ],
-                    },
-                    "extension": Array [
-                      Object {
-                        "url": "https://fhir.hl7.org.uk/STU3/StructureDefinition/Extension-CareConnect-AdmissionMethod-1",
-                        "valueCodeableConcept": Object {
-                          "coding": Array [
-                            Object {
-                              "display": "1. Transfer of an admitted PATIENT from another Hospital Provider in an emergency",
-                            },
-                          ],
-                        },
-                        "valueString": "",
-                      },
-                      Object {
-                        "url": "https://fhir.hl7.org.uk/STU3/StructureDefinition/Extension-CareConnect-AdmissionMethod-1",
-                        "valueCodeableConcept": Object {
-                          "coding": Array [
-                            Object {
-                              "display": "2. Transfer of an admitted PATIENT from another Hospital Provider in an emergency",
-                            },
-                          ],
-                        },
-                        "valueString": "",
-                      },
-                    ],
-                    "preAdmissionIdentifier": Object {
-                      "system": "http://www.bmc.nl/zorgportal/identifiers/pre-admissions",
-                      "use": "OFFICIAL",
-                      "value": "93042",
-                    },
-                  },
-                  "id": "2aad27ef-6cd4-e911-a2c7-005056926fe4|case",
-                  "metadata": Object {
-                    "dataSources": Array [
-                      Object {
-                        "display": "Mock Source",
-                      },
-                    ],
-                    "isRedacted": false,
-                    "requestedWhen": "",
-                  },
-                  "participant": Array [
-                    Object {
-                      "individual": Object {
-                        "display": "Guillermo Villar",
-                        "reference": "https://phoenixqa.careworks.ie/Services/api/fhir/v3/practitioner/c4434f96-633f-e911-a2c5-005056926fe4|systemuser",
-                        "typeName": "Practitioner",
-                      },
-                      "period": Object {
-                        "start": Object {
-                          "kind": "DATE",
-                          "value": "2020-01-01T00:00:00+00:00",
-                        },
-                      },
-                    },
-                    Object {
-                      "individual": Object {
-                        "display": "Man Test",
-                        "reference": "https://phoenixqa.careworks.ie/Services/api/fhir/v3/practitioner/c4434f96-633f-e911-a2c5-005056926fe4|systemuser",
-                        "typeName": "Nurse",
-                      },
-                      "period": Object {
-                        "end": Object {
-                          "kind": "DATE",
-                          "value": "2020-01-01T00:00:00+00:00",
-                        },
-                        "start": Object {
-                          "kind": "DATE",
-                          "value": "2019-01-01T00:00:00+00:00",
-                        },
-                      },
-                    },
-                  ],
-                  "period": Object {
-                    "start": Object {
-                      "kind": "DATE",
-                      "value": "2020-01-01T00:00:00+00:00",
-                    },
-                  },
-                  "status": "ON_LEAVE",
-                  "statusHistory": Array [
-                    Object {
-                      "period": Object {
-                        "start": Object {
-                          "kind": "DATE",
-                          "value": "2020-01-01T00:00:00+00:00",
-                        },
-                      },
-                      "status": "IN_PROGRESS",
-                    },
-                    Object {
-                      "period": Object {
-                        "end": Object {
-                          "kind": "DATE",
-                          "value": "2020-01-01T00:00:00+00:00",
-                        },
-                        "start": Object {
-                          "kind": "DATE",
-                          "value": "2019-01-01T00:00:00+00:00",
-                        },
-                      },
-                      "status": "FINISHED",
-                    },
-                  ],
-                  "text": Object {
-                    "div": "test",
-                    "text": "Chest x-ray for recent car accident",
-                  },
-                  "type": Array [
-                    Object {
-                      "text": "Transferred from other hospital due to lack of space",
-                    },
-                  ],
-                }
-              }
-            >
-              <div
-                className="emotion-2"
-              >
-                Chest x-ray for recent car accident
-              </div>
-            </HospitalStayDescription>
-          </div>
-          <div
-            className="emotion-5"
-          >
-            <HospitalStayServiceProvider
-              encounter={
-                Object {
-                  "episodeOfCare": Array [
-                    Object {
-                      "display": "Martin, Jack - (15/04/1980) [QA-CAS-000001-6537]",
-                      "reference": "https://phoenixqa.careworks.ie/Services/api/fhir/v3/episodeofcare/2aad27ef-6cd4-e911-a2c7-005056926fe4|case",
-                      "typeName": "EpisodeOfCare",
-                    },
-                  ],
-                  "hospitalization": Object {
-                    "admitSource": Object {
-                      "coding": Array [
-                        Object {
-                          "code": "305956004",
-                          "display": "Referral by physician",
-                          "system": "http://snomed.info/sct",
-                        },
-                      ],
-                    },
-                    "dischargeDisposition": Object {
-                      "coding": Array [
-                        Object {
-                          "code": "306689006",
-                          "display": "Discharge to home",
-                          "system": "http://snomed.info/sct",
-                        },
-                      ],
-                    },
-                    "extension": Array [
-                      Object {
-                        "url": "https://fhir.hl7.org.uk/STU3/StructureDefinition/Extension-CareConnect-AdmissionMethod-1",
-                        "valueCodeableConcept": Object {
-                          "coding": Array [
-                            Object {
-                              "display": "1. Transfer of an admitted PATIENT from another Hospital Provider in an emergency",
-                            },
-                          ],
-                        },
-                        "valueString": "",
-                      },
-                      Object {
-                        "url": "https://fhir.hl7.org.uk/STU3/StructureDefinition/Extension-CareConnect-AdmissionMethod-1",
-                        "valueCodeableConcept": Object {
-                          "coding": Array [
-                            Object {
-                              "display": "2. Transfer of an admitted PATIENT from another Hospital Provider in an emergency",
-                            },
-                          ],
-                        },
-                        "valueString": "",
-                      },
-                    ],
-                    "preAdmissionIdentifier": Object {
-                      "system": "http://www.bmc.nl/zorgportal/identifiers/pre-admissions",
-                      "use": "OFFICIAL",
-                      "value": "93042",
-                    },
-                  },
-                  "id": "2aad27ef-6cd4-e911-a2c7-005056926fe4|case",
-                  "metadata": Object {
-                    "dataSources": Array [
-                      Object {
-                        "display": "Mock Source",
-                      },
-                    ],
-                    "isRedacted": false,
-                    "requestedWhen": "",
-                  },
-                  "participant": Array [
-                    Object {
-                      "individual": Object {
-                        "display": "Guillermo Villar",
-                        "reference": "https://phoenixqa.careworks.ie/Services/api/fhir/v3/practitioner/c4434f96-633f-e911-a2c5-005056926fe4|systemuser",
-                        "typeName": "Practitioner",
-                      },
-                      "period": Object {
-                        "start": Object {
-                          "kind": "DATE",
-                          "value": "2020-01-01T00:00:00+00:00",
-                        },
-                      },
-                    },
-                    Object {
-                      "individual": Object {
-                        "display": "Man Test",
-                        "reference": "https://phoenixqa.careworks.ie/Services/api/fhir/v3/practitioner/c4434f96-633f-e911-a2c5-005056926fe4|systemuser",
-                        "typeName": "Nurse",
-                      },
-                      "period": Object {
-                        "end": Object {
-                          "kind": "DATE",
-                          "value": "2020-01-01T00:00:00+00:00",
-                        },
-                        "start": Object {
-                          "kind": "DATE",
-                          "value": "2019-01-01T00:00:00+00:00",
-                        },
-                      },
-                    },
-                  ],
-                  "period": Object {
-                    "start": Object {
-                      "kind": "DATE",
-                      "value": "2020-01-01T00:00:00+00:00",
-                    },
-                  },
-                  "status": "ON_LEAVE",
-                  "statusHistory": Array [
-                    Object {
-                      "period": Object {
-                        "start": Object {
-                          "kind": "DATE",
-                          "value": "2020-01-01T00:00:00+00:00",
-                        },
-                      },
-                      "status": "IN_PROGRESS",
-                    },
-                    Object {
-                      "period": Object {
-                        "end": Object {
-                          "kind": "DATE",
-                          "value": "2020-01-01T00:00:00+00:00",
-                        },
-                        "start": Object {
-                          "kind": "DATE",
-                          "value": "2019-01-01T00:00:00+00:00",
-                        },
-                      },
-                      "status": "FINISHED",
-                    },
-                  ],
-                  "text": Object {
-                    "div": "test",
-                    "text": "Chest x-ray for recent car accident",
-                  },
-                  "type": Array [
-                    Object {
-                      "text": "Transferred from other hospital due to lack of space",
-                    },
-                  ],
-                }
-              }
-            >
-              <div
-                className="emotion-4"
-              >
-                Mock Source
-              </div>
-            </HospitalStayServiceProvider>
-          </div>
+                <div
+                  className="emotion-4"
+                >
+                  Mock Source
+                </div>
+              </HospitalStayServiceProvider>
+            </div>
+          </Styled(div)>
         </div>
-      </HospitalStaySummaryItem>
-    </li>
-  </ListItem>
-</HospitalStaySummary>
+      </Styled(div)>
+    </HospitalStaySummary>
+  </div>
+</Sut>
 `;
