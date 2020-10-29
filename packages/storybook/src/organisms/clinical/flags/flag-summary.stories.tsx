@@ -24,7 +24,11 @@ stories.addWithJSX('Summary', () => (
       <h3>Flags</h3>
     </Card.Header>
     <Card.List>
-      <FlagSummary flags={flags} />
+      {flags.map(flag => (
+        <Card.ListItem key={flag.id}>
+          <FlagSummary flag={flag} />
+        </Card.ListItem>
+      ))}
     </Card.List>
   </Card>
 ))

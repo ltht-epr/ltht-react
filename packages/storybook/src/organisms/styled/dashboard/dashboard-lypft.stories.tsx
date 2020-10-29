@@ -40,13 +40,15 @@ stories.addWithJSX('Readonly Cards', () => {
       <Column>
         <Card>
           <Card.Header>
-            <h3>Flags</h3>
+            <Card.Title>Alerts</Card.Title>
           </Card.Header>
-          <Card.Body>
-            <Card.List>
-              <FlagSummary flags={undefined} />
-            </Card.List>
-          </Card.Body>
+          <Card.List>
+            {flags.map(flag => (
+              <Card.ListItem key={flag.id}>
+                <FlagSummary flag={flag} />
+              </Card.ListItem>
+            ))}
+          </Card.List>
         </Card>
         <Card>
           <Card.Header>
@@ -83,16 +85,6 @@ stories.addWithJSX('Readonly Cards', () => {
               </Card.ListItem>
             ))}
           </Card.List>
-        </Card>
-        <Card>
-          <Card.Header>
-            <h3>Alerts</h3>
-          </Card.Header>
-          <Card.Body>
-            <Card.List>
-              <FlagSummary flags={flags} />
-            </Card.List>
-          </Card.Body>
         </Card>
       </Column>
       <Column>
