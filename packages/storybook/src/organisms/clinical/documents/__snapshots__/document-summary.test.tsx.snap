@@ -1,30 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`DocumentSummaryy matches snapshot: wrapper mount 1`] = `
-.emotion-16 {
-  margin-right: -0.5rem;
-}
-
-.emotion-16 > ul li {
-  border-top: 1px solid #b0b0b0;
-  padding-top: 0.25rem;
-}
-
-.emotion-16 > ul li:hover {
-  cursor: pointer;
-  background: #E8EDEE;
-}
-
-.emotion-16 > ul li:focus {
-  background: rgba(0,114,206,0.2) !important;
-  outline: none !important;
-}
-
-.emotion-16 > ul li > div {
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+.emotion-4 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -32,496 +9,684 @@ exports[`DocumentSummaryy matches snapshot: wrapper mount 1`] = `
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
-  -webkit-flex-wrap: nowrap;
-  -ms-flex-wrap: nowrap;
-  flex-wrap: nowrap;
-  padding-bottom: 0.25rem;
-  padding-right: 0.5rem;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
-.emotion-15 {
-  list-style-type: none;
-  list-style-position: inside;
-}
-
-.emotion-0 {
+.emotion-1 {
   -webkit-box-flex: 1;
   -webkit-flex-grow: 1;
   -ms-flex-positive: 1;
   flex-grow: 1;
-  margin: 0 0.5rem;
-  text-align: left;
-}
-
-.emotion-2 {
-  margin-right: 0.5rem;
-  text-align: right;
-}
-
-.emotion-1 {
-  color: #768692;
-  font-size: smaller;
+  margin-left: 0.5rem;
 }
 
 .emotion-3 {
-  color: -v-a-l-u-e:#768692;
-  -d-a-r-k-e-r25: #59656e;
-  -l-i-g-h-t-e-r25: #98a4ad;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  text-align: right;
 }
 
-<DocumentSummary
-  documents={
-    Array [
-      Object {
-        "content": Array [],
-        "created": Object {
-          "value": "2020-04-01T00:00:00+00:00",
-        },
-        "description": "Description of document one",
-        "id": "6b554095-bd5f-4134-8dbb-a21971959fd3",
-        "indexed": Object {
-          "value": "2020-04-01T00:00:00+00:00",
-        },
-        "metadata": Object {
-          "dataSources": Array [
-            Object {
-              "display": "Mock",
-            },
-          ],
-          "isRedacted": false,
-          "requestedWhen": "",
-        },
-        "status": "CURRENT",
-        "type": Object {},
-      },
-      Object {
-        "content": Array [],
-        "created": Object {
-          "value": "2019-10-11T00:00:00+00:00",
-        },
-        "description": "Description of document two",
-        "id": "2d889a55-d7ec-46ae-b674-23dfc6666014",
-        "indexed": Object {
-          "value": "2019-10-11T00:00:00+00:00",
-        },
-        "metadata": Object {
-          "dataSources": Array [
-            Object {
-              "display": "Mock",
-            },
-          ],
-          "isRedacted": false,
-          "requestedWhen": "",
-        },
-        "status": "ENTERED_IN_ERROR",
-        "type": Object {},
-      },
-      Object {
-        "content": Array [],
-        "created": Object {
-          "value": "2020-01-23T00:00:00+00:00",
-        },
-        "description": "Description of document three",
-        "id": "38962be0-4e5e-4640-a23e-af45da7c0578",
-        "indexed": Object {
-          "value": "2020-01-23T00:00:00+00:00",
-        },
-        "metadata": Object {
-          "dataSources": Array [
-            Object {
-              "display": "Mock",
-            },
-          ],
-          "isRedacted": false,
-          "requestedWhen": "",
-        },
-        "status": "SUPERSEDED",
-        "type": Object {},
-      },
-    ]
-  }
->
+.emotion-2 {
+  color: #768692;
+}
+
+.emotion-10 {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+.emotion-12 {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  text-align: right;
+}
+
+.emotion-11 {
+  color: #768692;
+}
+
+<Sut>
   <div
-    className="emotion-16"
+    key="6b554095-bd5f-4134-8dbb-a21971959fd3"
   >
-    <UnorderedList>
-      <ul
-        className="list emotion-15"
-      >
-        <DocumentSummaryItem
-          document={
-            Object {
-              "content": Array [],
-              "created": Object {
-                "value": "2020-04-01T00:00:00+00:00",
+    <DocumentSummary
+      document={
+        Object {
+          "content": Array [],
+          "created": Object {
+            "value": "2020-04-01T00:00:00+00:00",
+          },
+          "description": "Description of document one",
+          "id": "6b554095-bd5f-4134-8dbb-a21971959fd3",
+          "indexed": Object {
+            "value": "2020-04-01T00:00:00+00:00",
+          },
+          "metadata": Object {
+            "dataSources": Array [
+              Object {
+                "display": "Mock",
               },
-              "description": "Description of document one",
-              "id": "6b554095-bd5f-4134-8dbb-a21971959fd3",
-              "indexed": Object {
-                "value": "2020-04-01T00:00:00+00:00",
-              },
-              "metadata": Object {
-                "dataSources": Array [
-                  Object {
-                    "display": "Mock",
-                  },
-                ],
-                "isRedacted": false,
-                "requestedWhen": "",
-              },
-              "status": "CURRENT",
-              "type": Object {},
-            }
-          }
-          key="6b554095-bd5f-4134-8dbb-a21971959fd3"
+            ],
+            "isRedacted": false,
+            "requestedWhen": "",
+          },
+          "status": "CURRENT",
+          "type": Object {},
+        }
+      }
+    >
+      <Styled(div)>
+        <div
+          className="emotion-4"
         >
-          <ListItem
-            tabIndex={-1}
-          >
-            <li
-              tabIndex={-1}
+          <Styled(div)>
+            <div
+              className="emotion-0"
             >
-              <DocumentSummaryContent
-                clickHandler={[Function]}
-                created="4/1/2020"
-                description="Description of document one"
-                source="Mock"
-                status="CURRENT"
+              <DocumentDate
+                document={
+                  Object {
+                    "content": Array [],
+                    "created": Object {
+                      "value": "2020-04-01T00:00:00+00:00",
+                    },
+                    "description": "Description of document one",
+                    "id": "6b554095-bd5f-4134-8dbb-a21971959fd3",
+                    "indexed": Object {
+                      "value": "2020-04-01T00:00:00+00:00",
+                    },
+                    "metadata": Object {
+                      "dataSources": Array [
+                        Object {
+                          "display": "Mock",
+                        },
+                      ],
+                      "isRedacted": false,
+                      "requestedWhen": "",
+                    },
+                    "status": "CURRENT",
+                    "type": Object {},
+                  }
+                }
               >
-                <div
-                  onClick={[Function]}
-                >
-                  <div>
-                    4/1/2020
-                  </div>
-                  <div
-                    className="emotion-0"
-                  >
-                    Description of document one
-                  </div>
+                <div>
+                  Apr-01,-2020
+                </div>
+              </DocumentDate>
+            </div>
+          </Styled(div)>
+          <Styled(div)>
+            <div
+              className="emotion-1"
+            >
+              <DocumentDescription
+                document={
+                  Object {
+                    "content": Array [],
+                    "created": Object {
+                      "value": "2020-04-01T00:00:00+00:00",
+                    },
+                    "description": "Description of document one",
+                    "id": "6b554095-bd5f-4134-8dbb-a21971959fd3",
+                    "indexed": Object {
+                      "value": "2020-04-01T00:00:00+00:00",
+                    },
+                    "metadata": Object {
+                      "dataSources": Array [
+                        Object {
+                          "display": "Mock",
+                        },
+                      ],
+                      "isRedacted": false,
+                      "requestedWhen": "",
+                    },
+                    "status": "CURRENT",
+                    "type": Object {},
+                  }
+                }
+              >
+                Description of document one
+              </DocumentDescription>
+            </div>
+          </Styled(div)>
+          <Styled(div)>
+            <div
+              className="emotion-3"
+            >
+              <DocumentSource
+                document={
+                  Object {
+                    "content": Array [],
+                    "created": Object {
+                      "value": "2020-04-01T00:00:00+00:00",
+                    },
+                    "description": "Description of document one",
+                    "id": "6b554095-bd5f-4134-8dbb-a21971959fd3",
+                    "indexed": Object {
+                      "value": "2020-04-01T00:00:00+00:00",
+                    },
+                    "metadata": Object {
+                      "dataSources": Array [
+                        Object {
+                          "display": "Mock",
+                        },
+                      ],
+                      "isRedacted": false,
+                      "requestedWhen": "",
+                    },
+                    "status": "CURRENT",
+                    "type": Object {},
+                  }
+                }
+              >
+                <div>
+                  Mock
+                </div>
+              </DocumentSource>
+              <DocumentStatus
+                document={
+                  Object {
+                    "content": Array [],
+                    "created": Object {
+                      "value": "2020-04-01T00:00:00+00:00",
+                    },
+                    "description": "Description of document one",
+                    "id": "6b554095-bd5f-4134-8dbb-a21971959fd3",
+                    "indexed": Object {
+                      "value": "2020-04-01T00:00:00+00:00",
+                    },
+                    "metadata": Object {
+                      "dataSources": Array [
+                        Object {
+                          "display": "Mock",
+                        },
+                      ],
+                      "isRedacted": false,
+                      "requestedWhen": "",
+                    },
+                    "status": "CURRENT",
+                    "type": Object {},
+                  }
+                }
+              >
+                <Styled(div)>
                   <div
                     className="emotion-2"
                   >
-                    <div>
-                      Mock
-                    </div>
-                    <div
-                      className="emotion-1"
-                    >
-                      Current
-                    </div>
+                    Current
                   </div>
-                  <div>
-                    <ChevronIcon
-                      direction="right"
-                      size="large"
-                    >
-                      <FontAwesomeIcon
-                        border={false}
-                        className="emotion-3"
-                        fixedWidth={false}
-                        flip={null}
-                        icon={
-                          Object {
-                            "icon": Array [
-                              320,
-                              512,
-                              Array [],
-                              "f054",
-                              "M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z",
-                            ],
-                            "iconName": "chevron-right",
-                            "prefix": "fas",
-                          }
-                        }
-                        inverse={false}
-                        listItem={false}
-                        mask={null}
-                        pull={null}
-                        pulse={false}
-                        rotation={null}
-                        size="lg"
-                        spin={false}
-                        swapOpacity={false}
-                        symbol={false}
-                        title=""
-                        transform={null}
-                      >
-                        <svg
-                          aria-hidden="true"
-                          className="svg-inline--fa fa-chevron-right fa-w-10 fa-lg emotion-3"
-                          data-icon="chevron-right"
-                          data-prefix="fas"
-                          focusable="false"
-                          role="img"
-                          style={Object {}}
-                          viewBox="0 0 320 512"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"
-                            fill="currentColor"
-                            style={Object {}}
-                          />
-                        </svg>
-                      </FontAwesomeIcon>
-                    </ChevronIcon>
-                  </div>
-                </div>
-              </DocumentSummaryContent>
-            </li>
-          </ListItem>
-        </DocumentSummaryItem>
-        <DocumentSummaryItem
-          document={
-            Object {
-              "content": Array [],
-              "created": Object {
-                "value": "2019-10-11T00:00:00+00:00",
-              },
-              "description": "Description of document two",
-              "id": "2d889a55-d7ec-46ae-b674-23dfc6666014",
-              "indexed": Object {
-                "value": "2019-10-11T00:00:00+00:00",
-              },
-              "metadata": Object {
-                "dataSources": Array [
-                  Object {
-                    "display": "Mock",
-                  },
-                ],
-                "isRedacted": false,
-                "requestedWhen": "",
-              },
-              "status": "ENTERED_IN_ERROR",
-              "type": Object {},
-            }
-          }
-          key="2d889a55-d7ec-46ae-b674-23dfc6666014"
-        >
-          <ListItem
-            tabIndex={-1}
-          >
-            <li
-              tabIndex={-1}
-            >
-              <DocumentSummaryContent
-                clickHandler={[Function]}
-                created="10/11/2019"
-                description="Description of document two"
-                source="Mock"
-                status="ENTERED_IN_ERROR"
-              >
-                <div
-                  onClick={[Function]}
-                >
-                  <div>
-                    10/11/2019
-                  </div>
-                  <div
-                    className="emotion-0"
-                  >
-                    Description of document two
-                  </div>
-                  <div
-                    className="emotion-2"
-                  >
-                    <div>
-                      Mock
-                    </div>
-                    <div
-                      className="emotion-1"
-                    >
-                      Entered In Error
-                    </div>
-                  </div>
-                  <div>
-                    <ChevronIcon
-                      direction="right"
-                      size="large"
-                    >
-                      <FontAwesomeIcon
-                        border={false}
-                        className="emotion-3"
-                        fixedWidth={false}
-                        flip={null}
-                        icon={
-                          Object {
-                            "icon": Array [
-                              320,
-                              512,
-                              Array [],
-                              "f054",
-                              "M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z",
-                            ],
-                            "iconName": "chevron-right",
-                            "prefix": "fas",
-                          }
-                        }
-                        inverse={false}
-                        listItem={false}
-                        mask={null}
-                        pull={null}
-                        pulse={false}
-                        rotation={null}
-                        size="lg"
-                        spin={false}
-                        swapOpacity={false}
-                        symbol={false}
-                        title=""
-                        transform={null}
-                      >
-                        <svg
-                          aria-hidden="true"
-                          className="svg-inline--fa fa-chevron-right fa-w-10 fa-lg emotion-3"
-                          data-icon="chevron-right"
-                          data-prefix="fas"
-                          focusable="false"
-                          role="img"
-                          style={Object {}}
-                          viewBox="0 0 320 512"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"
-                            fill="currentColor"
-                            style={Object {}}
-                          />
-                        </svg>
-                      </FontAwesomeIcon>
-                    </ChevronIcon>
-                  </div>
-                </div>
-              </DocumentSummaryContent>
-            </li>
-          </ListItem>
-        </DocumentSummaryItem>
-        <DocumentSummaryItem
-          document={
-            Object {
-              "content": Array [],
-              "created": Object {
-                "value": "2020-01-23T00:00:00+00:00",
-              },
-              "description": "Description of document three",
-              "id": "38962be0-4e5e-4640-a23e-af45da7c0578",
-              "indexed": Object {
-                "value": "2020-01-23T00:00:00+00:00",
-              },
-              "metadata": Object {
-                "dataSources": Array [
-                  Object {
-                    "display": "Mock",
-                  },
-                ],
-                "isRedacted": false,
-                "requestedWhen": "",
-              },
-              "status": "SUPERSEDED",
-              "type": Object {},
-            }
-          }
-          key="38962be0-4e5e-4640-a23e-af45da7c0578"
-        >
-          <ListItem
-            tabIndex={-1}
-          >
-            <li
-              tabIndex={-1}
-            >
-              <DocumentSummaryContent
-                clickHandler={[Function]}
-                created="1/23/2020"
-                description="Description of document three"
-                source="Mock"
-                status="SUPERSEDED"
-              >
-                <div
-                  onClick={[Function]}
-                >
-                  <div>
-                    1/23/2020
-                  </div>
-                  <div
-                    className="emotion-0"
-                  >
-                    Description of document three
-                  </div>
-                  <div
-                    className="emotion-2"
-                  >
-                    <div>
-                      Mock
-                    </div>
-                    <div
-                      className="emotion-1"
-                    >
-                      Superseded
-                    </div>
-                  </div>
-                  <div>
-                    <ChevronIcon
-                      direction="right"
-                      size="large"
-                    >
-                      <FontAwesomeIcon
-                        border={false}
-                        className="emotion-3"
-                        fixedWidth={false}
-                        flip={null}
-                        icon={
-                          Object {
-                            "icon": Array [
-                              320,
-                              512,
-                              Array [],
-                              "f054",
-                              "M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z",
-                            ],
-                            "iconName": "chevron-right",
-                            "prefix": "fas",
-                          }
-                        }
-                        inverse={false}
-                        listItem={false}
-                        mask={null}
-                        pull={null}
-                        pulse={false}
-                        rotation={null}
-                        size="lg"
-                        spin={false}
-                        swapOpacity={false}
-                        symbol={false}
-                        title=""
-                        transform={null}
-                      >
-                        <svg
-                          aria-hidden="true"
-                          className="svg-inline--fa fa-chevron-right fa-w-10 fa-lg emotion-3"
-                          data-icon="chevron-right"
-                          data-prefix="fas"
-                          focusable="false"
-                          role="img"
-                          style={Object {}}
-                          viewBox="0 0 320 512"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"
-                            fill="currentColor"
-                            style={Object {}}
-                          />
-                        </svg>
-                      </FontAwesomeIcon>
-                    </ChevronIcon>
-                  </div>
-                </div>
-              </DocumentSummaryContent>
-            </li>
-          </ListItem>
-        </DocumentSummaryItem>
-      </ul>
-    </UnorderedList>
+                </Styled(div)>
+              </DocumentStatus>
+            </div>
+          </Styled(div)>
+        </div>
+      </Styled(div)>
+    </DocumentSummary>
   </div>
-</DocumentSummary>
+  <div
+    key="2d889a55-d7ec-46ae-b674-23dfc6666014"
+  >
+    <DocumentSummary
+      document={
+        Object {
+          "content": Array [],
+          "created": Object {
+            "value": "2019-10-11T00:00:00+00:00",
+          },
+          "description": "Description of document two",
+          "id": "2d889a55-d7ec-46ae-b674-23dfc6666014",
+          "indexed": Object {
+            "value": "2019-10-11T00:00:00+00:00",
+          },
+          "metadata": Object {
+            "dataSources": Array [
+              Object {
+                "display": "Mock",
+              },
+            ],
+            "isRedacted": false,
+            "requestedWhen": "",
+          },
+          "status": "ENTERED_IN_ERROR",
+          "type": Object {},
+        }
+      }
+    >
+      <Styled(div)>
+        <div
+          className="emotion-4"
+        >
+          <Styled(div)>
+            <div
+              className="emotion-0"
+            >
+              <DocumentDate
+                document={
+                  Object {
+                    "content": Array [],
+                    "created": Object {
+                      "value": "2019-10-11T00:00:00+00:00",
+                    },
+                    "description": "Description of document two",
+                    "id": "2d889a55-d7ec-46ae-b674-23dfc6666014",
+                    "indexed": Object {
+                      "value": "2019-10-11T00:00:00+00:00",
+                    },
+                    "metadata": Object {
+                      "dataSources": Array [
+                        Object {
+                          "display": "Mock",
+                        },
+                      ],
+                      "isRedacted": false,
+                      "requestedWhen": "",
+                    },
+                    "status": "ENTERED_IN_ERROR",
+                    "type": Object {},
+                  }
+                }
+              >
+                <div>
+                  Oct-11,-2019
+                </div>
+              </DocumentDate>
+            </div>
+          </Styled(div)>
+          <Styled(div)>
+            <div
+              className="emotion-1"
+            >
+              <DocumentDescription
+                document={
+                  Object {
+                    "content": Array [],
+                    "created": Object {
+                      "value": "2019-10-11T00:00:00+00:00",
+                    },
+                    "description": "Description of document two",
+                    "id": "2d889a55-d7ec-46ae-b674-23dfc6666014",
+                    "indexed": Object {
+                      "value": "2019-10-11T00:00:00+00:00",
+                    },
+                    "metadata": Object {
+                      "dataSources": Array [
+                        Object {
+                          "display": "Mock",
+                        },
+                      ],
+                      "isRedacted": false,
+                      "requestedWhen": "",
+                    },
+                    "status": "ENTERED_IN_ERROR",
+                    "type": Object {},
+                  }
+                }
+              >
+                Description of document two
+              </DocumentDescription>
+            </div>
+          </Styled(div)>
+          <Styled(div)>
+            <div
+              className="emotion-3"
+            >
+              <DocumentSource
+                document={
+                  Object {
+                    "content": Array [],
+                    "created": Object {
+                      "value": "2019-10-11T00:00:00+00:00",
+                    },
+                    "description": "Description of document two",
+                    "id": "2d889a55-d7ec-46ae-b674-23dfc6666014",
+                    "indexed": Object {
+                      "value": "2019-10-11T00:00:00+00:00",
+                    },
+                    "metadata": Object {
+                      "dataSources": Array [
+                        Object {
+                          "display": "Mock",
+                        },
+                      ],
+                      "isRedacted": false,
+                      "requestedWhen": "",
+                    },
+                    "status": "ENTERED_IN_ERROR",
+                    "type": Object {},
+                  }
+                }
+              >
+                <div>
+                  Mock
+                </div>
+              </DocumentSource>
+              <DocumentStatus
+                document={
+                  Object {
+                    "content": Array [],
+                    "created": Object {
+                      "value": "2019-10-11T00:00:00+00:00",
+                    },
+                    "description": "Description of document two",
+                    "id": "2d889a55-d7ec-46ae-b674-23dfc6666014",
+                    "indexed": Object {
+                      "value": "2019-10-11T00:00:00+00:00",
+                    },
+                    "metadata": Object {
+                      "dataSources": Array [
+                        Object {
+                          "display": "Mock",
+                        },
+                      ],
+                      "isRedacted": false,
+                      "requestedWhen": "",
+                    },
+                    "status": "ENTERED_IN_ERROR",
+                    "type": Object {},
+                  }
+                }
+              >
+                <Styled(div)>
+                  <div
+                    className="emotion-2"
+                  >
+                    Entered In Error
+                  </div>
+                </Styled(div)>
+              </DocumentStatus>
+            </div>
+          </Styled(div)>
+        </div>
+      </Styled(div)>
+    </DocumentSummary>
+  </div>
+  <div
+    key="38962be0-4e5e-4640-a23e-af45da7c0578"
+  >
+    <DocumentSummary
+      document={
+        Object {
+          "content": Array [],
+          "created": Object {
+            "value": "2020-01-11T00:00:00+00:00",
+          },
+          "description": "Description of document three",
+          "id": "38962be0-4e5e-4640-a23e-af45da7c0578",
+          "indexed": Object {
+            "value": "2020-01-23T00:00:00+00:00",
+          },
+          "metadata": Object {
+            "dataSources": Array [],
+            "isRedacted": true,
+            "requestedWhen": "",
+          },
+          "status": "SUPERSEDED",
+          "type": Object {},
+        }
+      }
+    >
+      <Styled(div)>
+        <div
+          className="emotion-4"
+        >
+          <DocumentRedacted
+            document={
+              Object {
+                "content": Array [],
+                "created": Object {
+                  "value": "2020-01-11T00:00:00+00:00",
+                },
+                "description": "Description of document three",
+                "id": "38962be0-4e5e-4640-a23e-af45da7c0578",
+                "indexed": Object {
+                  "value": "2020-01-23T00:00:00+00:00",
+                },
+                "metadata": Object {
+                  "dataSources": Array [],
+                  "isRedacted": true,
+                  "requestedWhen": "",
+                },
+                "status": "SUPERSEDED",
+                "type": Object {},
+              }
+            }
+          >
+            <Styled(div)>
+              <div
+                className="emotion-10"
+              >
+                <DocumentDate
+                  document={
+                    Object {
+                      "content": Array [],
+                      "created": Object {
+                        "value": "2020-01-11T00:00:00+00:00",
+                      },
+                      "description": "Description of document three",
+                      "id": "38962be0-4e5e-4640-a23e-af45da7c0578",
+                      "indexed": Object {
+                        "value": "2020-01-23T00:00:00+00:00",
+                      },
+                      "metadata": Object {
+                        "dataSources": Array [],
+                        "isRedacted": true,
+                        "requestedWhen": "",
+                      },
+                      "status": "SUPERSEDED",
+                      "type": Object {},
+                    }
+                  }
+                >
+                  <div>
+                    Jan-11,-2020
+                  </div>
+                </DocumentDate>
+              </div>
+            </Styled(div)>
+            <Styled(div)>
+              <div
+                className="emotion-12"
+              >
+                <RedactedDescription>
+                  <div
+                    className="emotion-11"
+                  >
+                    Insufficient privileges
+                  </div>
+                </RedactedDescription>
+              </div>
+            </Styled(div)>
+          </DocumentRedacted>
+        </div>
+      </Styled(div)>
+    </DocumentSummary>
+  </div>
+  <div
+    key="38962be0-4e5e-4640-a23e-af45da7c0777"
+  >
+    <DocumentSummary
+      document={
+        Object {
+          "content": Array [],
+          "created": Object {
+            "value": "2020-01-23T00:00:00+00:00",
+          },
+          "description": "Description of document three",
+          "id": "38962be0-4e5e-4640-a23e-af45da7c0777",
+          "indexed": Object {
+            "value": "2020-01-23T00:00:00+00:00",
+          },
+          "metadata": Object {
+            "dataSources": Array [
+              Object {
+                "display": "Mock",
+              },
+            ],
+            "isRedacted": false,
+            "requestedWhen": "",
+          },
+          "status": "SUPERSEDED",
+          "type": Object {},
+        }
+      }
+    >
+      <Styled(div)>
+        <div
+          className="emotion-4"
+        >
+          <Styled(div)>
+            <div
+              className="emotion-0"
+            >
+              <DocumentDate
+                document={
+                  Object {
+                    "content": Array [],
+                    "created": Object {
+                      "value": "2020-01-23T00:00:00+00:00",
+                    },
+                    "description": "Description of document three",
+                    "id": "38962be0-4e5e-4640-a23e-af45da7c0777",
+                    "indexed": Object {
+                      "value": "2020-01-23T00:00:00+00:00",
+                    },
+                    "metadata": Object {
+                      "dataSources": Array [
+                        Object {
+                          "display": "Mock",
+                        },
+                      ],
+                      "isRedacted": false,
+                      "requestedWhen": "",
+                    },
+                    "status": "SUPERSEDED",
+                    "type": Object {},
+                  }
+                }
+              >
+                <div>
+                  Jan-23,-2020
+                </div>
+              </DocumentDate>
+            </div>
+          </Styled(div)>
+          <Styled(div)>
+            <div
+              className="emotion-1"
+            >
+              <DocumentDescription
+                document={
+                  Object {
+                    "content": Array [],
+                    "created": Object {
+                      "value": "2020-01-23T00:00:00+00:00",
+                    },
+                    "description": "Description of document three",
+                    "id": "38962be0-4e5e-4640-a23e-af45da7c0777",
+                    "indexed": Object {
+                      "value": "2020-01-23T00:00:00+00:00",
+                    },
+                    "metadata": Object {
+                      "dataSources": Array [
+                        Object {
+                          "display": "Mock",
+                        },
+                      ],
+                      "isRedacted": false,
+                      "requestedWhen": "",
+                    },
+                    "status": "SUPERSEDED",
+                    "type": Object {},
+                  }
+                }
+              >
+                Description of document three
+              </DocumentDescription>
+            </div>
+          </Styled(div)>
+          <Styled(div)>
+            <div
+              className="emotion-3"
+            >
+              <DocumentSource
+                document={
+                  Object {
+                    "content": Array [],
+                    "created": Object {
+                      "value": "2020-01-23T00:00:00+00:00",
+                    },
+                    "description": "Description of document three",
+                    "id": "38962be0-4e5e-4640-a23e-af45da7c0777",
+                    "indexed": Object {
+                      "value": "2020-01-23T00:00:00+00:00",
+                    },
+                    "metadata": Object {
+                      "dataSources": Array [
+                        Object {
+                          "display": "Mock",
+                        },
+                      ],
+                      "isRedacted": false,
+                      "requestedWhen": "",
+                    },
+                    "status": "SUPERSEDED",
+                    "type": Object {},
+                  }
+                }
+              >
+                <div>
+                  Mock
+                </div>
+              </DocumentSource>
+              <DocumentStatus
+                document={
+                  Object {
+                    "content": Array [],
+                    "created": Object {
+                      "value": "2020-01-23T00:00:00+00:00",
+                    },
+                    "description": "Description of document three",
+                    "id": "38962be0-4e5e-4640-a23e-af45da7c0777",
+                    "indexed": Object {
+                      "value": "2020-01-23T00:00:00+00:00",
+                    },
+                    "metadata": Object {
+                      "dataSources": Array [
+                        Object {
+                          "display": "Mock",
+                        },
+                      ],
+                      "isRedacted": false,
+                      "requestedWhen": "",
+                    },
+                    "status": "SUPERSEDED",
+                    "type": Object {},
+                  }
+                }
+              >
+                <Styled(div)>
+                  <div
+                    className="emotion-2"
+                  >
+                    Superseded
+                  </div>
+                </Styled(div)>
+              </DocumentStatus>
+            </div>
+          </Styled(div)>
+        </div>
+      </Styled(div)>
+    </DocumentSummary>
+  </div>
+</Sut>
 `;

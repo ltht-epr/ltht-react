@@ -9,7 +9,9 @@ const Sut: React.FC = () => {
   return (
     <>
       {guidances.map(guidance => (
-        <GuidanceSummary guidance={guidance} />
+        <div key={guidance.id}>
+          <GuidanceSummary guidance={guidance} />
+        </div>
       ))}
     </>
   )

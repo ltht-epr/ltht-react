@@ -1,5 +1,5 @@
 import { Period } from '@ltht-react/types'
-import partialDateTimeText from './partial-date-time'
+import { partialDateTimeText } from './partial-date-time'
 
 const periodSummaryText = (period?: Period | null): string => {
   const start = (period?.start && partialDateTimeText(period?.start)) || ''

@@ -1,7 +1,7 @@
 export { default as allergyIntoleranceCategoryCodeDisplaySummary } from './allergy-intolerance-category-code'
 export * from './codeable-concept'
 export { default as metadataSourceSummaryText } from './metadata'
-export { default as partialDateTimeText } from './partial-date-time'
+export * from './partial-date-time'
 export { default as periodSummaryText } from './period'
 export { default as resourceReferenceDisplaySummary } from './resource-reference'
 export { default as titleCase } from './title-case'
