@@ -1,6 +1,6 @@
 {
   "name": "@ltht-react/icon",
-  "version": "0.1.27",
+  "version": "0.2.0",
   "description": "ltht-react styled Icon component.",
   "author": "LTHT",
   "homepage": "",
@@ -30,9 +30,9 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.26",
     "@fortawesome/free-solid-svg-icons": "^5.12.0",
     "@fortawesome/react-fontawesome": "^0.1.8",
-    "@ltht-react/styles": "^0.1.19",
-    "@ltht-react/types": "^0.0.26",
-    "@ltht-react/utils": "^0.1.19",
+    "@ltht-react/styles": "^0.2.0",
+    "@ltht-react/types": "^0.1.0",
+    "@ltht-react/utils": "^0.2.0",
     "emotion": "^10.0.27",
     "react": "^16.12.0"
   },

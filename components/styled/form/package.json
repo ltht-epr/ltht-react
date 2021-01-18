@@ -1,6 +1,6 @@
 {
   "name": "@ltht-react/form",
-  "version": "0.0.19",
+  "version": "0.1.0",
   "description": "ltht-react atoms Form component.",
   "author": "LTHT",
   "homepage": "",
@@ -27,9 +27,9 @@
   "dependencies": {
     "@emotion/core": "^10.0.27",
     "@emotion/styled": "^10.0.27",
-    "@ltht-react/styles": "^0.1.19",
+    "@ltht-react/styles": "^0.2.0",
     "@ltht-react/types": "^0.0.9",
-    "@ltht-react/utils": "^0.1.19",
+    "@ltht-react/utils": "^0.2.0",
     "emotion": "^10.0.27",
     "react": "^16.12.0"
   },
