@@ -5,7 +5,6 @@ import JSXAddon from 'storybook-addon-jsx'
 import EForm from '@ltht-react/eform'
 import readme from '@ltht-react/eform/README.md'
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const stories = storiesOf('Organisms - Clinical|EForm', module) as any
 
 stories.addWithJSX = JSXAddon.addWithJSX

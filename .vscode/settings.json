@@ -3,34 +3,14 @@
     "Codeable",
     "Lypft",
     "clickable",
-    "codegen",
     "codings",
-    "docgen",
-    "eform",
-    "flowtype",
     "fontawesome",
     "fortawesome",
-    "ghpages",
-    "ltht",
-    "postclean",
-    "predeploy",
-    "prettylint"
+    "ltht"
   ],
   "npm.packageManager": "yarn",
   "prettier.packageManager": "yarn",
   "eslint.validate": ["javascript", "typescript", "javascriptreact", "typescriptreact"],
   "editor.formatOnSave": true,
-  "eslint.alwaysShowStatus": true,  
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[javascriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[typescriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  "eslint.alwaysShowStatus": true
 }

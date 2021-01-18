@@ -9,10 +9,9 @@ import CommunityTreatmentOrderSummary from '@ltht-react/community-treatment-orde
 import FlagSummary from '@ltht-react/flag-summary'
 import HospitalStaySummary from '@ltht-react/hospital-stay-summary'
 import InvolvedTeamSummary from '@ltht-react/involved-team-summary'
-import ConditionSummary from '@ltht-react/condition-summary'
 
 import DocumentSummary from '@ltht-react/document-summary'
-import Card from '@ltht-react/card'
+import { Card, CardHeader, CardBody, CardList } from '@ltht-react/card'
 import allergies from '../../clinical/allergies/allergy.fixtures'
 import documents from '../../clinical/documents/document-summary.fixture'
 import appointments from '../../clinical/appointments/appointment-summary.fixtures'
@@ -21,7 +20,6 @@ import communityOrders from '../../clinical/community-treatment-orders/community
 import episodeOfCares from '../../clinical/involved-teams/involved-team-summary.fixtures'
 import flags from '../../clinical/flags/flag.fixtures'
 import hospitalStays from '../../clinical/hospital-stays/hospital-stay.fixtures'
-import conditions from '../../clinical/conditions/condition-summary.fixtures'
 
 import { Container, Column } from './dashboard'
 
@@ -38,115 +36,95 @@ stories.addWithJSX('Readonly Cards', () => {
   return (
     <Container>
       <Column>
-        <Card>
-          <Card.Header>
-            <Card.Title>Alerts</Card.Title>
-          </Card.Header>
-          <Card.List>
-            {flags.map(flag => (
-              <Card.ListItem key={flag.id}>
-                <FlagSummary flag={flag} />
-              </Card.ListItem>
-            ))}
-          </Card.List>
+        <Card noData>
+          <CardHeader>
+            <h3>Flags</h3>
+          </CardHeader>
+          <CardBody>
+            <CardList>
+              <FlagSummary flags={undefined} />
+            </CardList>
+          </CardBody>
+        </Card>
+        <Card noData={!allergies}>
+          <CardHeader>
+            <h3>Allergies</h3>
+          </CardHeader>
+          <CardBody>
+            <CardList>
+              <AllergySummary allergies={allergies} />
+            </CardList>
+          </CardBody>
+        </Card>
+        <Card noData={!communityOrders}>
+          <CardHeader>
+            <h3>Community Treatment Orders</h3>
+          </CardHeader>
+          <CardBody>
+            <CardList>
+              <CommunityTreatmentOrderSummary communityTreatmentOrders={communityOrders} />
+            </CardList>
+          </CardBody>
+        </Card>
+        <Card noData={!carePlans}>
+          <CardHeader>
+            <h3>Care Plans</h3>
+          </CardHeader>
+          <CardBody>
+            <CardList>
+              <CarePlanSummary carePlans={carePlans} />
+            </CardList>
+          </CardBody>
         </Card>
         <Card>
-          <Card.Header>
-            <Card.Title>Allergies</Card.Title>
-          </Card.Header>
-          <Card.List>
-            {allergies.map(allergy => (
-              <Card.ListItem key={allergy.id}>
-                <AllergySummary allergy={allergy} />
-              </Card.ListItem>
-            ))}
-          </Card.List>
-        </Card>
-        <Card>
-          <Card.Header>
-            <Card.Title>Community Treatment Orders</Card.Title>
-          </Card.Header>
-          <Card.List>
-            {communityOrders.map(order => (
-              <Card.ListItem key={order.id}>
-                <CommunityTreatmentOrderSummary communityTreatmentOrder={order} />
-              </Card.ListItem>
-            ))}
-          </Card.List>
-        </Card>
-        <Card>
-          <Card.Header>
-            <Card.Title>Care Plans</Card.Title>
-          </Card.Header>
-          <Card.List>
-            {carePlans.map(carePlan => (
-              <Card.ListItem key={carePlan.id}>
-                <CarePlanSummary carePlan={carePlan} />
-              </Card.ListItem>
-            ))}
-          </Card.List>
+          <CardHeader>
+            <h3>Alerts</h3>
+          </CardHeader>
+          <CardBody>
+            <CardList>
+              <FlagSummary flags={flags} />
+            </CardList>
+          </CardBody>
         </Card>
       </Column>
       <Column>
-        <Card>
-          <Card.Header>
-            <Card.Title>Involved Teams</Card.Title>
-          </Card.Header>
-          <Card.List>
-            {episodeOfCares.map(episode => (
-              <Card.ListItem key={episode.id}>
-                <InvolvedTeamSummary episodeOfCare={episode} />
-              </Card.ListItem>
-            ))}
-          </Card.List>
+        <Card noData={!episodeOfCares}>
+          <CardHeader>
+            <h3>Involved Teams</h3>
+          </CardHeader>
+          <CardBody>
+            <CardList>
+              <InvolvedTeamSummary episodeOfCares={episodeOfCares} />
+            </CardList>
+          </CardBody>
         </Card>
-        <Card>
-          <Card.Header>
-            <Card.Title>Appointments</Card.Title>
-          </Card.Header>
-          <Card.List>
-            {appointments.map(appointment => (
-              <Card.ListItem key={appointment.id}>
-                <AppointmentSummary encounter={appointment} />
-              </Card.ListItem>
-            ))}
-          </Card.List>
+        <Card noData={!appointments}>
+          <CardHeader>
+            <h3>Appointments</h3>
+          </CardHeader>
+          <CardBody>
+            <CardList>
+              <AppointmentSummary encounters={appointments} />
+            </CardList>
+          </CardBody>
         </Card>
-        <Card>
-          <Card.Header>
-            <Card.Title>Documents</Card.Title>
-          </Card.Header>
-          <Card.List>
-            {documents.map(document => (
-              <Card.ListItem key={document.id}>
-                <DocumentSummary document={document} />
-              </Card.ListItem>
-            ))}
-          </Card.List>
+        <Card noData={!documents}>
+          <CardHeader>
+            <h3>Documents</h3>
+          </CardHeader>
+          <CardBody>
+            <DocumentSummary documents={documents} />
+          </CardBody>
         </Card>
-        <Card>
-          <Card.Header>
-            <Card.Title>Hospital Stays</Card.Title>
-          </Card.Header>
-          <Card.List>
-            {hospitalStays.map(stay => (
-              <Card.ListItem key={stay.id}>
-                <HospitalStaySummary hospitalStay={stay} />
-              </Card.ListItem>
-            ))}
-          </Card.List>
-        </Card>
-        <Card>
-          <Card.Header>
-            <Card.Title>Conditions</Card.Title>
-          </Card.Header>
-          <Card.List>
-            {conditions.map(condition => (
-              <Card.ListItem key={condition.id}>
-                <ConditionSummary condition={condition} />
-              </Card.ListItem>
-            ))}
-          </Card.List>
+        <Card noData={!hospitalStays}>
+          <CardHeader>
+            <h3>Hospital Stays</h3>
+          </CardHeader>
+          <CardBody>
+            <CardList>
+              <HospitalStaySummary hospitalStays={hospitalStays} />
+            </CardList>
+          </CardBody>
         </Card>
       </Column>
     </Container>

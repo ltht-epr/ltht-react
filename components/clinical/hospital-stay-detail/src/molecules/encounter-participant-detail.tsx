@@ -30,7 +30,7 @@ const EncounterParticipantDetail: React.FC<Props> = ({ participants }) => {
             </div>
           )
         }
-        return <React.Fragment />
+        return <React.Fragment></React.Fragment>
       })}
     </NestedListDetail>
   )

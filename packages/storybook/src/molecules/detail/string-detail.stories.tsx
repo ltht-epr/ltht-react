@@ -5,7 +5,6 @@ import JSXAddon from 'storybook-addon-jsx'
 import readme from '@ltht-react/detail/README.md'
 import { StringDetail } from '@ltht-react/detail'
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const stories = storiesOf('Molecules|Detail', module) as any
 
 stories.addWithJSX = JSXAddon.addWithJSX

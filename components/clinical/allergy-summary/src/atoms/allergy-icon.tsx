@@ -1,17 +1,17 @@
 import React from 'react'
 
 import { ExclamationIcon } from '@ltht-react/icon'
-import { AllergyIntoleranceCriticalityCode } from '@ltht-react/types'
+import { AllergyIntolerance, AllergyIntoleranceCriticalityCode } from '@ltht-react/types'
 
-const AllergyIcon: React.FC<Props> = ({ criticalityCode }) => {
-  if (criticalityCode && criticalityCode === AllergyIntoleranceCriticalityCode.High) {
+const AllergyIcon: React.FC<Props> = ({ allergy }) => {
+  if (allergy.criticality && allergy.criticality === AllergyIntoleranceCriticalityCode.High) {
     return <ExclamationIcon status="red" size="medium" />
   }
   return <ExclamationIcon status="default" size="medium" />
 }
 
 interface Props {
-  criticalityCode: AllergyIntoleranceCriticalityCode | null | undefined
+  allergy: AllergyIntolerance
 }
 
 export default AllergyIcon

@@ -7,21 +7,21 @@ const yearFormat = 'numeric'
 const hourFormat = '2-digit'
 const minuteFormat = '2-digit'
 
-export const formatDate = (date: Date): string => {
+const formatDate = (date: Date): string => {
   return date
     .toLocaleString(locale, { day: dayFormat, month: monthFormat, year: yearFormat })
     .split(' ')
     .join('-')
 }
 
-export const formatTime = (date: Date): string => {
+const formatTime = (date: Date): string => {
   return date
     .toLocaleString(locale, { hour: hourFormat, minute: minuteFormat, hour12: false })
     .split(' ')
     .join(':')
 }
 
-export const partialDateTimeText = (partialDateTime?: PartialDateTime | null): string => {
+const partialDateTimeText = (partialDateTime?: PartialDateTime | null): string => {
   if (!partialDateTime || !partialDateTime.value) {
     return ''
   }
@@ -45,3 +45,5 @@ export const partialDateTimeText = (partialDateTime?: PartialDateTime | null): s
       return ''
   }
 }
+
+export default partialDateTimeText

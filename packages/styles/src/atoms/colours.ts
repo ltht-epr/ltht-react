@@ -30,7 +30,6 @@ export const CARD_SHADOW_COLOUR = '#666666'
 export const CARD_LIST_ITEM_BACKGROUND_HOVER = colours.NHS_PALE_GREY
 export const CARD_LIST_ITEM_BORDER_COLOUR = '#d8d8d8'
 export const CARD_LIST_ITEM_BORDER_HOVER = '#b0b0b0'
-export const CARD_LIST_ITEM_SELECTED_BACKGROUND = colours.NHS_LIGHT_GREEN.LIGHTER75
 
 export const PATIENT_BANNER_DECEASED_BACKGROUND_COLOUR = colours.NHS_BLACK
 export const PATIENT_BANNER_BACKGROUND_COLOUR = '#56008c'
@@ -66,31 +65,23 @@ export const BTN_COLOURS = {
 
 export const BANNER_COLOURS = {
   DEFAULT: {
-    BACKGROUND: '#edecec',
-    TEXT: '#626262',
-    BORDER: '#e4e4e4',
-    ICON: '#919090',
-    HOVER: '#c8c5c5',
+    VALUE: colours.NHS_DARK_BLUE.VALUE,
+    TEXT: colours.NHS_BLACK,
+  },
+  PRIMARY: {
+    VALUE: colours.NHS_DARK_BLUE.VALUE,
+    TEXT: colours.NHS_WHITE,
   },
   INFO: {
-    BACKGROUND: '#cbdbee',
-    TEXT: '#0053c3',
-    BORDER: '#bdd2ec',
-    ICON: '#107dbd',
-    HOVER: '#b2cae6',
+    VALUE: colours.NHS_TRANSLUCENT_BRIGHT_BLUE,
+    TEXT: colours.NHS_DARK_BLUE.VALUE,
   },
   WARNING: {
-    BACKGROUND: '#fef3cd',
-    TEXT: '#926100',
-    BORDER: '#faeab4',
-    ICON: '#ffa500',
-    HOVER: '#faeab1',
+    VALUE: colours.NHS_TRANSLUCENT_WARM_YELLOW,
+    TEXT: colours.NHS_ORANGE,
   },
-  DANGER: {
-    BACKGROUND: '#eeacbd',
-    TEXT: '#a41e40',
-    BORDER: '#ec9bb0',
-    ICON: '#f50b47',
-    HOVER: 'ea94aa',
+  ERROR: {
+    VALUE: colours.NHS_DARK_RED,
+    TEXT: colours.NHS_WHITE,
   },
 }

@@ -13,15 +13,7 @@ const TableIcon: React.FC<IconProps> = ({ status, size }) => {
     ${status === 'default' && `color: ${ICON_COLOURS.DEFAULT.VALUE};`}
     ${status === 'info' && `color: ${ICON_COLOURS.INFO};`}
   `
-  return (
-    <FontAwesomeIcon
-      className="icon__table"
-      css={styles}
-      icon={faTable}
-      size={calculateIconSize(size)}
-      transform={{ rotate: 180 }}
-    />
-  )
+  return <FontAwesomeIcon css={styles} icon={faTable} size={calculateIconSize(size)} transform={{ rotate: 180 }} />
 }
 
 type IconProps = {

@@ -1,6 +1,6 @@
 {
   "name": "@ltht-react/card",
-  "version": "0.1.34",
+  "version": "0.1.33",
   "description": "ltht-react styled Card component.",
   "author": "LTHT",
   "homepage": "",
@@ -27,11 +27,10 @@
   "dependencies": {
     "@emotion/core": "^10.0.27",
     "@emotion/styled": "^10.0.27",
-    "@ltht-react/icon": "^0.1.27",
-    "@ltht-react/styles": "^0.1.19",
-    "@ltht-react/types": "^0.0.26",
-    "@ltht-react/utils": "^0.1.19",
-    "classnames": "^2.2.6",
+    "@ltht-react/icon": "^0.1.26",
+    "@ltht-react/styles": "^0.1.18",
+    "@ltht-react/types": "^0.0.25",
+    "@ltht-react/utils": "^0.1.18",
     "emotion": "^10.0.27",
     "react": "^16.12.0"
   },
