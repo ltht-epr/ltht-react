@@ -3,14 +3,6 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [0.1.25](https://github.com/ltht-epr/ltht-react/compare/@ltht-react/description-list@0.1.23...@ltht-react/description-list@0.1.25) (2020-11-19)
-
-**Note:** Version bump only for package @ltht-react/description-list
-
-
-
-
-
 ## [0.1.24](https://github.com/ltht-epr/ltht-react/compare/@ltht-react/description-list@0.1.23...@ltht-react/description-list@0.1.24) (2020-10-29)
 
 **Note:** Version bump only for package @ltht-react/description-list
