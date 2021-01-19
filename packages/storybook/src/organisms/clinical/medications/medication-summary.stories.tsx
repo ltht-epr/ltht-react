@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 import JSXAddon from 'storybook-addon-jsx'

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
 import { storiesOf } from '@storybook/react'
