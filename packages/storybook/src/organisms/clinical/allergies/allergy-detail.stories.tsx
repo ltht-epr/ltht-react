@@ -4,10 +4,9 @@ import JSXAddon from 'storybook-addon-jsx'
 
 import AllergyDetailItem from '@ltht-react/allergy-detail'
 import readme from '@ltht-react/allergy-summary/README.md'
-import Card from '@ltht-react/card'
+import { Card, CardHeader, CardBody } from '@ltht-react/card'
 import allergies from './allergy.fixtures'
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const stories = storiesOf('Organisms - Clinical|Allergy', module) as any
 
 stories.addWithJSX = JSXAddon.addWithJSX
@@ -19,12 +18,12 @@ stories.addParameters({
 })
 
 stories.addWithJSX('Detail', () => (
-  <Card>
-    <Card.Header>
+  <Card noData={!allergies[0]}>
+    <CardHeader position="center">
       <h3>Allergy</h3>
-    </Card.Header>
-    <Card.Body>
+    </CardHeader>
+    <CardBody>
       <AllergyDetailItem allergy={allergies[0]} />
-    </Card.Body>
+    </CardBody>
   </Card>
 ))

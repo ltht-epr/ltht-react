@@ -10,7 +10,7 @@ exports[`SpinnerIcon matches snapshot: wrapper mount 1`] = `
 >
   <FontAwesomeIcon
     border={false}
-    className="fa-spin icon__spinner emotion-0"
+    className="fa-spin emotion-0"
     fixedWidth={false}
     flip={null}
     icon={
@@ -41,7 +41,7 @@ exports[`SpinnerIcon matches snapshot: wrapper mount 1`] = `
   >
     <svg
       aria-hidden="true"
-      className="svg-inline--fa fa-sync fa-w-16 fa-xs fa-spin icon__spinner emotion-0"
+      className="svg-inline--fa fa-sync fa-w-16 fa-xs fa-spin emotion-0"
       data-icon="sync"
       data-prefix="fas"
       focusable="false"

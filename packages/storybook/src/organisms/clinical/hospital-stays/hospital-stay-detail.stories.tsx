@@ -4,11 +4,10 @@ import JSXAddon from 'storybook-addon-jsx'
 
 import HospitalStayDetail from '@ltht-react/hospital-stay-detail'
 import readme from '@ltht-react/hospital-stay-detail/README.md'
-import Card from '@ltht-react/card'
+import { Card, CardHeader, CardBody } from '@ltht-react/card'
 
 import stays from './hospital-stay.fixtures'
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const stories = storiesOf('Organisms - Clinical|Hospital Stay', module) as any
 
 stories.addWithJSX = JSXAddon.addWithJSX
@@ -20,12 +19,12 @@ stories.addParameters({
 })
 
 stories.addWithJSX('Detail', () => (
-  <Card>
-    <Card.Header>
+  <Card noData={!stays[0]}>
+    <CardHeader position="center">
       <h3>Hospital Stay</h3>
-    </Card.Header>
-    <Card.Body>
+    </CardHeader>
+    <CardBody>
       <HospitalStayDetail hospitalStay={stays[2]} />
-    </Card.Body>
+    </CardBody>
   </Card>
 ))

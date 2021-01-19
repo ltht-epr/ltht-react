@@ -13,7 +13,6 @@
   },
   "devDependencies": {
     "@types/async": "^3.0.3",
-    "@types/classnames": "^2.2.10",
     "@types/enzyme": "^3.10.4",
     "@types/enzyme-adapter-react-16": "^1.0.5",
     "@types/react": "^16.9.17",
@@ -42,7 +41,6 @@
     "jest": "^25.1.0",
     "jest-emotion": "^10.0.26",
     "lerna": "^3.20.1",
-    "lerna-update-wizard": "^0.17.8",
     "mkdirp-promise": "^5.0.1",
     "prettier": "^1.19.1",
     "prettylint": "^1.0.0",
@@ -55,7 +53,7 @@
   },
   "scripts": {
     "bootstrap": "lerna bootstrap && lerna run build",
-    "build:package": "yarn lerna run build",
+    "build:package": "yarn lerna run build --scope=@ltht-react/flag-summary",
     "build:sort": "lerna run build --sort",
     "build:storybook": "cd packages/storybook && yarn build:storybook",
     "build": "lerna run build --parallel",

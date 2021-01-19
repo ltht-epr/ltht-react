@@ -1,6 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ChevronIcon matches snapshot: wrapper mount 1`] = `
+.emotion-0 {
+  color: -v-a-l-u-e:#768692;
+  -d-a-r-k-e-r25: #59656e;
+  -l-i-g-h-t-e-r25: #98a4ad;
+}
+
 <Icons>
   <ChevronCircleIcon
     direction="up"
@@ -8,7 +14,7 @@ exports[`ChevronIcon matches snapshot: wrapper mount 1`] = `
   >
     <FontAwesomeIcon
       border={false}
-      className="icon__chevron-circle"
+      className="emotion-0"
       fixedWidth={false}
       flip={null}
       icon={
@@ -39,7 +45,7 @@ exports[`ChevronIcon matches snapshot: wrapper mount 1`] = `
     >
       <svg
         aria-hidden="true"
-        className="svg-inline--fa fa-chevron-circle-up fa-w-16 fa-sm icon__chevron-circle"
+        className="svg-inline--fa fa-chevron-circle-up fa-w-16 fa-sm emotion-0"
         data-icon="chevron-circle-up"
         data-prefix="fas"
         focusable="false"
@@ -62,7 +68,7 @@ exports[`ChevronIcon matches snapshot: wrapper mount 1`] = `
   >
     <FontAwesomeIcon
       border={false}
-      className="icon__chevron-circle"
+      className="emotion-0"
       fixedWidth={false}
       flip={null}
       icon={
@@ -93,7 +99,7 @@ exports[`ChevronIcon matches snapshot: wrapper mount 1`] = `
     >
       <svg
         aria-hidden="true"
-        className="svg-inline--fa fa-chevron-circle-down fa-w-16 fa-sm icon__chevron-circle"
+        className="svg-inline--fa fa-chevron-circle-down fa-w-16 fa-sm emotion-0"
         data-icon="chevron-circle-down"
         data-prefix="fas"
         focusable="false"
@@ -116,7 +122,7 @@ exports[`ChevronIcon matches snapshot: wrapper mount 1`] = `
   >
     <FontAwesomeIcon
       border={false}
-      className="icon__chevron-circle"
+      className="emotion-0"
       fixedWidth={false}
       flip={null}
       icon={
@@ -147,7 +153,7 @@ exports[`ChevronIcon matches snapshot: wrapper mount 1`] = `
     >
       <svg
         aria-hidden="true"
-        className="svg-inline--fa fa-chevron-circle-left fa-w-16 fa-sm icon__chevron-circle"
+        className="svg-inline--fa fa-chevron-circle-left fa-w-16 fa-sm emotion-0"
         data-icon="chevron-circle-left"
         data-prefix="fas"
         focusable="false"
@@ -170,7 +176,7 @@ exports[`ChevronIcon matches snapshot: wrapper mount 1`] = `
   >
     <FontAwesomeIcon
       border={false}
-      className="icon__chevron-circle"
+      className="emotion-0"
       fixedWidth={false}
       flip={null}
       icon={
@@ -201,7 +207,7 @@ exports[`ChevronIcon matches snapshot: wrapper mount 1`] = `
     >
       <svg
         aria-hidden="true"
-        className="svg-inline--fa fa-chevron-circle-right fa-w-16 fa-sm icon__chevron-circle"
+        className="svg-inline--fa fa-chevron-circle-right fa-w-16 fa-sm emotion-0"
         data-icon="chevron-circle-right"
         data-prefix="fas"
         focusable="false"

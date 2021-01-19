@@ -5,7 +5,6 @@ import JSXAddon from 'storybook-addon-jsx'
 import { ExclamationIcon } from '@ltht-react/icon'
 import ExclamationIconReadMe from '@ltht-react/icon/README.md'
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const stories = storiesOf('Atoms|Icons', module) as any
 
 stories.addWithJSX = JSXAddon.addWithJSX

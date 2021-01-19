@@ -2,21 +2,21 @@
 
 exports[`CircleIcon matches snapshot: wrapper mount 1`] = `
 .emotion-0 {
-  color: [object Object];
+  color: #768692;
 }
 
 .emotion-2 {
-  color: [object Object];
+  color: #009639;
 }
 
 <Icons>
-  <CircleIcon
+  <TableIcon
     size="small"
     status="default"
   >
     <FontAwesomeIcon
       border={false}
-      className="icon__circle emotion-0"
+      className="emotion-0"
       fixedWidth={false}
       flip={null}
       icon={
@@ -51,7 +51,7 @@ exports[`CircleIcon matches snapshot: wrapper mount 1`] = `
     >
       <svg
         aria-hidden="true"
-        className="svg-inline--fa fa-circle fa-w-16 fa-xs icon__circle emotion-0"
+        className="svg-inline--fa fa-circle fa-w-16 fa-xs emotion-0"
         data-icon="circle"
         data-prefix="fas"
         focusable="false"
@@ -82,14 +82,14 @@ exports[`CircleIcon matches snapshot: wrapper mount 1`] = `
         </g>
       </svg>
     </FontAwesomeIcon>
-  </CircleIcon>
-  <CircleIcon
+  </TableIcon>
+  <TableIcon
     size="small"
     status="green"
   >
     <FontAwesomeIcon
       border={false}
-      className="icon__circle emotion-2"
+      className="emotion-2"
       fixedWidth={false}
       flip={null}
       icon={
@@ -124,7 +124,7 @@ exports[`CircleIcon matches snapshot: wrapper mount 1`] = `
     >
       <svg
         aria-hidden="true"
-        className="svg-inline--fa fa-circle fa-w-16 fa-xs icon__circle emotion-2"
+        className="svg-inline--fa fa-circle fa-w-16 fa-xs emotion-2"
         data-icon="circle"
         data-prefix="fas"
         focusable="false"
@@ -155,6 +155,6 @@ exports[`CircleIcon matches snapshot: wrapper mount 1`] = `
         </g>
       </svg>
     </FontAwesomeIcon>
-  </CircleIcon>
+  </TableIcon>
 </Icons>
 `;

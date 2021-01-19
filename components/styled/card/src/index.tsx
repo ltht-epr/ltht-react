@@ -1,3 +1,2 @@
-import Card from './molecules/card'
-
-export default Card
+export * from './atoms'
+export { default as Card } from './molecules/card'

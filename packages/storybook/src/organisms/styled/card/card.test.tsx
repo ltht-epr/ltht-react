@@ -2,29 +2,27 @@ import React from 'react'
 import { mount } from 'enzyme'
 import ReactDOM from 'react-dom'
 
-import Card from '@ltht-react/card'
+import { ListItem } from '@ltht-react/list'
+import { Card, CardBody, CardHeader, CardFooter, CardList } from '@ltht-react/card'
 
 const components = (
   <>
     <Card>
-      <Card.Header>
-        <Card.Header>Heading</Card.Header>
-      </Card.Header>
-      <Card.Body>Body</Card.Body>
-      <Card.Footer>Footer</Card.Footer>
+      <CardHeader>
+        <h3>Heading</h3>
+      </CardHeader>
+      <CardBody>Body</CardBody>
+      <CardFooter>Footer</CardFooter>
     </Card>
     <Card>
-      <Card.Header>
-        <Card.Header>Heading</Card.Header>
-      </Card.Header>
-      <Card.Body>
-        <Card.Text>Body text</Card.Text>
-      </Card.Body>
-      <Card.List>
-        <Card.ListItem>Item 1</Card.ListItem>
-        <Card.ListItem>Item 2</Card.ListItem>
-      </Card.List>
-      <Card.Footer>Footer</Card.Footer>
+      <CardHeader>
+        <h3>Heading</h3>
+      </CardHeader>
+      <CardList>
+        <ListItem>Item 1</ListItem>
+        <ListItem>Item 2</ListItem>
+      </CardList>
+      <CardFooter>Footer</CardFooter>
     </Card>
   </>
 )
