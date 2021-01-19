@@ -49,7 +49,7 @@ const formatPatientAge = (patient: Patient | undefined): string => {
   if (yearAge >= 18) return `${yearAge}y`
 
   // Children over two years: **years and months**.
-  if (yearAge >= 2) return `${yearAge}y${monthAge ? ` ${monthAge}m` : ''}`
+  if (yearAge >= 2) return `${yearAge}y${String(monthAge) ? ` ${monthAge}m` : ''}`
 
   // Children 12 to 24 months: **months and days**.
   if (yearAge === 1) {
