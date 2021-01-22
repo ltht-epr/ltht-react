@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.1](https://github.com/ltht-epr/ltht-react/compare/@ltht-react/root@0.1.46...@ltht-react/root@0.2.1) (2021-01-22)
+
+
+### Reverts
+
+* Revert "refactor components and fix styles" ([b0c5fd8](https://github.com/ltht-epr/ltht-react/commit/b0c5fd89836aa7c47afe96aeccefd955a06dd50b))
+* Revert "Publish" ([833cdd7](https://github.com/ltht-epr/ltht-react/commit/833cdd729f74c9fee22fa55530a6ec5552f438ea))
+
+
+
+
+
 ## [0.1.44](https://github.com/ltht-epr/ltht-react/compare/@ltht-react/root@0.1.43...@ltht-react/root@0.1.44) (2020-10-15)
 
 **Note:** Version bump only for package @ltht-react/root
