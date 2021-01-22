@@ -19,9 +19,9 @@ const MissingDataWarning: React.FC<Props> = ({ clickHandler }) => {
 
   return (
     <WarningBanner clickHandler={handleClick}>
-      <ExclamationIcon size="large" status="amber" />
+      <ExclamationIcon size="medium" status="amber" />
       <div css={styles}>Missing Data</div>
-      <ChevronIcon size="large" direction="right" />
+      <ChevronIcon size="medium" direction="right" />
     </WarningBanner>
   )
 }

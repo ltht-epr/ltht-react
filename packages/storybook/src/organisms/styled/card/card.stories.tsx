@@ -98,6 +98,7 @@ stories.addWithJSX('Missing Data Summary', () => (
       <CardBody>
         <CardList clickable>
           <MissingDataSummary
+            missingData={['Item 1', 'Item 2']}
             noData={['Item 1', 'Item 2']}
             partialData={['Item 3', 'Item 4']}
             allData={['Item 5', 'Item 6']}

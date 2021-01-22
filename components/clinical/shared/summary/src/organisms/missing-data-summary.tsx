@@ -10,7 +10,22 @@ const styles = css`
   padding-left: 0.5rem;
 `
 
-const MissingDataSummary: React.FC<Props> = ({ noData, partialData, allData }) => {
+const MissingDataSummary: React.FC<Props> = ({ missingData, noData, partialData, allData }) => {
+  const missingDataSection =
+    missingData != null ? (
+      <React.Fragment>
+        <WarningBanner>
+          <CounterIcon size="large" status="amber" value={missingData.length} />
+          <div css={styles}>Missing Data</div>
+        </WarningBanner>
+        {missingData.map(data => (
+          <ListItem>{data}</ListItem>
+        ))}
+      </React.Fragment>
+    ) : (
+      <React.Fragment />
+    )
+
   const noDataSection =
     noData != null ? (
       <React.Fragment>
@@ -58,6 +73,7 @@ const MissingDataSummary: React.FC<Props> = ({ noData, partialData, allData }) =
 
   return (
     <React.Fragment>
+      {missingDataSection}
       {noDataSection}
       {partialDataSection}
       {allDataSection}
@@ -66,6 +82,7 @@ const MissingDataSummary: React.FC<Props> = ({ noData, partialData, allData }) =
 }
 
 interface Props {
+  missingData?: Maybe<Array<string>>
   noData?: Maybe<Array<string>>
   partialData?: Maybe<Array<string>>
   allData?: Maybe<Array<string>>

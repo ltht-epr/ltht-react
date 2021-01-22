@@ -13,7 +13,7 @@ const styles = {
     text-align: left;
   `,
   source: css`
-    margin-right: 0.5rem;
+    margin-right: 0.75rem;
     text-align: right;
   `,
   status: css`
@@ -42,7 +42,7 @@ const DocumentSummaryContent: React.FC<Props> = ({
         <div>{source && titleCase(source)}</div>
         <div css={styles.status}>{status && titleCase(status)}</div>
       </div>
-      <div>{clickHandler ? <ChevronIcon direction="right" size="large" /> : null}</div>
+      <div>{clickHandler ? <ChevronIcon direction="right" size="medium" /> : null}</div>
     </div>
   )
 }
