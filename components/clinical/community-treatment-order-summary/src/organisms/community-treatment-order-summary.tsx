@@ -1,7 +1,5 @@
-/** @jsx jsx */
 import React from 'react'
-import { jsx } from '@emotion/core'
-import Styled from '@emotion/styled'
+import styled from '@emotion/styled'
 
 import { LypftCommunityTreatmentOrder } from '@ltht-react/types'
 import { PeriodSummary } from '@ltht-react/summary'
@@ -11,14 +9,14 @@ import Restrictions from '../atoms/community-treatment-order-summary-restriction
 import Status from '../atoms/community-treatment-order-summary-status'
 import Redacted from '../molecules/community-treatment-order-redacted'
 
-const StyledSummary = Styled.div`
+const StyledSummary = styled.div`
   display: flex;
   justify-content: center;
 `
-const StyledDescription = Styled.div`
-  flex-grow: 1; 
+const StyledDescription = styled.div`
+  flex-grow: 1;
 `
-const StyledDate = Styled.div`
+const StyledDate = styled.div`
   text-align: right;
 `
 

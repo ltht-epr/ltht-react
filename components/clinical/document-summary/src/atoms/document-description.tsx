@@ -1,15 +1,17 @@
-/** @jsx jsx */
-import React from 'react'
-import { jsx } from '@emotion/core'
+import React, { HTMLAttributes } from 'react'
+import styled from '@emotion/styled'
 
 import { DocumentReference } from '@ltht-react/types'
 
-const DocumentDescription: React.FC<Props> = ({ document }) => {
-  if (!document.description) return <React.Fragment />
-  return <React.Fragment>{document.description}</React.Fragment>
+const StyledDocumentDescription = styled.div``
+
+const DocumentDescription: React.FC<Props> = ({ document: { description } }, ...rest) => {
+  if (!description) return <></>
+
+  return <StyledDocumentDescription {...rest}>{description}</StyledDocumentDescription>
 }
 
-interface Props {
+interface Props extends HTMLAttributes<HTMLDivElement> {
   document: DocumentReference
 }
 

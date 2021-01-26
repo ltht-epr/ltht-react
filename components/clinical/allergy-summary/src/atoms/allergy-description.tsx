@@ -1,19 +1,18 @@
-/** @jsx jsx */
-import React from 'react'
-import { css, jsx } from '@emotion/core'
+import React, { HTMLAttributes } from 'react'
+import styled from '@emotion/styled'
 
 import { TEXT_COLOURS } from '@ltht-react/styles'
 import { AllergyIntolerance } from '@ltht-react/types'
 import { codeableConceptCodeSummary, allergyIntoleranceCategoryCodeDisplaySummary, titleCase } from '@ltht-react/utils'
 
-const styles = css`
+const StyledAllergyDescription = styled.div`
   color: ${TEXT_COLOURS.SECONDARY.VALUE};
   text-align: left;
   font-size: smaller;
   padding-top: 0.25rem;
 `
 
-const AllergyDescription: React.FC<Props> = ({ allergy }) => {
+const AllergyDescription: React.FC<Props> = ({ allergy, ...rest }) => {
   const values = []
 
   const codeSummary = codeableConceptCodeSummary(allergy.code)
@@ -24,10 +23,10 @@ const AllergyDescription: React.FC<Props> = ({ allergy }) => {
 
   if (allergy.type) values.push(titleCase(allergy.type))
 
-  return <div css={styles}>{values.join(' - ')}</div>
+  return <StyledAllergyDescription {...rest}>{values.join(' - ')}</StyledAllergyDescription>
 }
 
-interface Props {
+interface Props extends HTMLAttributes<HTMLDivElement> {
   allergy: AllergyIntolerance
 }
 

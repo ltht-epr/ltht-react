@@ -1,20 +1,21 @@
-/** @jsx jsx */
-import React from 'react'
-import { css, jsx } from '@emotion/core'
+import React, { HTMLAttributes } from 'react'
+import styled from '@emotion/styled'
 
 import { TEXT_COLOURS } from '@ltht-react/styles'
 import { LypftCommunityTreatmentOrder } from '@ltht-react/types'
 
-const styles = css`
+const StyledCommunityTreatmentOrderConsent = styled.div`
   color: ${TEXT_COLOURS.PRIMARY};
   text-align: left;
 `
 
-const CommunityTreatmentOrderConsent: React.FC<Props> = ({ communityTreatmentOrder }) => {
-  return <div css={styles}>{communityTreatmentOrder.legalStatus && communityTreatmentOrder.legalStatus.text}</div>
-}
+const CommunityTreatmentOrderConsent: React.FC<Props> = ({ communityTreatmentOrder, ...rest }) => (
+  <StyledCommunityTreatmentOrderConsent {...rest}>
+    {communityTreatmentOrder.legalStatus && communityTreatmentOrder.legalStatus.text}
+  </StyledCommunityTreatmentOrderConsent>
+)
 
-interface Props {
+interface Props extends HTMLAttributes<HTMLDivElement> {
   communityTreatmentOrder: LypftCommunityTreatmentOrder
 }
 

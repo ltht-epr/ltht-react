@@ -34,3 +34,18 @@ stories.addWithJSX('Summary', () => {
     </Card>
   )
 })
+
+stories.addWithJSX('Redacted', () => {
+  return (
+    <Card>
+      <Card.Header>
+        <Card.Title>Document</Card.Title>
+      </Card.Header>
+      <Card.List>
+        <Card.ListItem>
+          <DocumentSummary document={documents[2]} />
+        </Card.ListItem>
+      </Card.List>
+    </Card>
+  )
+})

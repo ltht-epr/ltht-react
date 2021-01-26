@@ -1,19 +1,20 @@
-/** @jsx jsx */
-import React from 'react'
-import { jsx } from '@emotion/core'
+import React, { HTMLAttributes } from 'react'
+import styled from '@emotion/styled'
 
 import { DocumentReference } from '@ltht-react/types'
 import { formatDate } from '@ltht-react/utils'
 
-const DocumentDate: React.FC<Props> = ({ document }) => {
-  const { created } = document
+const StyledDocumentDate = styled.div``
+
+const DocumentDate: React.FC<Props> = ({ document: { created, description }, ...rest }) => {
+  if (!description) return <></>
+
   const formattedDate = formatDate(new Date(Date.parse(created?.value ?? '')))
 
-  if (!document.description) return <React.Fragment />
-  return <div>{formattedDate}</div>
+  return <StyledDocumentDate {...rest}>{formattedDate}</StyledDocumentDate>
 }
 
-interface Props {
+interface Props extends HTMLAttributes<HTMLDivElement> {
   document: DocumentReference
 }
 

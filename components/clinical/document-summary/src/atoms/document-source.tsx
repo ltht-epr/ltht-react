@@ -1,19 +1,20 @@
-/** @jsx jsx */
-import React from 'react'
-import { jsx } from '@emotion/core'
+import React, { HTMLAttributes } from 'react'
+import styled from '@emotion/styled'
 
 import { titleCase } from '@ltht-react/utils'
 import { DocumentReference } from '@ltht-react/types'
 
-const DocumentSource: React.FC<Props> = ({ document }) => {
+const StyledDocumentSource = styled.div``
+
+const DocumentSource: React.FC<Props> = ({ document, ...rest }) => {
   const source = document.metadata?.dataSources ? document.metadata.dataSources[0]?.display : undefined
 
-  if (!source) return <React.Fragment />
+  if (!source) return <></>
 
-  return <div>{titleCase(source)}</div>
+  return <StyledDocumentSource {...rest}>{titleCase(source)}</StyledDocumentSource>
 }
 
-interface Props {
+interface Props extends HTMLAttributes<HTMLDivElement> {
   document: DocumentReference
 }
 

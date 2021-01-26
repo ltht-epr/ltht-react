@@ -32,3 +32,16 @@ stories.addWithJSX('Summary', () => (
     </Card.List>
   </Card>
 ))
+
+stories.addWithJSX('Redacted', () => (
+  <Card>
+    <Card.Header>
+      <Card.Title>Appointment</Card.Title>
+    </Card.Header>
+    <Card.List>
+      <Card.ListItem>
+        <AppointmentSummary encounter={encounters[3]} />
+      </Card.ListItem>
+    </Card.List>
+  </Card>
+))

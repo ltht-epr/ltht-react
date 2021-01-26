@@ -1,7 +1,5 @@
-/** @jsx jsx */
 import React from 'react'
-import { jsx } from '@emotion/core'
-import Styled from '@emotion/styled'
+import styled from '@emotion/styled'
 
 import { Encounter } from '@ltht-react/types'
 import { DateSummary } from '@ltht-react/summary'
@@ -11,18 +9,18 @@ import Description from '../atoms/appointment-description'
 import Status from '../atoms/appointment-status'
 import Redacted from '../molecules/appointment-redacted'
 
-const StyledSummary = Styled.div`
+const StyledSummary = styled.div`
   display: flex;
   justify-content: center;
 `
-const StyledDescription = Styled.div`
+const StyledDescription = styled.div`
   flex: 1;
 `
-const StyledDate = Styled.div`
+const StyledDate = styled.div`
   flex: 1;
   text-align: left;
 `
-const StyledService = Styled.div`
+const StyledService = styled.div`
   flex: 1;
   text-align: right;
 `

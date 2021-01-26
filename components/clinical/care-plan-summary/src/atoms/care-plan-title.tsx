@@ -1,20 +1,19 @@
-/** @jsx jsx */
-import React from 'react'
-import { css, jsx } from '@emotion/core'
+import React, { HTMLAttributes } from 'react'
+import styled from '@emotion/styled'
 
 import { TEXT_COLOURS } from '@ltht-react/styles'
 import { CarePlan } from '@ltht-react/types'
 
-const styles = css`
+const StyledCarePlanTitle = styled.div`
   color: ${TEXT_COLOURS.PRIMARY};
   text-align: left;
 `
 
-const CarePlanTitle: React.FC<Props> = ({ carePlan }) => {
-  return <div css={styles}>{carePlan.title}</div>
-}
+const CarePlanTitle: React.FC<Props> = ({ carePlan, ...rest }) => (
+  <StyledCarePlanTitle {...rest}>{carePlan.title}</StyledCarePlanTitle>
+)
 
-interface Props {
+interface Props extends HTMLAttributes<HTMLDivElement> {
   carePlan: CarePlan
 }
 

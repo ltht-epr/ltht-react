@@ -1,32 +1,28 @@
-/** @jsx jsx */
 import React from 'react'
-import { css, jsx } from '@emotion/core'
+import styled from '@emotion/styled'
 
 import { Condition } from '@ltht-react/types'
 import { DateSummary, RedactedDescription } from '@ltht-react/summary'
 
-const styles = {
-  description: css`
-    flex-grow: 1;
-    text-align: left;
-  `,
-  date: css`
-    text-align: right;
-  `,
-}
+const StyledRedactedDescription = styled.div`
+  flex-grow: 1;
+  text-align: left;
+`
 
-const ConditionRedacted: React.FC<Props> = ({ condition }) => {
-  return (
-    <React.Fragment>
-      <div css={styles.description}>
-        <RedactedDescription />
-      </div>
-      <div css={styles.date}>
-        <DateSummary datetime={condition?.assertedDate} />
-      </div>
-    </React.Fragment>
-  )
-}
+const StyledDateSummary = styled.div`
+  text-align: right;
+`
+
+const ConditionRedacted: React.FC<Props> = ({ condition }) => (
+  <>
+    <StyledRedactedDescription>
+      <RedactedDescription />
+    </StyledRedactedDescription>
+    <StyledDateSummary>
+      <DateSummary datetime={condition?.assertedDate} />
+    </StyledDateSummary>
+  </>
+)
 
 interface Props {
   condition?: Condition | null

@@ -1,32 +1,28 @@
-/** @jsx jsx */
 import React from 'react'
-import { css, jsx } from '@emotion/core'
+import styled from '@emotion/styled'
 
 import { Encounter } from '@ltht-react/types'
 import { DateSummary, RedactedDescription } from '@ltht-react/summary'
 
-const styles = {
-  description: css`
-    flex-grow: 1;
-    text-align: right;
-  `,
-  date: css`
-    text-align: left;
-  `,
-}
+const StyledDateSummary = styled.div`
+  text-align: left;
+`
 
-const AppointmentRedacted: React.FC<Props> = ({ appointment }) => {
-  return (
-    <React.Fragment>
-      <div css={styles.date}>
-        <DateSummary datetime={appointment?.period?.start} />
-      </div>
-      <div css={styles.description}>
-        <RedactedDescription />
-      </div>
-    </React.Fragment>
-  )
-}
+const StyledRedactedDescription = styled.div`
+  flex-grow: 1;
+  text-align: right;
+`
+
+const AppointmentRedacted: React.FC<Props> = ({ appointment }) => (
+  <>
+    <StyledDateSummary>
+      <DateSummary datetime={appointment?.period?.start} />
+    </StyledDateSummary>
+    <StyledRedactedDescription>
+      <RedactedDescription />
+    </StyledRedactedDescription>
+  </>
+)
 
 interface Props {
   appointment?: Encounter | null

@@ -1,6 +1,4 @@
-/** @jsx jsx */
 import React from 'react'
-import { jsx } from '@emotion/core'
 import Styled from '@emotion/styled'
 
 import { AllergyIntolerance } from '@ltht-react/types'

@@ -1,24 +1,23 @@
-/** @jsx jsx */
-import React from 'react'
-import { css, jsx } from '@emotion/core'
+import React, { HTMLAttributes } from 'react'
+import styled from '@emotion/styled'
 
 import { TEXT_COLOURS } from '@ltht-react/styles'
 import { Condition } from '@ltht-react/types'
 import { codeableConceptTextSummary } from '@ltht-react/utils'
 
-const styles = css`
+const StyledConditionTitle = styled.div`
   color: ${TEXT_COLOURS.PRIMARY};
   text-align: left;
 `
 
-const ConditionTitle: React.FC<Props> = ({ condition }) => {
+const ConditionTitle: React.FC<Props> = ({ condition, ...rest }) => {
   const codes = []
   if (condition.code) codes.push(condition.code)
 
-  return <div css={styles}>{codeableConceptTextSummary(codes)}</div>
+  return <StyledConditionTitle {...rest}>{codeableConceptTextSummary(codes)}</StyledConditionTitle>
 }
 
-interface Props {
+interface Props extends HTMLAttributes<HTMLDivElement> {
   condition: Condition
 }
 

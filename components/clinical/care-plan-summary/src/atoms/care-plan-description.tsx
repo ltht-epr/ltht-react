@@ -1,19 +1,18 @@
-/** @jsx jsx */
-import React from 'react'
-import { css, jsx } from '@emotion/core'
+import React, { HTMLAttributes } from 'react'
+import styled from '@emotion/styled'
 
 import { TEXT_COLOURS } from '@ltht-react/styles'
 import { CarePlan } from '@ltht-react/types'
 import { resourceReferenceDisplaySummary } from '@ltht-react/utils'
 
-const styles = css`
+const StyledCarePlanDescription = styled.div`
   color: ${TEXT_COLOURS.SECONDARY.VALUE};
   text-align: left;
   font-size: smaller;
   padding-top: 0.25rem;
 `
 
-const CarePlanDescription: React.FC<Props> = ({ carePlan }) => {
+const CarePlanDescription: React.FC<Props> = ({ carePlan, ...rest }) => {
   const values = []
 
   const author = carePlan.author && resourceReferenceDisplaySummary(carePlan.author)
@@ -22,10 +21,10 @@ const CarePlanDescription: React.FC<Props> = ({ carePlan }) => {
   const careTeam = carePlan.careTeam && resourceReferenceDisplaySummary(carePlan.careTeam)
   if (careTeam && careTeam.length > 0) values.push(careTeam)
 
-  return <div css={styles}>{values.join(' - ')}</div>
+  return <StyledCarePlanDescription {...rest}>{values.join(' - ')}</StyledCarePlanDescription>
 }
 
-interface Props {
+interface Props extends HTMLAttributes<HTMLDivElement> {
   carePlan: CarePlan
 }
 

@@ -1,7 +1,5 @@
-/** @jsx jsx */
 import React from 'react'
-import { jsx } from '@emotion/core'
-import Styled from '@emotion/styled'
+import styled from '@emotion/styled'
 
 import { DocumentReference } from '@ltht-react/types'
 
@@ -11,18 +9,20 @@ import Source from '../atoms/document-source'
 import Status from '../atoms/document-status'
 import Redacted from '../molecules/document-redacted'
 
-const StyledSummary = Styled.div`
+const StyledSummary = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
 `
-const StyledDate = Styled.div`
-`
-const StyledDescription = Styled.div`
+
+const StyledDate = styled.div``
+
+const StyledDescription = styled.div`
   flex-grow: 1;
   margin-left: 0.5rem;
 `
-const StyledSource = Styled.div`
+
+const StyledSource = styled.div`
   display: flex;
   flex-direction: column;
   text-align: right;

@@ -1,32 +1,28 @@
-/** @jsx jsx */
 import React from 'react'
-import { css, jsx } from '@emotion/core'
+import styled from '@emotion/styled'
 
 import { LypftCommunityTreatmentOrder } from '@ltht-react/types'
 import { RedactedDescription, PeriodSummary } from '@ltht-react/summary'
 
-const styles = {
-  description: css`
-    flex-grow: 1;
-    text-align: left;
-  `,
-  date: css`
-    text-align: right;
-  `,
-}
+const StyledRedactedDescription = styled.div`
+  flex-grow: 1;
+  text-align: left;
+`
 
-const CommunityTreatmentOrderRedacted: React.FC<Props> = ({ communityTreatmentOrder }) => {
-  return (
-    <React.Fragment>
-      <div css={styles.description}>
-        <RedactedDescription />
-      </div>
-      <div css={styles.date}>
-        <PeriodSummary period={communityTreatmentOrder.period} />
-      </div>
-    </React.Fragment>
-  )
-}
+const StyledPeriodSummary = styled.div`
+  text-align: right;
+`
+
+const CommunityTreatmentOrderRedacted: React.FC<Props> = ({ communityTreatmentOrder }) => (
+  <>
+    <StyledRedactedDescription>
+      <RedactedDescription />
+    </StyledRedactedDescription>
+    <StyledPeriodSummary>
+      <PeriodSummary period={communityTreatmentOrder.period} />
+    </StyledPeriodSummary>
+  </>
+)
 
 interface Props {
   communityTreatmentOrder: LypftCommunityTreatmentOrder

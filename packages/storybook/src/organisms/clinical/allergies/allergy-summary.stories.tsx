@@ -49,3 +49,16 @@ const Allergies: React.FC = () => {
 }
 
 stories.addWithJSX('Summary', () => <Allergies />)
+
+stories.addWithJSX('Redacted', () => (
+  <Card>
+    <Card.Header>
+      <Card.Title>Allergy</Card.Title>
+    </Card.Header>
+    <Card.List>
+      <Card.ListItem>
+        <AllergySummary allergy={allergies[3]} />
+      </Card.ListItem>
+    </Card.List>
+  </Card>
+))
