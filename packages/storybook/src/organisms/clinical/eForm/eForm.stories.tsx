@@ -17,5 +17,5 @@ stories.addParameters({
 })
 
 stories.addWithJSX('Wikipedia', () => {
-  return <EForm url="https://www.wikipedia.org/" />
+  return <EForm url="https://www.wikipedia.org/" style={{ height: '98vh' }} />
 })
