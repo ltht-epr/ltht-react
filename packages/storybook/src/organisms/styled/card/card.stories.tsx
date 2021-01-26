@@ -5,7 +5,7 @@ import JSXAddon from 'storybook-addon-jsx'
 import readme from '@ltht-react/card/README.md'
 import Card from '@ltht-react/card'
 import AllergySummary from '@ltht-react/allergy-summary'
-import { CounterIcon, ExclamationIcon, InfoCircleIcon } from '@ltht-react/icon'
+import { InfoSummary, WarningSummary, ErrorSummary, MissingDataSummary } from '@ltht-react/summary'
 import allergies from '../../clinical/allergies/allergy.fixtures'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -89,9 +89,7 @@ stories.addWithJSX('Info Summary', () => (
       <Card.Header>
         <Card.Title>Allergies</Card.Title>
       </Card.Header>
-      <Card.Banner status="info" onClick={clickHandler}>
-        <InfoCircleIcon size="medium" status="info" /> View Data Sources
-      </Card.Banner>
+      <InfoSummary clickHandler={clickHandler} />
       <Card.List>
         {allergies.map(allergy => (
           <Card.ListItem>
@@ -99,15 +97,11 @@ stories.addWithJSX('Info Summary', () => (
           </Card.ListItem>
         ))}
       </Card.List>
-      <Card.Banner status="info" onClick={clickHandler}>
-        <InfoCircleIcon size="medium" status="info" /> View Data Sources
-      </Card.Banner>
+      <InfoSummary clickHandler={clickHandler} />
       <Card.List>
         <Card.ListItem>Missing 10</Card.ListItem>
       </Card.List>
-      <Card.Banner status="warning" onClick={clickHandler}>
-        <ExclamationIcon size="medium" status="default" /> Incomplete Data
-      </Card.Banner>
+      <WarningSummary clickHandler={clickHandler} />
       <Card.List>
         <Card.ListItem>Missing 10</Card.ListItem>
         <Card.ListItem>Missing 10</Card.ListItem>
@@ -122,9 +116,7 @@ stories.addWithJSX('Warning Summary', () => (
       <Card.Header>
         <Card.Title>Allergies</Card.Title>
       </Card.Header>
-      <Card.Banner status="warning" onClick={clickHandler}>
-        <ExclamationIcon size="medium" status="default" /> Incomplete Data
-      </Card.Banner>
+      <WarningSummary clickHandler={clickHandler} />
       <Card.List>
         {allergies.map(allergy => (
           <Card.ListItem>
@@ -142,9 +134,7 @@ stories.addWithJSX('Error Summary', () => (
       <Card.Header>
         <Card.Title>Allergies</Card.Title>
       </Card.Header>
-      <Card.Banner status="danger" onClick={clickHandler}>
-        <ExclamationIcon size="medium" status="default" /> Regional Providers Unavailable
-      </Card.Banner>
+      <ErrorSummary clickHandler={clickHandler} />
       <Card.List>
         <Card.ListItem>No Data</Card.ListItem>
       </Card.List>
@@ -157,41 +147,12 @@ stories.addWithJSX('Missing Data Summary', () => (
     <Card.Header>
       <Card.Title>Allergies</Card.Title>
     </Card.Header>
-    <Card.Banner status="warning">
-      <CounterIcon size="large" status="amber" value={1} /> Missing Data
-    </Card.Banner>
-    <Card.List>
-      <Card.ListItem>
-        <Card.Text>Humber</Card.Text>
-      </Card.ListItem>
-    </Card.List>
-    <Card.Banner status="warning">
-      <CounterIcon size="large" status="amber" value={1} /> Partial Data
-    </Card.Banner>
-    <Card.List>
-      <Card.ListItem>
-        <Card.Text>York (2 missing)</Card.Text>
-      </Card.ListItem>
-    </Card.List>
-    <Card.Banner status="info">
-      <CounterIcon size="large" status="info" value={2} /> Complete Data
-    </Card.Banner>
-    <Card.List>
-      <Card.ListItem>
-        <Card.Text>Hull And East Yorkshire</Card.Text>
-      </Card.ListItem>
-      <Card.ListItem>
-        <Card.Text>Rotherham</Card.Text>
-      </Card.ListItem>
-    </Card.List>
-    <Card.Banner status="info">
-      <CounterIcon size="large" status="info" value={1} /> No Data
-    </Card.Banner>
-    <Card.List>
-      <Card.ListItem>
-        <Card.Text>Bradford</Card.Text>
-      </Card.ListItem>
-    </Card.List>
+    <MissingDataSummary
+      noData={['Item 1', 'Item 2']}
+      missingData={['Item 1', 'Item 2']}
+      partialData={['Item 1', 'Item 2']}
+      completeData={['Item 1', 'Item 2']}
+    />
   </Card>
 ))
 

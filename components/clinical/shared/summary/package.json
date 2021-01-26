@@ -27,7 +27,7 @@
   "dependencies": {
     "@emotion/core": "^10.0.27",
     "@emotion/styled": "^10.0.27",
-    "@ltht-react/banner": "^0.0.18",
+    "@ltht-react/card": "^0.1.35",
     "@ltht-react/icon": "^0.1.28",
     "@ltht-react/list": "^0.1.26",
     "@ltht-react/styles": "^0.1.20",
