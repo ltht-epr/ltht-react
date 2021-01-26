@@ -28,7 +28,6 @@ const hoverCursor = (props: Props): string => (canClick(props) ? 'pointer' : 'de
 const StyledListItem = styled.li`
   position: relative;
   display: flex;
-  justify-content: center;
   align-items: center;
   padding: 0.75rem;
   margin: 0;
@@ -59,7 +58,7 @@ const StyledListItem = styled.li`
   }
 
   & > .icon__chevron {
-    margin-left: 0.5rem;
+    margin-left: 1rem;
     color: ${ICON_COLOURS.DEFAULT.LIGHTER25};
   }
 
@@ -87,7 +86,7 @@ const ListItem: React.FC<Props> = props => {
   return (
     <StyledListItem className={classNames(`card__list-item${suffix}`, classes)} {...rest}>
       {children}
-      {shouldClick(props) && <ChevronIcon size="large" direction="right" />}
+      {shouldClick(props) && <ChevronIcon size="medium" direction="right" />}
     </StyledListItem>
   )
 }

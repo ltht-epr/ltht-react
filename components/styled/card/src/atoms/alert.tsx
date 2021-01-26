@@ -1,7 +1,4 @@
-/* eslint-disable react/jsx-props-no-spreading */
-/** @jsx jsx */
-import React, { DOMAttributes } from 'react'
-import { jsx } from '@emotion/core'
+import React, { HTMLAttributes } from 'react'
 import Styled from '@emotion/styled'
 import { InfoCircleIcon, ExclamationIcon } from '@ltht-react/icon'
 import Banner, { StatusTypes } from './banner'
@@ -29,7 +26,7 @@ const Alert: React.FC<Props> = ({ status = 'default', children, ...rest }) => {
   )
 }
 
-export interface Props extends DOMAttributes<HTMLDivElement> {
+export interface Props extends HTMLAttributes<HTMLDivElement> {
   status?: StatusTypes
 }
 

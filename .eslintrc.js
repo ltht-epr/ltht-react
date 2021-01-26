@@ -30,6 +30,7 @@ module.exports = {
     'jsx-a11y/interactive-supports-focus': 'off',
     'prettier/prettier': ['error'],
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx', '.tsx'] }],
+    'react/jsx-props-no-spreading': 0,
     'react/prop-types': 'off',
     'import/extensions': [
       'error',

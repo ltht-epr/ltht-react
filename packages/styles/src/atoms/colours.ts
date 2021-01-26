@@ -91,6 +91,6 @@ export const BANNER_COLOURS = {
     TEXT: '#a41e40',
     BORDER: '#ec9bb0',
     ICON: '#f50b47',
-    HOVER: 'ea94aa',
+    HOVER: '#ea94aa',
   },
 }
