@@ -1,14 +1,14 @@
 import React from 'react'
 import { PartialDateTime } from '@ltht-react/types'
 import { partialDateTimeText } from '@ltht-react/utils'
-import { DescriptionList, DescriptionListTerm, DescriptionListDescription } from '@ltht-react/description-list'
+import DescriptionList from '@ltht-react/description-list'
 
 const DatetimeDetail: React.FC<Props> = ({ term, datetime }) => {
   if (datetime?.value) {
     return (
       <DescriptionList>
-        <DescriptionListTerm>{term}</DescriptionListTerm>
-        <DescriptionListDescription>{partialDateTimeText(datetime)}</DescriptionListDescription>
+        <DescriptionList.Term>{term}</DescriptionList.Term>
+        <DescriptionList.Description>{partialDateTimeText(datetime)}</DescriptionList.Description>
       </DescriptionList>
     )
   }

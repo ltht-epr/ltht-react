@@ -1,14 +1,14 @@
 import React from 'react'
 import { CodeableConcept } from '@ltht-react/types'
 import { codeableConceptDisplaySummary } from '@ltht-react/utils'
-import { DescriptionList, DescriptionListTerm, DescriptionListDescription } from '@ltht-react/description-list'
+import DescriptionList from '@ltht-react/description-list'
 
 const CodeableConceptDetail: React.FC<Props> = ({ term, concept }) => {
   if (concept) {
     return (
       <DescriptionList>
-        <DescriptionListTerm>{term}</DescriptionListTerm>
-        <DescriptionListDescription>{codeableConceptDisplaySummary(concept)}</DescriptionListDescription>
+        <DescriptionList.Term>{term}</DescriptionList.Term>
+        <DescriptionList.Description>{codeableConceptDisplaySummary(concept)}</DescriptionList.Description>
       </DescriptionList>
     )
   }

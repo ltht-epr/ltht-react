@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react'
 import JSXAddon from 'storybook-addon-jsx'
 
 import dlreadme from '@ltht-react/description-list/README.md'
-import { DescriptionList, DescriptionListTerm, DescriptionListDescription } from '@ltht-react/description-list'
+import DescriptionList from '@ltht-react/description-list'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const stories = storiesOf('Atoms|Description List', module) as any
@@ -18,7 +18,7 @@ stories.addParameters({
 
 stories.addWithJSX('Description List', () => (
   <DescriptionList>
-    <DescriptionListTerm>Term</DescriptionListTerm>
-    <DescriptionListDescription>Description</DescriptionListDescription>
+    <DescriptionList.Term>Term</DescriptionList.Term>
+    <DescriptionList.Description>Description</DescriptionList.Description>
   </DescriptionList>
 ))

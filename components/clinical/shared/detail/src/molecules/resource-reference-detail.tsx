@@ -1,21 +1,21 @@
 import React from 'react'
 import { ResourceReference } from '@ltht-react/types'
-import { DescriptionList, DescriptionListTerm, DescriptionListDescription } from '@ltht-react/description-list'
+import DescriptionList from '@ltht-react/description-list'
 
 const ResourceReferenceDetail: React.FC<Props> = ({ term, resourceReference }) => {
   if (resourceReference) {
     if (term) {
       return (
         <DescriptionList>
-          <DescriptionListTerm>{term}</DescriptionListTerm>
-          <DescriptionListDescription>{resourceReference?.display}</DescriptionListDescription>
+          <DescriptionList.Term>{term}</DescriptionList.Term>
+          <DescriptionList.Description>{resourceReference?.display}</DescriptionList.Description>
         </DescriptionList>
       )
     }
     return (
       <DescriptionList>
-        <DescriptionListTerm>{resourceReference?.typeName}</DescriptionListTerm>
-        <DescriptionListDescription>{resourceReference?.display}</DescriptionListDescription>
+        <DescriptionList.Term>{resourceReference?.typeName}</DescriptionList.Term>
+        <DescriptionList.Description>{resourceReference?.display}</DescriptionList.Description>
       </DescriptionList>
     )
   }

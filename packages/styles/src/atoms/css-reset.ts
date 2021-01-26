@@ -10,10 +10,6 @@ const CSS_RESET = css`
     padding: 0;
     margin: 0;
   }
-  & * {
-    margin: 0;
-    padding: 0;
-  }
   color: ${TEXT_COLOURS.PRIMARY};
   font-family: 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 0.8rem;

@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { MedicationList } from '@ltht-react/types'
-import { DescriptionList, DescriptionListTerm, DescriptionListDescription } from '@ltht-react/description-list'
+import DescriptionList from '@ltht-react/description-list'
 
 import { codeableConceptDisplaySummary as displaySummary } from '@ltht-react/utils'
 
@@ -18,8 +18,8 @@ const MedicationSummary: React.FC<Props> = ({ medicationlist = undefined }) => {
       return
     }
 
-    meds.push(<DescriptionListTerm>{displaySummary(code)}</DescriptionListTerm>)
-    meds.push(<DescriptionListDescription>{stmt?.dosage?.map(x => x?.text).join(', ')}</DescriptionListDescription>)
+    meds.push(<DescriptionList.Term>{displaySummary(code)}</DescriptionList.Term>)
+    meds.push(<DescriptionList.Description>{stmt?.dosage?.map(x => x?.text).join(', ')}</DescriptionList.Description>)
   })
 
   return <DescriptionList>{meds}</DescriptionList>

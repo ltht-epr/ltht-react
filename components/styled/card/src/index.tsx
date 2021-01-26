@@ -38,7 +38,7 @@ const StyledCard = styled.div`
   }
 `
 
-const Card: React.FC<Props> & CardComposition = ({ textAlign = 'left', classes, children, ...rest }) => {
+const Card: React.FC<CardProps> & CardComposition = ({ textAlign = 'left', classes, children, ...rest }) => {
   return (
     <StyledCard textAlign={textAlign} className={classNames('card', classes)} {...rest}>
       {children}
@@ -76,7 +76,7 @@ interface StyledProps {
   textAlign: TextAlignValues
 }
 
-export interface Props extends HTMLAttributes<HTMLDivElement> {
+export interface CardProps extends HTMLAttributes<HTMLDivElement> {
   textAlign?: TextAlignValues
   classes?: string
 }
