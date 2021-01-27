@@ -1,36 +1,44 @@
-/** @jsx jsx */
-import React from 'react'
-import { css, jsx, SerializedStyles } from '@emotion/core'
+import React, { HTMLAttributes } from 'react'
+import styled from '@emotion/styled'
+import { css, SerializedStyles } from '@emotion/core'
 import { INPUT_COLOURS } from '@ltht-react/styles'
 
-export const styles = (checked: boolean): SerializedStyles => {
-  return css`
-    padding-left: 1.25rem;
-    ${checked && `background-color: ${INPUT_COLOURS.RADIO_SELECTED}; `}
+const StyledCheckbox = styled.div<StyledCheckboxProps>`
+  padding-left: 1.25rem;
 
-    input {
-      position: absolute;
-      margin-top: 0.15rem;
-      margin-left: -1.25rem;
-    }
+  ${({ checked }): ConditionalStyles =>
+    checked &&
+    css`
+      background-color: ${INPUT_COLOURS.RADIO_SELECTED};
+    `}
+`
 
-    label {
-      display: inline-block;
-      margin-bottom: 0;
-    }
-  `
-}
+const StyledInput = styled.input`
+  position: absolute;
+  margin-top: 0.15rem;
+  margin-left: -1.25rem;
+`
 
-const Checkbox: React.FC<Props> = ({ id, value, checked = false, label, changeHandler }) => {
+const StyledLabel = styled.label`
+  display: inline-block;
+  margin-bottom: 0;
+`
+
+const Checkbox: React.FC<Props> = ({ id, value, checked = false, label, changeHandler, ...rest }) => {
   return (
-    <div css={styles(checked)}>
-      <input id={id} onChange={changeHandler} value={value} type="radio" checked={checked} />
-      <label htmlFor={id}>{label}</label>
-    </div>
+    <StyledCheckbox checked={checked} {...rest}>
+      <StyledInput id={id} onChange={changeHandler} value={value} type="radio" checked={checked} />
+      <StyledLabel htmlFor={id}>{label}</StyledLabel>
+    </StyledCheckbox>
   )
 }
 
-interface Props {
+type ConditionalStyles = SerializedStyles | false
+interface StyledCheckboxProps {
+  checked: boolean
+}
+
+interface Props extends HTMLAttributes<HTMLDivElement> {
   id: string
   value: string
   checked?: boolean
