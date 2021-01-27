@@ -16,6 +16,7 @@ const EncounterHospitalisationDetail: React.FC<Props> = ({ hospitalisation }) =>
       extensions.push(item?.valueCodeableConcept)
     }
   })
+
   return (
     <NestedListDetail term="Hospitalisation">
       <CodeableConceptDetail term="Admit Source" concept={hospitalisation?.admitSource} />

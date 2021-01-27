@@ -1,17 +1,21 @@
-/** @jsx jsx */
 import React from 'react'
-import { jsx } from '@emotion/core'
-import Styled from '@emotion/styled'
+import styled from '@emotion/styled'
 import { Guidance } from '@ltht-react/types'
 import { UnorderedList, ListItem } from '@ltht-react/list'
 
 import Redacted from '../molecules/guidance-redacted'
 
-const StyledTitle = Styled.h4``
-const StyledText = Styled.span`
+const StyledTitle = styled.h4``
+
+const StyledBody = styled.div``
+
+const StyledText = styled.span`
   display: block;
   padding-top: 0.5rem;
-  padding-bottom: ${(props: StyledProps): string => (props.hasNotes ? '0.5rem' : '0')};
+`
+
+const StyledUnorderedList = styled(UnorderedList)`
+  padding-top: 0.5rem;
 `
 
 const GuidanceSummary: React.FC<Props> = ({ guidance }) => {
@@ -20,20 +24,20 @@ const GuidanceSummary: React.FC<Props> = ({ guidance }) => {
   }
 
   return (
-    <React.Fragment>
+    <>
       <StyledTitle>{guidance.reasonCode?.text}</StyledTitle>
-      <StyledText hasNotes={!!guidance.note}>{guidance.text?.text}</StyledText>
-      <UnorderedList bullet="disc">
-        {guidance.note?.map((note, index) => (
-          <ListItem key={index}>{note?.text}</ListItem>
-        ))}
-      </UnorderedList>
-    </React.Fragment>
+      <StyledBody>
+        <StyledText>{guidance.text?.text}</StyledText>
+        {!!guidance.note && (
+          <StyledUnorderedList bullet="disc">
+            {guidance.note?.map((note, index) => (
+              <ListItem key={index}>{note?.text}</ListItem>
+            ))}
+          </StyledUnorderedList>
+        )}
+      </StyledBody>
+    </>
   )
-}
-
-interface StyledProps {
-  hasNotes: boolean
 }
 
 interface Props {

@@ -1,7 +1,5 @@
-/** @jsx jsx */
-import React from 'react'
-import { jsx } from '@emotion/core'
-import Styled from '@emotion/styled'
+import React, { HTMLAttributes } from 'react'
+import styled from '@emotion/styled'
 
 import { Encounter } from '@ltht-react/types'
 import { PeriodSummary } from '@ltht-react/summary'
@@ -10,18 +8,18 @@ import ServiceProvider from '../atoms/hospital-stay-service-provider'
 import Description from '../atoms/hospital-stay-description'
 import Redacted from '../molecules/hospital-stay-redacted'
 
-const StyledSummary = Styled.div`
+const StyledSummary = styled.div`
   display: flex;
   justify-content: center;
 `
-const StyledDescription = Styled.div`
+const StyledDescription = styled.div`
   flex: 1;
 `
-const StyledDate = Styled.div`
+const StyledDate = styled.div`
   flex: 1;
   text-align: left;
 `
-const StyledService = Styled.div`
+const StyledService = styled.div`
   flex: 1;
   text-align: right;
 `
@@ -46,7 +44,7 @@ const HospitalStaySummary: React.FC<Props> = ({ hospitalStay }) => {
   )
 }
 
-interface Props {
+interface Props extends HTMLAttributes<HTMLDivElement> {
   hospitalStay: Encounter
 }
 

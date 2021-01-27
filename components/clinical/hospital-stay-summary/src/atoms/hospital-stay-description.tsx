@@ -1,21 +1,20 @@
-/** @jsx jsx */
-import React from 'react'
-import { css, jsx } from '@emotion/core'
+import React, { HTMLAttributes } from 'react'
+import styled from '@emotion/styled'
 
 import { TEXT_COLOURS } from '@ltht-react/styles'
 import { Encounter } from '@ltht-react/types'
 
-const styles = css`
+const StyledHospitalStayDescription = styled.div`
   color: ${TEXT_COLOURS.PRIMARY};
   text-align: left;
   margin-left: 0.5em;
 `
 
-const HospitalStayDescription: React.FC<Props> = ({ encounter }) => {
-  return <div css={styles}>{encounter.text && encounter.text.text}</div>
-}
+const HospitalStayDescription: React.FC<Props> = ({ encounter, ...rest }) => (
+  <StyledHospitalStayDescription {...rest}>{encounter.text && encounter.text.text}</StyledHospitalStayDescription>
+)
 
-interface Props {
+interface Props extends HTMLAttributes<HTMLDivElement> {
   encounter: Encounter
 }
 

@@ -1,44 +1,39 @@
-/** @jsx jsx */
 import React from 'react'
-import { jsx, css } from '@emotion/core'
-
+import styled from '@emotion/styled'
 import { EncounterStatusHistory, Maybe } from '@ltht-react/types'
 import DescriptionList from '@ltht-react/description-list'
 import { NestedListDetail } from '@ltht-react/detail'
 import { periodSummaryText, titleCase } from '@ltht-react/utils'
 
-const styles = {
-  nested: css`
-    margin-top: 0.5rem;
-    margin-left: 0.5rem;
-  `,
-  li: css`
-    list-style: initial;
-  `,
-}
+const StyledNestedList = styled.div`
+  margin-top: 0.5rem;
+  margin-left: 0.5rem;
+`
 
-const EncounterStatusHistoryDetail: React.FC<Props> = ({ hospitalStatusHistories }) => {
-  return (
-    <NestedListDetail term="Status History">
-      {hospitalStatusHistories?.map(item => {
-        if (item?.status) {
-          return (
-            <div css={styles.nested}>
-              <li css={styles.li}>
-                {titleCase(item?.status)} - {periodSummaryText(item?.period)}
-              </li>
-            </div>
-          )
-        }
+const StyledListItem = styled.li`
+  list-style: initial;
+`
+
+const EncounterStatusHistoryDetail: React.FC<Props> = ({ hospitalStatusHistories }) => (
+  <NestedListDetail term="Status History">
+    {hospitalStatusHistories?.map(item => {
+      if (item?.status) {
         return (
-          <div css={styles.nested}>
-            <DescriptionList.Description>{periodSummaryText(item?.period)}</DescriptionList.Description>
-          </div>
+          <StyledNestedList>
+            <StyledListItem>
+              {titleCase(item?.status)} - {periodSummaryText(item?.period)}
+            </StyledListItem>
+          </StyledNestedList>
         )
-      })}
-    </NestedListDetail>
-  )
-}
+      }
+      return (
+        <StyledNestedList>
+          <DescriptionList.Description>{periodSummaryText(item?.period)}</DescriptionList.Description>
+        </StyledNestedList>
+      )
+    })}
+  </NestedListDetail>
+)
 
 interface Props {
   hospitalStatusHistories?: Maybe<Array<Maybe<EncounterStatusHistory>>>
