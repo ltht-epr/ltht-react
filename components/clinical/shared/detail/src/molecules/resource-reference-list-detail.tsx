@@ -9,8 +9,10 @@ const ResourceReferenceDetail: React.FC<Props> = ({ term, resourceReferences }) 
       <DescriptionList>
         <DescriptionList.Term>{term}</DescriptionList.Term>
         {resourceReferences?.map(item => {
-          if (item?.display !== undefined) {
-            return <DescriptionList.Description>{titleCase(item?.display)}</DescriptionList.Description>
+          if (item?.display) {
+            return (
+              <DescriptionList.Description key={item.display}>{titleCase(item?.display)}</DescriptionList.Description>
+            )
           }
           return <></>
         })}

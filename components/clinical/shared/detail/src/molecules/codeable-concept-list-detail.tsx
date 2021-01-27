@@ -10,7 +10,11 @@ const CodeableConceptListDetail: React.FC<Props> = ({ term, concepts }) => {
         <DescriptionList.Term>{term}</DescriptionList.Term>
         {concepts?.map(item => {
           if (item?.text) {
-            return <DescriptionList.Description>{codeableConceptDisplaySummary(item)}</DescriptionList.Description>
+            return (
+              <DescriptionList.Description key={term}>
+                {codeableConceptDisplaySummary(item)}
+              </DescriptionList.Description>
+            )
           }
           return <></>
         })}

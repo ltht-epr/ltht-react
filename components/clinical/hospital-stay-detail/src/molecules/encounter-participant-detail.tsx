@@ -19,7 +19,7 @@ const EncounterParticipantDetail: React.FC<Props> = ({ participants }) => (
     {participants?.map(item => {
       if (item?.individual?.display && item?.individual?.typeName) {
         return (
-          <StyledNestedList>
+          <StyledNestedList key={item.individual.display}>
             <StyledListItem>
               {titleCase(item?.individual?.display)} ({titleCase(item?.individual?.typeName)}):{' '}
               {periodSummaryText(item?.period)}

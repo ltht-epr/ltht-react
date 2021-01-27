@@ -1,22 +1,21 @@
-/** @jsx jsx */
-import React from 'react'
-import { css, jsx } from '@emotion/core'
+import React, { HTMLAttributes } from 'react'
+import styled from '@emotion/styled'
 
 import { TEXT_COLOURS } from '@ltht-react/styles'
 import { EpisodeOfCare } from '@ltht-react/types'
 
-const styles = css`
+const StyledInvolvedTeamDescription = styled.div`
   color: ${TEXT_COLOURS.SECONDARY.VALUE};
   text-align: left;
   font-size: smaller;
   padding-top: 0.25rem;
 `
 
-const InvolvedTeamDescription: React.FC<Props> = ({ episodeOfCare }) => {
-  return <div css={styles}>{episodeOfCare.careManager?.display}</div>
-}
+const InvolvedTeamDescription: React.FC<Props> = ({ episodeOfCare, ...rest }) => (
+  <StyledInvolvedTeamDescription {...rest}>{episodeOfCare.careManager?.display}</StyledInvolvedTeamDescription>
+)
 
-interface Props {
+interface Props extends HTMLAttributes<HTMLDivElement> {
   episodeOfCare: EpisodeOfCare
 }
 

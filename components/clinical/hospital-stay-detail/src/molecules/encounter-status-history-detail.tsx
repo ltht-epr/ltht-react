@@ -19,7 +19,7 @@ const EncounterStatusHistoryDetail: React.FC<Props> = ({ hospitalStatusHistories
     {hospitalStatusHistories?.map(item => {
       if (item?.status) {
         return (
-          <StyledNestedList>
+          <StyledNestedList key={item.status}>
             <StyledListItem>
               {titleCase(item?.status)} - {periodSummaryText(item?.period)}
             </StyledListItem>

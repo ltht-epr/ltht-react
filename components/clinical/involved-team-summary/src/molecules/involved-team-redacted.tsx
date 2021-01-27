@@ -1,36 +1,32 @@
-/** @jsx jsx */
-import React from 'react'
-import { jsx } from '@emotion/core'
-import Styled from '@emotion/styled'
+import React, { HTMLAttributes } from 'react'
+import styled from '@emotion/styled'
 
 import { EpisodeOfCare } from '@ltht-react/types'
 import { RedactedDescription, PeriodSummary } from '@ltht-react/summary'
 
-const StyledRedacted = Styled.div`
+const StyledRedacted = styled.div`
   display: flex;
 `
-const StyledDescription = Styled.div`
+const StyledDescription = styled.div`
   flex: 1;
 `
-const StyledDate = Styled.div`
+const StyledDate = styled.div`
   flex: 1;
   text-align: right;
 `
 
-const InvolvedTeamRedacted: React.FC<Props> = ({ episodeOfCare }) => {
-  return (
-    <StyledRedacted>
-      <StyledDescription>
-        <RedactedDescription />
-      </StyledDescription>
-      <StyledDate>
-        <PeriodSummary period={episodeOfCare.period} />
-      </StyledDate>
-    </StyledRedacted>
-  )
-}
+const InvolvedTeamRedacted: React.FC<Props> = ({ episodeOfCare, ...rest }) => (
+  <StyledRedacted {...rest}>
+    <StyledDescription>
+      <RedactedDescription />
+    </StyledDescription>
+    <StyledDate>
+      <PeriodSummary period={episodeOfCare.period} />
+    </StyledDate>
+  </StyledRedacted>
+)
 
-interface Props {
+interface Props extends HTMLAttributes<HTMLDivElement> {
   episodeOfCare: EpisodeOfCare
 }
 
