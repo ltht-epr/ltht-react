@@ -1,24 +1,17 @@
-/** @jsx jsx */
 import React from 'react'
-import { css, jsx } from '@emotion/core'
+import styled from '@emotion/styled'
 
 import { RedactedDescription } from '@ltht-react/summary'
 
-const styles = {
-  description: css`
-    flex-grow: 1;
-    text-align: left;
-  `,
-}
+const StyledDescription = styled.div`
+  flex-grow: 1;
+  text-align: left;
+`
 
-const ObservationRedacted: React.FC = () => {
-  return (
-    <React.Fragment>
-      <div css={styles.description}>
-        <RedactedDescription />
-      </div>
-    </React.Fragment>
-  )
-}
+const ObservationRedacted: React.FC = () => (
+  <StyledDescription>
+    <RedactedDescription />
+  </StyledDescription>
+)
 
 export default ObservationRedacted

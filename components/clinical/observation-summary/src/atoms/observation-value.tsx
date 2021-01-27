@@ -1,21 +1,20 @@
-/** @jsx jsx */
-import React from 'react'
-import { css, jsx } from '@emotion/core'
+import React, { HTMLAttributes } from 'react'
+import styled from '@emotion/styled'
 
 import { TEXT_COLOURS } from '@ltht-react/styles'
 import { Observation } from '@ltht-react/types'
 import { codeableConceptDisplaySummary } from '@ltht-react/utils'
 
-const styles = css`
+const StyledObservationValue = styled.div`
   color: ${TEXT_COLOURS.PRIMARY};
   text-align: left;
 `
 
-const ObservationValue: React.FC<Props> = ({ observation }) => {
-  return <div css={styles}>{codeableConceptDisplaySummary(observation.code)}</div>
-}
+const ObservationValue: React.FC<Props> = ({ observation, ...rest }) => (
+  <StyledObservationValue {...rest}>{codeableConceptDisplaySummary(observation.code)}</StyledObservationValue>
+)
 
-interface Props {
+interface Props extends HTMLAttributes<HTMLDivElement> {
   observation: Observation
 }
 
