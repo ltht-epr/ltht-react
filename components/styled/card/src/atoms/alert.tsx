@@ -12,19 +12,17 @@ const StyleContent = Styled.div`
   flex: 1;
 `
 
-const Alert: React.FC<Props> = ({ status = 'default', children, ...rest }) => {
-  return (
-    <Banner status={status} {...rest}>
-      <StyledAlert>
-        {status === 'default' && <InfoCircleIcon size="large" />}
-        {status === 'info' && <InfoCircleIcon size="large" />}
-        {status === 'warning' && <ExclamationIcon size="large" />}
-        {status === 'danger' && <ExclamationIcon size="large" />}
-        <StyleContent className="alert__content">{children}</StyleContent>
-      </StyledAlert>
-    </Banner>
-  )
-}
+const Alert: React.FC<Props> = ({ status = 'default', children, ...rest }) => (
+  <Banner status={status} {...rest}>
+    <StyledAlert>
+      {status === 'default' && <InfoCircleIcon size="large" />}
+      {status === 'info' && <InfoCircleIcon size="large" />}
+      {status === 'warning' && <ExclamationIcon size="large" />}
+      {status === 'danger' && <ExclamationIcon size="large" />}
+      <StyleContent className="alert__content">{children}</StyleContent>
+    </StyledAlert>
+  </Banner>
+)
 
 export interface Props extends HTMLAttributes<HTMLDivElement> {
   status?: StatusTypes

@@ -1,31 +1,39 @@
-/** @jsx jsx */
 import React from 'react'
-import { css, jsx } from '@emotion/core'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import styled from '@emotion/styled'
+import { css, SerializedStyles } from '@emotion/core'
+import { FontAwesomeIcon, FontAwesomeIconProps } from '@fortawesome/react-fontawesome'
 import { faTable } from '@fortawesome/free-solid-svg-icons'
 import { ICON_COLOURS, IconSizes, calculateIconSize } from '@ltht-react/styles'
 
-const TableIcon: React.FC<IconProps> = ({ status, size }) => {
-  const styles = css`
-    ${status === 'green' && `color: ${ICON_COLOURS.SUCCESS.VALUE};`}
-    ${status === 'amber' && `color: ${ICON_COLOURS.WARNING};`}
-    ${status === 'red' && `color: ${ICON_COLOURS.DANGER};`}
-    ${status === 'default' && `color: ${ICON_COLOURS.DEFAULT.VALUE};`}
-    ${status === 'info' && `color: ${ICON_COLOURS.INFO};`}
-  `
-  return (
-    <FontAwesomeIcon
-      className="icon__table"
-      css={styles}
-      icon={faTable}
-      size={calculateIconSize(size)}
-      transform={{ rotate: 180 }}
-    />
-  )
-}
+const calculateIconColor = (status: string): SerializedStyles => css`
+  ${status === 'green' && `${ICON_COLOURS.SUCCESS.VALUE};`}
+  ${status === 'amber' && `${ICON_COLOURS.WARNING};`}
+  ${status === 'red' && `${ICON_COLOURS.DANGER};`}
+  ${status === 'default' && `${ICON_COLOURS.DEFAULT};`}
+  ${status === 'info' && `${ICON_COLOURS.INFO};`}
+`
 
-type IconProps = {
-  status: 'red' | 'green' | 'amber' | 'info' | 'default'
+const StyledFontAwesomeIcon = styled(FontAwesomeIcon)<StyledFontAwesomeIconProps>`
+  color: ${({ status }): SerializedStyles => calculateIconColor(status)};
+`
+
+const TableIcon: React.FC<IconProps> = ({ status, size }) => (
+  <StyledFontAwesomeIcon
+    className="icon__table"
+    status={status}
+    icon={faTable}
+    size={calculateIconSize(size)}
+    transform={{ rotate: 180 }}
+  />
+)
+
+type StatusValues = 'red' | 'green' | 'amber' | 'info' | 'default'
+
+interface StyledFontAwesomeIconProps extends FontAwesomeIconProps {
+  status: StatusValues
+}
+interface IconProps {
+  status: StatusValues
   size: IconSizes
 }
 

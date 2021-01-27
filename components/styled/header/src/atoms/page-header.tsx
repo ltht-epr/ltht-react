@@ -1,17 +1,16 @@
-/** @jsx jsx */
-import React from 'react'
-import { css, jsx } from '@emotion/core'
+import React, { HTMLAttributes } from 'react'
+import styled from '@emotion/styled'
 import { TEXT_COLOURS } from '@ltht-react/styles'
 
-const styles = css`
+const StyledPageHeader = styled.h1`
   list-style: none;
   padding-left: 0.5rem;
   color: ${TEXT_COLOURS.PRIMARY};
   text-align: center;
 `
 
-const PageHeader: React.FC = ({ children }) => {
-  return <h1 css={styles}>{children}</h1>
+const PageHeader: React.FC<HTMLAttributes<HTMLHeadingElement>> = ({ children, ...rest }) => {
+  return <StyledPageHeader {...rest}>{children}</StyledPageHeader>
 }
 
 export default PageHeader

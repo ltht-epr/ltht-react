@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-props-no-spreading */
 import React, { HTMLAttributes } from 'react'
 import classNames from 'classnames'
 import styled from '@emotion/styled'
@@ -17,13 +16,11 @@ const StyledBody = styled.div`
   }
 `
 
-const Body: React.FC<Props> = ({ classes, children, ...rest }) => {
-  return (
-    <StyledBody className={classNames('card__body', classes)} {...rest}>
-      {children}
-    </StyledBody>
-  )
-}
+const Body: React.FC<Props> = ({ classes, children, ...rest }) => (
+  <StyledBody className={classNames('card__body', classes)} {...rest}>
+    {children}
+  </StyledBody>
+)
 
 export interface Props extends HTMLAttributes<HTMLDivElement> {
   classes?: string

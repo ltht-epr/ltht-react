@@ -38,13 +38,11 @@ const StyledCard = styled.div`
   }
 `
 
-const Card: React.FC<CardProps> & CardComposition = ({ textAlign = 'left', classes, children, ...rest }) => {
-  return (
-    <StyledCard textAlign={textAlign} className={classNames('card', classes)} {...rest}>
-      {children}
-    </StyledCard>
-  )
-}
+const Card: React.FC<CardProps> & CardComposition = ({ textAlign = 'left', classes, children, ...rest }) => (
+  <StyledCard textAlign={textAlign} className={classNames('card', classes)} {...rest}>
+    {children}
+  </StyledCard>
+)
 
 Card.Alert = Alert
 Card.Banner = Banner

@@ -21,9 +21,11 @@ stories.addWithJSX('Exclamation Icon', () => (
     <ExclamationIcon status="green" size="small" />
     <ExclamationIcon status="green" size="medium" />
     <ExclamationIcon status="green" size="large" />
+    <br />
     <ExclamationIcon status="amber" size="small" />
     <ExclamationIcon status="amber" size="medium" />
     <ExclamationIcon status="amber" size="large" />
+    <br />
     <ExclamationIcon status="red" size="small" />
     <ExclamationIcon status="red" size="medium" />
     <ExclamationIcon status="red" size="large" />

@@ -1,5 +1,4 @@
-/* eslint-disable react/jsx-props-no-spreading */
-import React, { HtmlHTMLAttributes } from 'react'
+import React, { HTMLAttributes } from 'react'
 import classNames from 'classnames'
 import styled from '@emotion/styled'
 
@@ -25,15 +24,13 @@ const StyledList = styled.ul`
   }
 `
 
-const List: React.FC<Props> = ({ classes, children, ...rest }) => {
-  return (
-    <StyledList className={classNames('card__list', classes)} {...rest}>
-      {children}
-    </StyledList>
-  )
-}
+const List: React.FC<Props> = ({ classes, children, ...rest }) => (
+  <StyledList className={classNames('card__list', classes)} {...rest}>
+    {children}
+  </StyledList>
+)
 
-export interface Props extends HtmlHTMLAttributes<HTMLUListElement> {
+export interface Props extends HTMLAttributes<HTMLUListElement> {
   classes?: string
 }
 

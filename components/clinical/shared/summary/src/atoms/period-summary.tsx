@@ -1,20 +1,19 @@
-/** @jsx jsx */
-import React from 'react'
-import { css, jsx } from '@emotion/core'
+import React, { HTMLAttributes } from 'react'
+import styled from '@emotion/styled'
 
 import { TEXT_COLOURS } from '@ltht-react/styles'
 import { Period } from '@ltht-react/types'
 import { periodSummaryText } from '@ltht-react/utils'
 
-const styles = css`
+const StyledPeriodSummary = styled.div`
   color: ${TEXT_COLOURS.PRIMARY};
 `
 
-const PeriodSummary: React.FC<Props> = ({ period }) => {
-  return <div css={styles}>{periodSummaryText(period)}</div>
-}
+const PeriodSummary: React.FC<Props> = ({ period, ...rest }) => (
+  <StyledPeriodSummary {...rest}>{periodSummaryText(period)}</StyledPeriodSummary>
+)
 
-interface Props {
+interface Props extends HTMLAttributes<HTMLDivElement> {
   period?: Period | null
 }
 

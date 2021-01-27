@@ -1,6 +1,4 @@
-/** @jsx jsx */
 import React from 'react'
-import { jsx } from '@emotion/core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronDown, faChevronUp, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 import { IconSizes, calculateIconSize } from '@ltht-react/styles'
@@ -25,6 +23,7 @@ const ChevronIcon: React.FC<Props> = ({ size, direction, clickHandler }) => {
     e.stopPropagation()
     clickHandler && clickHandler()
   }
+
   return (
     <FontAwesomeIcon
       className="icon__chevron"

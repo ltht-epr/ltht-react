@@ -19,7 +19,9 @@ stories.addParameters({
 stories.addWithJSX('Spinner Icon', () => (
   <>
     <SpinnerIcon size="small" />
+    <br />
     <SpinnerIcon size="medium" />
+    <br />
     <SpinnerIcon size="large" />
   </>
 ))

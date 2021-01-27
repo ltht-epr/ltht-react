@@ -1,19 +1,16 @@
-/** @jsx jsx */
-import React from 'react'
-import { css, jsx } from '@emotion/core'
+import React, { HTMLAttributes } from 'react'
+import styled from '@emotion/styled'
 
-export const styles = css`
+const StyledFormCheck = styled.div`
   display: block;
   position: relative;
   margin-bottom: 0.5rem;
 `
 
-const FormCheck: React.FC = ({ children }) => {
-  return (
-    <div className="form-check" css={styles}>
-      {children}
-    </div>
-  )
-}
+const FormCheck: React.FC<HTMLAttributes<HTMLDivElement>> = ({ children, ...rest }) => (
+  <StyledFormCheck className="form-check" {...rest}>
+    {children}
+  </StyledFormCheck>
+)
 
 export default FormCheck

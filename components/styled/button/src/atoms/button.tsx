@@ -86,13 +86,11 @@ const StyledButton = styled('button')<StyledProps>`
   ${({ buttonStyle }): SerializedStyles => setColors(buttonStyle)}
 `
 
-const Button: React.FC<Props> = ({ type, value, buttonStyle = 'default', disabled = false, ...rest }) => {
-  return (
-    <StyledButton type={type} buttonStyle={buttonStyle} disabled={disabled} {...rest}>
-      {value}
-    </StyledButton>
-  )
-}
+const Button: React.FC<Props> = ({ type, value, buttonStyle = 'default', disabled = false, ...rest }) => (
+  <StyledButton type={type} buttonStyle={buttonStyle} disabled={disabled} {...rest}>
+    {value}
+  </StyledButton>
+)
 
 type ButtonStyle = 'default' | 'primary' | 'standard' | 'workflow'
 type ButtonTypes = 'button' | 'submit' | 'reset'

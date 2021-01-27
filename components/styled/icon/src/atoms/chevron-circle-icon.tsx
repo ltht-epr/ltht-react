@@ -1,7 +1,4 @@
-/* eslint-disable react/jsx-props-no-spreading */
-/** @jsx jsx */
 import React from 'react'
-import { jsx } from '@emotion/core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faChevronCircleDown,
@@ -31,6 +28,7 @@ const ChevronCircleIcon: React.FC<Props> = ({ size, direction, clickHandler }) =
     e.stopPropagation()
     clickHandler && clickHandler()
   }
+
   return (
     <FontAwesomeIcon
       className="icon__chevron-circle"

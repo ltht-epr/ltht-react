@@ -1,5 +1,4 @@
-/* eslint-disable react/jsx-props-no-spreading */
-import React, { LiHTMLAttributes } from 'react'
+import React, { HTMLAttributes } from 'react'
 import classNames from 'classnames'
 import styled from '@emotion/styled'
 import { ChevronIcon } from '@ltht-react/icon'
@@ -91,7 +90,7 @@ const ListItem: React.FC<Props> = props => {
   )
 }
 
-export interface Props extends LiHTMLAttributes<HTMLLIElement> {
+export interface Props extends HTMLAttributes<HTMLLIElement> {
   classes?: string
   selected?: boolean
 }

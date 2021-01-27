@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-props-no-spreading */
 import React, { HTMLAttributes } from 'react'
 import classNames from 'classnames'
 import styled from '@emotion/styled'
