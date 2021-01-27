@@ -1,21 +1,24 @@
-/** @jsx jsx */
-import React from 'react'
-import { css, jsx } from '@emotion/core'
+import React, { HTMLAttributes } from 'react'
+import styled from '@emotion/styled'
 
-const UnorderedList: React.FC<Props> = ({ bullet = 'none', children }) => {
-  const styles = css`
-    ${`list-style-type: ${bullet};`}
-    list-style-position: inside;
-  `
-  return (
-    <ul className="list" css={styles}>
-      {children}
-    </ul>
-  )
+const StyledUnorderedList = styled.ul<StyledUnorderedListProps>`
+  list-style-type: ${({ bullet }): BulletTypes => bullet};
+  list-style-position: inside;
+`
+
+const UnorderedList: React.FC<Props> = ({ bullet = 'none', children, ...rest }) => (
+  <StyledUnorderedList className="list" bullet={bullet} {...rest}>
+    {children}
+  </StyledUnorderedList>
+)
+
+type BulletTypes = 'none' | 'disc' | 'circle'
+
+interface StyledUnorderedListProps {
+  bullet: BulletTypes
 }
-
-type Props = {
-  bullet?: 'none' | 'disc' | 'circle'
+interface Props extends HTMLAttributes<HTMLUListElement> {
+  bullet?: BulletTypes
 }
 
 export default UnorderedList

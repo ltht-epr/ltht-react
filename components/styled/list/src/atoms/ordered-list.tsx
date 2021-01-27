@@ -1,9 +1,10 @@
-/** @jsx jsx */
-import React from 'react'
-import { jsx } from '@emotion/core'
+import React, { HTMLAttributes } from 'react'
+import styled from '@emotion/styled'
 
-const OrderedList: React.FC = ({ children }) => {
-  return <ol>{children}</ol>
-}
+const StyledOrderedList = styled.ol``
+
+const OrderedList: React.FC<HTMLAttributes<HTMLOListElement>> = ({ children, ...rest }) => (
+  <StyledOrderedList {...rest}>{children}</StyledOrderedList>
+)
 
 export default OrderedList

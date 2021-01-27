@@ -1,14 +1,22 @@
-/** @jsx jsx */
-import React from 'react'
-import { jsx } from '@emotion/core'
+import React, { HTMLAttributes } from 'react'
+import styled from '@emotion/styled'
 
-const ListItem: React.FC<Props> = ({ children, tabIndex }) => {
-  if (tabIndex) return <li tabIndex={tabIndex}>{children}</li>
+const StyledListItem = styled.li``
 
-  return <li className="list__item">{children}</li>
+const ListItem: React.FC<Props> = ({ children, tabIndex, ...rest }) => {
+  const listItemProps = {
+    ...(tabIndex && { tabIndex }),
+    ...rest,
+  }
+
+  return (
+    <StyledListItem className="list__item" {...listItemProps}>
+      {children}
+    </StyledListItem>
+  )
 }
 
-interface Props {
+interface Props extends HTMLAttributes<HTMLLIElement> {
   tabIndex?: number
 }
 
