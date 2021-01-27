@@ -1,31 +1,29 @@
-/** @jsx jsx */
-import React from 'react'
-import { css, jsx } from '@emotion/core'
-
+import React, { HTMLAttributes } from 'react'
+import styled from '@emotion/styled'
 import { TEXT_COLOURS } from '@ltht-react/styles'
 import { Flag } from '@ltht-react/types'
 import { codeableConceptDisplaySummary, codeableConceptCodeSummary } from '@ltht-react/utils'
 
-const styles = css`
+const StyledFlagDescription = styled.div`
   color: ${TEXT_COLOURS.SECONDARY.VALUE};
   text-align: left;
   font-size: smaller;
   padding-top: 0.25rem;
 `
 
-const FlagDescription: React.FC<Props> = ({ flag }) => {
+const FlagDescription: React.FC<Props> = ({ flag: { code, category }, ...rest }) => {
   const values = []
 
-  const codeSummary = codeableConceptCodeSummary(flag.code)
+  const codeSummary = codeableConceptCodeSummary(code)
   if (codeSummary && codeSummary.length > 0) values.push(codeSummary)
 
-  const categorySummary = flag.category && codeableConceptDisplaySummary(flag.category)
+  const categorySummary = category && codeableConceptDisplaySummary(category)
   if (categorySummary && categorySummary.length > 0) values.push(categorySummary)
 
-  return <div css={styles}>{values.join(' - ')}</div>
+  return <StyledFlagDescription {...rest}>{values.join(' - ')}</StyledFlagDescription>
 }
 
-interface Props {
+interface Props extends HTMLAttributes<HTMLDivElement> {
   flag: Flag
 }
 

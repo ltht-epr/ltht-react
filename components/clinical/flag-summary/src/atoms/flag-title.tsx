@@ -1,21 +1,19 @@
-/** @jsx jsx */
-import React from 'react'
-import { css, jsx } from '@emotion/core'
-
+import React, { HTMLAttributes } from 'react'
+import styled from '@emotion/styled'
 import { TEXT_COLOURS } from '@ltht-react/styles'
 import { Flag } from '@ltht-react/types'
 import { codeableConceptDisplaySummary } from '@ltht-react/utils'
 
-const styles = css`
+const StyledFlagTitle = styled.div`
   color: ${TEXT_COLOURS.PRIMARY};
   text-align: left;
 `
 
-const FlagTitle: React.FC<Props> = ({ flag }) => {
-  return <div css={styles}>{codeableConceptDisplaySummary(flag.code)}</div>
-}
+const FlagTitle: React.FC<Props> = ({ flag: { code }, ...rest }) => (
+  <StyledFlagTitle {...rest}>{codeableConceptDisplaySummary(code)}</StyledFlagTitle>
+)
 
-interface Props {
+interface Props extends HTMLAttributes<HTMLDivElement> {
   flag: Flag
 }
 

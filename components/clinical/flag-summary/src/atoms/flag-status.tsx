@@ -1,23 +1,21 @@
-/** @jsx jsx */
-import React from 'react'
-import { css, jsx } from '@emotion/core'
-
+import React, { HTMLAttributes } from 'react'
+import styled from '@emotion/styled'
 import { TEXT_COLOURS } from '@ltht-react/styles'
 import { Flag } from '@ltht-react/types'
 import { titleCase } from '@ltht-react/utils'
 
-const styles = css`
+const StyledFlagStatus = styled.div`
   color: ${TEXT_COLOURS.SECONDARY.VALUE};
   text-align: right;
   font-size: smaller;
   padding-top: 0.25rem;
 `
 
-const FlagStatus: React.FC<Props> = ({ flag }) => {
-  return <div css={styles}>{titleCase(flag.status)}</div>
-}
+const FlagStatus: React.FC<Props> = ({ flag: { status }, ...rest }) => (
+  <StyledFlagStatus {...rest}>{titleCase(status)}</StyledFlagStatus>
+)
 
-interface Props {
+interface Props extends HTMLAttributes<HTMLDivElement> {
   flag: Flag
 }
 

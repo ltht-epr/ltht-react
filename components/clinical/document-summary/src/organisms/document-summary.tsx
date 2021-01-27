@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { HTMLAttributes } from 'react'
 import styled from '@emotion/styled'
 
 import { DocumentReference } from '@ltht-react/types'
@@ -28,17 +28,17 @@ const StyledSource = styled.div`
   text-align: right;
 `
 
-const DocumentSummary: React.FC<Props> = ({ document }) => {
+const DocumentSummary: React.FC<Props> = ({ document, ...rest }) => {
   if (document.metadata.isRedacted) {
     return (
-      <StyledSummary>
+      <StyledSummary {...rest}>
         <Redacted document={document} />
       </StyledSummary>
     )
   }
 
   return (
-    <StyledSummary>
+    <StyledSummary {...rest}>
       <StyledDate>
         <Date document={document} />
       </StyledDate>
@@ -53,7 +53,7 @@ const DocumentSummary: React.FC<Props> = ({ document }) => {
   )
 }
 
-interface Props {
+interface Props extends HTMLAttributes<HTMLDivElement> {
   document: DocumentReference
 }
 

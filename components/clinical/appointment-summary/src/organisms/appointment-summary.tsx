@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { HTMLAttributes } from 'react'
 import styled from '@emotion/styled'
 
 import { Encounter } from '@ltht-react/types'
@@ -25,17 +25,17 @@ const StyledService = styled.div`
   text-align: right;
 `
 
-const AppointmentSummary: React.FC<Props> = ({ encounter }) => {
+const AppointmentSummary: React.FC<Props> = ({ encounter, ...rest }) => {
   if (encounter.metadata.isRedacted) {
     return (
-      <StyledSummary>
+      <StyledSummary {...rest}>
         <Redacted appointment={encounter} />
       </StyledSummary>
     )
   }
 
   return (
-    <StyledSummary>
+    <StyledSummary {...rest}>
       <StyledDate>
         <DateSummary datetime={encounter?.period?.start} />
       </StyledDate>
@@ -50,7 +50,7 @@ const AppointmentSummary: React.FC<Props> = ({ encounter }) => {
   )
 }
 
-interface Props {
+interface Props extends HTMLAttributes<HTMLDivElement> {
   encounter: Encounter
 }
 

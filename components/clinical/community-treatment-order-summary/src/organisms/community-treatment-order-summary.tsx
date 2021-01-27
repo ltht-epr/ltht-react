@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { HTMLAttributes } from 'react'
 import styled from '@emotion/styled'
 
 import { LypftCommunityTreatmentOrder } from '@ltht-react/types'
@@ -20,17 +20,17 @@ const StyledDate = styled.div`
   text-align: right;
 `
 
-const CommunityTreatmentOrderSummary: React.FC<Props> = ({ communityTreatmentOrder }) => {
+const CommunityTreatmentOrderSummary: React.FC<Props> = ({ communityTreatmentOrder, ...rest }) => {
   if (communityTreatmentOrder.metadata.isRedacted) {
     return (
-      <StyledSummary>
+      <StyledSummary {...rest}>
         <Redacted communityTreatmentOrder={communityTreatmentOrder} />
       </StyledSummary>
     )
   }
 
   return (
-    <StyledSummary>
+    <StyledSummary {...rest}>
       <StyledDescription>
         <Status communityTreatmentOrder={communityTreatmentOrder} />
         <Restrictions communityTreatmentOrder={communityTreatmentOrder} />
@@ -43,7 +43,7 @@ const CommunityTreatmentOrderSummary: React.FC<Props> = ({ communityTreatmentOrd
   )
 }
 
-interface Props {
+interface Props extends HTMLAttributes<HTMLDivElement> {
   communityTreatmentOrder: LypftCommunityTreatmentOrder
 }
 

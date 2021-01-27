@@ -1,6 +1,4 @@
-/** @jsx jsx */
-import React from 'react'
-import { jsx } from '@emotion/core'
+import React, { HTMLAttributes } from 'react'
 import Styled from '@emotion/styled'
 
 import { Flag } from '@ltht-react/types'
@@ -22,17 +20,17 @@ const StyledDate = Styled.div`
   text-align: right;
 `
 
-const FlagSummary: React.FC<Props> = ({ flag }) => {
+const FlagSummary: React.FC<Props> = ({ flag, ...rest }) => {
   if (flag.metadata.isRedacted) {
     return (
-      <StyledSummary>
+      <StyledSummary {...rest}>
         <Redacted flag={flag} />
       </StyledSummary>
     )
   }
 
   return (
-    <StyledSummary>
+    <StyledSummary {...rest}>
       <StyledDescription>
         <Title flag={flag} />
         <Description flag={flag} />
@@ -45,7 +43,7 @@ const FlagSummary: React.FC<Props> = ({ flag }) => {
   )
 }
 
-interface Props {
+interface Props extends HTMLAttributes<HTMLDivElement> {
   flag: Flag
 }
 

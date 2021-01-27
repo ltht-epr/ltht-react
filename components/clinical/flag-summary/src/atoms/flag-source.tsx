@@ -1,21 +1,19 @@
-/** @jsx jsx */
-import React from 'react'
-import { css, jsx } from '@emotion/core'
-
+import React, { HTMLAttributes } from 'react'
+import styled from '@emotion/styled'
 import { TEXT_COLOURS } from '@ltht-react/styles'
 import { Flag } from '@ltht-react/types'
 import { metadataSourceSummaryText } from '@ltht-react/utils'
 
-const styles = css`
+const StyledFlagSource = styled.div`
   color: ${TEXT_COLOURS.SECONDARY};
   text-align: right;
 `
 
-const FlagSource: React.FC<Props> = ({ flag }) => {
-  return <div css={styles}>{metadataSourceSummaryText(flag.metadata)}</div>
-}
+const FlagSource: React.FC<Props> = ({ flag: { metadata }, ...rest }) => (
+  <StyledFlagSource {...rest}>{metadataSourceSummaryText(metadata)}</StyledFlagSource>
+)
 
-interface Props {
+interface Props extends HTMLAttributes<HTMLDivElement> {
   flag: Flag
 }
 

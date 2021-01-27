@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { HTMLAttributes } from 'react'
 import styled from '@emotion/styled'
 
 import { CarePlan } from '@ltht-react/types'
@@ -20,17 +20,17 @@ const StyledDate = styled.div`
   text-align: right;
 `
 
-const CarePlanSummary: React.FC<Props> = ({ carePlan }) => {
+const CarePlanSummary: React.FC<Props> = ({ carePlan, ...rest }) => {
   if (carePlan.metadata.isRedacted) {
     return (
-      <StyledSummary>
+      <StyledSummary {...rest}>
         <Redacted carePlan={carePlan} />
       </StyledSummary>
     )
   }
 
   return (
-    <StyledSummary>
+    <StyledSummary {...rest}>
       <StyledDescription>
         <Title carePlan={carePlan} />
         <Description carePlan={carePlan} />
@@ -43,7 +43,7 @@ const CarePlanSummary: React.FC<Props> = ({ carePlan }) => {
   )
 }
 
-interface Props {
+interface Props extends HTMLAttributes<HTMLDivElement> {
   carePlan: CarePlan
 }
 

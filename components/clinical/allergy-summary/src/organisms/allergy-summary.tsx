@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { HTMLAttributes } from 'react'
 import Styled from '@emotion/styled'
 
 import { AllergyIntolerance } from '@ltht-react/types'
@@ -28,17 +28,17 @@ const StyledDate = Styled.div`
   text-align: right;
 `
 
-const AllergySummary: React.FC<Props> = ({ allergy }) => {
+const AllergySummary: React.FC<Props> = ({ allergy, ...rest }) => {
   if (allergy.metadata.isRedacted) {
     return (
-      <StyledSummary>
+      <StyledSummary {...rest}>
         <Redacted allergy={allergy} />
       </StyledSummary>
     )
   }
 
   return (
-    <StyledSummary>
+    <StyledSummary {...rest}>
       <StyledIcon>
         <Icon criticalityCode={allergy.criticality} />
       </StyledIcon>
@@ -54,7 +54,7 @@ const AllergySummary: React.FC<Props> = ({ allergy }) => {
   )
 }
 
-interface Props {
+interface Props extends HTMLAttributes<HTMLDivElement> {
   allergy: AllergyIntolerance
 }
 

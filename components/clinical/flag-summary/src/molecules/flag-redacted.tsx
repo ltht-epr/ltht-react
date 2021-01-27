@@ -1,30 +1,27 @@
-/** @jsx jsx */
 import React from 'react'
-import { css, jsx } from '@emotion/core'
-
+import styled from '@emotion/styled'
 import { Flag } from '@ltht-react/types'
 import { RedactedDescription, PeriodSummary } from '@ltht-react/summary'
 
-const styles = {
-  description: css`
-    flex-grow: 1;
-    text-align: left;
-  `,
-  date: css`
-    text-align: right;
-  `,
-}
+const StyledRedactedDescription = styled.div`
+  flex-grow: 1;
+  text-align: left;
+`
 
-const FlagRedacted: React.FC<Props> = ({ flag }) => {
+const StyledPeriodSummary = styled.div`
+  text-align: right;
+`
+
+const FlagRedacted: React.FC<Props> = ({ flag: { period } }) => {
   return (
-    <React.Fragment>
-      <div css={styles.description}>
+    <>
+      <StyledRedactedDescription>
         <RedactedDescription />
-      </div>
-      <div css={styles.date}>
-        <PeriodSummary period={flag.period} />
-      </div>
-    </React.Fragment>
+      </StyledRedactedDescription>
+      <StyledPeriodSummary>
+        <PeriodSummary period={period} />
+      </StyledPeriodSummary>
+    </>
   )
 }
 
