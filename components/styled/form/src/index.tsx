@@ -1,2 +1,2 @@
-export * from './atoms'
-export * from './molecules'
+export { default as FormCheck } from './atoms/form-check'
+export { default as Form } from './molecules/form'

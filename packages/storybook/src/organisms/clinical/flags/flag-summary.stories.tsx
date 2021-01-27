@@ -32,3 +32,16 @@ stories.addWithJSX('Summary', () => (
     </Card.List>
   </Card>
 ))
+
+stories.addWithJSX('Redacted', () => (
+  <Card>
+    <Card.Header>
+      <h3>Flag</h3>
+    </Card.Header>
+    <Card.List>
+      <Card.ListItem>
+        <FlagSummary flag={flags[0]} />
+      </Card.ListItem>
+    </Card.List>
+  </Card>
+))

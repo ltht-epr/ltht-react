@@ -15,10 +15,10 @@ const StyleContent = Styled.div`
 const Alert: React.FC<Props> = ({ status = 'default', children, ...rest }) => (
   <Banner status={status} {...rest}>
     <StyledAlert>
-      {status === 'default' && <InfoCircleIcon size="large" />}
-      {status === 'info' && <InfoCircleIcon size="large" />}
-      {status === 'warning' && <ExclamationIcon size="large" />}
-      {status === 'danger' && <ExclamationIcon size="large" />}
+      {status === 'default' && <InfoCircleIcon status="default" size="large" />}
+      {status === 'info' && <InfoCircleIcon status="info" size="large" />}
+      {status === 'warning' && <ExclamationIcon status="amber" size="large" />}
+      {status === 'danger' && <ExclamationIcon status="red" size="large" />}
       <StyleContent className="alert__content">{children}</StyleContent>
     </StyledAlert>
   </Banner>
