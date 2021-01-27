@@ -1,5 +1,4 @@
 import React from 'react'
-import { mount } from 'enzyme'
 import ReactDOM from 'react-dom'
 
 import ConditionSummary from '@ltht-react/condition-summary'
@@ -21,8 +20,5 @@ describe('ConditionSummary', () => {
   it('renders without crashing', () => {
     const ul = document.createElement('ul')
     ReactDOM.render(<Sut />, ul)
-  })
-  it('matches snapshot', () => {
-    expect(mount(<Sut />)).toMatchSnapshot('wrapper mount')
   })
 })

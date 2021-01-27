@@ -1,5 +1,4 @@
 import React from 'react'
-import { mount } from 'enzyme'
 import ReactDOM from 'react-dom'
 
 import Card from '@ltht-react/card'
@@ -33,8 +32,5 @@ describe('Card', () => {
   it('renders without crashing', () => {
     const div = document.createElement('div')
     ReactDOM.render(components, div)
-  })
-  it('matches snapshot', () => {
-    expect(mount(components)).toMatchSnapshot('wrapper mount')
   })
 })

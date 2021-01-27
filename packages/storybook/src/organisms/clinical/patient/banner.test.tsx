@@ -1,5 +1,4 @@
 import React from 'react'
-import { mount } from 'enzyme'
 import ReactDOM from 'react-dom'
 
 import PatientBanner from '@ltht-react/patient-banner'
@@ -9,8 +8,5 @@ describe('PatientBanner', () => {
   it('renders without crashing', () => {
     const div = document.createElement('div')
     ReactDOM.render(<PatientBanner patient={DeceasedPatient} />, div)
-  })
-  it('matches snapshot', () => {
-    expect(mount(<PatientBanner patient={DeceasedPatient} />)).toMatchSnapshot('wrapper mount')
   })
 })

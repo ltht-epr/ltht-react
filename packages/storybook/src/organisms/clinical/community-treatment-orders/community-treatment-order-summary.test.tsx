@@ -1,5 +1,4 @@
 import React from 'react'
-import { mount } from 'enzyme'
 import ReactDOM from 'react-dom'
 
 import CommunityTreatmentOrderSummary from '@ltht-react/community-treatment-order-summary'
@@ -21,8 +20,5 @@ describe('CommunityTreatmentOrderSummary', () => {
   it('renders without crashing', () => {
     const div = document.createElement('div')
     ReactDOM.render(<Sut />, div)
-  })
-  it('matches snapshot', () => {
-    expect(mount(<Sut />)).toMatchSnapshot('wrapper mount')
   })
 })
