@@ -1,8 +1,12 @@
-/** @jsx jsx */
-import React from 'react'
-import { css, jsx, SerializedStyles } from '@emotion/core'
+import React, { HTMLAttributes, useState } from 'react'
+import styled from '@emotion/styled'
+import { css, SerializedStyles } from '@emotion/core'
 import { Patient } from '@ltht-react/types'
-import { TABLET_MEDIA_QUERY } from '@ltht-react/styles'
+import {
+  TABLET_MEDIA_QUERY,
+  PATIENT_BANNER_BACKGROUND_COLOUR,
+  PATIENT_BANNER_DECEASED_BACKGROUND_COLOUR,
+} from '@ltht-react/styles'
 import { ChevronCircleIcon } from '@ltht-react/icon'
 
 import Name from '../atoms/name'
@@ -12,88 +16,97 @@ import AgeAtDeath from '../atoms/age-at-death'
 import Gender from '../atoms/gender'
 import NhsNumber from '../atoms/nhs-number'
 
-const styles = (collapsed: boolean, deceased: boolean): SerializedStyles => {
-  return css`
-    display: flex;
-    flex-direction: column;
-    background-color: ${deceased ? '#231f20' : '#56008c'};
-    padding: 0.5rem;
-
-    & > div {
-      display: flex;
-    }
-
-    & > div:first-of-type,
-    & > div:last-of-type {
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    & > div:not(:first-of-type) {
-      ${collapsed ? 'visibility: hidden; height: 0;' : 'padding-top: 0.25rem;'}
-    }
-
-    ${TABLET_MEDIA_QUERY} {
-      flex-direction: row;
-
-      & > div {
-        margin-left: 2.5rem;
-      }
-
-      & > div:first-of-type {
-        margin-left: 0;
-        margin-right: auto;
-      }
-
-      & > div:not(:first-of-type) {
-        visibility: visible;
-        height: auto !important;
-        padding-top: 0;
-      }
-    }
-  `
-}
-
-const column = css`
+const StyledPrimaryInformation = styled.div<StyledPrimaryInformationProps>`
+  position: relative;
+  display: flex;
   flex-direction: column;
-`
-
-const chevron = css`
-  color: #fff;
+  align-items: flex-start;
+  padding: 0.5rem;
+  cursor: pointer;
+  background-color: ${({ deceased }): string =>
+    deceased ? `${PATIENT_BANNER_DECEASED_BACKGROUND_COLOUR}` : `${PATIENT_BANNER_BACKGROUND_COLOUR}`};
 
   ${TABLET_MEDIA_QUERY} {
-    visibility: hidden;
+    flex-direction: row;
+    align-items: center;
+    cursor: initial;
+  }
+
+  ${({ collapsed }): ConditionalStyles =>
+    collapsed &&
+    css`
+      height: 2rem;
+      overflow-y: hidden;
+
+      ${TABLET_MEDIA_QUERY} {
+        height: auto;
+      }
+    `}
+`
+
+const StyledName = styled.div`
+  margin-bottom: 0.5rem;
+
+  ${TABLET_MEDIA_QUERY} {
+    flex: 1;
+    margin-bottom: 0;
+  }
+`
+
+const StyledInfo = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-right: 1.5rem;
+
+  ${TABLET_MEDIA_QUERY} {
+    text-align: right;
+  }
+`
+
+const StyledChevronCircleIcon = styled.div`
+  position: absolute;
+  right: 0.5rem;
+  display: inline-block;
+  color: white;
+  font-size: 1rem;
+
+  ${TABLET_MEDIA_QUERY} {
+    display: none;
   }
 `
 
 const PrimaryInformation: React.FC<Props> = ({ patient }) => {
-  const [collapsed, setCollapsed] = React.useState(true)
-  const handleClick = (): void => {
-    setCollapsed(!collapsed)
-  }
+  const [collapsed, setCollapsed] = useState(true)
   const deceased = patient?.deceased?.deceasedBoolean ?? false
 
+  const handleClick = (): void => setCollapsed(prevState => !prevState)
+
   return (
-    <div css={styles(collapsed, deceased)}>
-      <div>
+    <StyledPrimaryInformation deceased={deceased} onClick={handleClick} collapsed={collapsed}>
+      <StyledName>
         <Name patient={patient} />
-        <span css={chevron}>
-          <ChevronCircleIcon direction={collapsed ? 'up' : 'down'} size="medium" clickHandler={handleClick} />
-        </span>
-      </div>
-      <div css={column}>
+      </StyledName>
+      <StyledChevronCircleIcon>
+        <ChevronCircleIcon direction={collapsed ? 'up' : 'down'} size="medium" />
+      </StyledChevronCircleIcon>
+      <StyledInfo>
         <DateOfBirth patient={patient} />
-        <DateOfDeath patient={patient} />
-      </div>
-      <div css={column}>
+        {deceased && <DateOfDeath patient={patient} />}
+      </StyledInfo>
+      <StyledInfo>
         <Gender patient={patient} />
-        <AgeAtDeath patient={patient} />
-      </div>
-      <div>
-        <NhsNumber patient={patient} />
-      </div>
-    </div>
+        {deceased && <AgeAtDeath patient={patient} />}
+      </StyledInfo>
+      <NhsNumber patient={patient} />
+    </StyledPrimaryInformation>
   )
+}
+
+type ConditionalStyles = SerializedStyles | false
+
+interface StyledPrimaryInformationProps extends HTMLAttributes<HTMLDivElement> {
+  deceased: boolean
+  collapsed: boolean
 }
 
 interface Props {

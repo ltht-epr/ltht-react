@@ -1,34 +1,32 @@
-/** @jsx jsx */
-import React from 'react'
-import { css, jsx } from '@emotion/core'
+import React, { HTMLAttributes } from 'react'
+import styled from '@emotion/styled'
 
 import { Patient } from '@ltht-react/types'
 import { titleCase } from '@ltht-react/utils'
 
-const styles = css`
-  span:first-of-type {
-    color: #ccc;
-    font-weight: normal;
-    font-size: 0.75rem;
-  }
-  span:last-of-type {
-    color: #fff;
-    font-weight: bold;
-    font-size: 0.875rem;
-    margin-left: 0.5rem;
-  }
+const StyledGender = styled.div``
+
+const StyledLabel = styled.span`
+  color: #ccc;
+  font-weight: normal;
+  font-size: 0.75rem;
 `
 
-const Gender: React.FC<Props> = ({ patient }) => {
-  return (
-    <div css={styles}>
-      <span>Gender</span>
-      <span>{patient?.gender && titleCase(patient.gender)}</span>
-    </div>
-  )
-}
+const StyledValue = styled.span`
+  color: white;
+  font-weight: bold;
+  font-size: 0.875rem;
+  margin-left: 0.5rem;
+`
 
-interface Props {
+const Gender: React.FC<Props> = ({ patient, ...rest }) => (
+  <StyledGender {...rest}>
+    <StyledLabel>Gender</StyledLabel>
+    <StyledValue>{patient?.gender && titleCase(patient.gender)}</StyledValue>
+  </StyledGender>
+)
+
+interface Props extends HTMLAttributes<HTMLDivElement> {
   patient: Patient | undefined
 }
 

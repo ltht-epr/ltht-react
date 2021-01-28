@@ -1,46 +1,29 @@
-/** @jsx jsx */
 import React from 'react'
-import { css, jsx } from '@emotion/core'
+import styled from '@emotion/styled'
 import { Patient } from '@ltht-react/types'
 import { TABLET_MEDIA_QUERY } from '@ltht-react/styles'
 
 import Address from '../atoms/address'
 import PasNumber from '../atoms/pas-number'
 
-const styles = css`
-  visibility: hidden;
-  height: 0;
+const StyledSecondaryInformation = styled.div`
+  display: none;
 
   ${TABLET_MEDIA_QUERY} {
-    background-color: #fff;
-    height: auto;
-    visibility: visible;
+    background-color: white;
+    display: block;
     padding: 0.5rem;
     display: flex;
-
-    & > div {
-      display: flex;
-    }
-
-    & > div:first-of-type {
-      margin-left: 0;
-      margin-right: auto;
-    }
+    justify-content: space-between;
   }
 `
 
-const SecondaryInformation: React.FC<Props> = ({ patient }) => {
-  return (
-    <div css={styles}>
-      <div>
-        <Address patient={patient} />
-      </div>
-      <div>
-        <PasNumber patient={patient} />
-      </div>
-    </div>
-  )
-}
+const SecondaryInformation: React.FC<Props> = ({ patient }) => (
+  <StyledSecondaryInformation>
+    <Address patient={patient} />
+    <PasNumber patient={patient} />
+  </StyledSecondaryInformation>
+)
 
 interface Props {
   patient: Patient | undefined

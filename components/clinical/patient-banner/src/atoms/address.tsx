@@ -1,35 +1,33 @@
-/** @jsx jsx */
-import React from 'react'
-import { css, jsx } from '@emotion/core'
+import React, { HTMLAttributes } from 'react'
+import styled from '@emotion/styled'
 import { Patient } from '@ltht-react/types'
 import { formatPatientAddress } from '@ltht-react/utils'
 
-const styles = css`
-  span:first-of-type {
-    color: #666;
-    font-weight: normal;
-    font-size: 0.75rem;
-  }
-  span:last-of-type {
-    color: #333333;
-    font-weight: bold;
-    font-size: 0.8125rem;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    margin-left: 0.5rem;
-  }
+const StyledAddress = styled.div``
+
+const StyledLabel = styled.span`
+  color: #666;
+  font-weight: normal;
+  font-size: 0.75rem;
 `
 
-const Address: React.FC<Props> = ({ patient }) => {
-  return (
-    <div css={styles}>
-      <span>Address</span>
-      <span>{formatPatientAddress(patient)}</span>
-    </div>
-  )
-}
+const StyledValue = styled.span`
+  color: #333333;
+  font-weight: bold;
+  font-size: 0.8125rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-left: 0.5rem;
+`
 
-interface Props {
+const Address: React.FC<Props> = ({ patient, ...rest }) => (
+  <StyledAddress {...rest}>
+    <StyledLabel>Address</StyledLabel>
+    <StyledValue>{formatPatientAddress(patient)}</StyledValue>
+  </StyledAddress>
+)
+
+interface Props extends HTMLAttributes<HTMLDivElement> {
   patient: Patient | undefined
 }
 

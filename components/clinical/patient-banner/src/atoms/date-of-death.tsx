@@ -1,38 +1,32 @@
-/** @jsx jsx */
-import React from 'react'
-import { css, jsx } from '@emotion/core'
+import React, { HTMLAttributes } from 'react'
+import styled from '@emotion/styled'
 
 import { Patient } from '@ltht-react/types'
 import { partialDateTimeText } from '@ltht-react/utils'
 
-const styles = css`
-  span:first-of-type {
-    color: #ccc;
-    font-weight: normal;
-    font-size: 0.75rem;
-  }
-  span:last-of-type {
-    color: #fff;
-    font-weight: bold;
-    font-size: 0.875rem;
-    margin-left: 0.5rem;
-  }
+const StyledDateOfDeath = styled.div``
+
+const StyledLabel = styled.span`
+  color: #ccc;
+  font-weight: normal;
+  font-size: 0.75rem;
 `
 
-const DateOfDeath: React.FC<Props> = ({ patient }) => {
-  if (patient?.deceased?.deceasedBoolean) {
-    return (
-      <div css={styles}>
-        <span>Died</span>
-        <span>{partialDateTimeText(patient.deceased?.deceasedDateTime)}</span>
-      </div>
-    )
-  }
+const StyledValue = styled.span`
+  color: white;
+  font-weight: bold;
+  font-size: 0.875rem;
+  margin-left: 0.5rem;
+`
 
-  return <React.Fragment />
-}
+const DateOfDeath: React.FC<Props> = ({ patient, ...rest }) => (
+  <StyledDateOfDeath {...rest}>
+    <StyledLabel>Died</StyledLabel>
+    <StyledValue>{partialDateTimeText(patient?.deceased?.deceasedDateTime)}</StyledValue>
+  </StyledDateOfDeath>
+)
 
-interface Props {
+interface Props extends HTMLAttributes<HTMLDivElement> {
   patient: Patient | undefined
 }
 

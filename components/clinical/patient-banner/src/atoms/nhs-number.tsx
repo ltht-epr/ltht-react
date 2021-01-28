@@ -1,60 +1,63 @@
-/** @jsx jsx */
-import React from 'react'
-import { css, jsx } from '@emotion/core'
+import React, { HTMLAttributes } from 'react'
+import styled from '@emotion/styled'
 
 import { Patient, NhsNumberStatus } from '@ltht-react/types'
+import { PATIENT_NHS_NUMBER_STATUS_VERIFIED, PATIENT_NHS_NUMBER_STATUS_NOT_VERIFIED } from '@ltht-react/styles'
 import { formatNHSNumber, nhsNumberStatus, titleCase } from '@ltht-react/utils'
 
-const styles = css`
-  span:first-of-type {
-    color: #ccc;
-    font-weight: normal;
-    font-size: 0.75rem;
+const setBackgroundColor = (status: NhsNumberStatus): string => {
+  switch (status) {
+    case NhsNumberStatus.Verified:
+      return `${PATIENT_NHS_NUMBER_STATUS_VERIFIED}`
+    case NhsNumberStatus.NotVerified:
+      return `${PATIENT_NHS_NUMBER_STATUS_NOT_VERIFIED}`
+    default:
+      return '#888'
   }
-  span:last-of-type {
-    color: #fff;
-    font-weight: bold;
-    font-size: 0.875rem;
-    margin-left: 0.5rem;
-  }
-`
-
-const iconStyles = {
-  base: css`
-    height: 0.75rem !important;
-    width: 0.75rem !important;
-    border-radius: 50%;
-    display: inline-block;
-    border: 0.123rem solid #fff;
-    margin-left: 0.4rem;
-    margin-bottom: -0.05rem;
-    background-color: #888;
-  `,
-  verified: css`
-    background-color: #4cc552 !important;
-  `,
-  notVerified: css`
-    background-color: #f33 !important;
-  `,
 }
 
-const NhsNumber: React.FC<Props> = ({ patient }) => {
-  const status = nhsNumberStatus(patient)
-  const iconCss = [iconStyles.base]
+const StyledNhsNumber = styled.div``
 
-  if (status === NhsNumberStatus.Verified) iconCss.push(iconStyles.verified)
-  if (status === NhsNumberStatus.NotVerified) iconCss.push(iconStyles.notVerified)
+const StyledLabel = styled.span`
+  color: #ccc;
+  font-weight: normal;
+  font-size: 0.75rem;
+`
+
+const StyledValue = styled.span`
+  color: white;
+  font-weight: bold;
+  font-size: 0.875rem;
+  margin-left: 0.5rem;
+`
+
+const StyledStatusIcon = styled.span<StyledStatusIconProps>`
+  height: 0.75rem;
+  width: 0.75rem;
+  border-radius: 50%;
+  display: inline-block;
+  border: 0.123rem solid #fff;
+  margin-left: 0.4rem;
+  margin-bottom: -0.05rem;
+  background-color: ${({ status }): string => setBackgroundColor(status)};
+`
+
+const NhsNumber: React.FC<Props> = ({ patient, ...rest }) => {
+  const status = nhsNumberStatus(patient)
 
   return (
-    <div css={styles}>
-      <span>NHS No.</span>
-      <span css={iconCss} title={titleCase(status)} />
-      <span>{formatNHSNumber(patient)}</span>
-    </div>
+    <StyledNhsNumber {...rest}>
+      <StyledLabel>NHS No.</StyledLabel>
+      <StyledStatusIcon status={status} title={titleCase(status)} />
+      <StyledValue>{formatNHSNumber(patient)}</StyledValue>
+    </StyledNhsNumber>
   )
 }
 
-interface Props {
+interface StyledStatusIconProps {
+  status: NhsNumberStatus
+}
+interface Props extends HTMLAttributes<HTMLDivElement> {
   patient: Patient | undefined
 }
 

@@ -1,35 +1,36 @@
-/** @jsx jsx */
 import React from 'react'
-import { css, jsx, SerializedStyles } from '@emotion/core'
+import styled from '@emotion/styled'
 import { Patient } from '@ltht-react/types'
-import { CSS_RESET } from '@ltht-react/styles'
 
+import {
+  CSS_RESET,
+  PATIENT_BANNER_DECEASED_BACKGROUND_COLOUR,
+  PATIENT_BANNER_BACKGROUND_COLOUR,
+} from '@ltht-react/styles'
 import PrimaryInformation from './molecules/primary-info'
 import SecondaryInformation from './molecules/secondary-info'
 
-const styles = (deceased: boolean): SerializedStyles => {
-  return css`
-    ${CSS_RESET}  
-    border: ${deceased ? '0.1rem dashed #231f20' : '0.1rem solid #56008c'};
-    background-color: #fff;
-
-    & > div {
-      border: none;
-    }
-  `
-}
+const StyledPatientBanner = styled.div<StyledPatientBannerProps>`
+  ${CSS_RESET}
+  border: ${({ deceased }): string =>
+    deceased
+      ? `2px dashed ${PATIENT_BANNER_DECEASED_BACKGROUND_COLOUR}`
+      : `2px solid ${PATIENT_BANNER_BACKGROUND_COLOUR}`};
+`
 
 const PatientBanner: React.FC<Props> = ({ patient }) => {
   const deceased = patient?.deceased?.deceasedBoolean ?? false
 
   return (
-    <div css={styles(deceased)}>
-      <div>
-        <PrimaryInformation patient={patient} />
-        <SecondaryInformation patient={patient} />
-      </div>
-    </div>
+    <StyledPatientBanner deceased={deceased}>
+      <PrimaryInformation patient={patient} />
+      <SecondaryInformation patient={patient} />
+    </StyledPatientBanner>
   )
+}
+
+interface StyledPatientBannerProps {
+  deceased: boolean
 }
 
 interface Props {

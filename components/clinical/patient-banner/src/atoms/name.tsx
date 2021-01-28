@@ -1,21 +1,18 @@
-/** @jsx jsx */
-import React from 'react'
-import { css, jsx } from '@emotion/core'
+import React, { HTMLAttributes } from 'react'
+import styled from '@emotion/styled'
 
 import { Patient } from '@ltht-react/types'
 import { formatPatientName } from '@ltht-react/utils'
 
-const styles = css`
-  color: #fff;
+const StyledName = styled.span`
+  color: white;
   font-weight: bold;
   font-size: 0.875rem;
 `
 
-const Name: React.FC<Props> = ({ patient }) => {
-  return <span css={styles}>{formatPatientName(patient)}</span>
-}
+const Name: React.FC<Props> = ({ patient, ...rest }) => <StyledName {...rest}>{formatPatientName(patient)}</StyledName>
 
-interface Props {
+interface Props extends HTMLAttributes<HTMLSpanElement> {
   patient: Patient | undefined
 }
 
