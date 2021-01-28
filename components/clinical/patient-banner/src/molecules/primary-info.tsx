@@ -66,9 +66,10 @@ const StyledInfo = styled.div`
 const StyledChevronCircleIcon = styled.div`
   position: absolute;
   right: 0.5rem;
+  top: 0.5rem;
   display: inline-block;
   color: white;
-  font-size: 1rem;
+  font-size: 0.9rem;
 
   ${TABLET_MEDIA_QUERY} {
     display: none;
