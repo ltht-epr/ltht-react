@@ -1,21 +1,8 @@
 import React from 'react'
-import { storiesOf } from '@storybook/react'
-import JSXAddon from 'storybook-addon-jsx'
+import { Story } from '@storybook/react'
 
 import EForm from '@ltht-react/eform'
-import readme from '@ltht-react/eform/README.md'
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const stories = storiesOf('Clinical|Organisms/EForm', module) as any
+export const Iframe: Story = () => <EForm url="https://www.wikipedia.org/" style={{ height: '95vh' }} />
 
-stories.addWithJSX = JSXAddon.addWithJSX
-
-stories.addParameters({
-  readme: {
-    sidebar: readme,
-  },
-})
-
-stories.addWithJSX('Wikipedia', () => {
-  return <EForm url="https://www.wikipedia.org/" style={{ height: '98vh' }} />
-})
+export default { title: 'Clinical/Organisms/EForm' }

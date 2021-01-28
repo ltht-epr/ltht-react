@@ -1,22 +1,9 @@
 import React from 'react'
-import { storiesOf } from '@storybook/react'
-import JSXAddon from 'storybook-addon-jsx'
-
+import { Story } from '@storybook/react'
 import { CounterIcon } from '@ltht-react/icon'
-import ChevronIconReadMe from '@ltht-react/icon/README.md'
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const stories = storiesOf('UI|Atoms/Icons', module) as any
-
-stories.addWithJSX = JSXAddon.addWithJSX
-
-stories.addParameters({
-  readme: {
-    sidebar: ChevronIconReadMe,
-  },
-})
-
-stories.addWithJSX('Counter Icon', () => (
+// eslint-disable-next-line import/prefer-default-export
+export const Counter: Story = () => (
   <>
     <br />
     <CounterIcon size="small" status="primary" value={1} />
@@ -43,4 +30,4 @@ stories.addWithJSX('Counter Icon', () => (
     <CounterIcon size="medium" status="green" value={5} />
     <CounterIcon size="large" status="green" value={10} />
   </>
-))
+)

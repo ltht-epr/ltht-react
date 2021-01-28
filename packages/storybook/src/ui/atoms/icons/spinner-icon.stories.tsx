@@ -1,22 +1,9 @@
 import React from 'react'
-import { storiesOf } from '@storybook/react'
-import JSXAddon from 'storybook-addon-jsx'
-
+import { Story } from '@storybook/react'
 import { SpinnerIcon } from '@ltht-react/icon'
-import SpinnerIconReadMe from '@ltht-react/icon/README.md'
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const stories = storiesOf('UI|Atoms/Icons', module) as any
-
-stories.addWithJSX = JSXAddon.addWithJSX
-
-stories.addParameters({
-  readme: {
-    sidebar: SpinnerIconReadMe,
-  },
-})
-
-stories.addWithJSX('Spinner Icon', () => (
+// eslint-disable-next-line import/prefer-default-export
+export const Spinner: Story = () => (
   <>
     <SpinnerIcon size="small" />
     <br />
@@ -24,4 +11,4 @@ stories.addWithJSX('Spinner Icon', () => (
     <br />
     <SpinnerIcon size="large" />
   </>
-))
+)

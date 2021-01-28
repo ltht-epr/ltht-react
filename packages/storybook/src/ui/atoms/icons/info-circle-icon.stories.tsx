@@ -1,15 +1,9 @@
 import React from 'react'
-import { storiesOf } from '@storybook/react'
-import JSXAddon from 'storybook-addon-jsx'
-
+import { Story } from '@storybook/react'
 import { InfoCircleIcon } from '@ltht-react/icon'
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const stories = storiesOf('UI|Atoms/Icons', module) as any
-
-stories.addWithJSX = JSXAddon.addWithJSX
-
-stories.addWithJSX('Info Circle Icon', () => (
+// eslint-disable-next-line import/prefer-default-export
+export const InfoCircle: Story = () => (
   <>
     <InfoCircleIcon status="green" size="small" />
     <InfoCircleIcon status="green" size="medium" />
@@ -23,4 +17,4 @@ stories.addWithJSX('Info Circle Icon', () => (
     <InfoCircleIcon status="red" size="medium" />
     <InfoCircleIcon status="red" size="large" />
   </>
-))
+)

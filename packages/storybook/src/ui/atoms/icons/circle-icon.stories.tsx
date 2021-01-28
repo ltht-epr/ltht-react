@@ -1,22 +1,9 @@
 import React from 'react'
-import { storiesOf } from '@storybook/react'
-import JSXAddon from 'storybook-addon-jsx'
-
+import { Story } from '@storybook/react'
 import { CircleIcon } from '@ltht-react/icon'
-import CircleIconReadMe from '@ltht-react/icon/README.md'
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const stories = storiesOf('UI|Atoms/Icons', module) as any
-
-stories.addWithJSX = JSXAddon.addWithJSX
-
-stories.addParameters({
-  readme: {
-    sidebar: CircleIconReadMe,
-  },
-})
-
-stories.addWithJSX('Circle Icon', () => (
+// eslint-disable-next-line import/prefer-default-export
+export const Circle: Story = () => (
   <>
     <CircleIcon status="default" size="small" />
     <CircleIcon status="green" size="small" />
@@ -27,4 +14,4 @@ stories.addWithJSX('Circle Icon', () => (
     <CircleIcon status="default" size="large" />
     <CircleIcon status="green" size="large" />
   </>
-))
+)

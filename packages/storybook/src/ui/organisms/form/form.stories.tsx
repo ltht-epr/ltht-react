@@ -1,49 +1,35 @@
-/** @jsx jsx */
 import React from 'react'
-import { css, jsx } from '@emotion/core'
-import { storiesOf } from '@storybook/react'
-import JSXAddon from 'storybook-addon-jsx'
+import { Story } from '@storybook/react'
+import styled from '@emotion/styled'
 
-import readme from '@ltht-react/form/README.md'
 import Card from '@ltht-react/card'
 import { TEXT_COLOURS, DESKTOP_MEDIA_QUERY } from '@ltht-react/styles'
 import { Form, FormCheck } from '@ltht-react/form'
 import { RadioButton } from '@ltht-react/input'
 import { PrimaryButton } from '@ltht-react/button'
 
-const styles = {
-  base: css`
-    margin-top: 5px;
-    margin-left: 5px;
-    ${DESKTOP_MEDIA_QUERY} {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-left: 0;
-    }
-  `,
-  text: css`
-    color: ${TEXT_COLOURS.SECONDARY};
-    padding-bottom: 0.3rem;
+const StyledForm = styled.div`
+  margin-top: 5px;
+  margin-left: 5px;
 
-    ${DESKTOP_MEDIA_QUERY} {
-      padding-bottom: 0.5rem;
-    }
-  `,
-}
+  ${DESKTOP_MEDIA_QUERY} {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 0;
+  }
+`
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const stories = storiesOf('UI|Organisms/Form', module) as any
+const StyledText = styled.p`
+  color: ${TEXT_COLOURS.SECONDARY};
+  padding-bottom: 0.3rem;
 
-stories.addWithJSX = JSXAddon.addWithJSX
+  ${DESKTOP_MEDIA_QUERY} {
+    padding-bottom: 0.5rem;
+  }
+`
 
-stories.addParameters({
-  readme: {
-    sidebar: readme,
-  },
-})
-
-stories.addWithJSX('Radio', () => {
+export const Radio: Story = () => {
   const [reason, setReason] = React.useState('')
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => setReason(e.currentTarget.value)
   const handleSubmit = (evt: React.FormEvent<HTMLFormElement>): void => {
@@ -51,14 +37,14 @@ stories.addWithJSX('Radio', () => {
   }
 
   return (
-    <div css={styles.base}>
+    <StyledForm>
       <Card>
         <Card.Header>
           <Card.Title>Form Example</Card.Title>
         </Card.Header>
         <Card.Body>
           <Form submitHandler={handleSubmit}>
-            <p css={styles.text}>Please select the option</p>
+            <StyledText>Please select the option</StyledText>
             <FormCheck>
               <RadioButton id="1" value="1" label="Option 1" checked={reason === '1'} changeHandler={handleChange} />
             </FormCheck>
@@ -69,6 +55,8 @@ stories.addWithJSX('Radio', () => {
           </Form>
         </Card.Body>
       </Card>
-    </div>
+    </StyledForm>
   )
-})
+}
+
+export default { title: 'UI/Organisms/Form' }
