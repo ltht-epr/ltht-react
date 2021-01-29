@@ -19,7 +19,9 @@ const StyledContainer = styled.div`
 `
 
 const StyledColumn = styled.div`
-  flex: 1;
+  ${TABLET_MEDIA_QUERY} {
+    flex: 1;
+  }
 `
 
 const Container: React.FC = ({ children }) => {
