@@ -1,11 +1,10 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+import { render } from '@testing-library/react'
 
 import { SpinnerIcon } from '@ltht-react/icon'
 
-describe('SpinnerIcon', () => {
-  it('renders without crashing', () => {
-    const div = document.createElement('div')
-    ReactDOM.render(<SpinnerIcon size="small" />, div)
+describe('Spinner Icon', () => {
+  it('Renders', () => {
+    render(<SpinnerIcon size="small" />)
   })
 })

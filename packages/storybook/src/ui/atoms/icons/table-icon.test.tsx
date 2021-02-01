@@ -1,22 +1,10 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+import { render } from '@testing-library/react'
 
 import { TableIcon } from '@ltht-react/icon'
 
-describe('TableIcon', () => {
-  const Icons: React.FC = () => {
-    return (
-      <>
-        <TableIcon status="default" size="small" />
-        <TableIcon status="amber" size="small" />
-        <TableIcon status="green" size="small" />
-        <TableIcon status="red" size="small" />
-      </>
-    )
-  }
-
-  it('renders without crashing', () => {
-    const div = document.createElement('div')
-    ReactDOM.render(<Icons />, div)
+describe('Table Icon', () => {
+  it('Renders', () => {
+    render(<TableIcon status="default" size="small" />)
   })
 })

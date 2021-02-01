@@ -1,4 +1,5 @@
 module.exports = {
+  verbose: true,
   transform: {
     '^.+\\.ts?(x)?$': 'ts-jest',
   },
@@ -10,5 +11,4 @@ module.exports = {
   ],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
   setupFilesAfterEnv: ['<rootDir>/scripts/setupTests.ts'],
-  snapshotSerializers: ['jest-emotion', 'enzyme-to-json/serializer'],
 }

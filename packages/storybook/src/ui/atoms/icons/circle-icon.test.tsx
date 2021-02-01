@@ -1,20 +1,10 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+import { render } from '@testing-library/react'
 
 import { CircleIcon } from '@ltht-react/icon'
 
-describe('CircleIcon', () => {
-  const Icons: React.FC = () => {
-    return (
-      <>
-        <CircleIcon status="default" size="small" />
-        <CircleIcon status="green" size="small" />
-      </>
-    )
-  }
-
-  it('renders without crashing', () => {
-    const div = document.createElement('div')
-    ReactDOM.render(<Icons />, div)
+describe('Circle Icon', () => {
+  it('Renders', () => {
+    render(<CircleIcon status="default" size="small" />)
   })
 })

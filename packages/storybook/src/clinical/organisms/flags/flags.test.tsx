@@ -1,24 +1,11 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+import { render } from '@testing-library/react'
 
 import FlagSummary from '@ltht-react/flag-summary'
 import flags from './flags.fixtures'
 
-const Sut: React.FC = () => {
-  return (
-    <>
-      {flags.map(flag => (
-        <div key={flag.id}>
-          <FlagSummary flag={flag} />
-        </div>
-      ))}
-    </>
-  )
-}
-
-describe('FlagSummary', () => {
-  it('renders without crashing', () => {
-    const div = document.createElement('div')
-    ReactDOM.render(<Sut />, div)
+describe('Flags', () => {
+  it('Renders', () => {
+    render(<FlagSummary flag={flags[0]} />)
   })
 })

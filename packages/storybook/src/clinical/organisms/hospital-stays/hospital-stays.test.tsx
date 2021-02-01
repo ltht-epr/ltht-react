@@ -1,24 +1,11 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+import { render } from '@testing-library/react'
 
 import HospitalStaySummary from '@ltht-react/hospital-stay-summary'
 import stays from './hospital-stays.fixtures'
 
-const Sut: React.FC = () => {
-  return (
-    <>
-      {stays.map(stay => (
-        <div key={stay.id}>
-          <HospitalStaySummary hospitalStay={stay} />
-        </div>
-      ))}
-    </>
-  )
-}
-
-describe('HospitalStaySummary', () => {
-  it('renders without crashing', () => {
-    const div = document.createElement('div')
-    ReactDOM.render(<Sut />, div)
+describe('Hospital Stays', () => {
+  it('Renders', () => {
+    render(<HospitalStaySummary hospitalStay={stays[0]} />)
   })
 })

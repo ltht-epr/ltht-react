@@ -1,7 +1,6 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+import { render } from '@testing-library/react'
 
-import Card from '@ltht-react/card'
 import { FormCheck, Form } from '@ltht-react/form'
 import { RadioButton } from '@ltht-react/input'
 import { PrimaryButton } from '@ltht-react/button'
@@ -13,12 +12,9 @@ const handleSubmit = (evt: React.FormEvent<HTMLFormElement>): void => {
   evt.preventDefault()
 }
 
-const components = (
-  <Card>
-    <Card.Header>
-      <h3>Form example</h3>
-    </Card.Header>
-    <Card.Body>
+describe('Form', () => {
+  it('Renders', () => {
+    render(
       <Form submitHandler={handleSubmit}>
         <FormCheck>
           <RadioButton id="1" value="1" label="Option 1" checked changeHandler={handleChange} />
@@ -28,13 +24,6 @@ const components = (
         </FormCheck>
         <PrimaryButton type="submit" value="Submit" disabled />
       </Form>
-    </Card.Body>
-  </Card>
-)
-
-describe('Form', () => {
-  it('renders without crashing', () => {
-    const div = document.createElement('div')
-    ReactDOM.render(components, div)
+    )
   })
 })

@@ -1,12 +1,11 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+import { render } from '@testing-library/react'
 
 import PatientBanner from '@ltht-react/patient-banner'
 import { DeceasedPatient } from './patient-banner.fixtures'
 
-describe('PatientBanner', () => {
-  it('renders without crashing', () => {
-    const div = document.createElement('div')
-    ReactDOM.render(<PatientBanner patient={DeceasedPatient} />, div)
+describe('Patient Banner', () => {
+  it('Renders', () => {
+    render(<PatientBanner patient={DeceasedPatient} />)
   })
 })
