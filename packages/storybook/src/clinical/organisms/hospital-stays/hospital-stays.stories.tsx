@@ -9,7 +9,7 @@ import stays from './hospital-stays.fixtures'
 export const Detail: Story = () => (
   <Card>
     <Card.Header>
-      <h3>Hospital Stay</h3>
+      <Card.Title>Hospital Stay</Card.Title>
     </Card.Header>
     <Card.Body>
       <HospitalStayDetail hospitalStay={stays[2]} />

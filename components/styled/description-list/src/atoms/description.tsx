@@ -5,6 +5,7 @@ import { TEXT_COLOURS } from '@ltht-react/styles'
 
 const StyledDescription = styled.dd`
   color: ${TEXT_COLOURS.SECONDARY};
+  margin-left: 0;
 `
 
 const Description: React.FC<Props> = ({ children, classes, ...rest }) => {

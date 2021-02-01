@@ -9,7 +9,7 @@ import orders from './community-treatment-orders.fixtures'
 export const Detail: Story = () => (
   <Card>
     <Card.Header>
-      <h3>Order</h3>
+      <Card.Title>Order</Card.Title>
     </Card.Header>
     <Card.Body>
       <CommunityTreatmentOrderDetail communityTreatmentOrder={orders[0]} />

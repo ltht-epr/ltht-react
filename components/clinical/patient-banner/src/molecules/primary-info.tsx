@@ -35,7 +35,7 @@ const StyledPrimaryInformation = styled.div<StyledPrimaryInformationProps>`
   ${({ collapsed }): ConditionalStyles =>
     collapsed &&
     css`
-      height: 2rem;
+      height: 1rem;
       overflow-y: hidden;
 
       ${TABLET_MEDIA_QUERY} {

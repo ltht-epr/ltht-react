@@ -10,7 +10,7 @@ import allergies from './allergies.fixtures'
 export const Detail: Story = () => (
   <Card>
     <Card.Header>
-      <h3>Allergy</h3>
+      <Card.Title>Allergy</Card.Title>
     </Card.Header>
     <Card.Body>
       <AllergyDetailItem allergy={allergies[0]} />

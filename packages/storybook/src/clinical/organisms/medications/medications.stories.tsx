@@ -9,7 +9,7 @@ import MedicationData from './medications.fixture'
 export const Summary: Story = () => (
   <Card>
     <Card.Header>
-      <h3>Medications</h3>
+      <Card.Title>Medications</Card.Title>
     </Card.Header>
     <Card.List>
       <MedicationSummary medicationlist={MedicationData} />

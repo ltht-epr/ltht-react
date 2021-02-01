@@ -8,6 +8,7 @@ import Description, { Props as DescriptionProps } from './atoms/description'
 const StyledDescriptionList = styled.dl`
   list-style: none;
   margin-top: 1rem;
+  margin-bottom: 0;
 `
 
 const DescriptionList: React.FC<DescriptionListProps> & DescriptionListComposition = ({

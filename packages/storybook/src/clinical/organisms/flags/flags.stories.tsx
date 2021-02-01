@@ -10,7 +10,7 @@ import flags from './flags.fixtures'
 export const Detail: Story = () => (
   <Card>
     <Card.Header>
-      <h3>Flag</h3>
+      <Card.Title>Flag</Card.Title>
     </Card.Header>
     <Card.Body>
       <FlagDetail flag={flags[0]} />
@@ -21,7 +21,7 @@ export const Detail: Story = () => (
 export const Summary: Story = () => (
   <Card>
     <Card.Header>
-      <h3>Flags</h3>
+      <Card.Title>Flags</Card.Title>
     </Card.Header>
     <Card.List>
       {flags.map(flag => (
@@ -36,7 +36,7 @@ export const Summary: Story = () => (
 export const Redacted: Story = () => (
   <Card>
     <Card.Header>
-      <h3>Flag</h3>
+      <Card.Title>Flag</Card.Title>
     </Card.Header>
     <Card.List>
       <Card.ListItem>

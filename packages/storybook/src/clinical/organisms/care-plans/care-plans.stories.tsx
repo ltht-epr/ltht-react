@@ -9,7 +9,7 @@ import carePlans from './care-plans.fixtures'
 export const Detail: Story = () => (
   <Card>
     <Card.Header>
-      <h3>Care Plan</h3>
+      <Card.Title>Care Plan</Card.Title>
     </Card.Header>
     <Card.Body>
       <CarePlanDetail carePlan={carePlans[0]} />

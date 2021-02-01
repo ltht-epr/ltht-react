@@ -5,6 +5,7 @@ import styled from '@emotion/styled'
 const StyledSubtitle = styled.h5`
   font-size: 0.9rem;
   font-weight: 500;
+  margin: 0;
 `
 
 const Subtitle: React.FC<Props> = ({ classes, children, ...rest }) => (

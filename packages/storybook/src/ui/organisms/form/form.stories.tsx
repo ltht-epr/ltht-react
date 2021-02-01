@@ -22,6 +22,7 @@ const StyledForm = styled.div`
 
 const StyledText = styled.p`
   color: ${TEXT_COLOURS.SECONDARY};
+  margin: 0;
   padding-bottom: 0.3rem;
 
   ${DESKTOP_MEDIA_QUERY} {
