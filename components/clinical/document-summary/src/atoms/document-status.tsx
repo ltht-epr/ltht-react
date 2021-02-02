@@ -6,6 +6,7 @@ import { titleCase } from '@ltht-react/utils'
 import { DocumentReference } from '@ltht-react/types'
 
 const StyledStatus = styled.div`
+  font-size: smaller;
   color: ${TEXT_COLOURS.SECONDARY.VALUE};
 `
 

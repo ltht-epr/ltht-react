@@ -32,8 +32,7 @@ const StyledCard = styled.div`
   > [class^='card__banner'] + .card__list,
   > [class^='card__banner'] + .card__body,
   > .card__list + .card__body,
-  > .card__list + .card__list,
-  > .card__list + .card__footer {
+  > .card__list + .card__list {
     border-top-width: 0;
   }
 `
