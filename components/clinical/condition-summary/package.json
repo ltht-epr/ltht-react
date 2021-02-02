@@ -1,6 +1,6 @@
 {
   "name": "@ltht-react/condition-summary",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "ltht-react clinical ConditionSummary component.",
   "author": "LTHT",
   "homepage": "",
@@ -27,11 +27,11 @@
   "dependencies": {
     "@emotion/core": "^10.0.27",
     "@emotion/styled": "^10.0.27",
-    "@ltht-react/list": "^1.0.0",
+    "@ltht-react/list": "^1.0.1",
     "@ltht-react/styles": "^1.0.0",
-    "@ltht-react/summary": "^1.0.0",
-    "@ltht-react/types": "^0.0.27",
-    "@ltht-react/utils": "^1.0.0",
+    "@ltht-react/summary": "^1.0.1",
+    "@ltht-react/types": "^0.0.28",
+    "@ltht-react/utils": "^1.0.1",
     "emotion": "^10.0.27",
     "react": "^16.12.0"
   },
