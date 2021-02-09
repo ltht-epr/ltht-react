@@ -3,6 +3,12 @@ import { TEXT_COLOURS } from './colours'
 import { TABLET_MEDIA_QUERY, DESKTOP_MEDIA_QUERY, WIDESCREEN_MEDIA_QUERY } from './media-queries'
 
 const CSS_RESET = css`
+  *,
+  ::before,
+  ::after {
+    box-sizing: border-box;
+  }
+
   color: ${TEXT_COLOURS.PRIMARY};
   font-family: 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 0.8rem;
