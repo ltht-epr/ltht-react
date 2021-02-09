@@ -12,7 +12,7 @@ export const Summary: Story = () => (
     </Card.Header>
     <Card.List>
       {encounters.map(encounter => (
-        <Card.ListItem>
+        <Card.ListItem key={encounter.id}>
           <AppointmentSummary encounter={encounter} />
         </Card.ListItem>
       ))}

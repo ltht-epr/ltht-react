@@ -8,12 +8,6 @@ const StyledBody = styled.div`
   padding: 0.75rem 0.75rem 0.75rem 0;
   margin: 0 0 0 0.75rem;
   border-top: 1px solid rgba(0, 0, 0, 0.125);
-
-  &:first-child {
-    border-top-width: 0;
-    border-top-left-radius: inherit;
-    border-top-right-radius: inherit;
-  }
 `
 
 const Body: React.FC<Props> = ({ classes, children, ...rest }) => (

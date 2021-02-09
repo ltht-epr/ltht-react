@@ -24,7 +24,7 @@ export const Summary: Story = () => (
     </Card.Header>
     <Card.List>
       {carePlans.map(carePlan => (
-        <Card.ListItem>
+        <Card.ListItem key={carePlan.id}>
           <CarePlanSummary carePlan={carePlan} />
         </Card.ListItem>
       ))}

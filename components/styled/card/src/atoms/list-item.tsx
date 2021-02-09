@@ -45,15 +45,15 @@ const StyledListItem = styled.li`
     bottom: -1px;
   }
 
+  .card__list-item-container {
+    flex: 1;
+  }
+
   .card__list-item-selected&:before,
   .card__list-item-selected& + .card__list-item:before,
   &:hover:before,
   &:hover + .card__list-item:before {
     border-top-width: ${(props: Props): string => (shouldClick(props) ? '0' : '1px')};
-  }
-
-  & > :first-child {
-    flex: 1;
   }
 
   & > .icon__chevron {
@@ -66,7 +66,7 @@ const StyledListItem = styled.li`
     cursor: ${(props: Props): string => hoverCursor(props)};
   }
 
-  &:first-child {
+  &:first-of-type {
     border-top-width: 0;
     border-top-left-radius: inherit;
     border-top-right-radius: inherit;
@@ -84,7 +84,7 @@ const ListItem: React.FC<Props> = props => {
   const suffix = props?.selected === true ? '-selected' : ''
   return (
     <StyledListItem className={classNames(`card__list-item${suffix}`, classes)} {...rest}>
-      {children}
+      <div className="card__list-item-container">{children}</div>
       {shouldClick(props) && <ChevronIcon size="medium" direction="right" />}
     </StyledListItem>
   )

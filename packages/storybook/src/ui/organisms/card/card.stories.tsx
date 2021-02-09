@@ -72,7 +72,7 @@ export const InfoSummaryStory: Story = () => (
     <InfoSummary clickHandler={clickHandler} />
     <Card.List>
       {allergies.map(allergy => (
-        <Card.ListItem>
+        <Card.ListItem key={allergy.id}>
           <AllergySummary allergy={allergy} />
         </Card.ListItem>
       ))}
@@ -98,7 +98,7 @@ export const WarningSummaryStory: Story = () => (
     <WarningSummary clickHandler={clickHandler} />
     <Card.List>
       {allergies.map(allergy => (
-        <Card.ListItem>
+        <Card.ListItem key={allergy.id}>
           <AllergySummary allergy={allergy} />
         </Card.ListItem>
       ))}
@@ -126,6 +126,7 @@ export const MissingDataSummaryStory: Story = () => (
       <Card.Title>Allergies</Card.Title>
     </Card.Header>
     <MissingDataSummary
+      type="allergies"
       noData={['Item 1', 'Item 2']}
       missingData={['Item 1', 'Item 2']}
       partialData={['Item 1', 'Item 2']}
