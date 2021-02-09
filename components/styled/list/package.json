@@ -1,6 +1,6 @@
 {
   "name": "@ltht-react/list",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "ltht-react styled List component.",
   "author": "LTHT",
   "homepage": "",
@@ -27,7 +27,7 @@
   "dependencies": {
     "@emotion/core": "^10.0.27",
     "@emotion/styled": "^10.0.27",
-    "@ltht-react/styles": "^1.0.0",
+    "@ltht-react/styles": "^1.0.1",
     "@ltht-react/types": "^0.0.28",
     "@ltht-react/utils": "^1.0.1",
     "emotion": "^10.0.27",
