@@ -1,6 +1,6 @@
 {
   "name": "@ltht-react/care-plan-summary",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "ltht-react clinical CarePlanSummary component.",
   "author": "LTHT",
   "homepage": "",
@@ -25,7 +25,7 @@
     "@emotion/styled": "^10.0.27",
     "@ltht-react/list": "^1.0.1",
     "@ltht-react/styles": "^1.0.0",
-    "@ltht-react/summary": "^1.0.2",
+    "@ltht-react/summary": "^1.0.3",
     "@ltht-react/types": "^0.0.28",
     "@ltht-react/utils": "^1.0.1",
     "emotion": "^10.0.27",
