@@ -80,8 +80,8 @@ const StyledListItem = styled.li`
 `
 
 const ListItem: FC<Props> = props => {
-  const { classes, children, selected, ...rest } = props
-  const suffix = selected ? '-selected' : ''
+  const { classes, children, ...rest } = props
+  const suffix = props?.selected === true ? '-selected' : ''
   return (
     <StyledListItem className={classNames(`card__list-item${suffix}`, classes)} {...rest}>
       <div className="card__list-item-container">{children}</div>
