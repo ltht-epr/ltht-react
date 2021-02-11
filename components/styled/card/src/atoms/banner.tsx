@@ -81,9 +81,9 @@ const StyledBanner = styled.div`
 `
 
 const Banner: FC<Props> = props => {
-  const { classes, children, ...rest } = props
+  const { classes, children, status, ...rest } = props
   return (
-    <StyledBanner className={classNames(`card__banner-${props?.status || 'default'}`, classes)} {...rest}>
+    <StyledBanner className={classNames(`card__banner-${status || 'default'}`, classes)} {...rest}>
       <div className="card__banner_content">{children}</div>
       {canClick(props) && <ChevronIcon size="medium" direction="right" />}
     </StyledBanner>

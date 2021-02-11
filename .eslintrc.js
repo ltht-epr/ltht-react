@@ -28,6 +28,7 @@ module.exports = {
     'eslint(react-hooks/exhaustive-deps)': 'off',
     'jsx-a11y/click-events-have-key-events': 'off',
     'jsx-a11y/interactive-supports-focus': 'off',
+    'no-shadow': 'off',
     'prettier/prettier': ['error'],
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx', '.tsx'] }],
     'react/jsx-props-no-spreading': 0,

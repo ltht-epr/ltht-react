@@ -11,7 +11,7 @@ import {
 
 const EncounterHospitalisationDetail: FC<Props> = ({ hospitalisation }) => {
   const extensions: CodeableConcept[] = []
-  hospitalisation?.extension?.map(item => {
+  hospitalisation?.extension?.forEach(item => {
     if (item?.valueCodeableConcept) {
       extensions.push(item?.valueCodeableConcept)
     }
