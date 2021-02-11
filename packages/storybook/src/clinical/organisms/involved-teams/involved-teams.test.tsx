@@ -1,4 +1,3 @@
-import React from 'react'
 import { render } from '@testing-library/react'
 
 import InvolvedTeamSummary from '@ltht-react/involved-team-summary'

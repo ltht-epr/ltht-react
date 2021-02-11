@@ -1,4 +1,4 @@
-import React, { HTMLAttributes } from 'react'
+import { FC, HTMLAttributes } from 'react'
 import classNames from 'classnames'
 import styled from '@emotion/styled'
 
@@ -8,7 +8,7 @@ const StyledSubtitle = styled.h5`
   margin: 0;
 `
 
-const Subtitle: React.FC<Props> = ({ classes, children, ...rest }) => (
+const Subtitle: FC<Props> = ({ classes, children, ...rest }) => (
   <StyledSubtitle className={classNames('card__Subtitle', classes)} {...rest}>
     {children}
   </StyledSubtitle>

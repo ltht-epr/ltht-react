@@ -1,4 +1,4 @@
-import React from 'react'
+import { FC } from 'react'
 import styled from '@emotion/styled'
 import { TABLET_MEDIA_QUERY } from '@ltht-react/styles'
 
@@ -24,11 +24,11 @@ const StyledColumn = styled.div`
   }
 `
 
-const Container: React.FC = ({ children }) => {
+const Container: FC = ({ children }) => {
   return <StyledContainer>{children}</StyledContainer>
 }
 
-const Column: React.FC = ({ children }) => {
+const Column: FC = ({ children }) => {
   return <StyledColumn>{children}</StyledColumn>
 }
 

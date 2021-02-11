@@ -1,4 +1,4 @@
-import React, { HTMLAttributes } from 'react'
+import { HTMLAttributes, FC } from 'react'
 import styled from '@emotion/styled'
 import { Patient } from '@ltht-react/types'
 import { formatPatientAddress } from '@ltht-react/utils'
@@ -20,7 +20,7 @@ const StyledValue = styled.span`
   margin-left: 0.5rem;
 `
 
-const Address: React.FC<Props> = ({ patient, ...rest }) => (
+const Address: FC<Props> = ({ patient, ...rest }) => (
   <StyledAddress {...rest}>
     <StyledLabel>Address</StyledLabel>
     <StyledValue>{formatPatientAddress(patient)}</StyledValue>

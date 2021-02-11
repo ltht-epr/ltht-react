@@ -1,4 +1,4 @@
-import React, { HTMLAttributes } from 'react'
+import { FC, HTMLAttributes } from 'react'
 import styled from '@emotion/styled'
 
 import { TEXT_COLOURS } from '@ltht-react/styles'
@@ -11,7 +11,7 @@ const StyledCommunityTreatmentOrderSummaryRestrictions = styled.div`
   padding-top: 0.25rem;
 `
 
-const CommunityTreatmentOrderSummaryRestrictions: React.FC<Props> = ({ communityTreatmentOrder, ...rest }) => (
+const CommunityTreatmentOrderSummaryRestrictions: FC<Props> = ({ communityTreatmentOrder, ...rest }) => (
   <StyledCommunityTreatmentOrderSummaryRestrictions {...rest}>
     {communityTreatmentOrder.restrictions && communityTreatmentOrder.restrictions}
   </StyledCommunityTreatmentOrderSummaryRestrictions>

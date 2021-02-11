@@ -1,4 +1,4 @@
-import React, { HTMLAttributes } from 'react'
+import { HTMLAttributes, FC } from 'react'
 import classNames from 'classnames'
 import styled from '@emotion/styled'
 import { TEXT_COLOURS } from '@ltht-react/styles'
@@ -8,7 +8,7 @@ const StyledDescription = styled.dd`
   margin-left: 0;
 `
 
-const Description: React.FC<Props> = ({ children, classes, ...rest }) => {
+const Description: FC<Props> = ({ children, classes, ...rest }) => {
   return (
     <StyledDescription className={classNames('description-list__description', classes)} {...rest}>
       {children}

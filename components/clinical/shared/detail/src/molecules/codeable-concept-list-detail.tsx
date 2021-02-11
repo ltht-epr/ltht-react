@@ -1,9 +1,9 @@
-import React from 'react'
+import { FC } from 'react'
 import { CodeableConcept, Maybe } from '@ltht-react/types'
 import { codeableConceptDisplaySummary } from '@ltht-react/utils'
 import DescriptionList from '@ltht-react/description-list'
 
-const CodeableConceptListDetail: React.FC<Props> = ({ term, concepts }) => {
+const CodeableConceptListDetail: FC<Props> = ({ term, concepts }) => {
   if (concepts && concepts.length > 0) {
     return (
       <DescriptionList>

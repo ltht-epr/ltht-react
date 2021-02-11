@@ -1,4 +1,4 @@
-import React, { HTMLAttributes } from 'react'
+import { HTMLAttributes, FC } from 'react'
 import styled from '@emotion/styled'
 import { TEXT_COLOURS } from '@ltht-react/styles'
 import { Flag } from '@ltht-react/types'
@@ -11,7 +11,7 @@ const StyledFlagDescription = styled.div`
   padding-top: 0.25rem;
 `
 
-const FlagDescription: React.FC<Props> = ({ flag: { code, category }, ...rest }) => {
+const FlagDescription: FC<Props> = ({ flag: { code, category }, ...rest }) => {
   const values = []
 
   const codeSummary = codeableConceptCodeSummary(code)

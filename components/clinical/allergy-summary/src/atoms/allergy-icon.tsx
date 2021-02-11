@@ -1,9 +1,8 @@
-import React from 'react'
-
+import { FC } from 'react'
 import { ExclamationIcon } from '@ltht-react/icon'
 import { AllergyIntoleranceCriticalityCode } from '@ltht-react/types'
 
-const AllergyIcon: React.FC<Props> = ({ criticalityCode }) => {
+const AllergyIcon: FC<Props> = ({ criticalityCode }) => {
   if (criticalityCode && criticalityCode === AllergyIntoleranceCriticalityCode.High) {
     return <ExclamationIcon status="red" size="medium" />
   }

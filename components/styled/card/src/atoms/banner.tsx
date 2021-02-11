@@ -1,4 +1,4 @@
-import React, { HTMLAttributes } from 'react'
+import { HTMLAttributes, FC } from 'react'
 import classNames from 'classnames'
 import styled from '@emotion/styled'
 import { ChevronIcon } from '@ltht-react/icon'
@@ -57,6 +57,7 @@ const styles = ({ status = 'default' }: Props): StyleProps => {
 
 const StyledBanner = styled.div`
   display: flex;
+  align-items: center;
   padding: 0.75rem;
   z-index: 1;
 
@@ -79,7 +80,7 @@ const StyledBanner = styled.div`
   }
 `
 
-const Banner: React.FC<Props> = props => {
+const Banner: FC<Props> = props => {
   const { classes, children, ...rest } = props
   return (
     <StyledBanner className={classNames(`card__banner-${props?.status || 'default'}`, classes)} {...rest}>

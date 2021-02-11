@@ -1,9 +1,9 @@
-import React, { HTMLAttributes } from 'react'
+import { FC, HTMLAttributes } from 'react'
 import styled from '@emotion/styled'
 
 const StyledListItem = styled.li``
 
-const ListItem: React.FC<Props> = ({ children, tabIndex, ...rest }) => {
+const ListItem: FC<Props> = ({ children, tabIndex, ...rest }) => {
   const listItemProps = {
     ...(tabIndex && { tabIndex }),
     ...rest,

@@ -1,4 +1,4 @@
-import React, { HTMLAttributes } from 'react'
+import { HTMLAttributes, FC } from 'react'
 import Styled from '@emotion/styled'
 
 import { Flag } from '@ltht-react/types'
@@ -20,7 +20,7 @@ const StyledDate = Styled.div`
   text-align: right;
 `
 
-const FlagSummary: React.FC<Props> = ({ flag, ...rest }) => {
+const FlagSummary: FC<Props> = ({ flag, ...rest }) => {
   if (flag.metadata.isRedacted) {
     return (
       <StyledSummary {...rest}>

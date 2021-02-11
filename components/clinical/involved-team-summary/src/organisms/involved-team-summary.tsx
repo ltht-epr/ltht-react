@@ -1,4 +1,4 @@
-import React from 'react'
+import { FC } from 'react'
 import styled from '@emotion/styled'
 
 import { EpisodeOfCare } from '@ltht-react/types'
@@ -20,7 +20,7 @@ const StyledDate = styled.div`
   text-align: right;
 `
 
-const InvolvedTeamSummary: React.FC<Props> = ({ episodeOfCare }) => {
+const InvolvedTeamSummary: FC<Props> = ({ episodeOfCare }) => {
   if (episodeOfCare.metadata.isRedacted) {
     return <Redacted episodeOfCare={episodeOfCare} />
   }

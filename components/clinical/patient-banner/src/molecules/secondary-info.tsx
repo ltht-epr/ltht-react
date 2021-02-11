@@ -1,4 +1,4 @@
-import React from 'react'
+import { FC } from 'react'
 import styled from '@emotion/styled'
 import { Patient } from '@ltht-react/types'
 import { TABLET_MEDIA_QUERY } from '@ltht-react/styles'
@@ -18,7 +18,7 @@ const StyledSecondaryInformation = styled.div`
   }
 `
 
-const SecondaryInformation: React.FC<Props> = ({ patient }) => (
+const SecondaryInformation: FC<Props> = ({ patient }) => (
   <StyledSecondaryInformation>
     <Address patient={patient} />
     <PasNumber patient={patient} />

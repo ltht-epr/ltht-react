@@ -1,4 +1,4 @@
-import React from 'react'
+import { FC } from 'react'
 import styled from '@emotion/styled'
 
 import { Encounter } from '@ltht-react/types'
@@ -13,7 +13,7 @@ const StyledRedactedDescription = styled.div`
   text-align: right;
 `
 
-const AppointmentRedacted: React.FC<Props> = ({ appointment }) => (
+const AppointmentRedacted: FC<Props> = ({ appointment }) => (
   <>
     <StyledDateSummary>
       <DateSummary datetime={appointment?.period?.start} />

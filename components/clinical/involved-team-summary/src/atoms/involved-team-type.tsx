@@ -1,4 +1,4 @@
-import React, { HTMLAttributes } from 'react'
+import { HTMLAttributes, FC } from 'react'
 import styled from '@emotion/styled'
 
 import { TEXT_COLOURS } from '@ltht-react/styles'
@@ -12,7 +12,7 @@ const StyledInvolvedTeamType = styled.div`
   padding-top: 0.25rem;
 `
 
-const InvolvedTeamType: React.FC<Props> = ({ episodeOfCare, ...rest }) => {
+const InvolvedTeamType: FC<Props> = ({ episodeOfCare, ...rest }) => {
   return <StyledInvolvedTeamType {...rest}>{titleCase(episodeOfCare.status)}</StyledInvolvedTeamType>
 }
 

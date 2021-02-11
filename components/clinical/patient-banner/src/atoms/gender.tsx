@@ -1,4 +1,4 @@
-import React, { HTMLAttributes } from 'react'
+import { FC, HTMLAttributes } from 'react'
 import styled from '@emotion/styled'
 
 import { Patient } from '@ltht-react/types'
@@ -19,7 +19,7 @@ const StyledValue = styled.span`
   margin-left: 0.5rem;
 `
 
-const Gender: React.FC<Props> = ({ patient, ...rest }) => (
+const Gender: FC<Props> = ({ patient, ...rest }) => (
   <StyledGender {...rest}>
     <StyledLabel>Gender</StyledLabel>
     <StyledValue>{patient?.gender && titleCase(patient.gender)}</StyledValue>

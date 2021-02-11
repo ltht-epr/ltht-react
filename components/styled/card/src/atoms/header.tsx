@@ -1,4 +1,4 @@
-import React, { HTMLAttributes } from 'react'
+import { FC, HTMLAttributes } from 'react'
 import classNames from 'classnames'
 import styled from '@emotion/styled'
 
@@ -7,7 +7,7 @@ const StyledHeader = styled.div`
   margin: 0 0 0 0.75rem;
 `
 
-const Header: React.FC<Props> = ({ classes, children, ...rest }) => (
+const Header: FC<Props> = ({ classes, children, ...rest }) => (
   <StyledHeader className={classNames('card__header', classes)} {...rest}>
     {children}
   </StyledHeader>

@@ -1,4 +1,4 @@
-import React from 'react'
+import { useState, MouseEvent } from 'react'
 import { Story } from '@storybook/react'
 
 import AllergyDetailItem from '@ltht-react/allergy-detail'
@@ -19,9 +19,9 @@ export const Detail: Story = () => (
 )
 
 export const Summary: Story = () => {
-  const [selected, setSelected] = React.useState('')
+  const [selected, setSelected] = useState('')
 
-  const clickHandler = (e: React.MouseEvent<HTMLLIElement, MouseEvent>, allergy: AllergyIntolerance): void => {
+  const clickHandler = (e: MouseEvent<HTMLLIElement>, allergy: AllergyIntolerance): void => {
     e.preventDefault()
     e.stopPropagation()
     setSelected(allergy.id)

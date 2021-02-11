@@ -1,14 +1,14 @@
-import React from 'react'
+import { FormEvent, ChangeEvent } from 'react'
 import { render } from '@testing-library/react'
 
 import { FormCheck, Form } from '@ltht-react/form'
 import { RadioButton } from '@ltht-react/input'
 import { PrimaryButton } from '@ltht-react/button'
 
-const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+const handleChange = (e: ChangeEvent<HTMLInputElement>): void => {
   e.preventDefault()
 }
-const handleSubmit = (evt: React.FormEvent<HTMLFormElement>): void => {
+const handleSubmit = (evt: FormEvent<HTMLFormElement>): void => {
   evt.preventDefault()
 }
 

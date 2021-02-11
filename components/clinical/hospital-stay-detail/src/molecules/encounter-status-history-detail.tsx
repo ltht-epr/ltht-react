@@ -1,4 +1,4 @@
-import React from 'react'
+import { FC } from 'react'
 import styled from '@emotion/styled'
 import { EncounterStatusHistory, Maybe } from '@ltht-react/types'
 import DescriptionList from '@ltht-react/description-list'
@@ -14,7 +14,7 @@ const StyledListItem = styled.li`
   list-style: initial;
 `
 
-const EncounterStatusHistoryDetail: React.FC<Props> = ({ hospitalStatusHistories }) => (
+const EncounterStatusHistoryDetail: FC<Props> = ({ hospitalStatusHistories }) => (
   <NestedListDetail term="Status History">
     {hospitalStatusHistories?.map(item => {
       if (item?.status) {

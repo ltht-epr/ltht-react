@@ -1,9 +1,9 @@
-import React from 'react'
+import { FC, MouseEvent } from 'react'
 import Card from '@ltht-react/card'
 import { ExclamationIcon } from '@ltht-react/icon'
 
-const ErrorSummary: React.FC<Props> = ({ clickHandler }) => {
-  const handleClick = (e: React.MouseEvent<HTMLElement, MouseEvent>): void => {
+const ErrorSummary: FC<Props> = ({ clickHandler }) => {
+  const handleClick = (e: MouseEvent<HTMLElement>): void => {
     e.preventDefault()
     clickHandler && clickHandler()
   }

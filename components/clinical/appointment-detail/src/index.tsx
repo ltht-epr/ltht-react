@@ -1,5 +1,5 @@
-import React from 'react'
+import { FC } from 'react'
 
-const AppointmentDetail: React.FC = () => <div>AppointmentDetail</div>
+const AppointmentDetail: FC = () => <div>AppointmentDetail</div>
 
 export default AppointmentDetail

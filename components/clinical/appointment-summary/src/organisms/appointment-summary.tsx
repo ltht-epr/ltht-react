@@ -1,4 +1,4 @@
-import React, { HTMLAttributes } from 'react'
+import { FC, HTMLAttributes } from 'react'
 import styled from '@emotion/styled'
 
 import { Encounter } from '@ltht-react/types'
@@ -25,7 +25,7 @@ const StyledService = styled.div`
   text-align: right;
 `
 
-const AppointmentSummary: React.FC<Props> = ({ encounter, ...rest }) => {
+const AppointmentSummary: FC<Props> = ({ encounter, ...rest }) => {
   if (encounter.metadata.isRedacted) {
     return (
       <StyledSummary {...rest}>

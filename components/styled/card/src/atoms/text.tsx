@@ -1,4 +1,4 @@
-import React, { HTMLAttributes } from 'react'
+import { FC, HTMLAttributes } from 'react'
 import classNames from 'classnames'
 import styled from '@emotion/styled'
 
@@ -11,7 +11,7 @@ const StyledText = styled.p`
   }
 `
 
-const Text: React.FC<Props> = ({ classes, children, ...rest }) => (
+const Text: FC<Props> = ({ classes, children, ...rest }) => (
   <StyledText className={classNames('card__text', classes)} {...rest}>
     {children}
   </StyledText>

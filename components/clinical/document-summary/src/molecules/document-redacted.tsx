@@ -1,4 +1,4 @@
-import React from 'react'
+import { FC } from 'react'
 import styled from '@emotion/styled'
 
 import { DocumentReference } from '@ltht-react/types'
@@ -14,7 +14,7 @@ const StyledDate = styled.div`
   flex: 1;
 `
 
-const DocumentRedacted: React.FC<Props> = ({ document }) => (
+const DocumentRedacted: FC<Props> = ({ document }) => (
   <>
     <StyledDate>
       <Date document={document} />

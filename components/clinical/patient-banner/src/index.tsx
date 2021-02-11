@@ -1,4 +1,4 @@
-import React from 'react'
+import { FC } from 'react'
 import styled from '@emotion/styled'
 import { Patient } from '@ltht-react/types'
 
@@ -18,7 +18,7 @@ const StyledPatientBanner = styled.div<StyledPatientBannerProps>`
       : `2px solid ${PATIENT_BANNER_BACKGROUND_COLOUR}`};
 `
 
-const PatientBanner: React.FC<Props> = ({ patient }) => {
+const PatientBanner: FC<Props> = ({ patient }) => {
   const deceased = patient?.deceased?.deceasedBoolean ?? false
 
   return (

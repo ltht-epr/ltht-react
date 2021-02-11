@@ -1,4 +1,4 @@
-import React, { HTMLAttributes } from 'react'
+import { HTMLAttributes, FC } from 'react'
 import styled from '@emotion/styled'
 
 import { TEXT_COLOURS } from '@ltht-react/styles'
@@ -10,7 +10,7 @@ const StyledObservationValue = styled.div`
   text-align: left;
 `
 
-const ObservationValue: React.FC<Props> = ({ observation, ...rest }) => (
+const ObservationValue: FC<Props> = ({ observation, ...rest }) => (
   <StyledObservationValue {...rest}>{codeableConceptDisplaySummary(observation.code)}</StyledObservationValue>
 )
 

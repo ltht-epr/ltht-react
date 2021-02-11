@@ -1,4 +1,4 @@
-import React, { HTMLAttributes } from 'react'
+import { FC, HTMLAttributes } from 'react'
 import styled from '@emotion/styled'
 
 import { Patient } from '@ltht-react/types'
@@ -10,7 +10,7 @@ const StyledName = styled.span`
   font-size: 0.875rem;
 `
 
-const Name: React.FC<Props> = ({ patient, ...rest }) => <StyledName {...rest}>{formatPatientName(patient)}</StyledName>
+const Name: FC<Props> = ({ patient, ...rest }) => <StyledName {...rest}>{formatPatientName(patient)}</StyledName>
 
 interface Props extends HTMLAttributes<HTMLSpanElement> {
   patient: Patient | undefined

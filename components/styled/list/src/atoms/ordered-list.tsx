@@ -1,9 +1,9 @@
-import React, { HTMLAttributes } from 'react'
+import { FC, HTMLAttributes } from 'react'
 import styled from '@emotion/styled'
 
 const StyledOrderedList = styled.ol``
 
-const OrderedList: React.FC<HTMLAttributes<HTMLOListElement>> = ({ children, ...rest }) => (
+const OrderedList: FC<HTMLAttributes<HTMLOListElement>> = ({ children, ...rest }) => (
   <StyledOrderedList {...rest}>{children}</StyledOrderedList>
 )
 

@@ -1,4 +1,4 @@
-import React from 'react'
+import { FC } from 'react'
 import styled from '@emotion/styled'
 
 import { Condition } from '@ltht-react/types'
@@ -13,7 +13,7 @@ const StyledDateSummary = styled.div`
   text-align: right;
 `
 
-const ConditionRedacted: React.FC<Props> = ({ condition }) => (
+const ConditionRedacted: FC<Props> = ({ condition }) => (
   <>
     <StyledRedactedDescription>
       <RedactedDescription />

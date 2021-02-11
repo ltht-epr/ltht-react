@@ -1,4 +1,3 @@
-import React from 'react'
 import { Story } from '@storybook/react'
 
 import ConditionSummary from '@ltht-react/condition-summary'

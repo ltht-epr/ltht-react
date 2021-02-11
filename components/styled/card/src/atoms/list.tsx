@@ -1,4 +1,4 @@
-import React, { HTMLAttributes } from 'react'
+import { FC, HTMLAttributes } from 'react'
 import classNames from 'classnames'
 import styled from '@emotion/styled'
 
@@ -13,7 +13,7 @@ const StyledList = styled.ul`
   list-style-type: none;
 `
 
-const List: React.FC<Props> = ({ classes, children, ...rest }) => (
+const List: FC<Props> = ({ classes, children, ...rest }) => (
   <StyledList className={classNames('card__list', classes)} {...rest}>
     {children}
   </StyledList>

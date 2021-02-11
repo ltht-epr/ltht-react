@@ -1,4 +1,4 @@
-import React from 'react'
+import { FC } from 'react'
 import styled from '@emotion/styled'
 import { Guidance } from '@ltht-react/types'
 import { UnorderedList, ListItem } from '@ltht-react/list'
@@ -18,7 +18,7 @@ const StyledUnorderedList = styled(UnorderedList)`
   padding-top: 0.5rem;
 `
 
-const GuidanceSummary: React.FC<Props> = ({ guidance }) => {
+const GuidanceSummary: FC<Props> = ({ guidance }) => {
   if (guidance.metadata.isRedacted) {
     return <Redacted />
   }

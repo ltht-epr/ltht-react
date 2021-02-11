@@ -1,4 +1,4 @@
-import React from 'react'
+import { FC } from 'react'
 import styled from '@emotion/styled'
 import { css, SerializedStyles } from '@emotion/core'
 import { FontAwesomeIcon, FontAwesomeIconProps } from '@fortawesome/react-fontawesome'
@@ -17,7 +17,7 @@ const StyledFontAwesomeIcon = styled(FontAwesomeIcon)<StyledFontAwesomeIconProps
   color: ${({ status }): SerializedStyles => calculateIconColor(status)};
 `
 
-const ExclamationIcon: React.FC<ExclamationIconProps> = ({ status, size }) => (
+const ExclamationIcon: FC<ExclamationIconProps> = ({ status, size }) => (
   <StyledFontAwesomeIcon
     className="icon__exclamation"
     status={status}

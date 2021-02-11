@@ -1,4 +1,4 @@
-import React, { HTMLAttributes } from 'react'
+import { HTMLAttributes, FC } from 'react'
 import styled from '@emotion/styled'
 
 import { TEXT_COLOURS } from '@ltht-react/styles'
@@ -9,7 +9,7 @@ const StyledDateSummary = styled.div`
   color: ${TEXT_COLOURS.PRIMARY};
 `
 
-const DateSummary: React.FC<Props> = ({ datetime, ...rest }) => (
+const DateSummary: FC<Props> = ({ datetime, ...rest }) => (
   <StyledDateSummary {...rest}>{partialDateTimeText(datetime)}</StyledDateSummary>
 )
 

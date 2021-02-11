@@ -1,4 +1,4 @@
-import React from 'react'
+import { FC } from 'react'
 import styled from '@emotion/styled'
 import { Maybe, EncounterParticipant } from '@ltht-react/types'
 import { periodSummaryText, titleCase } from '@ltht-react/utils'
@@ -14,7 +14,7 @@ const StyledListItem = styled.li`
   list-style: initial;
 `
 
-const EncounterParticipantDetail: React.FC<Props> = ({ participants }) => (
+const EncounterParticipantDetail: FC<Props> = ({ participants }) => (
   <NestedListDetail term="Participant(s)">
     {participants?.map(item => {
       if (item?.individual?.display && item?.individual?.typeName) {

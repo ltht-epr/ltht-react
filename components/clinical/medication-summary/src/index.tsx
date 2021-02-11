@@ -1,11 +1,11 @@
-import React from 'react'
+import { FC } from 'react'
 
 import { MedicationList } from '@ltht-react/types'
 import DescriptionList from '@ltht-react/description-list'
 
 import { codeableConceptDisplaySummary as displaySummary } from '@ltht-react/utils'
 
-const MedicationSummary: React.FC<Props> = ({ medicationlist = undefined }) => {
+const MedicationSummary: FC<Props> = ({ medicationlist = undefined }) => {
   if (!medicationlist) {
     return null
   }

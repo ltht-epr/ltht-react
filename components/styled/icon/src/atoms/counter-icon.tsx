@@ -1,4 +1,4 @@
-import React, { HTMLAttributes } from 'react'
+import { FC, HTMLAttributes } from 'react'
 import styled from '@emotion/styled'
 import { css, SerializedStyles } from '@emotion/core'
 import { FontAwesomeIcon, FontAwesomeIconProps } from '@fortawesome/react-fontawesome'
@@ -25,7 +25,7 @@ const StyledCounterValue = styled.span`
   font-weight: bold;
 `
 
-const CounterIcon: React.FC<CounterIconProps> = ({ status, size, value }) => (
+const CounterIcon: FC<CounterIconProps> = ({ status, size, value }) => (
   <StyledCounterIcon className="fa-layers fa-fw">
     <StyledFontAwesomeIcon className="icon__counter" status={status} icon={faCircle} size={calculateIconSize(size)} />
     <StyledCounterValue className="fa-layers-text fa-inverse fa-xs">{value}</StyledCounterValue>

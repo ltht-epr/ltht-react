@@ -1,4 +1,4 @@
-import React from 'react'
+import { FC } from 'react'
 import styled from '@emotion/styled'
 
 import { LypftCommunityTreatmentOrder } from '@ltht-react/types'
@@ -13,7 +13,7 @@ const StyledPeriodSummary = styled.div`
   text-align: right;
 `
 
-const CommunityTreatmentOrderRedacted: React.FC<Props> = ({ communityTreatmentOrder }) => (
+const CommunityTreatmentOrderRedacted: FC<Props> = ({ communityTreatmentOrder }) => (
   <>
     <StyledRedactedDescription>
       <RedactedDescription />

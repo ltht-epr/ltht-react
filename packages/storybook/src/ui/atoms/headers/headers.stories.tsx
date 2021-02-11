@@ -1,4 +1,3 @@
-import React from 'react'
 import { PageHeader, SubHeader } from '@ltht-react/header'
 import { Story } from '@storybook/react'
 

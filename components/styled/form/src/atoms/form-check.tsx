@@ -1,4 +1,4 @@
-import React, { HTMLAttributes } from 'react'
+import { HTMLAttributes, FC } from 'react'
 import styled from '@emotion/styled'
 
 const StyledFormCheck = styled.div`
@@ -7,7 +7,7 @@ const StyledFormCheck = styled.div`
   margin-bottom: 0.5rem;
 `
 
-const FormCheck: React.FC<HTMLAttributes<HTMLDivElement>> = ({ children, ...rest }) => (
+const FormCheck: FC<HTMLAttributes<HTMLDivElement>> = ({ children, ...rest }) => (
   <StyledFormCheck className="form-check" {...rest}>
     {children}
   </StyledFormCheck>

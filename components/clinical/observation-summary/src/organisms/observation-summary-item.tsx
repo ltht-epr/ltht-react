@@ -1,4 +1,4 @@
-import React from 'react'
+import { FC, MouseEvent } from 'react'
 import styled from '@emotion/styled'
 
 import { Observation } from '@ltht-react/types'
@@ -17,8 +17,8 @@ const StyledStatus = styled.div`
   text-align: right;
 `
 
-const ObservationSummaryItem: React.FC<Props> = ({ observation, clickHandler }) => {
-  const handleClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>): void => {
+const ObservationSummaryItem: FC<Props> = ({ observation, clickHandler }) => {
+  const handleClick = (e: MouseEvent<HTMLDivElement>): void => {
     e.preventDefault()
     clickHandler && clickHandler(observation)
   }

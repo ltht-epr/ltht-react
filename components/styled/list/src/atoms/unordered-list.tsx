@@ -1,4 +1,4 @@
-import React, { HTMLAttributes } from 'react'
+import { FC, HTMLAttributes } from 'react'
 import styled from '@emotion/styled'
 
 const StyledUnorderedList = styled.ul<StyledUnorderedListProps>`
@@ -6,7 +6,7 @@ const StyledUnorderedList = styled.ul<StyledUnorderedListProps>`
   list-style-position: inside;
 `
 
-const UnorderedList: React.FC<Props> = ({ bullet = 'none', children, ...rest }) => (
+const UnorderedList: FC<Props> = ({ bullet = 'none', children, ...rest }) => (
   <StyledUnorderedList className="list" bullet={bullet} {...rest}>
     {children}
   </StyledUnorderedList>

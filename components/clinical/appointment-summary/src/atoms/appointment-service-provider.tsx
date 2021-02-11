@@ -1,4 +1,4 @@
-import React, { HTMLAttributes } from 'react'
+import { FC, HTMLAttributes } from 'react'
 import styled from '@emotion/styled'
 
 import { TEXT_COLOURS } from '@ltht-react/styles'
@@ -9,7 +9,7 @@ const StyledAppointmentServiceProvider = styled.div`
   text-align: right;
 `
 
-const AppointmentServiceProvider: React.FC<Props> = ({ encounter, ...rest }) => {
+const AppointmentServiceProvider: FC<Props> = ({ encounter, ...rest }) => {
   let provider = encounter.serviceProvider?.display
 
   if (!provider) {

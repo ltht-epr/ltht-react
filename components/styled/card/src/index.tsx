@@ -1,4 +1,4 @@
-import React, { HTMLAttributes } from 'react'
+import { FC, HTMLAttributes } from 'react'
 import classNames from 'classnames'
 import styled from '@emotion/styled'
 import { CSS_RESET, TEXT_COLOURS, CARD_BACKGROUND_COLOUR } from '@ltht-react/styles'
@@ -37,7 +37,7 @@ const StyledCard = styled.div`
   }
 `
 
-const Card: React.FC<CardProps> & CardComposition = ({ textAlign = 'left', classes, children, ...rest }) => (
+const Card: FC<CardProps> & CardComposition = ({ textAlign = 'left', classes, children, ...rest }) => (
   <StyledCard textAlign={textAlign} className={classNames('card', classes)} {...rest}>
     {children}
   </StyledCard>
@@ -55,16 +55,16 @@ Card.Text = Text
 Card.Title = Title
 
 interface CardComposition {
-  Alert: React.FC<AlertProps>
-  Banner: React.FC<BannerProps>
-  Body: React.FC<BodyProps>
-  Footer: React.FC<FooterProps>
-  Header: React.FC<HeaderProps>
-  ListItem: React.FC<ListItemProps>
-  List: React.FC<ListProps>
-  Subtitle: React.FC<SubtitleProps>
-  Text: React.FC<TextProps>
-  Title: React.FC<TitleProps>
+  Alert: FC<AlertProps>
+  Banner: FC<BannerProps>
+  Body: FC<BodyProps>
+  Footer: FC<FooterProps>
+  Header: FC<HeaderProps>
+  ListItem: FC<ListItemProps>
+  List: FC<ListProps>
+  Subtitle: FC<SubtitleProps>
+  Text: FC<TextProps>
+  Title: FC<TitleProps>
 }
 
 type TextAlignValues = 'left' | 'center' | 'right'

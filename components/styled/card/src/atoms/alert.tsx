@@ -1,4 +1,4 @@
-import React, { HTMLAttributes } from 'react'
+import { HTMLAttributes, FC } from 'react'
 import Styled from '@emotion/styled'
 import { InfoCircleIcon, ExclamationIcon } from '@ltht-react/icon'
 import Banner, { StatusTypes } from './banner'
@@ -12,7 +12,7 @@ const StyleContent = Styled.div`
   flex: 1;
 `
 
-const Alert: React.FC<Props> = ({ status = 'default', children, ...rest }) => (
+const Alert: FC<Props> = ({ status = 'default', children, ...rest }) => (
   <Banner status={status} {...rest}>
     <StyledAlert>
       {status === 'default' && <InfoCircleIcon status="default" size="large" />}

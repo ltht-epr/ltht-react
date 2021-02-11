@@ -1,4 +1,4 @@
-import React from 'react'
+import { FC } from 'react'
 import styled from '@emotion/styled'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSync } from '@fortawesome/free-solid-svg-icons'
@@ -8,7 +8,7 @@ const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
   color: ${ICON_COLOURS.PRIMARY};
 `
 
-const SpinnerIcon: React.FC<Props> = ({ size }) => (
+const SpinnerIcon: FC<Props> = ({ size }) => (
   <StyledFontAwesomeIcon className="fa-spin icon__spinner" icon={faSync} size={calculateIconSize(size)} />
 )
 

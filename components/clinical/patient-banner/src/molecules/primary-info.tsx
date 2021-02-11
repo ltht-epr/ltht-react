@@ -1,4 +1,4 @@
-import React, { HTMLAttributes, useState } from 'react'
+import { FC, HTMLAttributes, useState } from 'react'
 import styled from '@emotion/styled'
 import { css, SerializedStyles } from '@emotion/core'
 import { Patient } from '@ltht-react/types'
@@ -76,7 +76,7 @@ const StyledChevronCircleIcon = styled.div`
   }
 `
 
-const PrimaryInformation: React.FC<Props> = ({ patient }) => {
+const PrimaryInformation: FC<Props> = ({ patient }) => {
   const [collapsed, setCollapsed] = useState(true)
   const deceased = patient?.deceased?.deceasedBoolean ?? false
 

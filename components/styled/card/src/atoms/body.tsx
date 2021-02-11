@@ -1,4 +1,4 @@
-import React, { HTMLAttributes } from 'react'
+import { HTMLAttributes, FC } from 'react'
 import classNames from 'classnames'
 import styled from '@emotion/styled'
 
@@ -10,7 +10,7 @@ const StyledBody = styled.div`
   border-top: 1px solid rgba(0, 0, 0, 0.125);
 `
 
-const Body: React.FC<Props> = ({ classes, children, ...rest }) => (
+const Body: FC<Props> = ({ classes, children, ...rest }) => (
   <StyledBody className={classNames('card__body', classes)} {...rest}>
     {children}
   </StyledBody>

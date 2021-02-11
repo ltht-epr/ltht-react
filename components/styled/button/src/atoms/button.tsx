@@ -1,4 +1,4 @@
-import React, { HTMLAttributes } from 'react'
+import { FC, HTMLAttributes } from 'react'
 import styled from '@emotion/styled'
 import { css, SerializedStyles } from '@emotion/core'
 import { DESKTOP_MEDIA_QUERY, BTN_COLOURS } from '@ltht-react/styles'
@@ -58,7 +58,7 @@ const setColors = (buttonStyle: string): SerializedStyles => {
   }
 }
 
-const StyledButton = styled('button')<StyledProps>`
+const StyledButton = styled.button<StyledProps>`
   display: block;
   text-align: center;
   white-space: nowrap;
@@ -86,7 +86,7 @@ const StyledButton = styled('button')<StyledProps>`
   ${({ buttonStyle }): SerializedStyles => setColors(buttonStyle)}
 `
 
-const Button: React.FC<Props> = ({ type, value, buttonStyle = 'default', disabled = false, ...rest }) => (
+const Button: FC<Props> = ({ type, value, buttonStyle = 'default', disabled = false, ...rest }) => (
   <StyledButton type={type} buttonStyle={buttonStyle} disabled={disabled} {...rest}>
     {value}
   </StyledButton>

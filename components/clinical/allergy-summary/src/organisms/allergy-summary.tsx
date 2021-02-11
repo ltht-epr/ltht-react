@@ -1,4 +1,4 @@
-import React, { HTMLAttributes } from 'react'
+import { FC, HTMLAttributes } from 'react'
 import Styled from '@emotion/styled'
 
 import { AllergyIntolerance } from '@ltht-react/types'
@@ -28,7 +28,7 @@ const StyledDate = Styled.div`
   text-align: right;
 `
 
-const AllergySummary: React.FC<Props> = ({ allergy, ...rest }) => {
+const AllergySummary: FC<Props> = ({ allergy, ...rest }) => {
   if (allergy.metadata.isRedacted) {
     return (
       <StyledSummary {...rest}>

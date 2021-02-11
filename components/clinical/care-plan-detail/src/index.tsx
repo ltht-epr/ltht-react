@@ -1,9 +1,8 @@
-import React from 'react'
-
+import { FC } from 'react'
 import { CarePlan } from '@ltht-react/types'
 import { StringDetail, PeriodDetail, NarrativeDetail, ResourceReferenceListDetail } from '@ltht-react/detail'
 
-const CarePlanDetail: React.FC<Props> = ({ carePlan }) => (
+const CarePlanDetail: FC<Props> = ({ carePlan }) => (
   <>
     <StringDetail term="Plan" description={carePlan.title} />
     <StringDetail term="Description" description={carePlan.description} />

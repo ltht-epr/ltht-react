@@ -1,4 +1,4 @@
-import React, { HTMLAttributes } from 'react'
+import { FC, HTMLAttributes } from 'react'
 import styled from '@emotion/styled'
 
 import { TEXT_COLOURS } from '@ltht-react/styles'
@@ -12,7 +12,7 @@ const StyledAppointmentStatus = styled.div`
   padding-top: 0.25rem;
 `
 
-const AppointmentStatus: React.FC<Props> = ({ encounter, ...rest }) => (
+const AppointmentStatus: FC<Props> = ({ encounter, ...rest }) => (
   <StyledAppointmentStatus {...rest}>{encounter.status && titleCase(encounter.status)}</StyledAppointmentStatus>
 )
 

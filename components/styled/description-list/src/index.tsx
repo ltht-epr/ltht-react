@@ -1,4 +1,4 @@
-import React, { HTMLAttributes } from 'react'
+import { FC, HTMLAttributes } from 'react'
 import classNames from 'classnames'
 import styled from '@emotion/styled'
 
@@ -11,11 +11,7 @@ const StyledDescriptionList = styled.dl`
   margin-bottom: 0;
 `
 
-const DescriptionList: React.FC<DescriptionListProps> & DescriptionListComposition = ({
-  classes,
-  children,
-  ...rest
-}) => (
+const DescriptionList: FC<DescriptionListProps> & DescriptionListComposition = ({ classes, children, ...rest }) => (
   <StyledDescriptionList className={classNames('description-list', classes)} {...rest}>
     {children}
   </StyledDescriptionList>
@@ -25,8 +21,8 @@ DescriptionList.Term = Term
 DescriptionList.Description = Description
 
 interface DescriptionListComposition {
-  Term: React.FC<TermProps>
-  Description: React.FC<DescriptionProps>
+  Term: FC<TermProps>
+  Description: FC<DescriptionProps>
 }
 
 export interface DescriptionListProps extends HTMLAttributes<HTMLDListElement> {

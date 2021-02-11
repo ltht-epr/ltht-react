@@ -1,4 +1,4 @@
-import React, { HTMLAttributes } from 'react'
+import { HTMLAttributes, FC } from 'react'
 import styled from '@emotion/styled'
 
 import { TEXT_COLOURS } from '@ltht-react/styles'
@@ -9,7 +9,7 @@ const StyledHospitalStayServiceProvider = styled.div`
   text-align: right;
 `
 
-const HospitalStayServiceProvider: React.FC<Props> = ({ encounter, ...rest }) => {
+const HospitalStayServiceProvider: FC<Props> = ({ encounter, ...rest }) => {
   let provider = encounter.serviceProvider?.display
 
   if (!provider) {

@@ -1,4 +1,4 @@
-import React from 'react'
+import { FC } from 'react'
 import { EncounterHospitalisation, CodeableConcept, Maybe } from '@ltht-react/types'
 
 import {
@@ -9,7 +9,7 @@ import {
   IdentifierDetail,
 } from '@ltht-react/detail'
 
-const EncounterHospitalisationDetail: React.FC<Props> = ({ hospitalisation }) => {
+const EncounterHospitalisationDetail: FC<Props> = ({ hospitalisation }) => {
   const extensions: CodeableConcept[] = []
   hospitalisation?.extension?.map(item => {
     if (item?.valueCodeableConcept) {

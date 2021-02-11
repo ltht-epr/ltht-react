@@ -1,4 +1,4 @@
-import React, { HTMLAttributes } from 'react'
+import { FC, HTMLAttributes } from 'react'
 import styled from '@emotion/styled'
 
 import { Patient, NhsNumberStatus } from '@ltht-react/types'
@@ -42,7 +42,7 @@ const StyledStatusIcon = styled.span<StyledStatusIconProps>`
   background-color: ${({ status }): string => setBackgroundColor(status)};
 `
 
-const NhsNumber: React.FC<Props> = ({ patient, ...rest }) => {
+const NhsNumber: FC<Props> = ({ patient, ...rest }) => {
   const status = nhsNumberStatus(patient)
 
   return (

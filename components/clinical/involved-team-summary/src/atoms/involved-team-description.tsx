@@ -1,4 +1,4 @@
-import React, { HTMLAttributes } from 'react'
+import { HTMLAttributes, FC } from 'react'
 import styled from '@emotion/styled'
 
 import { TEXT_COLOURS } from '@ltht-react/styles'
@@ -11,7 +11,7 @@ const StyledInvolvedTeamDescription = styled.div`
   padding-top: 0.25rem;
 `
 
-const InvolvedTeamDescription: React.FC<Props> = ({ episodeOfCare, ...rest }) => (
+const InvolvedTeamDescription: FC<Props> = ({ episodeOfCare, ...rest }) => (
   <StyledInvolvedTeamDescription {...rest}>{episodeOfCare.careManager?.display}</StyledInvolvedTeamDescription>
 )
 

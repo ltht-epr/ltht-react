@@ -1,4 +1,4 @@
-import React from 'react'
+import { FC } from 'react'
 import styled from '@emotion/styled'
 
 import { AllergyIntolerance } from '@ltht-react/types'
@@ -13,7 +13,7 @@ const StyledDateSummary = styled.div`
   text-align: right;
 `
 
-const AllergyRedacted: React.FC<Props> = ({ allergy }) => (
+const AllergyRedacted: FC<Props> = ({ allergy }) => (
   <>
     <StyledRedactedDescription>
       <RedactedDescription />

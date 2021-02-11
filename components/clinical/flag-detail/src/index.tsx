@@ -1,5 +1,4 @@
-import React from 'react'
-
+import { FC } from 'react'
 import { Flag } from '@ltht-react/types'
 import {
   CodeableConceptDetail,
@@ -9,7 +8,7 @@ import {
   ResourceReferenceDetail,
 } from '@ltht-react/detail'
 
-const FlagDetail: React.FC<Props> = ({ flag }) => (
+const FlagDetail: FC<Props> = ({ flag }) => (
   <>
     <CodeableConceptDetail term="Code" concept={flag?.code} />
     <StringDetail term="Status" description={flag.status.toString()} />

@@ -1,4 +1,3 @@
-import React from 'react'
 import { render } from '@testing-library/react'
 
 import ConditionSummary from '@ltht-react/condition-summary'

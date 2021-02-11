@@ -1,4 +1,4 @@
-import React from 'react'
+import { FC } from 'react'
 
 import { Encounter } from '@ltht-react/types'
 import {
@@ -12,7 +12,7 @@ import EncounterStatusHistoryDetail from './molecules/encounter-status-history-d
 import EncounterHospitalisationDetail from './molecules/encounter-hospitalisation-detail'
 import EncounterParticipantDetail from './molecules/encounter-participant-detail'
 
-const HospitalStayDetail: React.FC<Props> = ({ hospitalStay }) => {
+const HospitalStayDetail: FC<Props> = ({ hospitalStay }) => {
   return (
     <>
       <CodeableConceptListDetail term="Type" concepts={hospitalStay.type} />

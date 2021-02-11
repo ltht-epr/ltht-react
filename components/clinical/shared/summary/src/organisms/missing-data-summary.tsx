@@ -1,9 +1,9 @@
-import React from 'react'
+import { FC } from 'react'
 import { Maybe } from '@ltht-react/types'
 import Card from '@ltht-react/card'
 import { CounterIcon } from '@ltht-react/icon'
 
-const MissingDataSummary: React.FC<Props> = ({ type, noData, partialData, completeData, missingData }) => {
+const MissingDataSummary: FC<Props> = ({ type, noData, partialData, completeData, missingData }) => {
   const missingDataSection =
     missingData != null && missingData.length > 0 ? (
       <>

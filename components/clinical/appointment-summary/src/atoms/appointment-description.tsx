@@ -1,4 +1,4 @@
-import React, { HTMLAttributes } from 'react'
+import { FC, HTMLAttributes } from 'react'
 import styled from '@emotion/styled'
 
 import { TEXT_COLOURS } from '@ltht-react/styles'
@@ -10,7 +10,7 @@ const StyledAppointmentDescription = styled.div`
   margin-left: 0.5em;
 `
 
-const AppointmentDescription: React.FC<Props> = ({ encounter, ...rest }) => (
+const AppointmentDescription: FC<Props> = ({ encounter, ...rest }) => (
   <StyledAppointmentDescription {...rest}>{encounter.text && encounter.text.text}</StyledAppointmentDescription>
 )
 

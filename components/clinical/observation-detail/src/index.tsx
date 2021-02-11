@@ -1,5 +1,5 @@
-import React from 'react'
+import { FC } from 'react'
 
-const ObservationDetail: React.FC = () => <div>ObservationDetail</div>
+const ObservationDetail: FC = () => <div>ObservationDetail</div>
 
 export default ObservationDetail

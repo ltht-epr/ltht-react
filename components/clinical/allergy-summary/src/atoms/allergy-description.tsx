@@ -1,4 +1,4 @@
-import React, { HTMLAttributes } from 'react'
+import { FC, HTMLAttributes } from 'react'
 import styled from '@emotion/styled'
 
 import { TEXT_COLOURS } from '@ltht-react/styles'
@@ -12,7 +12,7 @@ const StyledAllergyDescription = styled.div`
   padding-top: 0.25rem;
 `
 
-const AllergyDescription: React.FC<Props> = ({ allergy, ...rest }) => {
+const AllergyDescription: FC<Props> = ({ allergy, ...rest }) => {
   const values = []
 
   const codeSummary = codeableConceptCodeSummary(allergy.code)

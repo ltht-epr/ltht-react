@@ -1,9 +1,9 @@
-import React from 'react'
+import { FC } from 'react'
 import { Period as PeriodType } from '@ltht-react/types'
 import { periodSummaryText } from '@ltht-react/utils'
 import DescriptionList from '@ltht-react/description-list'
 
-const PeriodDetail: React.FC<Props> = ({ period }) => {
+const PeriodDetail: FC<Props> = ({ period }) => {
   if (period?.start?.value || period?.end?.value) {
     return (
       <DescriptionList>

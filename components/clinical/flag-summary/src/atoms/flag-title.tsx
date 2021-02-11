@@ -1,4 +1,4 @@
-import React, { HTMLAttributes } from 'react'
+import { HTMLAttributes, FC } from 'react'
 import styled from '@emotion/styled'
 import { TEXT_COLOURS } from '@ltht-react/styles'
 import { Flag } from '@ltht-react/types'
@@ -9,7 +9,7 @@ const StyledFlagTitle = styled.div`
   text-align: left;
 `
 
-const FlagTitle: React.FC<Props> = ({ flag: { code }, ...rest }) => (
+const FlagTitle: FC<Props> = ({ flag: { code }, ...rest }) => (
   <StyledFlagTitle {...rest}>{codeableConceptDisplaySummary(code)}</StyledFlagTitle>
 )
 

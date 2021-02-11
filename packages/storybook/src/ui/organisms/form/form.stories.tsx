@@ -1,4 +1,4 @@
-import React from 'react'
+import { useState, ChangeEvent, FormEvent } from 'react'
 import { Story } from '@storybook/react'
 import styled from '@emotion/styled'
 
@@ -31,9 +31,9 @@ const StyledText = styled.p`
 `
 
 export const Radio: Story = () => {
-  const [reason, setReason] = React.useState('')
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => setReason(e.currentTarget.value)
-  const handleSubmit = (evt: React.FormEvent<HTMLFormElement>): void => {
+  const [reason, setReason] = useState('')
+  const handleChange = (e: ChangeEvent<HTMLInputElement>): void => setReason(e.currentTarget.value)
+  const handleSubmit = (evt: FormEvent<HTMLFormElement>): void => {
     evt.preventDefault()
   }
 

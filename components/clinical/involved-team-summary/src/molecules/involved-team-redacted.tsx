@@ -1,4 +1,4 @@
-import React, { HTMLAttributes } from 'react'
+import { HTMLAttributes, FC } from 'react'
 import styled from '@emotion/styled'
 
 import { EpisodeOfCare } from '@ltht-react/types'
@@ -15,7 +15,7 @@ const StyledDate = styled.div`
   text-align: right;
 `
 
-const InvolvedTeamRedacted: React.FC<Props> = ({ episodeOfCare, ...rest }) => (
+const InvolvedTeamRedacted: FC<Props> = ({ episodeOfCare, ...rest }) => (
   <StyledRedacted {...rest}>
     <StyledDescription>
       <RedactedDescription />

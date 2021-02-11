@@ -1,4 +1,4 @@
-import React, { HTMLAttributes } from 'react'
+import { FC, HTMLAttributes } from 'react'
 import styled from '@emotion/styled'
 
 import { TEXT_COLOURS } from '@ltht-react/styles'
@@ -11,7 +11,7 @@ const StyledCommunityTreatmentOrderSummaryConsent = styled.div`
   padding-top: 0.25rem;
 `
 
-const CommunityTreatmentOrderSummaryConsent: React.FC<Props> = ({ communityTreatmentOrder, ...rest }) => (
+const CommunityTreatmentOrderSummaryConsent: FC<Props> = ({ communityTreatmentOrder, ...rest }) => (
   <StyledCommunityTreatmentOrderSummaryConsent {...rest}>
     {communityTreatmentOrder.consentToTreat && communityTreatmentOrder.consentToTreat}
   </StyledCommunityTreatmentOrderSummaryConsent>

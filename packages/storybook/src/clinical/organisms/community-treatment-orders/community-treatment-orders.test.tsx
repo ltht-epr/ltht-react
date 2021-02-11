@@ -1,4 +1,3 @@
-import React from 'react'
 import { render } from '@testing-library/react'
 
 import CommunityTreatmentOrderSummary from '@ltht-react/community-treatment-order-summary'

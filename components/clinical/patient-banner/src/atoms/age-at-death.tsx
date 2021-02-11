@@ -1,4 +1,4 @@
-import React, { HTMLAttributes } from 'react'
+import { HTMLAttributes, FC } from 'react'
 import styled from '@emotion/styled'
 
 import { Patient } from '@ltht-react/types'
@@ -19,7 +19,7 @@ const StyledValue = styled.span`
   margin-left: 0.5rem;
 `
 
-const AgeAtDeath: React.FC<Props> = ({ patient, ...rest }) => (
+const AgeAtDeath: FC<Props> = ({ patient, ...rest }) => (
   <StyledAgeAtDeath {...rest}>
     <StyledLabel>Age at Death</StyledLabel>
     <StyledValue>{formatPatientAge(patient)}</StyledValue>

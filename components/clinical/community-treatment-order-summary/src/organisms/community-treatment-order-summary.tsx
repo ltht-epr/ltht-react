@@ -1,4 +1,4 @@
-import React, { HTMLAttributes } from 'react'
+import { FC, HTMLAttributes } from 'react'
 import styled from '@emotion/styled'
 
 import { LypftCommunityTreatmentOrder } from '@ltht-react/types'
@@ -20,7 +20,7 @@ const StyledDate = styled.div`
   text-align: right;
 `
 
-const CommunityTreatmentOrderSummary: React.FC<Props> = ({ communityTreatmentOrder, ...rest }) => {
+const CommunityTreatmentOrderSummary: FC<Props> = ({ communityTreatmentOrder, ...rest }) => {
   if (communityTreatmentOrder.metadata.isRedacted) {
     return (
       <StyledSummary {...rest}>

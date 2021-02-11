@@ -1,4 +1,4 @@
-import React, { HTMLAttributes } from 'react'
+import { FC, HTMLAttributes } from 'react'
 import styled from '@emotion/styled'
 
 import { TEXT_COLOURS } from '@ltht-react/styles'
@@ -12,7 +12,7 @@ const StyledCarePlanDescription = styled.div`
   padding-top: 0.25rem;
 `
 
-const CarePlanDescription: React.FC<Props> = ({ carePlan, ...rest }) => {
+const CarePlanDescription: FC<Props> = ({ carePlan, ...rest }) => {
   const values = []
 
   const author = carePlan.author && resourceReferenceDisplaySummary(carePlan.author)

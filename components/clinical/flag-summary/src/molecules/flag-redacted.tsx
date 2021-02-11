@@ -1,4 +1,4 @@
-import React from 'react'
+import { FC } from 'react'
 import styled from '@emotion/styled'
 import { Flag } from '@ltht-react/types'
 import { RedactedDescription, PeriodSummary } from '@ltht-react/summary'
@@ -12,7 +12,7 @@ const StyledPeriodSummary = styled.div`
   text-align: right;
 `
 
-const FlagRedacted: React.FC<Props> = ({ flag: { period } }) => {
+const FlagRedacted: FC<Props> = ({ flag: { period } }) => {
   return (
     <>
       <StyledRedactedDescription>

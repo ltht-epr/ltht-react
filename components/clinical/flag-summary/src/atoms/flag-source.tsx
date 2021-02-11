@@ -1,4 +1,4 @@
-import React, { HTMLAttributes } from 'react'
+import { HTMLAttributes, FC } from 'react'
 import styled from '@emotion/styled'
 import { TEXT_COLOURS } from '@ltht-react/styles'
 import { Flag } from '@ltht-react/types'
@@ -9,7 +9,7 @@ const StyledFlagSource = styled.div`
   text-align: right;
 `
 
-const FlagSource: React.FC<Props> = ({ flag: { metadata }, ...rest }) => (
+const FlagSource: FC<Props> = ({ flag: { metadata }, ...rest }) => (
   <StyledFlagSource {...rest}>{metadataSourceSummaryText(metadata)}</StyledFlagSource>
 )
 

@@ -1,5 +1,5 @@
-import React from 'react'
+import { FC } from 'react'
 
-const Select: React.FC = () => <div>Select</div>
+const Select: FC = () => <div>Select</div>
 
 export default Select

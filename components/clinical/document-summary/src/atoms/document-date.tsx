@@ -1,4 +1,4 @@
-import React, { HTMLAttributes } from 'react'
+import { FC, HTMLAttributes } from 'react'
 import styled from '@emotion/styled'
 
 import { DocumentReference } from '@ltht-react/types'
@@ -6,7 +6,7 @@ import { formatDate } from '@ltht-react/utils'
 
 const StyledDocumentDate = styled.div``
 
-const DocumentDate: React.FC<Props> = ({ document: { created, description }, ...rest }) => {
+const DocumentDate: FC<Props> = ({ document: { created, description }, ...rest }) => {
   if (!description) return <></>
 
   const formattedDate = formatDate(new Date(Date.parse(created?.value ?? '')))

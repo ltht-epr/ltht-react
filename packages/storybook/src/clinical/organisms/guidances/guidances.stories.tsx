@@ -1,4 +1,3 @@
-import React from 'react'
 import { Story } from '@storybook/react'
 
 import GuidanceSummary from '@ltht-react/guidance-summary'

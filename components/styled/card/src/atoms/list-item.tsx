@@ -1,4 +1,4 @@
-import React, { HTMLAttributes } from 'react'
+import { FC, HTMLAttributes } from 'react'
 import classNames from 'classnames'
 import styled from '@emotion/styled'
 import { ChevronIcon } from '@ltht-react/icon'
@@ -79,7 +79,7 @@ const StyledListItem = styled.li`
   }
 `
 
-const ListItem: React.FC<Props> = props => {
+const ListItem: FC<Props> = props => {
   const { classes, children, ...rest } = props
   const suffix = props?.selected === true ? '-selected' : ''
   return (

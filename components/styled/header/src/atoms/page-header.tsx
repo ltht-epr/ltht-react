@@ -1,4 +1,4 @@
-import React, { HTMLAttributes } from 'react'
+import { FC, HTMLAttributes } from 'react'
 import styled from '@emotion/styled'
 import { TEXT_COLOURS } from '@ltht-react/styles'
 
@@ -9,7 +9,7 @@ const StyledPageHeader = styled.h1`
   text-align: center;
 `
 
-const PageHeader: React.FC<HTMLAttributes<HTMLHeadingElement>> = ({ children, ...rest }) => {
+const PageHeader: FC<HTMLAttributes<HTMLHeadingElement>> = ({ children, ...rest }) => {
   return <StyledPageHeader {...rest}>{children}</StyledPageHeader>
 }
 

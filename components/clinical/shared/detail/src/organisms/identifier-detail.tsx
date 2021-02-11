@@ -1,4 +1,4 @@
-import React from 'react'
+import { FC } from 'react'
 import { Identifier, Maybe } from '@ltht-react/types'
 import {
   StringDetail,
@@ -8,7 +8,7 @@ import {
   NestedListDetail,
 } from '../molecules'
 
-const IdentifierDetail: React.FC<Props> = ({ term, identifier }) => {
+const IdentifierDetail: FC<Props> = ({ term, identifier }) => {
   if (identifier) {
     return (
       <NestedListDetail term={term}>

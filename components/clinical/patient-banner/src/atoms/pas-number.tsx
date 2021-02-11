@@ -1,4 +1,4 @@
-import React, { HTMLAttributes } from 'react'
+import { FC, HTMLAttributes } from 'react'
 import styled from '@emotion/styled'
 import { Patient, PatientIdentifierType } from '@ltht-react/types'
 
@@ -17,7 +17,7 @@ const StyledValue = styled.span`
   margin-left: 0.5rem;
 `
 
-const PasNumber: React.FC<Props> = ({ patient, ...rest }) => {
+const PasNumber: FC<Props> = ({ patient, ...rest }) => {
   const pasNo = patient?.identifier?.find(x => x?.system === PatientIdentifierType.PasNumber)?.value
 
   return (

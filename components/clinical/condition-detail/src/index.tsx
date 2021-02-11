@@ -1,5 +1,5 @@
-import React from 'react'
+import { FC } from 'react'
 
-const ConditionDetail: React.FC = () => <div>ConditionDetail</div>
+const ConditionDetail: FC = () => <div>ConditionDetail</div>
 
 export default ConditionDetail

@@ -1,9 +1,8 @@
-import React from 'react'
-
+import { FC } from 'react'
 import { AllergyIntolerance } from '@ltht-react/types'
 import { CodeableConceptDetail, DatetimeDetail, ResourceReferenceDetail, StringDetail } from '@ltht-react/detail'
 
-const AllergyDetail: React.FC<Props> = ({ allergy }) => (
+const AllergyDetail: FC<Props> = ({ allergy }) => (
   <>
     <ResourceReferenceDetail term="Asserter" resourceReference={allergy?.asserter} />
     <DatetimeDetail term="Asserted Date" datetime={allergy?.assertedDate} />

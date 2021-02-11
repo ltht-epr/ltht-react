@@ -1,4 +1,4 @@
-import React, { HTMLAttributes } from 'react'
+import { ChangeEvent, FC, HTMLAttributes } from 'react'
 import styled from '@emotion/styled'
 import { css, SerializedStyles } from '@emotion/core'
 import { INPUT_COLOURS } from '@ltht-react/styles'
@@ -24,7 +24,7 @@ const StyledLabel = styled.label`
   margin-bottom: 0;
 `
 
-const RadioButton: React.FC<Props> = ({ id, value, checked = false, label, changeHandler, ...rest }) => (
+const RadioButton: FC<Props> = ({ id, value, checked = false, label, changeHandler, ...rest }) => (
   <StyledRadioButton checked={checked} {...rest}>
     <StyledInput id={id} onChange={changeHandler} value={value} type="radio" checked={checked} />
     <StyledLabel htmlFor={id}>{label}</StyledLabel>
@@ -41,7 +41,7 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
   value: string
   checked?: boolean
   label: string
-  changeHandler(e: React.ChangeEvent<HTMLInputElement>): void
+  changeHandler(e: ChangeEvent<HTMLInputElement>): void
 }
 
 export default RadioButton

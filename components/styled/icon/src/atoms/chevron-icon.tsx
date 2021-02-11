@@ -1,4 +1,4 @@
-import React from 'react'
+import { FC, MouseEvent } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronDown, faChevronUp, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 import { IconSizes, calculateIconSize } from '@ltht-react/styles'
@@ -17,8 +17,8 @@ const calculateIconType = (direction: IconDirection): IconTypes => {
   }
 }
 
-const ChevronIcon: React.FC<Props> = ({ size, direction, clickHandler }) => {
-  const handleClick = (e: React.MouseEvent<SVGSVGElement, MouseEvent>): void => {
+const ChevronIcon: FC<Props> = ({ size, direction, clickHandler }) => {
+  const handleClick = (e: MouseEvent<SVGSVGElement>): void => {
     e.preventDefault()
     e.stopPropagation()
     clickHandler && clickHandler()

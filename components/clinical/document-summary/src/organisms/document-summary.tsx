@@ -1,4 +1,4 @@
-import React, { HTMLAttributes } from 'react'
+import { FC, HTMLAttributes } from 'react'
 import styled from '@emotion/styled'
 
 import { DocumentReference } from '@ltht-react/types'
@@ -28,7 +28,7 @@ const StyledSource = styled.div`
   text-align: right;
 `
 
-const DocumentSummary: React.FC<Props> = ({ document, ...rest }) => {
+const DocumentSummary: FC<Props> = ({ document, ...rest }) => {
   if (document.metadata.isRedacted) {
     return (
       <StyledSummary {...rest}>

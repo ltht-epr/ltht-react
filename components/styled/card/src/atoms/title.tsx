@@ -1,4 +1,4 @@
-import React, { HTMLAttributes } from 'react'
+import { FC, HTMLAttributes } from 'react'
 import classNames from 'classnames'
 import styled from '@emotion/styled'
 
@@ -6,7 +6,7 @@ const StyledTitle = styled.h3`
   margin: 0;
 `
 
-const Title: React.FC<Props> = ({ classes, children, ...rest }) => (
+const Title: FC<Props> = ({ classes, children, ...rest }) => (
   <StyledTitle className={classNames('card__title', classes)} {...rest}>
     {children}
   </StyledTitle>

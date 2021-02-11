@@ -1,4 +1,4 @@
-import React, { HTMLAttributes } from 'react'
+import { FC, HTMLAttributes } from 'react'
 import styled from '@emotion/styled'
 
 import { TEXT_COLOURS } from '@ltht-react/styles'
@@ -10,7 +10,7 @@ const StyledStatus = styled.div`
   color: ${TEXT_COLOURS.SECONDARY.VALUE};
 `
 
-const DocumentStatus: React.FC<Props> = ({ document: { status } }) => {
+const DocumentStatus: FC<Props> = ({ document: { status } }) => {
   if (!status) return <></>
 
   return <StyledStatus>{titleCase(status)}</StyledStatus>

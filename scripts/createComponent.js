@@ -66,7 +66,7 @@ const packageJson = () => {
     "@emotion/core": "^10.0.27",
     "@emotion/styled": "^10.0.27",    
     "emotion": "^10.0.27",
-    "react": "^16.12.0"
+    "react": "^17.0.0"
   }
 }
 `

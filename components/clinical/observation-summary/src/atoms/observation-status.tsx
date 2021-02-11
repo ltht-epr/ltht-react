@@ -1,4 +1,4 @@
-import React, { HTMLAttributes } from 'react'
+import { HTMLAttributes, FC } from 'react'
 import styled from '@emotion/styled'
 
 import { TEXT_COLOURS } from '@ltht-react/styles'
@@ -10,7 +10,7 @@ const StledObservationStatus = styled.div`
   text-align: right;
 `
 
-const ObservationStatus: React.FC<Props> = ({ observation, ...rest }) => (
+const ObservationStatus: FC<Props> = ({ observation, ...rest }) => (
   <StledObservationStatus {...rest}>{observation.status && titleCase(observation.status)}</StledObservationStatus>
 )
 

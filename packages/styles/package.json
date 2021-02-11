@@ -27,7 +27,7 @@
     "emotion": "^10.0.27"
   },
   "devDependencies": {
-    "typescript": "4.0.5"
+    "typescript": "^4.0.0"
   },
   "gitHead": "4d364556bb11e294d86697c2dac66742f7aabc7f"
 }

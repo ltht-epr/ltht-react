@@ -1,4 +1,4 @@
-import React, { HTMLAttributes } from 'react'
+import { HTMLAttributes, FC } from 'react'
 import styled from '@emotion/styled'
 
 import { RedactedDescription } from '@ltht-react/summary'
@@ -8,7 +8,7 @@ const StyledRedactedDescription = styled.div`
   text-align: left;
 `
 
-const GuidanceRedacted: React.FC<HTMLAttributes<HTMLDivElement>> = ({ ...rest }) => (
+const GuidanceRedacted: FC<HTMLAttributes<HTMLDivElement>> = ({ ...rest }) => (
   <StyledRedactedDescription {...rest}>
     <RedactedDescription />
   </StyledRedactedDescription>

@@ -1,4 +1,4 @@
-import React from 'react'
+import { FC } from 'react'
 import styled from '@emotion/styled'
 
 import { RedactedDescription } from '@ltht-react/summary'
@@ -8,7 +8,7 @@ const StyledDescription = styled.div`
   text-align: left;
 `
 
-const ObservationRedacted: React.FC = () => (
+const ObservationRedacted: FC = () => (
   <StyledDescription>
     <RedactedDescription />
   </StyledDescription>

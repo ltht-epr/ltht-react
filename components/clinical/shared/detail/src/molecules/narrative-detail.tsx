@@ -1,8 +1,8 @@
-import React from 'react'
+import { FC } from 'react'
 import { Narrative } from '@ltht-react/types'
 import DescriptionList from '@ltht-react/description-list'
 
-const NarrativeDetail: React.FC<Props> = ({ narrative }) => {
+const NarrativeDetail: FC<Props> = ({ narrative }) => {
   if (narrative) {
     if (narrative.text.length > 0) {
       return (

@@ -1,4 +1,4 @@
-import React, { HTMLAttributes } from 'react'
+import { HTMLAttributes, FC } from 'react'
 import classNames from 'classnames'
 import styled from '@emotion/styled'
 
@@ -8,7 +8,7 @@ const StyledFooter = styled.div`
   border-top: 1px solid rgba(0, 0, 0, 0.125);
 `
 
-const Footer: React.FC<Props> = ({ classes, children, ...rest }) => (
+const Footer: FC<Props> = ({ classes, children, ...rest }) => (
   <StyledFooter className={classNames('card__footer', classes)} {...rest}>
     {children}
   </StyledFooter>

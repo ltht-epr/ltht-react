@@ -1,4 +1,3 @@
-import React from 'react'
 import { Story } from '@storybook/react'
 
 import CommunityTreatmentOrderDetail from '@ltht-react/community-treatment-order-detail'

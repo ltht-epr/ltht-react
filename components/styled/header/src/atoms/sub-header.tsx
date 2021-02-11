@@ -1,4 +1,4 @@
-import React, { HTMLAttributes } from 'react'
+import { FC, HTMLAttributes } from 'react'
 import styled from '@emotion/styled'
 import { TEXT_COLOURS } from '@ltht-react/styles'
 
@@ -9,8 +9,8 @@ const StyledSubHeader = styled.h3`
   text-align: center;
 `
 
-const SubHeader: React.FC<HTMLAttributes<HTMLHeadingElement>> = ({ children, ...rest }) => {
-  return <StyledSubHeader {...rest}>{children}</StyledSubHeader>
-}
+const SubHeader: FC<HTMLAttributes<HTMLHeadingElement>> = ({ children, ...rest }) => (
+  <StyledSubHeader {...rest}>{children}</StyledSubHeader>
+)
 
 export default SubHeader

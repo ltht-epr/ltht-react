@@ -1,4 +1,4 @@
-import React, { HTMLAttributes } from 'react'
+import { FC, HTMLAttributes } from 'react'
 import styled from '@emotion/styled'
 
 import { TEXT_COLOURS } from '@ltht-react/styles'
@@ -12,7 +12,7 @@ const StyledConditionStatus = styled.div`
   padding-top: 0.25rem;
 `
 
-const ConditionStatus: React.FC<Props> = ({ condition, ...rest }) => {
+const ConditionStatus: FC<Props> = ({ condition, ...rest }) => {
   const values = []
 
   if (condition.clinicalStatus) values.push(titleCase(condition.clinicalStatus))

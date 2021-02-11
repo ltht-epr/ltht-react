@@ -1,4 +1,4 @@
-import React, { HTMLAttributes } from 'react'
+import { FC, HTMLAttributes } from 'react'
 import styled from '@emotion/styled'
 
 import { TEXT_COLOURS } from '@ltht-react/styles'
@@ -9,7 +9,7 @@ const StyledCommunityTreatmentOrderConsent = styled.div`
   text-align: left;
 `
 
-const CommunityTreatmentOrderConsent: React.FC<Props> = ({ communityTreatmentOrder, ...rest }) => (
+const CommunityTreatmentOrderConsent: FC<Props> = ({ communityTreatmentOrder, ...rest }) => (
   <StyledCommunityTreatmentOrderConsent {...rest}>
     {communityTreatmentOrder.legalStatus && communityTreatmentOrder.legalStatus.text}
   </StyledCommunityTreatmentOrderConsent>

@@ -1,10 +1,10 @@
-import React from 'react'
+import { FC } from 'react'
 
 import { Observation } from '@ltht-react/types'
 import { ListItem } from '@ltht-react/list'
 import ObservationSumaryItem from './organisms/observation-summary-item'
 
-const ObservationSummary: React.FC<Props> = ({ observations = [], clickHandler }) => {
+const ObservationSummary: FC<Props> = ({ observations = [], clickHandler }) => {
   return (
     <>
       {observations.map(observation => (

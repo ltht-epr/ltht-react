@@ -1,4 +1,4 @@
-import React from 'react'
+import { FC, MouseEvent } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faChevronCircleDown,
@@ -22,8 +22,8 @@ const calculateIconType = (direction: IconDirection): IconTypes => {
   }
 }
 
-const ChevronCircleIcon: React.FC<Props> = ({ size, direction, clickHandler }) => {
-  const handleClick = (e: React.MouseEvent<SVGSVGElement, MouseEvent>): void => {
+const ChevronCircleIcon: FC<Props> = ({ size, direction, clickHandler }) => {
+  const handleClick = (e: MouseEvent<SVGSVGElement>): void => {
     e.preventDefault()
     e.stopPropagation()
     clickHandler && clickHandler()

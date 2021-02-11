@@ -1,4 +1,4 @@
-import React, { HTMLAttributes } from 'react'
+import { useLayoutEffect, HTMLAttributes, FC } from 'react'
 import styled from '@emotion/styled'
 
 import { CSS_RESET, EFORM_BACKGROUND_COLOUR } from '@ltht-react/styles'
@@ -22,8 +22,8 @@ const StyledIframe = styled.div`
   }
 `
 
-const EForm: React.FC<Props> = ({ url, callback, ...rest }) => {
-  React.useLayoutEffect(() => {
+const EForm: FC<Props> = ({ url, callback, ...rest }) => {
+  useLayoutEffect(() => {
     function handleEvent(event: MessageEvent): void {
       switch (event.data.eventType) {
         case 'form-cancelled':
