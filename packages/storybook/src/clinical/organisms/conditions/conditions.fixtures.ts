@@ -50,10 +50,6 @@ const ConditionOne: Condition = {
     ],
     text: 'Delusional disorder, mixed type',
   },
-  subject: {
-    typeName: 'test',
-    display: 'Mr Peter Humble',
-  },
   clinicalStatus: ConditionClinicalStatus.Active,
   verificationStatus: ConditionVerificationStatus.Confirmed,
   assertedDate: {
@@ -89,10 +85,6 @@ const ConditionTwo: Condition = {
       },
     ],
     text: 'Diabetes mellitus type 2',
-  },
-  subject: {
-    typeName: 'test',
-    display: 'Mr Joe BLoggs',
   },
   clinicalStatus: ConditionClinicalStatus.Remission,
   assertedDate: {
