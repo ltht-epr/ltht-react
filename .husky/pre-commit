@@ -1,3 +1,0 @@
-yarn lint
-yarn test
-exit 1

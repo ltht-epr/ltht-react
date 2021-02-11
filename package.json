@@ -76,6 +76,11 @@
     "type:check": "lerna run type:check --parallel",
     "type:gen": "lerna run type:gen --scope=@ltht-react/types && yarn lerna run build --scope=@ltht-react/types"
   },
+  "husky": {
+    "hooks": {
+      "pre-push": "yarn lint && yarn test"
+    }
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ltht-epr/ltht-react.git"
