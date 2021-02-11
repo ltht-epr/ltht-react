@@ -37,6 +37,7 @@ module.exports = {
     'react/prop-types': 'off',
     'react/jsx-uses-react': 'off',
     'react/react-in-jsx-scope': 'off',
+    'import/no-anonymous-default-export': 'off',
     'import/extensions': [
       'error',
       'ignorePackages',
