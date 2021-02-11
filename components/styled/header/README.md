@@ -1,4 +1,3 @@
-
 # Header
 
 <!-- STORY -->
@@ -14,4 +13,3 @@ import Header from '@ltht-react/header'
 ```jsx
 <Header />
 ```
-  

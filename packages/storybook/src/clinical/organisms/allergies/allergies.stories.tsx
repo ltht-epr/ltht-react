@@ -33,7 +33,7 @@ export const Summary: Story = () => {
         <Card.Title>Allergies</Card.Title>
       </Card.Header>
       <Card.List>
-        {allergies.map(allergy => (
+        {allergies.map((allergy) => (
           <Card.ListItem
             key={allergy.id}
             onClick={(e): void => clickHandler(e, allergy)}

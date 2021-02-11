@@ -1,4 +1,3 @@
-
 # Button
 
 <!-- STORY -->
@@ -14,4 +13,3 @@ import Button from '@ltht-react/button'
 ```jsx
 <Button />
 ```
-  

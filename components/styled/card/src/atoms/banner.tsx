@@ -80,7 +80,7 @@ const StyledBanner = styled.div`
   }
 `
 
-const Banner: FC<Props> = props => {
+const Banner: FC<Props> = (props) => {
   const { classes, children, ...rest } = props
   return (
     <StyledBanner className={classNames(`card__banner-${props?.status || 'default'}`, classes)} {...rest}>

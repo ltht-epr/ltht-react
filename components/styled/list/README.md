@@ -1,4 +1,3 @@
-
 # List
 
 <!-- STORY -->
@@ -14,4 +13,3 @@ import List from '@ltht-react/list'
 ```jsx
 <List />
 ```
-  

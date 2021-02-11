@@ -1,4 +1,3 @@
-
 # FlagDetail
 
 <!-- STORY -->
@@ -14,4 +13,3 @@ import FlagDetail from '@ltht-react/flag-detail'
 ```jsx
 <FlagDetail />
 ```
-  

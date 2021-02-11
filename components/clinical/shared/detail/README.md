@@ -1,4 +1,3 @@
-
 # Detail
 
 <!-- STORY -->
@@ -14,4 +13,3 @@ import Detail from '@ltht-react/detail'
 ```jsx
 <Detail />
 ```
-  

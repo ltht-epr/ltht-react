@@ -1,4 +1,3 @@
-
 # Form
 
 <!-- STORY -->
@@ -14,4 +13,3 @@ import Form from '@ltht-react/form'
 ```jsx
 <Form />
 ```
-  

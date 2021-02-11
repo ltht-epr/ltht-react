@@ -16,7 +16,7 @@ const StyledListItem = styled.li`
 
 const EncounterParticipantDetail: FC<Props> = ({ participants }) => (
   <NestedListDetail term="Participant(s)">
-    {participants?.map(item => {
+    {participants?.map((item) => {
       if (item?.individual?.display && item?.individual?.typeName) {
         return (
           <StyledNestedList key={item.individual.display}>

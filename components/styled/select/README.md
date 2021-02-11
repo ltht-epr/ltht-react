@@ -1,4 +1,3 @@
-
 # Select
 
 <!-- STORY -->
@@ -14,4 +13,3 @@ import Select from '@ltht-react/select'
 ```jsx
 <Select />
 ```
-  

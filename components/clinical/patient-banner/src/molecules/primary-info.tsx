@@ -80,7 +80,7 @@ const PrimaryInformation: FC<Props> = ({ patient }) => {
   const [collapsed, setCollapsed] = useState(true)
   const deceased = patient?.deceased?.deceasedBoolean ?? false
 
-  const handleClick = (): void => setCollapsed(prevState => !prevState)
+  const handleClick = (): void => setCollapsed((prevState) => !prevState)
 
   return (
     <StyledPrimaryInformation deceased={deceased} onClick={handleClick} collapsed={collapsed}>

@@ -1,4 +1,3 @@
-
 # ObservationSummary
 
 <!-- STORY -->
@@ -14,4 +13,3 @@ import ObservationSummary from '@ltht-react/observation-summary'
 ```jsx
 <ObservationSummary />
 ```
-  

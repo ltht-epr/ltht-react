@@ -1,4 +1,3 @@
-
 # AppointmentDetail
 
 <!-- STORY -->
@@ -14,4 +13,3 @@ import AppointmentDetail from '@ltht-react/appointment-detail'
 ```jsx
 <AppointmentDetail />
 ```
-  

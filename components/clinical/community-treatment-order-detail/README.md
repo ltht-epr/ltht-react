@@ -1,4 +1,3 @@
-
 # CommunityTreatmentOrderDetail
 
 <!-- STORY -->
@@ -14,4 +13,3 @@ import CommunityTreatmentOrderDetail from '@ltht-react/community-treatment-order
 ```jsx
 <CommunityTreatmentOrderDetail />
 ```
-  

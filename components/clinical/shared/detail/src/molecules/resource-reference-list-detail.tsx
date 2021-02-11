@@ -8,7 +8,7 @@ const ResourceReferenceDetail: FC<Props> = ({ term, resourceReferences }) => {
     return (
       <DescriptionList>
         <DescriptionList.Term>{term}</DescriptionList.Term>
-        {resourceReferences?.map(item => {
+        {resourceReferences?.map((item) => {
           if (item?.display) {
             return (
               <DescriptionList.Description key={item.display}>{titleCase(item?.display)}</DescriptionList.Description>

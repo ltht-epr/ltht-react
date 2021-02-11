@@ -20,7 +20,7 @@
   "prettier.packageManager": "yarn",
   "eslint.validate": ["javascript", "typescript", "javascriptreact", "typescriptreact"],
   "editor.formatOnSave": true,
-  "eslint.alwaysShowStatus": true,  
+  "eslint.alwaysShowStatus": true,
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },

@@ -12,18 +12,16 @@ const StyledPeriodSummary = styled.div`
   text-align: right;
 `
 
-const FlagRedacted: FC<Props> = ({ flag: { period } }) => {
-  return (
-    <>
-      <StyledRedactedDescription>
-        <RedactedDescription />
-      </StyledRedactedDescription>
-      <StyledPeriodSummary>
-        <PeriodSummary period={period} />
-      </StyledPeriodSummary>
-    </>
-  )
-}
+const FlagRedacted: FC<Props> = ({ flag: { period } }) => (
+  <>
+    <StyledRedactedDescription>
+      <RedactedDescription />
+    </StyledRedactedDescription>
+    <StyledPeriodSummary>
+      <PeriodSummary period={period} />
+    </StyledPeriodSummary>
+  </>
+)
 
 interface Props {
   flag: Flag

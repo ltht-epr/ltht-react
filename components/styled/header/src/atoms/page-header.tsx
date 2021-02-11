@@ -9,8 +9,8 @@ const StyledPageHeader = styled.h1`
   text-align: center;
 `
 
-const PageHeader: FC<HTMLAttributes<HTMLHeadingElement>> = ({ children, ...rest }) => {
-  return <StyledPageHeader {...rest}>{children}</StyledPageHeader>
-}
+const PageHeader: FC<HTMLAttributes<HTMLHeadingElement>> = ({ children, ...rest }) => (
+  <StyledPageHeader {...rest}>{children}</StyledPageHeader>
+)
 
 export default PageHeader

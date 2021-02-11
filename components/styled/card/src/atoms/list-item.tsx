@@ -79,7 +79,7 @@ const StyledListItem = styled.li`
   }
 `
 
-const ListItem: FC<Props> = props => {
+const ListItem: FC<Props> = (props) => {
   const { classes, children, ...rest } = props
   const suffix = props?.selected === true ? '-selected' : ''
   return (

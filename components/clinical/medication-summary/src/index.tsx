@@ -12,14 +12,14 @@ const MedicationSummary: FC<Props> = ({ medicationlist = undefined }) => {
 
   const meds = new Array<JSX.Element>()
 
-  medicationlist.medicationStatements?.forEach(stmt => {
+  medicationlist.medicationStatements?.forEach((stmt) => {
     const code = stmt?.medication.code
     if (!code) {
       return
     }
 
     meds.push(<DescriptionList.Term>{displaySummary(code)}</DescriptionList.Term>)
-    meds.push(<DescriptionList.Description>{stmt?.dosage?.map(x => x?.text).join(', ')}</DescriptionList.Description>)
+    meds.push(<DescriptionList.Description>{stmt?.dosage?.map((x) => x?.text).join(', ')}</DescriptionList.Description>)
   })
 
   return <DescriptionList>{meds}</DescriptionList>

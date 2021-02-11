@@ -1,4 +1,3 @@
-
 # Card
 
 <!-- STORY -->
@@ -14,4 +13,3 @@ import Card from '@ltht-react/card'
 ```jsx
 <Card />
 ```
-  

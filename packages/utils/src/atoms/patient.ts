@@ -1,14 +1,12 @@
 import { Patient, HumanNameUseCode, AddressUseCode, NhsNumberStatus, PatientIdentifierType } from '@ltht-react/types'
 import { titleCase } from './title-case'
 
-const daysInMonth = (iMonth: number, iYear: number): number => {
-  return 32 - new Date(iYear, iMonth, 32).getDate()
-}
+const daysInMonth = (iMonth: number, iYear: number): number => 32 - new Date(iYear, iMonth, 32).getDate()
 
 const formatPatientAddress = (patient: Patient | undefined): string => {
   let address
   if (patient?.address && patient.address.length > 0) {
-    address = patient.address.find(x => x?.use === AddressUseCode.Home && (!x?.period || !x.period?.end))
+    address = patient.address.find((x) => x?.use === AddressUseCode.Home && (!x?.period || !x.period?.end))
   }
 
   return address?.text ?? ''
@@ -79,14 +77,14 @@ const formatPatientAge = (patient: Patient | undefined): string => {
 }
 
 const formatPatientName = (patient: Patient | undefined): string => {
-  let activeName = patient?.name?.find(x => (!x?.period || !x?.period?.end) && x?.use === HumanNameUseCode.Official)
+  let activeName = patient?.name?.find((x) => (!x?.period || !x?.period?.end) && x?.use === HumanNameUseCode.Official)
 
   if (!activeName) {
-    activeName = patient?.name?.find(x => (!x?.period || !x?.period?.end) && x?.use === HumanNameUseCode.Usual)
+    activeName = patient?.name?.find((x) => (!x?.period || !x?.period?.end) && x?.use === HumanNameUseCode.Usual)
   }
 
   if (!activeName) {
-    activeName = patient?.name?.find(x => (!x?.period || !x?.period?.end) && !x?.use)
+    activeName = patient?.name?.find((x) => (!x?.period || !x?.period?.end) && !x?.use)
   }
 
   let patientName
@@ -109,7 +107,7 @@ const formatPatientName = (patient: Patient | undefined): string => {
 }
 
 const formatNHSNumber = (patient: Patient | undefined): string => {
-  const value = patient?.identifier?.find(x => x?.system === PatientIdentifierType.NhsNumber)?.value
+  const value = patient?.identifier?.find((x) => x?.system === PatientIdentifierType.NhsNumber)?.value
 
   if (!value || value.length === 0) {
     return ''
@@ -123,7 +121,7 @@ const formatNHSNumber = (patient: Patient | undefined): string => {
 }
 
 const nhsNumberStatus = (patient: Patient | undefined): NhsNumberStatus => {
-  const nhsNo = patient?.identifier?.find(x => x?.system === PatientIdentifierType.NhsNumber)
+  const nhsNo = patient?.identifier?.find((x) => x?.system === PatientIdentifierType.NhsNumber)
 
   if (
     nhsNo?.extension &&

@@ -1,4 +1,3 @@
-
 # CarePlanDetail
 
 <!-- STORY -->
@@ -14,4 +13,3 @@ import CarePlanDetail from '@ltht-react/care-plan-detail'
 ```jsx
 <CarePlanDetail />
 ```
-  

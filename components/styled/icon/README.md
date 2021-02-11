@@ -1,4 +1,3 @@
-
 # Icon
 
 <!-- STORY -->
@@ -14,4 +13,3 @@ import Icon from '@ltht-react/icon'
 ```jsx
 <Icon />
 ```
-  

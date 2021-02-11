@@ -6,9 +6,7 @@ export const titleCase = (value: string): string => {
   return value
     .toLowerCase()
     .split(/\s|_/)
-    .map(word => {
-      return word.replace(word[0], word[0].toUpperCase())
-    })
+    .map((word) => word.replace(word[0], word[0].toUpperCase()))
     .join(' ')
 }
 

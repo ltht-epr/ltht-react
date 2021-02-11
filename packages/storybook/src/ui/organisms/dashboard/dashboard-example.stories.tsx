@@ -31,7 +31,7 @@ export const ReadOnly: Story = () => (
           <Card.Title>Alerts</Card.Title>
         </Card.Header>
         <Card.List>
-          {flags.map(flag => (
+          {flags.map((flag) => (
             <Card.ListItem key={flag.id}>
               <FlagSummary flag={flag} />
             </Card.ListItem>
@@ -43,7 +43,7 @@ export const ReadOnly: Story = () => (
           <Card.Title>Allergies</Card.Title>
         </Card.Header>
         <Card.List>
-          {allergies.map(allergy => (
+          {allergies.map((allergy) => (
             <Card.ListItem key={allergy.id}>
               <AllergySummary allergy={allergy} />
             </Card.ListItem>
@@ -55,7 +55,7 @@ export const ReadOnly: Story = () => (
           <Card.Title>Community Treatment Orders</Card.Title>
         </Card.Header>
         <Card.List>
-          {communityOrders.map(order => (
+          {communityOrders.map((order) => (
             <Card.ListItem key={order.id}>
               <CommunityTreatmentOrderSummary communityTreatmentOrder={order} />
             </Card.ListItem>
@@ -67,7 +67,7 @@ export const ReadOnly: Story = () => (
           <Card.Title>Care Plans</Card.Title>
         </Card.Header>
         <Card.List>
-          {carePlans.map(carePlan => (
+          {carePlans.map((carePlan) => (
             <Card.ListItem key={carePlan.id}>
               <CarePlanSummary carePlan={carePlan} />
             </Card.ListItem>
@@ -81,7 +81,7 @@ export const ReadOnly: Story = () => (
           <Card.Title>Involved Teams</Card.Title>
         </Card.Header>
         <Card.List>
-          {episodeOfCares.map(episode => (
+          {episodeOfCares.map((episode) => (
             <Card.ListItem key={episode.id}>
               <InvolvedTeamSummary episodeOfCare={episode} />
             </Card.ListItem>
@@ -93,7 +93,7 @@ export const ReadOnly: Story = () => (
           <Card.Title>Appointments</Card.Title>
         </Card.Header>
         <Card.List>
-          {appointments.map(appointment => (
+          {appointments.map((appointment) => (
             <Card.ListItem key={appointment.id}>
               <AppointmentSummary encounter={appointment} />
             </Card.ListItem>
@@ -105,7 +105,7 @@ export const ReadOnly: Story = () => (
           <Card.Title>Documents</Card.Title>
         </Card.Header>
         <Card.List>
-          {documents.map(document => (
+          {documents.map((document) => (
             <Card.ListItem key={document.id}>
               <DocumentSummary document={document} />
             </Card.ListItem>
@@ -117,7 +117,7 @@ export const ReadOnly: Story = () => (
           <Card.Title>Hospital Stays</Card.Title>
         </Card.Header>
         <Card.List>
-          {hospitalStays.map(stay => (
+          {hospitalStays.map((stay) => (
             <Card.ListItem key={stay.id}>
               <HospitalStaySummary hospitalStay={stay} />
             </Card.ListItem>
@@ -129,7 +129,7 @@ export const ReadOnly: Story = () => (
           <Card.Title>Conditions</Card.Title>
         </Card.Header>
         <Card.List>
-          {conditions.map(condition => (
+          {conditions.map((condition) => (
             <Card.ListItem key={condition.id}>
               <ConditionSummary condition={condition} />
             </Card.ListItem>

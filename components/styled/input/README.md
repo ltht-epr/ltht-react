@@ -1,4 +1,3 @@
-
 # Input
 
 <!-- STORY -->
@@ -14,4 +13,3 @@ import Input from '@ltht-react/input'
 ```jsx
 <Input />
 ```
-  

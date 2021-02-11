@@ -12,9 +12,9 @@ const StyledInvolvedTeamType = styled.div`
   padding-top: 0.25rem;
 `
 
-const InvolvedTeamType: FC<Props> = ({ episodeOfCare, ...rest }) => {
-  return <StyledInvolvedTeamType {...rest}>{titleCase(episodeOfCare.status)}</StyledInvolvedTeamType>
-}
+const InvolvedTeamType: FC<Props> = ({ episodeOfCare, ...rest }) => (
+  <StyledInvolvedTeamType {...rest}>{titleCase(episodeOfCare.status)}</StyledInvolvedTeamType>
+)
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   episodeOfCare: EpisodeOfCare

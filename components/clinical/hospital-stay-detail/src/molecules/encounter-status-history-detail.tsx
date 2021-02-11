@@ -16,7 +16,7 @@ const StyledListItem = styled.li`
 
 const EncounterStatusHistoryDetail: FC<Props> = ({ hospitalStatusHistories }) => (
   <NestedListDetail term="Status History">
-    {hospitalStatusHistories?.map(item => {
+    {hospitalStatusHistories?.map((item) => {
       if (item?.status) {
         return (
           <StyledNestedList key={item.status}>

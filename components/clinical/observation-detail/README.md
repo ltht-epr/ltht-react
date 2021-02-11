@@ -1,4 +1,3 @@
-
 # ObservationDetail
 
 <!-- STORY -->
@@ -14,4 +13,3 @@ import ObservationDetail from '@ltht-react/observation-detail'
 ```jsx
 <ObservationDetail />
 ```
-  

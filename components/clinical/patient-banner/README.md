@@ -1,4 +1,3 @@
-
 # PatientBanner
 
 <!-- STORY -->
@@ -14,4 +13,3 @@ import PatientBanner from '@ltht-react/patient-banner'
 ```jsx
 <PatientBanner />
 ```
-  

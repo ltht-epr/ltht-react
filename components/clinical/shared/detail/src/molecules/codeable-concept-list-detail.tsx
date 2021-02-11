@@ -8,7 +8,7 @@ const CodeableConceptListDetail: FC<Props> = ({ term, concepts }) => {
     return (
       <DescriptionList>
         <DescriptionList.Term>{term}</DescriptionList.Term>
-        {concepts?.map(item => {
+        {concepts?.map((item) => {
           if (item?.text) {
             return (
               <DescriptionList.Description key={term}>

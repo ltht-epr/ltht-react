@@ -3,11 +3,7 @@ import { CodeableConcept, Maybe } from '@ltht-react/types'
 const codeableConceptDisplaySummary = (codeableConcept: Maybe<CodeableConcept> = {}): string => {
   const codings = codeableConcept?.coding || []
 
-  let display = codings
-    .map(coding => {
-      return coding?.display
-    })
-    .join(', ')
+  let display = codings.map((coding) => coding?.display).join(', ')
 
   if (display?.length === 0) {
     display = codeableConcept?.text ?? ''
@@ -18,20 +14,12 @@ const codeableConceptDisplaySummary = (codeableConcept: Maybe<CodeableConcept> =
 
 const codeableConceptCodeSummary = (codeableConcept: CodeableConcept = {}): string => {
   const codings = codeableConcept.coding || []
-  const code = codings
-    .map(coding => {
-      return coding?.code
-    })
-    .join(', ')
+  const code = codings.map((coding) => coding?.code).join(', ')
   return code
 }
 
 const codeableConceptTextSummary = (codeableConcept: Maybe<CodeableConcept>[] = []): string => {
-  const textSummary = codeableConcept
-    .map(item => {
-      return item?.text ?? codeableConceptDisplaySummary(item)
-    })
-    .join(', ')
+  const textSummary = codeableConcept.map((item) => item?.text ?? codeableConceptDisplaySummary(item)).join(', ')
   return textSummary
 }
 

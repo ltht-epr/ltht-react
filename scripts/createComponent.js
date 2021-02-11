@@ -12,7 +12,7 @@ const componentType = process.argv[2]
 const componentFolderName = process.argv[3]
 const componentName = `${componentFolderName.charAt(0).toUpperCase()}${componentFolderName
   .slice(1)
-  .replace(/-([a-z])/g, g => g[1].toUpperCase())}`
+  .replace(/-([a-z])/g, (g) => g[1].toUpperCase())}`
 
 const folderName = `./components/${componentType}/${componentFolderName}`
 const fileNames = {
@@ -25,7 +25,7 @@ const writeFile = async (filename, contents) => {
   const rootFileNames = [fileNames.package, fileNames.tsconfig, fileNames.readme]
   const pathName = path.join(rootFileNames.includes(filename) ? folderName : `${folderName}/src`, filename)
   console.log(`ℹ️ creating file: ${pathName}`)
-  await fs.promises.writeFile(pathName, `${contents}`, err => {
+  await fs.promises.writeFile(pathName, `${contents}`, (err) => {
     if (err) {
       return console.log(`❌ ${pathName} error: ${err}`)
     }
@@ -119,8 +119,8 @@ export default ${componentName}
   writeFile(filename, contents)
 }
 
-const lerna = async command => {
-  return exec(command).catch(error => {
+const lerna = async (command) => {
+  return exec(command).catch((error) => {
     console.error(`❌ command error: ${error}`)
   })
 }

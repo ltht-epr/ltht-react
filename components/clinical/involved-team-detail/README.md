@@ -1,4 +1,3 @@
-
 # InvolvedTeamDetail
 
 <!-- STORY -->
@@ -14,4 +13,3 @@ import InvolvedTeamDetail from '@ltht-react/involved-team-detail'
 ```jsx
 <InvolvedTeamDetail />
 ```
-  

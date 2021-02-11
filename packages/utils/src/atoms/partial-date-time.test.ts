@@ -25,9 +25,4 @@ describe('partialDateTimeText', () => {
 })
 
 const dateValue = '2013-02-03T13:15:16+00:00'
-const partialDateTime = (kind: PartialDateTimeKindCode): PartialDateTime => {
-  return {
-    value: dateValue,
-    kind,
-  }
-}
+const partialDateTime = (kind: PartialDateTimeKindCode): PartialDateTime => ({ value: dateValue, kind })

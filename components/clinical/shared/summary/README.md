@@ -1,4 +1,3 @@
-
 # Summary
 
 <!-- STORY -->
@@ -14,4 +13,3 @@ import Summary from '@ltht-react/summary'
 ```jsx
 <Summary />
 ```
-  

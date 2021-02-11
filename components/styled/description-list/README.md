@@ -1,4 +1,3 @@
-
 # DescriptionList
 
 <!-- STORY -->
@@ -14,4 +13,3 @@ import DescriptionList from '@ltht-react/description-list'
 ```jsx
 <DescriptionList />
 ```
-  

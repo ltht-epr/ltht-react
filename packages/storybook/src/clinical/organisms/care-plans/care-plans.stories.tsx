@@ -22,7 +22,7 @@ export const Summary: Story = () => (
       <Card.Title>Care Plans</Card.Title>
     </Card.Header>
     <Card.List>
-      {carePlans.map(carePlan => (
+      {carePlans.map((carePlan) => (
         <Card.ListItem key={carePlan.id}>
           <CarePlanSummary carePlan={carePlan} />
         </Card.ListItem>

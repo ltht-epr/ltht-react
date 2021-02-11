@@ -1,4 +1,3 @@
-
 # ConditionDetail
 
 <!-- STORY -->
@@ -14,4 +13,3 @@ import ConditionDetail from '@ltht-react/condition-detail'
 ```jsx
 <ConditionDetail />
 ```
-  

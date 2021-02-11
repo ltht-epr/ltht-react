@@ -10,7 +10,7 @@ export const Summary: Story = () => (
       <Card.Title>Conditions</Card.Title>
     </Card.Header>
     <Card.List>
-      {conditions.map(condition => (
+      {conditions.map((condition) => (
         <Card.ListItem key={condition.id}>
           <ConditionSummary condition={condition} />
         </Card.ListItem>

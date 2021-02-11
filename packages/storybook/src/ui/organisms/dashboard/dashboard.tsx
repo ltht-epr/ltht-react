@@ -24,12 +24,8 @@ const StyledColumn = styled.div`
   }
 `
 
-const Container: FC = ({ children }) => {
-  return <StyledContainer>{children}</StyledContainer>
-}
+const Container: FC = ({ children }) => <StyledContainer>{children}</StyledContainer>
 
-const Column: FC = ({ children }) => {
-  return <StyledColumn>{children}</StyledColumn>
-}
+const Column: FC = ({ children }) => <StyledColumn>{children}</StyledColumn>
 
 export { Container, Column }

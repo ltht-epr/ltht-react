@@ -8,13 +8,11 @@ const StyledDescription = styled.dd`
   margin-left: 0;
 `
 
-const Description: FC<Props> = ({ children, classes, ...rest }) => {
-  return (
-    <StyledDescription className={classNames('description-list__description', classes)} {...rest}>
-      {children}
-    </StyledDescription>
-  )
-}
+const Description: FC<Props> = ({ children, classes, ...rest }) => (
+  <StyledDescription className={classNames('description-list__description', classes)} {...rest}>
+    {children}
+  </StyledDescription>
+)
 
 export interface Props extends HTMLAttributes<HTMLElement> {
   classes?: string

@@ -1,4 +1,3 @@
-
 # HospitalStayDetail
 
 <!-- STORY -->
@@ -14,4 +13,3 @@ import HospitalStayDetail from '@ltht-react/hospital-stay-detail'
 ```jsx
 <HospitalStayDetail />
 ```
-  
