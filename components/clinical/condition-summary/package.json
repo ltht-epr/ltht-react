@@ -25,14 +25,13 @@
     "lint": "prettylint 'src/*.{ts,tsx}'"
   },
   "dependencies": {
-    "@emotion/core": "^10.0.27",
-    "@emotion/styled": "^10.0.27",
+    "@emotion/react": "^11.0.0",
+    "@emotion/styled": "^11.0.0",
     "@ltht-react/list": "^1.0.2",
     "@ltht-react/styles": "^1.0.1",
     "@ltht-react/summary": "^1.0.4",
     "@ltht-react/types": "^0.0.28",
     "@ltht-react/utils": "^1.0.1",
-    "emotion": "^10.0.27",
     "react": "^17.0.0"
   },
   "gitHead": "4d364556bb11e294d86697c2dac66742f7aabc7f"

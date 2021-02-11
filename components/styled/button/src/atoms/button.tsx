@@ -1,6 +1,6 @@
 import { FC, HTMLAttributes } from 'react'
 import styled from '@emotion/styled'
-import { css, SerializedStyles } from '@emotion/core'
+import { css, SerializedStyles } from '@emotion/react'
 import { DESKTOP_MEDIA_QUERY, BTN_COLOURS } from '@ltht-react/styles'
 
 const setColors = (buttonStyle: string): SerializedStyles => {

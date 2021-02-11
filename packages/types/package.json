@@ -22,10 +22,6 @@
     "build": "tsc",
     "type:gen": "graphql-codegen"
   },
-  "dependencies": {
-    "@emotion/core": "10.0.35",
-    "@emotion/styled": "^10.0.27"
-  },
   "devDependencies": {
     "@graphql-codegen/cli": "^1.20.0",
     "@graphql-codegen/typescript": "^1.21.0",

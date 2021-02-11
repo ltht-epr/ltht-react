@@ -29,8 +29,8 @@
     "babel-loader": "^8.0.6"
   },
   "dependencies": {
-    "@emotion/core": "10.0.35",
-    "@emotion/styled": "^10.0.27",
+    "@emotion/react": "^11.0.0",
+    "@emotion/styled": "^11.0.0",
     "@ltht-react/allergy-detail": "^1.0.2",
     "@ltht-react/allergy-summary": "^1.0.4",
     "@ltht-react/appointment-detail": "^1.0.2",

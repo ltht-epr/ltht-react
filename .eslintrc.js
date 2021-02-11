@@ -9,7 +9,7 @@ module.exports = {
     'react-app',
     'plugin:prettier/recommended',
   ],
-  plugins: ['@typescript-eslint'],
+  plugins: ['@typescript-eslint', '@emotion'],
   parserOptions: {
     ecmaVersion: 2018,
     sourceType: 'module',

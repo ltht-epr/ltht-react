@@ -1,6 +1,6 @@
 import { FC, HTMLAttributes, useState } from 'react'
 import styled from '@emotion/styled'
-import { css, SerializedStyles } from '@emotion/core'
+import { css, SerializedStyles } from '@emotion/react'
 import { Patient } from '@ltht-react/types'
 import {
   TABLET_MEDIA_QUERY,

@@ -1,6 +1,6 @@
 import { ChangeEvent, FC, HTMLAttributes } from 'react'
 import styled from '@emotion/styled'
-import { css, SerializedStyles } from '@emotion/core'
+import { css, SerializedStyles } from '@emotion/react'
 import { INPUT_COLOURS } from '@ltht-react/styles'
 
 const StyledRadioButton = styled.div<StyledRadioButtonProps>`
