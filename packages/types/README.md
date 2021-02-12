@@ -7,5 +7,5 @@
 ```
 const core = require('@ltht-react/core');
 
-// TODO: DEMONSTRATE API
+// TODO:   DEMONSTRATE API
 ```
