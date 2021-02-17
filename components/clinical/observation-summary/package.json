@@ -1,6 +1,6 @@
 {
   "name": "@ltht-react/observation-summary",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "ltht-react clinical ObservationSummary component.",
   "author": "LTHT",
   "homepage": "",
@@ -29,7 +29,7 @@
     "@emotion/styled": "^11.0.0",
     "@ltht-react/list": "^1.1.1",
     "@ltht-react/styles": "^1.1.0",
-    "@ltht-react/summary": "^1.1.1",
+    "@ltht-react/summary": "^1.1.2",
     "@ltht-react/types": "^1.0.0",
     "@ltht-react/utils": "^1.1.1",
     "react": "^17.0.0"
