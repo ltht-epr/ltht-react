@@ -1,18 +1,18 @@
 import { Story } from '@storybook/react'
 
-import ConditionSummary from '@ltht-react/condition-summary'
+import DiagnosisSummary from '@ltht-react/diagnosis-summary'
 import Card from '@ltht-react/card'
-import conditions from './conditions.fixtures'
+import conditions from './diagnosis.fixtures'
 
 export const Summary: Story = () => (
   <Card>
     <Card.Header>
-      <Card.Title>Conditions</Card.Title>
+      <Card.Title>Problems & Diagnosis</Card.Title>
     </Card.Header>
     <Card.List>
       {conditions.map((condition) => (
         <Card.ListItem key={condition.id}>
-          <ConditionSummary condition={condition} />
+          <DiagnosisSummary condition={condition} />
         </Card.ListItem>
       ))}
     </Card.List>
@@ -22,14 +22,14 @@ export const Summary: Story = () => (
 export const Redacted: Story = () => (
   <Card>
     <Card.Header>
-      <Card.Title>Condition</Card.Title>
+      <Card.Title>Problems & Diagnosis</Card.Title>
     </Card.Header>
     <Card.List>
       <Card.ListItem>
-        <ConditionSummary condition={conditions[0]} />
+        <DiagnosisSummary condition={conditions[0]} />
       </Card.ListItem>
     </Card.List>
   </Card>
 )
 
-export default { title: 'Clinical/Organisms/Conditions' }
+export default { title: 'Clinical/Organisms/Diagnosis' }

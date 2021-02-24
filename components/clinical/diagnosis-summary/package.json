@@ -1,7 +1,7 @@
 {
-  "name": "@ltht-react/condition-summary",
+  "name": "@ltht-react/diagnosis-summary",
   "version": "1.1.2",
-  "description": "ltht-react clinical ConditionSummary component.",
+  "description": "ltht-react clinical DiagnosisSummary component.",
   "author": "LTHT",
   "homepage": "",
   "license": "MIT",
