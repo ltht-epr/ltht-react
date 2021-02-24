@@ -13,7 +13,7 @@ const StyledDateSummary = styled.div`
   text-align: right;
 `
 
-const ConditionRedacted: FC<Props> = ({ condition }) => (
+const DiagnosisRedacted: FC<Props> = ({ condition }) => (
   <>
     <StyledRedactedDescription>
       <RedactedDescription />
@@ -28,4 +28,4 @@ interface Props {
   condition?: Condition | null
 }
 
-export default ConditionRedacted
+export default DiagnosisRedacted

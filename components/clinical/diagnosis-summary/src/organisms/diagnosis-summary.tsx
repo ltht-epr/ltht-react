@@ -4,10 +4,10 @@ import styled from '@emotion/styled'
 import { Condition } from '@ltht-react/types'
 import { DateSummary } from '@ltht-react/summary'
 
-import Category from '../atoms/condition-category'
-import Status from '../atoms/condition-status'
-import Title from '../atoms/condition-title'
-import Redacted from '../molecules/condition-redacted'
+import Category from '../atoms/diagnosis-category'
+import Status from '../atoms/diagnosis-status'
+import Title from '../atoms/diagnosis-title'
+import Redacted from '../molecules/diagnosis-redacted'
 
 const StyledSummary = styled.div`
   display: flex;
@@ -20,7 +20,7 @@ const StyledDate = styled.div`
   text-align: right;
 `
 
-const ConditionSummary: FC<Props> = ({ condition, ...rest }) => {
+const DiagnosisSummary: FC<Props> = ({ condition, ...rest }) => {
   if (condition.metadata.isRedacted) {
     return (
       <StyledSummary {...rest}>
@@ -47,4 +47,4 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
   condition: Condition
 }
 
-export default ConditionSummary
+export default DiagnosisSummary

@@ -12,7 +12,7 @@ const StyledConditionStatus = styled.div`
   padding-top: 0.25rem;
 `
 
-const ConditionStatus: FC<Props> = ({ condition, ...rest }) => {
+const DiagnosisStatus: FC<Props> = ({ condition, ...rest }) => {
   const values = []
 
   if (condition.clinicalStatus) values.push(titleCase(condition.clinicalStatus))
@@ -25,4 +25,4 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
   condition: Condition
 }
 
-export default ConditionStatus
+export default DiagnosisStatus

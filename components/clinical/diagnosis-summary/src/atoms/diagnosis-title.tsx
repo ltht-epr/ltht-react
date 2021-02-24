@@ -10,7 +10,7 @@ const StyledConditionTitle = styled.div`
   text-align: left;
 `
 
-const ConditionTitle: FC<Props> = ({ condition, ...rest }) => {
+const DiagnosisTitle: FC<Props> = ({ condition, ...rest }) => {
   const codes = []
   if (condition.code) codes.push(condition.code)
 
@@ -21,4 +21,4 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
   condition: Condition
 }
 
-export default ConditionTitle
+export default DiagnosisTitle

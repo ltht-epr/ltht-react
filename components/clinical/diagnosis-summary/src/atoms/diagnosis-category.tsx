@@ -12,7 +12,7 @@ const StyledConditionCategory = styled.div`
   padding-top: 0.25rem;
 `
 
-const ConditionCategory: FC<Props> = ({ condition, ...rest }) => {
+const DiagnosisCategory: FC<Props> = ({ condition, ...rest }) => {
   const values = []
 
   if (condition.category) values.push(codeableConceptTextSummary(condition.category))
@@ -25,4 +25,4 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
   condition: Condition
 }
 
-export default ConditionCategory
+export default DiagnosisCategory

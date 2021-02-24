@@ -7,7 +7,7 @@ import CommunityTreatmentOrderSummary from '@ltht-react/community-treatment-orde
 import FlagSummary from '@ltht-react/flag-summary'
 import HospitalStaySummary from '@ltht-react/hospital-stay-summary'
 import InvolvedTeamSummary from '@ltht-react/involved-team-summary'
-import ConditionSummary from '@ltht-react/condition-summary'
+import DiagnosisSummary from '@ltht-react/diagnosis-summary'
 
 import DocumentSummary from '@ltht-react/document-summary'
 import Card from '@ltht-react/card'
@@ -19,7 +19,7 @@ import communityOrders from '../../../clinical/organisms/community-treatment-ord
 import episodeOfCares from '../../../clinical/organisms/involved-teams/involved-teams.fixtures'
 import flags from '../../../clinical/organisms/flags/flags.fixtures'
 import hospitalStays from '../../../clinical/organisms/hospital-stays/hospital-stays.fixtures'
-import conditions from '../../../clinical/organisms/conditions/conditions.fixtures'
+import conditions from '../../../clinical/organisms/diagnosis/diagnosis.fixtures'
 
 import { Container, Column } from './dashboard'
 
@@ -131,7 +131,7 @@ export const ReadOnly: Story = () => (
         <Card.List>
           {conditions.map((condition) => (
             <Card.ListItem key={condition.id}>
-              <ConditionSummary condition={condition} />
+              <DiagnosisSummary condition={condition} />
             </Card.ListItem>
           ))}
         </Card.List>

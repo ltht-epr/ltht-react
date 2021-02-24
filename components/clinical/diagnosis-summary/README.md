@@ -1,17 +1,17 @@
-# ConditionSummary
+# DiagnosisSummary
 
 <!-- STORY -->
 
 ### Import
 
 ```js
-import ConditionSummary from '@ltht-react/condition-summary'
+import DiagnosisSummary from '@ltht-react/diagnosis-summary'
 ```
 
 ### Usage
 
 ```jsx
-<ConditionSummary title="Conditions" conditions={conditions} clickHandler={handleCLick} />
+<DiagnosisSummary title="Conditions" conditions={conditions} clickHandler={handleCLick} />
 ```
 
 ### Properties
