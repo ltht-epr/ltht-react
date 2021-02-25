@@ -41,7 +41,7 @@
     "@ltht-react/care-plan-summary": "^1.1.2",
     "@ltht-react/community-treatment-order-detail": "^1.1.1",
     "@ltht-react/community-treatment-order-summary": "^1.1.2",
-    "@ltht-react/condition-detail": "^1.1.1",
+    "@ltht-react/diagnosis-detail": "^1.1.1",
     "@ltht-react/diagnosis-summary": "^1.1.2",
     "@ltht-react/description-list": "^1.1.1",
     "@ltht-react/detail": "^1.1.1",

@@ -19,7 +19,10 @@ const mockMetadata: Metadata = {
 const redactedMetadata: Metadata = {
   dataSources: [
     {
-      display: 'Mock',
+      display: 'Mock Source 1',
+    },
+    {
+      display: 'Mock Source 2',
     },
   ],
   isRedacted: true,
@@ -29,15 +32,48 @@ const redactedMetadata: Metadata = {
 const ConditionOne: Condition = {
   id: '017ca927-67e0-e581-a2c7-115087226fg2|condition',
   metadata: redactedMetadata,
+  asserter: {
+    display: 'BROWN, David (Dr)',
+    typeName: 'Doctor',
+  },
+  bodySite: [
+    {
+      coding: [
+        {
+          code: '1234',
+          display: 'Base of phalanx of foot',
+        },
+      ],
+      text: 'Base of phalanx of foot',
+    },
+    {
+      coding: [
+        {
+          code: '5678',
+          display: 'Subcutaneous tissue of lateral border of sole of foot',
+        },
+      ],
+      text: 'Subcutaneous tissue of lateral border of sole of foot',
+    },
+  ],
   category: [
     {
       coding: [
         {
           code: '55607006',
-          display: 'Problem',
+          display: 'Category A',
         },
       ],
-      text: 'Problem',
+      text: 'Category A',
+    },
+    {
+      coding: [
+        {
+          code: '55607006',
+          display: 'Category B',
+        },
+      ],
+      text: 'Category B',
     },
   ],
   code: {
@@ -45,20 +81,61 @@ const ConditionOne: Condition = {
       {
         system: 'HEALTHPLUG',
         code: '60123008',
-        display: 'Delusional disorder, mixed type',
+        display: 'Heel Pain',
       },
     ],
-    text: 'Delusional disorder, mixed type',
+    text: 'Heel Pain',
   },
+  evidence: [
+    {
+      code: [
+        {
+          coding: [
+            {
+              code: '1525003',
+              display: 'Blister of foot without infection',
+            },
+          ],
+          text: 'Blister of foot without infection',
+        },
+        {
+          coding: [
+            {
+              code: '556070069',
+              display: 'Nonvenomous insect bite of foot with indection',
+            },
+          ],
+          text: 'Nonvenomous insect bite of foot with indection',
+        },
+      ],
+    },
+  ],
   clinicalStatus: ConditionClinicalStatus.Active,
   verificationStatus: ConditionVerificationStatus.Confirmed,
   assertedDate: {
-    value: '2020-02-01T00:00:00+00:00',
+    value: '2018-08-07T00:00:00+00:00',
     kind: PartialDateTimeKindCode.Date,
   },
+  onset: {
+    dateTime: {
+      value: '2016-09-01T00:00:00+00:00',
+      kind: PartialDateTimeKindCode.YearMonth,
+    },
+  },
+  stage: {
+    summary: {
+      coding: [
+        {
+          code: '786005',
+          display: 'Clinical stage I B',
+        },
+      ],
+      text: 'Clinical stage I B',
+    },
+  },
   severity: {
-    coding: [{ code: '2448400', display: 'Severe' }],
-    text: 'Severe',
+    coding: [{ code: '2448400', display: 'Moderate' }],
+    text: 'Moderate',
   },
 }
 

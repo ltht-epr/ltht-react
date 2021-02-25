@@ -1,6 +1,7 @@
 import { Story } from '@storybook/react'
 
 import DiagnosisSummary from '@ltht-react/diagnosis-summary'
+import DiagnosisDetail from '@ltht-react/diagnosis-detail'
 import Card from '@ltht-react/card'
 import conditions from './diagnosis.fixtures'
 
@@ -29,6 +30,17 @@ export const Redacted: Story = () => (
         <DiagnosisSummary condition={conditions[0]} />
       </Card.ListItem>
     </Card.List>
+  </Card>
+)
+
+export const Detail: Story = () => (
+  <Card>
+    <Card.Header>
+      <Card.Title style={{ textAlign: 'center' }}>Diagnosis</Card.Title>
+    </Card.Header>
+    <Card.Body>
+      <DiagnosisDetail condition={conditions[0]} />
+    </Card.Body>
   </Card>
 )
 
