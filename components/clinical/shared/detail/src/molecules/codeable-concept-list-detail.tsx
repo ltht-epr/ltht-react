@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import React, { FC, Fragment } from 'react'
 import styled from '@emotion/styled'
 import { CodeableConcept, Maybe } from '@ltht-react/types'
 import { ExternalLinkIcon } from '@ltht-react/icon'
@@ -33,18 +33,16 @@ const CodeableConceptListDetail: FC<Props> = ({ term, concepts, links = {} }) =>
             const linkUrl = links[codeableConceptDisplaySummary(item)]
 
             return (
-              <>
+              <Fragment key={`${term}-${index}`}>
                 {linkUrl ? (
-                  <StyledLink href={linkUrl} target="_blank" key={`${term}-${index}`}>
+                  <StyledLink href={linkUrl} target="_blank">
                     <DescriptionList.Description>{codeableConceptDisplaySummary(item)}</DescriptionList.Description>
                     <ExternalLinkIcon size="small" />
                   </StyledLink>
                 ) : (
-                  <DescriptionList.Description key={`${term}-${index}`}>
-                    {codeableConceptDisplaySummary(item)}
-                  </DescriptionList.Description>
+                  <DescriptionList.Description>{codeableConceptDisplaySummary(item)}</DescriptionList.Description>
                 )}
-              </>
+              </Fragment>
             )
           }
 
