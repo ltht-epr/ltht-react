@@ -3,7 +3,7 @@ import DescriptionList from '@ltht-react/description-list'
 import { Coding, Maybe } from '@ltht-react/types'
 
 const CodingListDetail: FC<Props> = ({ term, codings }) => {
-  if (codings) {
+  if (codings && codings.length > 0) {
     return (
       <DescriptionList>
         <DescriptionList.Term>{term}</DescriptionList.Term>

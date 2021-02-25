@@ -36,8 +36,8 @@ const DiagnosisDetail: FC<Props> = ({ condition, links }) => {
       <CodeableConceptDetail term="Severity" concept={condition.severity} />
       <CodeableConceptDetail term="Diagnosis" concept={condition.code} links={links} />
       <CodeableConceptListDetail term="Location" concepts={condition.bodySite} links={links} />
-      <DatetimeDetail term="Asserted Date" datetime={condition.assertedDate} />
       <DatetimeDetail term="Onset Date" datetime={condition.onset?.dateTime} />
+      <DatetimeDetail term="Asserted Date" datetime={condition.assertedDate} />
       <ResourceReferenceDetail term="Asserted By" resourceReference={condition.asserter} />
       <CodeableConceptDetail term="Stage" concept={condition.stage?.summary} links={links} />
       <CodeableConceptListDetail term="Evidence" concepts={evidence} links={links} />
