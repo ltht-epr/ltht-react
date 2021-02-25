@@ -9,6 +9,10 @@ const StyledDescriptionList = styled.dl`
   list-style: none;
   margin-top: 1rem;
   margin-bottom: 0;
+
+  &:first-of-type {
+    margin-top: 0;
+  }
 `
 
 const DescriptionList: FC<DescriptionListProps> & DescriptionListComposition = ({ classes, children, ...rest }) => (

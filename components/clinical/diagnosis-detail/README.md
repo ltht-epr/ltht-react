@@ -5,7 +5,7 @@
 ### Import
 
 ```js
-import ConditionDetail from '@ltht-react/condition-detail'
+import ConditionDetail from '@ltht-react/diagnosis-detail'
 ```
 
 ### Usage
