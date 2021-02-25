@@ -19,10 +19,10 @@ const mockMetadata: Metadata = {
 const redactedMetadata: Metadata = {
   dataSources: [
     {
-      display: 'Mock Source 1',
+      display: 'Mock Source A',
     },
     {
-      display: 'Mock Source 2',
+      display: 'Mock Source B',
     },
   ],
   isRedacted: true,

@@ -1,4 +1,5 @@
 import { FC } from 'react'
+import styled from '@emotion/styled'
 import { CodeableConcept, Condition, Maybe } from '@ltht-react/types'
 import {
   StringDetail,
@@ -6,7 +7,18 @@ import {
   CodeableConceptListDetail,
   DatetimeDetail,
   ResourceReferenceDetail,
+  CodingListDetail,
 } from '@ltht-react/detail'
+
+const TopSection = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  & dl:last-of-type {
+    margin-top: 0;
+  }
+`
 
 const DiagnosisDetail: FC<Props> = ({ condition, links }) => {
   const evidence = condition.evidence?.reduce((evidenceConcepts: Maybe<CodeableConcept>[], item) => {
@@ -16,7 +28,10 @@ const DiagnosisDetail: FC<Props> = ({ condition, links }) => {
 
   return (
     <>
-      <StringDetail term="Status" description={condition.clinicalStatus?.toString()} />
+      <TopSection>
+        <StringDetail term="Status" description={condition.clinicalStatus?.toString()} />
+        <CodingListDetail term="Data Source(s)" codings={condition.metadata.dataSources} />
+      </TopSection>
       <CodeableConceptListDetail term="Category" concepts={condition.category} />
       <CodeableConceptDetail term="Severity" concept={condition.severity} />
       <CodeableConceptDetail term="Diagnosis" concept={condition.code} links={links} />
