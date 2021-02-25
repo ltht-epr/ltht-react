@@ -21,6 +21,17 @@ export const ICON_COLOURS = {
   INFO: colours.NHS_BRIGHT_BLUE,
 }
 
+export const LINK_COLOURS = {
+  BACKGROUND: {
+    DEFAULT: 'rgb(238, 248, 255)',
+    HOVER: 'rgba(238, 248, 255, 0.8)',
+  },
+  TEXT: {
+    DEFAULT: 'rgb(0, 145, 255)',
+    HOVER: 'rgba(0, 145, 255, 0.8)',
+  },
+}
+
 export const EFORM_BACKGROUND_COLOUR = colours.NHS_WHITE
 
 export const CARD_BACKGROUND_COLOUR = colours.NHS_WHITE

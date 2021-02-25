@@ -5,6 +5,12 @@ import DiagnosisDetail from '@ltht-react/diagnosis-detail'
 import Card from '@ltht-react/card'
 import conditions from './diagnosis.fixtures'
 
+const CODABLE_CONCEPT_LINK_MAP = {
+  'Heel Pain': 'https://www.google.com',
+  'Base of phalanx of foot': 'https://www.google.com',
+  'Subcutaneous tissue of lateral border of sole of foot': 'https://www.google.com',
+}
+
 export const Summary: Story = () => (
   <Card>
     <Card.Header>
@@ -39,7 +45,7 @@ export const Detail: Story = () => (
       <Card.Title style={{ textAlign: 'center' }}>Diagnosis</Card.Title>
     </Card.Header>
     <Card.Body>
-      <DiagnosisDetail condition={conditions[0]} />
+      <DiagnosisDetail condition={conditions[0]} links={CODABLE_CONCEPT_LINK_MAP} />
     </Card.Body>
   </Card>
 )
