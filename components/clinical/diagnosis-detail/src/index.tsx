@@ -47,7 +47,8 @@ const DiagnosisDetail: FC<Props> = ({ condition, links }) => {
 
 interface Props {
   condition: Condition
-  links?: any // TODO: Define type once code link config implementation has been done
+  // TODO: Define 'links?' type once code link config implementation has been done
+  links?: any // eslint-disable-line
 }
 
 export default DiagnosisDetail

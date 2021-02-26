@@ -57,7 +57,8 @@ const CodeableConceptListDetail: FC<Props> = ({ term, concepts, links = {} }) =>
 interface Props {
   term: string
   concepts?: Maybe<CodeableConcept>[] | null
-  links?: any // TODO: Define type once code link config implementation has been done
+  // TODO: Define 'links?' type once code link config implementation has been done
+  links?: any // eslint-disable-line
 }
 
 export default CodeableConceptListDetail
