@@ -1,4 +1,4 @@
-import React, { FC, Fragment } from 'react'
+import { FC, Fragment } from 'react'
 import styled from '@emotion/styled'
 import { CodeableConcept, Maybe } from '@ltht-react/types'
 import { ExternalLinkIcon } from '@ltht-react/icon'
