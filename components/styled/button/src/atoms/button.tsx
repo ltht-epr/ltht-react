@@ -65,7 +65,7 @@ const StyledButton = styled.button<StyledProps>`
   white-space: nowrap;
   border: 1px solid transparent;
   padding: 0.375rem 0.75rem;
-  font-size: 1rem;
+  font-size: 0.8rem;
   font-weight: bold;
   line-height: 1.5;
   border-radius: 4px;
@@ -81,6 +81,7 @@ const StyledButton = styled.button<StyledProps>`
   }
 
   ${DESKTOP_MEDIA_QUERY} {
+    font-size: 1rem;
     display: flex;
     align-items: center;
     justify-content: center;
