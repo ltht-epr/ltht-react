@@ -33,12 +33,16 @@ export const NHS_LIGHT_GREEN = {
   LIGHTER25: '#9ace58',
   LIGHTER75: '#ddefc7',
 }
+export const NHS_EMERGENCY_SERVICES_RED = {
+  VALUE: 'rgb(218, 41, 28)',
+  DARKER25: 'rgb(165, 37, 25)',
+  LIGHTER25: 'rgb(231,77,66)',
+}
 export const NHS_AQUA_GREEN = '#00A499'
 export const NHS_PURPLE = '#330072'
 export const NHS_DARK_PINK = '#7C2855'
 export const NHS_PINK = '#AE2573'
 export const NHS_DARK_RED = '#8A1538'
-export const NHS_EMERGENCY_SERVICES_RED = '#DA291C'
 export const NHS_ORANGE = '#ED8B00'
 export const NHS_WARM_YELLOW = '#FFB81C'
 export const NHS_YELLOW = '#FAE100'
