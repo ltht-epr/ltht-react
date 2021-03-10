@@ -70,11 +70,11 @@ const Select: FC<IProps> & SelectComposition = ({ children, activeOption = '', .
 
   return (
     <StyledSelect {...rest} ref={selectRef}>
-      <SelectTrigger onClick={() => setOpen((open) => !open)}>
-        <ActiveOption>{activeOption}</ActiveOption>
+      <SelectTrigger data-testid="select-trigger" onClick={() => setOpen((open) => !open)}>
+        <ActiveOption data-testid="select-active-option">{activeOption}</ActiveOption>
         <ChevronIcon direction={open ? 'up' : 'down'} size="small" />
       </SelectTrigger>
-      <SelectOptions open={open} onClick={() => setOpen(false)}>
+      <SelectOptions data-testid="select-options" open={open} onClick={() => setOpen(false)}>
         {children}
       </SelectOptions>
     </StyledSelect>
