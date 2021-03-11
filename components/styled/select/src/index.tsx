@@ -46,7 +46,8 @@ const Select: FC<IProps> & SelectComposition = ({ children, activeOption = '', .
   const selectRef = useRef<HTMLDivElement>(null)
 
   const handleOnEscapeKey = (e: KeyboardEvent) => {
-    if (e.key === 'Escape') {
+    // IE11 has the key of 'Esc'
+    if (e.key === 'Escape' || e.key === 'Esc') {
       setOpen(false)
     }
   }
