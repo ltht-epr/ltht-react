@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, Fragment } from 'react'
 import styled from '@emotion/styled'
 import { CodeableConcept, Condition, Maybe } from '@ltht-react/types'
 import {
@@ -17,7 +17,15 @@ const TopSection = styled.div`
 
   & dl:last-of-type {
     margin-top: 0;
+    text-align: right;
   }
+`
+
+const Seperator = styled.div`
+  height: 1px;
+  background: rgba(0, 0, 0, 0.125);
+  width: calc(100% + 12px);
+  margin: 1rem 0;
 `
 
 const DiagnosisDetail: FC<Props> = ({ condition, links }) => {
@@ -29,18 +37,38 @@ const DiagnosisDetail: FC<Props> = ({ condition, links }) => {
   return (
     <>
       <TopSection>
-        <StringDetail term="Status" description={condition.clinicalStatus?.toString()} />
+        <CodeableConceptDetail term="Diagnosis" concept={condition.code} links={links} />
         <CodingListDetail term="Data Source(s)" codings={condition.metadata.dataSources} />
       </TopSection>
+      <DatetimeDetail term="Onset Date" datetime={condition.onset?.dateTime} />
+      <StringDetail term="Clinical Status" description={condition.clinicalStatus?.toString()} />
+      <StringDetail term="Verification Status" description={condition.verificationStatus?.toString()} />
       <CodeableConceptListDetail term="Category" concepts={condition.category} />
       <CodeableConceptDetail term="Severity" concept={condition.severity} />
-      <CodeableConceptDetail term="Diagnosis" concept={condition.code} links={links} />
       <CodeableConceptListDetail term="Location" concepts={condition.bodySite} links={links} />
-      <DatetimeDetail term="Onset Date" datetime={condition.onset?.dateTime} />
-      <DatetimeDetail term="Asserted Date" datetime={condition.assertedDate} />
-      <ResourceReferenceDetail term="Asserted By" resourceReference={condition.asserter} />
-      <CodeableConceptDetail term="Stage" concept={condition.stage?.summary} links={links} />
       <CodeableConceptListDetail term="Evidence" concepts={evidence} links={links} />
+      <CodeableConceptDetail term="Stage" concept={condition.stage?.summary} links={links} />
+      <ResourceReferenceDetail term="Asserted By" resourceReference={condition.asserter} />
+      <DatetimeDetail term="Asserted Date" datetime={condition.assertedDate} />
+
+      {condition.extension?.map((extension, index) => {
+        if (index === 0) {
+          return (
+            <Fragment key={`level-2-detail-${extension?.valueString}`}>
+              <Seperator />
+              <CodeableConceptDetail term={extension?.valueString || ''} concept={extension?.valueCodeableConcept} />
+            </Fragment>
+          )
+        }
+
+        return (
+          <CodeableConceptDetail
+            key={`level-2-detail-${extension?.valueString}`}
+            term={extension?.valueString || ''}
+            concept={extension?.valueCodeableConcept}
+          />
+        )
+      })}
     </>
   )
 }
