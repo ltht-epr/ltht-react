@@ -52,7 +52,7 @@ const Task4: Task = {
   description: 'Task 4 Description',
 }
 
-const RedactedTask: Task = {
+export const RedactedTask: Task = {
   id: 'redacted-task',
   intent: IntentCode.Plan,
   metadata: redactedMetadata,
@@ -60,9 +60,4 @@ const RedactedTask: Task = {
   description: 'Redacted Task Description',
 }
 
-const Tasks = [Task1, Task2, Task3, Task4]
-
-export default {
-  Tasks,
-  RedactedTask,
-}
+export const Tasks: Task[] = [Task1, Task2, Task3, Task4]
