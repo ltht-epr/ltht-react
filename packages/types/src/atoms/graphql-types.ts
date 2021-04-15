@@ -34,6 +34,7 @@ export type QueryYhcrArgs = {
 export type Ehr = {
   guidance?: Maybe<Array<Maybe<Guidance>>>
   patient?: Maybe<Patient>
+  tasks?: Maybe<Array<Maybe<Task>>>
 }
 
 /** Queries the LTHT EHR. */
@@ -45,6 +46,11 @@ export type EhrGuidanceArgs = {
 
 /** Queries the LTHT EHR. */
 export type EhrPatientArgs = {
+  patientGuid: Scalars['String']
+}
+
+/** Queries the LTHT EHR. */
+export type EhrTasksArgs = {
   patientGuid: Scalars['String']
 }
 
@@ -463,6 +469,54 @@ export enum PatientLinkTypeCode {
   Replaces = 'REPLACES',
   Refer = 'REFER',
   SeeAlso = 'SEE_ALSO',
+}
+
+/** https://www.hl7.org/fhir/STU3/task.html */
+export type Task = {
+  /** Task Creation Date */
+  authoredOn?: Maybe<PartialDateTime>
+  /** NotYetDue, Due, Overdue, Suspended, Completed */
+  businessStatus?: Maybe<CodeableConcept>
+  /** Task Type */
+  code?: Maybe<CodeableConcept>
+  /** Human-readable explanation of task */
+  description?: Maybe<Scalars['String']>
+  /** Start and end time of execution */
+  executionPeriod?: Maybe<Period>
+  /** Additional content defined by implementations. */
+  extension?: Maybe<Array<Maybe<Extension>>>
+  /** Logical Id of the resource. */
+  id: Scalars['ID']
+  /** proposal | plan | order */
+  intent: IntentCode
+  /** Metadata about the resource. */
+  metadata: Metadata
+  /** normal | urgent | asap | stat */
+  priority?: Maybe<PriorityCode>
+  /** draft | requested | received | accepted */
+  status: StatusCode
+  /** Text summary of the resource, for human interpretation. */
+  text?: Maybe<Narrative>
+}
+
+export enum IntentCode {
+  Proposal = 'PROPOSAL',
+  Plan = 'PLAN',
+  Order = 'ORDER',
+}
+
+export enum PriorityCode {
+  Normal = 'NORMAL',
+  Urgent = 'URGENT',
+  Asap = 'ASAP',
+  Stat = 'STAT',
+}
+
+export enum StatusCode {
+  Draft = 'DRAFT',
+  Requested = 'REQUESTED',
+  Received = 'RECEIVED',
+  Accepted = 'ACCEPTED',
 }
 
 /** Queries the GP Connect system. */
@@ -1631,7 +1685,7 @@ export enum DataSourceProfile {
   LeedsTesting = 'LEEDS_TESTING',
 }
 
-/** The currently logged-in User Identity, Permissions and Feature Flags. */
+/** The currently logged-in User Identity and Permissions. */
 export type User = {
   /** The Data Providers the User has access to. */
   dataProviderPermissions?: Maybe<Array<Maybe<DataProviderPermission>>>
