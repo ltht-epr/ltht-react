@@ -1,7 +1,7 @@
 {
-  "name": "@ltht-react/tasks",
+  "name": "@ltht-react/task",
   "version": "0.0.0",
-  "description": "ltht-react clinical Tasks component.",
+  "description": "ltht-react clinical Task component.",
   "author": "LTHT",
   "homepage": "",
   "license": "MIT",
