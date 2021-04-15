@@ -1,0 +1,35 @@
+{
+  "name": "@ltht-react/tasks",
+  "version": "0.0.0",
+  "description": "ltht-react clinical Tasks component.",
+  "author": "LTHT",
+  "homepage": "",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
+  "files": [
+    "lib"
+  ],
+  "directories": {
+    "lib": "lib"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "clean": "rimraf lib",
+    "build": "yarn build:lib",
+    "watch": "tsc -w",
+    "build:lib": "tsc",
+    "type:check": "tsc --noEmit",
+    "lint": "prettylint 'src/*.{ts,tsx}'"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.0.0",
+    "@emotion/styled": "^11.0.0",
+    "@ltht-react/styles": "^1.3.0",
+    "@ltht-react/types": "^1.0.0",
+    "@ltht-react/utils": "^1.1.1",
+    "react": "^17.0.0"
+  }
+}
