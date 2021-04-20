@@ -104,6 +104,14 @@ export const RedactedTask: Task = {
   performerType: {
     text: 'Forms',
   },
+  executionPeriod: {
+    start: {
+      value: '2021-04-20T09:00:00',
+    },
+    end: {
+      value: '2021-04-21T00:00:00',
+    },
+  },
   description: 'Redacted Task Description',
 }
 

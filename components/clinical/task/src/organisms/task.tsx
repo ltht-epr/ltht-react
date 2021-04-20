@@ -32,7 +32,7 @@ const Task: FC<IProps> = ({
     executionPeriod,
   },
 }) => {
-  if (isRedacted) return <Redacted />
+  if (isRedacted) return <Redacted executionPeriod={executionPeriod} status={status} />
 
   return (
     <StyledTask status={status}>
