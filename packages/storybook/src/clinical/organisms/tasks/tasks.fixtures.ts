@@ -24,8 +24,11 @@ const Task1: Task = {
   id: 'task-1',
   intent: IntentCode.Order,
   metadata: mockMetadata,
-  status: StatusCode.Accepted,
+  status: StatusCode.Overdue,
   description: 'Task 1 Description',
+  performerType: {
+    text: 'Forms',
+  },
   executionPeriod: {
     start: {
       value: '2021-04-01T00:00:00',
@@ -40,8 +43,11 @@ const Task2: Task = {
   id: 'task-2',
   intent: IntentCode.Plan,
   metadata: mockMetadata,
-  status: StatusCode.Received,
+  status: StatusCode.Overdue,
   description: 'Task 2 Description',
+  performerType: {
+    text: 'Forms',
+  },
   executionPeriod: {
     start: {
       value: '2021-04-15T00:00:00',
@@ -56,8 +62,11 @@ const Task3: Task = {
   id: 'task-3',
   intent: IntentCode.Order,
   metadata: mockMetadata,
-  status: StatusCode.Accepted,
+  status: StatusCode.Overdue,
   description: 'Task 3 Description',
+  performerType: {
+    text: 'Forms',
+  },
   executionPeriod: {
     start: {
       value: '2021-04-18T00:00:00',
@@ -72,8 +81,11 @@ const Task4: Task = {
   id: 'task-4',
   intent: IntentCode.Plan,
   metadata: mockMetadata,
-  status: StatusCode.Received,
+  status: StatusCode.Due,
   description: 'Task 4 Description',
+  performerType: {
+    text: 'Forms',
+  },
   executionPeriod: {
     start: {
       value: '2021-04-20T09:00:00',
@@ -88,7 +100,10 @@ export const RedactedTask: Task = {
   id: 'redacted-task',
   intent: IntentCode.Plan,
   metadata: redactedMetadata,
-  status: StatusCode.Received,
+  status: StatusCode.Due,
+  performerType: {
+    text: 'Forms',
+  },
   description: 'Redacted Task Description',
 }
 

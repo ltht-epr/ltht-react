@@ -2,10 +2,10 @@ import { FC } from 'react'
 import styled from '@emotion/styled'
 import { TEXT_COLOURS } from '@ltht-react/styles'
 import { titleCase } from '@ltht-react/utils'
-import { Statuses } from '../organisms/task'
+import { StatusCodes } from '../organisms/task'
 
 const StyledTaskStatus = styled.small<IProps>`
-  color: ${({ status }) => (status === 'overdue' ? 'red' : `${TEXT_COLOURS.SECONDARY.VALUE}`)};
+  color: ${({ status }) => (status === 'OVERDUE' ? 'red' : `${TEXT_COLOURS.SECONDARY.VALUE}`)};
 `
 
 const TaskStatus: FC<IProps> = ({ status }) => {
@@ -15,7 +15,7 @@ const TaskStatus: FC<IProps> = ({ status }) => {
 }
 
 interface IProps {
-  status: Statuses | null
+  status: StatusCodes
 }
 
 export default TaskStatus

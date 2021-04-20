@@ -1,7 +1,6 @@
-import { FC, useState, useEffect } from 'react'
+import { FC } from 'react'
 import styled from '@emotion/styled'
 import { Task as ITask } from '@ltht-react/types'
-import moment from 'moment'
 
 import Description from '../atoms/task-description'
 import DueDate from '../atoms/task-due-date'
@@ -13,7 +12,7 @@ const StyledTask = styled.div<IStyledTask>`
   align-items: center;
 
   ${({ status }) =>
-    status === 'overdue' &&
+    status === 'OVERDUE' &&
     `
     * {
       color: red;
@@ -27,32 +26,19 @@ const RightSection = styled.div`
 
 const Task: FC<IProps> = ({
   task: {
+    status,
     description,
     metadata: { isRedacted },
     executionPeriod,
   },
 }) => {
-  const [status, setStatus] = useState<Statuses | null>(null)
-
-  useEffect(() => {
-    const isDue = moment().diff(executionPeriod?.start?.value) > 0 && moment().diff(executionPeriod?.end?.value) < 0
-    const isOverdue = moment().diff(executionPeriod?.end?.value) > 0
-
-    if (isDue) setStatus('due')
-    if (isOverdue) setStatus('overdue')
-  }, [executionPeriod?.end?.value, executionPeriod?.start?.value])
-
   if (isRedacted) return <Redacted />
 
   return (
     <StyledTask status={status}>
       <Description description={description} />
       <RightSection>
-        <DueDate>
-          {status === 'overdue'
-            ? moment(executionPeriod?.end?.value).fromNow()
-            : moment(executionPeriod?.start?.value).fromNow()}
-        </DueDate>
+        <DueDate executionPeriod={executionPeriod} status={status} />
         <Status status={status} />
       </RightSection>
     </StyledTask>
@@ -64,9 +50,9 @@ interface IProps {
 }
 
 interface IStyledTask {
-  status: Statuses | null
+  status: StatusCodes
 }
 
-export type Statuses = 'due' | 'overdue'
+export type StatusCodes = 'NOT_YET_DUE' | 'DUE' | 'OVERDUE' | 'COMPLETE' | 'SUSPENDED' | 'CANCELLED' | 'SKIPPED'
 
 export default Task
