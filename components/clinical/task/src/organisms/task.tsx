@@ -36,9 +36,9 @@ const Task: FC<IProps> = ({
 
   return (
     <StyledTask status={status}>
-      <Description description={description} />
+      <Description cancelled={status === 'CANCELLED'} description={description} />
       <RightSection>
-        <DueDate executionPeriod={executionPeriod} status={status} />
+        {!['COMPLETE', 'CANCELLED'].includes(status) && <DueDate executionPeriod={executionPeriod} status={status} />}
         <Status status={status} />
       </RightSection>
     </StyledTask>

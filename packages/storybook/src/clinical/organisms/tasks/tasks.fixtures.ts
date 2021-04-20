@@ -96,6 +96,44 @@ const Task4: Task = {
   },
 }
 
+export const CompletedTask: Task = {
+  id: 'task-5',
+  intent: IntentCode.Plan,
+  metadata: mockMetadata,
+  status: StatusCode.Complete,
+  description: 'Task 4 Description',
+  performerType: {
+    text: 'Forms',
+  },
+  executionPeriod: {
+    start: {
+      value: '2021-04-20T09:00:00',
+    },
+    end: {
+      value: '2021-04-21T00:00:00',
+    },
+  },
+}
+
+export const CancelledTask: Task = {
+  id: 'task-5',
+  intent: IntentCode.Plan,
+  metadata: mockMetadata,
+  status: StatusCode.Cancelled,
+  description: 'Task 4 Description',
+  performerType: {
+    text: 'Forms',
+  },
+  executionPeriod: {
+    start: {
+      value: '2021-04-20T09:00:00',
+    },
+    end: {
+      value: '2021-04-21T00:00:00',
+    },
+  },
+}
+
 export const RedactedTask: Task = {
   id: 'redacted-task',
   intent: IntentCode.Plan,
@@ -115,4 +153,4 @@ export const RedactedTask: Task = {
   description: 'Redacted Task Description',
 }
 
-export const Tasks: Task[] = [Task1, Task2, Task3, Task4]
+export const Tasks: Task[] = [Task1, Task2, Task3, Task4, CompletedTask, CancelledTask]

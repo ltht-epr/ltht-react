@@ -3,7 +3,7 @@ import { Story } from '@storybook/react'
 import Card from '@ltht-react/card'
 import Task from '@ltht-react/task'
 
-import { RedactedTask, Tasks } from './tasks.fixtures'
+import { RedactedTask, CompletedTask, CancelledTask, Tasks } from './tasks.fixtures'
 
 export const TasksStory: Story = () => {
   const [selectedTaskId, setSelectedTaskId] = useState('')
@@ -20,11 +20,21 @@ export const TasksStory: Story = () => {
         <Card.Title>Tasks</Card.Title>
       </Card.Header>
       <Card.List>
-        {Tasks.map((task) => (
-          <Card.ListItem key={task.id} onClick={() => handleSelectTask(task.id)} selected={task.id === selectedTaskId}>
-            <Task task={task} />
-          </Card.ListItem>
-        ))}
+        {Tasks.map((task) => {
+          const canPerformAction = !['COMPLETE', 'CANCELLED'].includes(task.status) && !task.metadata.isRedacted
+
+          const props = {
+            key: task.id,
+            selected: task.id === selectedTaskId,
+            ...(canPerformAction && { onClick: () => handleSelectTask(task.id) }),
+          }
+
+          return (
+            <Card.ListItem {...props}>
+              <Task task={task} />
+            </Card.ListItem>
+          )
+        })}
       </Card.List>
     </Card>
   )
@@ -39,6 +49,32 @@ export const Redacted: Story = () => (
     <Card.List>
       <Card.ListItem>
         <Task task={RedactedTask} />
+      </Card.ListItem>
+    </Card.List>
+  </Card>
+)
+
+export const Completed: Story = () => (
+  <Card>
+    <Card.Header>
+      <Card.Title>Tasks</Card.Title>
+    </Card.Header>
+    <Card.List>
+      <Card.ListItem>
+        <Task task={CompletedTask} />
+      </Card.ListItem>
+    </Card.List>
+  </Card>
+)
+
+export const Cancelled: Story = () => (
+  <Card>
+    <Card.Header>
+      <Card.Title>Tasks</Card.Title>
+    </Card.Header>
+    <Card.List>
+      <Card.ListItem>
+        <Task task={CancelledTask} />
       </Card.ListItem>
     </Card.List>
   </Card>
