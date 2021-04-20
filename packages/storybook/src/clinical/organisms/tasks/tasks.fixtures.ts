@@ -97,11 +97,11 @@ const Task4: Task = {
 }
 
 export const CompletedTask: Task = {
-  id: 'task-5',
+  id: 'completed-task',
   intent: IntentCode.Plan,
   metadata: mockMetadata,
   status: StatusCode.Complete,
-  description: 'Task 4 Description',
+  description: 'Task 5 Description',
   performerType: {
     text: 'Forms',
   },
@@ -116,11 +116,11 @@ export const CompletedTask: Task = {
 }
 
 export const CancelledTask: Task = {
-  id: 'task-5',
+  id: 'cancelled-task',
   intent: IntentCode.Plan,
   metadata: mockMetadata,
   status: StatusCode.Cancelled,
-  description: 'Task 4 Description',
+  description: 'Task 6 Description',
   performerType: {
     text: 'Forms',
   },
