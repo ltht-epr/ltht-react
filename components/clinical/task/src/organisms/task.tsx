@@ -40,7 +40,7 @@ const Task: FC<IProps> = ({
 
     if (isDue) setStatus('due')
     if (isOverdue) setStatus('overdue')
-  }, [])
+  }, [executionPeriod?.end?.value, executionPeriod?.start?.value])
 
   if (isRedacted) return <Redacted />
 
