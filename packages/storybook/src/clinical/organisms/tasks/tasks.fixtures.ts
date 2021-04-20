@@ -26,6 +26,14 @@ const Task1: Task = {
   metadata: mockMetadata,
   status: StatusCode.Accepted,
   description: 'Task 1 Description',
+  executionPeriod: {
+    start: {
+      value: '2021-04-01T00:00:00',
+    },
+    end: {
+      value: '2021-04-02T17:00:00',
+    },
+  },
 }
 
 const Task2: Task = {
@@ -34,6 +42,14 @@ const Task2: Task = {
   metadata: mockMetadata,
   status: StatusCode.Received,
   description: 'Task 2 Description',
+  executionPeriod: {
+    start: {
+      value: '2021-04-15T00:00:00',
+    },
+    end: {
+      value: '2021-04-19T12:30:00',
+    },
+  },
 }
 
 const Task3: Task = {
@@ -42,6 +58,14 @@ const Task3: Task = {
   metadata: mockMetadata,
   status: StatusCode.Accepted,
   description: 'Task 3 Description',
+  executionPeriod: {
+    start: {
+      value: '2021-04-18T00:00:00',
+    },
+    end: {
+      value: '2021-04-20T10:00:00',
+    },
+  },
 }
 
 const Task4: Task = {
@@ -50,6 +74,14 @@ const Task4: Task = {
   metadata: mockMetadata,
   status: StatusCode.Received,
   description: 'Task 4 Description',
+  executionPeriod: {
+    start: {
+      value: '2021-04-20T09:00:00',
+    },
+    end: {
+      value: '2021-04-21T00:00:00',
+    },
+  },
 }
 
 export const RedactedTask: Task = {
