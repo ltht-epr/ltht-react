@@ -12,7 +12,7 @@ const formatDate = ({ date, removeSuffix }: IFormatDate) => moment(date).fromNow
 
 const StyledDueDate = styled.div``
 
-const DueDate: FC<IProps> = ({ executionPeriod }) => {
+const DueDate: FC<IProps> = ({ executionPeriod, status }) => {
   const { width } = useWindowSize()
 
   const mobileView = width < MOBILE_BREAKPOINT
