@@ -2,9 +2,9 @@ import { FC } from 'react'
 import styled from '@emotion/styled'
 import moment from 'moment'
 import { Maybe, Period } from '@ltht-react/types'
+import { useWindowSize } from '@ltht-react/hooks'
 
 import { StatusCodes } from '../organisms/task'
-import useWindowSize from '../hooks/useWindowSize'
 
 const MOBILE_BREAKPOINT = 768
 
