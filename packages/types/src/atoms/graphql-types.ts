@@ -34,7 +34,7 @@ export type QueryYhcrArgs = {
 export type Ehr = {
   guidance?: Maybe<Array<Maybe<Guidance>>>
   patient?: Maybe<Patient>
-  tasks?: Maybe<Array<Maybe<Task>>>
+  tasks?: Maybe<TaskContinuation>
 }
 
 /** Queries the LTHT EHR. */
@@ -52,6 +52,8 @@ export type EhrPatientArgs = {
 /** Queries the LTHT EHR. */
 export type EhrTasksArgs = {
   patientGuid: Scalars['String']
+  cursorToken?: Maybe<Scalars['String']>
+  count?: Maybe<Scalars['Int']>
 }
 
 /** https://hl7.org/fhir/2018May/guidanceresponse.html */
@@ -473,6 +475,20 @@ export enum PatientLinkTypeCode {
   Replaces = 'REPLACES',
   Refer = 'REFER',
   SeeAlso = 'SEE_ALSO',
+}
+
+/** A continuation of Task resources. */
+export type TaskContinuation = {
+  /** The first cursor token. */
+  firstCursorToken?: Maybe<Scalars['String']>
+  /** The next cursor token. */
+  nextCursorToken?: Maybe<Scalars['String']>
+  /** The continuation of Task resources. */
+  resources: Array<Maybe<Task>>
+  /** The self cursor token. */
+  selfCursorToken: Scalars['String']
+  /** The total number of resources available (if known). */
+  totalResources?: Maybe<Scalars['Int']>
 }
 
 /** https://www.hl7.org/fhir/STU3/task.html */
