@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.1](https://github.com/ltht-epr/ltht-react/compare/@ltht-react/medication-summary@1.3.0...@ltht-react/medication-summary@1.3.1) (2021-04-23)
+
+**Note:** Version bump only for package @ltht-react/medication-summary
+
+
+
+
+
 ## [0.0.26](https://github.com/ltht-epr/ltht-react/compare/@ltht-react/medication-summary@0.0.24...@ltht-react/medication-summary@0.0.26) (2020-11-19)
 
 **Note:** Version bump only for package @ltht-react/medication-summary
