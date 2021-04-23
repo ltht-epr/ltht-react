@@ -1,0 +1,31 @@
+{
+  "name": "@ltht-react/hooks",
+  "version": "0.0.0",
+  "description": "ltht-react custom hooks",
+  "author": "LTHT",
+  "homepage": "",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
+  "files": [
+    "lib"
+  ],
+  "directories": {
+    "lib": "lib"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "clean": "rimraf lib",
+    "build": "yarn build:lib",
+    "watch": "tsc -w",
+    "build:lib": "tsc",
+    "type:check": "tsc --noEmit",
+    "lint": "prettylint 'src/*.{ts,tsx}'"
+  },
+  "dependencies": {
+    "react": "^17.0.0",
+    "@testing-library/react-hooks": "^5.1.1"
+  }
+}

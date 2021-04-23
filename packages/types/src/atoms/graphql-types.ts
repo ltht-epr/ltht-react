@@ -34,6 +34,7 @@ export type QueryYhcrArgs = {
 export type Ehr = {
   guidance?: Maybe<Array<Maybe<Guidance>>>
   patient?: Maybe<Patient>
+  tasks?: Maybe<TaskContinuation>
 }
 
 /** Queries the LTHT EHR. */
@@ -46,6 +47,13 @@ export type EhrGuidanceArgs = {
 /** Queries the LTHT EHR. */
 export type EhrPatientArgs = {
   patientGuid: Scalars['String']
+}
+
+/** Queries the LTHT EHR. */
+export type EhrTasksArgs = {
+  patientGuid: Scalars['String']
+  cursorToken?: Maybe<Scalars['String']>
+  count?: Maybe<Scalars['Int']>
 }
 
 /** https://hl7.org/fhir/2018May/guidanceresponse.html */
@@ -94,10 +102,12 @@ export type Extension = {
   extension?: Maybe<Array<Maybe<Extension>>>
   /** Identifies the meaning of the extension. */
   url: Scalars['String']
+  /** Value of extension (Attachment). */
+  valueAttachment?: Maybe<Attachment>
   /** Value of extension (CodeableConcept). */
   valueCodeableConcept?: Maybe<CodeableConcept>
   /** Value of extension (String). */
-  valueString: Scalars['String']
+  valueString?: Maybe<Scalars['String']>
 }
 
 /** A reference to one or more terminologies or ontologies but may also be defined by the provision of text. */
@@ -124,21 +134,26 @@ export type Coding = {
   version?: Maybe<Scalars['String']>
 }
 
-export enum IdentifierUseCode {
-  Usual = 'USUAL',
-  Official = 'OFFICIAL',
-  Temp = 'TEMP',
-  Secondary = 'SECONDARY',
-}
-
-/** A time period defined by a start and end date/time. */
-export type Period = {
-  /** End time with inclusive boundary, if not ongoing. */
-  end?: Maybe<PartialDateTime>
+/** Content in a format defined elsewhere. */
+export type Attachment = {
+  /** Mime type of the content, with charset etc. */
+  contentType?: Maybe<Scalars['String']>
+  /** Date attachment was first created. */
+  creation?: Maybe<PartialDateTime>
+  /** The attachment data. */
+  data?: Maybe<Scalars['String']>
   /** Additional content defined by implementations. */
   extension?: Maybe<Array<Maybe<Extension>>>
-  /** Starting time with inclusive boundary. */
-  start?: Maybe<PartialDateTime>
+  /** Hash of the data (sha-1, base64ed). */
+  hash?: Maybe<Scalars['String']>
+  /** Human language of the content (BCP-47). */
+  language?: Maybe<Scalars['String']>
+  /** Number of bytes of content (if url provided). */
+  size?: Maybe<Scalars['Int']>
+  /** Label to display in place of the data. */
+  title?: Maybe<Scalars['String']>
+  /** Uri where the data can be found. */
+  url?: Maybe<Scalars['String']>
 }
 
 /** A Date + Time, Year, Year + Month, or just a Time. */
@@ -155,6 +170,23 @@ export enum PartialDateTimeKindCode {
   Date = 'DATE',
   DateTime = 'DATE_TIME',
   Time = 'TIME',
+}
+
+export enum IdentifierUseCode {
+  Usual = 'USUAL',
+  Official = 'OFFICIAL',
+  Temp = 'TEMP',
+  Secondary = 'SECONDARY',
+}
+
+/** A time period defined by a start and end date/time. */
+export type Period = {
+  /** End time with inclusive boundary, if not ongoing. */
+  end?: Maybe<PartialDateTime>
+  /** Additional content defined by implementations. */
+  extension?: Maybe<Array<Maybe<Extension>>>
+  /** Starting time with inclusive boundary. */
+  start?: Maybe<PartialDateTime>
 }
 
 /** General references between resources. */
@@ -407,26 +439,6 @@ export type PatientMultipleBirth = {
   multipleBirthInteger?: Maybe<Scalars['Int']>
 }
 
-/** Content in a format defined elsewhere. */
-export type Attachment = {
-  /** Mime type of the content, with charset etc. */
-  contentType?: Maybe<Scalars['String']>
-  /** Date attachment was first created. */
-  creation?: Maybe<PartialDateTime>
-  /** Additional content defined by implementations. */
-  extension?: Maybe<Array<Maybe<Extension>>>
-  /** Hash of the data (sha-1, base64ed). */
-  hash?: Maybe<Scalars['String']>
-  /** Human language of the content (BCP-47). */
-  language?: Maybe<Scalars['String']>
-  /** Number of bytes of content (if url provided). */
-  size?: Maybe<Scalars['Int']>
-  /** Label to display in place of the data. */
-  title?: Maybe<Scalars['String']>
-  /** Uri where the data can be found. */
-  url?: Maybe<Scalars['String']>
-}
-
 /** A contact party (e.g. guardian, partner, friend) for the patient. */
 export type PatientContact = {
   /** Address for the contact person. */
@@ -463,6 +475,73 @@ export enum PatientLinkTypeCode {
   Replaces = 'REPLACES',
   Refer = 'REFER',
   SeeAlso = 'SEE_ALSO',
+}
+
+/** A continuation of Task resources. */
+export type TaskContinuation = {
+  /** The first cursor token. */
+  firstCursorToken?: Maybe<Scalars['String']>
+  /** The next cursor token. */
+  nextCursorToken?: Maybe<Scalars['String']>
+  /** The continuation of Task resources. */
+  resources: Array<Maybe<Task>>
+  /** The self cursor token. */
+  selfCursorToken: Scalars['String']
+  /** The total number of resources available (if known). */
+  totalResources?: Maybe<Scalars['Int']>
+}
+
+/** https://www.hl7.org/fhir/STU3/task.html */
+export type Task = {
+  /** Task Creation Date */
+  authoredOn?: Maybe<PartialDateTime>
+  /** NotYetDue, Due, Overdue, Suspended, Completed */
+  businessStatus?: Maybe<CodeableConcept>
+  /** Task Type */
+  code?: Maybe<CodeableConcept>
+  /** Human-readable explanation of task */
+  description?: Maybe<Scalars['String']>
+  /** Start and end time of execution (start = due date, end = overdue date) */
+  executionPeriod?: Maybe<Period>
+  /** Additional content defined by implementations. */
+  extension?: Maybe<Array<Maybe<Extension>>>
+  /** Logical Id of the resource. */
+  id: Scalars['ID']
+  /** proposal | plan | order */
+  intent: IntentCode
+  /** Metadata about the resource. */
+  metadata: Metadata
+  /** The action to be performed */
+  performerType: CodeableConcept
+  /** normal | urgent | asap | stat */
+  priority?: Maybe<PriorityCode>
+  /** EHR task status */
+  status: StatusCode
+  /** Text summary of the resource, for human interpretation. */
+  text?: Maybe<Narrative>
+}
+
+export enum IntentCode {
+  Proposal = 'PROPOSAL',
+  Plan = 'PLAN',
+  Order = 'ORDER',
+}
+
+export enum PriorityCode {
+  Normal = 'NORMAL',
+  Urgent = 'URGENT',
+  Asap = 'ASAP',
+  Stat = 'STAT',
+}
+
+export enum StatusCode {
+  NotYetDue = 'NOT_YET_DUE',
+  Due = 'DUE',
+  Overdue = 'OVERDUE',
+  Complete = 'COMPLETE',
+  Suspended = 'SUSPENDED',
+  Cancelled = 'CANCELLED',
+  Skipped = 'SKIPPED',
 }
 
 /** Queries the GP Connect system. */
@@ -1349,6 +1428,7 @@ export enum FlagStatusCode {
 export type Yhcr = {
   allergyIntolerances?: Maybe<Array<Maybe<AllergyIntolerance>>>
   appointments?: Maybe<EncounterContinuation>
+  condition?: Maybe<Condition>
   conditions?: Maybe<Array<Maybe<Condition>>>
   dataAvailability?: Maybe<DataAvailability>
   documents?: Maybe<DocumentReferenceContinuation>
@@ -1367,6 +1447,12 @@ export type YhcrAppointmentsArgs = {
   status?: Maybe<Array<Maybe<EncounterStatusCode>>>
   cursorToken?: Maybe<Scalars['String']>
   count?: Maybe<Scalars['Int']>
+}
+
+/** Queries the YHCR System-of-Systems. */
+export type YhcrConditionArgs = {
+  nhsNumber: Scalars['String']
+  id: Scalars['String']
 }
 
 /** Queries the YHCR System-of-Systems. */
@@ -1631,7 +1717,7 @@ export enum DataSourceProfile {
   LeedsTesting = 'LEEDS_TESTING',
 }
 
-/** The currently logged-in User Identity, Permissions and Feature Flags. */
+/** The currently logged-in User Identity and Permissions. */
 export type User = {
   /** The Data Providers the User has access to. */
   dataProviderPermissions?: Maybe<Array<Maybe<DataProviderPermission>>>
