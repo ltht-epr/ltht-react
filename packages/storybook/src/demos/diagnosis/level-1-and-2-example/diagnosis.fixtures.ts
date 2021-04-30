@@ -22,7 +22,7 @@ const mockMetadata: Metadata = {
 
 const mockLungCancerLevel2Data: Extension[] = [
   {
-    valueString: 'Grade',
+    valueString: '',
     valueCodeableConcept: {
       coding: [
         {
@@ -32,10 +32,10 @@ const mockLungCancerLevel2Data: Extension[] = [
       ],
       text: '---',
     },
-    url: '',
+    url: 'Grade',
   },
   {
-    valueString: 'T Stage',
+    valueString: '',
     valueCodeableConcept: {
       coding: [
         {
@@ -45,10 +45,10 @@ const mockLungCancerLevel2Data: Extension[] = [
       ],
       text: '---',
     },
-    url: '',
+    url: 'T Stage',
   },
   {
-    valueString: 'N Stage',
+    valueString: '',
     valueCodeableConcept: {
       coding: [
         {
@@ -58,10 +58,10 @@ const mockLungCancerLevel2Data: Extension[] = [
       ],
       text: '---',
     },
-    url: '',
+    url: 'N Stage',
   },
   {
-    valueString: 'M Stage',
+    valueString: '',
     valueCodeableConcept: {
       coding: [
         {
@@ -71,10 +71,10 @@ const mockLungCancerLevel2Data: Extension[] = [
       ],
       text: '---',
     },
-    url: '',
+    url: 'M Stage',
   },
   {
-    valueString: 'Check Sites of Metastasis at Diagnosis',
+    valueString: '',
     valueCodeableConcept: {
       coding: [
         {
@@ -84,10 +84,10 @@ const mockLungCancerLevel2Data: Extension[] = [
       ],
       text: '---',
     },
-    url: '',
+    url: 'Check Sites of Metastasis at Diagnosis',
   },
   {
-    valueString: 'Details of Mets',
+    valueString: '',
     valueCodeableConcept: {
       coding: [
         {
@@ -97,10 +97,10 @@ const mockLungCancerLevel2Data: Extension[] = [
       ],
       text: '---',
     },
-    url: '',
+    url: 'Details of Mets',
   },
   {
-    valueString: 'FEV1 Amount',
+    valueString: '',
     valueCodeableConcept: {
       coding: [
         {
@@ -110,10 +110,10 @@ const mockLungCancerLevel2Data: Extension[] = [
       ],
       text: '---',
     },
-    url: '',
+    url: 'FEV1 Amount',
   },
   {
-    valueString: 'FEV1 %',
+    valueString: '',
     valueCodeableConcept: {
       coding: [
         {
@@ -123,10 +123,10 @@ const mockLungCancerLevel2Data: Extension[] = [
       ],
       text: '---',
     },
-    url: '',
+    url: 'FEV1 %',
   },
   {
-    valueString: 'Epidermal Growth Factor Receptor Mutational Status',
+    valueString: '',
     valueCodeableConcept: {
       coding: [
         {
@@ -136,10 +136,10 @@ const mockLungCancerLevel2Data: Extension[] = [
       ],
       text: '---',
     },
-    url: '',
+    url: 'Epidermal Growth Factor Receptor Mutational Status',
   },
   {
-    valueString: 'Dysphagia Score',
+    valueString: '',
     valueCodeableConcept: {
       coding: [
         {
@@ -149,10 +149,10 @@ const mockLungCancerLevel2Data: Extension[] = [
       ],
       text: '---',
     },
-    url: '',
+    url: 'Dysphagia Score',
   },
   {
-    valueString: 'Stage Classification',
+    valueString: '',
     valueCodeableConcept: {
       coding: [
         {
@@ -162,10 +162,10 @@ const mockLungCancerLevel2Data: Extension[] = [
       ],
       text: '---',
     },
-    url: '',
+    url: 'Stage Classification',
   },
   {
-    valueString: 'Dyspnea Score',
+    valueString: '',
     valueCodeableConcept: {
       coding: [
         {
@@ -175,10 +175,10 @@ const mockLungCancerLevel2Data: Extension[] = [
       ],
       text: '---',
     },
-    url: '',
+    url: 'Dyspnea Score',
   },
   {
-    valueString: 'Smoking History',
+    valueString: '',
     valueCodeableConcept: {
       coding: [
         {
@@ -188,10 +188,10 @@ const mockLungCancerLevel2Data: Extension[] = [
       ],
       text: '---',
     },
-    url: '',
+    url: 'Smoking History',
   },
   {
-    valueString: 'Measured FVC (L)',
+    valueString: '',
     valueCodeableConcept: {
       coding: [
         {
@@ -201,10 +201,10 @@ const mockLungCancerLevel2Data: Extension[] = [
       ],
       text: '---',
     },
-    url: '',
+    url: 'Measured FVC (L)',
   },
   {
-    valueString: 'DLCO %',
+    valueString: '',
     valueCodeableConcept: {
       coding: [
         {
@@ -214,10 +214,10 @@ const mockLungCancerLevel2Data: Extension[] = [
       ],
       text: '---',
     },
-    url: '',
+    url: 'DLCO %',
   },
   {
-    valueString: 'V02 Max at CPEX',
+    valueString: '',
     valueCodeableConcept: {
       coding: [
         {
@@ -227,10 +227,10 @@ const mockLungCancerLevel2Data: Extension[] = [
       ],
       text: '---',
     },
-    url: '',
+    url: 'V02 Max at CPEX',
   },
   {
-    valueString: 'Load (Watts) at CPEX',
+    valueString: '',
     valueCodeableConcept: {
       coding: [
         {
@@ -240,10 +240,10 @@ const mockLungCancerLevel2Data: Extension[] = [
       ],
       text: '---',
     },
-    url: '',
+    url: 'Load (Watts) at CPEX',
   },
   {
-    valueString: 'VE/VC02 at CPEX',
+    valueString: '',
     valueCodeableConcept: {
       coding: [
         {
@@ -253,13 +253,13 @@ const mockLungCancerLevel2Data: Extension[] = [
       ],
       text: '---',
     },
-    url: '',
+    url: 'VE/VC02 at CPEX',
   },
 ]
 
 const mockHemophiliaLevel2Data: Extension[] = [
   {
-    valueString: 'Grade',
+    valueString: '',
     valueCodeableConcept: {
       coding: [
         {
@@ -269,10 +269,10 @@ const mockHemophiliaLevel2Data: Extension[] = [
       ],
       text: '---',
     },
-    url: '',
+    url: 'Grade',
   },
   {
-    valueString: 'Check Sites of Metastasis at Diagnosis',
+    valueString: '',
     valueCodeableConcept: {
       coding: [
         {
@@ -282,10 +282,10 @@ const mockHemophiliaLevel2Data: Extension[] = [
       ],
       text: '---',
     },
-    url: '',
+    url: 'Check Sites of Metastasis at Diagnosis',
   },
   {
-    valueString: 'Details of Mets',
+    valueString: '',
     valueCodeableConcept: {
       coding: [
         {
@@ -295,10 +295,10 @@ const mockHemophiliaLevel2Data: Extension[] = [
       ],
       text: '---',
     },
-    url: '',
+    url: 'Details of Mets',
   },
   {
-    valueString: 'Bone Marrow aspirate of Diagnosis',
+    valueString: '',
     valueCodeableConcept: {
       coding: [
         {
@@ -308,10 +308,10 @@ const mockHemophiliaLevel2Data: Extension[] = [
       ],
       text: '---',
     },
-    url: '',
+    url: 'Bone Marrow aspirate of Diagnosis',
   },
   {
-    valueString: 'BMA Blast Cell Number (%)',
+    valueString: '',
     valueCodeableConcept: {
       coding: [
         {
@@ -321,10 +321,10 @@ const mockHemophiliaLevel2Data: Extension[] = [
       ],
       text: '---',
     },
-    url: '',
+    url: 'BMA Blast Cell Number (%)',
   },
   {
-    valueString: 'BMA Plasma Cell Number (%)',
+    valueString: '',
     valueCodeableConcept: {
       coding: [
         {
@@ -334,10 +334,10 @@ const mockHemophiliaLevel2Data: Extension[] = [
       ],
       text: '---',
     },
-    url: '',
+    url: 'BMA Plasma Cell Number (%)',
   },
   {
-    valueString: 'BMA Lymphoid Cell Number (%)',
+    valueString: '',
     valueCodeableConcept: {
       coding: [
         {
@@ -347,10 +347,10 @@ const mockHemophiliaLevel2Data: Extension[] = [
       ],
       text: '---',
     },
-    url: '',
+    url: 'BMA Lymphoid Cell Number (%)',
   },
   {
-    valueString: 'BMA Storage Iron Amount',
+    valueString: '',
     valueCodeableConcept: {
       coding: [
         {
@@ -360,10 +360,10 @@ const mockHemophiliaLevel2Data: Extension[] = [
       ],
       text: '---',
     },
-    url: '',
+    url: 'BMA Storage Iron Amount',
   },
   {
-    valueString: 'BMA Trilineage Involvement',
+    valueString: '',
     valueCodeableConcept: {
       coding: [
         {
@@ -373,10 +373,10 @@ const mockHemophiliaLevel2Data: Extension[] = [
       ],
       text: '---',
     },
-    url: '',
+    url: 'BMA Trilineage Involvement',
   },
   {
-    valueString: 'Bone Marrow Trephine at Diagnosis',
+    valueString: '',
     valueCodeableConcept: {
       coding: [
         {
@@ -386,10 +386,10 @@ const mockHemophiliaLevel2Data: Extension[] = [
       ],
       text: '---',
     },
-    url: '',
+    url: 'Bone Marrow Trephine at Diagnosis',
   },
   {
-    valueString: 'BMT Blast Cell Number (%)',
+    valueString: '',
     valueCodeableConcept: {
       coding: [
         {
@@ -399,10 +399,10 @@ const mockHemophiliaLevel2Data: Extension[] = [
       ],
       text: '---',
     },
-    url: '',
+    url: 'BMT Blast Cell Number (%)',
   },
   {
-    valueString: 'BMT Plasma Cell Number (%)',
+    valueString: '',
     valueCodeableConcept: {
       coding: [
         {
@@ -412,10 +412,10 @@ const mockHemophiliaLevel2Data: Extension[] = [
       ],
       text: '---',
     },
-    url: '',
+    url: 'BMT Plasma Cell Number (%)',
   },
   {
-    valueString: 'BMT Lymphoid Cell Number (%)',
+    valueString: '',
     valueCodeableConcept: {
       coding: [
         {
@@ -425,10 +425,10 @@ const mockHemophiliaLevel2Data: Extension[] = [
       ],
       text: '---',
     },
-    url: '',
+    url: 'BMT Lymphoid Cell Number (%)',
   },
   {
-    valueString: 'BMT Pattern of Infiltration',
+    valueString: '',
     valueCodeableConcept: {
       coding: [
         {
@@ -438,10 +438,10 @@ const mockHemophiliaLevel2Data: Extension[] = [
       ],
       text: '---',
     },
-    url: '',
+    url: 'BMT Pattern of Infiltration',
   },
   {
-    valueString: 'BMT Pattern of Reticulin',
+    valueString: '',
     valueCodeableConcept: {
       coding: [
         {
@@ -451,10 +451,10 @@ const mockHemophiliaLevel2Data: Extension[] = [
       ],
       text: '---',
     },
-    url: '',
+    url: 'BMT Pattern of Reticulin',
   },
   {
-    valueString: 'BMT Trilineage Involvement',
+    valueString: '',
     valueCodeableConcept: {
       coding: [
         {
@@ -464,10 +464,10 @@ const mockHemophiliaLevel2Data: Extension[] = [
       ],
       text: '---',
     },
-    url: '',
+    url: 'BMT Trilineage Involvement',
   },
   {
-    valueString: 'Source on which diagnosis made',
+    valueString: '',
     valueCodeableConcept: {
       coding: [
         {
@@ -477,10 +477,10 @@ const mockHemophiliaLevel2Data: Extension[] = [
       ],
       text: '---',
     },
-    url: '',
+    url: 'Source on which diagnosis made',
   },
   {
-    valueString: 'Cells Analysed For Immunophenotype (%)',
+    valueString: '',
     valueCodeableConcept: {
       coding: [
         {
@@ -490,10 +490,10 @@ const mockHemophiliaLevel2Data: Extension[] = [
       ],
       text: '---',
     },
-    url: '',
+    url: 'Cells Analysed For Immunophenotype (%)',
   },
   {
-    valueString: 'Bone Marrow Karyotype',
+    valueString: '',
     valueCodeableConcept: {
       coding: [
         {
@@ -503,10 +503,10 @@ const mockHemophiliaLevel2Data: Extension[] = [
       ],
       text: '---',
     },
-    url: '',
+    url: 'Bone Marrow Karyotype',
   },
   {
-    valueString: 'Cytogenetic Risk Group',
+    valueString: '',
     valueCodeableConcept: {
       coding: [
         {
@@ -516,10 +516,10 @@ const mockHemophiliaLevel2Data: Extension[] = [
       ],
       text: '---',
     },
-    url: '',
+    url: 'Cytogenetic Risk Group',
   },
   {
-    valueString: 'Number of Abnormal Nodal Areas',
+    valueString: '',
     valueCodeableConcept: {
       coding: [
         {
@@ -529,10 +529,10 @@ const mockHemophiliaLevel2Data: Extension[] = [
       ],
       text: '---',
     },
-    url: '',
+    url: 'Number of Abnormal Nodal Areas',
   },
   {
-    valueString: 'Primary Extranodal Site',
+    valueString: '',
     valueCodeableConcept: {
       coding: [
         {
@@ -542,10 +542,10 @@ const mockHemophiliaLevel2Data: Extension[] = [
       ],
       text: '---',
     },
-    url: '',
+    url: 'Primary Extranodal Site',
   },
   {
-    valueString: 'Number Of Extranodal Sites Code',
+    valueString: '',
     valueCodeableConcept: {
       coding: [
         {
@@ -555,10 +555,10 @@ const mockHemophiliaLevel2Data: Extension[] = [
       ],
       text: '---',
     },
-    url: '',
+    url: 'Number Of Extranodal Sites Code',
   },
   {
-    valueString: 'Spleen Cm Below Costal Margin',
+    valueString: '',
     valueCodeableConcept: {
       coding: [
         {
@@ -568,10 +568,10 @@ const mockHemophiliaLevel2Data: Extension[] = [
       ],
       text: '---',
     },
-    url: '',
+    url: 'Spleen Cm Below Costal Margin',
   },
   {
-    valueString: 'Hepatomegaly Indicator',
+    valueString: '',
     valueCodeableConcept: {
       coding: [
         {
@@ -581,10 +581,10 @@ const mockHemophiliaLevel2Data: Extension[] = [
       ],
       text: '---',
     },
-    url: '',
+    url: 'Hepatomegaly Indicator',
   },
   {
-    valueString: 'Splenomegaly Indicator',
+    valueString: '',
     valueCodeableConcept: {
       coding: [
         {
@@ -594,10 +594,10 @@ const mockHemophiliaLevel2Data: Extension[] = [
       ],
       text: '---',
     },
-    url: '',
+    url: 'Splenomegaly Indicator',
   },
   {
-    valueString: 'Number Of Lymphadenopathy Areas',
+    valueString: '',
     valueCodeableConcept: {
       coding: [
         {
@@ -607,10 +607,10 @@ const mockHemophiliaLevel2Data: Extension[] = [
       ],
       text: '---',
     },
-    url: '',
+    url: 'Number Of Lymphadenopathy Areas',
   },
   {
-    valueString: 'HASFORD Index (CML)',
+    valueString: '',
     valueCodeableConcept: {
       coding: [
         {
@@ -620,10 +620,10 @@ const mockHemophiliaLevel2Data: Extension[] = [
       ],
       text: '---',
     },
-    url: '',
+    url: 'HASFORD Index (CML)',
   },
   {
-    valueString: 'SOKAL Index (CML)',
+    valueString: '',
     valueCodeableConcept: {
       coding: [
         {
@@ -633,10 +633,10 @@ const mockHemophiliaLevel2Data: Extension[] = [
       ],
       text: '---',
     },
-    url: '',
+    url: 'SOKAL Index (CML)',
   },
   {
-    valueString: 'IPSS (myelodysplasia)',
+    valueString: '',
     valueCodeableConcept: {
       coding: [
         {
@@ -646,10 +646,10 @@ const mockHemophiliaLevel2Data: Extension[] = [
       ],
       text: '---',
     },
-    url: '',
+    url: 'IPSS (myelodysplasia)',
   },
   {
-    valueString: 'HASENCLEVER Index',
+    valueString: '',
     valueCodeableConcept: {
       coding: [
         {
@@ -659,10 +659,10 @@ const mockHemophiliaLevel2Data: Extension[] = [
       ],
       text: '---',
     },
-    url: '',
+    url: 'HASENCLEVER Index',
   },
   {
-    valueString: 'FLIPI IndexCOSD',
+    valueString: '',
     valueCodeableConcept: {
       coding: [
         {
@@ -672,10 +672,10 @@ const mockHemophiliaLevel2Data: Extension[] = [
       ],
       text: '---',
     },
-    url: '',
+    url: 'FLIPI IndexCOSD',
   },
   {
-    valueString: 'RIPI Index for DLBCL Score',
+    valueString: '',
     valueCodeableConcept: {
       coding: [
         {
@@ -685,10 +685,10 @@ const mockHemophiliaLevel2Data: Extension[] = [
       ],
       text: '---',
     },
-    url: '',
+    url: 'RIPI Index for DLBCL Score',
   },
   {
-    valueString: 'Extramedullary Disease',
+    valueString: '',
     valueCodeableConcept: {
       coding: [
         {
@@ -698,10 +698,10 @@ const mockHemophiliaLevel2Data: Extension[] = [
       ],
       text: '---',
     },
-    url: '',
+    url: 'Extramedullary Disease',
   },
   {
-    valueString: 'Has Ann Arbor Symptoms?',
+    valueString: '',
     valueCodeableConcept: {
       coding: [
         {
@@ -711,10 +711,10 @@ const mockHemophiliaLevel2Data: Extension[] = [
       ],
       text: '---',
     },
-    url: '',
+    url: 'Has Ann Arbor Symptoms?',
   },
   {
-    valueString: 'Ann Arbor Extranodal Involvement?',
+    valueString: '',
     valueCodeableConcept: {
       coding: [
         {
@@ -724,10 +724,10 @@ const mockHemophiliaLevel2Data: Extension[] = [
       ],
       text: '---',
     },
-    url: '',
+    url: 'Ann Arbor Extranodal Involvement?',
   },
   {
-    valueString: 'Ann Arbor Bulky Disease Present?',
+    valueString: '',
     valueCodeableConcept: {
       coding: [
         {
@@ -737,7 +737,7 @@ const mockHemophiliaLevel2Data: Extension[] = [
       ],
       text: '---',
     },
-    url: '',
+    url: 'Ann Arbor Bulky Disease Present?',
   },
 ]
 

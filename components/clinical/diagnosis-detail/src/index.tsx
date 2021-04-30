@@ -54,17 +54,17 @@ const DiagnosisDetail: FC<Props> = ({ condition, links }) => {
       {condition.extension?.map((extension, index) => {
         if (index === 0) {
           return (
-            <Fragment key={`level-2-detail-${extension?.valueString}`}>
+            <Fragment key={`level-2-detail-${extension?.url}`}>
               <Seperator />
-              <CodeableConceptDetail term={extension?.valueString || ''} concept={extension?.valueCodeableConcept} />
+              <CodeableConceptDetail term={extension?.url || ''} concept={extension?.valueCodeableConcept} />
             </Fragment>
           )
         }
 
         return (
           <CodeableConceptDetail
-            key={`level-2-detail-${extension?.valueString}`}
-            term={extension?.valueString || ''}
+            key={`level-2-detail-${extension?.url}`}
+            term={extension?.url || ''}
             concept={extension?.valueCodeableConcept}
           />
         )
