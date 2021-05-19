@@ -6,10 +6,12 @@ import { formatDate } from '@ltht-react/utils'
 
 const StyledDocumentDate = styled.div``
 
-const DocumentDate: FC<Props> = ({ document: { created, description }, ...rest }) => {
+const DocumentDate: FC<Props> = ({ document: { created, description, indexed }, ...rest }) => {
   if (!description) return <></>
 
-  const formattedDate = formatDate(new Date(Date.parse(created?.value ?? '')))
+  const date = created?.value ? created?.value ?? '' : indexed.value ?? ''
+
+  const formattedDate = formatDate(new Date(Date.parse(date)))
 
   return <StyledDocumentDate {...rest}>{formattedDate}</StyledDocumentDate>
 }

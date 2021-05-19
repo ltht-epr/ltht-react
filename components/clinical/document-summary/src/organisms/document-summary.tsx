@@ -15,11 +15,12 @@ const StyledSummary = styled.div`
   align-items: center;
 `
 
-const StyledDate = styled.div``
+const StyledDate = styled.div`
+  margin-right: 0.5rem;
+`
 
 const StyledDescription = styled.div`
   flex-grow: 1;
-  margin-left: 0.5rem;
 `
 
 const StyledSource = styled.div`

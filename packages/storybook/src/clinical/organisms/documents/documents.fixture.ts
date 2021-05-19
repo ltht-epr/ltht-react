@@ -25,7 +25,7 @@ const Document1: DocumentReference = {
     value: '2020-04-01T00:00:00+00:00',
   },
   created: {
-    value: '2020-04-01T00:00:00+00:00',
+    value: null,
   },
   status: DocumentReferenceStatusCode.Current,
   type: {},
