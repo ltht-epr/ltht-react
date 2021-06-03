@@ -8,12 +8,17 @@ const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
   color: ${ICON_COLOURS.PRIMARY};
 `
 
-const SpinnerIcon: FC<Props> = ({ size }) => (
-  <StyledFontAwesomeIcon className="fa-spin icon__spinner" icon={faSync} size={calculateIconSize(size)} />
+const SpinnerIcon: FC<Props> = ({ size, animate = true }) => (
+  <StyledFontAwesomeIcon
+    className={`icon__spinner${animate && ' fa-spin'}`}
+    icon={faSync}
+    size={calculateIconSize(size)}
+  />
 )
 
 interface Props {
   size: IconSizes
+  animate?: boolean
 }
 
 export default SpinnerIcon
