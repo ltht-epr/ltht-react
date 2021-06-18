@@ -1,6 +1,6 @@
 {
   "name": "@ltht-react/root",
-  "version": "1.3.6",
+  "version": "1.3.7",
   "description": "> TODO: description",
   "author": "Jonny Smith <jonny.asmith@gmail.com>",
   "homepage": "",
@@ -34,7 +34,7 @@
     "@ltht-react/community-treatment-order-summary": "^1.3.3",
     "@ltht-react/description-list": "^1.3.2",
     "@ltht-react/detail": "^1.3.3",
-    "@ltht-react/diagnosis-detail": "^1.3.4",
+    "@ltht-react/diagnosis-detail": "^1.3.5",
     "@ltht-react/diagnosis-summary": "^1.3.3",
     "@ltht-react/document-summary": "^1.3.4",
     "@ltht-react/eform": "^1.3.2",
