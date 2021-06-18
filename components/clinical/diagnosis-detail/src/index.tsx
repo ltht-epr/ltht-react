@@ -40,23 +40,13 @@ const DiagnosisDetail: FC<Props> = ({ condition, links }) => {
         <CodeableConceptDetail term="Diagnosis" concept={condition.code} links={links} />
         <CodingListDetail term="Data Source(s)" codings={condition.metadata.dataSources} />
       </TopSection>
-      <DatetimeDetail term="Onset Date" datetime={condition.onset?.dateTime} />
-      <StringDetail term="Clinical Status" description={condition.clinicalStatus?.toString()} />
-      <StringDetail term="Verification Status" description={condition.verificationStatus?.toString()} />
-      <CodeableConceptListDetail term="Category" concepts={condition.category} />
-      <CodeableConceptDetail term="Severity" concept={condition.severity} />
-      <CodeableConceptListDetail term="Location" concepts={condition.bodySite} links={links} />
-      <CodeableConceptListDetail term="Evidence" concepts={evidence} links={links} />
-      <CodeableConceptDetail term="Stage" concept={condition.stage?.summary} links={links} />
-      <ResourceReferenceDetail term="Asserted By" resourceReference={condition.asserter} />
-      <DatetimeDetail term="Asserted Date" datetime={condition.assertedDate} />
 
       {condition.extension?.map((extension, index) => {
-        if (index === 0) {
+        if (index + 1 === condition.extension?.length) {
           return (
             <Fragment key={`level-2-detail-${extension?.url}`}>
-              <Seperator />
               <CodeableConceptDetail term={extension?.url || ''} concept={extension?.valueCodeableConcept} />
+              <Seperator />
             </Fragment>
           )
         }
@@ -69,6 +59,17 @@ const DiagnosisDetail: FC<Props> = ({ condition, links }) => {
           />
         )
       })}
+
+      <DatetimeDetail term="Onset Date" datetime={condition.onset?.dateTime} />
+      <StringDetail term="Clinical Status" description={condition.clinicalStatus?.toString()} />
+      <StringDetail term="Verification Status" description={condition.verificationStatus?.toString()} />
+      <CodeableConceptListDetail term="Category" concepts={condition.category} />
+      <CodeableConceptDetail term="Severity" concept={condition.severity} />
+      <CodeableConceptListDetail term="Location" concepts={condition.bodySite} links={links} />
+      <CodeableConceptListDetail term="Evidence" concepts={evidence} links={links} />
+      <CodeableConceptDetail term="Stage" concept={condition.stage?.summary} links={links} />
+      <ResourceReferenceDetail term="Asserted By" resourceReference={condition.asserter} />
+      <DatetimeDetail term="Asserted Date" datetime={condition.assertedDate} />
     </>
   )
 }
