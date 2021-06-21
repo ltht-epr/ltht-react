@@ -34,9 +34,11 @@ const HospitalStaySummary: FC<Props> = ({ hospitalStay }) => {
       <StyledDate>
         <PeriodSummary period={hospitalStay.period} />
       </StyledDate>
-      <StyledDescription>
-        <Description encounter={hospitalStay} />
-      </StyledDescription>
+      {hospitalStay.text && (
+        <StyledDescription>
+          <Description encounter={hospitalStay} />
+        </StyledDescription>
+      )}
       <StyledService>
         <ServiceProvider encounter={hospitalStay} />
       </StyledService>

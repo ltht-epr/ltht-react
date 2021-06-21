@@ -10,9 +10,12 @@ const StyledAppointmentDescription = styled.div`
   margin-left: 0.5em;
 `
 
-const AppointmentDescription: FC<Props> = ({ encounter, ...rest }) => (
-  <StyledAppointmentDescription {...rest}>{encounter.text && encounter.text.text}</StyledAppointmentDescription>
-)
+const AppointmentDescription: FC<Props> = ({ encounter, ...rest }) => {
+  if (encounter.text)
+    return <StyledAppointmentDescription {...rest}>{encounter.text.text}</StyledAppointmentDescription>
+
+  return null
+}
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   encounter: Encounter

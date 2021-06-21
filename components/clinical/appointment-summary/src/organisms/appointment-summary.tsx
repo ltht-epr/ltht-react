@@ -39,9 +39,11 @@ const AppointmentSummary: FC<Props> = ({ encounter, ...rest }) => {
       <StyledDate>
         <DateSummary datetime={encounter?.period?.start} />
       </StyledDate>
-      <StyledDescription>
-        <Description encounter={encounter} />
-      </StyledDescription>
+      {encounter.text && (
+        <StyledDescription>
+          <Description encounter={encounter} />
+        </StyledDescription>
+      )}
       <StyledService>
         <ServiceProvider encounter={encounter} />
         <Status encounter={encounter} />
