@@ -81,7 +81,7 @@ const StyledButton = styled.button<StyledProps>`
   }
 
   ${DESKTOP_MEDIA_QUERY} {
-    font-size: 1rem;
+    font-size: 0.9rem;
     display: flex;
     align-items: center;
     justify-content: center;

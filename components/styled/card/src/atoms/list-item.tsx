@@ -28,7 +28,7 @@ const StyledListItem = styled.li`
   position: relative;
   display: flex;
   align-items: center;
-  padding: 0.75rem;
+  padding: 0.5rem 0.75rem;
   margin: 0;
   border: 1px solid #d6d6d6;
   border-width: 1px 0 0 0;

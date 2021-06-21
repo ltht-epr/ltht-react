@@ -4,7 +4,7 @@ import styled from '@emotion/styled'
 
 const StyledHeader = styled.div`
   padding: 0.75rem 0.75rem 0.75rem 0;
-  margin: 0 0 0 0.75rem;
+  margin-left: 0.75rem;
 `
 
 const Header: FC<Props> = ({ classes, children, ...rest }) => (

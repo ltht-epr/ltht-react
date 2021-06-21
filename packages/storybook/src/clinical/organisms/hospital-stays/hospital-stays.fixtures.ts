@@ -24,10 +24,6 @@ const HospitalStayOne: Encounter = {
   id: '580ca927-34e0-e911-a2c7-005056926fe4|hospitalstay',
   metadata: mockMetadata,
   serviceProvider: { display: 'Chapel Allerton Hospital', typeName: 'Hospital' },
-  text: {
-    text: 'Chest x-ray for recent car accident',
-    div: 'test',
-  },
   period: {
     start: {
       value: '2013-01-01T00:00:00+00:00',

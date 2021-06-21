@@ -19,20 +19,17 @@ const CSS_RESET = css`
 
   ${TABLET_MEDIA_QUERY} {
     font-size: 0.9rem;
+  }
+
+  ${DESKTOP_MEDIA_QUERY} {
+    & h3 {
+      font-size: 1rem;
+    }
+  }
+
+  ${WIDESCREEN_MEDIA_QUERY} {
     & h3 {
       font-size: 1.1rem;
-    }
-  }
-  ${DESKTOP_MEDIA_QUERY} {
-    font-size: 1rem;
-    & h3 {
-      font-size: 1.2rem;
-    }
-  }
-  ${WIDESCREEN_MEDIA_QUERY} {
-    font-size: 1.1rem;
-    & h3 {
-      font-size: 1.3rem;
     }
   }
 `
