@@ -32,9 +32,24 @@ export type QueryYhcrArgs = {
 
 /** Queries the LTHT EHR. */
 export type Ehr = {
+  condition?: Maybe<Condition>
+  conditions?: Maybe<ConditionContinuation>
   guidance?: Maybe<Array<Maybe<Guidance>>>
   patient?: Maybe<Patient>
   tasks?: Maybe<TaskContinuation>
+}
+
+/** Queries the LTHT EHR. */
+export type EhrConditionArgs = {
+  patientGuid: Scalars['String']
+  id: Scalars['String']
+}
+
+/** Queries the LTHT EHR. */
+export type EhrConditionsArgs = {
+  patientGuid: Scalars['String']
+  cursorToken?: Maybe<Scalars['String']>
+  count?: Maybe<Scalars['Int']>
 }
 
 /** Queries the LTHT EHR. */
@@ -56,44 +71,47 @@ export type EhrTasksArgs = {
   count?: Maybe<Scalars['Int']>
 }
 
-/** https://hl7.org/fhir/2018May/guidanceresponse.html */
-export type Guidance = {
+export type Condition = {
+  abatement?: Maybe<ConditionAbatement>
+  assertedDate?: Maybe<PartialDateTime>
+  asserter?: Maybe<ResourceReference>
+  bodySite?: Maybe<Array<Maybe<CodeableConcept>>>
+  category?: Maybe<Array<Maybe<CodeableConcept>>>
+  clinicalStatus?: Maybe<ConditionClinicalStatus>
+  code?: Maybe<CodeableConcept>
+  context?: Maybe<ResourceReference>
+  evidence?: Maybe<Array<Maybe<ConditionEvidence>>>
   /** Additional content defined by implementations. */
   extension?: Maybe<Array<Maybe<Extension>>>
   /** Logical Id of the resource. */
   id: Scalars['ID']
+  identifier?: Maybe<Array<Maybe<Identifier>>>
   /** Metadata about the resource. */
   metadata: Metadata
-  /** The guidance item. */
-  note?: Maybe<Array<Maybe<Annotation>>>
-  /** When the guidance response was processed. */
-  occuranceDateTime?: Maybe<PartialDateTime>
-  /** Describes the reason for the guidance response in coded or textual form. */
-  reasonCode?: Maybe<CodeableConcept>
-  /** The identifier of the request associated with this response, if any. */
-  requestIdentifier?: Maybe<Identifier>
-  /** http://hl7.org/fhir/ValueSet/guidance-response-status */
-  status: GuidanceStatusCode
+  onset?: Maybe<ConditionOnset>
+  severity?: Maybe<CodeableConcept>
+  stage?: Maybe<ConditionStage>
   /** Text summary of the resource, for human interpretation. */
   text?: Maybe<Narrative>
+  verificationStatus?: Maybe<ConditionVerificationStatus>
 }
 
-/** A business identifier associated with a single object or entity within a given system. */
-export type Identifier = {
-  /** Organization that issued id (may be just text). */
-  assigner?: Maybe<ResourceReference>
+/** Metadata about the resource. */
+export type Metadata = {
+  /** The sources of the resource. */
+  dataSources: Array<Maybe<Coding>>
   /** Additional content defined by implementations. */
   extension?: Maybe<Array<Maybe<Extension>>>
-  /** Time period when id is/was valid for use. */
-  period?: Maybe<Period>
-  /** The namespace for the identifier value. */
-  system?: Maybe<Scalars['String']>
-  /** http://hl7.org/fhir/stu3/valueset-identifier-type.html */
-  type?: Maybe<CodeableConcept>
-  /** http://hl7.org/fhir/stu3/valueset-identifier-use.html */
-  use?: Maybe<IdentifierUseCode>
-  /** The value that is unique. */
-  value: Scalars['String']
+  /** Has data been redacted for this resource instance? */
+  isRedacted: Scalars['Boolean']
+  /** When the resource last changed - e.g. when the version changed. */
+  lastUpdated?: Maybe<Scalars['DateTimeOffset']>
+  /** When the resource was requested. */
+  requestedWhen: Scalars['DateTimeOffset']
+  /** Security tags for this resource instance. */
+  security?: Maybe<Array<Maybe<Coding>>>
+  /** The version specific identifier. This value changes when the resource is created, updated, or deleted. */
+  versionId?: Maybe<Scalars['String']>
 }
 
 /** Additional content defined by implementations. */
@@ -172,11 +190,53 @@ export enum PartialDateTimeKindCode {
   Time = 'TIME',
 }
 
-export enum IdentifierUseCode {
-  Usual = 'USUAL',
-  Official = 'OFFICIAL',
-  Temp = 'TEMP',
-  Secondary = 'SECONDARY',
+/** Text summary of the resource, for human interpretation. */
+export type Narrative = {
+  /** Limited xhtml content. */
+  div: Scalars['String']
+  /** Additional content defined by implementations. */
+  extension?: Maybe<Array<Maybe<Extension>>>
+  /** http://hl7.org/fhir/narrative-status */
+  status?: Maybe<NarrativeStatusCode>
+  /** Parsed text from Div. */
+  text: Scalars['String']
+}
+
+export enum NarrativeStatusCode {
+  Generated = 'GENERATED',
+  Extensions = 'EXTENSIONS',
+  Additional = 'ADDITIONAL',
+  Empty = 'EMPTY',
+}
+
+export type ConditionAbatement = {
+  age?: Maybe<Quantity>
+  dateTime: Period
+  /** Additional content defined by implementations. */
+  extension?: Maybe<Array<Maybe<Extension>>>
+}
+
+/** A measured amount (or an amount that can potentially be measured). */
+export type Quantity = {
+  /** Coded form of the unit. */
+  code?: Maybe<Scalars['String']>
+  /** < | <= | >= | > - how to understand the value. */
+  comparator?: Maybe<QuantityComparatorCode>
+  /** Additional content defined by implementations. */
+  extension?: Maybe<Array<Maybe<Extension>>>
+  /** System that defines coded unit form. */
+  system?: Maybe<Scalars['String']>
+  /** Unit representation. */
+  unit?: Maybe<Scalars['String']>
+  /** Numerical value (with implicit precision). */
+  value?: Maybe<Scalars['Decimal']>
+}
+
+export enum QuantityComparatorCode {
+  LessThan = 'LESS_THAN',
+  LessOrEqualTo = 'LESS_OR_EQUAL_TO',
+  GreaterOrEqualTo = 'GREATER_OR_EQUAL_TO',
+  GreaterThan = 'GREATER_THAN',
 }
 
 /** A time period defined by a start and end date/time. */
@@ -203,6 +263,118 @@ export type ResourceReference = {
   typeName: Scalars['String']
 }
 
+/** A business identifier associated with a single object or entity within a given system. */
+export type Identifier = {
+  /** Organization that issued id (may be just text). */
+  assigner?: Maybe<ResourceReference>
+  /** Additional content defined by implementations. */
+  extension?: Maybe<Array<Maybe<Extension>>>
+  /** Time period when id is/was valid for use. */
+  period?: Maybe<Period>
+  /** The namespace for the identifier value. */
+  system?: Maybe<Scalars['String']>
+  /** http://hl7.org/fhir/stu3/valueset-identifier-type.html */
+  type?: Maybe<CodeableConcept>
+  /** http://hl7.org/fhir/stu3/valueset-identifier-use.html */
+  use?: Maybe<IdentifierUseCode>
+  /** The value that is unique. */
+  value: Scalars['String']
+}
+
+export enum IdentifierUseCode {
+  Usual = 'USUAL',
+  Official = 'OFFICIAL',
+  Temp = 'TEMP',
+  Secondary = 'SECONDARY',
+}
+
+export enum ConditionClinicalStatus {
+  Active = 'ACTIVE',
+  Recurrence = 'RECURRENCE',
+  Inactive = 'INACTIVE',
+  Remission = 'REMISSION',
+  Resolved = 'RESOLVED',
+}
+
+export type ConditionEvidence = {
+  code?: Maybe<Array<Maybe<CodeableConcept>>>
+  detail?: Maybe<ResourceReference>
+  /** Additional content defined by implementations. */
+  extension?: Maybe<Array<Maybe<Extension>>>
+}
+
+export type ConditionOnset = {
+  age?: Maybe<Quantity>
+  dateTime?: Maybe<PartialDateTime>
+  /** Additional content defined by implementations. */
+  extension?: Maybe<Array<Maybe<Extension>>>
+  period?: Maybe<Period>
+  range?: Maybe<Range>
+  string?: Maybe<Scalars['String']>
+}
+
+/** A set of ordered Quantity values defined by a low and high limit. */
+export type Range = {
+  /** Additional content defined by implementations. */
+  extension?: Maybe<Array<Maybe<Extension>>>
+  /** Low limit. */
+  high?: Maybe<Quantity>
+  /** High limit. */
+  low?: Maybe<Quantity>
+}
+
+export type ConditionStage = {
+  assessment?: Maybe<Array<Maybe<ResourceReference>>>
+  /** Additional content defined by implementations. */
+  extension?: Maybe<Array<Maybe<Extension>>>
+  summary?: Maybe<CodeableConcept>
+}
+
+export enum ConditionVerificationStatus {
+  Provisional = 'PROVISIONAL',
+  Differential = 'DIFFERENTIAL',
+  Confirmed = 'CONFIRMED',
+  Refuted = 'REFUTED',
+  EnteredinError = 'ENTEREDIN_ERROR',
+  Unknown = 'UNKNOWN',
+}
+
+/** A continuation of Condition resources. */
+export type ConditionContinuation = {
+  /** The first cursor token. */
+  firstCursorToken?: Maybe<Scalars['String']>
+  /** The next cursor token. */
+  nextCursorToken?: Maybe<Scalars['String']>
+  /** The continuation of Condition resources. */
+  resources: Array<Maybe<Condition>>
+  /** The self cursor token. */
+  selfCursorToken: Scalars['String']
+  /** The total number of resources available (if known). */
+  totalResources?: Maybe<Scalars['Int']>
+}
+
+/** https://hl7.org/fhir/2018May/guidanceresponse.html */
+export type Guidance = {
+  /** Additional content defined by implementations. */
+  extension?: Maybe<Array<Maybe<Extension>>>
+  /** Logical Id of the resource. */
+  id: Scalars['ID']
+  /** Metadata about the resource. */
+  metadata: Metadata
+  /** The guidance item. */
+  note?: Maybe<Array<Maybe<Annotation>>>
+  /** When the guidance response was processed. */
+  occuranceDateTime?: Maybe<PartialDateTime>
+  /** Describes the reason for the guidance response in coded or textual form. */
+  reasonCode?: Maybe<CodeableConcept>
+  /** The identifier of the request associated with this response, if any. */
+  requestIdentifier?: Maybe<Identifier>
+  /** http://hl7.org/fhir/ValueSet/guidance-response-status */
+  status: GuidanceStatusCode
+  /** Text summary of the resource, for human interpretation. */
+  text?: Maybe<Narrative>
+}
+
 /** A text note which also contains information about who made the statement and when. */
 export type Annotation = {
   /** Individual responsible for the annotation. */
@@ -222,43 +394,6 @@ export enum GuidanceStatusCode {
   InProgress = 'IN_PROGRESS',
   Failure = 'FAILURE',
   EnteredInError = 'ENTERED_IN_ERROR',
-}
-
-/** Metadata about the resource. */
-export type Metadata = {
-  /** The sources of the resource. */
-  dataSources: Array<Maybe<Coding>>
-  /** Additional content defined by implementations. */
-  extension?: Maybe<Array<Maybe<Extension>>>
-  /** Has data been redacted for this resource instance? */
-  isRedacted: Scalars['Boolean']
-  /** When the resource last changed - e.g. when the version changed. */
-  lastUpdated?: Maybe<Scalars['DateTimeOffset']>
-  /** When the resource was requested. */
-  requestedWhen: Scalars['DateTimeOffset']
-  /** Security tags for this resource instance. */
-  security?: Maybe<Array<Maybe<Coding>>>
-  /** The version specific identifier. This value changes when the resource is created, updated, or deleted. */
-  versionId?: Maybe<Scalars['String']>
-}
-
-/** Text summary of the resource, for human interpretation. */
-export type Narrative = {
-  /** Limited xhtml content. */
-  div: Scalars['String']
-  /** Additional content defined by implementations. */
-  extension?: Maybe<Array<Maybe<Extension>>>
-  /** http://hl7.org/fhir/narrative-status */
-  status?: Maybe<NarrativeStatusCode>
-  /** Parsed text from Div. */
-  text: Scalars['String']
-}
-
-export enum NarrativeStatusCode {
-  Generated = 'GENERATED',
-  Extensions = 'EXTENSIONS',
-  Additional = 'ADDITIONAL',
-  Empty = 'EMPTY',
 }
 
 /** The patient resource represents the patient involved in the provision of healthcare related services. */
@@ -828,39 +963,6 @@ export type AllergyIntoleranceOnSet = {
   onSetPeriod?: Maybe<Period>
   onSetRange?: Maybe<Range>
   onSetString?: Maybe<Scalars['String']>
-}
-
-/** A measured amount (or an amount that can potentially be measured). */
-export type Quantity = {
-  /** Coded form of the unit. */
-  code?: Maybe<Scalars['String']>
-  /** < | <= | >= | > - how to understand the value. */
-  comparator?: Maybe<QuantityComparatorCode>
-  /** Additional content defined by implementations. */
-  extension?: Maybe<Array<Maybe<Extension>>>
-  /** System that defines coded unit form. */
-  system?: Maybe<Scalars['String']>
-  /** Unit representation. */
-  unit?: Maybe<Scalars['String']>
-  /** Numerical value (with implicit precision). */
-  value?: Maybe<Scalars['Decimal']>
-}
-
-export enum QuantityComparatorCode {
-  LessThan = 'LESS_THAN',
-  LessOrEqualTo = 'LESS_OR_EQUAL_TO',
-  GreaterOrEqualTo = 'GREATER_OR_EQUAL_TO',
-  GreaterThan = 'GREATER_THAN',
-}
-
-/** A set of ordered Quantity values defined by a low and high limit. */
-export type Range = {
-  /** Additional content defined by implementations. */
-  extension?: Maybe<Array<Maybe<Extension>>>
-  /** Low limit. */
-  high?: Maybe<Quantity>
-  /** High limit. */
-  low?: Maybe<Quantity>
 }
 
 /** Adverse Reaction Events linked to exposure to substance. */
@@ -1484,79 +1586,6 @@ export type YhcrHospitalStaysArgs = {
 /** Queries the YHCR System-of-Systems. */
 export type YhcrObservationsArgs = {
   nhsNumber: Scalars['String']
-}
-
-export type Condition = {
-  abatement?: Maybe<ConditionAbatement>
-  assertedDate?: Maybe<PartialDateTime>
-  asserter?: Maybe<ResourceReference>
-  bodySite?: Maybe<Array<Maybe<CodeableConcept>>>
-  category?: Maybe<Array<Maybe<CodeableConcept>>>
-  clinicalStatus?: Maybe<ConditionClinicalStatus>
-  code?: Maybe<CodeableConcept>
-  context?: Maybe<ResourceReference>
-  evidence?: Maybe<Array<Maybe<ConditionEvidence>>>
-  /** Additional content defined by implementations. */
-  extension?: Maybe<Array<Maybe<Extension>>>
-  /** Logical Id of the resource. */
-  id: Scalars['ID']
-  identifier?: Maybe<Array<Maybe<Identifier>>>
-  /** Metadata about the resource. */
-  metadata: Metadata
-  onset?: Maybe<ConditionOnset>
-  severity?: Maybe<CodeableConcept>
-  stage?: Maybe<ConditionStage>
-  /** Text summary of the resource, for human interpretation. */
-  text?: Maybe<Narrative>
-  verificationStatus?: Maybe<ConditionVerificationStatus>
-}
-
-export type ConditionAbatement = {
-  age?: Maybe<Quantity>
-  dateTime: Period
-  /** Additional content defined by implementations. */
-  extension?: Maybe<Array<Maybe<Extension>>>
-}
-
-export enum ConditionClinicalStatus {
-  Active = 'ACTIVE',
-  Recurrence = 'RECURRENCE',
-  Inactive = 'INACTIVE',
-  Remission = 'REMISSION',
-  Resolved = 'RESOLVED',
-}
-
-export type ConditionEvidence = {
-  code?: Maybe<Array<Maybe<CodeableConcept>>>
-  detail?: Maybe<ResourceReference>
-  /** Additional content defined by implementations. */
-  extension?: Maybe<Array<Maybe<Extension>>>
-}
-
-export type ConditionOnset = {
-  age?: Maybe<Quantity>
-  dateTime?: Maybe<PartialDateTime>
-  /** Additional content defined by implementations. */
-  extension?: Maybe<Array<Maybe<Extension>>>
-  period?: Maybe<Period>
-  range?: Maybe<Range>
-  string?: Maybe<Scalars['String']>
-}
-
-export type ConditionStage = {
-  assessment?: Maybe<Array<Maybe<ResourceReference>>>
-  /** Additional content defined by implementations. */
-  extension?: Maybe<Array<Maybe<Extension>>>
-  summary?: Maybe<CodeableConcept>
-}
-
-export enum ConditionVerificationStatus {
-  Provisional = 'PROVISIONAL',
-  Differential = 'DIFFERENTIAL',
-  Confirmed = 'CONFIRMED',
-  Refuted = 'REFUTED',
-  EnteredinError = 'ENTEREDIN_ERROR',
-  Unknown = 'UNKNOWN',
 }
 
 /** A continuation of DocumentReference resources. */
