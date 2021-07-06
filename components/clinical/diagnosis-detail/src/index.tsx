@@ -14,6 +14,7 @@ const TopSection = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  margin-bottom: 1rem;
 
   & dl:last-of-type {
     margin-top: 0;
