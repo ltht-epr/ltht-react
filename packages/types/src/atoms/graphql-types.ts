@@ -48,6 +48,10 @@ export type EhrConditionArgs = {
 /** Queries the LTHT EHR. */
 export type EhrConditionsArgs = {
   patientGuid: Scalars['String']
+  clinicalStatus?: Maybe<Array<Maybe<ConditionClinicalStatus>>>
+  verificationStatus?: Maybe<Array<Maybe<ConditionVerificationStatus>>>
+  admissionPeriod?: Maybe<ConditionAdmissionPeriodType>
+  sortBy?: Maybe<SortOptionType>
   cursorToken?: Maybe<Scalars['String']>
   count?: Maybe<Scalars['Int']>
 }
@@ -67,6 +71,7 @@ export type EhrPatientArgs = {
 /** Queries the LTHT EHR. */
 export type EhrTasksArgs = {
   patientGuid: Scalars['String']
+  status?: Array<Maybe<TaskStatusCode>>
   cursorToken?: Maybe<Scalars['String']>
   count?: Maybe<Scalars['Int']>
 }
@@ -351,6 +356,16 @@ export type ConditionContinuation = {
   selfCursorToken: Scalars['String']
   /** The total number of resources available (if known). */
   totalResources?: Maybe<Scalars['Int']>
+}
+
+export enum ConditionAdmissionPeriodType {
+  Current = 'CURRENT',
+  Past = 'PAST',
+}
+
+export enum SortOptionType {
+  Alphabetical = 'ALPHABETICAL',
+  MostRecent = 'MOST_RECENT',
 }
 
 /** https://hl7.org/fhir/2018May/guidanceresponse.html */
@@ -651,7 +666,7 @@ export type Task = {
   /** normal | urgent | asap | stat */
   priority?: Maybe<PriorityCode>
   /** EHR task status */
-  status: StatusCode
+  status: TaskStatusCode
   /** Text summary of the resource, for human interpretation. */
   text?: Maybe<Narrative>
 }
@@ -669,7 +684,7 @@ export enum PriorityCode {
   Stat = 'STAT',
 }
 
-export enum StatusCode {
+export enum TaskStatusCode {
   NotYetDue = 'NOT_YET_DUE',
   Due = 'DUE',
   Overdue = 'OVERDUE',
