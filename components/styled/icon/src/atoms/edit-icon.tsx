@@ -6,11 +6,6 @@ import { faEdit } from '@fortawesome/free-solid-svg-icons'
 
 const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
   color: ${LINK_COLOURS.TEXT.DEFAULT};
-  transition: all 0.1s ease-in-out;
-
-  &:hover {
-    color: ${LINK_COLOURS.TEXT.HOVER};
-  }
 `
 
 const EditIcon: FC<EditIconProps> = ({ size }) => (
