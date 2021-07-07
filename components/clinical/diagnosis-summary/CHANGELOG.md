@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.7](https://github.com/ltht-epr/ltht-react/compare/@ltht-react/diagnosis-summary@1.3.6...@ltht-react/diagnosis-summary@1.3.7) (2021-07-07)
+
+**Note:** Version bump only for package @ltht-react/diagnosis-summary
+
+
+
+
+
 ## [1.3.6](https://github.com/ltht-epr/ltht-react/compare/@ltht-react/diagnosis-summary@1.3.5...@ltht-react/diagnosis-summary@1.3.6) (2021-07-06)
 
 **Note:** Version bump only for package @ltht-react/diagnosis-summary
