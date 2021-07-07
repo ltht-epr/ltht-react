@@ -33,14 +33,32 @@ const AllergyOne: AllergyIntolerance = {
   id: '580ca927-34e0-e911-a2c7-005056926fe4|allergyalert',
   metadata: mockMetadata,
   assertedDate: {
-    value: '2013-01-01T00:00:00+00:00',
+    value: '2016-01-01T00:00:00+00:00',
     kind: PartialDateTimeKindCode.Year,
+  },
+  asserter: {
+    display: 'BROWN, David (Dr)',
+    typeName: 'Doctor',
+  },
+  onSet: {
+    onSetDateTime: {
+      value: '2016-09-01T00:00:00+00:00',
+      kind: PartialDateTimeKindCode.YearMonth,
+    },
+  },
+  lastOccurrence: {
+    value: '2016-09-01T00:00:00+00:00',
+    kind: PartialDateTimeKindCode.YearMonth,
   },
   code: {
     coding: [{ display: 'Dust Mites', code: '109006' }],
   },
+  recorder: {
+    display: 'BROWN, David (Dr)',
+    typeName: 'Doctor',
+  },
   category: [AllergyIntoleranceCategoryCode.Environment],
-  type: AllergyIntoleranceTypeCode.Allergy,
+  type: AllergyIntoleranceTypeCode.Intolerance,
   clinicalStatus: AllergyIntoleranceClinicalStatusCode.Active,
   verificationStatus: AllergyIntoleranceVerificationStatusCode.Confirmed,
   criticality: AllergyIntoleranceCriticalityCode.High,
