@@ -9,6 +9,7 @@ import {
   ResourceReferenceDetail,
   StringDetail,
 } from '@ltht-react/detail'
+import AllergyOnset from './atoms/allergy-onset-detail'
 
 const TopSection = styled.div`
   display: flex;
@@ -36,7 +37,7 @@ const AllergyDetail: FC<Props> = ({ allergy }) => (
     <StringDetail term="Criticality" description={allergy.criticality?.toString()} />
     <ResourceReferenceDetail term="Asserter" resourceReference={allergy?.asserter} />
     <DatetimeDetail term="Asserted Date" datetime={allergy?.assertedDate} />
-    <DatetimeDetail term="Onset Date" datetime={allergy?.onSet?.onSetDateTime} />
+    <AllergyOnset term="Onset" onset={allergy.onSet} />
     <DatetimeDetail term="Last Occurance" datetime={allergy?.lastOccurrence} />
     <ResourceReferenceDetail term="Recorder" resourceReference={allergy?.recorder} />
     <AnnotationListDetail term="Note(s)" notes={allergy.note} />

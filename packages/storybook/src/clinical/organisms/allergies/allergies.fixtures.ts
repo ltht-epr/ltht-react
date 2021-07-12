@@ -41,9 +41,9 @@ const AllergyOne: AllergyIntolerance = {
     typeName: 'Doctor',
   },
   onSet: {
-    onSetDateTime: {
-      value: '2016-09-01T00:00:00+00:00',
-      kind: PartialDateTimeKindCode.YearMonth,
+    onSetAge: {
+      value: 3.0,
+      unit: 'Years',
     },
   },
   lastOccurrence: {
