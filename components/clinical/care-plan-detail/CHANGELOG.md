@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.8](https://github.com/ltht-epr/ltht-react/compare/@ltht-react/care-plan-detail@1.3.7...@ltht-react/care-plan-detail@1.3.8) (2021-07-12)
+
+**Note:** Version bump only for package @ltht-react/care-plan-detail
+
+
+
+
+
 ## [1.3.7](https://github.com/ltht-epr/ltht-react/compare/@ltht-react/care-plan-detail@1.3.6...@ltht-react/care-plan-detail@1.3.7) (2021-07-07)
 
 **Note:** Version bump only for package @ltht-react/care-plan-detail

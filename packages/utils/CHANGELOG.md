@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.6](https://github.com/ltht-epr/ltht-react/compare/@ltht-react/utils@1.1.5...@ltht-react/utils@1.1.6) (2021-07-12)
+
+**Note:** Version bump only for package @ltht-react/utils
+
+
+
+
+
 ## [1.1.5](https://github.com/ltht-epr/ltht-react/compare/@ltht-react/utils@1.1.4...@ltht-react/utils@1.1.5) (2021-07-06)
 
 **Note:** Version bump only for package @ltht-react/utils
