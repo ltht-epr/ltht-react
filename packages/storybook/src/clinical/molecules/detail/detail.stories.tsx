@@ -1,6 +1,7 @@
 import { Story } from '@storybook/react'
 
 import {
+  AnnotationListDetail,
   CodeableConceptDetail,
   DatetimeDetail,
   NarrativeDetail,
@@ -10,6 +11,7 @@ import {
 } from '@ltht-react/detail'
 import * as fixtures from './detail.fixtures'
 
+export const Annotations: Story = () => <AnnotationListDetail term="Note(s)" notes={fixtures.annotations} />
 export const CodeableConcept: Story = () => <CodeableConceptDetail term="Code" concept={fixtures.codeableConcept} />
 export const DateTime: Story = () => <DatetimeDetail term="Start Date" datetime={fixtures.partialDateTime} />
 export const Narrative: Story = () => <NarrativeDetail narrative={fixtures.narrative} />

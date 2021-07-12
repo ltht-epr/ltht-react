@@ -1,3 +1,4 @@
+export { default as AnnotationListDetail } from './annotation-list-detail'
 export { default as CodeableConceptDetail } from './codeable-concept-detail'
 export { default as CodeableConceptListDetail } from './codeable-concept-list-detail'
 export { default as CodingListDetail } from './coding-list-detail'

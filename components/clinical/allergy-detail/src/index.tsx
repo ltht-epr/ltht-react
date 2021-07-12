@@ -2,6 +2,7 @@ import { FC } from 'react'
 import styled from '@emotion/styled'
 import { AllergyIntolerance } from '@ltht-react/types'
 import {
+  AnnotationListDetail,
   CodeableConceptDetail,
   CodingListDetail,
   DatetimeDetail,
@@ -38,6 +39,7 @@ const AllergyDetail: FC<Props> = ({ allergy }) => (
     <DatetimeDetail term="Onset Date" datetime={allergy?.onSet?.onSetDateTime} />
     <DatetimeDetail term="Last Occurance" datetime={allergy?.lastOccurrence} />
     <ResourceReferenceDetail term="Recorder" resourceReference={allergy?.recorder} />
+    <AnnotationListDetail term="Note(s)" notes={allergy.note} />
   </>
 )
 
