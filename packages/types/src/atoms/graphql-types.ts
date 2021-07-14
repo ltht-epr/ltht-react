@@ -32,11 +32,26 @@ export type QueryYhcrArgs = {
 
 /** Queries the LTHT EHR. */
 export type Ehr = {
+  allergyIntolerance?: Maybe<AllergyIntolerance>
+  allergyIntolerances?: Maybe<AllergyIntoleranceContinuationType>
   condition?: Maybe<Condition>
   conditions?: Maybe<ConditionContinuation>
   guidance?: Maybe<Array<Maybe<Guidance>>>
   patient?: Maybe<Patient>
   tasks?: Maybe<TaskContinuation>
+}
+
+/** Queries the LTHT EHR. */
+export type EhrAllergyIntoleranceArgs = {
+  patientGuid: Scalars['String']
+  id: Scalars['String']
+}
+
+/** Queries the LTHT EHR. */
+export type EhrAllergyIntolerancesArgs = {
+  patientGuid: Scalars['String']
+  cursorToken?: Maybe<Scalars['String']>
+  count?: Maybe<Scalars['Int']>
 }
 
 /** Queries the LTHT EHR. */
@@ -76,29 +91,44 @@ export type EhrTasksArgs = {
   count?: Maybe<Scalars['Int']>
 }
 
-export type Condition = {
-  abatement?: Maybe<ConditionAbatement>
+/** Risk of harmful or undesirable, physiological response which is unique to an individual and associated with exposure to a substance. */
+export type AllergyIntolerance = {
+  /** Date record was believed accurate. */
   assertedDate?: Maybe<PartialDateTime>
+  /** Source of the information about the allergy. */
   asserter?: Maybe<ResourceReference>
-  bodySite?: Maybe<Array<Maybe<CodeableConcept>>>
-  category?: Maybe<Array<Maybe<CodeableConcept>>>
-  clinicalStatus?: Maybe<ConditionClinicalStatus>
-  code?: Maybe<CodeableConcept>
-  context?: Maybe<ResourceReference>
-  evidence?: Maybe<Array<Maybe<ConditionEvidence>>>
+  /** http://hl7.org/fhir/stu3/valueset-allergy-intolerance-category.html */
+  category?: Maybe<Array<Maybe<AllergyIntoleranceCategoryCode>>>
+  /** http://hl7.org/fhir/stu3/valueset-allergy-clinical-status.html */
+  clinicalStatus: AllergyIntoleranceClinicalStatusCode
+  /** http://hl7.org/fhir/stu3/valueset-allergyintolerance-code.html */
+  code: CodeableConcept
+  /** http://hl7.org/fhir/stu3/valueset-allergy-intolerance-criticality.html */
+  criticality?: Maybe<AllergyIntoleranceCriticalityCode>
   /** Additional content defined by implementations. */
   extension?: Maybe<Array<Maybe<Extension>>>
   /** Logical Id of the resource. */
   id: Scalars['ID']
+  /** Business identifiers. */
   identifier?: Maybe<Array<Maybe<Identifier>>>
+  /** Date(/time) of last known occurrence of a reaction. */
+  lastOccurrence?: Maybe<PartialDateTime>
   /** Metadata about the resource. */
   metadata: Metadata
-  onset?: Maybe<ConditionOnset>
-  severity?: Maybe<CodeableConcept>
-  stage?: Maybe<ConditionStage>
+  /** Additional text not captured in other fields. */
+  note?: Maybe<Array<Maybe<Annotation>>>
+  /** When allergy or intolerance was identified. */
+  onSet?: Maybe<AllergyIntoleranceOnSet>
+  /** Adverse Reaction Events linked to exposure to substance. */
+  reaction?: Maybe<Array<Maybe<AllergyIntoleranceReaction>>>
+  /** Who recorded the sensitivity. */
+  recorder?: Maybe<ResourceReference>
   /** Text summary of the resource, for human interpretation. */
   text?: Maybe<Narrative>
-  verificationStatus?: Maybe<ConditionVerificationStatus>
+  /** http://hl7.org/fhir/stu3/valueset-allergy-intolerance-type.html */
+  type?: Maybe<AllergyIntoleranceTypeCode>
+  /** https://fhir.hl7.org.uk/STU3/ValueSet/CareConnect-AllergyVerificationStatus-1 */
+  verificationStatus?: Maybe<AllergyIntoleranceVerificationStatusCode>
 }
 
 /** Metadata about the resource. */
@@ -214,34 +244,29 @@ export enum NarrativeStatusCode {
   Empty = 'EMPTY',
 }
 
-export type ConditionAbatement = {
-  age?: Maybe<Quantity>
-  dateTime: Period
+/** A business identifier associated with a single object or entity within a given system. */
+export type Identifier = {
+  /** Organization that issued id (may be just text). */
+  assigner?: Maybe<ResourceReference>
   /** Additional content defined by implementations. */
   extension?: Maybe<Array<Maybe<Extension>>>
-}
-
-/** A measured amount (or an amount that can potentially be measured). */
-export type Quantity = {
-  /** Coded form of the unit. */
-  code?: Maybe<Scalars['String']>
-  /** < | <= | >= | > - how to understand the value. */
-  comparator?: Maybe<QuantityComparatorCode>
-  /** Additional content defined by implementations. */
-  extension?: Maybe<Array<Maybe<Extension>>>
-  /** System that defines coded unit form. */
+  /** Time period when id is/was valid for use. */
+  period?: Maybe<Period>
+  /** The namespace for the identifier value. */
   system?: Maybe<Scalars['String']>
-  /** Unit representation. */
-  unit?: Maybe<Scalars['String']>
-  /** Numerical value (with implicit precision). */
-  value?: Maybe<Scalars['Decimal']>
+  /** http://hl7.org/fhir/stu3/valueset-identifier-type.html */
+  type?: Maybe<CodeableConcept>
+  /** http://hl7.org/fhir/stu3/valueset-identifier-use.html */
+  use?: Maybe<IdentifierUseCode>
+  /** The value that is unique. */
+  value: Scalars['String']
 }
 
-export enum QuantityComparatorCode {
-  LessThan = 'LESS_THAN',
-  LessOrEqualTo = 'LESS_OR_EQUAL_TO',
-  GreaterOrEqualTo = 'GREATER_OR_EQUAL_TO',
-  GreaterThan = 'GREATER_THAN',
+export enum IdentifierUseCode {
+  Usual = 'USUAL',
+  Official = 'OFFICIAL',
+  Temp = 'TEMP',
+  Secondary = 'SECONDARY',
 }
 
 /** A time period defined by a start and end date/time. */
@@ -268,29 +293,163 @@ export type ResourceReference = {
   typeName: Scalars['String']
 }
 
-/** A business identifier associated with a single object or entity within a given system. */
-export type Identifier = {
-  /** Organization that issued id (may be just text). */
-  assigner?: Maybe<ResourceReference>
-  /** Additional content defined by implementations. */
-  extension?: Maybe<Array<Maybe<Extension>>>
-  /** Time period when id is/was valid for use. */
-  period?: Maybe<Period>
-  /** The namespace for the identifier value. */
-  system?: Maybe<Scalars['String']>
-  /** http://hl7.org/fhir/stu3/valueset-identifier-type.html */
-  type?: Maybe<CodeableConcept>
-  /** http://hl7.org/fhir/stu3/valueset-identifier-use.html */
-  use?: Maybe<IdentifierUseCode>
-  /** The value that is unique. */
-  value: Scalars['String']
+export enum AllergyIntoleranceClinicalStatusCode {
+  Active = 'ACTIVE',
+  Inactive = 'INACTIVE',
+  Resolved = 'RESOLVED',
 }
 
-export enum IdentifierUseCode {
-  Usual = 'USUAL',
-  Official = 'OFFICIAL',
-  Temp = 'TEMP',
-  Secondary = 'SECONDARY',
+export enum AllergyIntoleranceVerificationStatusCode {
+  Unconfirmed = 'UNCONFIRMED',
+  Confirmed = 'CONFIRMED',
+  Refuted = 'REFUTED',
+  EnteredInError = 'ENTERED_IN_ERROR',
+}
+
+export enum AllergyIntoleranceTypeCode {
+  Allergy = 'ALLERGY',
+  Intolerance = 'INTOLERANCE',
+}
+
+export enum AllergyIntoleranceCategoryCode {
+  Food = 'FOOD',
+  Medication = 'MEDICATION',
+  Environment = 'ENVIRONMENT',
+  Biologic = 'BIOLOGIC',
+}
+
+export enum AllergyIntoleranceCriticalityCode {
+  Low = 'LOW',
+  High = 'HIGH',
+  UnableToAssess = 'UNABLE_TO_ASSESS',
+}
+
+/** When allergy or intolerance was identified. */
+export type AllergyIntoleranceOnSet = {
+  /** Additional content defined by implementations. */
+  extension?: Maybe<Array<Maybe<Extension>>>
+  onSetAge?: Maybe<Quantity>
+  onSetDateTime?: Maybe<PartialDateTime>
+  onSetPeriod?: Maybe<Period>
+  onSetRange?: Maybe<Range>
+  onSetString?: Maybe<Scalars['String']>
+}
+
+/** A measured amount (or an amount that can potentially be measured). */
+export type Quantity = {
+  /** Coded form of the unit. */
+  code?: Maybe<Scalars['String']>
+  /** < | <= | >= | > - how to understand the value. */
+  comparator?: Maybe<QuantityComparatorCode>
+  /** Additional content defined by implementations. */
+  extension?: Maybe<Array<Maybe<Extension>>>
+  /** System that defines coded unit form. */
+  system?: Maybe<Scalars['String']>
+  /** Unit representation. */
+  unit?: Maybe<Scalars['String']>
+  /** Numerical value (with implicit precision). */
+  value?: Maybe<Scalars['Decimal']>
+}
+
+export enum QuantityComparatorCode {
+  LessThan = 'LESS_THAN',
+  LessOrEqualTo = 'LESS_OR_EQUAL_TO',
+  GreaterOrEqualTo = 'GREATER_OR_EQUAL_TO',
+  GreaterThan = 'GREATER_THAN',
+}
+
+/** A set of ordered Quantity values defined by a low and high limit. */
+export type Range = {
+  /** Additional content defined by implementations. */
+  extension?: Maybe<Array<Maybe<Extension>>>
+  /** Low limit. */
+  high?: Maybe<Quantity>
+  /** High limit. */
+  low?: Maybe<Quantity>
+}
+
+/** A text note which also contains information about who made the statement and when. */
+export type Annotation = {
+  /** Individual responsible for the annotation. */
+  author?: Maybe<ResourceReference>
+  /** Additional content defined by implementations. */
+  extension?: Maybe<Array<Maybe<Extension>>>
+  /** The annotation - text content. */
+  text: Scalars['String']
+  /** When the annotation was made. */
+  time?: Maybe<PartialDateTime>
+}
+
+/** Adverse Reaction Events linked to exposure to substance. */
+export type AllergyIntoleranceReaction = {
+  /** Description of the event as a whole. */
+  description?: Maybe<Scalars['String']>
+  /** https://fhir.hl7.org.uk/STU3/ValueSet/CareConnect-AllergyExposureRoute-1 */
+  exposureRoute?: Maybe<CodeableConcept>
+  /** Additional content defined by implementations. */
+  extension?: Maybe<Array<Maybe<Extension>>>
+  /** https://fhir.hl7.org.uk/STU3/ValueSet/CareConnect-AllergyManifestation-1 */
+  manifestation: Array<Maybe<CodeableConcept>>
+  /** Additional text not captured in other fields. */
+  note?: Maybe<Array<Maybe<Annotation>>>
+  /** Date(/time) when manifestations showed. */
+  onSet?: Maybe<PartialDateTime>
+  /** https://fhir.hl7.org.uk/STU3/ValueSet/CareConnect-ReactionEventSeverity-1 */
+  severity?: Maybe<AllergyIntoleranceReactionSeverityCode>
+  /** http://hl7.org/fhir/stu3/valueset-substance-code.html */
+  substance?: Maybe<CodeableConcept>
+}
+
+export enum AllergyIntoleranceReactionSeverityCode {
+  Mild = 'MILD',
+  Moderate = 'MODERATE',
+  Severe = 'SEVERE',
+}
+
+/** A continuation of Allergy Intolerance resources. */
+export type AllergyIntoleranceContinuationType = {
+  /** The first cursor token. */
+  firstCursorToken?: Maybe<Scalars['String']>
+  /** The next cursor token. */
+  nextCursorToken?: Maybe<Scalars['String']>
+  /** The continuation of Allergy Intolerance resources. */
+  resources: Array<Maybe<AllergyIntolerance>>
+  /** The self cursor token. */
+  selfCursorToken: Scalars['String']
+  /** The total number of resources available (if known). */
+  totalResources?: Maybe<Scalars['Int']>
+}
+
+export type Condition = {
+  abatement?: Maybe<ConditionAbatement>
+  assertedDate?: Maybe<PartialDateTime>
+  asserter?: Maybe<ResourceReference>
+  bodySite?: Maybe<Array<Maybe<CodeableConcept>>>
+  category?: Maybe<Array<Maybe<CodeableConcept>>>
+  clinicalStatus?: Maybe<ConditionClinicalStatus>
+  code?: Maybe<CodeableConcept>
+  context?: Maybe<ResourceReference>
+  evidence?: Maybe<Array<Maybe<ConditionEvidence>>>
+  /** Additional content defined by implementations. */
+  extension?: Maybe<Array<Maybe<Extension>>>
+  /** Logical Id of the resource. */
+  id: Scalars['ID']
+  identifier?: Maybe<Array<Maybe<Identifier>>>
+  /** Metadata about the resource. */
+  metadata: Metadata
+  onset?: Maybe<ConditionOnset>
+  severity?: Maybe<CodeableConcept>
+  stage?: Maybe<ConditionStage>
+  /** Text summary of the resource, for human interpretation. */
+  text?: Maybe<Narrative>
+  verificationStatus?: Maybe<ConditionVerificationStatus>
+}
+
+export type ConditionAbatement = {
+  age?: Maybe<Quantity>
+  dateTime: Period
+  /** Additional content defined by implementations. */
+  extension?: Maybe<Array<Maybe<Extension>>>
 }
 
 export enum ConditionClinicalStatus {
@@ -316,16 +475,6 @@ export type ConditionOnset = {
   period?: Maybe<Period>
   range?: Maybe<Range>
   string?: Maybe<Scalars['String']>
-}
-
-/** A set of ordered Quantity values defined by a low and high limit. */
-export type Range = {
-  /** Additional content defined by implementations. */
-  extension?: Maybe<Array<Maybe<Extension>>>
-  /** Low limit. */
-  high?: Maybe<Quantity>
-  /** High limit. */
-  low?: Maybe<Quantity>
 }
 
 export type ConditionStage = {
@@ -388,18 +537,6 @@ export type Guidance = {
   status: GuidanceStatusCode
   /** Text summary of the resource, for human interpretation. */
   text?: Maybe<Narrative>
-}
-
-/** A text note which also contains information about who made the statement and when. */
-export type Annotation = {
-  /** Individual responsible for the annotation. */
-  author?: Maybe<ResourceReference>
-  /** Additional content defined by implementations. */
-  extension?: Maybe<Array<Maybe<Extension>>>
-  /** The annotation - text content. */
-  text: Scalars['String']
-  /** When the annotation was made. */
-  time?: Maybe<PartialDateTime>
 }
 
 export enum GuidanceStatusCode {
@@ -896,114 +1033,6 @@ export type LypftFlagsArgs = {
 /** Queries the LYPFT EHR. */
 export type LypftHospitalStaysArgs = {
   nhsNumber: Scalars['String']
-}
-
-/** Risk of harmful or undesirable, physiological response which is unique to an individual and associated with exposure to a substance. */
-export type AllergyIntolerance = {
-  /** Date record was believed accurate. */
-  assertedDate?: Maybe<PartialDateTime>
-  /** Source of the information about the allergy. */
-  asserter?: Maybe<ResourceReference>
-  /** http://hl7.org/fhir/stu3/valueset-allergy-intolerance-category.html */
-  category?: Maybe<Array<Maybe<AllergyIntoleranceCategoryCode>>>
-  /** http://hl7.org/fhir/stu3/valueset-allergy-clinical-status.html */
-  clinicalStatus: AllergyIntoleranceClinicalStatusCode
-  /** http://hl7.org/fhir/stu3/valueset-allergyintolerance-code.html */
-  code: CodeableConcept
-  /** http://hl7.org/fhir/stu3/valueset-allergy-intolerance-criticality.html */
-  criticality?: Maybe<AllergyIntoleranceCriticalityCode>
-  /** Additional content defined by implementations. */
-  extension?: Maybe<Array<Maybe<Extension>>>
-  /** Logical Id of the resource. */
-  id: Scalars['ID']
-  /** Business identifiers. */
-  identifier?: Maybe<Array<Maybe<Identifier>>>
-  /** Date(/time) of last known occurrence of a reaction. */
-  lastOccurrence?: Maybe<PartialDateTime>
-  /** Metadata about the resource. */
-  metadata: Metadata
-  /** Additional text not captured in other fields. */
-  note?: Maybe<Array<Maybe<Annotation>>>
-  /** When allergy or intolerance was identified. */
-  onSet?: Maybe<AllergyIntoleranceOnSet>
-  /** Adverse Reaction Events linked to exposure to substance. */
-  reaction?: Maybe<Array<Maybe<AllergyIntoleranceReaction>>>
-  /** Who recorded the sensitivity. */
-  recorder?: Maybe<ResourceReference>
-  /** Text summary of the resource, for human interpretation. */
-  text?: Maybe<Narrative>
-  /** http://hl7.org/fhir/stu3/valueset-allergy-intolerance-type.html */
-  type?: Maybe<AllergyIntoleranceTypeCode>
-  /** https://fhir.hl7.org.uk/STU3/ValueSet/CareConnect-AllergyVerificationStatus-1 */
-  verificationStatus?: Maybe<AllergyIntoleranceVerificationStatusCode>
-}
-
-export enum AllergyIntoleranceClinicalStatusCode {
-  Active = 'ACTIVE',
-  Inactive = 'INACTIVE',
-  Resolved = 'RESOLVED',
-}
-
-export enum AllergyIntoleranceVerificationStatusCode {
-  Unconfirmed = 'UNCONFIRMED',
-  Confirmed = 'CONFIRMED',
-  Refuted = 'REFUTED',
-  EnteredInError = 'ENTERED_IN_ERROR',
-}
-
-export enum AllergyIntoleranceTypeCode {
-  Allergy = 'ALLERGY',
-  Intolerance = 'INTOLERANCE',
-}
-
-export enum AllergyIntoleranceCategoryCode {
-  Food = 'FOOD',
-  Medication = 'MEDICATION',
-  Environment = 'ENVIRONMENT',
-  Biologic = 'BIOLOGIC',
-}
-
-export enum AllergyIntoleranceCriticalityCode {
-  Low = 'LOW',
-  High = 'HIGH',
-  UnableToAssess = 'UNABLE_TO_ASSESS',
-}
-
-/** When allergy or intolerance was identified. */
-export type AllergyIntoleranceOnSet = {
-  /** Additional content defined by implementations. */
-  extension?: Maybe<Array<Maybe<Extension>>>
-  onSetAge?: Maybe<Quantity>
-  onSetDateTime?: Maybe<PartialDateTime>
-  onSetPeriod?: Maybe<Period>
-  onSetRange?: Maybe<Range>
-  onSetString?: Maybe<Scalars['String']>
-}
-
-/** Adverse Reaction Events linked to exposure to substance. */
-export type AllergyIntoleranceReaction = {
-  /** Description of the event as a whole. */
-  description?: Maybe<Scalars['String']>
-  /** https://fhir.hl7.org.uk/STU3/ValueSet/CareConnect-AllergyExposureRoute-1 */
-  exposureRoute?: Maybe<CodeableConcept>
-  /** Additional content defined by implementations. */
-  extension?: Maybe<Array<Maybe<Extension>>>
-  /** https://fhir.hl7.org.uk/STU3/ValueSet/CareConnect-AllergyManifestation-1 */
-  manifestation: Array<Maybe<CodeableConcept>>
-  /** Additional text not captured in other fields. */
-  note?: Maybe<Array<Maybe<Annotation>>>
-  /** Date(/time) when manifestations showed. */
-  onSet?: Maybe<PartialDateTime>
-  /** https://fhir.hl7.org.uk/STU3/ValueSet/CareConnect-ReactionEventSeverity-1 */
-  severity?: Maybe<AllergyIntoleranceReactionSeverityCode>
-  /** http://hl7.org/fhir/stu3/valueset-substance-code.html */
-  substance?: Maybe<CodeableConcept>
-}
-
-export enum AllergyIntoleranceReactionSeverityCode {
-  Mild = 'MILD',
-  Moderate = 'MODERATE',
-  Severe = 'SEVERE',
 }
 
 /** A continuation of Encounter resources. */
