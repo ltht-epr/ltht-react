@@ -1614,12 +1614,11 @@ export type YhcrDataAvailabilityArgs = {
 /** Queries the YHCR System-of-Systems. */
 export type YhcrDocumentsArgs = {
   nhsNumber: Scalars['String']
+  fromDate: Scalars['Date']
+  toDate: Scalars['Date']
   cursorToken?: Maybe<Scalars['String']>
   count?: Maybe<Scalars['Int']>
-  status?: Maybe<Array<Maybe<DocumentReferenceStatusCode>>>
   dataSourceCode?: Maybe<Array<Maybe<Scalars['String']>>>
-  fromDate?: Maybe<Scalars['Date']>
-  toDate?: Maybe<Scalars['Date']>
 }
 
 /** Queries the YHCR System-of-Systems. */

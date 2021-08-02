@@ -1,4 +1,4 @@
-import { Task, IntentCode, StatusCode, Metadata } from '@ltht-react/types'
+import { Task, IntentCode, TaskStatusCode, Metadata } from '@ltht-react/types'
 
 const mockMetadata: Metadata = {
   dataSources: [
@@ -24,7 +24,7 @@ const Task1: Task = {
   id: 'task-1',
   intent: IntentCode.Order,
   metadata: mockMetadata,
-  status: StatusCode.Overdue,
+  status: TaskStatusCode.Overdue,
   description: 'Task 1 Description',
   performerType: {
     text: 'Forms',
@@ -43,7 +43,7 @@ const Task2: Task = {
   id: 'task-2',
   intent: IntentCode.Plan,
   metadata: mockMetadata,
-  status: StatusCode.Overdue,
+  status: TaskStatusCode.Overdue,
   description: 'Task 2 Description',
   performerType: {
     text: 'Forms',
@@ -62,7 +62,7 @@ const Task3: Task = {
   id: 'task-3',
   intent: IntentCode.Order,
   metadata: mockMetadata,
-  status: StatusCode.Overdue,
+  status: TaskStatusCode.Overdue,
   description: 'Task 3 Description',
   performerType: {
     text: 'Forms',
@@ -81,7 +81,7 @@ const Task4: Task = {
   id: 'task-4',
   intent: IntentCode.Plan,
   metadata: mockMetadata,
-  status: StatusCode.Due,
+  status: TaskStatusCode.Due,
   description: 'Task 4 Description',
   performerType: {
     text: 'Forms',
@@ -100,7 +100,7 @@ export const CompletedTask: Task = {
   id: 'completed-task',
   intent: IntentCode.Plan,
   metadata: mockMetadata,
-  status: StatusCode.Complete,
+  status: TaskStatusCode.Complete,
   description: 'Task 5 Description',
   performerType: {
     text: 'Forms',
@@ -119,7 +119,7 @@ export const CancelledTask: Task = {
   id: 'cancelled-task',
   intent: IntentCode.Plan,
   metadata: mockMetadata,
-  status: StatusCode.Cancelled,
+  status: TaskStatusCode.Cancelled,
   description: 'Task 6 Description',
   performerType: {
     text: 'Forms',
@@ -138,7 +138,7 @@ export const RedactedTask: Task = {
   id: 'redacted-task',
   intent: IntentCode.Plan,
   metadata: redactedMetadata,
-  status: StatusCode.Due,
+  status: TaskStatusCode.Due,
   performerType: {
     text: 'Forms',
   },
