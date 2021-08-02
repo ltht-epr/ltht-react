@@ -22,8 +22,8 @@ const AnnotationListDetail: FC<IProps> = ({ term, notes }) => {
   return (
     <DescriptionList>
       <DescriptionList.Term>{term}</DescriptionList.Term>
-      {notes.map((note) => (
-        <StyledAnnotation>
+      {notes.map((note, index) => (
+        <StyledAnnotation key={`allergy-note-${index + 1}`}>
           {note?.author && <StyledAnnotationAuthorInfo>{note.author?.display}</StyledAnnotationAuthorInfo>}
           {note?.time && <StyledAnnotationAuthorInfo>{partialDateTimeText(note.time)}</StyledAnnotationAuthorInfo>}
           <StyledAnnotationNoteText>{note?.text}</StyledAnnotationNoteText>
