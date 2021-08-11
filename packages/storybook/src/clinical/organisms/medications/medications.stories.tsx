@@ -11,9 +11,20 @@ export const Summary: Story = () => (
     </Card.Header>
     <Card.List>
       <Card.ListItem>
-        <Card.ListItem>
-          <MedicationSummary medication={MedicationFixtures[0]} />
-        </Card.ListItem>
+        <MedicationSummary medication={MedicationFixtures[0]} />
+      </Card.ListItem>
+    </Card.List>
+  </Card>
+)
+
+export const Redacted: Story = () => (
+  <Card>
+    <Card.Header>
+      <Card.Title>Medications</Card.Title>
+    </Card.Header>
+    <Card.List>
+      <Card.ListItem>
+        <MedicationSummary medication={MedicationFixtures[1]} />
       </Card.ListItem>
     </Card.List>
   </Card>
