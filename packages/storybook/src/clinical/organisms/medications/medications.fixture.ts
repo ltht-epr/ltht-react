@@ -49,7 +49,7 @@ const RedactedMedication: MedicationRequest = {
   },
 }
 
-const MedicationOne: MedicationRequest = {
+const NewMedication: MedicationRequest = {
   id: '146dd7ae-8fa9-4abe-a909-dde929c96e36',
   metadata: mockMetadata,
   status: MedicationRequestStatusType.Active,
@@ -84,4 +84,39 @@ const MedicationOne: MedicationRequest = {
   },
 }
 
-export default [MedicationOne, RedactedMedication]
+const ChangedMedication: MedicationRequest = {
+  id: '146dd7ae-8fa9-4abe-a909-dde929c96e36',
+  metadata: mockMetadata,
+  status: MedicationRequestStatusType.Active,
+  intent: MedicationRequestIntentType.Plan,
+  authoredOn: {
+    value: '2021-03-12T10:56:01+00:00',
+    kind: PartialDateTimeKindCode.Date,
+  },
+  note: [
+    {
+      author: {
+        display: 'Dr. John Doe',
+        typeName: 'Practitioner',
+      },
+      text:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+      time: {
+        value: '2013-01-01T00:00:00+00:00',
+        kind: PartialDateTimeKindCode.Date,
+      },
+    },
+  ],
+  dosageInstruction: [dosageInstruction],
+  medicationReference: {
+    code: {
+      coding: [{ code: '111', display: 'Paracetamol' }],
+    },
+    isBrand: false,
+    form: {
+      coding: [{ code: '222', display: 'Tablet' }],
+    },
+  },
+}
+
+export default [NewMedication, ChangedMedication, RedactedMedication]
