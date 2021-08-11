@@ -1,9 +1,8 @@
 import { Story } from '@storybook/react'
-
-import MedicationSummary from '@ltht-react/medication-summary'
 import Card from '@ltht-react/card'
+import MedicationSummary from '@ltht-react/medication-summary'
 
-import MedicationData from './medications.fixture'
+import MedicationFixtures from './medications.fixture'
 
 export const Summary: Story = () => (
   <Card>
@@ -11,7 +10,11 @@ export const Summary: Story = () => (
       <Card.Title>Medications</Card.Title>
     </Card.Header>
     <Card.List>
-      <MedicationSummary medicationlist={MedicationData} />
+      <Card.ListItem>
+        <Card.ListItem>
+          <MedicationSummary medication={MedicationFixtures[0]} />
+        </Card.ListItem>
+      </Card.ListItem>
     </Card.List>
   </Card>
 )
