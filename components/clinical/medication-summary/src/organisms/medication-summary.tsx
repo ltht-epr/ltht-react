@@ -2,6 +2,7 @@ import { FC, HTMLAttributes } from 'react'
 import styled from '@emotion/styled'
 import { Maybe, MedicationRequest } from '@ltht-react/types'
 import { DateSummary } from '@ltht-react/summary'
+import { CommentIcon } from '@ltht-react/icon'
 import Badge from '@ltht-react/badge'
 
 import Title from '../atoms/medication-title'
@@ -28,6 +29,7 @@ const MedicationSummary: FC<IProps> = ({ medication, ...rest }) => {
 
   const route = medication?.dosageInstruction && medication.dosageInstruction[0]?.route
   const hasChanged = !medication?.medicationReference?.isBrand
+  const hasVerificationComments = medication?.note
 
   return (
     <StyledSummary {...rest}>
@@ -35,6 +37,7 @@ const MedicationSummary: FC<IProps> = ({ medication, ...rest }) => {
         <Title medicationTitle={medication?.medicationReference?.code} form={medication?.medicationReference?.form} />
         <Route route={route} />
         {hasChanged && <Badge>Changed</Badge>}
+        {hasVerificationComments && <CommentIcon size="large" />}
       </StyledDescription>
       <StyledDate>
         <DateSummary datetime={medication?.authoredOn} />
