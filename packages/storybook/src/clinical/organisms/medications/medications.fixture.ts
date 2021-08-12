@@ -107,6 +107,7 @@ const ChangedMedication: MedicationRequest = {
       },
     },
   ],
+  reasonCode: [{ text: 'Allergies' }],
   dosageInstruction: [dosageInstruction],
   medicationReference: {
     code: {

@@ -2,11 +2,12 @@ import { FC, HTMLAttributes } from 'react'
 import styled from '@emotion/styled'
 import { Maybe, MedicationRequest } from '@ltht-react/types'
 import { DateSummary } from '@ltht-react/summary'
-import { CommentIcon } from '@ltht-react/icon'
-import Badge from '@ltht-react/badge'
 
 import Title from '../atoms/medication-title'
 import Route from '../atoms/medication-route'
+import Indication from '../atoms/medication-indication'
+
+import AdditionalInfo from '../molecules/medication-additional-info'
 import Redacted from '../molecules/medication-redacted'
 
 const StyledSummary = styled.div`
@@ -28,16 +29,20 @@ const MedicationSummary: FC<IProps> = ({ medication, ...rest }) => {
   if (medication?.metadata.isRedacted) return <Redacted />
 
   const route = medication?.dosageInstruction && medication.dosageInstruction[0]?.route
+  const hasIndications = medication?.reasonCode
   const hasChanged = !medication?.medicationReference?.isBrand
-  const hasVerificationComments = medication?.note
+  const hasVerificationComments = medication?.note && medication?.note.length > 0
 
   return (
     <StyledSummary {...rest}>
       <StyledDescription>
         <Title medicationTitle={medication?.medicationReference?.code} form={medication?.medicationReference?.form} />
         <Route route={route} />
-        {hasChanged && <Badge>Changed</Badge>}
-        {hasVerificationComments && <CommentIcon size="large" />}
+        {hasIndications &&
+          medication?.reasonCode?.map((indication, index) => (
+            <Indication key={`medication-indication-${index + 1}`} indication={indication} />
+          ))}
+        <AdditionalInfo hasChanged={hasChanged} hasVerificationComments={hasVerificationComments} />
       </StyledDescription>
       <StyledDate>
         <DateSummary datetime={medication?.authoredOn} />
