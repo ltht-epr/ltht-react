@@ -1,4 +1,5 @@
 import { FC } from 'react'
+import styled from '@emotion/styled'
 import { QuestionnaireResponse, QuestionnaireItemTypeCode } from '@ltht-react/types'
 
 import AuthorInfo from '../atoms/author-info'
@@ -6,12 +7,18 @@ import AuthorInfo from '../atoms/author-info'
 import QuestionGroup from '../molecules/question-group'
 import QuestionBlock from '../molecules/question-block'
 
+const StyledQuestionnaire = styled.div`
+  & div:last-child {
+    margin-bottom: 0;
+  }
+`
+
 const Questionnaire: FC<IProps> = ({ questionnaire }) => {
   const questions = questionnaire.questionnaire.item
   const answers = questionnaire.item
 
   return (
-    <>
+    <StyledQuestionnaire>
       {questions?.map((question) => {
         if (question?.type === QuestionnaireItemTypeCode.Group) {
           return (
@@ -35,7 +42,7 @@ const Questionnaire: FC<IProps> = ({ questionnaire }) => {
       })}
 
       <AuthorInfo author={questionnaire.author} authoredOn={questionnaire.authored} />
-    </>
+    </StyledQuestionnaire>
   )
 }
 
