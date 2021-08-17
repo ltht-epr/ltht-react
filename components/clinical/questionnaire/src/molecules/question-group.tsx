@@ -10,6 +10,7 @@ const StyledQuestionGroup = styled.div`
 
 const GroupHeader = styled.h3`
   margin: 0;
+  margin-bottom: 0.175rem;
   font-weight: bold;
   font-size: 13px;
   color: #677f67;
@@ -18,6 +19,10 @@ const GroupHeader = styled.h3`
 const GroupBlock = styled.div`
   background: #eaeaea;
   padding: 0.5rem;
+
+  & div:last-child {
+    margin-bottom: 0;
+  }
 `
 
 const QuestionGroup: FC<IProps> = ({ header, questions, answers }) => (

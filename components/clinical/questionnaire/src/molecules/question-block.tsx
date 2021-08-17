@@ -1,4 +1,6 @@
 import { FC } from 'react'
+import parser from 'bbcode-to-react'
+import ReactHtmlParser from 'react-html-parser'
 import styled from '@emotion/styled'
 import { Maybe, QuestionnaireItemTypeCode, QuestionnaireResponseItem } from '@ltht-react/types'
 import { InfoCircleIcon } from '@ltht-react/icon'
@@ -23,6 +25,7 @@ const DisplayBlock = styled.div`
 
 const Question = styled.p`
   margin: 0;
+  margin-bottom: 0.175rem;
   color: ${TEXT_COLOURS.SECONDARY.VALUE};
 `
 
@@ -79,7 +82,9 @@ const QuestionBlock: FC<IProps> = ({ type, question, answer }) => {
           <Question>{question}</Question>
           {noAnswer && <Answer>-</Answer>}
           {answer?.answer?.map((answerItem, index) => (
-            <Answer key={`${question}-${answerItem?.valueString}-${index + 1}`}>{answerItem?.valueString}</Answer>
+            <Answer key={`${question}-${answerItem?.valueString}-${index + 1}`}>
+              {ReactHtmlParser(parser.toHTML(answerItem?.valueString || ''))}
+            </Answer>
           ))}
         </>
       )}

@@ -33,6 +33,8 @@
     "@ltht-react/types": "^1.0.6",
     "@ltht-react/utils": "^1.1.8",
     "@ltht-react/icon": "^1.3.10",
-    "react": "^17.0.0"
+    "react": "^17.0.0",
+    "react-html-parser": "^2.0.2",
+    "bbcode-to-react": "^0.2.9"
   }
 }
