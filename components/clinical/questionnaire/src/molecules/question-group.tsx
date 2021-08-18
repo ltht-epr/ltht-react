@@ -5,7 +5,7 @@ import { Maybe, QuestionnaireItem, QuestionnaireResponseItem } from '@ltht-react
 import QuestionBlock from './question-block'
 
 const StyledQuestionGroup = styled.div`
-  margin-bottom: 0.75rem;
+  margin-bottom: 1rem;
 `
 
 const GroupHeader = styled.h3`
