@@ -37,7 +37,9 @@ export type Ehr = {
   condition?: Maybe<Condition>
   conditions?: Maybe<ConditionContinuation>
   guidance?: Maybe<Array<Maybe<Guidance>>>
+  medications?: Maybe<Array<Maybe<MedicationRequest>>>
   patient?: Maybe<Patient>
+  questionnaire?: Maybe<QuestionnaireResponse>
   tasks?: Maybe<TaskContinuation>
 }
 
@@ -79,8 +81,19 @@ export type EhrGuidanceArgs = {
 }
 
 /** Queries the LTHT EHR. */
+export type EhrMedicationsArgs = {
+  patientGuid: Scalars['String']
+}
+
+/** Queries the LTHT EHR. */
 export type EhrPatientArgs = {
   patientGuid: Scalars['String']
+}
+
+/** Queries the LTHT EHR. */
+export type EhrQuestionnaireArgs = {
+  patientGuid: Scalars['String']
+  name: Scalars['String']
 }
 
 /** Queries the LTHT EHR. */
@@ -285,8 +298,8 @@ export type ResourceReference = {
   display: Scalars['String']
   /** Additional content defined by implementations. */
   extension?: Maybe<Array<Maybe<Extension>>>
-  /** Business identifiers for the referenced resource. */
-  identifier?: Maybe<Array<Maybe<Identifier>>>
+  /** Business identifier for the referenced resource. */
+  identifier?: Maybe<Identifier>
   /** Literal reference, Relative, internal or absolute URL. */
   reference?: Maybe<Scalars['String']>
   /** Type the reference refers to (e.g. Patient. */
@@ -548,6 +561,162 @@ export enum GuidanceStatusCode {
   EnteredInError = 'ENTERED_IN_ERROR',
 }
 
+export type MedicationRequest = {
+  authoredOn?: Maybe<PartialDateTime>
+  category?: Maybe<CodeableConcept>
+  context?: Maybe<ResourceReference>
+  dosageInstruction?: Maybe<Array<Maybe<DosageType>>>
+  /** Additional content defined by implementations. */
+  extension?: Maybe<Array<Maybe<Extension>>>
+  /** Logical Id of the resource. */
+  id: Scalars['ID']
+  intent?: Maybe<MedicationRequestIntentType>
+  medicationReference?: Maybe<MedicationType>
+  /** Metadata about the resource. */
+  metadata: Metadata
+  note?: Maybe<Array<Maybe<Annotation>>>
+  priority?: Maybe<MedicationRequestPriorityType>
+  reasonCode?: Maybe<Array<Maybe<CodeableConcept>>>
+  reasonReference?: Maybe<ResourceReference>
+  status?: Maybe<MedicationRequestStatusType>
+  subject?: Maybe<ResourceReference>
+  /** Text summary of the resource, for human interpretation. */
+  text?: Maybe<Narrative>
+}
+
+export enum MedicationRequestStatusType {
+  Active = 'ACTIVE',
+  Cancelled = 'CANCELLED',
+  Completed = 'COMPLETED',
+  Draft = 'DRAFT',
+  EnteredInError = 'ENTERED_IN_ERROR',
+  OnHold = 'ON_HOLD',
+  Stopped = 'STOPPED',
+  Unknown = 'UNKNOWN',
+}
+
+export enum MedicationRequestIntentType {
+  Proposal = 'PROPOSAL',
+  Plan = 'PLAN',
+  Order = 'ORDER',
+  InstanceOrder = 'INSTANCE_ORDER',
+}
+
+export enum MedicationRequestPriorityType {
+  /** Routine */
+  Routine = 'ROUTINE',
+  /** Urgent */
+  Urgent = 'URGENT',
+  /** Stat */
+  Stat = 'STAT',
+  /** ASAP */
+  Asap = 'ASAP',
+}
+
+export type MedicationType = {
+  code?: Maybe<CodeableConcept>
+  /** Additional content defined by implementations. */
+  extension?: Maybe<Array<Maybe<Extension>>>
+  form?: Maybe<CodeableConcept>
+  isBrand?: Maybe<Scalars['Boolean']>
+  /** Text summary of the resource, for human interpretation. */
+  text?: Maybe<Narrative>
+}
+
+export type DosageType = {
+  additionalInstruction?: Maybe<Array<Maybe<CodeableConcept>>>
+  asNeededBoolean?: Maybe<Scalars['Boolean']>
+  asNeededCodeableConcept?: Maybe<CodeableConcept>
+  doseQuantity?: Maybe<Quantity>
+  doseRange?: Maybe<Range>
+  /** Additional content defined by implementations. */
+  extension?: Maybe<Array<Maybe<Extension>>>
+  maxDosePerAdministration?: Maybe<Quantity>
+  maxDosePerPeriod?: Maybe<Range>
+  method?: Maybe<CodeableConcept>
+  patientInstruction?: Maybe<Scalars['String']>
+  rateQuantity?: Maybe<Quantity>
+  rateRange?: Maybe<Range>
+  rateRatio?: Maybe<Ratio>
+  route?: Maybe<CodeableConcept>
+  sequence?: Maybe<Scalars['Int']>
+  site?: Maybe<CodeableConcept>
+  text?: Maybe<Scalars['String']>
+  timing?: Maybe<TimingType>
+}
+
+export type TimingType = {
+  code?: Maybe<CodeableConcept>
+  event?: Maybe<Array<Maybe<PartialDateTime>>>
+  /** Additional content defined by implementations. */
+  extension?: Maybe<Array<Maybe<Extension>>>
+  repeat?: Maybe<TimingRepeatType>
+}
+
+export type TimingRepeatType = {
+  boundsDuration?: Maybe<Quantity>
+  boundsPeriod?: Maybe<Period>
+  boundsRange?: Maybe<Range>
+  count?: Maybe<Scalars['Int']>
+  countMax?: Maybe<Scalars['Int']>
+  daysOfWeek?: Maybe<DaysOfWeekType>
+  duration?: Maybe<Scalars['Decimal']>
+  durationMax?: Maybe<Scalars['Decimal']>
+  durationUnit?: Maybe<UnitsOfTimeType>
+  /** Additional content defined by implementations. */
+  extension?: Maybe<Array<Maybe<Extension>>>
+  frequency?: Maybe<Scalars['Int']>
+  frequencyMax?: Maybe<Scalars['Int']>
+  offSet?: Maybe<Scalars['Int']>
+  period?: Maybe<Scalars['Decimal']>
+  periodMax?: Maybe<Scalars['Decimal']>
+  periodUnit?: Maybe<UnitsOfTimeType>
+  timeOfDay?: Maybe<Array<Maybe<Scalars['String']>>>
+  when?: Maybe<Array<Maybe<Scalars['String']>>>
+}
+
+export enum UnitsOfTimeType {
+  /** Second */
+  S = 'S',
+  /** Minute */
+  Min = 'MIN',
+  /** Hour */
+  H = 'H',
+  /** Day */
+  D = 'D',
+  /** Week */
+  Wk = 'WK',
+  /** Month */
+  Mo = 'MO',
+  /** Year */
+  A = 'A',
+}
+
+export enum DaysOfWeekType {
+  /** Monday */
+  Mon = 'MON',
+  /** Tuesday */
+  Tue = 'TUE',
+  /** Wednesday */
+  Wed = 'WED',
+  /** Thursday */
+  Thu = 'THU',
+  /** Friday */
+  Fri = 'FRI',
+  /** Saturday */
+  Sat = 'SAT',
+  /** Sunday */
+  Sun = 'SUN',
+}
+
+/** A relationship between two Quantity values expressed as a numerator and a denominator. */
+export type Ratio = {
+  denominator?: Maybe<Quantity>
+  /** Additional content defined by implementations. */
+  extension?: Maybe<Array<Maybe<Extension>>>
+  numerator?: Maybe<Quantity>
+}
+
 /** The patient resource represents the patient involved in the provision of healthcare related services. */
 export type Patient = {
   /** Whether this patient's record is in active use. */
@@ -764,6 +933,192 @@ export enum PatientLinkTypeCode {
   SeeAlso = 'SEE_ALSO',
 }
 
+/** A structured set of questions and their answers. The questions are ordered and grouped into coherent subsets, corresponding to the structure of the grouping of the questionnaire being responded to. */
+export type QuestionnaireResponse = {
+  /** Person who received and recorded the answers. */
+  author?: Maybe<ResourceReference>
+  /** Date the answers were gathered. */
+  authored?: Maybe<PartialDateTime>
+  /** Request fulfilled by this QuestionnaireResponse. */
+  basedOn?: Maybe<ResourceReference>
+  /** Encounter created as part of. */
+  encounter?: Maybe<ResourceReference>
+  /** Additional content defined by implementations. */
+  extension?: Maybe<Array<Maybe<Extension>>>
+  /** Logical Id of the resource. */
+  id: Scalars['ID']
+  /** Unique id for this set of answers. */
+  identifier?: Maybe<Identifier>
+  /** Groups and questions. */
+  item?: Maybe<Array<Maybe<QuestionnaireResponseItem>>>
+  /** Metadata about the resource. */
+  metadata: Metadata
+  /** Part of this action. */
+  partOf?: Maybe<ResourceReference>
+  /** Form being answered. */
+  questionnaire: Questionnaire
+  /** The person who answered the questions. */
+  source?: Maybe<ResourceReference>
+  /** Why this questionnaire is defined. */
+  status: QuestionnaireResponseStatus
+  /** Text summary of the resource, for human interpretation. */
+  text?: Maybe<Narrative>
+}
+
+/** Groups and questions. */
+export type QuestionnaireResponseItem = {
+  /** The response(s) to the question. */
+  answer?: Maybe<Array<Maybe<QuestionnaireResponseItemAnswer>>>
+  /** ElementDefinition - details for the item. */
+  definition?: Maybe<Scalars['String']>
+  /** Nested questionnaire response items. */
+  item?: Maybe<Array<Maybe<QuestionnaireResponseItem>>>
+  /** Pointer to specific item from Questionnaire. */
+  linkId?: Maybe<Scalars['String']>
+  /** Name for group or question text. */
+  text?: Maybe<Scalars['String']>
+}
+
+/** The response(s) to the question. */
+export type QuestionnaireResponseItemAnswer = {
+  /** Nested groups and questions. */
+  item?: Maybe<Array<Maybe<QuestionnaireResponseItem>>>
+  /** Boolean Value. */
+  valueBoolean?: Maybe<Scalars['Boolean']>
+  /** Date Time Value. */
+  valueDateTime?: Maybe<PartialDateTime>
+  /** String Value. */
+  valueString?: Maybe<Scalars['String']>
+}
+
+/** A structured set of questions intended to guide the collection of answers from end-users. Questionnaires provide detailed control over order, presentation, phraseology and grouping to allow coherent, consistent data collection. */
+export type Questionnaire = {
+  /** When the questionnaire was approved by publisher. */
+  approvalDate?: Maybe<PartialDateTime>
+  /** Concept that represents the overall questionnaire. */
+  code?: Maybe<Array<Maybe<Coding>>>
+  /** Contact details for the publisher. */
+  contact?: Maybe<Array<Maybe<ContactDetail>>>
+  /** Use and/or publishing restrictions. */
+  copyright?: Maybe<Scalars['String']>
+  /** Date last changed. */
+  date?: Maybe<PartialDateTime>
+  /** Instantiates protocol or definition. */
+  derivedFrom?: Maybe<Array<Maybe<ResourceReference>>>
+  /** Natural language description of the questionnaire. */
+  description?: Maybe<Scalars['String']>
+  /** When the questionnaire is expected to be used. */
+  effectivePeriod?: Maybe<Period>
+  /** For testing purposes, not real usage. */
+  experimental?: Maybe<Scalars['Boolean']>
+  /** Additional content defined by implementations. */
+  extension?: Maybe<Array<Maybe<Extension>>>
+  /** Logical Id of the resource. */
+  id: Scalars['ID']
+  /** Additional identifier for the questionnaire. */
+  identifier: Array<Maybe<Identifier>>
+  /** Questions and sections within the Questionnaire. */
+  item?: Maybe<Array<Maybe<QuestionnaireItem>>>
+  /** Intended jurisdiction for questionnaire (if applicable). */
+  jurisdiction?: Maybe<Array<Maybe<CodeableConcept>>>
+  /** When the questionnaire was last reviewed. */
+  lastReviewDate?: Maybe<PartialDateTime>
+  /** Metadata about the resource. */
+  metadata: Metadata
+  /** Name for this questionnaire (computer friendly). */
+  name?: Maybe<Scalars['String']>
+  /** Name of the publisher (organization or individual). */
+  publisher?: Maybe<Scalars['String']>
+  /** Why this questionnaire is defined. */
+  purpose?: Maybe<Scalars['String']>
+  /** Why this questionnaire is defined. */
+  status: QuestionnairePublicationStatus
+  /** Resource that can be subject of QuestionnaireResponse. */
+  subjectType?: Maybe<Array<Maybe<Scalars['String']>>>
+  /** Text summary of the resource, for human interpretation. */
+  text?: Maybe<Narrative>
+  /** Name for this questionnaire (human friendly). */
+  title?: Maybe<Scalars['String']>
+  /** Canonical identifier for this questionnaire, represented as a URI (globally unique). */
+  url?: Maybe<Scalars['String']>
+  /** The context that the content is intended to support. */
+  useContext?: Maybe<Array<Maybe<UsageContext>>>
+  /** Business version of the questionnaire. */
+  version?: Maybe<Scalars['String']>
+}
+
+/** The ContactDetail structure defines general contact details. */
+export type ContactDetail = {
+  /** Additional content defined by implementations. */
+  extension?: Maybe<Array<Maybe<Extension>>>
+  /** Name of an individual to contact. */
+  name?: Maybe<Scalars['String']>
+  /** Contact details for individual or organization. */
+  telecom?: Maybe<Array<Maybe<ContactPoint>>>
+}
+
+/** Questions and sections within the Questionnaire. */
+export type QuestionnaireItem = {
+  /** Corresponding concept for this item in a terminology. */
+  code?: Maybe<Array<Maybe<Coding>>>
+  /** ElementDefinition - details for the item. */
+  definition?: Maybe<Scalars['String']>
+  /** Nested questionnaire response items. */
+  item?: Maybe<Array<Maybe<QuestionnaireItem>>>
+  /** Unique id for item in questionnaire. */
+  linkId?: Maybe<Scalars['String']>
+  /** E.g. '1(a)', '2.5.3'. */
+  prefix?: Maybe<Scalars['String']>
+  /** Whether the item may repeat. */
+  repeats?: Maybe<Scalars['Boolean']>
+  /** Whether the item must be included in data results. */
+  required?: Maybe<Scalars['Boolean']>
+  /** Primary text for the item. */
+  text?: Maybe<Scalars['String']>
+  /** Data type. */
+  type: QuestionnaireItemTypeCode
+}
+
+export enum QuestionnaireItemTypeCode {
+  Group = 'GROUP',
+  Display = 'DISPLAY',
+  QuestionBoolean = 'QUESTION_BOOLEAN',
+  QuestionDate = 'QUESTION_DATE',
+  QuestionString = 'QUESTION_STRING',
+  QuestionStringBbCode = 'QUESTION_STRING_BB_CODE',
+}
+
+export enum QuestionnairePublicationStatus {
+  Draft = 'DRAFT',
+  Active = 'ACTIVE',
+  Retired = 'RETIRED',
+  Unknown = 'UNKNOWN',
+}
+
+/** The UsageContext structure defines the context of use for a module. */
+export type UsageContext = {
+  /** Type of context being specified. */
+  code?: Maybe<Coding>
+  /** Additional content defined by implementations. */
+  extension?: Maybe<Array<Maybe<Extension>>>
+  /** CodeableConcept Value. */
+  valueCodeableConcept?: Maybe<CodeableConcept>
+  /** Quantity Value. */
+  valueQuantity?: Maybe<Quantity>
+  /** Range Value. */
+  valueRange?: Maybe<Range>
+  /** Reference Value. */
+  valueReference?: Maybe<ResourceReference>
+}
+
+export enum QuestionnaireResponseStatus {
+  InProgress = 'IN_PROGRESS',
+  Completed = 'COMPLETED',
+  Amended = 'AMENDED',
+  EnteredInError = 'ENTERED_IN_ERROR',
+  Stopped = 'STOPPED',
+}
+
 /** A continuation of Task resources. */
 export type TaskContinuation = {
   /** The first cursor token. */
@@ -834,16 +1189,10 @@ export enum TaskStatusCode {
 /** Queries the GP Connect system. */
 export type GpConnect = {
   dataAvailability?: Maybe<DataAvailability>
-  medicationList?: Maybe<MedicationList>
 }
 
 /** Queries the GP Connect system. */
 export type GpConnectDataAvailabilityArgs = {
-  nhsNumber: Scalars['String']
-}
-
-/** Queries the GP Connect system. */
-export type GpConnectMedicationListArgs = {
   nhsNumber: Scalars['String']
 }
 
@@ -855,122 +1204,6 @@ export type DataAvailability = {
   id: Scalars['ID']
   /** Metadata about the resource. */
   metadata: Metadata
-}
-
-/** List of patient medications */
-export type MedicationList = {
-  /** The purpose of the list */
-  code?: Maybe<CodeableConcept>
-  /** When the list was created */
-  date?: Maybe<PartialDateTime>
-  /** References to items in this list */
-  entry?: Maybe<EntryType>
-  /** Additional content defined by implementations. */
-  extension?: Maybe<Array<Maybe<Extension>>>
-  /** Logical Id of the resource. */
-  id: Scalars['ID']
-  /** List of medication statements */
-  medicationStatements?: Maybe<Array<Maybe<MedicationStatement>>>
-  /** Metadata about the resource. */
-  metadata: Metadata
-  /** Text summary of the resource, for human interpretation. */
-  text?: Maybe<Narrative>
-}
-
-/** http://hl7.org/fhir/STU3/medicationstatement.html */
-export type MedicationStatement = {
-  /** AuthDetails of how medication is/was taken or should be taken */
-  dosage?: Maybe<Array<Maybe<Dosage>>>
-  /** The date/time or interval when the medication was taken */
-  effective?: Maybe<PartialDateTime>
-  /** Additional content defined by implementations. */
-  extension?: Maybe<Array<Maybe<Extension>>>
-  /** Logical Id of the resource. */
-  id: Scalars['ID']
-  /** What medication was taken */
-  medication: Medication
-  /** Metadata about the resource. */
-  metadata: Metadata
-  /** Further information about the statement */
-  note?: Maybe<Array<Maybe<Annotation>>>
-  /** The status of the medication statement */
-  status: MedicationStatusCode
-  /** Who is/was taking the medication */
-  subject: ResourceReference
-  /** Whether the medication has been taken */
-  taken: TakenCode
-  /** Text summary of the resource, for human interpretation. */
-  text?: Maybe<Narrative>
-}
-
-/** http://hl7.org/fhir/STU3/dosage.html */
-export type Dosage = {
-  /** Additional content defined by implementations. */
-  extension?: Maybe<Array<Maybe<Extension>>>
-  /** Logical Id of the resource. */
-  id: Scalars['ID']
-  /** Metadata about the resource. */
-  metadata: Metadata
-  /** Patient or consumer oriented instructions */
-  patientInstruction?: Maybe<Scalars['String']>
-  /** Free text dosage instructions e.g. SIG */
-  text?: Maybe<Scalars['String']>
-}
-
-/** http://hl7.org/fhir/STU3/medication */
-export type Medication = {
-  /** Codes that identify this medication */
-  code?: Maybe<CodeableConcept>
-  /** Additional content defined by implementations. */
-  extension?: Maybe<Array<Maybe<Extension>>>
-  /** Logical Id of the resource. */
-  id: Scalars['ID']
-  /** Metadata about the resource. */
-  metadata: Metadata
-  /** Text summary of the resource, for human interpretation. */
-  text?: Maybe<Narrative>
-}
-
-/** The status of the medication statement */
-export enum MedicationStatusCode {
-  /** active */
-  Active = 'ACTIVE',
-  /** completed */
-  Completed = 'COMPLETED',
-  /** entered-in-error */
-  EnteredInError = 'ENTERED_IN_ERROR',
-  /** intended */
-  Intended = 'INTENDED',
-  /** stopped */
-  Stopped = 'STOPPED',
-  /** on-hold */
-  OnHold = 'ON_HOLD',
-}
-
-/** Whether the medication has been taken */
-export enum TakenCode {
-  /** y */
-  Yes = 'YES',
-  /** n */
-  No = 'NO',
-  /** unk */
-  Unknown = 'UNKNOWN',
-  /** na */
-  NotApplicable = 'NOT_APPLICABLE',
-}
-
-/** An entry in the parent lists set of references */
-export type EntryType = {
-  /** The actual entry item */
-  item?: Maybe<ItemType>
-}
-
-/** Reference to the item that is part of the list */
-export type ItemType = {
-  /** Additional content defined by implementations. */
-  extension?: Maybe<Array<Maybe<Extension>>>
-  /** The item reference */
-  reference?: Maybe<ResourceReference>
 }
 
 /** Queries the LYPFT EHR. */
@@ -1717,14 +1950,6 @@ export type ObservationValue = {
   valueString?: Maybe<Scalars['String']>
 }
 
-/** A relationship between two Quantity values expressed as a numerator and a denominator. */
-export type Ratio = {
-  denominator?: Maybe<Quantity>
-  /** Additional content defined by implementations. */
-  extension?: Maybe<Array<Maybe<Extension>>>
-  numerator?: Maybe<Quantity>
-}
-
 /** Data that comes from a series of measurements taken by a device, which may have upper and lower limits. The data type also supports more than one dimension in the data. */
 export type SampledData = {
   /** Decimal values with spaces, or "E" | "U" | "L" */
@@ -1845,12 +2070,13 @@ export enum EntityType {
   Condition = 'CONDITION',
   Document = 'DOCUMENT',
   Encounter = 'ENCOUNTER',
-  MedicationList = 'MEDICATION_LIST',
+  Medication = 'MEDICATION',
   Observation = 'OBSERVATION',
   Guidance = 'GUIDANCE',
   Task = 'TASK',
   DataAvailability = 'DATA_AVAILABILITY',
   IamToken = 'IAM_TOKEN',
+  Questionnaire = 'QUESTIONNAIRE',
 }
 
 /** Permission to launch one or more Apps with the given Intents. */
