@@ -15,10 +15,10 @@ jobs:
 
       - name: Config CI Git User
         run: |
-            git config --global user.name '@ltht-epr'
-            git config --global user.email 'leedsth-tr.ppmlead@nhs.net'
-          env:
-            GITHUB_PAT: ${{ secrets.ACTION_PAT }}
+          git config --global user.name '@ltht-epr'
+          git config --global user.email 'leedsth-tr.ppmlead@nhs.net'
+        env:
+          GITHUB_PAT: ${{ secrets.ACTION_PAT }}
 
       - name: Install Node v14
         uses: actions/setup-node@v2
@@ -26,9 +26,9 @@ jobs:
           node-version: 14
 
       - name: Install packages
-          run: yarn
+        run: yarn
 
       - name: Update package versions
-          run: yarn new:version
-          env:
-            GITHUB_PAT: ${{ secrets.ACTION_PAT }}
+        run: yarn new:version
+        env:
+          GITHUB_PAT: ${{ secrets.ACTION_PAT }}
