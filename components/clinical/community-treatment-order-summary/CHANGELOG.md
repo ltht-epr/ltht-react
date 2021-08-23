@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.3.11 (2021-08-23)
+
+**Note:** Version bump only for package @ltht-react/community-treatment-order-summary
+
+
+
+
+
 ## [1.3.10](https://github.com/ltht-epr/ltht-react/compare/@ltht-react/community-treatment-order-summary@1.3.9...@ltht-react/community-treatment-order-summary@1.3.10) (2021-08-02)
 
 **Note:** Version bump only for package @ltht-react/community-treatment-order-summary
