@@ -58,7 +58,7 @@
     "create:clinical": "node ./scripts/createComponent.js clinical",
     "create:styled": "node ./scripts/createComponent.js styled",
     "deploy:npm": "lerna publish from-package",
-    "deploy:storybook": "cd packages/storybook && yarn deploy:storybook",
+    "deploy:storybook": "cd packages/storybook && yarn deploy:storybook --source-branch=main",
     "deploy": "cd packages/storybook && yarn deploy",
     "doc:components": "lerna run docs --parallel",
     "lint": "yarn lint:pretty && yarn lint:eslint",
