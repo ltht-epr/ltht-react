@@ -25,6 +25,9 @@ jobs:
         with:
           node-version: 14
 
+      - name: Clear Node Modules
+        run: yarn postclean
+
       - name: Install packages
         run: yarn
 
