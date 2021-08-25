@@ -34,7 +34,7 @@ const Answer = styled.p`
 `
 
 const QuestionBlock: FC<IProps> = ({ type, question, answer }) => {
-  const noAnswer = answer === undefined
+  const noAnswer = answer === undefined || answer?.answer?.length === 0
 
   return (
     <StyledQuestionBlock>
