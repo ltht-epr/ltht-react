@@ -25,21 +25,25 @@ const GroupBlock = styled.div`
   }
 `
 
-const QuestionGroup: FC<IProps> = ({ header, questions, answers }) => (
-  <StyledQuestionGroup>
-    <GroupHeader>{header}</GroupHeader>
-    <GroupBlock>
-      {questions?.map((question) => (
-        <QuestionBlock
-          key={`${question?.text}-${question?.linkId}`}
-          type={question?.type}
-          question={question?.text}
-          answer={answers?.find((answer) => question?.linkId === answer?.linkId)}
-        />
-      ))}
-    </GroupBlock>
-  </StyledQuestionGroup>
-)
+const QuestionGroup: FC<IProps> = ({ header, questions, answers }) => {
+  if (answers?.length === 0) return null
+
+  return (
+    <StyledQuestionGroup>
+      {header && <GroupHeader>{header}</GroupHeader>}
+      <GroupBlock>
+        {questions?.map((question) => (
+          <QuestionBlock
+            key={`${question?.text}-${question?.linkId}`}
+            type={question?.type}
+            question={question?.text}
+            answer={answers?.find((answer) => question?.linkId === answer?.linkId)}
+          />
+        ))}
+      </GroupBlock>
+    </StyledQuestionGroup>
+  )
+}
 
 interface IProps {
   header?: Maybe<string>

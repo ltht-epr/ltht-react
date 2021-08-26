@@ -26,7 +26,7 @@ jobs:
           node-version: 14
 
       - name: Install packages
-        run: yarn
+        run: yarn install --network-timeout 1000000
 
       - name: Update package versions
         run: yarn new:version

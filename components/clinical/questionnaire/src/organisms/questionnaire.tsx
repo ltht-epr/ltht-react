@@ -21,14 +21,18 @@ const Questionnaire: FC<IProps> = ({ questionnaire }) => {
     <StyledQuestionnaire>
       {questions?.map((question) => {
         if (question?.type === QuestionnaireItemTypeCode.Group) {
-          return (
+          const groupAnswers = answers
+            ?.filter((answerGroup) => question.linkId === answerGroup?.linkId)
+            .map((answerGroup) => answerGroup?.item)
+
+          return groupAnswers?.map((groupAnswer, index) => (
             <QuestionGroup
-              key={`${question?.text}-${question?.linkId}`}
+              key={`${question?.text || 'question-group'}-${question?.linkId}-${index + 1}`}
               header={question.text}
               questions={question.item}
-              answers={answers?.find((answerGroup) => question.linkId === answerGroup?.linkId)?.item}
+              answers={groupAnswer}
             />
-          )
+          ))
         }
 
         return (
