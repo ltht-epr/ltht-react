@@ -12,6 +12,7 @@ import {
   DateFieldData,
   RichTextFieldData,
   AuthorInfoData,
+  RepeatingGroupsExampleData,
   ComposedExampleData,
 } from './questionnaire.fixtures'
 
@@ -99,6 +100,17 @@ export const NoAnswer: Story = () => (
     </Card.Header>
     <Card.Body>
       <Questionnaire questionnaire={NoAnswerData} />
+    </Card.Body>
+  </Card>
+)
+
+export const RepeatingGroups: Story = () => (
+  <Card>
+    <Card.Header>
+      <Card.Title>Questionnaire</Card.Title>
+    </Card.Header>
+    <Card.Body>
+      <Questionnaire questionnaire={RepeatingGroupsExampleData} />
     </Card.Body>
   </Card>
 )

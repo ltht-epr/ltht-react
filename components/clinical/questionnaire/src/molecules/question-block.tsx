@@ -34,7 +34,10 @@ const Answer = styled.p`
 `
 
 const QuestionBlock: FC<IProps> = ({ type, question, answer }) => {
-  const noAnswer = answer === undefined
+  const noAnswerResponse = answer === undefined
+  const noAnswerProvided = answer?.answer && answer?.answer?.length === 0
+
+  if (noAnswerResponse && type !== QuestionnaireItemTypeCode.Display) return null
 
   return (
     <StyledQuestionBlock>
@@ -49,7 +52,7 @@ const QuestionBlock: FC<IProps> = ({ type, question, answer }) => {
       {type === QuestionnaireItemTypeCode.QuestionBoolean && (
         <>
           <Question>{question}</Question>
-          {noAnswer && <Answer>-</Answer>}
+          {noAnswerProvided && <Answer>-</Answer>}
           {answer?.answer?.map((answerItem, index) => (
             <Answer key={`${question}-${answerItem?.valueBoolean}-${index + 1}`}>
               {answerItem?.valueBoolean === true ? 'Yes' : 'No'}
@@ -60,7 +63,7 @@ const QuestionBlock: FC<IProps> = ({ type, question, answer }) => {
       {type === QuestionnaireItemTypeCode.QuestionString && (
         <>
           <Question>{question}</Question>
-          {noAnswer && <Answer>-</Answer>}
+          {noAnswerProvided && <Answer>-</Answer>}
           {answer?.answer?.map((answerItem, index) => (
             <Answer key={`${question}-${answerItem?.valueString}-${index + 1}`}>{answerItem?.valueString}</Answer>
           ))}
@@ -69,7 +72,7 @@ const QuestionBlock: FC<IProps> = ({ type, question, answer }) => {
       {type === QuestionnaireItemTypeCode.QuestionDate && (
         <>
           <Question>{question}</Question>
-          {noAnswer && <Answer>-</Answer>}
+          {noAnswerProvided && <Answer>-</Answer>}
           {answer?.answer?.map((answerItem, index) => (
             <Answer key={`${question}-${answerItem?.valueDateTime?.value}-${index + 1}`}>
               {partialDateTimeText(answerItem?.valueDateTime)}
@@ -80,7 +83,7 @@ const QuestionBlock: FC<IProps> = ({ type, question, answer }) => {
       {type === QuestionnaireItemTypeCode.QuestionStringBbCode && (
         <>
           <Question>{question}</Question>
-          {noAnswer && <Answer>-</Answer>}
+          {noAnswerProvided && <Answer>-</Answer>}
           {answer?.answer?.map((answerItem, index) => (
             <Answer key={`${question}-${answerItem?.valueString}-${index + 1}`}>
               {ReactHtmlParser(parser.toHTML(answerItem?.valueString || ''))}
