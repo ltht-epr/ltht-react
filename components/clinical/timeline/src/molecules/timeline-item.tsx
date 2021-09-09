@@ -1,14 +1,14 @@
 import { FC } from 'react'
 import styled from '@emotion/styled'
+import { TRANSLUCENT_BRIGHT_BLUE } from '@ltht-react/styles'
 
-// import { AllergyIntolerance } from '@ltht-react/types'
 import TimelineDescription from '../atoms/timeline-description'
 import TimelineAuthor from '../atoms/timeline-author'
 import TimelineStatus from '../atoms/timeline-status'
 import TimelineTitle from '../atoms/timeline-title'
 
 const StyledTimelineItem = styled.div`
-  background-color: rgba(109, 180, 214, 0.4);
+  background-color: ${TRANSLUCENT_BRIGHT_BLUE};
   padding: 0.5rem;
 `
 
@@ -22,7 +22,7 @@ const StyledTimelineItemRight = styled.div`
 
 const StyledTimelineItemTop = styled.div`
   color: black;
-  padding-bottom: 0.5rem;
+  padding-bottom: 2rem;
 `
 
 const StyledTimelineItemBottom = styled.div`
