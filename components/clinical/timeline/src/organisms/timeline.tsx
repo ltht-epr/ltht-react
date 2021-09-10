@@ -1,15 +1,21 @@
 import { FC } from 'react'
+import styled from '@emotion/styled'
+
 import TimelineDay from './timeline-day'
 
-// import { AllergyIntolerance } from '@ltht-react/types'
+const StyledTimeline = styled.div`
+  margin: -0.5rem;
+`
 
 const Timeline: FC = () => (
   <>
-    <TimelineDay />
-    <TimelineDay />
-    <TimelineDay />
-    <TimelineDay />
-    <TimelineDay />
+    <StyledTimeline>
+      <TimelineDay />
+      <TimelineDay />
+      <TimelineDay />
+      <TimelineDay />
+      <TimelineDay />
+    </StyledTimeline>
   </>
 )
 

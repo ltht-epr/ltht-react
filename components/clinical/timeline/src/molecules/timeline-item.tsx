@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import styled from '@emotion/styled'
-import { TRANSLUCENT_BRIGHT_BLUE } from '@ltht-react/styles'
+import { TRANSLUCENT_DARK_BLUE } from '@ltht-react/styles'
 
 import TimelineDescription from '../atoms/timeline-description'
 import TimelineAuthor from '../atoms/timeline-author'
@@ -8,7 +8,7 @@ import TimelineStatus from '../atoms/timeline-status'
 import TimelineTitle from '../atoms/timeline-title'
 
 const StyledTimelineItem = styled.div`
-  background-color: ${TRANSLUCENT_BRIGHT_BLUE};
+  background-color: ${TRANSLUCENT_DARK_BLUE};
   padding: 0.5rem;
 `
 
@@ -22,7 +22,7 @@ const StyledTimelineItemRight = styled.div`
 
 const StyledTimelineItemTop = styled.div`
   color: black;
-  padding-bottom: 2rem;
+  padding-bottom: 1rem;
 `
 
 const StyledTimelineItemBottom = styled.div`

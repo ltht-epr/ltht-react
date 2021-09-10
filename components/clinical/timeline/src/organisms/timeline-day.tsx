@@ -2,33 +2,39 @@ import { FC } from 'react'
 import styled from '@emotion/styled'
 
 import { CircleIcon } from '@ltht-react/icon'
-import { TEXT_COLOURS } from '@ltht-react/styles'
+import { TEXT_COLOURS, BANNER_COLOURS } from '@ltht-react/styles'
 import TimelineTime from '../atoms/timeline-time'
 import TimelineItem from '../molecules/timeline-item'
 
-const StyledTimelineDay = styled.div`
+const StyledTimelineDayBody = styled.div`
   background-color: white;
-  margin: 1.5rem 0;
-  border-bottom: grey solid 1rem;
+`
+
+const StyledTimelineDayHeader = styled.div`
+  background-color: ${BANNER_COLOURS.DEFAULT.BACKGROUND};
+  padding: 0.5rem;
+  margin: 0 -0.25rem;
+  text-align: center;
+  font-weight: bold;
 `
 
 const StyledTimelineDayItem = styled.div`
   display: inline-block;
   width: 100%;
-  height: 8rem;
+  height: 6rem;
   justify-content: center;
-  padding: 0 2rem;
-  margin: -0.5rem 0;
+  padding: 0 1rem;
+  margin-top: 1rem;
 `
 
 const StyledTimelineDayContent = styled.div`
-  width: 48%;
+  width: 49%;
   display: inline-block;
   vertical-align: top;
 `
 
 const StyledTimelineDayLine = styled.div`
-  width: 4%;
+  width: 2%;
   display: inline-block;
   text-align: center;
   position: relative;
@@ -48,7 +54,7 @@ const StyledTimelineDayLine = styled.div`
 `
 
 const StyledTimelineDayTimeLeft = styled.div`
-  width: 48%;
+  width: 49%;
   display: inline-block;
   vertical-align: top;
   text-align: right;
@@ -56,7 +62,7 @@ const StyledTimelineDayTimeLeft = styled.div`
 `
 
 const StyledTimelineDayTimeRight = styled.div`
-  width: 48%;
+  width: 49%;
   display: inline-block;
   vertical-align: top;
   text-align: left;
@@ -77,7 +83,7 @@ const StyledInnerCircle = styled.div`
   .icon__circle {
     position: absolute;
     z-index: 2;
-    top: 2px;
+    top: 0.125rem;
     transform: translate(-50%);
     color: white;
     font-size: 0.5rem;
@@ -86,7 +92,8 @@ const StyledInnerCircle = styled.div`
 
 const TimelineDay: FC = () => (
   <>
-    <StyledTimelineDay>
+    <StyledTimelineDayHeader>07 June 2021</StyledTimelineDayHeader>
+    <StyledTimelineDayBody>
       <StyledTimelineDayItem>
         <StyledTimelineDayTimeLeft>
           <TimelineTime />
@@ -154,7 +161,7 @@ const TimelineDay: FC = () => (
           <TimelineTime />
         </StyledTimelineDayTimeRight>
       </StyledTimelineDayItem>
-    </StyledTimelineDay>
+    </StyledTimelineDayBody>
   </>
 )
 
