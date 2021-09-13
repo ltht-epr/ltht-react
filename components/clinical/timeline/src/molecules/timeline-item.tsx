@@ -46,12 +46,12 @@ const StyledStatus = styled.div`
   text-align: right;
 `
 
-const TimelineItem: FC<IProps> = () => (
+const TimelineItem: FC<IProps> = (props) => (
   <>
     <StyledTimelineItem>
       <StyledTimelineItemTop>
         <StyledTitle>
-          <TimelineTitle />
+          <TimelineTitle audit={props.audit} />
         </StyledTitle>
         <StyledDescription>
           <TimelineDescription />
@@ -59,7 +59,7 @@ const TimelineItem: FC<IProps> = () => (
       </StyledTimelineItemTop>
       <StyledTimelineItemBottom>
         <StyledTimelineItemLeft>
-          <TimelineAuthor />
+          <TimelineAuthor audit={props.audit} />
         </StyledTimelineItemLeft>
         <StyledTimelineItemRight>
           <StyledStatus>

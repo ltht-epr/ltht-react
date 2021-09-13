@@ -34,7 +34,7 @@ const Audit1: AuditEvent = {
         {
           coding: [
             {
-              code: 'PRIMAUTH',
+              code: 'PRIMAUTH2',
               display: 'User name',
               system: 'http://hl7.org/fhir/ValueSet/security-role-type',
             },
@@ -88,6 +88,16 @@ const Audit2: AuditEvent = {
           ],
           text: 'George Busuioc',
         },
+        {
+          coding: [
+            {
+              code: 'PRIMAUTH',
+              display: 'User name',
+              system: 'http://hl7.org/fhir/ValueSet/security-role-type',
+            },
+          ],
+          text: 'Jonny Dyson',
+        },
       ],
       requestor: true,
     },
@@ -122,6 +132,84 @@ const Audit3: AuditEvent = {
   recorded: {
     value: '2021-08-03T14:15:15+01:00',
   },
+  agent: [],
+}
+
+const Audit4: AuditEvent = {
+  id: 'id1',
+  metadata: {
+    dataSources: [],
+    isRedacted: false,
+    requestedWhen: '2021-08-01T13:15:15+01:00',
+  },
+  source: {
+    observer: {
+      display: '',
+      typeName: '',
+    },
+  },
+  type: {
+    display: '',
+  },
+  text: {
+    div: '',
+    text: 'Timeline Entry 4',
+  },
+  period: {
+    start: {
+      value: '2021-08-01T13:15:15+01:00',
+    },
+  },
+  recorded: {
+    value: '2021-08-01T13:15:15+01:00',
+  },
+  agent: [
+    {
+      role: [
+        {
+          coding: [
+            {
+              code: 'PRIMAUTH',
+              display: 'User name',
+              system: 'http://hl7.org/fhir/ValueSet/security-role-type',
+            },
+          ],
+          text: 'Jonny Dyson',
+        },
+      ],
+      requestor: true,
+    },
+  ],
+}
+
+const Audit5: AuditEvent = {
+  id: 'id1',
+  metadata: {
+    dataSources: [],
+    isRedacted: false,
+    requestedWhen: '2021-08-01T13:15:15+01:00',
+  },
+  source: {
+    observer: {
+      display: '',
+      typeName: '',
+    },
+  },
+  type: {
+    display: '',
+  },
+  text: {
+    div: '',
+    text: 'Timeline Entry 5',
+  },
+  period: {
+    start: {
+      value: '2021-08-01T13:15:15+01:00',
+    },
+  },
+  recorded: {
+    value: '2021-08-01T13:15:15+01:00',
+  },
   agent: [
     {
       role: [
@@ -141,6 +229,6 @@ const Audit3: AuditEvent = {
   ],
 }
 
-const AuditTrail: AuditEventContinuation = { resources: [Audit1, Audit2, Audit3], selfCursorToken: '' }
+const AuditTrail: AuditEventContinuation = { resources: [Audit1, Audit2, Audit3, Audit4, Audit5], selfCursorToken: '' }
 
 export default AuditTrail

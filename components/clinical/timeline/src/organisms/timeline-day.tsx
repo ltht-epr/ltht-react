@@ -99,7 +99,7 @@ const TimelineDay: FC<IProps> = (props) => {
       <StyledTimelineDayHeader>{props.day}</StyledTimelineDayHeader>
       <StyledTimelineDayBody>
         {audit.resources.map((auditItem, idx) => {
-          if (idx % 2 === 0) {
+          if (idx % 2 === 1) {
             return (
               <StyledTimelineDayItem>
                 <StyledTimelineDayContent>
@@ -114,7 +114,7 @@ const TimelineDay: FC<IProps> = (props) => {
                   </StyledInnerCircle>
                 </StyledTimelineDayLine>
                 <StyledTimelineDayTimeRight>
-                  <TimelineTime />
+                  <TimelineTime audit={auditItem} />
                 </StyledTimelineDayTimeRight>
               </StyledTimelineDayItem>
             )
@@ -122,7 +122,7 @@ const TimelineDay: FC<IProps> = (props) => {
           return (
             <StyledTimelineDayItem>
               <StyledTimelineDayTimeLeft>
-                <TimelineTime />
+                <TimelineTime audit={auditItem} />
               </StyledTimelineDayTimeLeft>
               <StyledTimelineDayLine>
                 <StyledOuterCircle>
