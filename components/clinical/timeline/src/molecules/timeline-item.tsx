@@ -1,6 +1,7 @@
 import { FC } from 'react'
 import styled from '@emotion/styled'
 import { TRANSLUCENT_DARK_BLUE } from '@ltht-react/styles'
+import { AuditEvent, Maybe } from '@ltht-react/types'
 
 import TimelineDescription from '../atoms/timeline-description'
 import TimelineAuthor from '../atoms/timeline-author'
@@ -45,7 +46,7 @@ const StyledStatus = styled.div`
   text-align: right;
 `
 
-const TimelineItem: FC = () => (
+const TimelineItem: FC<IProps> = () => (
   <>
     <StyledTimelineItem>
       <StyledTimelineItemTop>
@@ -69,5 +70,9 @@ const TimelineItem: FC = () => (
     </StyledTimelineItem>
   </>
 )
+
+interface IProps {
+  audit: Maybe<AuditEvent>
+}
 
 export default TimelineItem

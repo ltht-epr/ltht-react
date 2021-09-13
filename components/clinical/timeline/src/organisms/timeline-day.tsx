@@ -1,5 +1,6 @@
 import { FC } from 'react'
 import styled from '@emotion/styled'
+import { AuditEventContinuation } from '@ltht-react/types'
 
 import { CircleIcon } from '@ltht-react/icon'
 import { TEXT_COLOURS, BANNER_COLOURS } from '@ltht-react/styles'
@@ -90,79 +91,61 @@ const StyledInnerCircle = styled.div`
   }
 `
 
-const TimelineDay: FC = () => (
-  <>
-    <StyledTimelineDayHeader>07 June 2021</StyledTimelineDayHeader>
-    <StyledTimelineDayBody>
-      <StyledTimelineDayItem>
-        <StyledTimelineDayTimeLeft>
-          <TimelineTime />
-        </StyledTimelineDayTimeLeft>
-        <StyledTimelineDayLine>
-          <StyledOuterCircle>
-            <CircleIcon status="info" size="medium" />
-          </StyledOuterCircle>
-          <StyledInnerCircle>
-            <CircleIcon status="info" size="medium" />
-          </StyledInnerCircle>
-        </StyledTimelineDayLine>
-        <StyledTimelineDayContent>
-          <TimelineItem />
-        </StyledTimelineDayContent>
-      </StyledTimelineDayItem>
+const TimelineDay: FC<IProps> = (props) => {
+  const audit = props.auditItems
 
-      <StyledTimelineDayItem>
-        <StyledTimelineDayContent>
-          <TimelineItem />
-        </StyledTimelineDayContent>
-        <StyledTimelineDayLine>
-          <StyledOuterCircle>
-            <CircleIcon status="info" size="medium" />
-          </StyledOuterCircle>
-          <StyledInnerCircle>
-            <CircleIcon status="info" size="medium" />
-          </StyledInnerCircle>
-        </StyledTimelineDayLine>
-        <StyledTimelineDayTimeRight>
-          <TimelineTime />
-        </StyledTimelineDayTimeRight>
-      </StyledTimelineDayItem>
+  return (
+    <>
+      <StyledTimelineDayHeader>{props.day}</StyledTimelineDayHeader>
+      <StyledTimelineDayBody>
+        {audit.resources.map((auditItem, idx) => {
+          if (idx % 2 === 0) {
+            return (
+              <StyledTimelineDayItem>
+                <StyledTimelineDayContent>
+                  <TimelineItem audit={auditItem} />
+                </StyledTimelineDayContent>
+                <StyledTimelineDayLine>
+                  <StyledOuterCircle>
+                    <CircleIcon status="info" size="medium" />
+                  </StyledOuterCircle>
+                  <StyledInnerCircle>
+                    <CircleIcon status="info" size="medium" />
+                  </StyledInnerCircle>
+                </StyledTimelineDayLine>
+                <StyledTimelineDayTimeRight>
+                  <TimelineTime />
+                </StyledTimelineDayTimeRight>
+              </StyledTimelineDayItem>
+            )
+          }
+          return (
+            <StyledTimelineDayItem>
+              <StyledTimelineDayTimeLeft>
+                <TimelineTime />
+              </StyledTimelineDayTimeLeft>
+              <StyledTimelineDayLine>
+                <StyledOuterCircle>
+                  <CircleIcon status="info" size="medium" />
+                </StyledOuterCircle>
+                <StyledInnerCircle>
+                  <CircleIcon status="info" size="medium" />
+                </StyledInnerCircle>
+              </StyledTimelineDayLine>
+              <StyledTimelineDayContent>
+                <TimelineItem audit={auditItem} />
+              </StyledTimelineDayContent>
+            </StyledTimelineDayItem>
+          )
+        })}
+      </StyledTimelineDayBody>
+    </>
+  )
+}
 
-      <StyledTimelineDayItem>
-        <StyledTimelineDayTimeLeft>
-          <TimelineTime />
-        </StyledTimelineDayTimeLeft>
-        <StyledTimelineDayLine>
-          <StyledOuterCircle>
-            <CircleIcon status="info" size="medium" />
-          </StyledOuterCircle>
-          <StyledInnerCircle>
-            <CircleIcon status="info" size="medium" />
-          </StyledInnerCircle>
-        </StyledTimelineDayLine>
-        <StyledTimelineDayContent>
-          <TimelineItem />
-        </StyledTimelineDayContent>
-      </StyledTimelineDayItem>
-
-      <StyledTimelineDayItem>
-        <StyledTimelineDayContent>
-          <TimelineItem />
-        </StyledTimelineDayContent>
-        <StyledTimelineDayLine>
-          <StyledOuterCircle>
-            <CircleIcon status="info" size="medium" />
-          </StyledOuterCircle>
-          <StyledInnerCircle>
-            <CircleIcon status="info" size="medium" />
-          </StyledInnerCircle>
-        </StyledTimelineDayLine>
-        <StyledTimelineDayTimeRight>
-          <TimelineTime />
-        </StyledTimelineDayTimeRight>
-      </StyledTimelineDayItem>
-    </StyledTimelineDayBody>
-  </>
-)
+interface IProps {
+  auditItems: AuditEventContinuation
+  day: string
+}
 
 export default TimelineDay
