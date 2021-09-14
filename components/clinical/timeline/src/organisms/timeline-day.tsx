@@ -9,6 +9,17 @@ import TimelineItem from '../molecules/timeline-item'
 
 const StyledTimelineDayBody = styled.div`
   background-color: white;
+  position: relative;
+
+  &:before {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    height: 100%;
+    left: 50%;
+    border-left: 0.125rem solid ${TEXT_COLOURS.INFO};
+    transform: translate(-50%);
+  }
 `
 
 const StyledTimelineDayHeader = styled.div`
@@ -22,10 +33,9 @@ const StyledTimelineDayHeader = styled.div`
 const StyledTimelineDayItem = styled.div`
   display: inline-block;
   width: 100%;
-  height: 6rem;
   justify-content: center;
   padding: 0 1rem;
-  margin-top: 1rem;
+  margin: 1rem 0;
 `
 
 const StyledTimelineDayContent = styled.div`
@@ -36,22 +46,12 @@ const StyledTimelineDayContent = styled.div`
 
 const StyledTimelineDayLine = styled.div`
   width: 2%;
+  vertical-align: top;
+  margin-top: 0.125rem;
   display: inline-block;
   text-align: center;
   position: relative;
   height: 100%;
-
-  &:before {
-    content: '';
-    position: absolute;
-    z-index: 1;
-    top: -1rem;
-    padding: 0.625rem 0;
-    height: 100%;
-    left: 50%;
-    border-left: 0.125rem solid ${TEXT_COLOURS.INFO};
-    transform: translate(-50%);
-  }
 `
 
 const StyledTimelineDayTimeLeft = styled.div`
