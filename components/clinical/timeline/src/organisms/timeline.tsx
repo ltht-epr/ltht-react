@@ -2,8 +2,8 @@ import { FC } from 'react'
 import styled from '@emotion/styled'
 import { AuditEventContinuation } from '@ltht-react/types'
 
-import TimelineDay from './timeline-day'
 import { formatDate } from '@ltht-react/utils'
+import TimelineDay from './timeline-day'
 
 const StyledTimeline = styled.div`
   margin: -0.5rem;
@@ -12,39 +12,34 @@ const StyledTimeline = styled.div`
 const Timeline: FC<IProps> = (props) => {
   const audit = props.auditTrail
 
-  // group them by the day and find out what the day is - they should come in ordered cronologically
+  const timelineDates: { [date: string]: AuditEventContinuation } = {}
 
-  // format the day
-
-  var timelineDates = new AuditDict()
-  audit.resources.map((auditItem) => {
+  audit.resources.forEach((auditItem) => {
     if (!auditItem?.period?.start?.value) {
-      return <></>
+      return
     }
 
-    // var dict = new Dictionary<string, Array<Audits>>
-    var date = formatDate(new Date(auditItem?.period?.start?.value))
+    const date = formatDate(new Date(auditItem?.period?.start?.value))
 
-    //timelineDates.Days.push({ date, auditItem })
+    const lookup = timelineDates[date]
 
-    return <></>
+    if (!lookup) {
+      timelineDates[date] = {
+        resources: [auditItem],
+        selfCursorToken: '',
+      }
+    } else {
+      lookup.resources.push(auditItem)
+      timelineDates[date] = lookup
+    }
   })
-
-  // pass in a collection of days? to TimelineDay?
-  // loop trough the list of groupings and return the TimelineDay item
-
-  // convert
-
-  // array = Array.from(map, ([name, value]) => ({ name, value }));
-  // let array = Array.from(timelineDates.keys())
 
   return (
     <>
       <StyledTimeline>
-        {/* {array.map((key) => {
-          console.log(key)
-          return <TimelineDay auditItems={timelineDates.get(key)} day={key} />
-        })} */}
+        {Object.entries(timelineDates).map(([key, value]) => (
+          <TimelineDay day={key} auditItems={value} />
+        ))}
       </StyledTimeline>
     </>
   )
@@ -52,14 +47,6 @@ const Timeline: FC<IProps> = (props) => {
 
 interface IProps {
   auditTrail: AuditEventContinuation
-}
-
-interface Dictionary<T> {
-  [Key: string]: T
-}
-
-export class AuditDict {
-  Days: Dictionary<AuditEventContinuation> = {}
 }
 
 export default Timeline
