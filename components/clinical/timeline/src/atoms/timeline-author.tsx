@@ -8,14 +8,14 @@ const StyledTimelineItemLeft = styled.div`
   flex-grow: 1;
 `
 
-const TimelineAuthor: FC<Props> = ({ audit, ...rest }) => {
+const TimelineAuthor: FC<Props> = ({ audit }) => {
   if (!audit) return <></>
 
   // full list of roles
   const roles = audit.agent.map((agent) => agent?.role)
 
   // loop trough roles, find 1st where code is equal to PRIMAUTH and text
-  var author = null
+  let author = null
   for (let index = 0; index < roles.length; index++) {
     const element = roles[index]
 
@@ -31,8 +31,8 @@ const TimelineAuthor: FC<Props> = ({ audit, ...rest }) => {
   }
 
   return (
-    <StyledTimelineItemLeft {...rest}>
-      <UserIcon size={'medium'} /> by {author.text}
+    <StyledTimelineItemLeft>
+      <UserIcon size="medium" /> by {author.text}
     </StyledTimelineItemLeft>
   )
 }

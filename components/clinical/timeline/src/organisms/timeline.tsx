@@ -1,11 +1,14 @@
 import { FC } from 'react'
 import styled from '@emotion/styled'
 import { AuditEventContinuation } from '@ltht-react/types'
-import formatDateExplicitMonth from '@ltht-react/utils'
+import { formatDateExplicitMonth } from '@ltht-react/utils'
 import TimelineDay from './timeline-day'
 
 const StyledTimeline = styled.div`
-  margin: -0.5rem;
+  margin: -0.75rem;
+  /* todo internal scrolling, is this right height?? */
+  /* height: 768px; */
+  /* overflow: auto; */
 `
 
 const Timeline: FC<IProps> = (props, ...rest) => {

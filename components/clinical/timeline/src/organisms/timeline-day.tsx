@@ -28,7 +28,6 @@ const StyledTimelineDayBody = styled.div<IStyledMobile>`
 const StyledTimelineDayHeader = styled.div`
   background-color: ${BANNER_COLOURS.DEFAULT.BACKGROUND};
   padding: 0.5rem;
-  margin: 0 -0.25rem;
   text-align: center;
   font-weight: bold;
 `
@@ -37,12 +36,13 @@ const StyledTimelineDayItem = styled.div<IStyledMobile>`
   display: inline-block;
   width: 100%;
   justify-content: center;
-  padding: ${({ isMobile }) => (isMobile ? '' : '0 1rem')};
+  padding: ${({ isMobile }) => (isMobile ? '' : '0 0.5rem')};
   margin: 1rem 0;
 `
 
 const StyledTimelineDayContent = styled.div<IStyledMobile>`
   width: ${({ isMobile }) => (isMobile ? '80%' : '49%')};
+  padding: ${({ isMobile }) => (isMobile ? '0 0.5rem 0 0' : '0 0.5rem 0 0.5rem')};
   display: inline-block;
   vertical-align: top;
 `
@@ -71,7 +71,6 @@ const StyledTimelineDayTimeRight = styled.div<IStyledMobile>`
   vertical-align: top;
   text-align: left;
   font-weight: bold;
-  padding-right: ${({ isMobile }) => (isMobile ? '0.5rem' : '')};
 `
 
 const StyledOuterCircle = styled.div`

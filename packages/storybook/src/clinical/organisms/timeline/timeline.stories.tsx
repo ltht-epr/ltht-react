@@ -6,7 +6,7 @@ import AuditTrail from './timeline.fixtures'
 export const Details: Story = () => (
   <Card>
     <Card.Header>
-      <Card.Title>Timeline</Card.Title>
+      <Card.Title style={{ textAlign: 'center' }}>Timeline</Card.Title>
     </Card.Header>
     <Card.Body>
       <Timeline auditTrail={AuditTrail} />

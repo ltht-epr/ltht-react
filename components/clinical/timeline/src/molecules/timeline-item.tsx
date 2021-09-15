@@ -46,30 +46,37 @@ const StyledStatus = styled.div`
   text-align: right;
 `
 
-const TimelineItem: FC<IProps> = (props) => (
-  <>
-    <StyledTimelineItem>
-      <StyledTimelineItemTop>
-        <StyledTitle>
-          <TimelineTitle audit={props.audit} />
-        </StyledTitle>
-        <StyledDescription>
-          <TimelineDescription />
-        </StyledDescription>
-      </StyledTimelineItemTop>
-      <StyledTimelineItemBottom>
-        <StyledTimelineItemLeft>
-          <TimelineAuthor audit={props.audit} />
-        </StyledTimelineItemLeft>
-        <StyledTimelineItemRight>
-          <StyledStatus>
-            <TimelineStatus />
-          </StyledStatus>
-        </StyledTimelineItemRight>
-      </StyledTimelineItemBottom>
-    </StyledTimelineItem>
-  </>
-)
+const TimelineItem: FC<IProps> = (props) => {
+  if (!props.audit) {
+    return <></>
+  }
+
+  return (
+    <>
+      <StyledTimelineItem>
+        <StyledTimelineItemTop>
+          <StyledTitle>
+            <TimelineTitle audit={props.audit} />
+          </StyledTitle>
+          <StyledDescription>
+            {/* placeholder delete */}
+            <TimelineDescription description={props.audit?.description} />
+          </StyledDescription>
+        </StyledTimelineItemTop>
+        <StyledTimelineItemBottom>
+          <StyledTimelineItemLeft>
+            <TimelineAuthor audit={props.audit} />
+          </StyledTimelineItemLeft>
+          <StyledTimelineItemRight>
+            <StyledStatus>
+              <TimelineStatus />
+            </StyledStatus>
+          </StyledTimelineItemRight>
+        </StyledTimelineItemBottom>
+      </StyledTimelineItem>
+    </>
+  )
+}
 
 interface IProps {
   audit: Maybe<AuditEvent>

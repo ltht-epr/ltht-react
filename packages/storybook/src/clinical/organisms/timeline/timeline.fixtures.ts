@@ -18,8 +18,9 @@ const Audit1: AuditEvent = {
   },
   text: {
     div: '',
-    text: 'Timeline Entry 1',
+    text: 'Pathway Started',
   },
+  description: '',
   period: {
     start: {
       value: '2021-07-01T06:15:15+01:00',
@@ -34,7 +35,7 @@ const Audit1: AuditEvent = {
         {
           coding: [
             {
-              code: 'PRIMAUTH2',
+              code: 'PRIMAUTH',
               display: 'User name',
               system: 'http://hl7.org/fhir/ValueSet/security-role-type',
             },
@@ -65,8 +66,9 @@ const Audit2: AuditEvent = {
   },
   text: {
     div: '',
-    text: 'Timeline Entry 2',
+    text: 'Criteria Added',
   },
+  description: 'Criteria "Pain - Pain under control" has been added. Criteria status is "Met".',
   period: {
     start: {
       value: '2021-07-01T14:15:15+01:00',
@@ -122,8 +124,10 @@ const Audit3: AuditEvent = {
   },
   text: {
     div: '',
-    text: 'Timeline Entry 3',
+    text: 'Criteria Added',
   },
+  description:
+    'Criteria "Observations - The patient has been weaned off oxygen and saturations are between 94% and 98% on air" has been added. Criteria status is "Not Met".',
   period: {
     start: {
       value: '2021-07-01T18:15:15+01:00',
@@ -169,8 +173,10 @@ const Audit4: AuditEvent = {
   },
   text: {
     div: '',
-    text: 'Timeline Entry 4',
+    text: 'Criteria Added',
   },
+  description:
+    'Criteria "Other - Patient on level 0 thin fluids and level regular diet." has been added. Criteria status is "Not Met".',
   period: {
     start: {
       value: '2021-08-03T14:15:15+01:00',
@@ -179,7 +185,23 @@ const Audit4: AuditEvent = {
   recorded: {
     value: '2021-08-03T14:15:15+01:00',
   },
-  agent: [],
+  agent: [
+    {
+      role: [
+        {
+          coding: [
+            {
+              code: 'PRIMAUTH',
+              display: 'User name',
+              system: 'http://hl7.org/fhir/ValueSet/security-role-type',
+            },
+          ],
+          text: 'Jonny Dyson',
+        },
+      ],
+      requestor: true,
+    },
+  ],
 }
 
 const Audit5: AuditEvent = {
@@ -200,8 +222,10 @@ const Audit5: AuditEvent = {
   },
   text: {
     div: '',
-    text: 'Timeline Entry 5',
+    text: 'Criteria Status Changed',
   },
+  description:
+    'Criteria "Other - Patient on level 0 thin fluids and level regular diet." status has been changed from "Not Met" to "Met".',
   period: {
     start: {
       value: '2021-08-03T17:15:15+01:00',
@@ -247,8 +271,9 @@ const Audit6: AuditEvent = {
   },
   text: {
     div: '',
-    text: 'Timeline Entry 6',
+    text: 'Criteria Removed',
   },
+  description: 'Criteria "Pain - Pain under control" has been removed.',
   period: {
     start: {
       value: '2021-08-05T13:15:15+01:00',
@@ -294,8 +319,9 @@ const Audit7: AuditEvent = {
   },
   text: {
     div: '',
-    text: 'Timeline Entry 7',
+    text: 'Pathway Ended',
   },
+  description: 'Patient being readied for discharge',
   period: {
     start: {
       value: '2021-08-05T13:15:15+01:00',

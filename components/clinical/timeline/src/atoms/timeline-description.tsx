@@ -1,6 +1,9 @@
-import { FC } from 'react'
-// import { AllergyIntolerance } from '@ltht-react/types'
+import { FC, HTMLAttributes } from 'react'
 
-const TimelineDescription: FC = () => <>Description</>
+const TimelineDescription: FC<Props> = (props) => <>{props.description}</>
+
+interface Props extends HTMLAttributes<HTMLDivElement> {
+  description: string
+}
 
 export default TimelineDescription
