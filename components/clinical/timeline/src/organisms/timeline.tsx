@@ -1,7 +1,6 @@
 import { FC } from 'react'
 import styled from '@emotion/styled'
 import { AuditEventContinuation } from '@ltht-react/types'
-
 import { formatDate } from '@ltht-react/utils'
 import TimelineDay from './timeline-day'
 
@@ -9,7 +8,7 @@ const StyledTimeline = styled.div`
   margin: -0.5rem;
 `
 // todo group days together
-const Timeline: FC<IProps> = (props) => {
+const Timeline: FC<IProps> = (props, ...rest) => {
   const audit = props.auditTrail
 
   const timelineDates: { [date: string]: AuditEventContinuation } = {}
@@ -36,7 +35,7 @@ const Timeline: FC<IProps> = (props) => {
 
   return (
     <>
-      <StyledTimeline>
+      <StyledTimeline {...rest}>
         {Object.entries(timelineDates).map(([key, value]) => (
           <TimelineDay day={key} auditItems={value} />
         ))}
