@@ -2,13 +2,12 @@ import { FC } from 'react'
 import styled from '@emotion/styled'
 import { AuditEventContinuation } from '@ltht-react/types'
 
-import { formatDate } from '@ltht-react/utils'
+import { formatDateExplicitMonth } from '@ltht-react/utils'
 import TimelineDay from './timeline-day'
 
 const StyledTimeline = styled.div`
   margin: -0.5rem;
 `
-// todo group days together
 const Timeline: FC<IProps> = (props) => {
   const audit = props.auditTrail
 
@@ -19,7 +18,7 @@ const Timeline: FC<IProps> = (props) => {
       return
     }
 
-    const date = formatDate(new Date(auditItem?.period?.start?.value))
+    const date = formatDateExplicitMonth(new Date(auditItem?.period?.start?.value))
 
     const lookup = timelineDates[date]
 
