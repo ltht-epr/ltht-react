@@ -5,7 +5,7 @@ const Audit1: AuditEvent = {
   metadata: {
     dataSources: [],
     isRedacted: false,
-    requestedWhen: '2021-08-01T13:15:15+01:00',
+    requestedWhen: '2021-07-01T13:15:15+01:00',
   },
   source: {
     observer: {
@@ -22,11 +22,11 @@ const Audit1: AuditEvent = {
   },
   period: {
     start: {
-      value: '2021-08-01T06:15:15+01:00',
+      value: '2021-07-01T06:15:15+01:00',
     },
   },
   recorded: {
-    value: '2021-08-01T13:15:15+01:00',
+    value: '2021-07-01T13:15:15+01:00',
   },
   agent: [
     {
@@ -52,7 +52,7 @@ const Audit2: AuditEvent = {
   metadata: {
     dataSources: [],
     isRedacted: false,
-    requestedWhen: '2021-08-01T14:15:15+01:00',
+    requestedWhen: '2021-07-01T14:15:15+01:00',
   },
   source: {
     observer: {
@@ -69,11 +69,11 @@ const Audit2: AuditEvent = {
   },
   period: {
     start: {
-      value: '2021-08-01T14:15:15+01:00',
+      value: '2021-07-01T14:15:15+01:00',
     },
   },
   recorded: {
-    value: '2021-08-01T14:15:15+01:00',
+    value: '2021-07-01T14:15:15+01:00',
   },
   agent: [
     {
@@ -109,7 +109,7 @@ const Audit3: AuditEvent = {
   metadata: {
     dataSources: [],
     isRedacted: false,
-    requestedWhen: '2021-08-01T13:15:15+01:00',
+    requestedWhen: '2021-07-01T13:15:15+01:00',
   },
   source: {
     observer: {
@@ -126,11 +126,11 @@ const Audit3: AuditEvent = {
   },
   period: {
     start: {
-      value: '2021-08-01T18:15:15+01:00',
+      value: '2021-07-01T18:15:15+01:00',
     },
   },
   recorded: {
-    value: '2021-08-01T13:15:15+01:00',
+    value: '2021-07-01T13:15:15+01:00',
   },
   agent: [
     {
