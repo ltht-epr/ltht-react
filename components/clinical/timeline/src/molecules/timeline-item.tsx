@@ -2,9 +2,9 @@ import { FC } from 'react'
 import styled from '@emotion/styled'
 import { TRANSLUCENT_DARK_BLUE } from '@ltht-react/styles'
 import { AuditEvent, Maybe } from '@ltht-react/types'
-
-import { isMobileView } from '@ltht-react/utils'
 import { useWindowSize } from '@ltht-react/hooks'
+import { isMobileView } from '@ltht-react/utils'
+
 import TimelineDescription from '../atoms/timeline-description'
 import TimelineAuthor from '../atoms/timeline-author'
 import TimelineStatus from '../atoms/timeline-status'
@@ -24,7 +24,17 @@ const StyledTimelineItemRight = styled.div`
   text-align: right;
 `
 
+const StyledTimelineTime = styled.div`
+  color: black;
+`
+
 const StyledTimelineItemTop = styled.div`
+  display: flex;
+  color: black;
+  padding-bottom: 0.25rem;
+`
+
+const StyledTimelineItemMiddle = styled.div`
   color: black;
   padding-bottom: 1rem;
 `
@@ -35,10 +45,10 @@ const StyledTimelineItemBottom = styled.div`
 `
 
 const StyledTitle = styled.div<IStyledMobile>`
+  flex-grow: 1;
   color: black;
   font-size: ${({ isMobile }) => (isMobile ? 'medium' : 'large')};
   font-weight: bold;
-  padding-bottom: 0.25rem;
 `
 
 const StyledDescription = styled.div`
@@ -52,6 +62,7 @@ const StyledStatus = styled.div`
 
 const TimelineItem: FC<IProps> = (props) => {
   const { width } = useWindowSize()
+
   const isMobile = isMobileView(width)
 
   if (!props.audit) {
@@ -65,12 +76,18 @@ const TimelineItem: FC<IProps> = (props) => {
           <StyledTitle isMobile={isMobile}>
             <TimelineTitle audit={props.audit} />
           </StyledTitle>
-          {props.audit ? <TimelineTime audit={null}>Test</TimelineTime> : ''}
+          {isMobile ? (
+            <StyledTimelineTime>
+              <TimelineTime audit={props.audit} />
+            </StyledTimelineTime>
+          ) : null}
+        </StyledTimelineItemTop>
+        <StyledTimelineItemMiddle>
           <StyledDescription>
             {/* placeholder delete */}
             <TimelineDescription description={props.audit?.description} />
           </StyledDescription>
-        </StyledTimelineItemTop>
+        </StyledTimelineItemMiddle>
         <StyledTimelineItemBottom>
           <StyledTimelineItemLeft>
             <TimelineAuthor audit={props.audit} />

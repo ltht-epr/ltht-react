@@ -40,7 +40,7 @@ const Audit1: AuditEvent = {
               system: 'http://hl7.org/fhir/ValueSet/security-role-type',
             },
           ],
-          text: 'Jonny Dyson',
+          text: 'DYSON, Jonny (Dr) Transplant Surgeon',
         },
       ],
       requestor: true,
@@ -88,7 +88,7 @@ const Audit2: AuditEvent = {
               system: 'http://hl7.org/fhir/ValueSet/security-role-type',
             },
           ],
-          text: 'George Busuioc',
+          text: 'BUSUIOC, George (Mr) Consultant General',
         },
         {
           coding: [
@@ -98,7 +98,7 @@ const Audit2: AuditEvent = {
               system: 'http://hl7.org/fhir/ValueSet/security-role-type',
             },
           ],
-          text: 'Jonny Dyson',
+          text: 'DYSON, Jonny (Dr) Transplant Surgeon',
         },
       ],
       requestor: true,
@@ -147,7 +147,7 @@ const Audit3: AuditEvent = {
               system: 'http://hl7.org/fhir/ValueSet/security-role-type',
             },
           ],
-          text: 'Jonny Dyson',
+          text: 'DYSON, Jonny (Dr) Transplant Surgeon',
         },
       ],
       requestor: true,
@@ -196,7 +196,7 @@ const Audit4: AuditEvent = {
               system: 'http://hl7.org/fhir/ValueSet/security-role-type',
             },
           ],
-          text: 'Jonny Dyson',
+          text: 'DYSON, Jonny (Dr) Transplant Surgeon',
         },
       ],
       requestor: true,
@@ -245,7 +245,7 @@ const Audit5: AuditEvent = {
               system: 'http://hl7.org/fhir/ValueSet/security-role-type',
             },
           ],
-          text: 'George Busuioc',
+          text: 'BUSUIOC, George (Mr) Consultant General',
         },
       ],
       requestor: true,
@@ -293,7 +293,7 @@ const Audit6: AuditEvent = {
               system: 'http://hl7.org/fhir/ValueSet/security-role-type',
             },
           ],
-          text: 'George Busuioc',
+          text: 'BUSUIOC, George (Mr) Consultant General',
         },
       ],
       requestor: true,
@@ -341,7 +341,7 @@ const Audit7: AuditEvent = {
               system: 'http://hl7.org/fhir/ValueSet/security-role-type',
             },
           ],
-          text: 'George Busuioc',
+          text: 'BUSUIOC, George (Mr) Consultant General',
         },
       ],
       requestor: true,
@@ -350,7 +350,7 @@ const Audit7: AuditEvent = {
 }
 
 const AuditTrail: AuditEventContinuation = {
-  resources: [Audit1, Audit2, Audit3, Audit4, Audit5, Audit6, Audit7],
+  resources: [Audit7, Audit6, Audit5, Audit4, Audit3, Audit2, Audit1],
   selfCursorToken: '',
 }
 
