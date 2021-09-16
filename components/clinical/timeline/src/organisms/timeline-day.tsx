@@ -18,10 +18,11 @@ const StyledTimelineDayBody = styled.div<IStyledMobile>`
     content: '';
     position: absolute;
     z-index: 1;
-    height: 100%;
-    left: ${({ isMobile }) => (isMobile ? '15%' : '50%')};
-    border-left: 0.125rem solid ${TEXT_COLOURS.INFO};
-    transform: ${({ isMobile }) => (isMobile ? 'translate(-15%)' : 'translate(-50%)')};
+    height: ${({ isMobile }) => (isMobile ? '0%' : '100%')};
+    left: calc(50% - 1px);
+    border-width: 0 0 0 2px;
+    border-color: ${TEXT_COLOURS.INFO};
+    border-style: solid;
   }
 `
 
@@ -37,18 +38,18 @@ const StyledTimelineDayItem = styled.div<IStyledMobile>`
   width: 100%;
   justify-content: center;
   padding: ${({ isMobile }) => (isMobile ? '' : '0 0.5rem')};
-  margin: 1rem 0;
+  margin: ${({ isMobile }) => (isMobile ? '0.5rem 0' : '1rem 0')};
 `
 
 const StyledTimelineDayContent = styled.div<IStyledMobile>`
-  width: ${({ isMobile }) => (isMobile ? '80%' : '49%')};
-  padding: ${({ isMobile }) => (isMobile ? '0 0.5rem 0 0' : '0 0.5rem 0 0.5rem')};
+  width: ${({ isMobile }) => (isMobile ? '100%' : '49%')};
+  padding: 0 0.5rem;
   display: inline-block;
   vertical-align: top;
 `
 
-const StyledTimelineDayLine = styled.div<IStyledMobile>`
-  width: ${({ isMobile }) => (isMobile ? '10%' : '2%')};
+const StyledTimelineDayLine = styled.div`
+  width: 2%;
   vertical-align: top;
   margin-top: 0.125rem;
   display: inline-block;
@@ -57,16 +58,18 @@ const StyledTimelineDayLine = styled.div<IStyledMobile>`
   height: 100%;
 `
 
-const StyledTimelineDayTimeLeft = styled.div<IStyledMobile>`
-  width: ${({ isMobile }) => (isMobile ? '10%' : '49%')};
+const StyledTimelineDayTimeLeft = styled.div`
+  width: 49%;
+  padding: 0 0.5rem;
   display: inline-block;
   vertical-align: top;
   text-align: right;
   font-weight: bold;
 `
 
-const StyledTimelineDayTimeRight = styled.div<IStyledMobile>`
-  width: ${({ isMobile }) => (isMobile ? '10%' : '49%')};
+const StyledTimelineDayTimeRight = styled.div`
+  width: 49%;
+  padding: 0 0.5rem;
   display: inline-block;
   vertical-align: top;
   text-align: left;
@@ -78,6 +81,9 @@ const StyledOuterCircle = styled.div`
     position: absolute;
     z-index: 1;
     transform: translate(-50%);
+    -webkit-transform: translate(-50%);
+    -ms-transform: translate(-50%);
+    left: 50%;
     color: ${TEXT_COLOURS.INFO};
     font-size: 0.75rem;
   }
@@ -89,6 +95,9 @@ const StyledInnerCircle = styled.div`
     z-index: 2;
     top: 0.125rem;
     transform: translate(-50%);
+    -webkit-transform: translate(-50%);
+    -ms-transform: translate(-50%);
+    left: 50%;
     color: white;
     font-size: 0.5rem;
   }
@@ -96,9 +105,7 @@ const StyledInnerCircle = styled.div`
 
 const TimelineDay: FC<IProps> = (props) => {
   const { width } = useWindowSize()
-
   const isMobile = isMobileView(width)
-
   const audit = props.auditItems
 
   if (isMobile) {
@@ -108,17 +115,6 @@ const TimelineDay: FC<IProps> = (props) => {
         <StyledTimelineDayBody isMobile={isMobile}>
           {audit.resources.map((auditItem) => (
             <StyledTimelineDayItem isMobile={isMobile}>
-              <StyledTimelineDayTimeLeft isMobile={isMobile}>
-                <TimelineTime audit={auditItem} />
-              </StyledTimelineDayTimeLeft>
-              <StyledTimelineDayLine isMobile={isMobile}>
-                <StyledOuterCircle>
-                  <CircleIcon status="info" size="medium" />
-                </StyledOuterCircle>
-                <StyledInnerCircle>
-                  <CircleIcon status="info" size="medium" />
-                </StyledInnerCircle>
-              </StyledTimelineDayLine>
               <StyledTimelineDayContent isMobile={isMobile}>
                 <TimelineItem audit={auditItem} />
               </StyledTimelineDayContent>
@@ -140,7 +136,7 @@ const TimelineDay: FC<IProps> = (props) => {
                 <StyledTimelineDayContent isMobile={isMobile}>
                   <TimelineItem audit={auditItem} />
                 </StyledTimelineDayContent>
-                <StyledTimelineDayLine isMobile={isMobile}>
+                <StyledTimelineDayLine>
                   <StyledOuterCircle>
                     <CircleIcon status="info" size="medium" />
                   </StyledOuterCircle>
@@ -148,7 +144,7 @@ const TimelineDay: FC<IProps> = (props) => {
                     <CircleIcon status="info" size="medium" />
                   </StyledInnerCircle>
                 </StyledTimelineDayLine>
-                <StyledTimelineDayTimeRight isMobile={isMobile}>
+                <StyledTimelineDayTimeRight>
                   <TimelineTime audit={auditItem} />
                 </StyledTimelineDayTimeRight>
               </StyledTimelineDayItem>
@@ -156,10 +152,10 @@ const TimelineDay: FC<IProps> = (props) => {
           }
           return (
             <StyledTimelineDayItem isMobile={isMobile}>
-              <StyledTimelineDayTimeLeft isMobile={isMobile}>
+              <StyledTimelineDayTimeLeft>
                 <TimelineTime audit={auditItem} />
               </StyledTimelineDayTimeLeft>
-              <StyledTimelineDayLine isMobile={isMobile}>
+              <StyledTimelineDayLine>
                 <StyledOuterCircle>
                   <CircleIcon status="info" size="medium" />
                 </StyledOuterCircle>
