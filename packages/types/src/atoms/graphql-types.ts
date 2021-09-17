@@ -34,6 +34,7 @@ export type QueryYhcrArgs = {
 export type Ehr = {
   allergyIntolerance?: Maybe<AllergyIntolerance>
   allergyIntolerances?: Maybe<AllergyIntoleranceContinuationType>
+  auditPathway?: Maybe<AuditEventContinuation>
   condition?: Maybe<Condition>
   conditions?: Maybe<ConditionContinuation>
   guidance?: Maybe<Array<Maybe<Guidance>>>
@@ -52,6 +53,15 @@ export type EhrAllergyIntoleranceArgs = {
 /** Queries the LTHT EHR. */
 export type EhrAllergyIntolerancesArgs = {
   patientGuid: Scalars['String']
+  cursorToken?: Maybe<Scalars['String']>
+  count?: Maybe<Scalars['Int']>
+}
+
+/** Queries the LTHT EHR. */
+export type EhrAuditPathwayArgs = {
+  patientGuid: Scalars['String']
+  pathwayType: Scalars['String']
+  pathwayId: Scalars['String']
   cursorToken?: Maybe<Scalars['String']>
   count?: Maybe<Scalars['Int']>
 }
@@ -94,6 +104,7 @@ export type EhrPatientArgs = {
 export type EhrQuestionnaireArgs = {
   patientGuid: Scalars['String']
   name: Scalars['String']
+  setGuid: Scalars['String']
 }
 
 /** Queries the LTHT EHR. */
@@ -431,6 +442,156 @@ export type AllergyIntoleranceContinuationType = {
   selfCursorToken: Scalars['String']
   /** The total number of resources available (if known). */
   totalResources?: Maybe<Scalars['Int']>
+}
+
+/** A continuation of Task resources. */
+export type AuditEventContinuation = {
+  /** The first cursor token. */
+  firstCursorToken?: Maybe<Scalars['String']>
+  /** The next cursor token. */
+  nextCursorToken?: Maybe<Scalars['String']>
+  /** The continuation of Audit Event resources. */
+  resources: Array<Maybe<AuditEvent>>
+  /** The self cursor token. */
+  selfCursorToken: Scalars['String']
+  /** The total number of resources available (if known). */
+  totalResources?: Maybe<Scalars['Int']>
+}
+
+/** https://www.hl7.org/fhir/R4/auditevent.html */
+export type AuditEvent = {
+  /** Type of action performed during the event. */
+  action?: Maybe<AuditEventAction>
+  /** Type of action performed during the event. */
+  agent: Array<Maybe<AuditEventAgent>>
+  /** Data or objects used. */
+  entity?: Maybe<Array<Maybe<AuditEventEntity>>>
+  /** Additional content defined by implementations. */
+  extension?: Maybe<Array<Maybe<Extension>>>
+  /** Logical Id of the resource. */
+  id: Scalars['ID']
+  /** Metadata about the resource. */
+  metadata: Metadata
+  /** Whether the event succeeded or failed. */
+  outcome?: Maybe<AuditEventOutcome>
+  /** Description of the event outcome. */
+  outcomeDesc?: Maybe<Scalars['String']>
+  /** When the activity occurred. */
+  period?: Maybe<Period>
+  /** The purposeOfUse of the event. */
+  purposeOfEvent?: Maybe<Array<Maybe<CodeableConcept>>>
+  /** Time when the event was recorded. */
+  recorded: PartialDateTime
+  /** Audit Event Reporter. */
+  source: AuditEventSource
+  /** More specific type/id for the event. */
+  subType?: Maybe<Array<Maybe<Coding>>>
+  /** Text summary of the resource, for human interpretation. */
+  text?: Maybe<Narrative>
+  /** Type/identifier of event. */
+  type: Coding
+}
+
+export enum AuditEventAction {
+  /** C */
+  Create = 'CREATE',
+  /** R */
+  Read = 'READ',
+  /** U */
+  Update = 'UPDATE',
+  /** D */
+  Delete = 'DELETE',
+  /** E */
+  Execute = 'EXECUTE',
+}
+
+/** Actor involved in the event. */
+export type AuditEventAgent = {
+  /** Alternative User identity. */
+  altId?: Maybe<Scalars['String']>
+  /** Where. */
+  location?: Maybe<ResourceReference>
+  /** Type of media. */
+  media?: Maybe<Coding>
+  /** Human friendly name for the agent. */
+  name?: Maybe<Scalars['String']>
+  /** Logical network location for application activity. */
+  network?: Maybe<AuditEventAgentNetwork>
+  /** Policy that authorized event. */
+  policy?: Maybe<Array<Maybe<Scalars['String']>>>
+  /** Reason given for this user. */
+  purposeOfUse?: Maybe<Array<Maybe<CodeableConcept>>>
+  /** Whether user is initiator. */
+  requestor: Scalars['Boolean']
+  /** Agent role in the event. */
+  role?: Maybe<Array<Maybe<CodeableConcept>>>
+  /** How agent participated. */
+  type?: Maybe<CodeableConcept>
+  /** Identifier of who. */
+  who?: Maybe<ResourceReference>
+}
+
+/** Logical network location for application activity. */
+export type AuditEventAgentNetwork = {
+  /** Identifier for the network access point of the user device. */
+  address?: Maybe<Scalars['String']>
+  /** The type of network access point. */
+  type?: Maybe<AuditEventAgentNetworkType>
+}
+
+export enum AuditEventAgentNetworkType {
+  MachineName = 'MACHINE_NAME',
+  IpAddress = 'IP_ADDRESS',
+  TelephoneNumber = 'TELEPHONE_NUMBER',
+  EmailAddress = 'EMAIL_ADDRESS',
+  Uri = 'URI',
+}
+
+/** Data or objects used. */
+export type AuditEventEntity = {
+  /** Alternative User identity. */
+  description?: Maybe<Scalars['String']>
+  /** Additional Information about the entity. */
+  detail?: Maybe<Array<Maybe<AuditEventEntityDetail>>>
+  /** Life-cycle stage for the entity. */
+  lifecycle?: Maybe<Coding>
+  /** Descriptor for entity. */
+  name?: Maybe<Scalars['String']>
+  /** Query parameters. */
+  query?: Maybe<Scalars['String']>
+  /** What role the entity played. */
+  role?: Maybe<Coding>
+  /** Security labels on the entity. */
+  securityLabel?: Maybe<Array<Maybe<Coding>>>
+  /** Type of entity involved. */
+  type?: Maybe<Coding>
+  /** Specific instance of resource. */
+  what?: Maybe<ResourceReference>
+}
+
+/** Additional Information about the entity. */
+export type AuditEventEntityDetail = {
+  /** Name of the property. */
+  type?: Maybe<Scalars['String']>
+  /** Property value. */
+  value?: Maybe<Scalars['String']>
+}
+
+export enum AuditEventOutcome {
+  Success = 'SUCCESS',
+  MinorFailure = 'MINOR_FAILURE',
+  SeriousFailure = 'SERIOUS_FAILURE',
+  MajorFailure = 'MAJOR_FAILURE',
+}
+
+/** Audit Event Reporter. */
+export type AuditEventSource = {
+  /** The identity of source detecting the event. */
+  observer: ResourceReference
+  /** Logical source location within the enterprise. */
+  site?: Maybe<Scalars['String']>
+  /** The type of source where event originated. */
+  type?: Maybe<Array<Maybe<Coding>>>
 }
 
 export type Condition = {
@@ -2077,6 +2238,7 @@ export enum EntityType {
   DataAvailability = 'DATA_AVAILABILITY',
   IamToken = 'IAM_TOKEN',
   Questionnaire = 'QUESTIONNAIRE',
+  AuditEvent = 'AUDIT_EVENT',
 }
 
 /** Permission to launch one or more Apps with the given Intents. */

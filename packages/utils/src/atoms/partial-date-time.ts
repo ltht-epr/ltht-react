@@ -3,12 +3,16 @@ import { PartialDateTime, PartialDateTimeKindCode } from '@ltht-react/types'
 const locale = 'en-gb'
 const dayFormat = '2-digit'
 const monthFormat = 'short'
+const monthFormatLong = 'long'
 const yearFormat = 'numeric'
 const hourFormat = '2-digit'
 const minuteFormat = '2-digit'
 
 export const formatDate = (date: Date): string =>
   date.toLocaleString(locale, { day: dayFormat, month: monthFormat, year: yearFormat }).split(' ').join('-')
+
+export const formatDateExplicitMonth = (date: Date): string =>
+  date.toLocaleString(locale, { day: dayFormat, month: monthFormatLong, year: yearFormat }).split(' ').join(' ')
 
 export const formatTime = (date: Date): string =>
   date.toLocaleString(locale, { hour: hourFormat, minute: minuteFormat, hour12: false }).split(' ').join(':')

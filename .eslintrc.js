@@ -29,6 +29,7 @@ module.exports = {
     'react/prop-types': 'off',
     'react/jsx-uses-react': 'off',
     'react/react-in-jsx-scope': 'off',
+    'no-plusplus': [2, { allowForLoopAfterthoughts: true }],
     'import/no-anonymous-default-export': 'off',
     'import/extensions': [
       'error',

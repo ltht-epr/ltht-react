@@ -11,5 +11,6 @@ export * from './search.stories'
 export * from './spinner-icon.stories'
 export * from './table-icon.stories'
 export * from './trash-icon.stories'
+export * from './user-icon.stories'
 
 export default { title: 'UI/Atoms/Icons' }
