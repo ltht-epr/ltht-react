@@ -1,9 +1,10 @@
 import { FC, HTMLAttributes } from 'react'
+import { Maybe } from '@ltht-react/types'
 
-const TimelineDescription: FC<Props> = (props) => <>{props.description}</>
+const TimelineDescription: FC<Props> = (props) => <>{props.outcomeDesc}</>
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
-  description: string
+  outcomeDesc?: Maybe<string>
 }
 
 export default TimelineDescription

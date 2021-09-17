@@ -84,8 +84,7 @@ const TimelineItem: FC<IProps> = (props) => {
         </StyledTimelineItemTop>
         <StyledTimelineItemMiddle>
           <StyledDescription>
-            {/* placeholder delete */}
-            <TimelineDescription description={props.audit?.description} />
+            <TimelineDescription outcomeDesc={props.audit.outcomeDesc} />
           </StyledDescription>
         </StyledTimelineItemMiddle>
         <StyledTimelineItemBottom>

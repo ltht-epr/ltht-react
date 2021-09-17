@@ -20,7 +20,7 @@ const Audit1: AuditEvent = {
     div: '',
     text: 'Pathway Started',
   },
-  description: '',
+  outcomeDesc: '',
   period: {
     start: {
       value: '2021-07-01T06:15:15+01:00',
@@ -68,7 +68,7 @@ const Audit2: AuditEvent = {
     div: '',
     text: 'Criteria Added',
   },
-  description: 'Criteria "Pain - Pain under control" has been added. Criteria status is "Met".',
+  outcomeDesc: 'Criteria "Pain - Pain under control" has been added. Criteria status is "Met".',
   period: {
     start: {
       value: '2021-07-01T14:15:15+01:00',
@@ -126,7 +126,7 @@ const Audit3: AuditEvent = {
     div: '',
     text: 'Criteria Added',
   },
-  description:
+  outcomeDesc:
     'Criteria "Observations - The patient has been weaned off oxygen and saturations are between 94% and 98% on air" has been added. Criteria status is "Not Met".',
   period: {
     start: {
@@ -175,7 +175,7 @@ const Audit4: AuditEvent = {
     div: '',
     text: 'Criteria Added',
   },
-  description:
+  outcomeDesc:
     'Criteria "Other - Patient on level 0 thin fluids and level regular diet." has been added. Criteria status is "Not Met".',
   period: {
     start: {
@@ -224,7 +224,7 @@ const Audit5: AuditEvent = {
     div: '',
     text: 'Criteria Status Changed',
   },
-  description:
+  outcomeDesc:
     'Criteria "Other - Patient on level 0 thin fluids and level regular diet." status has been changed from "Not Met" to "Met".',
   period: {
     start: {
@@ -273,7 +273,7 @@ const Audit6: AuditEvent = {
     div: '',
     text: 'Criteria Removed',
   },
-  description: 'Criteria "Pain - Pain under control" has been removed.',
+  outcomeDesc: 'Criteria "Pain - Pain under control" has been removed.',
   period: {
     start: {
       value: '2021-08-05T13:15:15+01:00',
@@ -321,7 +321,7 @@ const Audit7: AuditEvent = {
     div: '',
     text: 'Pathway Ended',
   },
-  description: 'Patient being readied for discharge',
+  outcomeDesc: 'Patient being readied for discharge',
   period: {
     start: {
       value: '2021-08-05T13:15:15+01:00',

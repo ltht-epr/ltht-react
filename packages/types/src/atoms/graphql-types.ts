@@ -490,9 +490,6 @@ export type AuditEvent = {
   text?: Maybe<Narrative>
   /** Type/identifier of event. */
   type: Coding
-
-  // placeholder delete!!
-  description: string
 }
 
 export enum AuditEventAction {
