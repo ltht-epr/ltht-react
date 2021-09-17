@@ -1,22 +1,19 @@
 import { FC } from 'react'
 import styled from '@emotion/styled'
-import { AuditEventContinuation } from '@ltht-react/types'
+import { AuditEvent, Maybe } from '@ltht-react/types'
 import { formatDateExplicitMonth } from '@ltht-react/utils'
 import TimelineDay from './timeline-day'
 
 const StyledTimeline = styled.div`
   margin: -0.75rem;
-  /* todo internal scrolling, is this right height?? */
-  /* height: 768px; */
-  /* overflow: auto; */
 `
 
 const Timeline: FC<IProps> = (props, ...rest) => {
   const audit = props.auditTrail
 
-  const timelineDates: { [date: string]: AuditEventContinuation } = {}
+  const timelineDates: { [date: string]: Maybe<AuditEvent[]> } = {}
 
-  audit.resources.forEach((auditItem) => {
+  audit?.forEach((auditItem) => {
     if (!auditItem?.period?.start?.value) {
       return
     }
@@ -26,12 +23,9 @@ const Timeline: FC<IProps> = (props, ...rest) => {
     const lookup = timelineDates[date]
 
     if (!lookup) {
-      timelineDates[date] = {
-        resources: [auditItem],
-        selfCursorToken: '',
-      }
+      timelineDates[date] = [auditItem]
     } else {
-      lookup.resources.push(auditItem)
+      lookup.push(auditItem)
       timelineDates[date] = lookup
     }
   })
@@ -48,7 +42,7 @@ const Timeline: FC<IProps> = (props, ...rest) => {
 }
 
 interface IProps {
-  auditTrail: AuditEventContinuation
+  auditTrail: Maybe<AuditEvent[]>
 }
 
 export default Timeline

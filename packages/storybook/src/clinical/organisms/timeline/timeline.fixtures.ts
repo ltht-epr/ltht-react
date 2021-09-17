@@ -349,9 +349,6 @@ const Audit7: AuditEvent = {
   ],
 }
 
-const AuditTrail: AuditEventContinuation = {
-  resources: [Audit7, Audit6, Audit5, Audit4, Audit3, Audit2, Audit1],
-  selfCursorToken: '',
-}
+const AuditTrail: AuditEvent[] = [Audit7, Audit6, Audit5, Audit4, Audit3, Audit2, Audit1]
 
 export default AuditTrail

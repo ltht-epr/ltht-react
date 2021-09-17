@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import styled from '@emotion/styled'
-import { AuditEventContinuation } from '@ltht-react/types'
+import { AuditEvent, Maybe } from '@ltht-react/types'
 
 import { CircleIcon } from '@ltht-react/icon'
 import { TEXT_COLOURS, BANNER_COLOURS } from '@ltht-react/styles'
@@ -113,7 +113,7 @@ const TimelineDay: FC<IProps> = (props) => {
       <>
         <StyledTimelineDayHeader>{props.day}</StyledTimelineDayHeader>
         <StyledTimelineDayBody isMobile={isMobile}>
-          {audit.resources.map((auditItem) => (
+          {audit?.map((auditItem) => (
             <StyledTimelineDayItem isMobile={isMobile}>
               <StyledTimelineDayContent isMobile={isMobile}>
                 <TimelineItem audit={auditItem} />
@@ -129,7 +129,7 @@ const TimelineDay: FC<IProps> = (props) => {
     <>
       <StyledTimelineDayHeader>{props.day}</StyledTimelineDayHeader>
       <StyledTimelineDayBody isMobile={isMobile}>
-        {audit.resources.map((auditItem, idx) => {
+        {audit?.map((auditItem, idx) => {
           if (idx % 2 === 1) {
             return (
               <StyledTimelineDayItem isMobile={isMobile}>
@@ -175,7 +175,7 @@ const TimelineDay: FC<IProps> = (props) => {
 }
 
 interface IProps {
-  auditItems: AuditEventContinuation
+  auditItems: Maybe<AuditEvent[]>
   day: string
 }
 

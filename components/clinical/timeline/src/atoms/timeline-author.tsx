@@ -16,6 +16,7 @@ const TimelineAuthor: FC<Props> = ({ audit }) => {
 
   // loop trough roles, find 1st where code is equal to PRIMAUTH and text
   let author = null
+
   for (let index = 0; index < roles.length; index++) {
     const element = roles[index]
 
