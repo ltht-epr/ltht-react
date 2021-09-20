@@ -9,7 +9,7 @@ export const Details: Story = () => (
       <Card.Title style={{ textAlign: 'center' }}>Timeline</Card.Title>
     </Card.Header>
     <Card.Body>
-      <Timeline auditTrail={AuditTrail} />
+      <Timeline auditTrail={AuditTrail.resources} />
     </Card.Body>
   </Card>
 )

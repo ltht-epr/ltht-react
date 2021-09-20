@@ -11,7 +11,7 @@ const StyledTimeline = styled.div`
 const Timeline: FC<IProps> = (props, ...rest) => {
   const audit = props.auditTrail
 
-  const timelineDates: { [date: string]: Maybe<AuditEvent[]> } = {}
+  const timelineDates: { [date: string]: Maybe<AuditEvent>[] } = {}
 
   audit?.forEach((auditItem) => {
     if (!auditItem?.period?.start?.value) {
@@ -42,7 +42,7 @@ const Timeline: FC<IProps> = (props, ...rest) => {
 }
 
 interface IProps {
-  auditTrail: Maybe<AuditEvent[]>
+  auditTrail: Maybe<AuditEvent>[]
 }
 
 export default Timeline
