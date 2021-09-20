@@ -175,7 +175,7 @@ const TimelineDay: FC<IProps> = (props) => {
 }
 
 interface IProps {
-  auditItems: Maybe<AuditEvent[]>
+  auditItems: Maybe<AuditEvent>[]
   day: string
 }
 
