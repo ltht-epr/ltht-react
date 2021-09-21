@@ -20,7 +20,8 @@ const AuthorInfo: FC<IProps> = ({ author, authoredOn, ...rest }) => {
   return (
     <StyledAuthorInfo {...rest}>
       {author && <AuthorName>Authored By: {author.display}</AuthorName>}
-      {authoredOn && <AuthorDate> on {partialDateTimeText(authoredOn)}</AuthorDate>}
+      {author && authoredOn && <AuthorDate> on {partialDateTimeText(authoredOn)}</AuthorDate>}
+      {!author && authoredOn && <AuthorDate>{partialDateTimeText(authoredOn)}</AuthorDate>}
     </StyledAuthorInfo>
   )
 }
