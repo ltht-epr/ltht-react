@@ -40,10 +40,13 @@ const Audit1: AuditEvent = {
               system: 'http://hl7.org/fhir/ValueSet/security-role-type',
             },
           ],
-          text: 'DYSON, Jonny (Dr) Transplant Surgeon',
         },
       ],
       requestor: true,
+      who: {
+        display: 'DYSON, Jonny (Dr) Transplant Surgeon',
+        typeName: '',
+      },
     },
   ],
 }
@@ -98,10 +101,13 @@ const Audit2: AuditEvent = {
               system: 'http://hl7.org/fhir/ValueSet/security-role-type',
             },
           ],
-          text: 'DYSON, Jonny (Dr) Transplant Surgeon',
         },
       ],
       requestor: true,
+      who: {
+        display: 'DYSON, Jonny (Dr) Transplant Surgeon',
+        typeName: '',
+      },
     },
   ],
 }
@@ -147,10 +153,13 @@ const Audit3: AuditEvent = {
               system: 'http://hl7.org/fhir/ValueSet/security-role-type',
             },
           ],
-          text: 'DYSON, Jonny (Dr) Transplant Surgeon',
         },
       ],
       requestor: true,
+      who: {
+        display: 'DYSON, Jonny (Dr) Transplant Surgeon',
+        typeName: '',
+      },
     },
   ],
 }
@@ -196,10 +205,13 @@ const Audit4: AuditEvent = {
               system: 'http://hl7.org/fhir/ValueSet/security-role-type',
             },
           ],
-          text: 'DYSON, Jonny (Dr) Transplant Surgeon',
         },
       ],
       requestor: true,
+      who: {
+        display: 'DYSON, Jonny (Dr) Transplant Surgeon',
+        typeName: '',
+      },
     },
   ],
 }
@@ -245,10 +257,13 @@ const Audit5: AuditEvent = {
               system: 'http://hl7.org/fhir/ValueSet/security-role-type',
             },
           ],
-          text: 'BUSUIOC, George (Mr) Consultant General',
         },
       ],
       requestor: true,
+      who: {
+        display: 'DYSON, Jonny (Dr) Transplant Surgeon',
+        typeName: '',
+      },
     },
   ],
 }
@@ -293,10 +308,13 @@ const Audit6: AuditEvent = {
               system: 'http://hl7.org/fhir/ValueSet/security-role-type',
             },
           ],
-          text: 'BUSUIOC, George (Mr) Consultant General',
         },
       ],
       requestor: true,
+      who: {
+        display: 'DYSON, Jonny (Dr) Transplant Surgeon',
+        typeName: '',
+      },
     },
   ],
 }
@@ -341,10 +359,13 @@ const Audit7: AuditEvent = {
               system: 'http://hl7.org/fhir/ValueSet/security-role-type',
             },
           ],
-          text: 'BUSUIOC, George (Mr) Consultant General',
         },
       ],
       requestor: true,
+      who: {
+        display: 'DYSON, Jonny (Dr) Transplant Surgeon',
+        typeName: '',
+      },
     },
   ],
 }
