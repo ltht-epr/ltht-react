@@ -8,32 +8,27 @@ const StyledTimelineItemLeft = styled.div`
   flex-grow: 1;
 `
 
+const PRIMARY_AUTHOR = 'PRIMAUTH'
+
 const TimelineAuthor: FC<Props> = ({ audit }) => {
   if (!audit) return <></>
 
-  // full list of roles
-  const roles = audit.agent.map((agent) => agent?.role)
+  let authorName = ''
 
-  // loop trough roles, find 1st where code is equal to PRIMAUTH and text
-  let author = null
+  audit.agent.forEach((agent) => {
+    agent?.role?.forEach((role) => {
+      const isPrimaryAuthor = !!role?.coding?.find((x) => x?.code === PRIMARY_AUTHOR)
+      !authorName && isPrimaryAuthor && (authorName = agent.who?.display || '')
+    })
+  })
 
-  for (let index = 0; index < roles.length; index++) {
-    const element = roles[index]
-
-    author = element?.find((el) => el?.coding?.find((c) => c?.code === 'PRIMAUTH'))
-
-    if (!author) {
-      break
-    }
-  }
-
-  if (!author) {
+  if (!authorName) {
     return <></>
   }
 
   return (
     <StyledTimelineItemLeft>
-      <UserIcon size="medium" /> by {author.text}
+      <UserIcon size="medium" /> by {authorName}
     </StyledTimelineItemLeft>
   )
 }
