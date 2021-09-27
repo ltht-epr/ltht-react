@@ -5,7 +5,7 @@ import { AuditEvent, Maybe } from '@ltht-react/types'
 import { CircleIcon } from '@ltht-react/icon'
 import { TEXT_COLOURS, BANNER_COLOURS } from '@ltht-react/styles'
 import { useWindowSize } from '@ltht-react/hooks'
-import { isMobileView } from '@ltht-react/utils'
+import { formatTime, isMobileView } from '@ltht-react/utils'
 
 import TimelineTime from '../atoms/timeline-time'
 import TimelineItem from '../molecules/timeline-item'
@@ -125,17 +125,58 @@ const TimelineDay: FC<IProps> = (props) => {
     )
   }
 
+  const timelineTimes: { [time: string]: Maybe<AuditEvent>[] } = {}
+
+  audit?.forEach((auditItem) => {
+    if (!auditItem?.period?.start?.value) {
+      return
+    }
+
+    const time = formatTime(new Date(auditItem?.period?.start?.value))
+    const lookup = timelineTimes[time]
+
+    if (!lookup) {
+      timelineTimes[time] = [auditItem]
+    } else {
+      lookup.push(auditItem)
+      timelineTimes[time] = lookup
+    }
+  })
+
+  let counter = 0
+
   return (
     <>
       <StyledTimelineDayHeader>{props.day}</StyledTimelineDayHeader>
       <StyledTimelineDayBody isMobile={isMobile}>
-        {audit?.map((auditItem, idx) => {
-          if (idx % 2 === 1) {
+        {Object.entries(timelineTimes).map(([, value]) => {
+          counter += 1
+          return value?.map((auditItem) => {
+            if (counter % 2 === 0) {
+              return (
+                <StyledTimelineDayItem isMobile={isMobile}>
+                  <StyledTimelineDayContent isMobile={isMobile}>
+                    <TimelineItem audit={auditItem} />
+                  </StyledTimelineDayContent>
+                  <StyledTimelineDayLine>
+                    <StyledOuterCircle>
+                      <CircleIcon status="info" size="medium" />
+                    </StyledOuterCircle>
+                    <StyledInnerCircle>
+                      <CircleIcon status="info" size="medium" />
+                    </StyledInnerCircle>
+                  </StyledTimelineDayLine>
+                  <StyledTimelineDayTimeRight>
+                    <TimelineTime audit={auditItem} />
+                  </StyledTimelineDayTimeRight>
+                </StyledTimelineDayItem>
+              )
+            }
             return (
               <StyledTimelineDayItem isMobile={isMobile}>
-                <StyledTimelineDayContent isMobile={isMobile}>
-                  <TimelineItem audit={auditItem} />
-                </StyledTimelineDayContent>
+                <StyledTimelineDayTimeLeft>
+                  <TimelineTime audit={auditItem} />
+                </StyledTimelineDayTimeLeft>
                 <StyledTimelineDayLine>
                   <StyledOuterCircle>
                     <CircleIcon status="info" size="medium" />
@@ -144,30 +185,12 @@ const TimelineDay: FC<IProps> = (props) => {
                     <CircleIcon status="info" size="medium" />
                   </StyledInnerCircle>
                 </StyledTimelineDayLine>
-                <StyledTimelineDayTimeRight>
-                  <TimelineTime audit={auditItem} />
-                </StyledTimelineDayTimeRight>
+                <StyledTimelineDayContent isMobile={isMobile}>
+                  <TimelineItem audit={auditItem} />
+                </StyledTimelineDayContent>
               </StyledTimelineDayItem>
             )
-          }
-          return (
-            <StyledTimelineDayItem isMobile={isMobile}>
-              <StyledTimelineDayTimeLeft>
-                <TimelineTime audit={auditItem} />
-              </StyledTimelineDayTimeLeft>
-              <StyledTimelineDayLine>
-                <StyledOuterCircle>
-                  <CircleIcon status="info" size="medium" />
-                </StyledOuterCircle>
-                <StyledInnerCircle>
-                  <CircleIcon status="info" size="medium" />
-                </StyledInnerCircle>
-              </StyledTimelineDayLine>
-              <StyledTimelineDayContent isMobile={isMobile}>
-                <TimelineItem audit={auditItem} />
-              </StyledTimelineDayContent>
-            </StyledTimelineDayItem>
-          )
+          })
         })}
       </StyledTimelineDayBody>
     </>

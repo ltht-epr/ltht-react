@@ -5,6 +5,6 @@ import AuditTrail from './timeline.fixtures'
 
 describe('Timeline', () => {
   it('Renders', () => {
-    render(<Timeline auditTrail={AuditTrail} />)
+    render(<Timeline auditTrail={AuditTrail.resources} />)
   })
 })
