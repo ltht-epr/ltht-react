@@ -125,58 +125,37 @@ const TimelineDay: FC<IProps> = (props) => {
     )
   }
 
-  const timelineTimes: { [time: string]: Maybe<AuditEvent>[] } = {}
-
-  audit?.forEach((auditItem) => {
-    if (!auditItem?.period?.start?.value) {
-      return
-    }
-
-    const time = formatTime(new Date(auditItem?.period?.start?.value))
-    const lookup = timelineTimes[time]
-
-    if (!lookup) {
-      timelineTimes[time] = [auditItem]
-    } else {
-      lookup.push(auditItem)
-      timelineTimes[time] = lookup
-    }
-  })
-
-  let counter = 0
+  let position = 0
 
   return (
     <>
       <StyledTimelineDayHeader>{props.day}</StyledTimelineDayHeader>
       <StyledTimelineDayBody isMobile={isMobile}>
-        {Object.entries(timelineTimes).map(([, value]) => {
-          counter += 1
-          return value?.map((auditItem) => {
-            if (counter % 2 === 0) {
-              return (
-                <StyledTimelineDayItem isMobile={isMobile}>
-                  <StyledTimelineDayContent isMobile={isMobile}>
-                    <TimelineItem audit={auditItem} />
-                  </StyledTimelineDayContent>
-                  <StyledTimelineDayLine>
-                    <StyledOuterCircle>
-                      <CircleIcon status="info" size="medium" />
-                    </StyledOuterCircle>
-                    <StyledInnerCircle>
-                      <CircleIcon status="info" size="medium" />
-                    </StyledInnerCircle>
-                  </StyledTimelineDayLine>
-                  <StyledTimelineDayTimeRight>
-                    <TimelineTime audit={auditItem} />
-                  </StyledTimelineDayTimeRight>
-                </StyledTimelineDayItem>
-              )
+        {audit?.map((auditItem, idx) => {
+          if (!auditItem?.period?.start?.value) {
+            return <></>
+          }
+          const currentTime = formatTime(new Date(auditItem?.period?.start?.value))
+          let previousTime = currentTime
+
+          if (idx > 0) {
+            const previousItem = audit[idx - 1]
+            if (!previousItem?.period?.start?.value) {
+              return <></>
             }
+            previousTime = formatTime(new Date(previousItem?.period?.start?.value))
+          }
+
+          if (currentTime !== previousTime) {
+            position += 1
+          }
+
+          if (position % 2 === 1) {
             return (
               <StyledTimelineDayItem isMobile={isMobile}>
-                <StyledTimelineDayTimeLeft>
-                  <TimelineTime audit={auditItem} />
-                </StyledTimelineDayTimeLeft>
+                <StyledTimelineDayContent isMobile={isMobile}>
+                  <TimelineItem audit={auditItem} />
+                </StyledTimelineDayContent>
                 <StyledTimelineDayLine>
                   <StyledOuterCircle>
                     <CircleIcon status="info" size="medium" />
@@ -185,12 +164,30 @@ const TimelineDay: FC<IProps> = (props) => {
                     <CircleIcon status="info" size="medium" />
                   </StyledInnerCircle>
                 </StyledTimelineDayLine>
-                <StyledTimelineDayContent isMobile={isMobile}>
-                  <TimelineItem audit={auditItem} />
-                </StyledTimelineDayContent>
+                <StyledTimelineDayTimeRight>
+                  <TimelineTime audit={auditItem} />
+                </StyledTimelineDayTimeRight>
               </StyledTimelineDayItem>
             )
-          })
+          }
+          return (
+            <StyledTimelineDayItem isMobile={isMobile}>
+              <StyledTimelineDayTimeLeft>
+                <TimelineTime audit={auditItem} />
+              </StyledTimelineDayTimeLeft>
+              <StyledTimelineDayLine>
+                <StyledOuterCircle>
+                  <CircleIcon status="info" size="medium" />
+                </StyledOuterCircle>
+                <StyledInnerCircle>
+                  <CircleIcon status="info" size="medium" />
+                </StyledInnerCircle>
+              </StyledTimelineDayLine>
+              <StyledTimelineDayContent isMobile={isMobile}>
+                <TimelineItem audit={auditItem} />
+              </StyledTimelineDayContent>
+            </StyledTimelineDayItem>
+          )
         })}
       </StyledTimelineDayBody>
     </>
