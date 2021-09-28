@@ -5,7 +5,7 @@ import { AuditEvent, Maybe } from '@ltht-react/types'
 import { CircleIcon } from '@ltht-react/icon'
 import { TEXT_COLOURS, BANNER_COLOURS } from '@ltht-react/styles'
 import { useWindowSize } from '@ltht-react/hooks'
-import { isMobileView } from '@ltht-react/utils'
+import { formatTime, isMobileView } from '@ltht-react/utils'
 
 import TimelineTime from '../atoms/timeline-time'
 import TimelineItem from '../molecules/timeline-item'
@@ -125,12 +125,32 @@ const TimelineDay: FC<IProps> = (props) => {
     )
   }
 
+  let position = 0
+
   return (
     <>
       <StyledTimelineDayHeader>{props.day}</StyledTimelineDayHeader>
       <StyledTimelineDayBody isMobile={isMobile}>
         {audit?.map((auditItem, idx) => {
-          if (idx % 2 === 1) {
+          if (!auditItem?.period?.start?.value) {
+            return <></>
+          }
+          const currentTime = formatTime(new Date(auditItem?.period?.start?.value))
+          let previousTime = currentTime
+
+          if (idx > 0) {
+            const previousItem = audit[idx - 1]
+            if (!previousItem?.period?.start?.value) {
+              return <></>
+            }
+            previousTime = formatTime(new Date(previousItem?.period?.start?.value))
+          }
+
+          if (currentTime !== previousTime) {
+            position += 1
+          }
+
+          if (position % 2 === 1) {
             return (
               <StyledTimelineDayItem isMobile={isMobile}>
                 <StyledTimelineDayContent isMobile={isMobile}>

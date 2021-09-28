@@ -273,6 +273,210 @@ const Audit6: AuditEvent = {
   metadata: {
     dataSources: [],
     isRedacted: false,
+    requestedWhen: '2021-08-05T10:15:15+01:00',
+  },
+  source: {
+    observer: {
+      display: '',
+      typeName: '',
+    },
+  },
+  type: {
+    display: '',
+  },
+  text: {
+    div: '',
+    text: 'Criteria Added',
+  },
+  outcomeDesc: 'Criteria "Pain - Manageable" has been added.',
+  period: {
+    start: {
+      value: '2021-08-05T10:15:15+01:00',
+    },
+  },
+  recorded: {
+    value: '2021-08-05T10:15:15+01:00',
+  },
+  agent: [
+    {
+      role: [
+        {
+          coding: [
+            {
+              code: 'PRIMAUTH',
+              display: 'User name',
+              system: 'http://hl7.org/fhir/ValueSet/security-role-type',
+            },
+          ],
+        },
+      ],
+      requestor: true,
+      who: {
+        display: 'DYSON, Jonny (Dr) Transplant Surgeon',
+        typeName: '',
+      },
+    },
+  ],
+}
+
+const Audit7: AuditEvent = {
+  id: 'id1',
+  metadata: {
+    dataSources: [],
+    isRedacted: false,
+    requestedWhen: '2021-08-05T10:15:15+01:00',
+  },
+  source: {
+    observer: {
+      display: '',
+      typeName: '',
+    },
+  },
+  type: {
+    display: '',
+  },
+  text: {
+    div: '',
+    text: 'Criteria Added',
+  },
+  outcomeDesc: 'Criteria "Observations - Stable" has been added.',
+  period: {
+    start: {
+      value: '2021-08-05T10:15:15+01:00',
+    },
+  },
+  recorded: {
+    value: '2021-08-05T13:15:15+01:00',
+  },
+  agent: [
+    {
+      role: [
+        {
+          coding: [
+            {
+              code: 'PRIMAUTH',
+              display: 'User name',
+              system: 'http://hl7.org/fhir/ValueSet/security-role-type',
+            },
+          ],
+        },
+      ],
+      requestor: true,
+      who: {
+        display: 'DYSON, Jonny (Dr) Transplant Surgeon',
+        typeName: '',
+      },
+    },
+  ],
+}
+
+const Audit8: AuditEvent = {
+  id: 'id1',
+  metadata: {
+    dataSources: [],
+    isRedacted: false,
+    requestedWhen: '2021-08-05T11:15:15+01:00',
+  },
+  source: {
+    observer: {
+      display: '',
+      typeName: '',
+    },
+  },
+  type: {
+    display: '',
+  },
+  text: {
+    div: '',
+    text: 'Criteria Added',
+  },
+  outcomeDesc: 'Criteria "Pain - Negligble" has been added.',
+  period: {
+    start: {
+      value: '2021-08-05T11:15:15+01:00',
+    },
+  },
+  recorded: {
+    value: '2021-08-05T11:15:15+01:00',
+  },
+  agent: [
+    {
+      role: [
+        {
+          coding: [
+            {
+              code: 'PRIMAUTH',
+              display: 'User name',
+              system: 'http://hl7.org/fhir/ValueSet/security-role-type',
+            },
+          ],
+        },
+      ],
+      requestor: true,
+      who: {
+        display: 'DYSON, Jonny (Dr) Transplant Surgeon',
+        typeName: '',
+      },
+    },
+  ],
+}
+
+const Audit9: AuditEvent = {
+  id: 'id1',
+  metadata: {
+    dataSources: [],
+    isRedacted: false,
+    requestedWhen: '2021-08-05T11:15:15+01:00',
+  },
+  source: {
+    observer: {
+      display: '',
+      typeName: '',
+    },
+  },
+  type: {
+    display: '',
+  },
+  text: {
+    div: '',
+    text: 'Criteria Removed',
+  },
+  outcomeDesc: 'Criteria "Observations - Stable" has been removed.',
+  period: {
+    start: {
+      value: '2021-08-05T11:15:15+01:00',
+    },
+  },
+  recorded: {
+    value: '2021-08-05T11:15:15+01:00',
+  },
+  agent: [
+    {
+      role: [
+        {
+          coding: [
+            {
+              code: 'PRIMAUTH',
+              display: 'User name',
+              system: 'http://hl7.org/fhir/ValueSet/security-role-type',
+            },
+          ],
+        },
+      ],
+      requestor: true,
+      who: {
+        display: 'DYSON, Jonny (Dr) Transplant Surgeon',
+        typeName: '',
+      },
+    },
+  ],
+}
+
+const Audit10: AuditEvent = {
+  id: 'id1',
+  metadata: {
+    dataSources: [],
+    isRedacted: false,
     requestedWhen: '2021-08-05T13:15:15+01:00',
   },
   source: {
@@ -319,7 +523,58 @@ const Audit6: AuditEvent = {
   ],
 }
 
-const Audit7: AuditEvent = {
+const Audit11: AuditEvent = {
+  id: 'id1',
+  metadata: {
+    dataSources: [],
+    isRedacted: false,
+    requestedWhen: '2021-08-05T13:15:15+01:00',
+  },
+  source: {
+    observer: {
+      display: '',
+      typeName: '',
+    },
+  },
+  type: {
+    display: '',
+  },
+  text: {
+    div: '',
+    text: 'Criteria Removed',
+  },
+  outcomeDesc: 'Criteria "Pain - Manageable" has been removed.',
+  period: {
+    start: {
+      value: '2021-08-05T13:15:15+01:00',
+    },
+  },
+  recorded: {
+    value: '2021-08-05T13:15:15+01:00',
+  },
+  agent: [
+    {
+      role: [
+        {
+          coding: [
+            {
+              code: 'PRIMAUTH',
+              display: 'User name',
+              system: 'http://hl7.org/fhir/ValueSet/security-role-type',
+            },
+          ],
+        },
+      ],
+      requestor: true,
+      who: {
+        display: 'DYSON, Jonny (Dr) Transplant Surgeon',
+        typeName: '',
+      },
+    },
+  ],
+}
+
+const Audit12: AuditEvent = {
   id: 'id1',
   metadata: {
     dataSources: [],
@@ -371,7 +626,7 @@ const Audit7: AuditEvent = {
 }
 
 const AuditTrail: AuditEventContinuation = {
-  resources: [Audit7, Audit6, Audit5, Audit4, Audit3, Audit2, Audit1],
+  resources: [Audit12, Audit11, Audit10, Audit9, Audit8, Audit7, Audit6, Audit5, Audit4, Audit3, Audit2, Audit1],
   selfCursorToken: '',
 }
 
