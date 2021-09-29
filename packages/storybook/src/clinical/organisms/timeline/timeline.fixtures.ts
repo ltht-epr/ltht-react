@@ -1,4 +1,4 @@
-import { AuditEventContinuation, AuditEvent } from '@ltht-react/types'
+import { AuditEventContinuation, AuditEvent, PartialDateTimeKindCode } from '@ltht-react/types'
 
 const Audit1: AuditEvent = {
   id: 'id1',
@@ -546,7 +546,8 @@ const Audit11: AuditEvent = {
   outcomeDesc: 'Criteria "Pain - Manageable" has been removed.',
   period: {
     start: {
-      value: '2021-08-05T13:15:15+01:00',
+      kind: PartialDateTimeKindCode.DateTime,
+      value: '2021-09-13T14:04:14.0716494+00:00',
     },
   },
   recorded: {
@@ -597,7 +598,8 @@ const Audit12: AuditEvent = {
   outcomeDesc: 'Patient being readied for discharge',
   period: {
     start: {
-      value: '2021-08-05T13:15:15+01:00',
+      kind: PartialDateTimeKindCode.DateTime,
+      value: '2021-09-13T14:04:14.0716494+00:00',
     },
   },
   recorded: {

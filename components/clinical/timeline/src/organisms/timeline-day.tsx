@@ -150,9 +150,11 @@ const TimelineDay: FC<IProps> = (props) => {
             position += 1
           }
 
+          const key = `${currentTime}_${idx}`
+
           if (position % 2 === 1) {
             return (
-              <StyledTimelineDayItem isMobile={isMobile}>
+              <StyledTimelineDayItem isMobile={isMobile} key={key}>
                 <StyledTimelineDayContent isMobile={isMobile}>
                   <TimelineItem audit={auditItem} />
                 </StyledTimelineDayContent>
@@ -171,7 +173,7 @@ const TimelineDay: FC<IProps> = (props) => {
             )
           }
           return (
-            <StyledTimelineDayItem isMobile={isMobile}>
+            <StyledTimelineDayItem isMobile={isMobile} key={key}>
               <StyledTimelineDayTimeLeft>
                 <TimelineTime audit={auditItem} />
               </StyledTimelineDayTimeLeft>
