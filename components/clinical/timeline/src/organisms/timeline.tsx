@@ -34,7 +34,7 @@ const Timeline: FC<IProps> = (props, ...rest) => {
     <>
       <StyledTimeline {...rest}>
         {Object.entries(timelineDates).map(([key, value]) => (
-          <TimelineDay day={key} auditItems={value} />
+          <TimelineDay day={key} auditItems={value} key={key} />
         ))}
       </StyledTimeline>
     </>
