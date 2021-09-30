@@ -589,7 +589,7 @@ export const ComposedExampleData: QuestionnaireResponse = {
           text: null,
           answer: [
             {
-              valueString: 'Male',
+              valueString: 'Male <b>Html text</b>',
               valueBoolean: false,
               valueDateTime: null,
             },

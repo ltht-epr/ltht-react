@@ -65,7 +65,9 @@ const QuestionBlock: FC<IProps> = ({ type, question, answer }) => {
           <Question>{question}</Question>
           {noAnswerProvided && <Answer>-</Answer>}
           {answer?.answer?.map((answerItem, index) => (
-            <Answer key={`${question}-${answerItem?.valueString}-${index + 1}`}>{answerItem?.valueString}</Answer>
+            <Answer key={`${question}-${answerItem?.valueString}-${index + 1}`}>
+              {answerItem?.valueString ? ReactHtmlParser(answerItem?.valueString) : ''}
+            </Answer>
           ))}
         </>
       )}
