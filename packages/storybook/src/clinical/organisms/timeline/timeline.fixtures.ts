@@ -390,7 +390,8 @@ const Audit8: AuditEvent = {
     div: '',
     text: 'Criteria Added',
   },
-  outcomeDesc: 'Criteria "Pain - Negligble" has been added.',
+  outcomeDesc:
+    'Criteria "Pain -  <p><strong>Bold text </strong></p><p><strong><em>Italic text</em></strong></p><p><strong><em><u>Underline text</u></em></strong></p>" has been added.',
   period: {
     start: {
       value: '2021-08-05T11:15:15+01:00',
@@ -492,7 +493,7 @@ const Audit10: AuditEvent = {
     div: '',
     text: 'Criteria Removed',
   },
-  outcomeDesc: 'Criteria "Pain - Pain under control" has been removed.',
+  outcomeDesc: 'Criteria "Pain - <ul><li>Item 1</li><li>Item 2</li><li>Item 3</li></ul>" has been removed.',
   period: {
     start: {
       value: '2021-08-05T13:15:15+01:00',
@@ -543,7 +544,7 @@ const Audit11: AuditEvent = {
     div: '',
     text: 'Criteria Removed',
   },
-  outcomeDesc: 'Criteria "Pain - Manageable" has been removed.',
+  outcomeDesc: 'Criteria "Pain - <p>Test</p>" has been removed.',
   period: {
     start: {
       kind: PartialDateTimeKindCode.DateTime,
