@@ -41,6 +41,7 @@ export type Ehr = {
   medications?: Maybe<Array<Maybe<MedicationRequest>>>
   patient?: Maybe<Patient>
   questionnaire?: Maybe<QuestionnaireResponse>
+  questionnaireLastCompleted?: Maybe<QuestionnaireResponse>
   tasks?: Maybe<TaskContinuation>
 }
 
@@ -62,6 +63,7 @@ export type EhrAuditPathwayArgs = {
   patientGuid: Scalars['String']
   pathwayType: Scalars['String']
   pathwayId: Scalars['String']
+  auditProfile?: Maybe<Scalars['String']>
   cursorToken?: Maybe<Scalars['String']>
   count?: Maybe<Scalars['Int']>
 }
@@ -104,12 +106,21 @@ export type EhrPatientArgs = {
 export type EhrQuestionnaireArgs = {
   patientGuid: Scalars['String']
   name: Scalars['String']
+  instanceGuid: Scalars['String']
+}
+
+/** Queries the LTHT EHR. */
+export type EhrQuestionnaireLastCompletedArgs = {
+  patientGuid: Scalars['String']
+  name: Scalars['String']
   setGuid: Scalars['String']
 }
 
 /** Queries the LTHT EHR. */
 export type EhrTasksArgs = {
   patientGuid: Scalars['String']
+  pathwayType?: Maybe<Scalars['String']>
+  pathwayId?: Maybe<Scalars['String']>
   status?: Array<Maybe<TaskStatusCode>>
   cursorToken?: Maybe<Scalars['String']>
   count?: Maybe<Scalars['Int']>
@@ -124,9 +135,9 @@ export type AllergyIntolerance = {
   /** http://hl7.org/fhir/stu3/valueset-allergy-intolerance-category.html */
   category?: Maybe<Array<Maybe<AllergyIntoleranceCategoryCode>>>
   /** http://hl7.org/fhir/stu3/valueset-allergy-clinical-status.html */
-  clinicalStatus: AllergyIntoleranceClinicalStatusCode
+  clinicalStatus?: Maybe<AllergyIntoleranceClinicalStatusCode>
   /** http://hl7.org/fhir/stu3/valueset-allergyintolerance-code.html */
-  code: CodeableConcept
+  code?: Maybe<CodeableConcept>
   /** http://hl7.org/fhir/stu3/valueset-allergy-intolerance-criticality.html */
   criticality?: Maybe<AllergyIntoleranceCriticalityCode>
   /** Additional content defined by implementations. */
@@ -152,7 +163,7 @@ export type AllergyIntolerance = {
   /** http://hl7.org/fhir/stu3/valueset-allergy-intolerance-type.html */
   type?: Maybe<AllergyIntoleranceTypeCode>
   /** https://fhir.hl7.org.uk/STU3/ValueSet/CareConnect-AllergyVerificationStatus-1 */
-  verificationStatus?: Maybe<AllergyIntoleranceVerificationStatusCode>
+  verificationStatus: AllergyIntoleranceVerificationStatusCode
 }
 
 /** Metadata about the resource. */
@@ -202,7 +213,7 @@ export type Coding = {
   /** Symbol in syntax defined by the system. */
   code?: Maybe<Scalars['String']>
   /** Representation defined by the system. */
-  display: Scalars['String']
+  display?: Maybe<Scalars['String']>
   /** Additional content defined by implementations. */
   extension?: Maybe<Array<Maybe<Extension>>>
   /** Identity of the terminology system. */
@@ -1247,6 +1258,7 @@ export enum QuestionnaireItemTypeCode {
   QuestionDate = 'QUESTION_DATE',
   QuestionString = 'QUESTION_STRING',
   QuestionStringBbCode = 'QUESTION_STRING_BB_CODE',
+  QuestionStringHtml = 'QUESTION_STRING_HTML',
 }
 
 export enum QuestionnairePublicationStatus {
@@ -2012,7 +2024,6 @@ export type YhcrDocumentsArgs = {
   toDate: Scalars['Date']
   cursorToken?: Maybe<Scalars['String']>
   count?: Maybe<Scalars['Int']>
-  dataSourceCode?: Maybe<Array<Maybe<Scalars['String']>>>
 }
 
 /** Queries the YHCR System-of-Systems. */
@@ -2066,7 +2077,6 @@ export type Observation = {
   related?: Maybe<Array<Maybe<ObservationReferenceRange>>>
   specimen?: Maybe<ResourceReference>
   status: ObservationStatusCode
-  subject: ResourceReference
   /** Text summary of the resource, for human interpretation. */
   text?: Maybe<Narrative>
   value?: Maybe<ObservationValue>
@@ -2208,6 +2218,8 @@ export type EntityPermission = {
   actions: Array<EntityAction>
   /** Additional content defined by implementations. */
   extension?: Maybe<Array<Maybe<Extension>>>
+  /** The Resource the user has access to. */
+  resource?: Maybe<Scalars['String']>
   /** The Entity the user has access to. */
   type: EntityType
 }
@@ -2222,23 +2234,24 @@ export enum EntityAction {
 export enum EntityType {
   HospitalStay = 'HOSPITAL_STAY',
   Flag = 'FLAG',
+  Condition = 'CONDITION',
   Patient = 'PATIENT',
+  Task = 'TASK',
   AllergyIntolerance = 'ALLERGY_INTOLERANCE',
   Appointment = 'APPOINTMENT',
+  AuditEvent = 'AUDIT_EVENT',
   CarePlan = 'CARE_PLAN',
   CareTeam = 'CARE_TEAM',
+  CdsTemplate = 'CDS_TEMPLATE',
   CommunityTreatmentOrder = 'COMMUNITY_TREATMENT_ORDER',
-  Condition = 'CONDITION',
   Document = 'DOCUMENT',
   Encounter = 'ENCOUNTER',
+  Guidance = 'GUIDANCE',
   Medication = 'MEDICATION',
   Observation = 'OBSERVATION',
-  Guidance = 'GUIDANCE',
-  Task = 'TASK',
   DataAvailability = 'DATA_AVAILABILITY',
   IamToken = 'IAM_TOKEN',
-  Questionnaire = 'QUESTIONNAIRE',
-  AuditEvent = 'AUDIT_EVENT',
+  Form = 'FORM',
 }
 
 /** Permission to launch one or more Apps with the given Intents. */
