@@ -221,8 +221,6 @@ const Timeline: FC<IProps> = (props, ...rest) => {
               </StyledTimelineDayBody>
             </>
           )
-
-          // return <TimelineDay day={key} auditItems={value} key={key} />
         })}
       </StyledTimeline>
     </>
