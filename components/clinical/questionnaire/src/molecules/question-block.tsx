@@ -65,9 +65,7 @@ const QuestionBlock: FC<IProps> = ({ type, question, answer }) => {
           <Question>{question}</Question>
           {noAnswerProvided && <Answer>-</Answer>}
           {answer?.answer?.map((answerItem, index) => (
-            <Answer key={`${question}-${answerItem?.valueString}-${index + 1}`}>
-              {answerItem?.valueString ? ReactHtmlParser(answerItem?.valueString) : ''}
-            </Answer>
+            <Answer key={`${question}-${answerItem?.valueString}-${index + 1}`}>{answerItem?.valueString}</Answer>
           ))}
         </>
       )}
@@ -93,6 +91,17 @@ const QuestionBlock: FC<IProps> = ({ type, question, answer }) => {
           ))}
         </>
       )}
+      {type === QuestionnaireItemTypeCode.QuestionStringHtml && (
+        <>
+          <Question>{question}</Question>
+          {noAnswerProvided && <Answer>-</Answer>}
+          {answer?.answer?.map((answerItem, index) => (
+            <Answer key={`${question}-${answerItem?.valueString}-${index + 1}`}>
+              {answerItem?.valueString ? ReactHtmlParser(answerItem?.valueString) : ''}
+            </Answer>
+          ))}
+        </>
+      )}
     </StyledQuestionBlock>
   )
 }
@@ -110,5 +119,6 @@ type QuestionTypes =
   | QuestionnaireItemTypeCode.QuestionDate
   | QuestionnaireItemTypeCode.QuestionString
   | QuestionnaireItemTypeCode.QuestionStringBbCode
+  | QuestionnaireItemTypeCode.QuestionStringHtml
 
 export default QuestionBlock

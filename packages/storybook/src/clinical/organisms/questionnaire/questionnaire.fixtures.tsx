@@ -549,7 +549,7 @@ export const ComposedExampleData: QuestionnaireResponse = {
           {
             linkId: '3.1',
             text: 'What is your gender?',
-            type: QuestionnaireItemTypeCode.QuestionString,
+            type: QuestionnaireItemTypeCode.QuestionStringHtml,
           },
           {
             linkId: '3.2',
