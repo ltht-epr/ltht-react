@@ -12,8 +12,8 @@ const codeableConceptDisplaySummary = (codeableConcept: Maybe<CodeableConcept> =
   return display
 }
 
-const codeableConceptCodeSummary = (codeableConcept: CodeableConcept = {}): string => {
-  const codings = codeableConcept.coding || []
+const codeableConceptCodeSummary = (codeableConcept: Maybe<CodeableConcept> = {}): string => {
+  const codings = codeableConcept?.coding || []
   const code = codings.map((coding) => coding?.code).join(', ')
   return code
 }
