@@ -93,6 +93,7 @@ const AllergyTwo: AllergyIntolerance = {
   },
   type: AllergyIntoleranceTypeCode.Intolerance,
   clinicalStatus: AllergyIntoleranceClinicalStatusCode.Resolved,
+  verificationStatus: AllergyIntoleranceVerificationStatusCode.Confirmed,
 }
 
 const AllergyThree: AllergyIntolerance = {
@@ -109,6 +110,7 @@ const AllergyThree: AllergyIntolerance = {
   category: [AllergyIntoleranceCategoryCode.Medication],
   type: AllergyIntoleranceTypeCode.Intolerance,
   clinicalStatus: AllergyIntoleranceClinicalStatusCode.Active,
+  verificationStatus: AllergyIntoleranceVerificationStatusCode.Refuted,
   criticality: AllergyIntoleranceCriticalityCode.High,
 }
 
@@ -124,6 +126,7 @@ const AllergyFour: AllergyIntolerance = {
   },
   type: AllergyIntoleranceTypeCode.Intolerance,
   clinicalStatus: AllergyIntoleranceClinicalStatusCode.Resolved,
+  verificationStatus: AllergyIntoleranceVerificationStatusCode.Unconfirmed,
 }
 
 const allergyList: AllergyIntolerance[] = [AllergyOne, AllergyTwo, AllergyThree, AllergyFour]
