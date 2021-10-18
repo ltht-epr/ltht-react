@@ -37,7 +37,7 @@ const QuestionBlock: FC<IProps> = ({ type, question, answer }) => {
   const noAnswerResponse = answer === undefined
   const noAnswerProvided = answer?.answer && answer?.answer?.length === 0
 
-  if (noAnswerResponse && type !== QuestionnaireItemTypeCode.Display) return null
+  if (noAnswerResponse) return null
 
   return (
     <StyledQuestionBlock>
@@ -46,7 +46,7 @@ const QuestionBlock: FC<IProps> = ({ type, question, answer }) => {
           <StyledInfoIcon>
             <InfoCircleIcon status="info" size="medium" />
           </StyledInfoIcon>
-          {question}
+          {answer?.text}
         </DisplayBlock>
       )}
       {type === QuestionnaireItemTypeCode.QuestionBoolean && (

@@ -199,11 +199,17 @@ export const DisplayFieldData: QuestionnaireResponse = {
         linkId: '2',
         text: 'This is some display text.',
         type: QuestionnaireItemTypeCode.Display,
-        item: null,
       },
     ],
   },
-  item: [],
+  item: [
+    {
+      linkId: '2',
+      text: 'This is some display text.',
+      answer: null,
+      item: [],
+    },
+  ],
 }
 
 export const GroupTypeData: QuestionnaireResponse = {
@@ -662,6 +668,20 @@ export const NestedGroupWithDisplayExampleData: QuestionnaireResponse = {
             linkId: '1.2',
             text: null,
             type: QuestionnaireItemTypeCode.Group,
+            item: [
+              {
+                linkId: '1.2.1',
+                text: 'Trust Actions',
+                type: QuestionnaireItemTypeCode.QuestionString,
+                repeats: false,
+              },
+              {
+                linkId: '1.2.2',
+                text: 'Action Organised?',
+                type: QuestionnaireItemTypeCode.QuestionBoolean,
+                repeats: false,
+              },
+            ],
           },
         ],
       },
@@ -680,6 +700,20 @@ export const NestedGroupWithDisplayExampleData: QuestionnaireResponse = {
             linkId: '2.2',
             text: null,
             type: QuestionnaireItemTypeCode.Group,
+            item: [
+              {
+                linkId: '2.2.1',
+                text: 'GP Actions',
+                type: QuestionnaireItemTypeCode.QuestionString,
+                repeats: false,
+              },
+              {
+                linkId: '2.2.2',
+                text: 'Requested By?',
+                type: QuestionnaireItemTypeCode.QuestionString,
+                repeats: false,
+              },
+            ],
           },
         ],
       },
@@ -698,6 +732,20 @@ export const NestedGroupWithDisplayExampleData: QuestionnaireResponse = {
             linkId: '3.2',
             text: null,
             type: QuestionnaireItemTypeCode.Group,
+            item: [
+              {
+                linkId: '3.2.1',
+                text: 'Community Pharmacy Actions',
+                type: QuestionnaireItemTypeCode.QuestionString,
+                repeats: false,
+              },
+              {
+                linkId: '3.2.2',
+                text: 'Requested By?',
+                type: QuestionnaireItemTypeCode.QuestionString,
+                repeats: false,
+              },
+            ],
           },
         ],
       },
@@ -716,6 +764,20 @@ export const NestedGroupWithDisplayExampleData: QuestionnaireResponse = {
             linkId: '4.2',
             text: null,
             type: QuestionnaireItemTypeCode.Group,
+            item: [
+              {
+                linkId: '4.2.1',
+                text: 'CCG Actions',
+                type: QuestionnaireItemTypeCode.QuestionString,
+                repeats: false,
+              },
+              {
+                linkId: '4.2.2',
+                text: 'Requested By?',
+                type: QuestionnaireItemTypeCode.QuestionString,
+                repeats: false,
+              },
+            ],
           },
         ],
       },
