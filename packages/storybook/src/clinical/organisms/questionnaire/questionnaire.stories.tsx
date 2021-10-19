@@ -13,6 +13,7 @@ import {
   RichTextFieldData,
   AuthorInfoData,
   RepeatingGroupsExampleData,
+  NestedGroupWithDisplayExampleData,
   ComposedExampleData,
 } from './questionnaire.fixtures'
 
@@ -111,6 +112,17 @@ export const RepeatingGroups: Story = () => (
     </Card.Header>
     <Card.Body>
       <Questionnaire questionnaire={RepeatingGroupsExampleData} />
+    </Card.Body>
+  </Card>
+)
+
+export const NestedGroupsWithDisplay: Story = () => (
+  <Card>
+    <Card.Header>
+      <Card.Title>Questionnaire</Card.Title>
+    </Card.Header>
+    <Card.Body>
+      <Questionnaire questionnaire={NestedGroupWithDisplayExampleData} />
     </Card.Body>
   </Card>
 )

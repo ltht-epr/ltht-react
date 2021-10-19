@@ -199,11 +199,17 @@ export const DisplayFieldData: QuestionnaireResponse = {
         linkId: '2',
         text: 'This is some display text.',
         type: QuestionnaireItemTypeCode.Display,
-        item: null,
       },
     ],
   },
-  item: [],
+  item: [
+    {
+      linkId: '2',
+      text: 'This is some display text.',
+      answer: null,
+      item: [],
+    },
+  ],
 }
 
 export const GroupTypeData: QuestionnaireResponse = {
@@ -613,6 +619,297 @@ export const ComposedExampleData: QuestionnaireResponse = {
         },
       ],
       item: null,
+    },
+  ],
+}
+
+export const NestedGroupWithDisplayExampleData: QuestionnaireResponse = {
+  id: 'f9fb120a-6d65-427c-9c9e-51031e0607b3',
+  status: QuestionnaireResponseStatus.Completed,
+  authored: {
+    kind: PartialDateTimeKindCode.DateTime,
+    value: '2021-10-14T12:17:46.683+00:00',
+  },
+  metadata: mockMetadata,
+  author: {
+    typeName: 'EhrUser',
+    identifier: {
+      system: null,
+      value: 'ed166c7a-d8cb-450f-aba5-4471f1bbe430',
+    },
+    display: 'SMITH, Bob (Dr) Doctor - specialtyCodeName',
+  },
+  questionnaire: {
+    id: '4789c2b3-7e37-4dd7-9642-0d456ae2f2bd',
+    identifier: [
+      {
+        system: 'http://leedsth.nhs.uk/user/guid',
+        value: 'cfe6a9d7-f23d-4bb9-a28d-8a3895bee48a',
+      },
+    ],
+    metadata: mockMetadata,
+    url: null,
+    version: '1',
+    title: 'Discharge Actions',
+    status: QuestionnairePublicationStatus.Active,
+    item: [
+      {
+        linkId: '1',
+        text: 'Trust Actions',
+        type: QuestionnaireItemTypeCode.Group,
+        repeats: false,
+        item: [
+          {
+            linkId: '1.1',
+            text: 'No actions for the Trust post-discharge',
+            type: QuestionnaireItemTypeCode.Display,
+          },
+          {
+            linkId: '1.2',
+            text: null,
+            type: QuestionnaireItemTypeCode.Group,
+            item: [
+              {
+                linkId: '1.2.1',
+                text: 'Trust Actions',
+                type: QuestionnaireItemTypeCode.QuestionString,
+                repeats: false,
+              },
+              {
+                linkId: '1.2.2',
+                text: 'Action Organised?',
+                type: QuestionnaireItemTypeCode.QuestionBoolean,
+                repeats: false,
+              },
+            ],
+          },
+        ],
+      },
+      {
+        linkId: '2',
+        text: 'GP Actions',
+        type: QuestionnaireItemTypeCode.Group,
+        repeats: false,
+        item: [
+          {
+            linkId: '2.1',
+            text: 'No actions for the GP post-discharge',
+            type: QuestionnaireItemTypeCode.Display,
+          },
+          {
+            linkId: '2.2',
+            text: null,
+            type: QuestionnaireItemTypeCode.Group,
+            item: [
+              {
+                linkId: '2.2.1',
+                text: 'GP Actions',
+                type: QuestionnaireItemTypeCode.QuestionString,
+                repeats: false,
+              },
+              {
+                linkId: '2.2.2',
+                text: 'Requested By?',
+                type: QuestionnaireItemTypeCode.QuestionString,
+                repeats: false,
+              },
+            ],
+          },
+        ],
+      },
+      {
+        linkId: '3',
+        text: 'Community Pharmacy Actions',
+        type: QuestionnaireItemTypeCode.Group,
+        repeats: false,
+        item: [
+          {
+            linkId: '3.1',
+            text: 'No actions for the Community Pharmacy post-discharge',
+            type: QuestionnaireItemTypeCode.Display,
+          },
+          {
+            linkId: '3.2',
+            text: null,
+            type: QuestionnaireItemTypeCode.Group,
+            item: [
+              {
+                linkId: '3.2.1',
+                text: 'Community Pharmacy Actions',
+                type: QuestionnaireItemTypeCode.QuestionString,
+                repeats: false,
+              },
+              {
+                linkId: '3.2.2',
+                text: 'Requested By?',
+                type: QuestionnaireItemTypeCode.QuestionString,
+                repeats: false,
+              },
+            ],
+          },
+        ],
+      },
+      {
+        linkId: '4',
+        text: 'CCG Actions',
+        type: QuestionnaireItemTypeCode.Group,
+        repeats: false,
+        item: [
+          {
+            linkId: '4.1',
+            text: 'No actions for the CCG post-discharge',
+            type: QuestionnaireItemTypeCode.Display,
+          },
+          {
+            linkId: '4.2',
+            text: null,
+            type: QuestionnaireItemTypeCode.Group,
+            item: [
+              {
+                linkId: '4.2.1',
+                text: 'CCG Actions',
+                type: QuestionnaireItemTypeCode.QuestionString,
+                repeats: false,
+              },
+              {
+                linkId: '4.2.2',
+                text: 'Requested By?',
+                type: QuestionnaireItemTypeCode.QuestionString,
+                repeats: false,
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+  item: [
+    {
+      linkId: '1',
+      text: 'Trust Actions',
+      answer: null,
+      item: [
+        {
+          linkId: '1.2',
+          text: null,
+          answer: null,
+          item: [
+            {
+              linkId: '1.2.1',
+              text: null,
+              answer: [
+                {
+                  valueString: 'Trust Action 1',
+                  valueBoolean: null,
+                  valueDateTime: null,
+                },
+              ],
+            },
+            {
+              linkId: '1.2.2',
+              text: null,
+              answer: [
+                {
+                  valueString: null,
+                  valueBoolean: false,
+                  valueDateTime: null,
+                },
+              ],
+            },
+          ],
+        },
+        {
+          linkId: '1.2',
+          text: null,
+          answer: null,
+          item: [
+            {
+              linkId: '1.2.1',
+              text: null,
+              answer: [
+                {
+                  valueString: 'Trust Action 2',
+                  valueBoolean: null,
+                  valueDateTime: null,
+                },
+              ],
+            },
+            {
+              linkId: '1.2.2',
+              text: null,
+              answer: [
+                {
+                  valueString: null,
+                  valueBoolean: true,
+                  valueDateTime: null,
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    },
+    {
+      linkId: '2',
+      text: 'GP Actions',
+      answer: null,
+      item: [
+        {
+          linkId: '2.1',
+          text: 'No actions for the GP post-discharge',
+          answer: null,
+          item: [],
+        },
+      ],
+    },
+    {
+      linkId: '3',
+      text: 'Community Pharmacy Actions',
+      answer: null,
+      item: [
+        {
+          linkId: '3.2',
+          text: null,
+          answer: null,
+          item: [
+            {
+              linkId: '3.2.1',
+              text: null,
+              answer: [
+                {
+                  valueString: 'Community Pharmacy Action 1',
+                  valueBoolean: null,
+                  valueDateTime: null,
+                },
+              ],
+            },
+            {
+              linkId: '3.2.2',
+              text: null,
+              answer: [
+                {
+                  valueString: 'Phil',
+                  valueBoolean: null,
+                  valueDateTime: null,
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    },
+    {
+      linkId: '4',
+      text: 'CCG Actions',
+      answer: null,
+      item: [
+        {
+          linkId: '4.1',
+          text: 'No actions for the CCG post-discharge',
+          answer: null,
+          item: [],
+        },
+      ],
     },
   ],
 }
