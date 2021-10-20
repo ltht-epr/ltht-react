@@ -1,7 +1,7 @@
 import { FC, HTMLAttributes } from 'react'
 import Styled from '@emotion/styled'
 
-import { AllergyIntolerance } from '@ltht-react/types'
+import { AllergyIntolerance, AllergyIntoleranceCriticalityCode } from '@ltht-react/types'
 import { DateSummary } from '@ltht-react/summary'
 
 import Title from '../atoms/allergy-title'
@@ -21,7 +21,6 @@ const StyledIcon = Styled.div`
 
 const StyledDescription = Styled.div`
   flex-grow: 1;
-  padding-left: 0.5rem;
 `
 
 const StyledDate = Styled.div`
@@ -29,6 +28,10 @@ const StyledDate = Styled.div`
 `
 
 const AllergySummary: FC<Props> = ({ allergy, ...rest }) => {
+  const showIcon =
+    allergy.criticality === AllergyIntoleranceCriticalityCode.High ||
+    allergy.criticality === AllergyIntoleranceCriticalityCode.Low
+
   if (allergy.metadata.isRedacted) {
     return (
       <StyledSummary {...rest}>
@@ -39,9 +42,11 @@ const AllergySummary: FC<Props> = ({ allergy, ...rest }) => {
 
   return (
     <StyledSummary {...rest}>
-      <StyledIcon>
-        <Icon criticalityCode={allergy.criticality} />
-      </StyledIcon>
+      {showIcon && (
+        <StyledIcon>
+          <Icon criticalityCode={allergy.criticality} />
+        </StyledIcon>
+      )}
       <StyledDescription>
         <Title allergy={allergy} />
         <Description allergy={allergy} />

@@ -5,7 +5,7 @@ import AllergyDetailItem from '@ltht-react/allergy-detail'
 import AllergySummary from '@ltht-react/allergy-summary'
 import Card from '@ltht-react/card'
 import { AllergyIntolerance } from '@ltht-react/types'
-import allergies from './allergies.fixtures'
+import allergies, { RedactedAllergy } from './allergies.fixtures'
 
 export const Detail: Story = () => (
   <Card>
@@ -54,7 +54,7 @@ export const Redacted: Story = () => (
     </Card.Header>
     <Card.List>
       <Card.ListItem>
-        <AllergySummary allergy={allergies[3]} />
+        <AllergySummary allergy={RedactedAllergy} />
       </Card.ListItem>
     </Card.List>
   </Card>
