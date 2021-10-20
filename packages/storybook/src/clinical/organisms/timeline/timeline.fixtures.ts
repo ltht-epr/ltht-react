@@ -628,8 +628,121 @@ const Audit12: AuditEvent = {
   ],
 }
 
+const RedactedAuditOne: AuditEvent = {
+  id: 'id1',
+  metadata: {
+    dataSources: [],
+    isRedacted: true,
+    requestedWhen: '2021-08-05T13:15:15+01:00',
+  },
+  source: {
+    observer: {
+      display: '',
+      typeName: '',
+    },
+  },
+  type: {
+    display: '',
+  },
+  text: null,
+  outcomeDesc: null,
+  period: {
+    start: {
+      kind: PartialDateTimeKindCode.DateTime,
+      value: '2021-09-13T14:04:14.0716494+00:00',
+    },
+  },
+  recorded: {
+    value: '2021-08-05T13:15:15+01:00',
+  },
+  agent: [
+    {
+      role: null,
+      requestor: true,
+      who: null,
+    },
+  ],
+}
+
+const RedactedAuditTwo: AuditEvent = {
+  id: 'id1',
+  metadata: {
+    dataSources: [],
+    isRedacted: true,
+    requestedWhen: '2021-08-05T13:15:15+01:00',
+  },
+  source: {
+    observer: {
+      display: '',
+      typeName: '',
+    },
+  },
+  type: {
+    display: '',
+  },
+  text: null,
+  outcomeDesc: null,
+  period: {
+    start: {
+      kind: PartialDateTimeKindCode.DateTime,
+      value: '2021-09-13T16:04:14.0716494+00:00',
+    },
+  },
+  recorded: {
+    value: '2021-08-05T13:15:15+01:00',
+  },
+  agent: [
+    {
+      role: null,
+      requestor: true,
+      who: null,
+    },
+  ],
+}
+
+const RedactedAuditThree: AuditEvent = {
+  id: 'id1',
+  metadata: {
+    dataSources: [],
+    isRedacted: true,
+    requestedWhen: '2021-08-05T13:15:15+01:00',
+  },
+  source: {
+    observer: {
+      display: '',
+      typeName: '',
+    },
+  },
+  type: {
+    display: '',
+  },
+  text: null,
+  outcomeDesc: null,
+  period: {
+    start: {
+      kind: PartialDateTimeKindCode.DateTime,
+      value: '2021-09-13T16:04:14.0716494+00:00',
+    },
+  },
+  recorded: {
+    value: '2021-08-05T13:15:15+01:00',
+  },
+  agent: [
+    {
+      role: null,
+      requestor: true,
+      who: null,
+    },
+  ],
+}
+
 const AuditTrail: AuditEventContinuation = {
   resources: [Audit12, Audit11, Audit10, Audit9, Audit8, Audit7, Audit6, Audit5, Audit4, Audit3, Audit2, Audit1],
+  selfCursorToken: '',
+}
+
+export const RedactedAuditTrail: AuditEventContinuation = {
+  resources: [RedactedAuditOne, RedactedAuditTwo, RedactedAuditThree],
   selfCursorToken: '',
 }
 
