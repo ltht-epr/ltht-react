@@ -1,11 +1,10 @@
 import { FC } from 'react'
 import styled from '@emotion/styled'
 import { RedactedDescription } from '@ltht-react/summary'
-import { Maybe, Period } from '@ltht-react/types'
+import { Maybe, Period, TaskStatusCode } from '@ltht-react/types'
 
 import DueDate from '../atoms/task-due-date'
 import Status from '../atoms/task-status'
-import { StatusCodes } from '../organisms/task'
 
 const StyledRedacted = styled.div`
   display: flex;
@@ -32,7 +31,7 @@ const Redacted: FC<IProps> = ({ executionPeriod, status }) => (
 
 interface IProps {
   executionPeriod?: Maybe<Period>
-  status: StatusCodes
+  status: TaskStatusCode
 }
 
 export default Redacted
