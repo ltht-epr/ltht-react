@@ -31,10 +31,10 @@ const Task1: Task = {
   },
   executionPeriod: {
     start: {
-      value: '2021-04-01T00:00:00',
+      value: '2021-10-22T10:12:00+01:00',
     },
     end: {
-      value: '2021-10-19T12:46:00+01:00',
+      value: '2021-10-21T20:43:19+01:00',
     },
   },
 }
@@ -89,6 +89,25 @@ const Task4: Task = {
   executionPeriod: {
     start: {
       value: '2021-02-23T13:18:00+00:00',
+    },
+    end: {
+      value: '2021-04-23T00:00:00',
+    },
+  },
+}
+
+const Task5: Task = {
+  id: 'task-4',
+  intent: IntentCode.Plan,
+  metadata: mockMetadata,
+  status: TaskStatusCode.NotYetDue,
+  description: 'Task 4 Description',
+  performerType: {
+    text: 'Forms',
+  },
+  executionPeriod: {
+    start: {
+      value: '2021-10-22T14:21:07.869968+01:00',
     },
     end: {
       value: '2021-04-23T00:00:00',
@@ -153,4 +172,4 @@ export const RedactedTask: Task = {
   description: 'Redacted Task Description',
 }
 
-export const Tasks: Task[] = [Task1, Task2, Task3, Task4, CompletedTask, CancelledTask]
+export const Tasks: Task[] = [Task1, Task2, Task3, Task4, Task5, CompletedTask, CancelledTask]

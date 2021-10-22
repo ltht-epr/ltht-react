@@ -3,7 +3,7 @@ import styled from '@emotion/styled'
 import { Task as ITask, TaskStatusCode } from '@ltht-react/types'
 
 import Description from '../atoms/task-description'
-import DueDate from '../atoms/task-due-date'
+import Date from '../atoms/task-date'
 import Status from '../atoms/task-status'
 import Redacted from '../molecules/task-redacted'
 
@@ -39,7 +39,7 @@ const Task: FC<IProps> = ({
       <Description cancelled={status === TaskStatusCode.Cancelled} description={description} />
       <RightSection>
         {![TaskStatusCode.Complete, TaskStatusCode.Cancelled].includes(status) && (
-          <DueDate executionPeriod={executionPeriod} status={status} />
+          <Date executionPeriod={executionPeriod} status={status} />
         )}
         <Status status={status} />
       </RightSection>
