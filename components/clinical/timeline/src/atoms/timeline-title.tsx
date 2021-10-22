@@ -4,7 +4,7 @@ import { AuditEvent, Maybe } from '@ltht-react/types'
 const TimelineTitle: FC<Props> = ({ audit }) => {
   if (!audit) return <></>
 
-  const title = audit.text?.text
+  const title = audit.metadata.isRedacted ? 'Insufficient privileges' : audit.text?.text
   return <>{title}</>
 }
 

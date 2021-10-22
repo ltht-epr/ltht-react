@@ -82,21 +82,6 @@ const AllergyOne: AllergyIntolerance = {
 }
 
 const AllergyTwo: AllergyIntolerance = {
-  id: '690ca927-68e0-c511-b2c7-898056926ze4|allergyalert',
-  metadata: redactedMetadata,
-  assertedDate: {
-    value: '2013-01-01T00:00:00+00:00',
-    kind: PartialDateTimeKindCode.Year,
-  },
-  code: {
-    text: 'Kiwi fruit',
-  },
-  type: AllergyIntoleranceTypeCode.Intolerance,
-  clinicalStatus: AllergyIntoleranceClinicalStatusCode.Resolved,
-  verificationStatus: AllergyIntoleranceVerificationStatusCode.Confirmed,
-}
-
-const AllergyThree: AllergyIntolerance = {
   id: '690ca927-68e0-c511-b2c7-89804g926fg4|allergyalert',
   metadata: mockMetadata,
   assertedDate: {
@@ -111,10 +96,23 @@ const AllergyThree: AllergyIntolerance = {
   type: AllergyIntoleranceTypeCode.Intolerance,
   clinicalStatus: AllergyIntoleranceClinicalStatusCode.Active,
   verificationStatus: AllergyIntoleranceVerificationStatusCode.Refuted,
-  criticality: AllergyIntoleranceCriticalityCode.High,
+  criticality: AllergyIntoleranceCriticalityCode.Low,
 }
 
-const AllergyFour: AllergyIntolerance = {
+const AllergyThree: AllergyIntolerance = {
+  id: '690ca927-68e0-c511-b2c7-898056926ze4|allergyalert',
+  metadata: mockMetadata,
+  assertedDate: {
+    value: '2013-01-01T00:00:00+00:00',
+    kind: PartialDateTimeKindCode.Year,
+  },
+  code: {
+    text: 'No known allergies',
+  },
+  verificationStatus: AllergyIntoleranceVerificationStatusCode.Confirmed,
+}
+
+export const RedactedAllergy: AllergyIntolerance = {
   id: '690ca927-68e0-c511-b2c7-898056928xe4|allergyalert',
   metadata: redactedMetadata,
   assertedDate: {
@@ -129,6 +127,6 @@ const AllergyFour: AllergyIntolerance = {
   verificationStatus: AllergyIntoleranceVerificationStatusCode.Unconfirmed,
 }
 
-const allergyList: AllergyIntolerance[] = [AllergyOne, AllergyTwo, AllergyThree, AllergyFour]
+const allergyList: AllergyIntolerance[] = [AllergyOne, AllergyTwo, AllergyThree]
 
 export default allergyList

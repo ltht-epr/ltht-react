@@ -1,9 +1,9 @@
 import { FC } from 'react'
 import styled from '@emotion/styled'
-import { Task as ITask } from '@ltht-react/types'
+import { Task as ITask, TaskStatusCode } from '@ltht-react/types'
 
 import Description from '../atoms/task-description'
-import DueDate from '../atoms/task-due-date'
+import Date from '../atoms/task-date'
 import Status from '../atoms/task-status'
 import Redacted from '../molecules/task-redacted'
 
@@ -12,7 +12,7 @@ const StyledTask = styled.div<IStyledTask>`
   align-items: center;
 
   ${({ status }) =>
-    status === 'OVERDUE' &&
+    status === TaskStatusCode.Overdue &&
     `
     * {
       color: red;
@@ -36,9 +36,11 @@ const Task: FC<IProps> = ({
 
   return (
     <StyledTask status={status}>
-      <Description cancelled={status === 'CANCELLED'} description={description} />
+      <Description cancelled={status === TaskStatusCode.Cancelled} description={description} />
       <RightSection>
-        {!['COMPLETE', 'CANCELLED'].includes(status) && <DueDate executionPeriod={executionPeriod} status={status} />}
+        {![TaskStatusCode.Complete, TaskStatusCode.Cancelled].includes(status) && (
+          <Date executionPeriod={executionPeriod} status={status} />
+        )}
         <Status status={status} />
       </RightSection>
     </StyledTask>
@@ -50,9 +52,7 @@ interface IProps {
 }
 
 interface IStyledTask {
-  status: StatusCodes
+  status: TaskStatusCode
 }
-
-export type StatusCodes = 'NOT_YET_DUE' | 'DUE' | 'OVERDUE' | 'COMPLETE' | 'SUSPENDED' | 'CANCELLED' | 'SKIPPED'
 
 export default Task
