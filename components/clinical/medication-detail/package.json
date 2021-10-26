@@ -1,0 +1,33 @@
+{
+  "name": "@ltht-react/medication-detail",
+  "version": "1.0.0",
+  "description": "Detail of a medication",
+  "author": "Phil McVay",
+  "homepage": "",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
+  "files": [
+    "lib"
+  ],
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "clean": "rimraf lib && rimraf node_modules",
+    "build": "tsc"
+  },
+  "dependencies": {
+    "@emotion/styled": "^11.0.0",
+    "@ltht-react/hooks": "^1.0.15",
+    "@ltht-react/styles": "^1.3.17",
+    "@ltht-react/types": "^1.0.21",
+    "@ltht-react/utils": "^1.1.23",
+    "react": "^17.0.0"
+  },
+  "gitHead": "4d364556bb11e294d86697c2dac66742f7aabc7f"
+}
