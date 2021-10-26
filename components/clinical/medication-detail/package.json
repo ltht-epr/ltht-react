@@ -27,6 +27,7 @@
     "@ltht-react/styles": "^1.3.17",
     "@ltht-react/types": "^1.0.21",
     "@ltht-react/utils": "^1.1.23",
+    "@ltht-react/detail": "^1.3.25",
     "react": "^17.0.0"
   },
   "gitHead": "4d364556bb11e294d86697c2dac66742f7aabc7f"

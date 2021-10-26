@@ -66,7 +66,7 @@ export const Detail: Story = () => (
       <Card.Title>Medication</Card.Title>
     </Card.Header>
     <Card.Body>
-      <MedicationDetail />
+      <MedicationDetail medication={MedicationFixtures[0]} />
     </Card.Body>
   </Card>
 )
