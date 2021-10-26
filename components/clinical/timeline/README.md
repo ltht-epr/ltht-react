@@ -2,18 +2,18 @@
 
 ### Import
 
-<!-- ```js
-import AllergySummary from '@ltht-react/allergy-summary'
-``` -->
+```js
+import Timeline from '@ltht-react/timeline'
+```
 
 ### Usage
 
 ```jsx
-<Timeline />
+<Timeline auditTrail={auditTrail} />
 ```
 
 ### Properties
 
-| Prop       | Required | Default | Type | Description        |
-| :--------- | :------- | :------ | :--- | :----------------- |
-| `timeline` | Yes      |         | TBD  | Timeline of events |
+| Prop         | Required | Default | Type                  | Description        |
+| :----------- | :------- | :------ | :-------------------- | :----------------- |
+| `auditTrail` | Yes      |         | `Maybe<AuditEvent>[]` | Timeline of events |
