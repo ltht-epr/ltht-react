@@ -60,4 +60,15 @@ export const Redacted: Story = () => (
   </Card>
 )
 
+export const Detail: Story = () => (
+  <Card>
+    <Card.Header>
+      <Card.Title>Medication</Card.Title>
+    </Card.Header>
+    <Card.Body>
+      <MedicationDetail />
+    </Card.Body>
+  </Card>
+)
+
 export default { title: 'Clinical/Organisms/Medications' }
