@@ -18,12 +18,27 @@ export const Summary: Story = () => {
       </Card.Header>
       <Card.List>
         <Card.ListItem onClick={clickHandler}>
+          <MedicationSummary medication={MedicationFixtures[0]} />
           <MedicationSummary medication={MedicationFixtures[1]} />
+          <MedicationSummary medication={MedicationFixtures[2]} />
         </Card.ListItem>
       </Card.List>
     </Card>
   )
 }
+
+export const Changed: Story = () => (
+  <Card>
+    <Card.Header>
+      <Card.Title>Medications</Card.Title>
+    </Card.Header>
+    <Card.List>
+      <Card.ListItem>
+        <MedicationSummary medication={MedicationFixtures[3]} />
+      </Card.ListItem>
+    </Card.List>
+  </Card>
+)
 
 export const Redacted: Story = () => (
   <Card>
@@ -32,7 +47,7 @@ export const Redacted: Story = () => (
     </Card.Header>
     <Card.List>
       <Card.ListItem>
-        <MedicationSummary medication={MedicationFixtures[2]} />
+        <MedicationSummary medication={MedicationFixtures[4]} />
       </Card.ListItem>
     </Card.List>
   </Card>
