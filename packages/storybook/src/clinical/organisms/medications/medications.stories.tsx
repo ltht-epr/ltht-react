@@ -19,7 +19,11 @@ export const Summary: Story = () => {
       <Card.List>
         <Card.ListItem onClick={clickHandler}>
           <MedicationSummary medication={MedicationFixtures[0]} />
+        </Card.ListItem>
+        <Card.ListItem onClick={clickHandler}>
           <MedicationSummary medication={MedicationFixtures[1]} />
+        </Card.ListItem>
+        <Card.ListItem onClick={clickHandler}>
           <MedicationSummary medication={MedicationFixtures[2]} />
         </Card.ListItem>
       </Card.List>

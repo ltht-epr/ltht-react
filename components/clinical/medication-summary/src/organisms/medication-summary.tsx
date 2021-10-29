@@ -9,16 +9,30 @@ import Indication from '../atoms/medication-indication'
 
 import AdditionalInfo from '../molecules/medication-additional-info'
 import Redacted from '../molecules/medication-redacted'
+import MedicationDosageInstructions from '../molecules/medication-dosage-instructions'
 
 const StyledSummary = styled.div`
   display: flex;
+  flex: 1;
+  /* flex-basis: 0; */
   justify-content: space-between;
 `
 
 const StyledDescription = styled.div`
   display: flex;
+  flex: 1;
+  /* flex-basis: 0; */
   flex-direction: column;
   align-items: flex-start;
+`
+
+const StyledDosage = styled.div`
+  display: flex;
+  flex: 1;
+  /* flex-basis: 0; */
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: center;
 `
 
 const StyledDate = styled.div`
@@ -44,6 +58,9 @@ const MedicationSummary: FC<IProps> = ({ medication, ...rest }) => {
           ))}
         <AdditionalInfo hasChanged={hasChanged} hasVerificationComments={hasVerificationComments} />
       </StyledDescription>
+      <StyledDosage>
+        <MedicationDosageInstructions dosageInstructions={medication?.dosageInstruction} type />
+      </StyledDosage>
       <StyledDate>
         <DateSummary datetime={medication?.authoredOn} />
       </StyledDate>
