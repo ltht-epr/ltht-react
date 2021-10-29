@@ -20,23 +20,32 @@ const StyledSummary = styled.div`
 
 const StyledDescription = styled.div`
   display: flex;
-  flex: 1;
+  flex: 2;
   /* flex-basis: 0; */
   flex-direction: column;
   align-items: flex-start;
+  padding-right: 0.5rem;
 `
 
 const StyledDosage = styled.div`
   display: flex;
-  flex: 1;
+  flex: 5;
   /* flex-basis: 0; */
   flex-direction: column;
   align-items: flex-start;
-  text-align: center;
+  padding-right: 0.5rem;
 `
 
 const StyledDate = styled.div`
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
   text-align: right;
+
+  > div {
+    width: 100%;
+  }
 `
 
 const MedicationSummary: FC<IProps> = ({ medication, ...rest }) => {
@@ -59,7 +68,11 @@ const MedicationSummary: FC<IProps> = ({ medication, ...rest }) => {
         <AdditionalInfo hasChanged={hasChanged} hasVerificationComments={hasVerificationComments} />
       </StyledDescription>
       <StyledDosage>
-        <MedicationDosageInstructions dosageInstructions={medication?.dosageInstruction} type />
+        <MedicationDosageInstructions
+          dosageInstructions={medication?.dosageInstruction}
+          reasons={medication?.reasonCode}
+          type
+        />
       </StyledDosage>
       <StyledDate>
         <DateSummary datetime={medication?.authoredOn} />

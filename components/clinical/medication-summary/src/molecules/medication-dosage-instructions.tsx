@@ -1,7 +1,10 @@
 import styled from '@emotion/styled'
-import { DosageType, Maybe } from '@ltht-react/types'
+import { TEXT_COLOURS } from '@ltht-react/styles'
+import { CodeableConcept, DosageType, Maybe } from '@ltht-react/types'
 import { FC } from 'react'
-import MedicationDosageType from '../atoms/medication-dosage-type'
+import MedicationDosage from '../atoms/medication-dosage'
+import MedicationDosageInstruction from '../atoms/medication-dosage-instruction'
+import MedicationDosageReason from '../atoms/medication-dosage-reason'
 
 const StyledInstructions = styled.div`
   margin-top: 0.25rem;
@@ -13,9 +16,10 @@ const StyledType = styled.div`
   font-weight: bold;
   font-size: smaller;
   margin: 0.5rem 0;
+  color: ${TEXT_COLOURS.SECONDARY.VALUE};
 `
 
-const MedicationDosageInstructions: FC<IProps> = ({ dosageInstructions, type }) => {
+const MedicationDosageInstructions: FC<IProps> = ({ dosageInstructions, reasons, type }) => {
   if (dosageInstructions === undefined) {
     return <></>
   }
@@ -25,12 +29,20 @@ const MedicationDosageInstructions: FC<IProps> = ({ dosageInstructions, type }) 
       <StyledInstructions>
         {dosageInstructions?.map((instruction, idx) => {
           if (idx === dosageInstructions.length - 1) {
-            return <MedicationDosageType dosageType={instruction} />
+            return (
+              <>
+                <MedicationDosage dosageType={instruction} /> -{' '}
+                <MedicationDosageInstruction instruction={instruction?.patientInstruction} />
+                <MedicationDosageReason reasons={reasons} />
+              </>
+            )
           }
 
           return (
             <>
-              <MedicationDosageType dosageType={instruction} />
+              <MedicationDosage dosageType={instruction} /> -{' '}
+              <MedicationDosageInstruction instruction={instruction?.patientInstruction} />
+              <MedicationDosageReason reasons={reasons} />
               <StyledType>AND</StyledType>
             </>
           )
@@ -44,13 +56,21 @@ const MedicationDosageInstructions: FC<IProps> = ({ dosageInstructions, type }) 
       <StyledInstructions>
         {dosageInstructions?.map((instruction, idx) => {
           if (idx === dosageInstructions.length - 1) {
-            return <MedicationDosageType dosageType={instruction} />
+            return (
+              <>
+                <MedicationDosage dosageType={instruction} /> -{' '}
+                <MedicationDosageInstruction instruction={instruction?.patientInstruction} />
+                <MedicationDosageReason reasons={reasons} />
+              </>
+            )
           }
 
           return (
             <>
-              <MedicationDosageType dosageType={instruction} />
-              <StyledType>THEN</StyledType>
+              <MedicationDosage dosageType={instruction} /> -{' '}
+              <MedicationDosageInstruction instruction={instruction?.patientInstruction} />
+              <MedicationDosageReason reasons={reasons} />
+              <StyledType>Then</StyledType>
             </>
           )
         })}
@@ -62,7 +82,10 @@ const MedicationDosageInstructions: FC<IProps> = ({ dosageInstructions, type }) 
   if (!type && dosageInstructions != null) {
     return (
       <StyledInstructions>
-        <MedicationDosageType dosageType={dosageInstructions[0]} />
+        <>
+          <MedicationDosage dosageType={dosageInstructions[0]} /> -{' '}
+          <MedicationDosageInstruction instruction={dosageInstructions[0]?.patientInstruction} />
+        </>
       </StyledInstructions>
     )
   }
@@ -72,6 +95,7 @@ const MedicationDosageInstructions: FC<IProps> = ({ dosageInstructions, type }) 
 
 interface IProps {
   dosageInstructions: Maybe<Array<Maybe<DosageType>>> | undefined
+  reasons: Maybe<Array<Maybe<CodeableConcept>>> | undefined
   // placeholder for medication type tag
   type: Maybe<boolean>
 }
