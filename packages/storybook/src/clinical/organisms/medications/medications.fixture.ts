@@ -1061,6 +1061,7 @@ const ChangedMedication: MedicationRequest = {
       coding: [{ code: '222', display: 'Tablet' }],
     },
   },
+  extension: medicationChangedStatus,
 }
 
 export default [

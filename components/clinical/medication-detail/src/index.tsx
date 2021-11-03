@@ -21,13 +21,13 @@ const Seperator = styled.div`
 
 const MedicationDetail: FC<IProps> = ({ medication }) => {
   const route = medication?.dosageInstruction && medication.dosageInstruction[0]?.route
-  const hasChanged = !medication?.medicationReference?.isBrand
   const source = medication?.supportingInformation && medication.supportingInformation[0]
+  const status = medication?.extension?.find((extension) => extension?.url.includes('status'))?.valueString
 
   return (
     <>
       <TopSection>
-        <StringDetail term="Status at Discharge" description={hasChanged ? 'Changed' : 'Same'} />
+        <StringDetail term="Status at Discharge" description={status} />
         <AnnotationListDetail term="Changes / Comments" notes={medication?.note} />
         <Seperator />
       </TopSection>
