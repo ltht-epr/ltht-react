@@ -53,7 +53,7 @@ const MedicationSummary: FC<IProps> = ({ medication, ...rest }) => {
 
   const route = medication?.dosageInstruction && medication.dosageInstruction[0]?.route
   const hasIndications = medication?.reasonCode
-  const hasChanged = !medication?.medicationReference?.isBrand
+  const hasChanged = medication?.extension?.find((extension) => extension?.url.includes('has-changed'))?.valueBoolean
   const hasVerificationComments = medication?.note && medication?.note.length > 0
 
   return (

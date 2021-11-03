@@ -2,6 +2,7 @@ import { FC } from 'react'
 import styled from '@emotion/styled'
 import { CommentIcon } from '@ltht-react/icon'
 import Badge from '@ltht-react/badge'
+import { Maybe } from '@ltht-react/types'
 
 const StyledMedicationAdditionalInfo = styled.div`
   margin-top: 0.25rem;
@@ -25,7 +26,7 @@ const MedicationAdditionalInfo: FC<IProps> = ({ hasChanged, hasVerificationComme
 }
 
 interface IProps {
-  hasChanged: boolean
+  hasChanged?: Maybe<boolean>
   hasVerificationComments?: boolean | null
 }
 

@@ -6,6 +6,7 @@ import {
   PartialDateTimeKindCode,
   DosageType,
   UnitsOfTimeType,
+  Extension,
 } from '@ltht-react/types'
 
 const mockMetadata: Metadata = {
@@ -27,6 +28,28 @@ const redactedMetadata: Metadata = {
   isRedacted: true,
   requestedWhen: '',
 }
+
+const medicationChangedStatus: Extension[] = [
+  {
+    url: 'https://leedsth.nhs.uk/medication-request/has-changed',
+    valueBoolean: true,
+  },
+  {
+    url: 'https://leedsth.nhs.uk/medication-request/status',
+    valueString: 'Ceased',
+  },
+]
+
+const medicationNewStatus: Extension[] = [
+  {
+    url: 'https://leedsth.nhs.uk/medication-request/has-changed',
+    valueBoolean: false,
+  },
+  {
+    url: 'https://leedsth.nhs.uk/medication-request/status',
+    valueString: 'New',
+  },
+]
 
 const dosageInstruction1: DosageType = {
   sequence: 1,
@@ -741,6 +764,7 @@ const NewMedication1: MedicationRequest = {
       coding: [{ code: '222', display: 'Tablet' }],
     },
   },
+  extension: medicationNewStatus,
 }
 
 const NewMedication2: MedicationRequest = {
@@ -772,6 +796,7 @@ const NewMedication2: MedicationRequest = {
       coding: [{ code: '111', display: 'Paracetamol' }],
     },
   },
+  extension: medicationChangedStatus,
 }
 
 const NewMedication3: MedicationRequest = {
@@ -829,6 +854,7 @@ const NewMedication3: MedicationRequest = {
       text: 'Tablet',
     },
   },
+  extension: medicationChangedStatus,
 }
 
 const ChangedMedication: MedicationRequest = {
