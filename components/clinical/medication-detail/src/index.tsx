@@ -5,6 +5,7 @@ import {
   CodeableConceptDetail,
   CodeableConceptListDetail,
   DatetimeDetail,
+  ResourceReferenceDetail,
   StringDetail,
 } from '@ltht-react/detail'
 import { FC } from 'react'
@@ -21,6 +22,7 @@ const Seperator = styled.div`
 const MedicationDetail: FC<IProps> = ({ medication }) => {
   const route = medication?.dosageInstruction && medication.dosageInstruction[0]?.route
   const hasChanged = !medication?.medicationReference?.isBrand
+  const source = medication?.supportingInformation && medication.supportingInformation[0]
 
   return (
     <>
@@ -35,6 +37,7 @@ const MedicationDetail: FC<IProps> = ({ medication }) => {
       <CodeableConceptDetail term="Form" concept={medication?.medicationReference?.form} />
       <CodeableConceptDetail term="Route" concept={route} />
       <CodeableConceptListDetail term="Indication" concepts={medication?.reasonCode} />
+      <ResourceReferenceDetail term="Source" resourceReference={source} />
     </>
   )
 }
