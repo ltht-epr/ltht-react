@@ -1,6 +1,5 @@
 import { FC, MouseEvent } from 'react'
 import Card from '@ltht-react/card'
-import { InfoCircleIcon } from '@ltht-react/icon'
 
 const InfoSummary: FC<Props> = ({ clickHandler }) => {
   const handleClick = (e: MouseEvent<HTMLElement>): void => {
@@ -14,7 +13,7 @@ const InfoSummary: FC<Props> = ({ clickHandler }) => {
 
   return (
     <Card.Banner status="info" {...infoSummaryProps}>
-      <InfoCircleIcon size="medium" status="info" /> View Data Sources
+      View Data Sources
     </Card.Banner>
   )
 }
