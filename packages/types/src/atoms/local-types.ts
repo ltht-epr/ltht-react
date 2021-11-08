@@ -12,3 +12,5 @@ export enum PatientIdentifierType {
 export enum CodeSystem {
   MedicationTypeIdentifier = 'https://fhir.leedsth.nhs.uk/CodeSystem/medication-type-identifier-1',
 }
+
+export type StatusTypes = 'info' | 'danger' | 'warning'
