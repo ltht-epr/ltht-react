@@ -1,6 +1,6 @@
 import { FC, HTMLAttributes } from 'react'
 import styled from '@emotion/styled'
-import { Maybe, MedicationRequest } from '@ltht-react/types'
+import { CodeSystem, Maybe, MedicationRequest } from '@ltht-react/types'
 import { DateSummary } from '@ltht-react/summary'
 
 import Title from '../atoms/medication-title'
@@ -55,6 +55,7 @@ const MedicationSummary: FC<IProps> = ({ medication, ...rest }) => {
   const hasIndications = medication?.reasonCode
   const hasChanged = medication?.extension?.find((extension) => extension?.url.includes('has-changed'))?.valueBoolean
   const hasVerificationComments = medication?.note && medication?.note.length > 0
+  const type = medication?.metadata.tag?.find((tag) => tag?.system === CodeSystem.MedicationTypeIdentifier)?.display
 
   return (
     <StyledSummary {...rest}>
@@ -71,7 +72,7 @@ const MedicationSummary: FC<IProps> = ({ medication, ...rest }) => {
         <MedicationDosageInstructions
           dosageInstructions={medication?.dosageInstruction}
           reasons={medication?.reasonCode}
-          type
+          type={type}
         />
       </StyledDosage>
       <StyledDate>

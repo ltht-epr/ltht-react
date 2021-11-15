@@ -275,6 +275,45 @@ const dosageInstruction5: DosageType = {
   },
 }
 
+const dosageInstruction6: DosageType = {
+  sequence: 1,
+  text: '25 to 50 g, STAT',
+  additionalInstruction: [
+    {
+      text: 'e.g. DEXTROGEL. Each tube contains 25g oral gel.',
+    },
+    {
+      text: 'STAT',
+    },
+  ],
+  patientInstruction: 'Stat: 12/07/2021 13:36',
+  timing: {
+    event: [
+      {
+        value: '2021-07-12T13:36:00+01:00',
+        kind: PartialDateTimeKindCode.Date,
+      },
+    ],
+    repeat: {
+      count: 1,
+    },
+  },
+  asNeededBoolean: false,
+  route: {
+    text: 'Oral',
+  },
+  doseRange: {
+    low: {
+      value: 25,
+      unit: 'g',
+    },
+    high: {
+      value: 50,
+      unit: 'g',
+    },
+  },
+}
+
 const orDosageInstruction1: DosageType = {
   sequence: 1,
   text: '1000 mg, Four Times a Day',
@@ -286,12 +325,14 @@ const orDosageInstruction1: DosageType = {
       text: 'Four Times a Day',
     },
   ],
-  patientInstruction: 'At Tea Time (18:00) every day',
+  patientInstruction: 'Four Times a Day (08:00, 12:00, 18:00, 22:00) every day',
   timing: {
     repeat: {
       boundsPeriod: {
         start: {
           value: '2021-07-12T18:00:00+01:00',
+          // is this being passed in?
+          kind: PartialDateTimeKindCode.Date,
         },
       },
       frequencyMax: 1,
@@ -379,9 +420,11 @@ const thenDosageInstruction1: DosageType = {
       boundsPeriod: {
         start: {
           value: '2021-07-13T08:00:00+01:00',
+          kind: PartialDateTimeKindCode.Date,
         },
         end: {
           value: '2021-07-19T08:00:00+01:00',
+          kind: PartialDateTimeKindCode.Date,
         },
       },
       count: 7,
@@ -425,9 +468,11 @@ const thenDosageInstruction2: DosageType = {
       boundsPeriod: {
         start: {
           value: '2021-07-20T08:00:00+01:00',
+          kind: PartialDateTimeKindCode.Date,
         },
         end: {
           value: '2021-07-26T08:00:00+01:00',
+          kind: PartialDateTimeKindCode.Date,
         },
       },
       count: 7,
@@ -469,8 +514,8 @@ const thenDosageInstruction3: DosageType = {
   timing: {
     repeat: {
       boundsPeriod: {
-        start: { value: '2021-07-27T08:00:00+01:00' },
-        end: { value: '2021-08-02T08:00:00+01:00' },
+        start: { value: '2021-07-27T08:00:00+01:00', kind: PartialDateTimeKindCode.Date },
+        end: { value: '2021-08-02T08:00:00+01:00', kind: PartialDateTimeKindCode.Date },
       },
       count: 7,
       frequency: 1,
@@ -511,8 +556,8 @@ const thenDosageInstruction4: DosageType = {
   timing: {
     repeat: {
       boundsPeriod: {
-        start: { value: '2021-08-03T08:00:00+01:00' },
-        end: { value: '2021-08-09T08:00:00+01:00' },
+        start: { value: '2021-08-03T08:00:00+01:00', kind: PartialDateTimeKindCode.Date },
+        end: { value: '2021-08-09T08:00:00+01:00', kind: PartialDateTimeKindCode.Date },
       },
       count: 7,
       frequency: 1,
@@ -553,8 +598,8 @@ const thenDosageInstruction5: DosageType = {
   timing: {
     repeat: {
       boundsPeriod: {
-        start: { value: '2021-08-10T08:00:00+01:00' },
-        end: { value: '2021-08-16T08:00:00+01:00' },
+        start: { value: '2021-08-10T08:00:00+01:00', kind: PartialDateTimeKindCode.Date },
+        end: { value: '2021-08-16T08:00:00+01:00', kind: PartialDateTimeKindCode.Date },
       },
       count: 7,
       frequency: 1,
@@ -595,8 +640,8 @@ const thenDosageInstruction6: DosageType = {
   timing: {
     repeat: {
       boundsPeriod: {
-        start: { value: '2021-08-17T08:00:00+01:00' },
-        end: { value: '2021-08-23T08:00:00+01:00' },
+        start: { value: '2021-08-17T08:00:00+01:00', kind: PartialDateTimeKindCode.Date },
+        end: { value: '2021-08-23T08:00:00+01:00', kind: PartialDateTimeKindCode.Date },
       },
       count: 7,
       frequency: 1,
@@ -637,8 +682,8 @@ const thenDosageInstruction7: DosageType = {
   timing: {
     repeat: {
       boundsPeriod: {
-        start: { value: '2021-08-24T08:00:00+01:00' },
-        end: { value: '2021-08-30T08:00:00+01:00' },
+        start: { value: '2021-08-24T08:00:00+01:00', kind: PartialDateTimeKindCode.Date },
+        end: { value: '2021-08-30T08:00:00+01:00', kind: PartialDateTimeKindCode.Date },
       },
       count: 7,
       frequency: 1,
@@ -679,8 +724,8 @@ const thenDosageInstruction8: DosageType = {
   timing: {
     repeat: {
       boundsPeriod: {
-        start: { value: '2021-08-31T08:00:00+01:00' },
-        end: { value: '2021-09-06T08:00:00+01:00' },
+        start: { value: '2021-08-31T08:00:00+01:00', kind: PartialDateTimeKindCode.Date },
+        end: { value: '2021-09-06T08:00:00+01:00', kind: PartialDateTimeKindCode.Date },
       },
       count: 7,
       frequency: 1,
@@ -725,9 +770,23 @@ const RedactedMedication: MedicationRequest = {
   },
 }
 
-const NewMedication1: MedicationRequest = {
+const SingleMedication1: MedicationRequest = {
   id: '146dd7ae-8fa9-4abe-a909-dde929c96e36',
-  metadata: mockMetadata,
+  metadata: {
+    dataSources: [
+      {
+        display: 'Mock',
+      },
+    ],
+    isRedacted: false,
+    requestedWhen: '',
+    tag: [
+      {
+        system: 'https://fhir.leedsth.nhs.uk/CodeSystem/medication-type-identifier-1',
+        display: 'SingleLine',
+      },
+    ],
+  },
   status: MedicationRequestStatusType.Active,
   intent: MedicationRequestIntentType.Plan,
   authoredOn: {
@@ -748,13 +807,7 @@ const NewMedication1: MedicationRequest = {
       },
     },
   ],
-  dosageInstruction: [
-    dosageInstruction1,
-    dosageInstruction2,
-    dosageInstruction3,
-    dosageInstruction4,
-    dosageInstruction5,
-  ],
+  dosageInstruction: [dosageInstruction1],
   medicationReference: {
     code: {
       coding: [{ code: '111', display: 'Paracetamol' }],
@@ -767,9 +820,119 @@ const NewMedication1: MedicationRequest = {
   extension: medicationNewStatus,
 }
 
-const NewMedication2: MedicationRequest = {
+const SingleMedication2: MedicationRequest = {
   id: '146dd7ae-8fa9-4abe-a909-dde929c96e36',
-  metadata: mockMetadata,
+  metadata: {
+    dataSources: [
+      {
+        display: 'Mock',
+      },
+    ],
+    isRedacted: false,
+    requestedWhen: '',
+    tag: [
+      {
+        system: 'https://fhir.leedsth.nhs.uk/CodeSystem/medication-type-identifier-1',
+        display: 'SingleLine',
+      },
+    ],
+  },
+  status: MedicationRequestStatusType.Active,
+  intent: MedicationRequestIntentType.Plan,
+  authoredOn: {
+    value: '2021-03-12T10:56:01+00:00',
+    kind: PartialDateTimeKindCode.Date,
+  },
+  note: [
+    {
+      author: {
+        display: 'Dr. John Doe',
+        typeName: 'Practitioner',
+      },
+      text:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+      time: {
+        value: '2013-01-01T00:00:00+00:00',
+        kind: PartialDateTimeKindCode.Date,
+      },
+    },
+  ],
+  dosageInstruction: [dosageInstruction6],
+  medicationReference: {
+    code: {
+      coding: [{ code: '111', display: 'Paracetamol' }],
+    },
+    isBrand: true,
+    form: {
+      coding: [{ code: '222', display: 'Tablet' }],
+    },
+  },
+  extension: medicationNewStatus,
+}
+
+const OrMedication1: MedicationRequest = {
+  id: '146dd7ae-8fa9-4abe-a909-dde929c96e36',
+  metadata: {
+    dataSources: [
+      {
+        display: 'Mock',
+      },
+    ],
+    isRedacted: false,
+    requestedWhen: '',
+    tag: [
+      {
+        system: 'https://fhir.leedsth.nhs.uk/CodeSystem/medication-type-identifier-1',
+        display: 'OR',
+      },
+    ],
+  },
+  status: MedicationRequestStatusType.Active,
+  intent: MedicationRequestIntentType.Order,
+  authoredOn: {
+    value: '2021-03-14T12:56:01+00:00',
+    kind: PartialDateTimeKindCode.Date,
+  },
+  note: [
+    {
+      author: {
+        display: 'Dr. John Doe',
+        typeName: 'Practitioner',
+      },
+      text:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+      time: {
+        value: '2013-01-01T00:00:00+00:00',
+        kind: PartialDateTimeKindCode.Date,
+      },
+    },
+  ],
+  dosageInstruction: [dosageInstruction6, orDosageInstruction2],
+  medicationReference: {
+    code: {
+      coding: [{ code: '111', display: 'Paracetamol' }],
+    },
+  },
+  extension: medicationChangedStatus,
+}
+
+const AndMedication1: MedicationRequest = {
+  id: '146dd7ae-8fa9-4abe-a909-dde929c96e36',
+  metadata: {
+    dataSources: [
+      {
+        display: 'Mock',
+      },
+    ],
+    isRedacted: false,
+    requestedWhen: '',
+    tag: [
+      {
+        system: 'https://fhir.leedsth.nhs.uk/CodeSystem/medication-type-identifier-1',
+        display: 'AND',
+      },
+    ],
+  },
   status: MedicationRequestStatusType.Active,
   intent: MedicationRequestIntentType.Order,
   authoredOn: {
@@ -799,7 +962,8 @@ const NewMedication2: MedicationRequest = {
   extension: medicationChangedStatus,
 }
 
-const NewMedication3: MedicationRequest = {
+// with then, add new start time to extra instruction
+const ThenMedication1: MedicationRequest = {
   id: '146dd7ae-8fa9-4abe-a909-dde929c96e36',
   metadata: {
     dataSources: [
@@ -809,6 +973,12 @@ const NewMedication3: MedicationRequest = {
     ],
     isRedacted: false,
     requestedWhen: '',
+    tag: [
+      {
+        system: 'https://fhir.leedsth.nhs.uk/CodeSystem/medication-type-identifier-1',
+        display: 'THEN',
+      },
+    ],
   },
   status: MedicationRequestStatusType.Active,
   intent: MedicationRequestIntentType.Order,
@@ -893,4 +1063,11 @@ const ChangedMedication: MedicationRequest = {
   },
 }
 
-export default [NewMedication1, NewMedication2, NewMedication3, ChangedMedication, RedactedMedication]
+export default [
+  SingleMedication1,
+  OrMedication1,
+  AndMedication1,
+  ThenMedication1,
+  ChangedMedication,
+  RedactedMedication,
+]

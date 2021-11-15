@@ -1,10 +1,12 @@
 import styled from '@emotion/styled'
 import { TEXT_COLOURS } from '@ltht-react/styles'
 import { CodeableConcept, DosageType, Maybe } from '@ltht-react/types'
+import { partialDateTimeText, periodSummaryText } from '@ltht-react/utils'
 import { FC } from 'react'
 import MedicationDosage from '../atoms/medication-dosage'
 import MedicationDosageInstruction from '../atoms/medication-dosage-instruction'
 import MedicationDosageReason from '../atoms/medication-dosage-reason'
+import MedicationDosageStartDate from '../atoms/medication-dosage-start-date'
 
 const StyledInstructions = styled.div`
   margin-top: 0.25rem;
@@ -24,70 +26,92 @@ const MedicationDosageInstructions: FC<IProps> = ({ dosageInstructions, reasons,
     return <></>
   }
 
-  if (type === false) {
-    return (
-      <StyledInstructions>
-        {dosageInstructions?.map((instruction, idx) => {
-          if (idx === dosageInstructions.length - 1) {
+  let startDate = ''
+
+  switch (type) {
+    case 'THEN':
+      return (
+        <StyledInstructions>
+          {dosageInstructions?.map((instruction, idx) => {
+            let thenStart = ''
+
+            if (instruction?.timing?.event != null) {
+              thenStart = partialDateTimeText(instruction?.timing?.event[0])
+            } else if (dosageInstructions[0]?.timing?.repeat?.boundsPeriod != null) {
+              thenStart = periodSummaryText(instruction?.timing?.repeat?.boundsPeriod)
+            }
+
+            if (idx === 0) {
+              return (
+                <>
+                  <MedicationDosageStartDate startDate={thenStart} />
+                  <MedicationDosage dosageType={instruction} /> -{' '}
+                  <MedicationDosageInstruction instruction={instruction?.patientInstruction} />
+                  <MedicationDosageReason reasons={reasons} />
+                </>
+              )
+            }
+
             return (
               <>
+                <StyledType>Then</StyledType>
+                <MedicationDosageStartDate startDate={thenStart} />
                 <MedicationDosage dosageType={instruction} /> -{' '}
                 <MedicationDosageInstruction instruction={instruction?.patientInstruction} />
                 <MedicationDosageReason reasons={reasons} />
               </>
             )
-          }
+          })}
+        </StyledInstructions>
+      )
+    case 'AND':
+    case 'OR':
+      if (dosageInstructions == null) {
+        return <></>
+      }
 
-          return (
-            <>
-              <MedicationDosage dosageType={instruction} /> -{' '}
-              <MedicationDosageInstruction instruction={instruction?.patientInstruction} />
-              <MedicationDosageReason reasons={reasons} />
-              <StyledType>AND</StyledType>
-            </>
-          )
-        })}
-      </StyledInstructions>
-    )
-  }
+      if (dosageInstructions[0]?.timing?.event != null) {
+        startDate = partialDateTimeText(dosageInstructions[0]?.timing?.event[0])
+      } else if (dosageInstructions[0]?.timing?.repeat?.boundsPeriod != null) {
+        startDate = periodSummaryText(dosageInstructions[0]?.timing?.repeat?.boundsPeriod)
+      }
 
-  if (type === true) {
-    return (
-      <StyledInstructions>
-        {dosageInstructions?.map((instruction, idx) => {
-          if (idx === dosageInstructions.length - 1) {
+      return (
+        <StyledInstructions>
+          {dosageInstructions?.map((instruction, idx) => {
+            if (idx === 0) {
+              return (
+                <>
+                  <MedicationDosageStartDate startDate={startDate} />
+                  <MedicationDosage dosageType={instruction} /> -{' '}
+                  <MedicationDosageInstruction instruction={instruction?.patientInstruction} />
+                  <MedicationDosageReason reasons={reasons} />
+                </>
+              )
+            }
+
             return (
               <>
+                <StyledType>{type === 'AND' ? 'And' : 'Or'}</StyledType>
                 <MedicationDosage dosageType={instruction} /> -{' '}
                 <MedicationDosageInstruction instruction={instruction?.patientInstruction} />
                 <MedicationDosageReason reasons={reasons} />
               </>
             )
-          }
-
-          return (
+          })}
+        </StyledInstructions>
+      )
+    default:
+      if (dosageInstructions != null) {
+        return (
+          <StyledInstructions>
             <>
-              <MedicationDosage dosageType={instruction} /> -{' '}
-              <MedicationDosageInstruction instruction={instruction?.patientInstruction} />
-              <MedicationDosageReason reasons={reasons} />
-              <StyledType>Then</StyledType>
+              <MedicationDosage dosageType={dosageInstructions[0]} /> -{' '}
+              <MedicationDosageInstruction instruction={dosageInstructions[0]?.patientInstruction} />
             </>
-          )
-        })}
-      </StyledInstructions>
-    )
-  }
-
-  // single instruction
-  if (!type && dosageInstructions != null) {
-    return (
-      <StyledInstructions>
-        <>
-          <MedicationDosage dosageType={dosageInstructions[0]} /> -{' '}
-          <MedicationDosageInstruction instruction={dosageInstructions[0]?.patientInstruction} />
-        </>
-      </StyledInstructions>
-    )
+          </StyledInstructions>
+        )
+      }
   }
 
   return <></>
@@ -96,8 +120,7 @@ const MedicationDosageInstructions: FC<IProps> = ({ dosageInstructions, reasons,
 interface IProps {
   dosageInstructions: Maybe<Array<Maybe<DosageType>>> | undefined
   reasons: Maybe<Array<Maybe<CodeableConcept>>> | undefined
-  // placeholder for medication type tag
-  type: Maybe<boolean>
+  type: Maybe<string> | undefined
 }
 
 export default MedicationDosageInstructions
