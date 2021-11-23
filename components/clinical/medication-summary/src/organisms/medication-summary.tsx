@@ -14,14 +14,12 @@ import MedicationDosageInstructions from '../molecules/medication-dosage-instruc
 const StyledSummary = styled.div`
   display: flex;
   flex: 1;
-  /* flex-basis: 0; */
   justify-content: space-between;
 `
 
 const StyledDescription = styled.div`
   display: flex;
   flex: 2;
-  /* flex-basis: 0; */
   flex-direction: column;
   align-items: flex-start;
   padding-right: 0.5rem;
@@ -30,7 +28,6 @@ const StyledDescription = styled.div`
 const StyledDosage = styled.div`
   display: flex;
   flex: 5;
-  /* flex-basis: 0; */
   flex-direction: column;
   align-items: flex-start;
   padding-right: 0.5rem;
