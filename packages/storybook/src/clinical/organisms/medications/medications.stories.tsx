@@ -2,6 +2,7 @@ import { MouseEvent } from 'react'
 import { Story } from '@storybook/react'
 import Card from '@ltht-react/card'
 import MedicationSummary from '@ltht-react/medication-summary'
+import MedicationDetail from '@ltht-react/medication-detail'
 
 import MedicationFixtures from './medications.fixture'
 
