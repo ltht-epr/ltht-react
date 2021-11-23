@@ -6,6 +6,7 @@ import AuthorInfo from '../atoms/author-info'
 
 import QuestionGroup from '../molecules/question-group'
 import QuestionBlock from '../molecules/question-block'
+import Redacted from '../molecules/redacted'
 
 const StyledQuestionnaire = styled.div`
   & div:last-child {
@@ -16,6 +17,8 @@ const StyledQuestionnaire = styled.div`
 const Questionnaire: FC<IProps> = ({ questionnaire }) => {
   const questions = questionnaire.questionnaire.item
   const answers = questionnaire.item
+
+  if (questionnaire.metadata.isRedacted) return <Redacted questionnaire={questionnaire} />
 
   return (
     <StyledQuestionnaire>

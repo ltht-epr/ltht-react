@@ -17,6 +17,16 @@ const mockMetadata: Metadata = {
   requestedWhen: '',
 }
 
+const mockRedactedMetadata: Metadata = {
+  dataSources: [
+    {
+      display: 'Mock',
+    },
+  ],
+  isRedacted: true,
+  requestedWhen: '',
+}
+
 export const AuthorInfoData: QuestionnaireResponse = {
   id: '435d2aca-7776-43e7-a33f-1ba481bd2892',
   metadata: mockMetadata,
@@ -64,6 +74,59 @@ export const TextFieldData: QuestionnaireResponse = {
       },
     ],
     metadata: mockMetadata,
+    url: 'http://ehr.leedsth.nhs.uk/questionnaire/Right-To-Reside',
+    version: '1',
+    title: 'Right to Reside',
+    status: QuestionnairePublicationStatus.Active,
+    item: [
+      {
+        linkId: '1',
+        text: 'What is your gender?',
+        type: QuestionnaireItemTypeCode.QuestionString,
+      },
+    ],
+  },
+  item: [
+    {
+      linkId: '1',
+      text: null,
+      answer: [
+        {
+          valueString: 'Male',
+          valueBoolean: false,
+          valueDateTime: null,
+        },
+      ],
+      item: null,
+    },
+  ],
+}
+
+export const RedactedExampleData: QuestionnaireResponse = {
+  id: '435d2aca-7776-43e7-a33f-1ba481bd2892',
+  metadata: mockRedactedMetadata,
+  status: QuestionnaireResponseStatus.Completed,
+  authored: {
+    kind: PartialDateTimeKindCode.DateTime,
+    value: '2021-08-17T13:13:56.9755581+01:00',
+  },
+  author: {
+    typeName: 'EhrUser',
+    identifier: {
+      system: 'http://leedsth.nhs.uk/user/guid',
+      value: 'cfe6a9d7-f23d-4bb9-a28d-8a3895bee48a',
+    },
+    display: 'John Smith',
+  },
+  questionnaire: {
+    id: '14720227-b1f7-4cc5-a0d0-403938cf710d',
+    identifier: [
+      {
+        system: 'http://leedsth.nhs.uk/user/guid',
+        value: 'cfe6a9d7-f23d-4bb9-a28d-8a3895bee48a',
+      },
+    ],
+    metadata: mockRedactedMetadata,
     url: 'http://ehr.leedsth.nhs.uk/questionnaire/Right-To-Reside',
     version: '1',
     title: 'Right to Reside',
