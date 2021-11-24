@@ -15,6 +15,7 @@ import {
   RepeatingGroupsExampleData,
   NestedGroupWithDisplayExampleData,
   ComposedExampleData,
+  RedactedExampleData,
 } from './questionnaire.fixtures'
 
 export const TextField: Story = () => (
@@ -134,6 +135,17 @@ export const ComposedExample: Story = () => (
     </Card.Header>
     <Card.Body>
       <Questionnaire questionnaire={ComposedExampleData} />
+    </Card.Body>
+  </Card>
+)
+
+export const RedactedExample: Story = () => (
+  <Card>
+    <Card.Header>
+      <Card.Title>Questionnaire</Card.Title>
+    </Card.Header>
+    <Card.Body>
+      <Questionnaire questionnaire={RedactedExampleData} />
     </Card.Body>
   </Card>
 )
