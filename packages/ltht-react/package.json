@@ -26,6 +26,7 @@
     "@ltht-react/allergy-summary": "^1.3.27",
     "@ltht-react/appointment-detail": "^1.3.25",
     "@ltht-react/appointment-summary": "^1.3.27",
+    "@ltht-react/banner": "^1.0.0",
     "@ltht-react/badge": "^1.0.2",
     "@ltht-react/button": "^1.3.27",
     "@ltht-react/card": "^1.3.27",
