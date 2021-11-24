@@ -2,6 +2,7 @@ import { MouseEvent } from 'react'
 import { Story } from '@storybook/react'
 import Card from '@ltht-react/card'
 import MedicationSummary from '@ltht-react/medication-summary'
+import MedicationDetail from '@ltht-react/medication-detail'
 
 import MedicationFixtures from './medications.fixture'
 
@@ -57,6 +58,17 @@ export const Redacted: Story = () => (
         <MedicationSummary medication={MedicationFixtures[5]} />
       </Card.ListItem>
     </Card.List>
+  </Card>
+)
+
+export const Detail: Story = () => (
+  <Card>
+    <Card.Header>
+      <Card.Title>Medication</Card.Title>
+    </Card.Header>
+    <Card.Body>
+      <MedicationDetail medication={MedicationFixtures[0]} />
+    </Card.Body>
   </Card>
 )
 
