@@ -136,10 +136,11 @@ export default ${componentName}
 
 const storyScript = (storyType, storyPath) => {
   var capitalisedStoryType = storyType.charAt(0).toUpperCase() + storyType.slice(1)
-  const filename = `${componentName}.stories.tsx`
+  const filename = `${componentFolderName}.stories.tsx`
   const contents = ` import { Story } from '@storybook/react'
-  export const ${componentName}: Story = () => <${componentName} />
-  export default { title: '${capitalisedStoryType}/Organisms/${componentName}' }
+import ${componentName} from '@ltht-react/${componentFolderName}'
+export const ${componentFolderName}: Story = () => <${componentName} />
+export default { title: '${capitalisedStoryType}/Organisms/${componentFolderName}' }
   `
   writeStoryFile(filename, contents, storyPath)
 }
@@ -179,6 +180,9 @@ const init = async () => {
     return false
   }
   await fs.promises.mkdir(`${folderName}/src`, { recursive: true })
+  await fs.promises.mkdir(`${folderName}/src/organisms`, { recursive: true })
+  await fs.promises.mkdir(`${folderName}/src/molecules`, { recursive: true })
+  await fs.promises.mkdir(`${folderName}/src/atoms`, { recursive: true })
   await indexScript()
   await packageJson()
   await readmeScript()
@@ -199,7 +203,7 @@ const addStory = async () => {
   } else {
     console.log('Invalid component type')
   }
-  var storyPath = `packages/storybook/src/${storyType}/organisms/${componentName}`
+  var storyPath = `packages/storybook/src/${storyType}/organisms/${componentFolderName}`
   await fs.promises.mkdir(storyPath, { recursive: true })
 
   await storyScript(storyType, storyPath)
