@@ -1,6 +1,5 @@
 import { FC, MouseEvent } from 'react'
 import Card from '@ltht-react/card'
-import { ExclamationIcon } from '@ltht-react/icon'
 
 const MissingDataWarning: FC<Props> = ({ clickHandler }) => {
   const handleClick = (e: MouseEvent<HTMLElement>): void => {
@@ -14,7 +13,7 @@ const MissingDataWarning: FC<Props> = ({ clickHandler }) => {
 
   return (
     <Card.Banner status="warning" {...missingDataWarningProps}>
-      <ExclamationIcon size="medium" status="amber" /> Missing Data
+      Missing Data
     </Card.Banner>
   )
 }

@@ -37,6 +37,13 @@ export const LINK_COLOURS = {
   },
 }
 
+export const BADGE_COLOURS = {
+  PRIMARY: colours.NHS_DARK_BLUE.VALUE,
+  STANDARD: colours.NHS_LIGHT_BLUE.VALUE,
+  WORKFLOW: colours.NHS_GREEN.VALUE,
+  DANGER: colours.NHS_EMERGENCY_SERVICES_RED.VALUE,
+}
+
 export const EFORM_BACKGROUND_COLOUR = colours.NHS_WHITE
 
 export const CARD_BACKGROUND_COLOUR = colours.NHS_WHITE

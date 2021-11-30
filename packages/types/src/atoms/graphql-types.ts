@@ -180,6 +180,8 @@ export type Metadata = {
   requestedWhen: Scalars['DateTimeOffset']
   /** Security tags for this resource instance. */
   security?: Maybe<Array<Maybe<Coding>>>
+  /** To identify and relate resources to process and workflow. */
+  tag?: Maybe<Array<Maybe<Coding>>>
   /** The version specific identifier. This value changes when the resource is created, updated, or deleted. */
   versionId?: Maybe<Scalars['String']>
 }
@@ -192,6 +194,8 @@ export type Extension = {
   url: Scalars['String']
   /** Value of extension (Attachment). */
   valueAttachment?: Maybe<Attachment>
+  /** Value of extension (Boolean). */
+  valueBoolean?: Maybe<Scalars['Boolean']>
   /** Value of extension (CodeableConcept). */
   valueCodeableConcept?: Maybe<CodeableConcept>
   /** Value of extension (String). */
@@ -752,6 +756,7 @@ export type MedicationRequest = {
   reasonReference?: Maybe<ResourceReference>
   status?: Maybe<MedicationRequestStatusType>
   subject?: Maybe<ResourceReference>
+  supportingInformation?: Maybe<Array<Maybe<ResourceReference>>>
   /** Text summary of the resource, for human interpretation. */
   text?: Maybe<Narrative>
 }
@@ -2232,11 +2237,121 @@ export enum EntityAction {
 }
 
 export enum EntityType {
-  HospitalStay = 'HOSPITAL_STAY',
-  Flag = 'FLAG',
-  Condition = 'CONDITION',
+  Address = 'ADDRESS',
+  Admission = 'ADMISSION',
+  Annotation = 'ANNOTATION',
+  ApprovalToView = 'APPROVAL_TO_VIEW',
+  Attachments = 'ATTACHMENTS',
+  BloodTest = 'BLOOD_TEST',
+  BreakGlass = 'BREAK_GLASS',
+  CareEpisode = 'CARE_EPISODE',
+  Chemotherapy = 'CHEMOTHERAPY',
+  ChildrenSocialCare = 'CHILDREN_SOCIAL_CARE',
+  Clinic = 'CLINIC',
+  ClinicalAlerts = 'CLINICAL_ALERTS',
+  ClinicalTrial = 'CLINICAL_TRIAL',
+  ClinicalTrialDocument = 'CLINICAL_TRIAL_DOCUMENT',
+  Contact = 'CONTACT',
+  Consultation = 'CONSULTATION',
+  Diagnosis = 'DIAGNOSIS',
+  EndOfLifeCare = 'END_OF_LIFE_CARE',
+  Epro = 'EPRO',
+  FileLink = 'FILE_LINK',
+  Hmds = 'HMDS',
+  Hospice = 'HOSPICE',
+  InfectionControl = 'INFECTION_CONTROL',
+  Investigation = 'INVESTIGATION',
+  LabResult = 'LAB_RESULT',
+  Mdt = 'MDT',
+  Monitoring = 'MONITORING',
+  Organisation = 'ORGANISATION',
+  OutPatient = 'OUT_PATIENT',
+  Pathology = 'PATHOLOGY',
   Patient = 'PATIENT',
-  Task = 'TASK',
+  PatientProduct = 'PATIENT_PRODUCT',
+  PatientTasks = 'PATIENT_TASKS',
+  Radiotherapy = 'RADIOTHERAPY',
+  RadiotherapyBooking = 'RADIOTHERAPY_BOOKING',
+  Referral = 'REFERRAL',
+  Review = 'REVIEW',
+  SelfClaim = 'SELF_CLAIM',
+  Spine = 'SPINE',
+  Surgery = 'SURGERY',
+  Team = 'TEAM',
+  Theatre = 'THEATRE',
+  User = 'USER',
+  WaitingTime = 'WAITING_TIME',
+  Ward = 'WARD',
+  VirtualWard = 'VIRTUAL_WARD',
+  WardConfig = 'WARD_CONFIG',
+  WardStay = 'WARD_STAY',
+  WardAttender = 'WARD_ATTENDER',
+  WatchListManagement = 'WATCH_LIST_MANAGEMENT',
+  TrustWideWatchListManagement = 'TRUST_WIDE_WATCH_LIST_MANAGEMENT',
+  QToolQuestionnaireResponse = 'Q_TOOL_QUESTIONNAIRE_RESPONSE',
+  XForms = 'X_FORMS',
+  MpvLengthOfStay = 'MPV_LENGTH_OF_STAY',
+  MpvSummary = 'MPV_SUMMARY',
+  MpvNationalEarlyWarning = 'MPV_NATIONAL_EARLY_WARNING',
+  MpvDischargePlanning = 'MPV_DISCHARGE_PLANNING',
+  MpvDementia = 'MPV_DEMENTIA',
+  MpvVenousThromboembolism = 'MPV_VENOUS_THROMBOEMBOLISM',
+  MpvHealthcareAssociatedInfection = 'MPV_HEALTHCARE_ASSOCIATED_INFECTION',
+  MpvFall = 'MPV_FALL',
+  MpvNutrition = 'MPV_NUTRITION',
+  MpvRedTray = 'MPV_RED_TRAY',
+  MpvPalliativeCareTeam = 'MPV_PALLIATIVE_CARE_TEAM',
+  MpvOccupationalTherapy = 'MPV_OCCUPATIONAL_THERAPY',
+  MpvPhysiotherapy = 'MPV_PHYSIOTHERAPY',
+  MpvMedicalSocialWork = 'MPV_MEDICAL_SOCIAL_WORK',
+  MpvClinicalReview = 'MPV_CLINICAL_REVIEW',
+  MpvAdmissionReview = 'MPV_ADMISSION_REVIEW',
+  MpvTransferPlanning = 'MPV_TRANSFER_PLANNING',
+  MpvAntibiotic = 'MPV_ANTIBIOTIC',
+  MpvBed = 'MPV_BED',
+  MpvPressureUlcer = 'MPV_PRESSURE_ULCER',
+  MpvJobs = 'MPV_JOBS',
+  MpvSchool = 'MPV_SCHOOL',
+  MpvPaediatricNutrition = 'MPV_PAEDIATRIC_NUTRITION',
+  MpvDietitian = 'MPV_DIETITIAN',
+  MpvObservation = 'MPV_OBSERVATION',
+  MpvObservationSettings = 'MPV_OBSERVATION_SETTINGS',
+  MpvInternalReferral = 'MPV_INTERNAL_REFERRAL',
+  MpvMedicinesReconciliation = 'MPV_MEDICINES_RECONCILIATION',
+  MpvSpecialityAndType = 'MPV_SPECIALITY_AND_TYPE',
+  MpvDiabetes = 'MPV_DIABETES',
+  MpvePrescribe = 'MPVE_PRESCRIBE',
+  MpvAvailableBeds = 'MPV_AVAILABLE_BEDS',
+  MpvShiftHandover = 'MPV_SHIFT_HANDOVER',
+  MpvShiftHandoverComment = 'MPV_SHIFT_HANDOVER_COMMENT',
+  MpvNamedNurse = 'MPV_NAMED_NURSE',
+  MpvCriteriaLedDischarge = 'MPV_CRITERIA_LED_DISCHARGE',
+  Edan = 'EDAN',
+  EdanAdmin = 'EDAN_ADMIN',
+  Emeds = 'EMEDS',
+  WinDipReferalDocuments = 'WIN_DIP_REFERAL_DOCUMENTS',
+  WinDipCaseNotes = 'WIN_DIP_CASE_NOTES',
+  NewsInterventionsUnrestricted = 'NEWS_INTERVENTIONS_UNRESTRICTED',
+  LstOutpatientClinics = 'LST_OUTPATIENT_CLINICS',
+  LstOperatingTheatres = 'LST_OPERATING_THEATRES',
+  LstMultidisciplinaryTeams = 'LST_MULTIDISCIPLINARY_TEAMS',
+  LstMyCustomViews = 'LST_MY_CUSTOM_VIEWS',
+  LstSharedViews = 'LST_SHARED_VIEWS',
+  LstInpatientWards = 'LST_INPATIENT_WARDS',
+  LstVirtualLists = 'LST_VIRTUAL_LISTS',
+  LstReferrals = 'LST_REFERRALS',
+  AssessmentHistory = 'ASSESSMENT_HISTORY',
+  Helm = 'HELM',
+  CustomListPatient = 'CUSTOM_LIST_PATIENT',
+  CustomListAdmittedPatient = 'CUSTOM_LIST_ADMITTED_PATIENT',
+  CustomListDischargedPatient = 'CUSTOM_LIST_DISCHARGED_PATIENT',
+  CustomListCommunityPharmacy = 'CUSTOM_LIST_COMMUNITY_PHARMACY',
+  CustomListPreAssessment = 'CUSTOM_LIST_PRE_ASSESSMENT',
+  CustomListSdec = 'CUSTOM_LIST_SDEC',
+  CustomListSuspiciousFindings = 'CUSTOM_LIST_SUSPICIOUS_FINDINGS',
+  CustomListInfectionPreventionControl = 'CUSTOM_LIST_INFECTION_PREVENTION_CONTROL',
+  CustomListOutpatientPharmacy = 'CUSTOM_LIST_OUTPATIENT_PHARMACY',
+  CustomListEdan = 'CUSTOM_LIST_EDAN',
   AllergyIntolerance = 'ALLERGY_INTOLERANCE',
   Appointment = 'APPOINTMENT',
   AuditEvent = 'AUDIT_EVENT',
@@ -2249,9 +2364,7 @@ export enum EntityType {
   Guidance = 'GUIDANCE',
   Medication = 'MEDICATION',
   Observation = 'OBSERVATION',
-  DataAvailability = 'DATA_AVAILABILITY',
-  IamToken = 'IAM_TOKEN',
-  Form = 'FORM',
+  OnlineForms = 'ONLINE_FORMS',
 }
 
 /** Permission to launch one or more Apps with the given Intents. */

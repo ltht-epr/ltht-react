@@ -1,6 +1,5 @@
 import { FC, MouseEvent } from 'react'
 import Card from '@ltht-react/card'
-import { ExclamationIcon } from '@ltht-react/icon'
 
 const ErrorSummary: FC<Props> = ({ clickHandler }) => {
   const handleClick = (e: MouseEvent<HTMLElement>): void => {
@@ -14,7 +13,7 @@ const ErrorSummary: FC<Props> = ({ clickHandler }) => {
 
   return (
     <Card.Banner status="danger" {...errorSummaryProps}>
-      <ExclamationIcon size="medium" status="default" /> Regional Providers Unavailable
+      Regional Providers Unavailable
     </Card.Banner>
   )
 }

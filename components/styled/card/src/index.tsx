@@ -2,7 +2,6 @@ import { FC, HTMLAttributes } from 'react'
 import classNames from 'classnames'
 import styled from '@emotion/styled'
 import { CSS_RESET, TEXT_COLOURS, CARD_BACKGROUND_COLOUR } from '@ltht-react/styles'
-import Alert, { Props as AlertProps } from './atoms/alert'
 import Banner, { Props as BannerProps } from './atoms/banner'
 import Body, { Props as BodyProps } from './atoms/body'
 import Footer, { Props as FooterProps } from './atoms/footer'
@@ -27,9 +26,7 @@ const StyledCard = styled.div`
     0px 1px 3px 0px rgba(102, 102, 102, 0.6);
   -webkit-font-smoothing: antialiased;
 
-  & > [class^='card__alert'] + .card__list,
-  > [class^='card__alert'] + .card__body,
-  > [class^='card__banner'] + .card__list,
+  & > [class^='card__banner'] + .card__list,
   > [class^='card__banner'] + .card__body,
   > .card__list + .card__body,
   > .card__list + .card__list {
@@ -43,7 +40,6 @@ const Card: FC<CardProps> & CardComposition = ({ textAlign = 'left', classes, ch
   </StyledCard>
 )
 
-Card.Alert = Alert
 Card.Banner = Banner
 Card.Body = Body
 Card.Footer = Footer
@@ -55,7 +51,6 @@ Card.Text = Text
 Card.Title = Title
 
 interface CardComposition {
-  Alert: FC<AlertProps>
   Banner: FC<BannerProps>
   Body: FC<BodyProps>
   Footer: FC<FooterProps>

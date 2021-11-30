@@ -1,6 +1,7 @@
 export * from './chevron-icon.stories'
 export * from './circle-icon.stories'
 export * from './column-icon.stories'
+export * from './comment-icon.stories'
 export * from './counter-icon.stories'
 export * from './edit-icon.stories'
 export * from './exclamation-icon.stories'

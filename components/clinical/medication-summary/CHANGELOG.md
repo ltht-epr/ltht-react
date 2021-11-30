@@ -3,6 +3,38 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.3.27 (2021-11-24)
+
+**Note:** Version bump only for package @ltht-react/medication-summary
+
+
+
+
+
+## 1.3.26 (2021-11-24)
+
+**Note:** Version bump only for package @ltht-react/medication-summary
+
+
+
+
+
+## 1.3.25 (2021-11-24)
+
+**Note:** Version bump only for package @ltht-react/medication-summary
+
+
+
+
+
+## 1.3.24 (2021-11-23)
+
+**Note:** Version bump only for package @ltht-react/medication-summary
+
+
+
+
+
 ## 1.3.23 (2021-10-22)
 
 **Note:** Version bump only for package @ltht-react/medication-summary

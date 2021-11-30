@@ -8,6 +8,7 @@ import FlagSummary from '@ltht-react/flag-summary'
 import HospitalStaySummary from '@ltht-react/hospital-stay-summary'
 import InvolvedTeamSummary from '@ltht-react/involved-team-summary'
 import DiagnosisSummary from '@ltht-react/diagnosis-summary'
+import MedicationSummary from '@ltht-react/medication-summary'
 
 import DocumentSummary from '@ltht-react/document-summary'
 import Card from '@ltht-react/card'
@@ -20,6 +21,7 @@ import episodeOfCares from '../../../clinical/organisms/involved-teams/involved-
 import flags from '../../../clinical/organisms/flags/flags.fixtures'
 import hospitalStays from '../../../clinical/organisms/hospital-stays/hospital-stays.fixtures'
 import conditions from '../../../clinical/organisms/diagnosis/diagnosis.fixtures'
+import medications from '../../../clinical/organisms/medications/medications.fixture'
 
 import { Container, Column } from './dashboard'
 
@@ -72,6 +74,22 @@ export const ReadOnly: Story = () => (
               <CarePlanSummary carePlan={carePlan} />
             </Card.ListItem>
           ))}
+        </Card.List>
+      </Card>
+      <Card>
+        <Card.Header>
+          <Card.Title>Medications</Card.Title>
+        </Card.Header>
+        <Card.List>
+          <Card.ListItem>
+            <MedicationSummary medication={medications[0]} />
+          </Card.ListItem>
+          <Card.ListItem>
+            <MedicationSummary medication={medications[1]} />
+          </Card.ListItem>
+          <Card.ListItem>
+            <MedicationSummary medication={medications[2]} />
+          </Card.ListItem>
         </Card.List>
       </Card>
     </Column>

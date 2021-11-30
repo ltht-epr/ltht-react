@@ -1,5 +1,3 @@
-import { FC } from 'react'
-
-const MedicationSummary: FC = () => <div>Medication Summary</div>
+import MedicationSummary from './organisms/medication-summary'
 
 export default MedicationSummary
