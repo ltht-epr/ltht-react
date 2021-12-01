@@ -180,9 +180,6 @@ const init = async () => {
     return false
   }
   await fs.promises.mkdir(`${folderName}/src`, { recursive: true })
-  await fs.promises.mkdir(`${folderName}/src/organisms`, { recursive: true })
-  await fs.promises.mkdir(`${folderName}/src/molecules`, { recursive: true })
-  await fs.promises.mkdir(`${folderName}/src/atoms`, { recursive: true })
   await indexScript()
   await packageJson()
   await readmeScript()
