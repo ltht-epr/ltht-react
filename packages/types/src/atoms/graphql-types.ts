@@ -38,7 +38,7 @@ export type Ehr = {
   condition?: Maybe<Condition>
   conditions?: Maybe<ConditionContinuation>
   guidance?: Maybe<Array<Maybe<Guidance>>>
-  medications?: Maybe<Array<Maybe<MedicationRequest>>>
+  medications?: Maybe<MedicationRequestContinuationType>
   patient?: Maybe<Patient>
   questionnaire?: Maybe<QuestionnaireResponse>
   questionnaireLastCompleted?: Maybe<QuestionnaireResponse>
@@ -54,6 +54,9 @@ export type EhrAllergyIntoleranceArgs = {
 /** Queries the LTHT EHR. */
 export type EhrAllergyIntolerancesArgs = {
   patientGuid: Scalars['String']
+  listType: Scalars['String']
+  fhirVersion: Scalars['String']
+  listScope: Scalars['String']
   cursorToken?: Maybe<Scalars['String']>
   count?: Maybe<Scalars['Int']>
 }
@@ -95,6 +98,11 @@ export type EhrGuidanceArgs = {
 /** Queries the LTHT EHR. */
 export type EhrMedicationsArgs = {
   patientGuid: Scalars['String']
+  listType: Scalars['String']
+  fhirVersion: Scalars['String']
+  listScope: Scalars['String']
+  cursorToken?: Maybe<Scalars['String']>
+  count?: Maybe<Scalars['Int']>
 }
 
 /** Queries the LTHT EHR. */
@@ -735,6 +743,20 @@ export enum GuidanceStatusCode {
   InProgress = 'IN_PROGRESS',
   Failure = 'FAILURE',
   EnteredInError = 'ENTERED_IN_ERROR',
+}
+
+/** A continuation of Medication Request resources. */
+export type MedicationRequestContinuationType = {
+  /** The first cursor token. */
+  firstCursorToken?: Maybe<Scalars['String']>
+  /** The next cursor token. */
+  nextCursorToken?: Maybe<Scalars['String']>
+  /** The continuation of Medication Request resources. */
+  resources: Array<Maybe<MedicationRequest>>
+  /** The self cursor token. */
+  selfCursorToken: Scalars['String']
+  /** The total number of resources available (if known). */
+  totalResources?: Maybe<Scalars['Int']>
 }
 
 export type MedicationRequest = {
