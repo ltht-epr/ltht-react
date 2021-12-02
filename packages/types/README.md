@@ -1,11 +1,7 @@
-# `@ltht-react/core`
+# Types
 
-> TODO: description
+### Import
 
-## Usage
-
-```
-const core = require('@ltht-react/core');
-
-// TODO:   DEMONSTRATE API
+```js
+import { ... } from '@ltht-react/types'
 ```
