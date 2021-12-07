@@ -106,7 +106,8 @@ const MedicationDosageInstructions: FC<IProps> = ({ dosageInstructions, reasons,
         return (
           <StyledInstructions>
             <>
-              <MedicationDosage dosageType={dosageInstructions[0]} /> -{' '}
+              <MedicationDosage dosageType={dosageInstructions[0]} />
+              {dosageInstructions[0]?.doseQuantity && dosageInstructions[0]?.patientInstruction ? ' - ' : ''}
               <MedicationDosageInstruction instruction={dosageInstructions[0]?.patientInstruction} />
             </>
           </StyledInstructions>
