@@ -18,6 +18,13 @@ const StyledTask = styled.div<IStyledTask>`
       color: red;
     }
   `}
+  ${({ status }) =>
+    status === TaskStatusCode.Due &&
+    `
+    * {
+      color: #ffa500;
+    }
+  `}
 `
 
 const RightSection = styled.div`
