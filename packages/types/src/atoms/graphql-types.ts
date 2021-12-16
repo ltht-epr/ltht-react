@@ -38,6 +38,7 @@ export type Ehr = {
   condition?: Maybe<Condition>
   conditions?: Maybe<ConditionContinuation>
   guidance?: Maybe<Array<Maybe<Guidance>>>
+  medication?: Maybe<MedicationRequest>
   medications?: Maybe<MedicationRequestContinuationType>
   patient?: Maybe<Patient>
   questionnaire?: Maybe<QuestionnaireResponse>
@@ -48,7 +49,8 @@ export type Ehr = {
 /** Queries the LTHT EHR. */
 export type EhrAllergyIntoleranceArgs = {
   patientGuid: Scalars['String']
-  id: Scalars['String']
+  instanceGuid: Scalars['String']
+  fhirVersion: Scalars['String']
 }
 
 /** Queries the LTHT EHR. */
@@ -93,6 +95,13 @@ export type EhrGuidanceArgs = {
   patientGuid: Scalars['String']
   instanceSetGuid: Scalars['String']
   template: Scalars['String']
+}
+
+/** Queries the LTHT EHR. */
+export type EhrMedicationArgs = {
+  patientGuid: Scalars['String']
+  instanceGuid: Scalars['String']
+  fhirVersion: Scalars['String']
 }
 
 /** Queries the LTHT EHR. */
@@ -745,20 +754,6 @@ export enum GuidanceStatusCode {
   EnteredInError = 'ENTERED_IN_ERROR',
 }
 
-/** A continuation of Medication Request resources. */
-export type MedicationRequestContinuationType = {
-  /** The first cursor token. */
-  firstCursorToken?: Maybe<Scalars['String']>
-  /** The next cursor token. */
-  nextCursorToken?: Maybe<Scalars['String']>
-  /** The continuation of Medication Request resources. */
-  resources: Array<Maybe<MedicationRequest>>
-  /** The self cursor token. */
-  selfCursorToken: Scalars['String']
-  /** The total number of resources available (if known). */
-  totalResources?: Maybe<Scalars['Int']>
-}
-
 export type MedicationRequest = {
   authoredOn?: Maybe<PartialDateTime>
   category?: Maybe<CodeableConcept>
@@ -768,6 +763,7 @@ export type MedicationRequest = {
   extension?: Maybe<Array<Maybe<Extension>>>
   /** Logical Id of the resource. */
   id: Scalars['ID']
+  identifier?: Maybe<Array<Maybe<Identifier>>>
   intent?: Maybe<MedicationRequestIntentType>
   medicationReference?: Maybe<MedicationType>
   /** Metadata about the resource. */
@@ -914,6 +910,20 @@ export type Ratio = {
   /** Additional content defined by implementations. */
   extension?: Maybe<Array<Maybe<Extension>>>
   numerator?: Maybe<Quantity>
+}
+
+/** A continuation of Medication Request resources. */
+export type MedicationRequestContinuationType = {
+  /** The first cursor token. */
+  firstCursorToken?: Maybe<Scalars['String']>
+  /** The next cursor token. */
+  nextCursorToken?: Maybe<Scalars['String']>
+  /** The continuation of Medication Request resources. */
+  resources: Array<Maybe<MedicationRequest>>
+  /** The self cursor token. */
+  selfCursorToken: Scalars['String']
+  /** The total number of resources available (if known). */
+  totalResources?: Maybe<Scalars['Int']>
 }
 
 /** The patient resource represents the patient involved in the provision of healthcare related services. */
