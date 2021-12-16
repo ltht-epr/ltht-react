@@ -38,6 +38,7 @@ export type Ehr = {
   condition?: Maybe<Condition>
   conditions?: Maybe<ConditionContinuation>
   guidance?: Maybe<Array<Maybe<Guidance>>>
+  medication?: Maybe<MedicationRequestContinuationType>
   medications?: Maybe<MedicationRequestContinuationType>
   patient?: Maybe<Patient>
   questionnaire?: Maybe<QuestionnaireResponse>
@@ -48,7 +49,8 @@ export type Ehr = {
 /** Queries the LTHT EHR. */
 export type EhrAllergyIntoleranceArgs = {
   patientGuid: Scalars['String']
-  id: Scalars['String']
+  instanceGuid: Scalars['String']
+  fhirVersion: Scalars['String']
 }
 
 /** Queries the LTHT EHR. */
@@ -93,6 +95,13 @@ export type EhrGuidanceArgs = {
   patientGuid: Scalars['String']
   instanceSetGuid: Scalars['String']
   template: Scalars['String']
+}
+
+/** Queries the LTHT EHR. */
+export type EhrMedicationArgs = {
+  patientGuid: Scalars['String']
+  instanceGuid: Scalars['String']
+  fhirVersion: Scalars['String']
 }
 
 /** Queries the LTHT EHR. */
@@ -768,6 +777,7 @@ export type MedicationRequest = {
   extension?: Maybe<Array<Maybe<Extension>>>
   /** Logical Id of the resource. */
   id: Scalars['ID']
+  identifier?: Maybe<Array<Maybe<Identifier>>>
   intent?: Maybe<MedicationRequestIntentType>
   medicationReference?: Maybe<MedicationType>
   /** Metadata about the resource. */
