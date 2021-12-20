@@ -65,7 +65,7 @@ const dosageInstruction1: DosageType = {
       text: 'Twice a Day',
     },
   ],
-  patientInstruction: 'Twice a Day (08:00, 22:00) every day',
+  //patientInstruction: 'Twice a Day (08:00, 22:00) every day',
   timing: {
     repeat: {
       boundsPeriod: {
@@ -282,7 +282,7 @@ const thenDosageInstruction2: DosageType = {
       text: 'In the Morning',
     },
   ],
-  patientInstruction: 'In the Morning (08:00) every day for 7 days',
+  //patientInstruction: 'In the Morning (08:00) every day for 7 days',
   timing: {
     repeat: {
       boundsPeriod: {
@@ -358,10 +358,10 @@ const thenDosageInstruction3: DosageType = {
   route: {
     text: 'Oral',
   },
-  doseQuantity: {
-    value: 30,
-    unit: 'mg',
-  },
+  // doseQuantity: {
+  //   value: 30,
+  //   unit: 'mg',
+  // },
 }
 
 const thenDosageInstruction4: DosageType = {
