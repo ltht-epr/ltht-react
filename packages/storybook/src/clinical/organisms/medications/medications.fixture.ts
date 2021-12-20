@@ -358,10 +358,10 @@ const thenDosageInstruction3: DosageType = {
   route: {
     text: 'Oral',
   },
-  // doseQuantity: {
-  //   value: 30,
-  //   unit: 'mg',
-  // },
+  doseQuantity: {
+    value: 30,
+    unit: 'mg',
+  },
 }
 
 const thenDosageInstruction4: DosageType = {
