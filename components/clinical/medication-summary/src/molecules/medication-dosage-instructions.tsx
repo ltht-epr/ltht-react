@@ -46,7 +46,7 @@ const MedicationDosageInstructions: FC<IProps> = ({ dosageInstructions, reasons,
                 <>
                   <MedicationDosageStartDate startDate={thenStart} />
                   <MedicationDosage dosageType={instruction} />
-                  {medicationTitleSeparator(dosageInstructions[idx])}
+                  {medicationTitleSeparator(instruction)}
                   <MedicationDosageInstruction instruction={instruction?.patientInstruction} />
                   <MedicationDosageReason reasons={reasons} />
                 </>
@@ -58,7 +58,7 @@ const MedicationDosageInstructions: FC<IProps> = ({ dosageInstructions, reasons,
                 <StyledType>Then</StyledType>
                 <MedicationDosageStartDate startDate={thenStart} />
                 <MedicationDosage dosageType={instruction} />
-                {medicationTitleSeparator(dosageInstructions[idx])}
+                {medicationTitleSeparator(instruction)}
                 <MedicationDosageInstruction instruction={instruction?.patientInstruction} />
                 <MedicationDosageReason reasons={reasons} />
               </>
@@ -86,7 +86,7 @@ const MedicationDosageInstructions: FC<IProps> = ({ dosageInstructions, reasons,
                 <>
                   <MedicationDosageStartDate startDate={startDate} />
                   <MedicationDosage dosageType={instruction} />
-                  {medicationTitleSeparator(dosageInstructions[idx])}
+                  {medicationTitleSeparator(instruction)}
                   <MedicationDosageInstruction instruction={instruction?.patientInstruction} />
                   <MedicationDosageReason reasons={reasons} />
                 </>
@@ -97,7 +97,7 @@ const MedicationDosageInstructions: FC<IProps> = ({ dosageInstructions, reasons,
               <>
                 <StyledType>{type === 'AND' ? 'And' : 'Or'}</StyledType>
                 <MedicationDosage dosageType={instruction} />
-                {medicationTitleSeparator(dosageInstructions[idx])}
+                {medicationTitleSeparator(instruction)}
                 <MedicationDosageInstruction instruction={instruction?.patientInstruction} />
                 <MedicationDosageReason reasons={reasons} />
               </>
