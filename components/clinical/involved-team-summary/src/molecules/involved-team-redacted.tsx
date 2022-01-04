@@ -2,7 +2,7 @@ import { HTMLAttributes, FC } from 'react'
 import styled from '@emotion/styled'
 
 import { EpisodeOfCare } from '@ltht-react/types'
-import { RedactedDescription, PeriodSummary } from '@ltht-react/summary'
+import { RedactedDescription, PeriodSummary } from '@ltht-react/type-summary'
 
 const StyledRedacted = styled.div`
   display: flex;

@@ -7,7 +7,7 @@ import {
   CodeableConceptDetail,
   NestedListDetail,
   IdentifierDetail,
-} from '@ltht-react/detail'
+} from '@ltht-react/type-detail'
 
 const EncounterHospitalisationDetail: FC<Props> = ({ hospitalisation }) => {
   const extensions: CodeableConcept[] = []

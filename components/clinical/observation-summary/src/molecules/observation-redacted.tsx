@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import styled from '@emotion/styled'
 
-import { RedactedDescription } from '@ltht-react/summary'
+import { RedactedDescription } from '@ltht-react/type-summary'
 
 const StyledDescription = styled.div`
   flex-grow: 1;

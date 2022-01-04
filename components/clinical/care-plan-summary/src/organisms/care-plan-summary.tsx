@@ -2,7 +2,7 @@ import { FC, HTMLAttributes } from 'react'
 import styled from '@emotion/styled'
 
 import { CarePlan } from '@ltht-react/types'
-import { PeriodSummary } from '@ltht-react/summary'
+import { PeriodSummary } from '@ltht-react/type-summary'
 
 import Description from '../atoms/care-plan-description'
 import Status from '../atoms/care-plan-status'

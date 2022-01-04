@@ -2,7 +2,7 @@ import { Story } from '@storybook/react'
 
 import Card from '@ltht-react/card'
 import AllergySummary from '@ltht-react/allergy-summary'
-import { InfoSummary, WarningSummary, ErrorSummary, MissingDataSummary } from '@ltht-react/summary'
+import { InfoSummary, WarningSummary, ErrorSummary, MissingDataSummary } from '@ltht-react/type-summary'
 import allergies from '../../../clinical/organisms/allergies/allergies.fixtures'
 
 const clickHandler = (): void => {

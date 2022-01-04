@@ -78,7 +78,7 @@ const packageJson = () => {
     "@emotion/styled": "^11.0.0",
     "@ltht-react/hooks": "^1.0.19",
     "@ltht-react/styles": "^1.3.21",
-    "@ltht-react/summary": "^1.3.29",
+    "@ltht-react/type-summary": "^1.3.29",
     "@ltht-react/types": "^1.0.25",
     "@ltht-react/utils": "^1.1.27",
     "react": "^17.0.0"

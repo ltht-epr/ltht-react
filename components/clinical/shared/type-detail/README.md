@@ -5,7 +5,7 @@
 ### Import
 
 ```js
-import Detail from '@ltht-react/detail'
+import Detail from '@ltht-react/type-detail'
 ```
 
 ### Usage

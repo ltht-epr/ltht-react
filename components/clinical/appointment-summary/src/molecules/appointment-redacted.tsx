@@ -2,7 +2,7 @@ import { FC } from 'react'
 import styled from '@emotion/styled'
 
 import { Encounter } from '@ltht-react/types'
-import { DateSummary, RedactedDescription } from '@ltht-react/summary'
+import { DateSummary, RedactedDescription } from '@ltht-react/type-summary'
 
 const StyledDateSummary = styled.div`
   text-align: left;

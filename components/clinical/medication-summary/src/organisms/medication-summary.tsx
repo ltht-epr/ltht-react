@@ -1,7 +1,8 @@
 import { FC, HTMLAttributes } from 'react'
 import styled from '@emotion/styled'
 import { CodeSystem, Maybe, MedicationRequest } from '@ltht-react/types'
-import { DateSummary } from '@ltht-react/summary'
+import { DateSummary } from '@ltht-react/type-summary'
+import { MedicationDosageInstructions } from '@ltht-react/medication'
 
 import Title from '../atoms/medication-title'
 import Route from '../atoms/medication-route'
@@ -9,7 +10,6 @@ import Indication from '../atoms/medication-indication'
 
 import AdditionalInfo from '../molecules/medication-additional-info'
 import Redacted from '../molecules/medication-redacted'
-import MedicationDosageInstructions from '../molecules/medication-dosage-instructions'
 
 const StyledSummary = styled.div`
   display: flex;

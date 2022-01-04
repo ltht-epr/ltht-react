@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 import { TEXT_COLOURS } from '@ltht-react/styles'
 import { CodeableConcept, DosageType, Maybe } from '@ltht-react/types'
-import { partialDateTimeText, periodSummaryText } from '@ltht-react/utils'
+import { partialDateTimeText, periodSummaryText, medicationTitleSeparator } from '@ltht-react/utils'
 import { FC } from 'react'
 import MedicationDosage from '../atoms/medication-dosage'
 import MedicationDosageInstruction from '../atoms/medication-dosage-instruction'
@@ -45,7 +45,8 @@ const MedicationDosageInstructions: FC<IProps> = ({ dosageInstructions, reasons,
               return (
                 <>
                   <MedicationDosageStartDate startDate={thenStart} />
-                  <MedicationDosage dosageType={instruction} /> -{' '}
+                  <MedicationDosage dosageType={instruction} />
+                  {medicationTitleSeparator(instruction)}
                   <MedicationDosageInstruction instruction={instruction?.patientInstruction} />
                   <MedicationDosageReason reasons={reasons} />
                 </>
@@ -56,7 +57,8 @@ const MedicationDosageInstructions: FC<IProps> = ({ dosageInstructions, reasons,
               <>
                 <StyledType>Then</StyledType>
                 <MedicationDosageStartDate startDate={thenStart} />
-                <MedicationDosage dosageType={instruction} /> -{' '}
+                <MedicationDosage dosageType={instruction} />
+                {medicationTitleSeparator(instruction)}
                 <MedicationDosageInstruction instruction={instruction?.patientInstruction} />
                 <MedicationDosageReason reasons={reasons} />
               </>
@@ -83,7 +85,8 @@ const MedicationDosageInstructions: FC<IProps> = ({ dosageInstructions, reasons,
               return (
                 <>
                   <MedicationDosageStartDate startDate={startDate} />
-                  <MedicationDosage dosageType={instruction} /> -{' '}
+                  <MedicationDosage dosageType={instruction} />
+                  {medicationTitleSeparator(instruction)}
                   <MedicationDosageInstruction instruction={instruction?.patientInstruction} />
                   <MedicationDosageReason reasons={reasons} />
                 </>
@@ -93,7 +96,8 @@ const MedicationDosageInstructions: FC<IProps> = ({ dosageInstructions, reasons,
             return (
               <>
                 <StyledType>{type === 'AND' ? 'And' : 'Or'}</StyledType>
-                <MedicationDosage dosageType={instruction} /> -{' '}
+                <MedicationDosage dosageType={instruction} />
+                {medicationTitleSeparator(instruction)}
                 <MedicationDosageInstruction instruction={instruction?.patientInstruction} />
                 <MedicationDosageReason reasons={reasons} />
               </>
@@ -106,7 +110,8 @@ const MedicationDosageInstructions: FC<IProps> = ({ dosageInstructions, reasons,
         return (
           <StyledInstructions>
             <>
-              <MedicationDosage dosageType={dosageInstructions[0]} /> -{' '}
+              <MedicationDosage dosageType={dosageInstructions[0]} />
+              {medicationTitleSeparator(dosageInstructions[0])}
               <MedicationDosageInstruction instruction={dosageInstructions[0]?.patientInstruction} />
             </>
           </StyledInstructions>

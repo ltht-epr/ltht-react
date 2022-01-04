@@ -282,7 +282,7 @@ const thenDosageInstruction2: DosageType = {
       text: 'In the Morning',
     },
   ],
-  patientInstruction: 'In the Morning (08:00) every day for 7 days',
+  //patientInstruction: 'In the Morning (08:00) every day for 7 days',
   timing: {
     repeat: {
       boundsPeriod: {
@@ -625,6 +625,11 @@ const SingleMedication1: MedicationRequest = {
         value: '2013-01-01T00:00:00+00:00',
         kind: PartialDateTimeKindCode.Date,
       },
+    },
+  ],
+  reasonCode: [
+    {
+      text: 'Trial Supplement - patient’s own supply from research team',
     },
   ],
   dosageInstruction: [dosageInstruction1],

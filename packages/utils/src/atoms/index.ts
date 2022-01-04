@@ -1,4 +1,5 @@
 export { default as allergyIntoleranceCategoryCodeDisplaySummary } from './allergy-intolerance-category-code'
+export { default as medicationTitleSeparator } from './medication-title-separator'
 export * from './codeable-concept'
 export { default as metadataSourceSummaryText } from './metadata'
 export * from './partial-date-time'

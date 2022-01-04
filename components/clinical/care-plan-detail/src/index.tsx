@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import { CarePlan } from '@ltht-react/types'
-import { StringDetail, PeriodDetail, NarrativeDetail, ResourceReferenceListDetail } from '@ltht-react/detail'
+import { StringDetail, PeriodDetail, NarrativeDetail, ResourceReferenceListDetail } from '@ltht-react/type-detail'
 
 const CarePlanDetail: FC<Props> = ({ carePlan }) => (
   <>
