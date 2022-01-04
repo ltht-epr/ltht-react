@@ -2,7 +2,7 @@ import { FC, HTMLAttributes } from 'react'
 import styled from '@emotion/styled'
 
 import { LypftCommunityTreatmentOrder } from '@ltht-react/types'
-import { PeriodSummary } from '@ltht-react/summary'
+import { PeriodSummary } from '@ltht-react/type-summary'
 
 import Consent from '../atoms/community-treatment-order-summary-consent'
 import Restrictions from '../atoms/community-treatment-order-summary-restrictions'

@@ -7,6 +7,7 @@ import MedicationDosage from '../atoms/medication-dosage'
 import MedicationDosageInstruction from '../atoms/medication-dosage-instruction'
 import MedicationDosageReason from '../atoms/medication-dosage-reason'
 import MedicationDosageStartDate from '../atoms/medication-dosage-start-date'
+import DescriptionList from '@ltht-react/description-list'
 
 const StyledInstructions = styled.div`
   margin-top: 0.25rem;
@@ -21,7 +22,7 @@ const StyledType = styled.div`
   color: ${TEXT_COLOURS.SECONDARY.VALUE};
 `
 
-const MedicationDosageInstructions: FC<IProps> = ({ dosageInstructions, reasons, type }) => {
+const MedicationDosageInstructions: FC<IProps> = ({ term, dosageInstructions, reasons, type }) => {
   if (dosageInstructions === undefined) {
     return <></>
   }
@@ -32,6 +33,10 @@ const MedicationDosageInstructions: FC<IProps> = ({ dosageInstructions, reasons,
     case 'THEN':
       return (
         <StyledInstructions>
+          <DescriptionList>
+            <DescriptionList.Term>{term}</DescriptionList.Term>
+          </DescriptionList>
+
           {dosageInstructions?.map((instruction, idx) => {
             let thenStart = ''
 
@@ -80,6 +85,9 @@ const MedicationDosageInstructions: FC<IProps> = ({ dosageInstructions, reasons,
 
       return (
         <StyledInstructions>
+          <DescriptionList>
+            <DescriptionList.Term>{term}</DescriptionList.Term>
+          </DescriptionList>
           {dosageInstructions?.map((instruction, idx) => {
             if (idx === 0) {
               return (
@@ -110,6 +118,9 @@ const MedicationDosageInstructions: FC<IProps> = ({ dosageInstructions, reasons,
         return (
           <StyledInstructions>
             <>
+              <DescriptionList>
+                <DescriptionList.Term>{term}</DescriptionList.Term>
+              </DescriptionList>
               <MedicationDosage dosageType={dosageInstructions[0]} />
               {medicationTitleSeparator(dosageInstructions[0])}
               <MedicationDosageInstruction instruction={dosageInstructions[0]?.patientInstruction} />
@@ -123,6 +134,7 @@ const MedicationDosageInstructions: FC<IProps> = ({ dosageInstructions, reasons,
 }
 
 interface IProps {
+  term?: string
   dosageInstructions: Maybe<Array<Maybe<DosageType>>> | undefined
   reasons: Maybe<Array<Maybe<CodeableConcept>>> | undefined
   type: Maybe<string> | undefined

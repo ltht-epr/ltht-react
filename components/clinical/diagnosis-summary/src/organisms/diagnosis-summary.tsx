@@ -2,7 +2,7 @@ import { FC, HTMLAttributes } from 'react'
 import styled from '@emotion/styled'
 
 import { Condition } from '@ltht-react/types'
-import { DateSummary } from '@ltht-react/summary'
+import { DateSummary } from '@ltht-react/type-summary'
 
 import Category from '../atoms/diagnosis-category'
 import Status from '../atoms/diagnosis-status'

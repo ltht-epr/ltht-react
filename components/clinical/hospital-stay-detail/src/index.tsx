@@ -7,7 +7,7 @@ import {
   PeriodDetail,
   ResourceReferenceDetail,
   ResourceReferenceListDetail,
-} from '@ltht-react/detail'
+} from '@ltht-react/type-detail'
 import EncounterStatusHistoryDetail from './molecules/encounter-status-history-detail'
 import EncounterHospitalisationDetail from './molecules/encounter-hospitalisation-detail'
 import EncounterParticipantDetail from './molecules/encounter-participant-detail'

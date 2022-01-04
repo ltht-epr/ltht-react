@@ -1,7 +1,7 @@
 import { FC } from 'react'
 
 import { QuestionnaireResponse } from '@ltht-react/types'
-import { RedactedDescription } from '@ltht-react/summary'
+import { RedactedDescription } from '@ltht-react/type-summary'
 
 import AuthorInfo from '../atoms/author-info'
 

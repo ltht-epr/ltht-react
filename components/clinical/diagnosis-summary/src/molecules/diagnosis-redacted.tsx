@@ -2,7 +2,7 @@ import { FC } from 'react'
 import styled from '@emotion/styled'
 
 import { Condition } from '@ltht-react/types'
-import { DateSummary, RedactedDescription } from '@ltht-react/summary'
+import { DateSummary, RedactedDescription } from '@ltht-react/type-summary'
 
 const StyledRedactedDescription = styled.div`
   flex-grow: 1;

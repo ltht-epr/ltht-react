@@ -2,7 +2,7 @@ import { HTMLAttributes, FC } from 'react'
 import Styled from '@emotion/styled'
 
 import { Flag } from '@ltht-react/types'
-import { PeriodSummary } from '@ltht-react/summary'
+import { PeriodSummary } from '@ltht-react/type-summary'
 
 import Title from '../atoms/flag-title'
 import Description from '../atoms/flag-description'

@@ -5,7 +5,7 @@
 ### Import
 
 ```js
-import Summary from '@ltht-react/summary'
+import Summary from '@ltht-react/type-summary'
 ```
 
 ### Usage

@@ -3,7 +3,7 @@ import styled from '@emotion/styled'
 import { Maybe, EncounterParticipant } from '@ltht-react/types'
 import { periodSummaryText, titleCase } from '@ltht-react/utils'
 
-import { NestedListDetail } from '@ltht-react/detail'
+import { NestedListDetail } from '@ltht-react/type-detail'
 
 const StyledNestedList = styled.div`
   margin-top: 0.5rem;

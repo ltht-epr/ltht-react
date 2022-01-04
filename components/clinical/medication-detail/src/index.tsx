@@ -1,4 +1,4 @@
-import { Maybe, MedicationRequest } from '@ltht-react/types'
+import { CodeSystem, Maybe, MedicationRequest } from '@ltht-react/types'
 import styled from '@emotion/styled'
 import {
   AnnotationListDetail,
@@ -7,7 +7,9 @@ import {
   DatetimeDetail,
   ResourceReferenceDetail,
   StringDetail,
-} from '@ltht-react/detail'
+} from '@ltht-react/type-detail'
+import { MedicationDosageInstructions } from '@ltht-react/medication'
+
 import { FC } from 'react'
 
 const TopSection = styled.div``
@@ -23,6 +25,15 @@ const MedicationDetail: FC<IProps> = ({ medication }) => {
   const route = medication?.dosageInstruction && medication.dosageInstruction[0]?.route
   const source = medication?.supportingInformation && medication.supportingInformation[0]
   const status = medication?.extension?.find((extension) => extension?.url.includes('status'))?.valueString
+  const schedule = medication?.dosageInstruction && medication.dosageInstruction[0]?.patientInstruction
+  // todo make sure the verificationComment aggregates the strings
+  const verificationComment =
+    medication?.dosageInstruction &&
+    medication.dosageInstruction[0]?.additionalInstruction &&
+    medication.dosageInstruction[0]?.additionalInstruction[0]
+
+  const qualifier = medication?.dosageInstruction && medication?.dosageInstruction[0]?.text
+  const type = medication?.metadata.tag?.find((tag) => tag?.system === CodeSystem.MedicationTypeIdentifier)?.display
 
   return (
     <>
@@ -31,12 +42,22 @@ const MedicationDetail: FC<IProps> = ({ medication }) => {
         <AnnotationListDetail term="Changes / Comments" notes={medication?.note} />
         <Seperator />
       </TopSection>
-
       <CodeableConceptDetail term="Medication" concept={medication?.medicationReference?.code} />
-      <DatetimeDetail term="Perscription Date" datetime={medication?.authoredOn} />
+
+      <MedicationDosageInstructions
+        term="Dosage"
+        dosageInstructions={medication?.dosageInstruction}
+        reasons={medication?.reasonCode}
+        type={type}
+      />
+
       <CodeableConceptDetail term="Form" concept={medication?.medicationReference?.form} />
-      <CodeableConceptDetail term="Route" concept={route} />
       <CodeableConceptListDetail term="Indication" concepts={medication?.reasonCode} />
+      <StringDetail term="Schedule" description={schedule} />
+      <StringDetail term="Qualifier" description={qualifier} />
+      <CodeableConceptDetail term="Route" concept={route} />
+      <DatetimeDetail term="Perscription Date" datetime={medication?.authoredOn} />
+      <CodeableConceptDetail term="Verification Comment" concept={verificationComment} />
       <ResourceReferenceDetail term="Source" resourceReference={source} />
     </>
   )

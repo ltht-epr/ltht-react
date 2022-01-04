@@ -2,7 +2,7 @@ import { FC } from 'react'
 import styled from '@emotion/styled'
 
 import { EpisodeOfCare } from '@ltht-react/types'
-import { PeriodSummary } from '@ltht-react/summary'
+import { PeriodSummary } from '@ltht-react/type-summary'
 
 import Description from '../atoms/involved-team-description'
 import Type from '../atoms/involved-team-type'
