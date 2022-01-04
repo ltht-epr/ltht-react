@@ -2,7 +2,7 @@ import { FC, HTMLAttributes } from 'react'
 import styled from '@emotion/styled'
 
 import { Encounter } from '@ltht-react/types'
-import { DateSummary } from '@ltht-react/summary'
+import { DateSummary } from '@ltht-react/type-summary'
 
 import ServiceProvider from '../atoms/appointment-service-provider'
 import Description from '../atoms/appointment-description'

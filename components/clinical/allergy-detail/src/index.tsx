@@ -8,7 +8,7 @@ import {
   DatetimeDetail,
   ResourceReferenceDetail,
   StringDetail,
-} from '@ltht-react/detail'
+} from '@ltht-react/type-detail'
 import AllergyOnset from './atoms/allergy-onset-detail'
 
 const TopSection = styled.div`

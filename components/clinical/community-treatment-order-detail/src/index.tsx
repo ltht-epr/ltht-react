@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import { LypftCommunityTreatmentOrder } from '@ltht-react/types/'
-import { StringDetail, CodeableConceptDetail, PeriodDetail } from '@ltht-react/detail'
+import { StringDetail, CodeableConceptDetail, PeriodDetail } from '@ltht-react/type-detail'
 
 const CommunityTreatmentOrderDetail: FC<Props> = ({ communityTreatmentOrder }) => (
   <>

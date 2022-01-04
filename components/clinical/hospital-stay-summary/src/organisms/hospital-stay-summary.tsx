@@ -2,7 +2,7 @@ import { HTMLAttributes, FC } from 'react'
 import styled from '@emotion/styled'
 
 import { Encounter } from '@ltht-react/types'
-import { PeriodSummary } from '@ltht-react/summary'
+import { PeriodSummary } from '@ltht-react/type-summary'
 
 import ServiceProvider from '../atoms/hospital-stay-service-provider'
 import Description from '../atoms/hospital-stay-description'

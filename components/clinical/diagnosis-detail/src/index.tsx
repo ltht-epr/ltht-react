@@ -8,7 +8,7 @@ import {
   DatetimeDetail,
   ResourceReferenceDetail,
   CodingListDetail,
-} from '@ltht-react/detail'
+} from '@ltht-react/type-detail'
 
 const TopSection = styled.div`
   display: flex;

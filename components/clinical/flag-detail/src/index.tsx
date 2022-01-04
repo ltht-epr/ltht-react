@@ -6,7 +6,7 @@ import {
   PeriodDetail,
   NarrativeDetail,
   ResourceReferenceDetail,
-} from '@ltht-react/detail'
+} from '@ltht-react/type-detail'
 
 const FlagDetail: FC<Props> = ({ flag }) => (
   <>

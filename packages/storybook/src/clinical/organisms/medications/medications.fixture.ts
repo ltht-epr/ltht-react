@@ -65,7 +65,7 @@ const dosageInstruction1: DosageType = {
       text: 'Twice a Day',
     },
   ],
-  //patientInstruction: 'Twice a Day (08:00, 22:00) every day',
+  patientInstruction: 'Twice a Day (08:00, 22:00) every day',
   timing: {
     repeat: {
       boundsPeriod: {
@@ -625,6 +625,11 @@ const SingleMedication1: MedicationRequest = {
         value: '2013-01-01T00:00:00+00:00',
         kind: PartialDateTimeKindCode.Date,
       },
+    },
+  ],
+  reasonCode: [
+    {
+      text: 'Trial Supplement - patient’s own supply from research team',
     },
   ],
   dosageInstruction: [dosageInstruction1],

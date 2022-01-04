@@ -29,7 +29,7 @@
     "@emotion/styled": "^11.0.0",
     "@ltht-react/hooks": "^1.0.22",
     "@ltht-react/styles": "^1.3.24",
-    "@ltht-react/summary": "^1.3.32",
+    "@ltht-react/type-summary": "^1.3.32",
     "@ltht-react/types": "^1.0.28",
     "@ltht-react/utils": "^1.1.30",
     "moment": "^2.29.1",

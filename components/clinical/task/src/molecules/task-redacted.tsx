@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import styled from '@emotion/styled'
-import { RedactedDescription } from '@ltht-react/summary'
+import { RedactedDescription } from '@ltht-react/type-summary'
 import { Maybe, Period, TaskStatusCode } from '@ltht-react/types'
 
 import Date from '../atoms/task-date'

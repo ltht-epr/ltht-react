@@ -2,7 +2,7 @@ import { FC, HTMLAttributes } from 'react'
 import Styled from '@emotion/styled'
 
 import { AllergyIntolerance, AllergyIntoleranceCriticalityCode } from '@ltht-react/types'
-import { DateSummary } from '@ltht-react/summary'
+import { DateSummary } from '@ltht-react/type-summary'
 
 import Title from '../atoms/allergy-title'
 import Description from '../atoms/allergy-description'

@@ -2,7 +2,7 @@ import { FC } from 'react'
 import styled from '@emotion/styled'
 
 import { DocumentReference } from '@ltht-react/types'
-import { RedactedDescription } from '@ltht-react/summary'
+import { RedactedDescription } from '@ltht-react/type-summary'
 
 import Date from '../atoms/document-date'
 

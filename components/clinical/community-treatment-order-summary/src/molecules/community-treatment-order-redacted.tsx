@@ -2,7 +2,7 @@ import { FC } from 'react'
 import styled from '@emotion/styled'
 
 import { LypftCommunityTreatmentOrder } from '@ltht-react/types'
-import { RedactedDescription, PeriodSummary } from '@ltht-react/summary'
+import { RedactedDescription, PeriodSummary } from '@ltht-react/type-summary'
 
 const StyledRedactedDescription = styled.div`
   flex-grow: 1;

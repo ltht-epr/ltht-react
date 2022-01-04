@@ -2,7 +2,7 @@ import { FC } from 'react'
 import styled from '@emotion/styled'
 import { EncounterStatusHistory, Maybe } from '@ltht-react/types'
 import DescriptionList from '@ltht-react/description-list'
-import { NestedListDetail } from '@ltht-react/detail'
+import { NestedListDetail } from '@ltht-react/type-detail'
 import { periodSummaryText, titleCase } from '@ltht-react/utils'
 
 const StyledNestedList = styled.div`

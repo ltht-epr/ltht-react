@@ -8,7 +8,7 @@ import {
   PeriodDetail,
   ResourceReferenceDetail,
   StringDetail,
-} from '@ltht-react/detail'
+} from '@ltht-react/type-detail'
 import * as fixtures from './detail.fixtures'
 
 export const Annotations: Story = () => <AnnotationListDetail term="Note(s)" notes={fixtures.annotations} />
