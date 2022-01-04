@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "@emotion/styled": "^11.0.0",
-    "@ltht-react/detail": "^1.3.33",
+    "@ltht-react/type-detail": "^1.3.33",
     "@ltht-react/hooks": "^1.0.23",
     "@ltht-react/styles": "^1.3.25",
     "@ltht-react/types": "^1.0.29",
