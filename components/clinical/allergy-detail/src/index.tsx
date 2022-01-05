@@ -26,21 +26,21 @@ const TopSection = styled.div`
 const AllergyDetail: FC<Props> = ({ allergy }) => (
   <>
     <TopSection>
-      <CodeableConceptDetail term="Allergy" concept={allergy.code} />
+      <StringDetail term="Type" description={allergy.type?.toString()} />
       <CodingListDetail term="Data Source(s)" codings={allergy.metadata.dataSources} />
     </TopSection>
 
-    <StringDetail term="Type" description={allergy.type?.toString()} />
-    <StringDetail term="Clinical Status" description={allergy.clinicalStatus?.toString()} />
-    <StringDetail term="Verification Status" description={allergy.verificationStatus?.toString()} />
     <StringDetail term="Category" description={allergy?.category?.toString()} />
-    <StringDetail term="Criticality" description={allergy.criticality?.toString()} />
+    <CodeableConceptDetail term="Allergy" concept={allergy.code} />
+    <StringDetail term="Verification Status" description={allergy.verificationStatus?.toString()} />
+    <StringDetail term="Clinical Status" description={allergy.clinicalStatus?.toString()} />
+    <AllergyOnset term="Onset" onset={allergy.onSet} />
     <ResourceReferenceDetail term="Asserter" resourceReference={allergy?.asserter} />
     <DatetimeDetail term="Asserted Date" datetime={allergy?.assertedDate} />
-    <AllergyOnset term="Onset" onset={allergy.onSet} />
-    <DatetimeDetail term="Last Occurance" datetime={allergy?.lastOccurrence} />
-    <ResourceReferenceDetail term="Recorder" resourceReference={allergy?.recorder} />
     <AnnotationListDetail term="Note(s)" notes={allergy.note} />
+    <DatetimeDetail term="Last Occurance" datetime={allergy?.lastOccurrence} />
+    <StringDetail term="Criticality" description={allergy.criticality?.toString()} />
+    <ResourceReferenceDetail term="Recorder" resourceReference={allergy?.recorder} />
   </>
 )
 
