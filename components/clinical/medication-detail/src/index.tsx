@@ -5,7 +5,6 @@ import {
   CodeableConceptDetail,
   CodeableConceptListDetail,
   DatetimeDetail,
-  ResourceReferenceDetail,
   StringDetail,
 } from '@ltht-react/type-detail'
 import { MedicationDosageInstructions } from '@ltht-react/medication'
@@ -24,7 +23,7 @@ const Seperator = styled.div`
 
 const MedicationDetail: FC<IProps> = ({ medication }) => {
   const route = medication?.dosageInstruction && medication.dosageInstruction[0]?.route
-  const source = medication?.supportingInformation && medication.supportingInformation[0]
+  const source = medication?.supportingInformation && medication.supportingInformation[0]?.identifier?.value
   const status = medication?.extension?.find((extension) => extension?.url.includes('status'))?.valueString
   const schedule = medication?.dosageInstruction && medication.dosageInstruction[0]?.patientInstruction
   const type = medication?.metadata.tag?.find((tag) => tag?.system === CodeSystem.MedicationTypeIdentifier)?.display
@@ -33,6 +32,7 @@ const MedicationDetail: FC<IProps> = ({ medication }) => {
     ?.map((el) => el?.text)
     .join(', ')
 
+  console.log(medication)
   return (
     <>
       <TopSection>
@@ -58,7 +58,7 @@ const MedicationDetail: FC<IProps> = ({ medication }) => {
       <CodeableConceptDetail term="Route" concept={route} />
       <DatetimeDetail term="Perscription Date" datetime={medication?.authoredOn} />
       <StringDetail term="Verification Comment" description={verificationComment} />
-      <ResourceReferenceDetail term="Source" resourceReference={source} />
+      <StringDetail term="Source" description={source} />
     </>
   )
 }
