@@ -9,7 +9,6 @@ import MedicationDosageReason from '../atoms/medication-dosage-reason'
 import MedicationDosageStartDate from '../atoms/medication-dosage-start-date'
 
 const StyledInstructions = styled.div`
-  margin-top: 0.25rem;
   display: block;
   align-items: center;
 `
