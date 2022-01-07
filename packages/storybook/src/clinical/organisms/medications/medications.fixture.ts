@@ -609,6 +609,13 @@ const SingleMedication1: MedicationRequest = {
   },
   status: MedicationRequestStatusType.Active,
   intent: MedicationRequestIntentType.Plan,
+  supportingInformation: [
+    {
+      typeName: 'Reference',
+      identifier: { system: 'https://fhir.leedsth.nhs.uk/CodeSystem/medchart-source-1', value: 'b. IP OSD' },
+      display: 'John Smith',
+    },
+  ],
   authoredOn: {
     value: '2021-03-12T10:56:01+00:00',
     kind: PartialDateTimeKindCode.Date,
