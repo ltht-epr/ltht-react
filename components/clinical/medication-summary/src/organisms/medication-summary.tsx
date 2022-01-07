@@ -21,7 +21,6 @@ const StyledDescription = styled.div`
   display: flex;
   flex: 2;
   flex-direction: column;
-  align-items: flex-start;
   padding-right: 0.5rem;
 `
 
@@ -29,7 +28,6 @@ const StyledDosage = styled.div`
   display: flex;
   flex: 5;
   flex-direction: column;
-  align-items: flex-start;
   padding-right: 0.5rem;
 `
 
@@ -37,7 +35,6 @@ const StyledDate = styled.div`
   display: flex;
   flex: 1;
   flex-direction: column;
-  align-items: flex-start;
   text-align: right;
 
   > div {
