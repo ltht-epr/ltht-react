@@ -32,7 +32,6 @@ const MedicationDetail: FC<IProps> = ({ medication }) => {
     ?.map((el) => el?.text)
     .join(', ')
 
-  console.log(medication)
   return (
     <>
       <TopSection>

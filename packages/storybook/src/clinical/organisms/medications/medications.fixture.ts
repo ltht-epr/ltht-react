@@ -57,15 +57,15 @@ const dosageInstruction1: DosageType = {
     coding: [{ code: '333', display: 'Inhalation' }],
   },
   text: '2 Puffs, Twice a Day',
-  additionalInstruction: [
-    {
-      text: 'budesonide + formoterol',
-    },
-    {
-      text: 'Twice a Day',
-    },
-  ],
-  patientInstruction: 'Twice a Day (08:00, 22:00) every day',
+  // additionalInstruction: [
+  //   {
+  //     text: 'budesonide + formoterol',
+  //   },
+  //   {
+  //     text: 'Twice a Day',
+  //   },
+  // ],
+  // patientInstruction: 'Twice a Day (08:00, 22:00) every day',
   timing: {
     repeat: {
       boundsPeriod: {
@@ -282,7 +282,6 @@ const thenDosageInstruction2: DosageType = {
       text: 'In the Morning',
     },
   ],
-  //patientInstruction: 'In the Morning (08:00) every day for 7 days',
   timing: {
     repeat: {
       boundsPeriod: {
@@ -591,65 +590,110 @@ const RedactedMedication: MedicationRequest = {
 }
 
 const SingleMedication1: MedicationRequest = {
-  id: '146dd7ae-8fa9-4abe-a909-dde929c96e36',
-  metadata: {
-    dataSources: [
-      {
-        display: 'Mock',
-      },
-    ],
-    isRedacted: false,
-    requestedWhen: '',
-    tag: [
-      {
-        system: 'https://fhir.leedsth.nhs.uk/CodeSystem/medication-type-identifier-1',
-        display: 'SingleLine',
-      },
-    ],
-  },
+  id: 'R3|959190a8-4b19-461c-8b64-b2c747977660',
   status: MedicationRequestStatusType.Active,
-  intent: MedicationRequestIntentType.Plan,
+  intent: MedicationRequestIntentType.Order,
+  reasonCode: [
+    {
+      text: 'Symptomatic chronic heart failure with reduced ejection fraction',
+    },
+  ],
+  medicationReference: {
+    code: {
+      coding: [],
+      text: 'valsartan 26mg \u002B sacubitril 24mg',
+    },
+    form: {
+      coding: [],
+      text: 'Tablet',
+    },
+  },
   supportingInformation: [
     {
       typeName: 'Reference',
-      identifier: { system: 'https://fhir.leedsth.nhs.uk/CodeSystem/medchart-source-1', value: 'b. IP OSD' },
+      identifier: {
+        system: 'https://fhir.leedsth.nhs.uk/CodeSystem/medchart-source-1',
+        value: 'Not Assigned',
+      },
       display: 'John Smith',
     },
   ],
+  identifier: [
+    {
+      system: 'https://leedsth.nhs.uk/cds/instance-identifier',
+      value: '959190a8-4b19-461c-8b64-b2c747977660',
+    },
+    {
+      system: 'https://leedsth.nhs.uk/cds/instance-set-identifier',
+      value: '7b2236aa-0d82-45e0-9c1b-9f5ea61093e2',
+    },
+  ],
+  extension: [
+    {
+      url: 'https://leedsth.nhs.uk/medication-request/status',
+      valueString: 'New',
+      valueBoolean: null,
+    },
+    {
+      url: 'https://leedsth.nhs.uk/medication-request/has-changed',
+      valueString: null,
+      valueBoolean: false,
+    },
+  ],
+  dosageInstruction: [
+    {
+      route: {
+        text: 'Oral',
+        coding: [],
+      },
+      text: '1 Tablet, Twice a Day',
+      additionalInstruction: [
+        {
+          text: 'test < >    &',
+        },
+      ],
+      patientInstruction: 'Twice a Day (08:00, 18:00) every day',
+      timing: {
+        repeat: {
+          boundsPeriod: {
+            start: {
+              value: '2022-01-10T18:00:00+00:00',
+              kind: PartialDateTimeKindCode.DateTime,
+            },
+            end: null,
+          },
+        },
+      },
+      doseRange: null,
+      doseQuantity: {
+        value: 1,
+        unit: null,
+      },
+    },
+  ],
   authoredOn: {
-    value: '2021-03-12T10:56:01+00:00',
-    kind: PartialDateTimeKindCode.Date,
+    kind: PartialDateTimeKindCode.DateTime,
+    value: '2022-01-10T12:22:10+00:00',
   },
   note: [
     {
-      author: {
-        display: 'Dr. John Doe',
-        typeName: 'Practitioner',
-      },
-      text:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
-      time: {
-        value: '2013-01-01T00:00:00+00:00',
-        kind: PartialDateTimeKindCode.Date,
-      },
+      author: null,
+      text: 'asdf asdfasdfasdfsdf',
+      time: null,
     },
   ],
-  reasonCode: [
-    {
-      text: 'Trial Supplement - patient’s own supply from research team',
-    },
-  ],
-  dosageInstruction: [dosageInstruction1],
-  medicationReference: {
-    code: {
-      coding: [{ code: '111', display: 'Paracetamol' }],
-    },
-    isBrand: true,
-    form: {
-      coding: [{ code: '222', display: 'Tablet' }],
-    },
+  metadata: {
+    isRedacted: false,
+    dataSources: [],
+    requestedWhen: '',
+    tag: [
+      {
+        code: null,
+        display: 'SingleLine',
+        system: 'https://fhir.leedsth.nhs.uk/CodeSystem/medication-type-identifier-1',
+      },
+    ],
   },
-  extension: medicationNewStatus,
 }
 
 const OrMedication1: MedicationRequest = {
@@ -818,20 +862,20 @@ const ChangedMedication: MedicationRequest = {
     value: '2021-03-12T10:56:01+00:00',
     kind: PartialDateTimeKindCode.Date,
   },
-  note: [
-    {
-      author: {
-        display: 'Dr. John Doe',
-        typeName: 'Practitioner',
-      },
-      text:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
-      time: {
-        value: '2013-01-01T00:00:00+00:00',
-        kind: PartialDateTimeKindCode.Date,
-      },
-    },
-  ],
+  // note: [
+  //   {
+  //     author: {
+  //       display: 'Dr. John Doe',
+  //       typeName: 'Practitioner',
+  //     },
+  //     text:
+  //       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+  //     time: {
+  //       value: '2013-01-01T00:00:00+00:00',
+  //       kind: PartialDateTimeKindCode.Date,
+  //     },
+  //   },
+  // ],
   reasonCode: [{ text: 'Allergies' }],
   dosageInstruction: [dosageInstruction1],
   medicationReference: {

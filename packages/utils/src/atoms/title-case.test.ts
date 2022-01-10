@@ -22,5 +22,9 @@ describe('TitleCaseText', () => {
       const value = 'STATUS NOT_CONFIRMED'
       expect(titleCase(value)).toEqual('Status Not Confirmed')
     })
+    it('string with multiple spaces formats correctly', () => {
+      const value = 'test  test'
+      expect(titleCase(value)).toEqual('Test  Test')
+    })
   })
 })
