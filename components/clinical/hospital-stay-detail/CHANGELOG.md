@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.3.40 (2022-01-10)
+
+**Note:** Version bump only for package @ltht-react/hospital-stay-detail
+
+
+
+
+
 ## 1.3.39 (2022-01-07)
 
 **Note:** Version bump only for package @ltht-react/hospital-stay-detail
