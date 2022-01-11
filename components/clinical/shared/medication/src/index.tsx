@@ -1,2 +1,2 @@
 export * from './atoms'
-export * from './molecules'
+export { default as MedicationDosageInstructions } from './molecules/medication-dosage-instructions'

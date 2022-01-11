@@ -40,17 +40,6 @@ const medicationChangedStatus: Extension[] = [
   },
 ]
 
-const medicationNewStatus: Extension[] = [
-  {
-    url: 'https://leedsth.nhs.uk/medication-request/has-changed',
-    valueBoolean: false,
-  },
-  {
-    url: 'https://leedsth.nhs.uk/medication-request/status',
-    valueString: 'New',
-  },
-]
-
 const dosageInstruction1: DosageType = {
   sequence: 1,
   route: {
