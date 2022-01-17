@@ -28,9 +28,11 @@ const MedicationDetail: FC<IProps> = ({ medication }) => {
   const schedule = medication?.dosageInstruction && medication.dosageInstruction[0]?.patientInstruction
   const type = medication?.metadata.tag?.find((tag) => tag?.system === CodeSystem.MedicationTypeIdentifier)?.display
   const verificationComment = medication?.note && medication?.note[0]?.text
-  const qualifier = (medication?.dosageInstruction && medication.dosageInstruction[0]?.additionalInstruction)
-    ?.map((el) => el?.text)
-    .join(', ')
+  const qualifier =
+    medication?.dosageInstruction &&
+    medication?.dosageInstruction
+      .map((dosageInstruction) => dosageInstruction?.additionalInstruction?.map((el) => el?.text).join(', '))
+      .join(', ')
 
   return (
     <>
