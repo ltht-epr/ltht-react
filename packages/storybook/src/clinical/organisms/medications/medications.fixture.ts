@@ -651,6 +651,41 @@ const SingleMedication1: MedicationRequest = {
         {
           text: 'test < >    &',
         },
+        {
+          text: 'Not Assigned',
+        },
+      ],
+      patientInstruction: 'Twice a Day (08:00, 18:00) every day',
+      timing: {
+        repeat: {
+          boundsPeriod: {
+            start: {
+              value: '2022-01-10T18:00:00+00:00',
+              kind: PartialDateTimeKindCode.DateTime,
+            },
+            end: null,
+          },
+        },
+      },
+      doseRange: null,
+      doseQuantity: {
+        value: 1,
+        unit: null,
+      },
+    },
+    {
+      route: {
+        text: 'Oral',
+        coding: [],
+      },
+      text: '1 Tablet, Twice a Day',
+      additionalInstruction: [
+        {
+          text: '2nd test < >    &',
+        },
+        {
+          text: '2nd Not Assigned',
+        },
       ],
       patientInstruction: 'Twice a Day (08:00, 18:00) every day',
       timing: {
