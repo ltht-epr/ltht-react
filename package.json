@@ -35,7 +35,6 @@
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.18.0",
     "eslint-plugin-react-hooks": "^4.0.0",
-    "husky": "^7.0.4",
     "jest": "^26.6.3",
     "lerna": "^3.20.1",
     "lerna-update-wizard": "^0.17.8",
@@ -45,7 +44,8 @@
     "rimraf": "^3.0.0",
     "ts-jest": "^26.5.1",
     "ts-node": "^9.0.0",
-    "typescript": "^4.0.0"
+    "typescript": "^4.0.0",
+    "husky": "^7.0.0"
   },
   "scripts": {
     "bootstrap": "lerna bootstrap && lerna run build",
@@ -70,13 +70,13 @@
     "new:version:major": "lerna version major --yes",
     "new:version:interactive": "lerna version",
     "predeploy:storybook": "yarn build:storybook",
-    "prepare": "husky install",
     "start:debug": "cd packages/storybook && yarn start:debug",
     "start": "cd packages/storybook && yarn start",
     "test:unit": "jest",
     "test": "yarn test:unit",
     "type:check": "lerna run type:check --parallel",
-    "type:gen": "lerna run type:gen --scope=@ltht-react/types && yarn lerna run build --scope=@ltht-react/types"
+    "type:gen": "lerna run type:gen --scope=@ltht-react/types && yarn lerna run build --scope=@ltht-react/types",
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
