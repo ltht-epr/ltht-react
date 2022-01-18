@@ -1,3 +1,5 @@
+/* eslint-disable  no-console */
+
 import { Story } from '@storybook/react'
 
 import Banner from '@ltht-react/banner'
