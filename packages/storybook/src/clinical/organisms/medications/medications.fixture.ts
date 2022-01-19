@@ -143,6 +143,10 @@ const orDosageInstruction1: DosageType = {
           // is this being passed in?
           kind: PartialDateTimeKindCode.Date,
         },
+        end: {
+          value: '2021-07-21T08:00:00+01:00',
+          kind: PartialDateTimeKindCode.Date,
+        },
       },
       frequencyMax: 1,
       period: 4.0,
@@ -186,7 +190,12 @@ const orDosageInstruction2: DosageType = {
     repeat: {
       boundsPeriod: {
         start: {
-          value: '2021-07-12T18:00:00+01:00',
+          value: '2021-07-21T18:00:00+01:00',
+          kind: PartialDateTimeKindCode.Date,
+        },
+        end: {
+          value: '2021-07-28T08:00:00+01:00',
+          kind: PartialDateTimeKindCode.Date,
         },
       },
       frequency: 4,
@@ -886,20 +895,6 @@ const ChangedMedication: MedicationRequest = {
     value: '2021-03-12T10:56:01+00:00',
     kind: PartialDateTimeKindCode.Date,
   },
-  // note: [
-  //   {
-  //     author: {
-  //       display: 'Dr. John Doe',
-  //       typeName: 'Practitioner',
-  //     },
-  //     text:
-  //       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
-  //     time: {
-  //       value: '2013-01-01T00:00:00+00:00',
-  //       kind: PartialDateTimeKindCode.Date,
-  //     },
-  //   },
-  // ],
   reasonCode: [{ text: 'Allergies' }],
   dosageInstruction: [dosageInstruction1],
   medicationReference: {

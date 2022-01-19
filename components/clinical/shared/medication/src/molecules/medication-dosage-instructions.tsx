@@ -28,22 +28,23 @@ const MedicationDosageInstructions: FC<IProps> = ({ dosageInstructions, reasons,
   let startDate = ''
 
   switch (type) {
+    case 'AND':
     case 'THEN':
       return (
         <StyledInstructions>
           {dosageInstructions?.map((instruction, idx) => {
-            let thenStart = ''
+            let start = ''
 
             if (instruction?.timing?.event != null) {
-              thenStart = partialDateTimeText(instruction?.timing?.event[0])
+              start = partialDateTimeText(instruction?.timing?.event[0])
             } else if (dosageInstructions[0]?.timing?.repeat?.boundsPeriod != null) {
-              thenStart = periodSummaryText(instruction?.timing?.repeat?.boundsPeriod)
+              start = periodSummaryText(instruction?.timing?.repeat?.boundsPeriod)
             }
 
             if (idx === 0) {
               return (
                 <>
-                  <MedicationDosageStartDate startDate={thenStart} />
+                  <MedicationDosageStartDate startDate={start} />
                   <MedicationDosage dosageType={instruction} />
                   {medicationTitleSeparator(instruction)}
                   <MedicationDosageInstruction instruction={instruction?.patientInstruction} />
@@ -54,8 +55,8 @@ const MedicationDosageInstructions: FC<IProps> = ({ dosageInstructions, reasons,
 
             return (
               <>
-                <StyledType>Then</StyledType>
-                <MedicationDosageStartDate startDate={thenStart} />
+                <StyledType>{type === 'AND' ? 'And' : 'Then'}</StyledType>
+                <MedicationDosageStartDate startDate={start} />
                 <MedicationDosage dosageType={instruction} />
                 {medicationTitleSeparator(instruction)}
                 <MedicationDosageInstruction instruction={instruction?.patientInstruction} />
@@ -65,7 +66,6 @@ const MedicationDosageInstructions: FC<IProps> = ({ dosageInstructions, reasons,
           })}
         </StyledInstructions>
       )
-    case 'AND':
     case 'OR':
       if (dosageInstructions == null) {
         return <></>
@@ -94,7 +94,7 @@ const MedicationDosageInstructions: FC<IProps> = ({ dosageInstructions, reasons,
 
             return (
               <>
-                <StyledType>{type === 'AND' ? 'And' : 'Or'}</StyledType>
+                <StyledType>Or</StyledType>
                 <MedicationDosage dosageType={instruction} />
                 {medicationTitleSeparator(instruction)}
                 <MedicationDosageInstruction instruction={instruction?.patientInstruction} />
