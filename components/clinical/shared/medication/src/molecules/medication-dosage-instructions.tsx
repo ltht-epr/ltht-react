@@ -37,7 +37,7 @@ const MedicationDosageInstructions: FC<IProps> = ({ dosageInstructions, reasons,
 
             if (instruction?.timing?.event != null) {
               start = partialDateTimeText(instruction?.timing?.event[0])
-            } else if (dosageInstructions[0]?.timing?.repeat?.boundsPeriod != null) {
+            } else if (instruction?.timing?.repeat?.boundsPeriod != null) {
               start = periodSummaryText(instruction?.timing?.repeat?.boundsPeriod)
             }
 
