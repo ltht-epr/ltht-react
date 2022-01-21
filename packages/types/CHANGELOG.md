@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.0.42 (2022-01-21)
+
+**Note:** Version bump only for package @ltht-react/types
+
+
+
+
+
 ## 1.0.41 (2022-01-19)
 
 **Note:** Version bump only for package @ltht-react/types
