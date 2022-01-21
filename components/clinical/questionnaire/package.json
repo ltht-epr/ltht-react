@@ -35,6 +35,6 @@
     "@ltht-react/utils": "^1.1.52",
     "bbcode-to-react": "^0.2.9",
     "react": "^17.0.0",
-    "react-html-parser": "^2.0.2"
+    "html-react-parser": "^1.4.5"
   }
 }

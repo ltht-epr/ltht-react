@@ -5,7 +5,6 @@ import { IconSizes, calculateIconSize } from '@ltht-react/styles'
 
 const calculateIconType = (direction: IconDirection): IconTypes => {
   switch (direction) {
-    default:
     case 'up':
       return faChevronUp
     case 'down':
@@ -14,6 +13,8 @@ const calculateIconType = (direction: IconDirection): IconTypes => {
       return faChevronLeft
     case 'right':
       return faChevronRight
+    default:
+      return faChevronUp
   }
 }
 

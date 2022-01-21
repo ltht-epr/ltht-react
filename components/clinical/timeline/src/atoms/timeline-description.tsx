@@ -1,6 +1,6 @@
 import { FC, HTMLAttributes } from 'react'
+import parse from 'html-react-parser'
 import { Maybe } from '@ltht-react/types'
-import ReactHtmlParser from 'react-html-parser'
 import styled from '@emotion/styled'
 
 const StyledDescription = styled.div`
@@ -15,7 +15,7 @@ const TimelineDescription: FC<Props> = (props) => {
     return <></>
   }
 
-  return <StyledDescription>{ReactHtmlParser(props.outcomeDesc)}</StyledDescription>
+  return <StyledDescription>{parse(props.outcomeDesc)}</StyledDescription>
 }
 
 interface Props extends HTMLAttributes<HTMLDivElement> {

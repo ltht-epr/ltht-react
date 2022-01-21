@@ -48,8 +48,7 @@ const FlagOne: Flag = {
   status: FlagStatusCode.EnteredInError,
   text: {
     div: 'Lorem ipsum dolor sit amet',
-    text:
-      'Lorem ipsum dolor sit amet, falli nulla oportere vel eu. Ea meis moderatius scripserit his, ei decore ceteros has. Quo at apeirian facilisi consectetuer. At putant animal persius his, inani maiestatis moderatius vis no',
+    text: 'Lorem ipsum dolor sit amet, falli nulla oportere vel eu. Ea meis moderatius scripserit his, ei decore ceteros has. Quo at apeirian facilisi consectetuer. At putant animal persius his, inani maiestatis moderatius vis no',
   },
 }
 

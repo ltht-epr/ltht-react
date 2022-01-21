@@ -1,7 +1,6 @@
 import { FC } from 'react'
-import parser from 'bbcode-to-react'
-import ReactHtmlParser from 'react-html-parser'
 import styled from '@emotion/styled'
+import parse from 'html-react-parser'
 import { Maybe, QuestionnaireItemTypeCode, QuestionnaireResponseItem } from '@ltht-react/types'
 import { InfoCircleIcon } from '@ltht-react/icon'
 import { TEXT_COLOURS } from '@ltht-react/styles'
@@ -66,7 +65,7 @@ const QuestionBlock: FC<IProps> = ({ type, question, answer }) => {
           {noAnswerProvided && <Answer>-</Answer>}
           {answer?.answer?.map((answerItem, index) => (
             <Answer key={`${question}-${answerItem?.valueString}-${index + 1}`}>
-              {ReactHtmlParser(answerItem?.valueString || '')}
+              {parse(answerItem?.valueString || '')}
             </Answer>
           ))}
         </>
@@ -82,24 +81,13 @@ const QuestionBlock: FC<IProps> = ({ type, question, answer }) => {
           ))}
         </>
       )}
-      {type === QuestionnaireItemTypeCode.QuestionStringBbCode && (
-        <>
-          <Question>{question}</Question>
-          {noAnswerProvided && <Answer>-</Answer>}
-          {answer?.answer?.map((answerItem, index) => (
-            <Answer key={`${question}-${answerItem?.valueString}-${index + 1}`}>
-              {ReactHtmlParser(parser.toHTML(answerItem?.valueString || ''))}
-            </Answer>
-          ))}
-        </>
-      )}
       {type === QuestionnaireItemTypeCode.QuestionStringHtml && (
         <>
           <Question>{question}</Question>
           {noAnswerProvided && <Answer>-</Answer>}
           {answer?.answer?.map((answerItem, index) => (
             <Answer key={`${question}-${answerItem?.valueString}-${index + 1}`}>
-              {answerItem?.valueString ? ReactHtmlParser(answerItem?.valueString) : ''}
+              {answerItem?.valueString ? parse(answerItem?.valueString) : ''}
             </Answer>
           ))}
         </>
