@@ -219,7 +219,7 @@ export const RichTextFieldData: QuestionnaireResponse = {
       {
         linkId: '1',
         text: 'Clinical Summary',
-        type: QuestionnaireItemTypeCode.QuestionStringBbCode,
+        type: QuestionnaireItemTypeCode.QuestionStringHtml,
         item: null,
       },
     ],
@@ -230,7 +230,7 @@ export const RichTextFieldData: QuestionnaireResponse = {
       text: null,
       answer: [
         {
-          valueString: '[b]Bold text...[/b]\n[i]Italic text...[/i]\n[u]Underline text...[/u]',
+          valueString: '<b>Bold text...</b><br /><i>Italic text...</i><br /><u>Underline text...</u>',
           valueBoolean: false,
           valueDateTime: null,
         },
@@ -630,7 +630,7 @@ export const ComposedExampleData: QuestionnaireResponse = {
       {
         linkId: '4',
         text: 'Clinical Summary',
-        type: QuestionnaireItemTypeCode.QuestionStringBbCode,
+        type: QuestionnaireItemTypeCode.QuestionStringHtml,
         item: null,
       },
     ],
@@ -676,7 +676,7 @@ export const ComposedExampleData: QuestionnaireResponse = {
       text: null,
       answer: [
         {
-          valueString: '[b]Bold text...[/b]\n[i]Italic text...[/i]\n[u]Underline text...[/u]',
+          valueString: '<b>Bold text...</b><br /><i>Italic text...</i><br /><u>Underline text...</u>',
           valueBoolean: false,
           valueDateTime: null,
         },
