@@ -18,6 +18,19 @@ export const Detail: Story = () => (
   </Card>
 )
 
+export const DetailHiddenDates: Story = () => (
+  <Card>
+    <Card.Header>
+      <Card.Title>Hidden Dates Allergy</Card.Title>
+    </Card.Header>
+    <Card.List>
+      <Card.ListItem>
+        <AllergyDetailItem allergy={allergies[0]} showDates={false} />
+      </Card.ListItem>
+    </Card.List>
+  </Card>
+)
+
 export const Summary: Story = () => {
   const [selected, setSelected] = useState('')
 
@@ -47,6 +60,23 @@ export const Summary: Story = () => {
   )
 }
 
+export const SummaryHiddenDates: Story = () => {
+  return (
+    <Card>
+      <Card.Header>
+        <Card.Title>Hidden Dates Allergies</Card.Title>
+      </Card.Header>
+      <Card.List>
+        {allergies.map((allergy) => (
+          <Card.ListItem key={allergy.id}>
+            <AllergySummary allergy={allergy} showDates={false} />
+          </Card.ListItem>
+        ))}
+      </Card.List>
+    </Card>
+  )
+}
+
 export const Redacted: Story = () => (
   <Card>
     <Card.Header>
@@ -55,6 +85,19 @@ export const Redacted: Story = () => (
     <Card.List>
       <Card.ListItem>
         <AllergySummary allergy={RedactedAllergy} />
+      </Card.ListItem>
+    </Card.List>
+  </Card>
+)
+
+export const RedactedHiddenDates: Story = () => (
+  <Card>
+    <Card.Header>
+      <Card.Title>Hidden Dates Allergy</Card.Title>
+    </Card.Header>
+    <Card.List>
+      <Card.ListItem>
+        <AllergySummary allergy={RedactedAllergy} showDates={false} />
       </Card.ListItem>
     </Card.List>
   </Card>
