@@ -10,6 +10,7 @@ module.exports = {
       jsx: true,
     },
   },
+  ignorePatterns: ['packages/types/src/atoms/graphql-types.ts'],
   rules: {
     'jsx-a11y/no-static-element-interactions': [
       'error',
