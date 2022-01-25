@@ -13,19 +13,18 @@ const StyledDateSummary = styled.div`
   text-align: right;
 `
 
-const AllergyRedacted: FC<Props> = ({ allergy }) => (
+const AllergyRedacted: FC<Props> = ({ allergy, showDates }) => (
   <>
     <StyledRedactedDescription>
       <RedactedDescription />
     </StyledRedactedDescription>
-    <StyledDateSummary>
-      <DateSummary datetime={allergy?.assertedDate} />
-    </StyledDateSummary>
+    <StyledDateSummary>{showDates && <DateSummary datetime={allergy?.assertedDate} />}</StyledDateSummary>
   </>
 )
 
 interface Props {
   allergy?: AllergyIntolerance | null
+  showDates?: boolean
 }
 
 export default AllergyRedacted

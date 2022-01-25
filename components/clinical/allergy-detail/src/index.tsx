@@ -23,7 +23,7 @@ const TopSection = styled.div`
   }
 `
 
-const AllergyDetail: FC<Props> = ({ allergy }) => (
+const AllergyDetail: FC<Props> = ({ allergy, showDates = true }) => (
   <>
     <TopSection>
       <StringDetail term="Type" description={allergy.type?.toString()} />
@@ -34,9 +34,9 @@ const AllergyDetail: FC<Props> = ({ allergy }) => (
     <CodeableConceptDetail term="Allergy" concept={allergy.code} />
     <StringDetail term="Verification Status" description={allergy.verificationStatus?.toString()} />
     <StringDetail term="Clinical Status" description={allergy.clinicalStatus?.toString()} />
-    <AllergyOnset term="Onset" onset={allergy.onSet} />
+    {showDates && <AllergyOnset term="Onset" onset={allergy.onSet} />}
     <ResourceReferenceDetail term="Asserter" resourceReference={allergy?.asserter} />
-    <DatetimeDetail term="Asserted Date" datetime={allergy?.assertedDate} />
+    {showDates && <DatetimeDetail term="Asserted Date" datetime={allergy?.assertedDate} />}
     <AnnotationListDetail term="Note(s)" notes={allergy.note} />
     <DatetimeDetail term="Last Occurance" datetime={allergy?.lastOccurrence} />
     <StringDetail term="Criticality" description={allergy.criticality?.toString()} />
@@ -46,6 +46,7 @@ const AllergyDetail: FC<Props> = ({ allergy }) => (
 
 interface Props {
   allergy: AllergyIntolerance
+  showDates?: boolean
 }
 
 export default AllergyDetail

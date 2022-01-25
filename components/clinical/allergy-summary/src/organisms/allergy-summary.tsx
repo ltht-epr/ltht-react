@@ -27,7 +27,7 @@ const StyledDate = Styled.div`
   text-align: right;
 `
 
-const AllergySummary: FC<Props> = ({ allergy, ...rest }) => {
+const AllergySummary: FC<Props> = ({ allergy, showDates = true, ...rest }) => {
   const showIcon =
     allergy.criticality === AllergyIntoleranceCriticalityCode.High ||
     allergy.criticality === AllergyIntoleranceCriticalityCode.Low
@@ -35,7 +35,7 @@ const AllergySummary: FC<Props> = ({ allergy, ...rest }) => {
   if (allergy.metadata.isRedacted) {
     return (
       <StyledSummary {...rest}>
-        <Redacted allergy={allergy} />
+        <Redacted allergy={allergy} showDates={showDates} />
       </StyledSummary>
     )
   }
@@ -52,7 +52,7 @@ const AllergySummary: FC<Props> = ({ allergy, ...rest }) => {
         <Description allergy={allergy} />
       </StyledDescription>
       <StyledDate>
-        <DateSummary datetime={allergy.assertedDate} />
+        {showDates && <DateSummary datetime={allergy.assertedDate} />}
         <Status allergy={allergy} />
       </StyledDate>
     </StyledSummary>
@@ -61,6 +61,7 @@ const AllergySummary: FC<Props> = ({ allergy, ...rest }) => {
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   allergy: AllergyIntolerance
+  showDates?: boolean
 }
 
 export default AllergySummary
