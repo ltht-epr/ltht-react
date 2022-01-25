@@ -1,6 +1,6 @@
 {
   "name": "@ltht-react/appointment-detail",
-  "version": "1.3.44",
+  "version": "1.3.45",
   "description": "ltht-react clinical AppointmentDetail component.",
   "author": "LTHT",
   "homepage": "",
@@ -27,9 +27,9 @@
   "dependencies": {
     "@emotion/react": "^11.0.0",
     "@emotion/styled": "^11.0.0",
-    "@ltht-react/styles": "^1.3.38",
-    "@ltht-react/types": "^1.0.42",
-    "@ltht-react/utils": "^1.1.44",
+    "@ltht-react/styles": "^1.3.39",
+    "@ltht-react/types": "^1.0.43",
+    "@ltht-react/utils": "^1.1.45",
     "react": "^17.0.0"
   },
   "gitHead": "4d364556bb11e294d86697c2dac66742f7aabc7f"
