@@ -2,7 +2,8 @@ import { render, screen } from '@testing-library/react'
 
 // import AllergySummary from '@ltht-react/allergy-summary'
 import AllergyDetail from '@ltht-react/allergy-detail'
-import allergies from './allergies.fixtures'
+import allergies, { RedactedAllergy } from './allergies.fixtures'
+import AllergySummary from '@ltht-react/allergy-summary'
 
 describe('Allergy Detail', () => {
   it('Renders the widget data correctly', () => {
@@ -31,7 +32,6 @@ describe('Allergy Detail', () => {
     expect(screen.getByText('3 Years')).toBeInTheDocument()
 
     expect(screen.getByText('Asserter')).toBeInTheDocument()
-    // expect(screen.getByText('BROWN, David (Dr)')).toBeInTheDocument()
 
     expect(screen.getByText('Asserted Date')).toBeInTheDocument()
     expect(screen.getByText('2016')).toBeInTheDocument()
@@ -48,20 +48,52 @@ describe('Allergy Detail', () => {
     ).toBeInTheDocument()
 
     expect(screen.getByText('Last Occurance')).toBeInTheDocument()
-    // expect(screen.getByText('Sept-2016')).toBeInTheDocument()
+    expect(screen.getByText('Sep-2016')).toBeInTheDocument()
 
     expect(screen.getByText('Criticality')).toBeInTheDocument()
     expect(screen.getByText('High')).toBeInTheDocument()
 
     expect(screen.getByText('Recorder')).toBeInTheDocument()
-    // expect(screen.getByText('BROWN, David (Dr)')).toBeInTheDocument()
-
-    // expect(screen.getByText('')).toBeInTheDocument()
   })
 
   it('Renders the widget data correctly when dates are hidden', () => {
     render(<AllergyDetail allergy={allergies[0]} showDates={false} />)
 
+    expect(screen.queryByText('Onset')).not.toBeInTheDocument()
+    expect(screen.queryByText('3 Years')).not.toBeInTheDocument()
+
     expect(screen.queryByText('Asserted Date')).not.toBeInTheDocument()
+    expect(screen.queryByText('2016')).not.toBeInTheDocument()
+  })
+})
+
+describe('Allergy Detail', () => {
+  it('Renders the widget data correctly', () => {
+    render(<AllergySummary allergy={allergies[0]} />)
+
+    expect(screen.getByText('Dust Mites')).toBeInTheDocument()
+    expect(screen.getByText('109006 - Environment - Intolerance')).toBeInTheDocument()
+    expect(screen.getByText('Active - Confirmed')).toBeInTheDocument()
+    expect(screen.getByText('2016')).toBeInTheDocument()
+  })
+
+  it('Renders the widget data correctly when dates are hidden', () => {
+    render(<AllergySummary allergy={allergies[0]} showDates={false} />)
+
+    expect(screen.queryByText('2016')).not.toBeInTheDocument()
+  })
+})
+
+describe('Allergy Redacted', () => {
+  it('Renders the widget data correctly', () => {
+    render(<AllergySummary allergy={RedactedAllergy} />)
+
+    expect(screen.getByText('Insufficient privileges')).toBeInTheDocument()
+  })
+
+  it('Renders the widget data correctly when dates are hidden', () => {
+    render(<AllergySummary allergy={RedactedAllergy} showDates={false} />)
+
+    expect(screen.queryByText('2013')).not.toBeInTheDocument()
   })
 })
