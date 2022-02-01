@@ -1,8 +1,8 @@
 import { render, screen } from '@testing-library/react'
 
 import CommunityTreatmentOrderSummary from '@ltht-react/community-treatment-order-summary'
-import orders from './community-treatment-orders.fixtures'
 import CommunityTreatmentOrderDetail from '@ltht-react/community-treatment-order-detail'
+import orders from './community-treatment-orders.fixtures'
 
 describe('Community Treatment Orders details', () => {
   it('renders', () => {

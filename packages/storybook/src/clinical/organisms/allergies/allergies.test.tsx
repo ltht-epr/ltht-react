@@ -1,9 +1,8 @@
 import { render, screen } from '@testing-library/react'
 
-// import AllergySummary from '@ltht-react/allergy-summary'
+import AllergySummary from '@ltht-react/allergy-summary'
 import AllergyDetail from '@ltht-react/allergy-detail'
 import allergies, { RedactedAllergy } from './allergies.fixtures'
-import AllergySummary from '@ltht-react/allergy-summary'
 
 describe('Allergy Detail', () => {
   it('Renders the widget data correctly', () => {

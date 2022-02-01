@@ -1,8 +1,8 @@
 import { render, screen } from '@testing-library/react'
 
 import CarePlanSummary from '@ltht-react/care-plan-summary'
-import carePlans from './care-plans.fixtures'
 import CarePlanDetail from '@ltht-react/care-plan-detail'
+import carePlans from './care-plans.fixtures'
 
 describe('Care Plans detail', () => {
   it('Renders', () => {

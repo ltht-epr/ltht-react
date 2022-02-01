@@ -1,8 +1,8 @@
 import { render, screen } from '@testing-library/react'
 
 import DiagnosisSummary from '@ltht-react/diagnosis-summary'
-import conditions from './diagnosis.fixtures'
 import DiagnosisDetail from '@ltht-react/diagnosis-detail'
+import conditions from './diagnosis.fixtures'
 
 describe('Summary', () => {
   it('Renders', () => {
