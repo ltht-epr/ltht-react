@@ -71,6 +71,7 @@ const DiagnosisDetail: FC<Props> = ({ condition, links }) => {
       <CodeableConceptDetail term="Stage" concept={condition.stage?.summary} links={links} />
       <ResourceReferenceDetail term="Asserted By" resourceReference={condition.asserter} />
       <DatetimeDetail term="Asserted Date" datetime={condition.assertedDate} />
+      <DatetimeDetail term="Abatement Date" datetime={condition.abatement?.dateTime} />
     </>
   )
 }

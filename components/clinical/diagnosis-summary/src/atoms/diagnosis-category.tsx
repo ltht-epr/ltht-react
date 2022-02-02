@@ -15,7 +15,7 @@ const StyledConditionCategory = styled.div`
 const DiagnosisCategory: FC<Props> = ({ condition, ...rest }) => {
   const values = []
 
-  if (condition.category) values.push(codeableConceptTextSummary(condition.category))
+  if (condition.category && condition.category.length) values.push(codeableConceptTextSummary(condition.category))
   if (condition.severity) values.push(codeableConceptDisplaySummary(condition.severity))
 
   return <StyledConditionCategory {...rest}>{values.join(' - ')}</StyledConditionCategory>
