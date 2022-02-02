@@ -82,9 +82,6 @@ export type EhrConditionArgs = {
 /** Queries the LTHT EHR. */
 export type EhrConditionsArgs = {
   patientGuid: Scalars['String']
-  listType: Scalars['String']
-  fhirVersion: Scalars['String']
-  listScope?: Maybe<Scalars['String']>
   clinicalStatus?: Maybe<Array<Maybe<ConditionClinicalStatus>>>
   verificationStatus?: Maybe<Array<Maybe<ConditionVerificationStatus>>>
   admissionPeriod?: Maybe<ConditionAdmissionPeriodType>
@@ -657,7 +654,8 @@ export type ConditionAbatement = {
   /** Additional content defined by implementations. */
   extension?: Maybe<Array<Maybe<Extension>>>
   age?: Maybe<Quantity>
-  dateTime: Period
+  period: Period
+  dateTime: PartialDateTime
 }
 
 export enum ConditionClinicalStatus {
@@ -2399,6 +2397,8 @@ export enum EntityType {
   Guidance = 'GUIDANCE',
   Medication = 'MEDICATION',
   Observation = 'OBSERVATION',
+  TeamMembership = 'TEAM_MEMBERSHIP',
+  DiagnosisDashboard = 'DIAGNOSIS_DASHBOARD',
   OnlineForms = 'ONLINE_FORMS',
 }
 
