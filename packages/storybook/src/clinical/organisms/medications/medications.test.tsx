@@ -1,9 +1,8 @@
 import { render, screen } from '@testing-library/react'
 
 import MedicationSummary from '@ltht-react/medication-summary'
-import MedicationFixtures from './medications.fixture'
-
 import MedicationDetail from '@ltht-react/medication-detail'
+import MedicationFixtures from './medications.fixture'
 
 describe('Medication Summary', () => {
   it('Renders', () => {

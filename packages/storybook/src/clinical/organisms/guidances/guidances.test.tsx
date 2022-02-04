@@ -24,8 +24,6 @@ describe('Guidances', () => {
     expect(screen.getByText('Restrictive Intervention Care Plan')).toBeInTheDocument()
     expect(screen.getByText('Self-Harm or Harm to Others Care Plan')).toBeInTheDocument()
     expect(screen.getByText("Utilising the 'Use of Restraint' policy and Good Practice Guidance")).toBeInTheDocument()
-    expect(screen.getByText('')).toBeInTheDocument()
-    expect(screen.getByText('')).toBeInTheDocument()
   })
 })
 

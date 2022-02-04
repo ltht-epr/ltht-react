@@ -1,8 +1,8 @@
 import { render, screen } from '@testing-library/react'
 
 import FlagSummary from '@ltht-react/flag-summary'
-import flags from './flags.fixtures'
 import FlagDetail from '@ltht-react/flag-detail'
+import flags from './flags.fixtures'
 
 describe('Flags Detail', () => {
   it('Renders', () => {
