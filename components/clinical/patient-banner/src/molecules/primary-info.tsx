@@ -76,9 +76,8 @@ const StyledChevronCircleIcon = styled.div`
   }
 `
 
-const PrimaryInformation: FC<Props> = ({ patient }) => {
+const PrimaryInformation: FC<Props> = ({ patient, deceased }) => {
   const [collapsed, setCollapsed] = useState(true)
-  const deceased = patient?.deceased?.deceasedBoolean ?? false
 
   const handleClick = (): void => setCollapsed((prevState) => !prevState)
 
@@ -91,12 +90,12 @@ const PrimaryInformation: FC<Props> = ({ patient }) => {
         <ChevronCircleIcon direction={collapsed ? 'up' : 'down'} size="medium" />
       </StyledChevronCircleIcon>
       <StyledInfo>
-        <DateOfBirth patient={patient} />
-        {deceased && <DateOfDeath patient={patient} />}
+        <DateOfBirth patient={patient} deceased={deceased} />
+        {deceased && patient?.deceased?.deceasedDateTime && <DateOfDeath patient={patient} />}
       </StyledInfo>
       <StyledInfo>
         <Gender patient={patient} />
-        {deceased && <AgeAtDeath patient={patient} />}
+        {deceased && patient?.deceased?.deceasedDateTime && <AgeAtDeath patient={patient} deceased={deceased} />}
       </StyledInfo>
       <NhsNumber patient={patient} />
     </StyledPrimaryInformation>
@@ -112,6 +111,7 @@ interface StyledPrimaryInformationProps extends HTMLAttributes<HTMLDivElement> {
 
 interface Props {
   patient: Patient | undefined
+  deceased: boolean
 }
 
 export default PrimaryInformation

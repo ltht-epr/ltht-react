@@ -19,11 +19,19 @@ const StyledPatientBanner = styled.div<StyledPatientBannerProps>`
 `
 
 const PatientBanner: FC<Props> = ({ patient }) => {
-  const deceased = patient?.deceased?.deceasedBoolean ?? false
+  const date = patient?.deceased?.deceasedDateTime
+
+  let deceased: boolean
+
+  if (date == null) {
+    deceased = patient?.deceased?.deceasedBoolean == null || false ? false : true
+  } else {
+    deceased = true
+  }
 
   return (
     <StyledPatientBanner deceased={deceased}>
-      <PrimaryInformation patient={patient} />
+      <PrimaryInformation patient={patient} deceased={deceased} />
       <SecondaryInformation patient={patient} />
     </StyledPatientBanner>
   )
