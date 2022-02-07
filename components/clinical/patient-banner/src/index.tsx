@@ -24,7 +24,7 @@ const PatientBanner: FC<Props> = ({ patient }) => {
   let deceased: boolean
 
   if (date == null) {
-    deceased = patient?.deceased?.deceasedBoolean == null || false ? false : true
+    deceased = patient?.deceased?.deceasedBoolean ?? false
   } else {
     deceased = true
   }
