@@ -115,7 +115,7 @@ describe('formatPatientAddress', () => {
 
 describe('formatPatientAge', () => {
   it('returns empty string when birth date is not specified', () => {
-    expect(formatPatientAge(patient)).toEqual('')
+    expect(formatPatientAge(patient, false)).toEqual('')
   })
 
   it('returns formatted age when birth date is specified (over 18)', () => {
@@ -127,7 +127,7 @@ describe('formatPatientAge', () => {
       kind: PartialDateTimeKindCode.Date,
       value: date.toISOString(),
     }
-    expect(formatPatientAge(patient)).toEqual('21y')
+    expect(formatPatientAge(patient, false)).toEqual('21y')
   })
 
   it('returns formatted age when birth date is specified (under 18 and over 2)', () => {
@@ -141,7 +141,7 @@ describe('formatPatientAge', () => {
       kind: PartialDateTimeKindCode.Date,
       value: date.toISOString(),
     }
-    expect(formatPatientAge(patient)).toEqual(`15y ${currentMonth}m`)
+    expect(formatPatientAge(patient, false)).toEqual(`15y ${currentMonth}m`)
   })
 
   it('returns formatted age when birth date is specified (under 2 and over 1)', () => {
@@ -158,7 +158,7 @@ describe('formatPatientAge', () => {
     }
 
     const expectedText = days === 0 ? '12m' : `12m ${days}d`
-    expect(formatPatientAge(patient)).toEqual(expectedText)
+    expect(formatPatientAge(patient, false)).toEqual(expectedText)
   })
 
   it('returns formatted age when birth date is specified (under 1 and over 4 weeks)', () => {
@@ -169,7 +169,7 @@ describe('formatPatientAge', () => {
       kind: PartialDateTimeKindCode.Date,
       value: date.toISOString(),
     }
-    expect(formatPatientAge(patient)).toEqual('5w 1d')
+    expect(formatPatientAge(patient, false)).toEqual('5w 1d')
   })
 
   it('returns formatted age when birth date is specified (under 4 weeks and over 2 days)', () => {
@@ -180,7 +180,7 @@ describe('formatPatientAge', () => {
       kind: PartialDateTimeKindCode.Date,
       value: date.toISOString(),
     }
-    expect(formatPatientAge(patient)).toEqual('14d')
+    expect(formatPatientAge(patient, false)).toEqual('14d')
   })
 
   it('returns formatted age when birth date is specified (under 4 weeks and over 2 days)', () => {
@@ -191,7 +191,7 @@ describe('formatPatientAge', () => {
       kind: PartialDateTimeKindCode.Date,
       value: date.toISOString(),
     }
-    expect(formatPatientAge(patient)).toEqual('14d')
+    expect(formatPatientAge(patient, false)).toEqual('14d')
   })
 
   it('returns formatted age when birth date is specified (under 2 days and over 2 hours)', () => {
@@ -202,7 +202,7 @@ describe('formatPatientAge', () => {
       kind: PartialDateTimeKindCode.Date,
       value: date.toISOString(),
     }
-    expect(formatPatientAge(patient)).toEqual('5hrs')
+    expect(formatPatientAge(patient, false)).toEqual('5hrs')
   })
 
   it('returns formatted age when birth date is specified (under 2 hours)', () => {
@@ -213,7 +213,7 @@ describe('formatPatientAge', () => {
       kind: PartialDateTimeKindCode.Date,
       value: date.toISOString(),
     }
-    expect(formatPatientAge(patient)).toEqual('60min')
+    expect(formatPatientAge(patient, false)).toEqual('60min')
   })
 
   it('returns empty string when patient is deceased and birth date is not specified', () => {
@@ -225,7 +225,7 @@ describe('formatPatientAge', () => {
         value: date.toISOString(),
       },
     }
-    expect(formatPatientAge(patient)).toEqual('')
+    expect(formatPatientAge(patient, true)).toEqual('')
   })
 
   it('returns formatted age when patient is deceased', () => {
@@ -243,7 +243,7 @@ describe('formatPatientAge', () => {
         value: dod.toISOString(),
       },
     }
-    expect(formatPatientAge(patient)).toEqual('45y')
+    expect(formatPatientAge(patient, true)).toEqual('45y')
   })
 
   it('returns formatted age when patient is deceased (under 18 and over 2)', () => {
@@ -262,7 +262,7 @@ describe('formatPatientAge', () => {
         value: dod.toISOString(),
       },
     }
-    expect(formatPatientAge(patient)).toEqual(`15y ${dod.getMonth()}m`)
+    expect(formatPatientAge(patient, true)).toEqual(`15y ${dod.getMonth()}m`)
   })
 
   it('returns formatted age when patient is deceased (under 2 and over 1)', () => {
@@ -285,7 +285,7 @@ describe('formatPatientAge', () => {
     }
 
     const expectedText = days === 0 ? '12m' : `12m ${days}d`
-    expect(formatPatientAge(patient)).toEqual(expectedText)
+    expect(formatPatientAge(patient, true)).toEqual(expectedText)
   })
 
   it('returns formatted age when patient is deceased (under 1 and over 4 weeks)', () => {
@@ -303,7 +303,7 @@ describe('formatPatientAge', () => {
         value: dod.toISOString(),
       },
     }
-    expect(formatPatientAge(patient)).toEqual('6w 2d')
+    expect(formatPatientAge(patient, true)).toEqual('6w 2d')
   })
 
   it('returns formatted age when patient is deceased (under 4 weeks and over 2 days)', () => {
@@ -321,7 +321,7 @@ describe('formatPatientAge', () => {
         value: dod.toISOString(),
       },
     }
-    expect(formatPatientAge(patient)).toEqual('17d')
+    expect(formatPatientAge(patient, true)).toEqual('17d')
   })
 
   it('returns formatted age when patient is deceased (under 2 days and over 2 hours)', () => {
@@ -339,7 +339,7 @@ describe('formatPatientAge', () => {
         value: dod.toISOString(),
       },
     }
-    expect(formatPatientAge(patient)).toEqual('27hrs')
+    expect(formatPatientAge(patient, true)).toEqual('27hrs')
   })
 
   it('returns formatted age when patient is deceased (under 2 hours)', () => {
@@ -357,7 +357,7 @@ describe('formatPatientAge', () => {
         value: dod.toISOString(),
       },
     }
-    expect(formatPatientAge(patient)).toEqual('95min')
+    expect(formatPatientAge(patient, true)).toEqual('95min')
   })
 })
 

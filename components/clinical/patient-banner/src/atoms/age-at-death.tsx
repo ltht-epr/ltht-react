@@ -19,15 +19,16 @@ const StyledValue = styled.span`
   margin-left: 0.5rem;
 `
 
-const AgeAtDeath: FC<Props> = ({ patient, ...rest }) => (
+const AgeAtDeath: FC<Props> = ({ patient, deceased, ...rest }) => (
   <StyledAgeAtDeath {...rest}>
     <StyledLabel>Age at Death</StyledLabel>
-    <StyledValue>{formatPatientAge(patient)}</StyledValue>
+    <StyledValue>{formatPatientAge(patient, deceased)}</StyledValue>
   </StyledAgeAtDeath>
 )
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   patient: Patient | undefined
+  deceased: boolean
 }
 
 export default AgeAtDeath

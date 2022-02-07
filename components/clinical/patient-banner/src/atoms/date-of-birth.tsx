@@ -19,18 +19,19 @@ const StyledValue = styled.span`
   margin-left: 0.5rem;
 `
 
-const DateOfBirth: FC<Props> = ({ patient, ...rest }) => (
+const DateOfBirth: FC<Props> = ({ patient, deceased, ...rest }) => (
   <StyledDateOfBirth {...rest}>
     <StyledLabel>Born</StyledLabel>
     <StyledValue>
       {partialDateTimeText(patient?.birthDate)}
-      {!patient?.deceased?.deceasedBoolean && ` (${formatPatientAge(patient)})`}
+      {!deceased && ` (${formatPatientAge(patient, deceased)})`}
     </StyledValue>
   </StyledDateOfBirth>
 )
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   patient: Patient | undefined
+  deceased: boolean
 }
 
 export default DateOfBirth

@@ -154,4 +154,141 @@ const DeceasedPatient: Patient = {
   ],
 }
 
-export { AlivePatient, DeceasedPatient }
+const DeceasedPatientWithoutDate: Patient = {
+  id: '829ca260-67e0-e357-b2c7-115087226fg2|patient',
+  metadata: mockMetadata,
+  active: true,
+  address: [
+    {
+      city: 'Leeds',
+      line: ['18 Benson Gardens'],
+      period: {
+        start: {
+          value: '2020-04-01T00:00:00+00:00',
+          kind: PartialDateTimeKindCode.Date,
+        },
+      },
+      text: '18 Benson Gardens, Leeds, LS11 8HK',
+      type: AddressTypeCode.Both,
+      use: AddressUseCode.Home,
+      postalCode: 'LS11 8HK',
+    },
+  ],
+  birthDate: {
+    kind: PartialDateTimeKindCode.Date,
+    value: '1955-06-30T00:00:00+00:00',
+  },
+  deceased: {
+    deceasedBoolean: true,
+    deceasedDateTime: null,
+  },
+  gender: AdministrativeGenderCode.Male,
+  identifier: [
+    {
+      system: 'https://fhir.nhs.uk/Id/nhs-number',
+      value: '8967452301',
+      use: IdentifierUseCode.Official,
+      extension: [
+        {
+          url: 'https://fhir.hl7.org.uk/STU3/StructureDefinition/Extension-CareConnect-NHSNumberVerificationStatus-1',
+          valueString: 'test',
+          valueCodeableConcept: {
+            coding: [
+              {
+                system: 'https://fhir.hl7.org.uk/STU3/ValueSet/CareConnect-NHSNumberVerificationStatus-1',
+                code: '01',
+                display: 'Number present and verified',
+              },
+            ],
+          },
+        },
+      ],
+    },
+    {
+      system: 'https://leedsth.nhs.uk/Id/pas-number',
+      value: '0056341',
+      use: IdentifierUseCode.Official,
+    },
+  ],
+  name: [
+    {
+      family: 'Woo',
+      given: ['John'],
+      prefix: ['Mr'],
+      text: 'John Woo',
+      use: HumanNameUseCode.Usual,
+    },
+  ],
+}
+
+const DeceasedPatientWithoutBoolean: Patient = {
+  id: '829ca260-67e0-e357-b2c7-115087226fg2|patient',
+  metadata: mockMetadata,
+  active: true,
+  address: [
+    {
+      city: 'Leeds',
+      line: ['18 Benson Gardens'],
+      period: {
+        start: {
+          value: '2020-04-01T00:00:00+00:00',
+          kind: PartialDateTimeKindCode.Date,
+        },
+      },
+      text: '18 Benson Gardens, Leeds, LS11 8HK',
+      type: AddressTypeCode.Both,
+      use: AddressUseCode.Home,
+      postalCode: 'LS11 8HK',
+    },
+  ],
+  birthDate: {
+    kind: PartialDateTimeKindCode.Date,
+    value: '1955-06-30T00:00:00+00:00',
+  },
+  deceased: {
+    deceasedBoolean: null,
+    deceasedDateTime: {
+      kind: PartialDateTimeKindCode.Date,
+      value: '2020-02-05T00:00:00+00:00',
+    },
+  },
+  gender: AdministrativeGenderCode.Male,
+  identifier: [
+    {
+      system: 'https://fhir.nhs.uk/Id/nhs-number',
+      value: '8967452301',
+      use: IdentifierUseCode.Official,
+      extension: [
+        {
+          url: 'https://fhir.hl7.org.uk/STU3/StructureDefinition/Extension-CareConnect-NHSNumberVerificationStatus-1',
+          valueString: 'test',
+          valueCodeableConcept: {
+            coding: [
+              {
+                system: 'https://fhir.hl7.org.uk/STU3/ValueSet/CareConnect-NHSNumberVerificationStatus-1',
+                code: '01',
+                display: 'Number present and verified',
+              },
+            ],
+          },
+        },
+      ],
+    },
+    {
+      system: 'https://leedsth.nhs.uk/Id/pas-number',
+      value: '0056341',
+      use: IdentifierUseCode.Official,
+    },
+  ],
+  name: [
+    {
+      family: 'Woo',
+      given: ['John'],
+      prefix: ['Mr'],
+      text: 'John Woo',
+      use: HumanNameUseCode.Usual,
+    },
+  ],
+}
+
+export { AlivePatient, DeceasedPatient, DeceasedPatientWithoutDate, DeceasedPatientWithoutBoolean }

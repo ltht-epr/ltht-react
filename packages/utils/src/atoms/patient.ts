@@ -12,13 +12,13 @@ const formatPatientAddress = (patient: Patient | undefined): string => {
   return address?.text ?? ''
 }
 
-const formatPatientAge = (patient: Patient | undefined): string => {
+const formatPatientAge = (patient: Patient | undefined, deceased: boolean): string => {
   const start = patient?.birthDate?.value ? new Date(patient.birthDate.value) : null
   let end = null
 
   // ToDO birth/death date Partial date time check
-  if (patient?.deceased?.deceasedBoolean) {
-    end = patient.deceased.deceasedDateTime?.value ? new Date(patient.deceased.deceasedDateTime.value) : null
+  if (deceased) {
+    end = patient?.deceased?.deceasedDateTime?.value ? new Date(patient.deceased.deceasedDateTime.value) : null
   } else {
     end = new Date()
   }
