@@ -637,6 +637,7 @@ export type Condition = {
   abatement?: Maybe<ConditionAbatement>
   assertedDate?: Maybe<PartialDateTime>
   asserter?: Maybe<ResourceReference>
+  levelTwoData?: Maybe<QuestionnaireResponse>
   bodySite?: Maybe<Array<Maybe<CodeableConcept>>>
   category?: Maybe<Array<Maybe<CodeableConcept>>>
   clinicalStatus?: Maybe<ConditionClinicalStatus>

@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import styled from '@emotion/styled'
-import { QuestionnaireResponse, QuestionnaireItemTypeCode } from '@ltht-react/types'
+import { QuestionnaireResponse, QuestionnaireItemTypeCode, Maybe } from '@ltht-react/types'
 
 import AuthorInfo from '../atoms/author-info'
 
@@ -15,10 +15,10 @@ const StyledQuestionnaire = styled.div`
 `
 
 const Questionnaire: FC<IProps> = ({ questionnaire }) => {
-  const questions = questionnaire.questionnaire.item
-  const answers = questionnaire.item
+  const questions = questionnaire?.questionnaire.item
+  const answers = questionnaire?.item
 
-  if (questionnaire.metadata.isRedacted) return <Redacted questionnaire={questionnaire} />
+  if (questionnaire?.metadata.isRedacted) return <Redacted questionnaire={questionnaire} />
 
   return (
     <StyledQuestionnaire>
@@ -48,13 +48,13 @@ const Questionnaire: FC<IProps> = ({ questionnaire }) => {
         )
       })}
 
-      <AuthorInfo author={questionnaire.author} authoredOn={questionnaire.authored} />
+      <AuthorInfo author={questionnaire?.author} authoredOn={questionnaire?.authored} />
     </StyledQuestionnaire>
   )
 }
 
 interface IProps {
-  questionnaire: QuestionnaireResponse
+  questionnaire: Maybe<QuestionnaireResponse> | undefined
 }
 
 export default Questionnaire
