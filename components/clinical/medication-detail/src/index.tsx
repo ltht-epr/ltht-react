@@ -57,7 +57,7 @@ const MedicationDetail: FC<IProps> = ({ medication }) => {
       <StringDetail term="Schedule" description={schedule} />
       <StringDetail term="Qualifier" description={qualifier} />
       <CodeableConceptDetail term="Route" concept={route} />
-      <DatetimeDetail term="Perscription Date" datetime={medication?.authoredOn} />
+      <DatetimeDetail term="Prescription Date" datetime={medication?.authoredOn} />
       <StringDetail term="Verification Comment" description={verificationComment} />
       <StringDetail term="Source" description={source} />
     </>
