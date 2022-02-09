@@ -735,7 +735,7 @@ export type Guidance = {
   /** http://hl7.org/fhir/ValueSet/guidance-response-status */
   status: GuidanceStatusCode
   /** When the guidance response was processed. */
-  occurenceDateTime?: Maybe<PartialDateTime>
+  occuranceDateTime?: Maybe<PartialDateTime>
   /** Logical Id of the resource. */
   id: Scalars['ID']
   /** Metadata about the resource. */
