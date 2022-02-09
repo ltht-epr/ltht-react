@@ -38,7 +38,7 @@ const AllergyDetail: FC<Props> = ({ allergy, showDates = true }) => (
     <ResourceReferenceDetail term="Asserter" resourceReference={allergy?.asserter} />
     {showDates && <DatetimeDetail term="Asserted Date" datetime={allergy?.assertedDate} />}
     <AnnotationListDetail term="Note(s)" notes={allergy.note} />
-    <DatetimeDetail term="Last Occurance" datetime={allergy?.lastOccurrence} />
+    <DatetimeDetail term="Last Occurence" datetime={allergy?.lastOccurrence} />
     <StringDetail term="Criticality" description={allergy.criticality?.toString()} />
     <ResourceReferenceDetail term="Recorder" resourceReference={allergy?.recorder} />
   </>
