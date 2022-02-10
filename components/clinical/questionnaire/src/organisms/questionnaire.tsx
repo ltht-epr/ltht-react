@@ -7,6 +7,7 @@ import AuthorInfo from '../atoms/author-info'
 import QuestionGroup from '../molecules/question-group'
 import QuestionBlock from '../molecules/question-block'
 import Redacted from '../molecules/redacted'
+import TitleInfo from '../atoms/title-info'
 
 const StyledQuestionnaire = styled.div`
   & div:last-child {
@@ -14,14 +15,17 @@ const StyledQuestionnaire = styled.div`
   }
 `
 
-const Questionnaire: FC<IProps> = ({ questionnaire }) => {
+const Questionnaire: FC<IProps> = ({ questionnaire, showTitle = false }) => {
   const questions = questionnaire?.questionnaire.item
   const answers = questionnaire?.item
+  const title = questionnaire?.questionnaire.title
 
   if (questionnaire?.metadata.isRedacted) return <Redacted questionnaire={questionnaire} />
 
   return (
     <StyledQuestionnaire>
+      {showTitle && <TitleInfo title={title} />}
+
       {questions?.map((question) => {
         if (question?.type === QuestionnaireItemTypeCode.Group) {
           const groupAnswers = answers
@@ -55,6 +59,7 @@ const Questionnaire: FC<IProps> = ({ questionnaire }) => {
 
 interface IProps {
   questionnaire: Maybe<QuestionnaireResponse> | undefined
+  showTitle?: boolean | undefined
 }
 
 export default Questionnaire

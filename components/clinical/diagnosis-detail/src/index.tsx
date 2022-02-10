@@ -41,13 +41,14 @@ const DiagnosisDetail: FC<Props> = ({ condition, links }) => {
     <>
       <TopSection>
         <CodeableConceptDetail term="Diagnosis" concept={condition.code} links={links} />
+        {condition?.extensionTemplateName && <>{condition?.extensionTemplateName}</>}
         <CodingListDetail term="Data Source(s)" codings={condition.metadata.dataSources} />
       </TopSection>
 
-      {condition.levelTwoData &&
-        condition?.levelTwoData.map((i) => (
+      {condition.extensionData &&
+        condition?.extensionData.map((item) => (
           <>
-            <Questionnaire questionnaire={i} />
+            <Questionnaire questionnaire={item} showTitle={true} />
             <Seperator />
           </>
         ))}

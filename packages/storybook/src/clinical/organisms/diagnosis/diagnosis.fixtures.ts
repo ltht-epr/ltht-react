@@ -48,7 +48,49 @@ export const QuestionnaireResponse1: QuestionnaireResponse = {
     metadata: mockMetadata,
     url: 'http://ehr.leedsth.nhs.uk/questionnaire/Right-To-Reside',
     version: '1',
-    title: 'Right to Reside',
+    title: 'Diagnosis Morphology',
+    status: QuestionnairePublicationStatus.Active,
+    item: [
+      {
+        linkId: '1',
+        text: 'Clinical Summary',
+        type: QuestionnaireItemTypeCode.QuestionStringBbCode,
+        item: null,
+      },
+    ],
+  },
+  item: [
+    {
+      linkId: '1',
+      text: null,
+      answer: [
+        {
+          valueString: '[b]Bold text...[/b]\n[i]Italic text...[/i]\n[u]Underline text...[/u]',
+          valueBoolean: false,
+          valueDateTime: null,
+        },
+      ],
+      item: null,
+    },
+  ],
+}
+
+export const QuestionnaireResponse2: QuestionnaireResponse = {
+  id: '435d2aca-7776-43e7-a33f-1ba481bd2892',
+  metadata: mockMetadata,
+  status: QuestionnaireResponseStatus.Completed,
+  questionnaire: {
+    id: '14720227-b1f7-4cc5-a0d0-403938cf710d',
+    identifier: [
+      {
+        system: 'http://leedsth.nhs.uk/user/guid',
+        value: 'cfe6a9d7-f23d-4bb9-a28d-8a3895bee48a',
+      },
+    ],
+    metadata: mockMetadata,
+    url: 'http://ehr.leedsth.nhs.uk/questionnaire/Right-To-Reside',
+    version: '1',
+    title: 'Diagnosis BodySite',
     status: QuestionnairePublicationStatus.Active,
     item: [
       {
@@ -82,7 +124,8 @@ const ConditionOne: Condition = {
     display: 'BROWN, David (Dr)',
     typeName: 'Doctor',
   },
-  levelTwoData: [QuestionnaireResponse1, QuestionnaireResponse1],
+  extensionData: [QuestionnaireResponse1, QuestionnaireResponse2],
+  extensionTemplateName: 'diagnosis-generic-cancer-level-2',
   bodySite: [
     {
       coding: [
