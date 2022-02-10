@@ -48,7 +48,7 @@ const DiagnosisDetail: FC<Props> = ({ condition, links }) => {
       {condition.extensionData &&
         condition?.extensionData.map((item) => (
           <>
-            <Questionnaire questionnaire={item} showTitle={true} />
+            <Questionnaire questionnaire={item} showTitle />
             <Seperator />
           </>
         ))}
