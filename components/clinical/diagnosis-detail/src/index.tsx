@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import styled from '@emotion/styled'
-import { CodeableConcept, Condition, Maybe, QuestionnaireResponse } from '@ltht-react/types'
+import { CodeableConcept, Condition, Maybe } from '@ltht-react/types'
 import {
   StringDetail,
   CodeableConceptDetail,
