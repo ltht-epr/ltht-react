@@ -643,6 +643,8 @@ export type Condition = {
   code?: Maybe<CodeableConcept>
   context?: Maybe<ResourceReference>
   evidence?: Maybe<Array<Maybe<ConditionEvidence>>>
+  extensionData?: Maybe<Array<Maybe<QuestionnaireResponse>>>
+  extensionTemplateName?: Maybe<Scalars['String']>
   identifier?: Maybe<Array<Maybe<Identifier>>>
   onset?: Maybe<ConditionOnset>
   severity?: Maybe<CodeableConcept>
@@ -671,6 +673,229 @@ export type ConditionEvidence = {
   extension?: Maybe<Array<Maybe<Extension>>>
   code?: Maybe<Array<Maybe<CodeableConcept>>>
   detail?: Maybe<ResourceReference>
+}
+
+/** A structured set of questions and their answers. The questions are ordered and grouped into coherent subsets, corresponding to the structure of the grouping of the questionnaire being responded to. */
+export type QuestionnaireResponse = {
+  /** Person who received and recorded the answers. */
+  author?: Maybe<ResourceReference>
+  /** Date the answers were gathered. */
+  authored?: Maybe<PartialDateTime>
+  /** Encounter created as part of. */
+  encounter?: Maybe<ResourceReference>
+  /** Unique id for this set of answers. */
+  identifier?: Maybe<Identifier>
+  /** Groups and questions. */
+  item?: Maybe<Array<Maybe<QuestionnaireResponseItem>>>
+  /** Form being answered. */
+  questionnaire: Questionnaire
+  /** The person who answered the questions. */
+  source?: Maybe<ResourceReference>
+  /** Why this questionnaire is defined. */
+  status: QuestionnaireResponseStatus
+  /** Request fulfilled by this QuestionnaireResponse. */
+  basedOn?: Maybe<ResourceReference>
+  /** Part of this action. */
+  partOf?: Maybe<ResourceReference>
+  /** Logical Id of the resource. */
+  id: Scalars['ID']
+  /** Metadata about the resource. */
+  metadata: Metadata
+  /** Additional content defined by implementations. */
+  extension?: Maybe<Array<Maybe<Extension>>>
+  /** Text summary of the resource, for human interpretation. */
+  text?: Maybe<Narrative>
+}
+
+/** Groups and questions. */
+export type QuestionnaireResponseItem = {
+  /** The response(s) to the question. */
+  answer?: Maybe<Array<Maybe<QuestionnaireResponseItemAnswer>>>
+  /** ElementDefinition - details for the item. */
+  definition?: Maybe<Scalars['String']>
+  /** Nested questionnaire response items. */
+  item?: Maybe<Array<Maybe<QuestionnaireResponseItem>>>
+  /** Name for group or question text. */
+  text?: Maybe<Scalars['String']>
+  /** Pointer to specific item from Questionnaire. */
+  linkId?: Maybe<Scalars['String']>
+}
+
+/** The response(s) to the question. */
+export type QuestionnaireResponseItemAnswer = {
+  /** Nested groups and questions. */
+  item?: Maybe<Array<Maybe<QuestionnaireResponseItem>>>
+  /** Date Time Value. */
+  valueDateTime?: Maybe<PartialDateTime>
+  /** Boolean Value. */
+  valueBoolean?: Maybe<Scalars['Boolean']>
+  /** String Value. */
+  valueString?: Maybe<Scalars['String']>
+}
+
+/** A structured set of questions intended to guide the collection of answers from end-users. Questionnaires provide detailed control over order, presentation, phraseology and grouping to allow coherent, consistent data collection. */
+export type Questionnaire = {
+  /** Concept that represents the overall questionnaire. */
+  code?: Maybe<Array<Maybe<Coding>>>
+  /** Contact details for the publisher. */
+  contact?: Maybe<Array<Maybe<ContactDetail>>>
+  /** Use and/or publishing restrictions. */
+  copyright?: Maybe<Scalars['String']>
+  /** Date last changed. */
+  date?: Maybe<PartialDateTime>
+  /** Natural language description of the questionnaire. */
+  description?: Maybe<Scalars['String']>
+  /** For testing purposes, not real usage. */
+  experimental?: Maybe<Scalars['Boolean']>
+  /** Additional identifier for the questionnaire. */
+  identifier: Array<Maybe<Identifier>>
+  /** Questions and sections within the Questionnaire. */
+  item?: Maybe<Array<Maybe<QuestionnaireItem>>>
+  /** Intended jurisdiction for questionnaire (if applicable). */
+  jurisdiction?: Maybe<Array<Maybe<CodeableConcept>>>
+  /** Name for this questionnaire (computer friendly). */
+  name?: Maybe<Scalars['String']>
+  /** Name of the publisher (organization or individual). */
+  publisher?: Maybe<Scalars['String']>
+  /** Why this questionnaire is defined. */
+  purpose?: Maybe<Scalars['String']>
+  /** Why this questionnaire is defined. */
+  status: QuestionnairePublicationStatus
+  /** Name for this questionnaire (human friendly). */
+  title?: Maybe<Scalars['String']>
+  /** Canonical identifier for this questionnaire, represented as a URI (globally unique). */
+  url?: Maybe<Scalars['String']>
+  /** The context that the content is intended to support. */
+  useContext?: Maybe<Array<Maybe<UsageContext>>>
+  /** Business version of the questionnaire. */
+  version?: Maybe<Scalars['String']>
+  /** When the questionnaire was approved by publisher. */
+  approvalDate?: Maybe<PartialDateTime>
+  /** Instantiates protocol or definition. */
+  derivedFrom?: Maybe<Array<Maybe<ResourceReference>>>
+  /** When the questionnaire is expected to be used. */
+  effectivePeriod?: Maybe<Period>
+  /** Resource that can be subject of QuestionnaireResponse. */
+  subjectType?: Maybe<Array<Maybe<Scalars['String']>>>
+  /** When the questionnaire was last reviewed. */
+  lastReviewDate?: Maybe<PartialDateTime>
+  /** Logical Id of the resource. */
+  id: Scalars['ID']
+  /** Metadata about the resource. */
+  metadata: Metadata
+  /** Additional content defined by implementations. */
+  extension?: Maybe<Array<Maybe<Extension>>>
+  /** Text summary of the resource, for human interpretation. */
+  text?: Maybe<Narrative>
+}
+
+/** The ContactDetail structure defines general contact details. */
+export type ContactDetail = {
+  /** Additional content defined by implementations. */
+  extension?: Maybe<Array<Maybe<Extension>>>
+  /** Name of an individual to contact. */
+  name?: Maybe<Scalars['String']>
+  /** Contact details for individual or organization. */
+  telecom?: Maybe<Array<Maybe<ContactPoint>>>
+}
+
+/** Details for all kinds of technology-mediated contact points for a person or organization, including telephone, email, etc. */
+export type ContactPoint = {
+  /** Additional content defined by implementations. */
+  extension?: Maybe<Array<Maybe<Extension>>>
+  /** http://hl7.org/fhir/stu3/valueset-contact-point-system.html */
+  system?: Maybe<ContactPointSystemCode>
+  /** The actual contact point details. */
+  value?: Maybe<Scalars['String']>
+  /** http://hl7.org/fhir/stu3/valueset-contact-point-use.html */
+  use?: Maybe<ContactPointUseCode>
+  /** Specify preferred order of use (1 = highest). */
+  rank?: Maybe<Scalars['Int']>
+  /** Time period when name was/is in use. */
+  period?: Maybe<Period>
+}
+
+/** http://hl7.org/fhir/stu3/valueset-contact-point-system.html */
+export enum ContactPointSystemCode {
+  Phone = 'PHONE',
+  Fax = 'FAX',
+  Email = 'EMAIL',
+  Pager = 'PAGER',
+  Url = 'URL',
+  Sms = 'SMS',
+  Other = 'OTHER',
+}
+
+/** http://hl7.org/fhir/stu3/valueset-contact-point-use.html */
+export enum ContactPointUseCode {
+  Home = 'HOME',
+  Work = 'WORK',
+  Temp = 'TEMP',
+  Old = 'OLD',
+  Mobile = 'MOBILE',
+}
+
+/** Questions and sections within the Questionnaire. */
+export type QuestionnaireItem = {
+  /** Corresponding concept for this item in a terminology. */
+  code?: Maybe<Array<Maybe<Coding>>>
+  /** ElementDefinition - details for the item. */
+  definition?: Maybe<Scalars['String']>
+  /** Nested questionnaire response items. */
+  item?: Maybe<Array<Maybe<QuestionnaireItem>>>
+  /** E.g. '1(a)', '2.5.3'. */
+  prefix?: Maybe<Scalars['String']>
+  /** Whether the item may repeat. */
+  repeats?: Maybe<Scalars['Boolean']>
+  /** Whether the item must be included in data results. */
+  required?: Maybe<Scalars['Boolean']>
+  /** Primary text for the item. */
+  text?: Maybe<Scalars['String']>
+  /** Data type. */
+  type: QuestionnaireItemTypeCode
+  /** Unique id for item in questionnaire. */
+  linkId?: Maybe<Scalars['String']>
+}
+
+export enum QuestionnaireItemTypeCode {
+  Group = 'GROUP',
+  Display = 'DISPLAY',
+  QuestionBoolean = 'QUESTION_BOOLEAN',
+  QuestionDate = 'QUESTION_DATE',
+  QuestionString = 'QUESTION_STRING',
+  QuestionStringBbCode = 'QUESTION_STRING_BB_CODE',
+  QuestionStringHtml = 'QUESTION_STRING_HTML',
+}
+
+export enum QuestionnairePublicationStatus {
+  Draft = 'DRAFT',
+  Active = 'ACTIVE',
+  Retired = 'RETIRED',
+  Unknown = 'UNKNOWN',
+}
+
+/** The UsageContext structure defines the context of use for a module. */
+export type UsageContext = {
+  /** Additional content defined by implementations. */
+  extension?: Maybe<Array<Maybe<Extension>>>
+  /** Type of context being specified. */
+  code?: Maybe<Coding>
+  /** CodeableConcept Value. */
+  valueCodeableConcept?: Maybe<CodeableConcept>
+  /** Quantity Value. */
+  valueQuantity?: Maybe<Quantity>
+  /** Range Value. */
+  valueRange?: Maybe<Range>
+  /** Reference Value. */
+  valueReference?: Maybe<ResourceReference>
+}
+
+export enum QuestionnaireResponseStatus {
+  InProgress = 'IN_PROGRESS',
+  Completed = 'COMPLETED',
+  Amended = 'AMENDED',
+  EnteredInError = 'ENTERED_IN_ERROR',
+  Stopped = 'STOPPED',
 }
 
 export type ConditionOnset = {
@@ -1000,42 +1225,6 @@ export enum HumanNameUseCode {
   Maiden = 'MAIDEN',
 }
 
-/** Details for all kinds of technology-mediated contact points for a person or organization, including telephone, email, etc. */
-export type ContactPoint = {
-  /** Additional content defined by implementations. */
-  extension?: Maybe<Array<Maybe<Extension>>>
-  /** http://hl7.org/fhir/stu3/valueset-contact-point-system.html */
-  system?: Maybe<ContactPointSystemCode>
-  /** The actual contact point details. */
-  value?: Maybe<Scalars['String']>
-  /** http://hl7.org/fhir/stu3/valueset-contact-point-use.html */
-  use?: Maybe<ContactPointUseCode>
-  /** Specify preferred order of use (1 = highest). */
-  rank?: Maybe<Scalars['Int']>
-  /** Time period when name was/is in use. */
-  period?: Maybe<Period>
-}
-
-/** http://hl7.org/fhir/stu3/valueset-contact-point-system.html */
-export enum ContactPointSystemCode {
-  Phone = 'PHONE',
-  Fax = 'FAX',
-  Email = 'EMAIL',
-  Pager = 'PAGER',
-  Url = 'URL',
-  Sms = 'SMS',
-  Other = 'OTHER',
-}
-
-/** http://hl7.org/fhir/stu3/valueset-contact-point-use.html */
-export enum ContactPointUseCode {
-  Home = 'HOME',
-  Work = 'WORK',
-  Temp = 'TEMP',
-  Old = 'OLD',
-  Mobile = 'MOBILE',
-}
-
 /** https://fhir.hl7.org.uk/STU3/ValueSet/CareConnect-AdministrativeGender-1l */
 export enum AdministrativeGenderCode {
   Male = 'MALE',
@@ -1141,193 +1330,6 @@ export enum PatientLinkTypeCode {
   Replaces = 'REPLACES',
   Refer = 'REFER',
   SeeAlso = 'SEE_ALSO',
-}
-
-/** A structured set of questions and their answers. The questions are ordered and grouped into coherent subsets, corresponding to the structure of the grouping of the questionnaire being responded to. */
-export type QuestionnaireResponse = {
-  /** Person who received and recorded the answers. */
-  author?: Maybe<ResourceReference>
-  /** Date the answers were gathered. */
-  authored?: Maybe<PartialDateTime>
-  /** Encounter created as part of. */
-  encounter?: Maybe<ResourceReference>
-  /** Unique id for this set of answers. */
-  identifier?: Maybe<Identifier>
-  /** Groups and questions. */
-  item?: Maybe<Array<Maybe<QuestionnaireResponseItem>>>
-  /** Form being answered. */
-  questionnaire: Questionnaire
-  /** The person who answered the questions. */
-  source?: Maybe<ResourceReference>
-  /** Why this questionnaire is defined. */
-  status: QuestionnaireResponseStatus
-  /** Request fulfilled by this QuestionnaireResponse. */
-  basedOn?: Maybe<ResourceReference>
-  /** Part of this action. */
-  partOf?: Maybe<ResourceReference>
-  /** Logical Id of the resource. */
-  id: Scalars['ID']
-  /** Metadata about the resource. */
-  metadata: Metadata
-  /** Additional content defined by implementations. */
-  extension?: Maybe<Array<Maybe<Extension>>>
-  /** Text summary of the resource, for human interpretation. */
-  text?: Maybe<Narrative>
-}
-
-/** Groups and questions. */
-export type QuestionnaireResponseItem = {
-  /** The response(s) to the question. */
-  answer?: Maybe<Array<Maybe<QuestionnaireResponseItemAnswer>>>
-  /** ElementDefinition - details for the item. */
-  definition?: Maybe<Scalars['String']>
-  /** Nested questionnaire response items. */
-  item?: Maybe<Array<Maybe<QuestionnaireResponseItem>>>
-  /** Name for group or question text. */
-  text?: Maybe<Scalars['String']>
-  /** Pointer to specific item from Questionnaire. */
-  linkId?: Maybe<Scalars['String']>
-}
-
-/** The response(s) to the question. */
-export type QuestionnaireResponseItemAnswer = {
-  /** Nested groups and questions. */
-  item?: Maybe<Array<Maybe<QuestionnaireResponseItem>>>
-  /** Date Time Value. */
-  valueDateTime?: Maybe<PartialDateTime>
-  /** Boolean Value. */
-  valueBoolean?: Maybe<Scalars['Boolean']>
-  /** String Value. */
-  valueString?: Maybe<Scalars['String']>
-}
-
-/** A structured set of questions intended to guide the collection of answers from end-users. Questionnaires provide detailed control over order, presentation, phraseology and grouping to allow coherent, consistent data collection. */
-export type Questionnaire = {
-  /** Concept that represents the overall questionnaire. */
-  code?: Maybe<Array<Maybe<Coding>>>
-  /** Contact details for the publisher. */
-  contact?: Maybe<Array<Maybe<ContactDetail>>>
-  /** Use and/or publishing restrictions. */
-  copyright?: Maybe<Scalars['String']>
-  /** Date last changed. */
-  date?: Maybe<PartialDateTime>
-  /** Natural language description of the questionnaire. */
-  description?: Maybe<Scalars['String']>
-  /** For testing purposes, not real usage. */
-  experimental?: Maybe<Scalars['Boolean']>
-  /** Additional identifier for the questionnaire. */
-  identifier: Array<Maybe<Identifier>>
-  /** Questions and sections within the Questionnaire. */
-  item?: Maybe<Array<Maybe<QuestionnaireItem>>>
-  /** Intended jurisdiction for questionnaire (if applicable). */
-  jurisdiction?: Maybe<Array<Maybe<CodeableConcept>>>
-  /** Name for this questionnaire (computer friendly). */
-  name?: Maybe<Scalars['String']>
-  /** Name of the publisher (organization or individual). */
-  publisher?: Maybe<Scalars['String']>
-  /** Why this questionnaire is defined. */
-  purpose?: Maybe<Scalars['String']>
-  /** Why this questionnaire is defined. */
-  status: QuestionnairePublicationStatus
-  /** Name for this questionnaire (human friendly). */
-  title?: Maybe<Scalars['String']>
-  /** Canonical identifier for this questionnaire, represented as a URI (globally unique). */
-  url?: Maybe<Scalars['String']>
-  /** The context that the content is intended to support. */
-  useContext?: Maybe<Array<Maybe<UsageContext>>>
-  /** Business version of the questionnaire. */
-  version?: Maybe<Scalars['String']>
-  /** When the questionnaire was approved by publisher. */
-  approvalDate?: Maybe<PartialDateTime>
-  /** Instantiates protocol or definition. */
-  derivedFrom?: Maybe<Array<Maybe<ResourceReference>>>
-  /** When the questionnaire is expected to be used. */
-  effectivePeriod?: Maybe<Period>
-  /** Resource that can be subject of QuestionnaireResponse. */
-  subjectType?: Maybe<Array<Maybe<Scalars['String']>>>
-  /** When the questionnaire was last reviewed. */
-  lastReviewDate?: Maybe<PartialDateTime>
-  /** Logical Id of the resource. */
-  id: Scalars['ID']
-  /** Metadata about the resource. */
-  metadata: Metadata
-  /** Additional content defined by implementations. */
-  extension?: Maybe<Array<Maybe<Extension>>>
-  /** Text summary of the resource, for human interpretation. */
-  text?: Maybe<Narrative>
-}
-
-/** The ContactDetail structure defines general contact details. */
-export type ContactDetail = {
-  /** Additional content defined by implementations. */
-  extension?: Maybe<Array<Maybe<Extension>>>
-  /** Name of an individual to contact. */
-  name?: Maybe<Scalars['String']>
-  /** Contact details for individual or organization. */
-  telecom?: Maybe<Array<Maybe<ContactPoint>>>
-}
-
-/** Questions and sections within the Questionnaire. */
-export type QuestionnaireItem = {
-  /** Corresponding concept for this item in a terminology. */
-  code?: Maybe<Array<Maybe<Coding>>>
-  /** ElementDefinition - details for the item. */
-  definition?: Maybe<Scalars['String']>
-  /** Nested questionnaire response items. */
-  item?: Maybe<Array<Maybe<QuestionnaireItem>>>
-  /** E.g. '1(a)', '2.5.3'. */
-  prefix?: Maybe<Scalars['String']>
-  /** Whether the item may repeat. */
-  repeats?: Maybe<Scalars['Boolean']>
-  /** Whether the item must be included in data results. */
-  required?: Maybe<Scalars['Boolean']>
-  /** Primary text for the item. */
-  text?: Maybe<Scalars['String']>
-  /** Data type. */
-  type: QuestionnaireItemTypeCode
-  /** Unique id for item in questionnaire. */
-  linkId?: Maybe<Scalars['String']>
-}
-
-export enum QuestionnaireItemTypeCode {
-  Group = 'GROUP',
-  Display = 'DISPLAY',
-  QuestionBoolean = 'QUESTION_BOOLEAN',
-  QuestionDate = 'QUESTION_DATE',
-  QuestionString = 'QUESTION_STRING',
-  QuestionStringBbCode = 'QUESTION_STRING_BB_CODE',
-  QuestionStringHtml = 'QUESTION_STRING_HTML',
-}
-
-export enum QuestionnairePublicationStatus {
-  Draft = 'DRAFT',
-  Active = 'ACTIVE',
-  Retired = 'RETIRED',
-  Unknown = 'UNKNOWN',
-}
-
-/** The UsageContext structure defines the context of use for a module. */
-export type UsageContext = {
-  /** Additional content defined by implementations. */
-  extension?: Maybe<Array<Maybe<Extension>>>
-  /** Type of context being specified. */
-  code?: Maybe<Coding>
-  /** CodeableConcept Value. */
-  valueCodeableConcept?: Maybe<CodeableConcept>
-  /** Quantity Value. */
-  valueQuantity?: Maybe<Quantity>
-  /** Range Value. */
-  valueRange?: Maybe<Range>
-  /** Reference Value. */
-  valueReference?: Maybe<ResourceReference>
-}
-
-export enum QuestionnaireResponseStatus {
-  InProgress = 'IN_PROGRESS',
-  Completed = 'COMPLETED',
-  Amended = 'AMENDED',
-  EnteredInError = 'ENTERED_IN_ERROR',
-  Stopped = 'STOPPED',
 }
 
 /** A continuation of Task resources. */

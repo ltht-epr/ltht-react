@@ -39,7 +39,18 @@ export const Redacted: Story = () => (
   </Card>
 )
 
-export const Detail: Story = () => (
+export const LevelOneDetail: Story = () => (
+  <Card>
+    <Card.Header>
+      <Card.Title style={{ textAlign: 'center' }}>Diagnosis</Card.Title>
+    </Card.Header>
+    <Card.Body>
+      <DiagnosisDetail condition={conditions[1]} links={CODABLE_CONCEPT_LINK_MAP} />
+    </Card.Body>
+  </Card>
+)
+
+export const LevelTwoDetail: Story = () => (
   <Card>
     <Card.Header>
       <Card.Title style={{ textAlign: 'center' }}>Diagnosis</Card.Title>

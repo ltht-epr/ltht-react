@@ -1,4 +1,4 @@
-import { FC, Fragment } from 'react'
+import { FC } from 'react'
 import styled from '@emotion/styled'
 import { CodeableConcept, Condition, Maybe } from '@ltht-react/types'
 import {
@@ -9,6 +9,8 @@ import {
   ResourceReferenceDetail,
   CodingListDetail,
 } from '@ltht-react/type-detail'
+
+import Questionnaire from '@ltht-react/questionnaire'
 
 const TopSection = styled.div`
   display: flex;
@@ -39,27 +41,17 @@ const DiagnosisDetail: FC<Props> = ({ condition, links }) => {
     <>
       <TopSection>
         <CodeableConceptDetail term="Diagnosis" concept={condition.code} links={links} />
+        {condition?.extensionTemplateName && <>{condition?.extensionTemplateName}</>}
         <CodingListDetail term="Data Source(s)" codings={condition.metadata.dataSources} />
       </TopSection>
 
-      {condition.extension?.map((extension, index) => {
-        if (index + 1 === condition.extension?.length) {
-          return (
-            <Fragment key={`level-2-detail-${extension?.url}`}>
-              <CodeableConceptDetail term={extension?.url || ''} concept={extension?.valueCodeableConcept} />
-              <Seperator />
-            </Fragment>
-          )
-        }
-
-        return (
-          <CodeableConceptDetail
-            key={`level-2-detail-${extension?.url}`}
-            term={extension?.url || ''}
-            concept={extension?.valueCodeableConcept}
-          />
-        )
-      })}
+      {condition.extensionData &&
+        condition?.extensionData.map((item) => (
+          <>
+            <Questionnaire questionnaire={item} showTitle />
+            <Seperator />
+          </>
+        ))}
 
       <DatetimeDetail term="Onset Date" datetime={condition.onset?.dateTime} />
       <StringDetail term="Clinical Status" description={condition.clinicalStatus?.toString()} />
