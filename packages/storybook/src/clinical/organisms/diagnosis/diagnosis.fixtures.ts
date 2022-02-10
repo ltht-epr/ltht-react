@@ -82,7 +82,7 @@ const ConditionOne: Condition = {
     display: 'BROWN, David (Dr)',
     typeName: 'Doctor',
   },
-  levelTwoData: QuestionnaireResponse1,
+  levelTwoData: [QuestionnaireResponse1, QuestionnaireResponse1],
   bodySite: [
     {
       coding: [

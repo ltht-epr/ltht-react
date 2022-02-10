@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import styled from '@emotion/styled'
-import { CodeableConcept, Condition, Maybe } from '@ltht-react/types'
+import { CodeableConcept, Condition, Maybe, QuestionnaireResponse } from '@ltht-react/types'
 import {
   StringDetail,
   CodeableConceptDetail,
@@ -44,12 +44,15 @@ const DiagnosisDetail: FC<Props> = ({ condition, links }) => {
         <CodingListDetail term="Data Source(s)" codings={condition.metadata.dataSources} />
       </TopSection>
 
-      {condition.levelTwoData && (
-        <>
-          <Questionnaire questionnaire={condition.levelTwoData} />
-          <Seperator />
-        </>
-      )}
+      {condition.levelTwoData &&
+        condition?.levelTwoData.map((i) => {
+          return (
+            <>
+              <Questionnaire questionnaire={i} />
+              <Seperator />
+            </>
+          )
+        })}
 
       <DatetimeDetail term="Onset Date" datetime={condition.onset?.dateTime} />
       <StringDetail term="Clinical Status" description={condition.clinicalStatus?.toString()} />
