@@ -45,14 +45,12 @@ const DiagnosisDetail: FC<Props> = ({ condition, links }) => {
       </TopSection>
 
       {condition.levelTwoData &&
-        condition?.levelTwoData.map((i) => {
-          return (
-            <>
-              <Questionnaire questionnaire={i} />
-              <Seperator />
-            </>
-          )
-        })}
+        condition?.levelTwoData.map((i) => (
+          <>
+            <Questionnaire questionnaire={i} />
+            <Seperator />
+          </>
+        ))}
 
       <DatetimeDetail term="Onset Date" datetime={condition.onset?.dateTime} />
       <StringDetail term="Clinical Status" description={condition.clinicalStatus?.toString()} />
