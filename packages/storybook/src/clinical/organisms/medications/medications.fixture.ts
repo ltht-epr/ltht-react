@@ -684,6 +684,9 @@ const SingleMedication1: MedicationRequest = {
         {
           text: '2nd Not Assigned',
         },
+        {
+          text: '&lt; &gt; ; % ^ &amp; * () % $ # @  ? / ! ~ # | \\ - Testing  Qualifier',
+        },
       ],
       patientInstruction: 'Twice a Day (08:00, 18:00) every day',
       timing: {
