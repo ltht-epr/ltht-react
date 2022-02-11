@@ -33,7 +33,8 @@
     "@ltht-react/styles": "^1.3.45",
     "@ltht-react/types": "^1.0.49",
     "@ltht-react/utils": "^1.1.51",
-    "react": "^17.0.0"
+    "react": "^17.0.0",
+    "react-html-parser": "^2.0.2"
   },
   "gitHead": "4d364556bb11e294d86697c2dac66742f7aabc7f"
 }
