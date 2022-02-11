@@ -54,7 +54,7 @@ export const QuestionnaireResponse1: QuestionnaireResponse = {
       {
         linkId: '1',
         text: 'Clinical Summary',
-        type: QuestionnaireItemTypeCode.QuestionStringBbCode,
+        type: QuestionnaireItemTypeCode.QuestionCoding,
         item: null,
       },
     ],
@@ -65,9 +65,10 @@ export const QuestionnaireResponse1: QuestionnaireResponse = {
       text: null,
       answer: [
         {
-          valueString: '[b]Bold text...[/b]\n[i]Italic text...[/i]\n[u]Underline text...[/u]',
+          valueString: null,
           valueBoolean: false,
           valueDateTime: null,
+          valueCoding: { display: 'Value Display' },
         },
       ],
       item: null,
@@ -96,7 +97,7 @@ export const QuestionnaireResponse2: QuestionnaireResponse = {
       {
         linkId: '1',
         text: 'Clinical Summary',
-        type: QuestionnaireItemTypeCode.QuestionStringBbCode,
+        type: QuestionnaireItemTypeCode.QuestionCoding,
         item: null,
       },
     ],
@@ -107,9 +108,10 @@ export const QuestionnaireResponse2: QuestionnaireResponse = {
       text: null,
       answer: [
         {
-          valueString: '[b]Bold text...[/b]\n[i]Italic text...[/i]\n[u]Underline text...[/u]',
+          valueString: null,
           valueBoolean: false,
           valueDateTime: null,
+          valueCoding: { display: 'Value Display' },
         },
       ],
       item: null,
