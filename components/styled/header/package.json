@@ -1,6 +1,6 @@
 {
   "name": "@ltht-react/header",
-  "version": "1.3.51",
+  "version": "1.3.52",
   "description": "ltht-react styled Header component.",
   "author": "LTHT",
   "homepage": "",
@@ -27,9 +27,9 @@
   "dependencies": {
     "@emotion/react": "^11.0.0",
     "@emotion/styled": "^11.0.0",
-    "@ltht-react/styles": "^1.3.45",
-    "@ltht-react/types": "^1.0.49",
-    "@ltht-react/utils": "^1.1.51",
+    "@ltht-react/styles": "^1.3.46",
+    "@ltht-react/types": "^1.0.50",
+    "@ltht-react/utils": "^1.1.52",
     "react": "^17.0.0"
   },
   "gitHead": "4d364556bb11e294d86697c2dac66742f7aabc7f"

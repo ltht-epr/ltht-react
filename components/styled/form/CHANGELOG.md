@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.3.52 (2022-02-11)
+
+**Note:** Version bump only for package @ltht-react/form
+
+
+
+
+
 ## 1.3.51 (2022-02-11)
 
 **Note:** Version bump only for package @ltht-react/form
