@@ -672,7 +672,7 @@ export type ConditionEvidence = {
   /** Additional content defined by implementations. */
   extension?: Maybe<Array<Maybe<Extension>>>
   code?: Maybe<Array<Maybe<CodeableConcept>>>
-  detail?: Maybe<ResourceReference>
+  detail?: Maybe<Array<Maybe<ResourceReference>>>
 }
 
 /** A structured set of questions and their answers. The questions are ordered and grouped into coherent subsets, corresponding to the structure of the grouping of the questionnaire being responded to. */
@@ -731,6 +731,8 @@ export type QuestionnaireResponseItemAnswer = {
   valueBoolean?: Maybe<Scalars['Boolean']>
   /** String Value. */
   valueString?: Maybe<Scalars['String']>
+  /** Coding Value. */
+  valueCoding?: Maybe<Coding>
 }
 
 /** A structured set of questions intended to guide the collection of answers from end-users. Questionnaires provide detailed control over order, presentation, phraseology and grouping to allow coherent, consistent data collection. */
@@ -865,6 +867,7 @@ export enum QuestionnaireItemTypeCode {
   QuestionString = 'QUESTION_STRING',
   QuestionStringBbCode = 'QUESTION_STRING_BB_CODE',
   QuestionStringHtml = 'QUESTION_STRING_HTML',
+  QuestionCoding = 'QUESTION_CODING',
 }
 
 export enum QuestionnairePublicationStatus {

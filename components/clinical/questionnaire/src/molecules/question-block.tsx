@@ -104,6 +104,17 @@ const QuestionBlock: FC<IProps> = ({ type, question, answer }) => {
           ))}
         </>
       )}
+      {type === QuestionnaireItemTypeCode.QuestionCoding && (
+        <>
+          <Question>{question}</Question>
+          {noAnswerProvided && <Answer>-</Answer>}
+          {answer?.answer?.map((answerItem, index) => (
+            <Answer key={`${question}-${answerItem?.valueCoding?.display}-${index + 1}`}>
+              {answerItem?.valueCoding?.display}
+            </Answer>
+          ))}
+        </>
+      )}
     </StyledQuestionBlock>
   )
 }
@@ -122,5 +133,6 @@ type QuestionTypes =
   | QuestionnaireItemTypeCode.QuestionString
   | QuestionnaireItemTypeCode.QuestionStringBbCode
   | QuestionnaireItemTypeCode.QuestionStringHtml
+  | QuestionnaireItemTypeCode.QuestionCoding
 
 export default QuestionBlock
