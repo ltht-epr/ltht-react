@@ -10,7 +10,7 @@ const StyledQuestionGroup = styled.div`
 
 const GroupHeader = styled.h3`
   margin: 0;
-  margin-bottom: 0.175rem;
+  margin-bottom: 0.25rem;
   font-weight: bold;
   font-size: 13px;
   color: #677f67;
