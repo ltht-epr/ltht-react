@@ -10,7 +10,6 @@ import Redacted from '../molecules/redacted'
 import TitleInfo from '../atoms/title-info'
 
 const StyledQuestionnaire = styled.div`
-  margin-bottom: 1em;
   & div:last-child {
     margin-bottom: 0;
   }

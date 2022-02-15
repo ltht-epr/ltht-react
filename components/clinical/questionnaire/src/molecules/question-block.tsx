@@ -25,7 +25,7 @@ const DisplayBlock = styled.div`
 
 const Question = styled.p`
   margin: 0;
-  margin-bottom: 0.175rem;
+  margin-bottom: 0.25rem;
   color: ${TEXT_COLOURS.SECONDARY.VALUE};
 `
 
