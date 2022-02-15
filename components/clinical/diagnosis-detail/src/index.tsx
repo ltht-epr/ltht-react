@@ -10,6 +10,8 @@ import {
   CodingListDetail,
 } from '@ltht-react/type-detail'
 
+import { TEXT_COLOURS } from '@ltht-react/styles'
+
 import Questionnaire from '@ltht-react/questionnaire'
 
 const TopSection = styled.div`
@@ -34,7 +36,7 @@ const Seperator = styled.div`
 const TitleStyle = styled.div`
   font-size: 1rem;
   font-weight: bold;
-  color: #98a4ad;
+  color: ${TEXT_COLOURS.SECONDARY.VALUE};
 `
 
 const DiagnosisDetail: FC<Props> = ({ condition, links }) => {
