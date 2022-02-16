@@ -6,6 +6,7 @@ import { Maybe, Scalars } from '@ltht-react/types'
 const StyledTitleInfo = styled.div``
 
 const Title = styled.h4`
+  margin: 1rem 0 1rem;
   color: ${TEXT_COLOURS.SECONDARY.VALUE};
 `
 
