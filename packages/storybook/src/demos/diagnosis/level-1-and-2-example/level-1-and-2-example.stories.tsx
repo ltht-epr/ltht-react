@@ -18,6 +18,12 @@ import appointments from '../../../clinical/organisms/appointments/appointments.
 import flags from '../../../clinical/organisms/flags/flags.fixtures'
 import hospitalStays from '../../../clinical/organisms/hospital-stays/hospital-stays.fixtures'
 
+const CODABLE_CONCEPT_LINK_MAP = {
+  'Heel Pain': 'https://www.google.com',
+  'Base of phalanx of foot': 'https://www.google.com',
+  'Subcutaneous tissue of lateral border of sole of foot': 'https://www.google.com',
+}
+
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -202,6 +208,14 @@ export const Dashboard: Story = () => {
                   </Card.ListItem>
                 ))}
               </Card.List>
+            </Card>
+            <Card>
+              <Card.Header>
+                <Card.Title style={{ textAlign: 'center' }}>Diagnosis</Card.Title>
+              </Card.Header>
+              <Card.Body>
+                <DiagnosisDetail condition={conditions[3]} links={CODABLE_CONCEPT_LINK_MAP} />
+              </Card.Body>
             </Card>
           </Column>
         </>
