@@ -33,12 +33,6 @@ const Seperator = styled.div`
   margin: 1rem 0;
 `
 
-const TitleStyle = styled.div`
-  font-size: 1rem;
-  font-weight: bold;
-  color: ${TEXT_COLOURS.SECONDARY.VALUE};
-`
-
 const DiagnosisDetail: FC<Props> = ({ condition, links }) => {
   const evidence = condition.evidence?.reduce((evidenceConcepts: Maybe<CodeableConcept>[], item) => {
     item?.code?.forEach((code) => evidenceConcepts.push(code))
@@ -49,7 +43,6 @@ const DiagnosisDetail: FC<Props> = ({ condition, links }) => {
     <>
       <TopSection>
         <CodeableConceptDetail term="Diagnosis" concept={condition.code} links={links} />
-        {condition?.extensionTemplateName && <TitleStyle>{condition?.extensionTemplateName}</TitleStyle>}
         <CodingListDetail term="Data Source(s)" codings={condition.metadata.dataSources} />
       </TopSection>
 
