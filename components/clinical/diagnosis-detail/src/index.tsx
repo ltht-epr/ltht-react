@@ -10,8 +10,6 @@ import {
   CodingListDetail,
 } from '@ltht-react/type-detail'
 
-import { TEXT_COLOURS } from '@ltht-react/styles'
-
 import Questionnaire from '@ltht-react/questionnaire'
 
 const TopSection = styled.div`
