@@ -15,7 +15,6 @@ describe('Task Redacted', () => {
   it('Renders', () => {
     render(<Task task={RedactedTask} />)
     expect(screen.getByText('Insufficient privileges')).toBeInTheDocument()
-    expect(screen.getByText('293 days ago')).toBeInTheDocument()
     expect(screen.getByText('Due')).toBeInTheDocument()
   })
 })

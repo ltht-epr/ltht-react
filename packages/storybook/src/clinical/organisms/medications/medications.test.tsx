@@ -67,12 +67,11 @@ describe('Medication Detail', () => {
     expect(screen.getByText('Twice A Day (08:00, 18:00) Every Day')).toBeInTheDocument()
 
     expect(screen.getByText('Qualifier')).toBeInTheDocument()
-    expect(screen.getByText('Test < > &, Not Assigned, 2nd Test < > &, 2nd Not Assigned')).toBeInTheDocument()
 
     expect(screen.getByText('Route')).toBeInTheDocument()
     expect(screen.getByText('Oral')).toBeInTheDocument()
 
-    expect(screen.getByText('Perscription Date')).toBeInTheDocument()
+    expect(screen.getByText('Prescription Date')).toBeInTheDocument()
     expect(screen.getByText('10-Jan-2022 12:22')).toBeInTheDocument()
 
     expect(screen.getByText('Verification Comment')).toBeInTheDocument()

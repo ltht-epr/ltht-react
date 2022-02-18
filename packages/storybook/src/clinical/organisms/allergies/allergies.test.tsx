@@ -46,7 +46,7 @@ describe('Allergy Detail', () => {
       )
     ).toBeInTheDocument()
 
-    expect(screen.getByText('Last Occurance')).toBeInTheDocument()
+    expect(screen.getByText('Last Occurence')).toBeInTheDocument()
     expect(screen.getByText('Sep-2016')).toBeInTheDocument()
 
     expect(screen.getByText('Criticality')).toBeInTheDocument()
