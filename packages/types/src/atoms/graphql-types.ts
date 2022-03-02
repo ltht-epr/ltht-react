@@ -45,6 +45,7 @@ export type Ehr = {
   questionnaire?: Maybe<QuestionnaireResponse>
   questionnaireLastCompleted?: Maybe<QuestionnaireResponse>
   tasks?: Maybe<TaskContinuation>
+  terminologyItems?: Maybe<TerminologyItemContinuation>
 }
 
 /** Queries the LTHT EHR. */
@@ -56,11 +57,9 @@ export type EhrAllergyIntoleranceArgs = {
 /** Queries the LTHT EHR. */
 export type EhrAllergyIntolerancesArgs = {
   patientGuid: Scalars['String']
-  listType: Scalars['String']
-  fhirVersion: Scalars['String']
-  listScope?: Maybe<Scalars['String']>
   cursorToken?: Maybe<Scalars['String']>
   count?: Maybe<Scalars['Int']>
+  clinicalStatus?: Maybe<Array<Maybe<AllergyIntoleranceClinicalStatusCode>>>
 }
 
 /** Queries the LTHT EHR. */
@@ -139,6 +138,15 @@ export type EhrTasksArgs = {
   pathwayId?: Maybe<Scalars['String']>
   status?: Array<Maybe<TaskStatusCode>>
   cursorToken?: Maybe<Scalars['String']>
+  count?: Maybe<Scalars['Int']>
+}
+
+/** Queries the LTHT EHR. */
+export type EhrTerminologyItemsArgs = {
+  cursorToken?: Maybe<Scalars['String']>
+  codeSystem: Scalars['String']
+  codeSystemVersion: Scalars['Int']
+  filter: Scalars['String']
   count?: Maybe<Scalars['Int']>
 }
 
@@ -644,7 +652,6 @@ export type Condition = {
   context?: Maybe<ResourceReference>
   evidence?: Maybe<Array<Maybe<ConditionEvidence>>>
   extensionData?: Maybe<Array<Maybe<QuestionnaireResponse>>>
-  extensionTemplateName?: Maybe<Scalars['String']>
   identifier?: Maybe<Array<Maybe<Identifier>>>
   onset?: Maybe<ConditionOnset>
   severity?: Maybe<CodeableConcept>
@@ -1400,6 +1407,30 @@ export enum TaskStatusCode {
   Suspended = 'SUSPENDED',
   Cancelled = 'CANCELLED',
   Skipped = 'SKIPPED',
+}
+
+/** A continuation of TerminologyItem resources. */
+export type TerminologyItemContinuation = {
+  /** The first cursor token. */
+  firstCursorToken?: Maybe<Scalars['String']>
+  /** The next cursor token. */
+  nextCursorToken?: Maybe<Scalars['String']>
+  /** The self cursor token. */
+  selfCursorToken: Scalars['String']
+  /** The total number of resources available (if known). */
+  totalResources?: Maybe<Scalars['Int']>
+  /** The continuation of TerminologyItem resources. */
+  resources: Array<Maybe<TerminologyItem>>
+}
+
+/** The terminology item resource represents the terminology for an item in a particular coding system and version for a particular organisation. */
+export type TerminologyItem = {
+  /** Logical Id of the resource. */
+  id: Scalars['ID']
+  /** Metadata about the resource. */
+  metadata: Metadata
+  /** Code for item */
+  coding?: Maybe<Coding>
 }
 
 /** Queries the GP Connect system. */
