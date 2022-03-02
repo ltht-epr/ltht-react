@@ -127,7 +127,6 @@ const ConditionOne: Condition = {
     typeName: 'Doctor',
   },
   extensionData: [QuestionnaireResponse1, QuestionnaireResponse2],
-  extensionTemplateName: 'diagnosis-generic-cancer-level-2',
   bodySite: [
     {
       coding: [
