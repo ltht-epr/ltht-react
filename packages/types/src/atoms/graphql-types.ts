@@ -2472,3 +2472,60 @@ export enum FeatureInstance {
   ResourceAuthorization = 'RESOURCE_AUTHORIZATION',
   YhcrDataProvider = 'YHCR_DATA_PROVIDER',
 }
+
+export type Mutation = {
+  ehr?: Maybe<EhrMutation>
+}
+
+/** Mutations of the LTHT EHR. */
+export type EhrMutation = {
+  addConditions?: Maybe<Array<Maybe<Condition>>>
+}
+
+/** Mutations of the LTHT EHR. */
+export type EhrMutationAddConditionsArgs = {
+  patientGuid: Scalars['String']
+  conditions: ConditionMinimalInputList
+  template: Scalars['String']
+}
+
+export type ConditionMinimalInputList = {
+  resources: Array<Maybe<ConditionMinimalInput>>
+}
+
+export type ConditionMinimalInput = {
+  code: CodeableConceptInput
+  onset: ConditionOnsetMinimalInput
+  clinicalStatus: ConditionClinicalStatus
+  verificationStatus: ConditionVerificationStatus
+}
+
+/** A reference to one or more terminologies or ontologies but may also be defined by the provision of text. */
+export type CodeableConceptInput = {
+  /** Code defined by a terminology system. */
+  coding?: Maybe<Array<Maybe<CodingInput>>>
+  /** Symbol in syntax defined by the system. */
+  text?: Maybe<Scalars['String']>
+}
+
+/** A defined concept using a symbol from a code system. */
+export type CodingInput = {
+  /** Symbol in syntax defined by the system. */
+  code?: Maybe<Scalars['String']>
+  /** Representation defined by the system. */
+  display?: Maybe<Scalars['String']>
+  /** Identity of the terminology system. */
+  system?: Maybe<Scalars['String']>
+  /** Version of the system - if relevant. */
+  version?: Maybe<Scalars['String']>
+}
+
+export type ConditionOnsetMinimalInput = {
+  dateTime: PartialDateTimeInput
+}
+
+/** A Date + Time, Year, Year + Month, or just a Time. */
+export type PartialDateTimeInput = {
+  /** yyyy-MM-dd'T'HH:mm:ss.FFFFFFFK, yyyy-MM-dd HH:mm:ss, yyyy-MM-dd, yyyy-MM, or yyyy. */
+  text: Scalars['String']
+}
