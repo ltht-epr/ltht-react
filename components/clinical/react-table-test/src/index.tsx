@@ -46,9 +46,9 @@ export default ReactTableTest
 //   return (
 //     <table {...getTableProps()} style={{ border: 'solid 1px blue' }}>
 //       <thead>
-//         {headerGroups.map((headerGroup) => (
+//         {headerGroups.map((headerGroup: any) => (
 //           <tr {...headerGroup.getHeaderGroupProps()}>
-//             {headerGroup.headers.map((column) => (
+//             {headerGroup.headers.map((column: any) => (z
 //               <th
 //                 {...column.getHeaderProps()}
 //                 style={{
@@ -65,11 +65,11 @@ export default ReactTableTest
 //         ))}
 //       </thead>
 //       <tbody {...getTableBodyProps()}>
-//         {rows.map((row) => {
+//         {rows.map((row: any) => {
 //           prepareRow(row)
 //           return (
 //             <tr {...row.getRowProps()}>
-//               {row.cells.map((cell) => {
+//               {row.cells.map((cell: any) => {
 //                 return (
 //                   <td
 //                     {...cell.getCellProps()}
