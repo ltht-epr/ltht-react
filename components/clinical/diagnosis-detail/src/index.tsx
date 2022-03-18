@@ -158,9 +158,4 @@ interface Props {
   links?: any // eslint-disable-line
 }
 
-// interface DetailList {
-//   element: JSX.Element
-//   renderCondition: boolean
-// }
-
 export default DiagnosisDetail
