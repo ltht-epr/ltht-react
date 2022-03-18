@@ -36,7 +36,7 @@ const DiagnosisSummary: FC<Props> = ({ condition, ...rest }) => {
         <Category condition={condition} />
       </StyledDescription>
       <StyledDate>
-        <DateSummary datetime={condition?.assertedDate} />
+        <DateSummary datetime={condition?.onset?.dateTime} />
         <Status condition={condition} />
       </StyledDate>
     </StyledSummary>

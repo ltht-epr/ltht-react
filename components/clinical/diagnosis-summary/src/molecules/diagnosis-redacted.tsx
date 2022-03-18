@@ -19,7 +19,7 @@ const DiagnosisRedacted: FC<Props> = ({ condition }) => (
       <RedactedDescription />
     </StyledRedactedDescription>
     <StyledDateSummary>
-      <DateSummary datetime={condition?.assertedDate} />
+      <DateSummary datetime={condition?.onset?.dateTime} />
     </StyledDateSummary>
   </>
 )
