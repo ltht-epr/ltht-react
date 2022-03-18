@@ -52,8 +52,8 @@ export const QuestionnaireResponse1: QuestionnaireResponse = {
     status: QuestionnairePublicationStatus.Active,
     item: [
       {
-        linkId: '1',
-        text: 'Clinical Summary',
+        linkId: 'MorphologicalAbnormality',
+        text: 'Morphological Abnormality',
         type: QuestionnaireItemTypeCode.QuestionCoding,
         item: null,
       },
@@ -61,14 +61,14 @@ export const QuestionnaireResponse1: QuestionnaireResponse = {
   },
   item: [
     {
-      linkId: '1',
+      linkId: 'MorphologicalAbnormality',
       text: null,
       answer: [
         {
           valueString: null,
           valueBoolean: false,
           valueDateTime: null,
-          valueCoding: { display: 'Value Display' },
+          valueCoding: { display: 'Adenocarcinoma, no subtype' },
         },
       ],
       item: null,
@@ -91,27 +91,44 @@ export const QuestionnaireResponse2: QuestionnaireResponse = {
     metadata: mockMetadata,
     url: 'http://ehr.leedsth.nhs.uk/questionnaire/Right-To-Reside',
     version: '1',
-    title: 'Diagnosis BodySite',
+    title: 'Diagnosis Body Site',
     status: QuestionnairePublicationStatus.Active,
     item: [
       {
-        linkId: '1',
-        text: 'Clinical Summary',
+        linkId: 'BodyStructure',
+        text: 'Body Structure',
         type: QuestionnaireItemTypeCode.QuestionCoding,
-        item: null,
+      },
+      {
+        linkId: 'Laterality',
+        text: 'Laterality',
+        type: QuestionnaireItemTypeCode.QuestionCoding,
       },
     ],
   },
   item: [
     {
-      linkId: '1',
+      linkId: 'BodyStructure',
       text: null,
       answer: [
         {
           valueString: null,
           valueBoolean: false,
           valueDateTime: null,
-          valueCoding: { display: 'Value Display' },
+          valueCoding: { display: 'Breast structure' },
+        },
+      ],
+      item: null,
+    },
+    {
+      linkId: 'Laterality',
+      text: null,
+      answer: [
+        {
+          valueString: null,
+          valueBoolean: false,
+          valueDateTime: null,
+          valueCoding: { display: 'Right' },
         },
       ],
       item: null,
