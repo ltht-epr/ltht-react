@@ -650,6 +650,7 @@ export type Condition = {
   clinicalStatus?: Maybe<ConditionClinicalStatus>
   code?: Maybe<CodeableConcept>
   context?: Maybe<ResourceReference>
+  note?: Maybe<Array<Maybe<Annotation>>>
   evidence?: Maybe<Array<Maybe<ConditionEvidence>>>
   extensionData?: Maybe<Array<Maybe<QuestionnaireResponse>>>
   identifier?: Maybe<Array<Maybe<Identifier>>>
