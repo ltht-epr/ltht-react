@@ -194,30 +194,7 @@ const ConditionOne: Condition = {
     ],
     text: 'Heel Pain',
   },
-  evidence: [
-    {
-      code: [
-        {
-          coding: [
-            {
-              code: '1525003',
-              display: 'Blister of foot without infection',
-            },
-          ],
-          text: 'Blister of foot without infection',
-        },
-        {
-          coding: [
-            {
-              code: '556070069',
-              display: 'Nonvenomous insect bite of foot with indection',
-            },
-          ],
-          text: 'Nonvenomous insect bite of foot with indection',
-        },
-      ],
-    },
-  ],
+  note: [{ text: 'Blister of foot without infection' }, { text: 'Nonvenomous insect bite of foot with indection' }],
   clinicalStatus: ConditionClinicalStatus.Active,
   verificationStatus: ConditionVerificationStatus.Confirmed,
   assertedDate: {

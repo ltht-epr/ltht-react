@@ -2,9 +2,10 @@ import { FC } from 'react'
 import styled from '@emotion/styled'
 import { isMobileView } from '@ltht-react/utils'
 import { useWindowSize } from '@ltht-react/hooks'
-import { CodeableConcept, Condition, Maybe } from '@ltht-react/types'
+import { Condition } from '@ltht-react/types'
 import {
   StringDetail,
+  AnnotationListDetail,
   CodeableConceptDetail,
   CodeableConceptListDetail,
   DatetimeDetail,
@@ -51,11 +52,6 @@ const DiagnosisDetail: FC<Props> = ({ condition, links }) => {
   const { width } = useWindowSize()
   const isMobile = isMobileView(width)
 
-  const evidence = condition.evidence?.reduce((evidenceConcepts: Maybe<CodeableConcept>[], item) => {
-    item?.code?.forEach((code) => evidenceConcepts.push(code))
-    return evidenceConcepts
-  }, [])
-
   const detailItems = [
     {
       element: <DatetimeDetail term="Onset Date" datetime={condition.onset?.dateTime} />,
@@ -82,8 +78,8 @@ const DiagnosisDetail: FC<Props> = ({ condition, links }) => {
       renderCondition: condition.bodySite !== undefined,
     },
     {
-      element: <CodeableConceptListDetail term="Evidence" concepts={evidence} links={links} />,
-      renderCondition: evidence !== undefined,
+      element: <AnnotationListDetail term="Note(s)" notes={condition.note} />,
+      renderCondition: condition.note !== undefined,
     },
     {
       element: <CodeableConceptDetail term="Stage" concept={condition.stage?.summary} links={links} />,
