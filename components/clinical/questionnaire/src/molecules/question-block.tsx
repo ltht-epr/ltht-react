@@ -33,14 +33,14 @@ const Answer = styled.p`
   margin: 0;
 `
 
-const QuestionBlock: FC<IProps> = ({ type, question, answer }) => {
+const QuestionBlock: FC<IProps> = ({ type, question, answer, className }) => {
   const noAnswerResponse = answer === undefined
   const noAnswerProvided = answer?.answer && answer?.answer?.length === 0
 
   if (noAnswerResponse) return null
 
   return (
-    <StyledQuestionBlock>
+    <StyledQuestionBlock className={className}>
       {type === QuestionnaireItemTypeCode.Display && (
         <DisplayBlock>
           <StyledInfoIcon>
@@ -120,6 +120,7 @@ const QuestionBlock: FC<IProps> = ({ type, question, answer }) => {
 }
 
 interface IProps {
+  className?: string
   type?: QuestionTypes
   question?: Maybe<string>
   answer?: Maybe<QuestionnaireResponseItem>

@@ -76,6 +76,17 @@ export const LevelOneDetail: Story = () => (
   </Card>
 )
 
+export const LevelOneDetail2: Story = () => (
+  <Card>
+    <Card.Header>
+      <Card.Title style={{ textAlign: 'center' }}>Diagnosis</Card.Title>
+    </Card.Header>
+    <Card.Body>
+      <DiagnosisDetail condition={conditions[2]} />
+    </Card.Body>
+  </Card>
+)
+
 export const LevelTwoDetail: Story = () => (
   <Card>
     <Card.Header>

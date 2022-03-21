@@ -955,14 +955,139 @@ export const QuestionnaireResponse2: QuestionnaireResponse = {
     metadata: mockMetadata,
     url: 'http://ehr.leedsth.nhs.uk/questionnaire/Right-To-Reside',
     version: '1',
-    title: 'Diagnosis BodySite',
+    title: 'Diagnosis Body Site',
+    status: QuestionnairePublicationStatus.Active,
+    item: [
+      {
+        linkId: 'BodyStructure',
+        text: 'Body Structure',
+        type: QuestionnaireItemTypeCode.QuestionCoding,
+      },
+      {
+        linkId: 'Laterality',
+        text: 'Laterality',
+        type: QuestionnaireItemTypeCode.QuestionCoding,
+      },
+      {
+        linkId: 'Principal',
+        text: 'Principal',
+        type: QuestionnaireItemTypeCode.QuestionCoding,
+      },
+      {
+        linkId: 'Status',
+        text: 'Status',
+        type: QuestionnaireItemTypeCode.QuestionCoding,
+      },
+      {
+        linkId: 'Dexterity',
+        text: 'Dexterity',
+        type: QuestionnaireItemTypeCode.QuestionCoding,
+      },
+    ],
+  },
+  item: [
+    {
+      linkId: 'BodyStructure',
+      text: null,
+      answer: [
+        {
+          valueString: null,
+          valueBoolean: false,
+          valueDateTime: null,
+          valueCoding: { display: 'Breast structure' },
+        },
+      ],
+      item: null,
+    },
+    {
+      linkId: 'Laterality',
+      text: null,
+      answer: [
+        {
+          valueString: null,
+          valueBoolean: false,
+          valueDateTime: null,
+          valueCoding: { display: 'Right' },
+        },
+      ],
+      item: null,
+    },
+    {
+      linkId: 'Principal',
+      text: null,
+      answer: [
+        {
+          valueString: null,
+          valueBoolean: false,
+          valueDateTime: null,
+          valueCoding: { display: 'Progress' },
+        },
+      ],
+      item: null,
+    },
+    {
+      linkId: 'Status',
+      text: null,
+      answer: [
+        {
+          valueString: null,
+          valueBoolean: false,
+          valueDateTime: null,
+          valueCoding: { display: 'Confirmed' },
+        },
+      ],
+      item: null,
+    },
+    {
+      linkId: 'Dexterity',
+      text: null,
+      answer: [
+        {
+          valueString: null,
+          valueBoolean: false,
+          valueDateTime: null,
+          valueCoding: { display: 'Excellent' },
+        },
+      ],
+      item: null,
+    },
+  ],
+}
+
+export const GroupTypeData: QuestionnaireResponse = {
+  id: '435d2aca-7776-43e7-a33f-1ba481bd2892',
+  metadata: mockMetadata,
+  status: QuestionnaireResponseStatus.Completed,
+  questionnaire: {
+    id: '14720227-b1f7-4cc5-a0d0-403938cf710d',
+    identifier: [
+      {
+        system: 'http://leedsth.nhs.uk/user/guid',
+        value: 'cfe6a9d7-f23d-4bb9-a28d-8a3895bee48a',
+      },
+    ],
+    metadata: mockMetadata,
+    url: 'http://ehr.leedsth.nhs.uk/questionnaire/Right-To-Reside',
+    version: '1',
+    title: 'Right to Reside',
     status: QuestionnairePublicationStatus.Active,
     item: [
       {
         linkId: '1',
-        text: 'Clinical Summary',
-        type: QuestionnaireItemTypeCode.QuestionCoding,
-        item: null,
+        text: 'General questions',
+        type: QuestionnaireItemTypeCode.Group,
+        item: [
+          {
+            linkId: '1.1',
+            text: 'What is your gender?',
+            type: QuestionnaireItemTypeCode.QuestionString,
+          },
+          {
+            linkId: '1.2',
+            text: 'What is your date of birth?',
+            type: QuestionnaireItemTypeCode.QuestionDate,
+          },
+        ],
       },
     ],
   },
@@ -970,15 +1095,34 @@ export const QuestionnaireResponse2: QuestionnaireResponse = {
     {
       linkId: '1',
       text: null,
-      answer: [
+      answer: null,
+      item: [
         {
-          valueString: null,
-          valueBoolean: false,
-          valueDateTime: null,
-          valueCoding: { display: 'Value Display' },
+          linkId: '1.1',
+          text: null,
+          answer: [
+            {
+              valueString: 'Male',
+              valueBoolean: false,
+              valueDateTime: null,
+            },
+          ],
+        },
+        {
+          linkId: '1.2',
+          text: null,
+          answer: [
+            {
+              valueString: null,
+              valueBoolean: false,
+              valueDateTime: {
+                kind: PartialDateTimeKindCode.Date,
+                value: '1971-01-12T00:00:00+00:00',
+              },
+            },
+          ],
         },
       ],
-      item: null,
     },
   ],
 }
@@ -990,7 +1134,7 @@ const LevelTwoDiagnosis: Condition = {
     display: 'BROWN, David (Dr)',
     typeName: 'Doctor',
   },
-  extensionData: [QuestionnaireResponse1, QuestionnaireResponse2],
+  extensionData: [QuestionnaireResponse1, QuestionnaireResponse2, GroupTypeData],
   bodySite: [
     {
       coding: [
