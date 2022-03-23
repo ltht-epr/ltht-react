@@ -1,6 +1,6 @@
 import { css } from '@emotion/react'
 import { TEXT_COLOURS } from './colours'
-import { TABLET_MEDIA_QUERY, DESKTOP_MEDIA_QUERY, WIDESCREEN_MEDIA_QUERY } from './media-queries'
+import { TABLET_ONLY_MEDIA_QUERY, DESKTOP_ONLY_MEDIA_QUERY, WIDESCREEN_MINIMUM_MEDIA_QUERY } from './media-queries'
 
 const CSS_RESET = css`
   *,
@@ -17,17 +17,19 @@ const CSS_RESET = css`
     font-size: 1rem;
   }
 
-  ${TABLET_MEDIA_QUERY} {
+  ${TABLET_ONLY_MEDIA_QUERY} {
     font-size: 0.9rem;
   }
 
-  ${DESKTOP_MEDIA_QUERY} {
+  ${DESKTOP_ONLY_MEDIA_QUERY} {
+    font-size: 0.9rem;
     & h3 {
       font-size: 1rem;
     }
   }
 
-  ${WIDESCREEN_MEDIA_QUERY} {
+  ${WIDESCREEN_MINIMUM_MEDIA_QUERY} {
+    font-size: 0.9rem;
     & h3 {
       font-size: 1.1rem;
     }

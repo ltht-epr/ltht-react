@@ -551,10 +551,10 @@ const ConditionOne: Condition = {
   note: [{ text: 'Blister of foot without infection' }, { text: 'Nonvenomous insect bite of foot with indection' }],
   clinicalStatus: ConditionClinicalStatus.Active,
   verificationStatus: ConditionVerificationStatus.Confirmed,
-  assertedDate: {
-    value: '2018-08-07T00:00:00+00:00',
-    kind: PartialDateTimeKindCode.Date,
-  },
+  // assertedDate: {
+  //   value: '2018-08-07T00:00:00+00:00',
+  //   kind: PartialDateTimeKindCode.Date,
+  // },
   onset: {
     dateTime: {
       value: '2016-09-01T00:00:00+00:00',

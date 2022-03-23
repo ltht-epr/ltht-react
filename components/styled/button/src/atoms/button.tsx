@@ -1,7 +1,7 @@
 import { FC, ReactNode, HTMLAttributes } from 'react'
 import styled from '@emotion/styled'
 import { css, SerializedStyles } from '@emotion/react'
-import { DESKTOP_MEDIA_QUERY, BTN_COLOURS } from '@ltht-react/styles'
+import { DESKTOP_MINIMUM_MEDIA_QUERY, BTN_COLOURS } from '@ltht-react/styles'
 
 const setColors = (buttonStyle: string): SerializedStyles => {
   switch (buttonStyle) {
@@ -80,7 +80,7 @@ const StyledButton = styled.button<StyledProps>`
     cursor: not-allowed;
   }
 
-  ${DESKTOP_MEDIA_QUERY} {
+  ${DESKTOP_MINIMUM_MEDIA_QUERY} {
     font-size: 0.9rem;
     display: flex;
     align-items: center;

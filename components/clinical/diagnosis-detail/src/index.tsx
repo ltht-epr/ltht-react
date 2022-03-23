@@ -1,7 +1,5 @@
 import { FC } from 'react'
 import styled from '@emotion/styled'
-import { isDesktopView, isTabletView } from '@ltht-react/utils'
-import { useWindowSize } from '@ltht-react/hooks'
 import { Condition } from '@ltht-react/types'
 import {
   StringDetail,
@@ -14,6 +12,7 @@ import {
 } from '@ltht-react/type-detail'
 
 import Questionnaire from '@ltht-react/questionnaire'
+import { DESKTOP_MINIMUM_MEDIA_QUERY, MOBILE_MAXIMUM_MEDIA_QUERY, TABLET_ONLY_MEDIA_QUERY } from '@ltht-react/styles'
 
 const TopSection = styled.div`
   display: flex;
@@ -34,99 +33,106 @@ const Seperator = styled.div`
   margin: 1rem 0;
 `
 
-const StyledDetail = styled.div<IStyledViewport>`
+const StyledDetail = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
   margin-top: '1rem';
 
   & dl {
-    width: ${({ isDesktop, isTablet }) => columns(isDesktop, isTablet)};
     margin-top: 0;
     margin-bottom: 1rem;
 
-    &:nth-child(4n + 1) {
-      text-align: ${({ isDesktop }) => (isDesktop ? 'start' : undefined)};
+    ${DESKTOP_MINIMUM_MEDIA_QUERY} {
+      width: 25%;
+
+      &:nth-last-child(1),
+      :nth-last-child(2),
+      :nth-last-child(3),
+      :nth-last-child(4) {
+        margin-bottom: 0px !important;
+      }
+
+      &:nth-child(4n + 1) {
+        text-align: left;
+      }
+
+      &:nth-child(4n + 2) {
+        text-align: center;
+      }
+
+      &:nth-child(4n + 3) {
+        text-align: center;
+      }
+
+      &:nth-child(4n) {
+        text-align: right;
+      }
     }
 
-    &:nth-child(4n + 2) {
-      text-align: ${({ isDesktop }) => (isDesktop ? 'center' : undefined)};
+    ${TABLET_ONLY_MEDIA_QUERY} {
+      width: 33.3%;
+
+      &:nth-last-child(1),
+      :nth-last-child(2),
+      :nth-last-child(3) {
+        margin-bottom: 0px !important;
+      }
+
+      &:nth-child(3n + 1) {
+        text-align: left;
+      }
+
+      &:nth-child(3n + 2) {
+        text-align: center;
+      }
+
+      &:nth-child(3n) {
+        text-align: right;
+      }
     }
 
-    &:nth-child(4n + 3) {
-      text-align: ${({ isDesktop }) => (isDesktop ? 'center' : undefined)};
-    }
+    ${MOBILE_MAXIMUM_MEDIA_QUERY} {
+      width: 100%;
 
-    &:nth-child(4n) {
-      text-align: ${({ isDesktop }) => (isDesktop ? 'end' : undefined)};
-    }
-
-    &:nth-child(3n + 1) {
-      text-align: ${({ isTablet }) => (isTablet ? 'start' : undefined)};
-    }
-
-    &:nth-child(3n + 2) {
-      text-align: ${({ isTablet }) => (isTablet ? 'center' : undefined)};
-    }
-
-    &:nth-child(3n) {
-      text-align: ${({ isTablet }) => (isTablet ? 'end' : undefined)};
+      &:nth-last-child(1) {
+        margin-bottom: 0px !important;
+      }
     }
   }
 `
 
-function columns(isDesktop: boolean, isTablet: boolean) {
-  if (isDesktop) {
-    return '25%'
-  }
+const DiagnosisDetail: FC<Props> = ({ condition, links }) => (
+  <>
+    <TopSection>
+      <CodeableConceptDetail term="Diagnosis" concept={condition.code} links={links} />
+      <CodingListDetail term="Data Source(s)" codings={condition.metadata.dataSources} />
+    </TopSection>
 
-  if (isTablet) {
-    return '33.3%'
-  }
+    {condition.extensionData &&
+      condition?.extensionData.map((item, index) => (
+        <>
+          {index === 0 && <Seperator />}
+          <Questionnaire questionnaire={item} showTitle displayDynamic />
+          <Seperator />
+        </>
+      ))}
 
-  return '100%'
-}
-
-const DiagnosisDetail: FC<Props> = ({ condition, links }) => {
-  const { width } = useWindowSize()
-
-  return (
-    <>
-      <TopSection>
-        <CodeableConceptDetail term="Diagnosis" concept={condition.code} links={links} />
-        <CodingListDetail term="Data Source(s)" codings={condition.metadata.dataSources} />
-      </TopSection>
-
-      {condition.extensionData &&
-        condition?.extensionData.map((item, index) => (
-          <>
-            {index === 0 && <Seperator />}
-            <Questionnaire questionnaire={item} showTitle displayDynamic />
-            <Seperator />
-          </>
-        ))}
-
-      <StyledDetail isTablet={isTabletView(width)} isDesktop={isDesktopView(width)}>
-        <DatetimeDetail term="Onset Date" datetime={condition.onset?.dateTime} />
-        <StringDetail term="Clinical Status" description={condition.clinicalStatus?.toString()} />
-        <StringDetail term="Verification Status" description={condition.verificationStatus?.toString()} />
-        <CodeableConceptListDetail term="Category" concepts={condition.category} />
-        <CodeableConceptDetail term="Severity" concept={condition.severity} />
-        <CodeableConceptListDetail term="Location" concepts={condition.bodySite} links={links} />
-        <AnnotationListDetail term="Note(s)" notes={condition.note} />
-        <CodeableConceptDetail term="Stage" concept={condition.stage?.summary} links={links} />
-        <ResourceReferenceDetail term="Asserted By" resourceReference={condition.asserter} />
-        <DatetimeDetail term="Asserted Date" datetime={condition.assertedDate} />
-        <DatetimeDetail term="Abatement Date" datetime={condition.abatement?.dateTime} />
-      </StyledDetail>
-    </>
-  )
-}
-
-interface IStyledViewport {
-  isDesktop: boolean
-  isTablet: boolean
-}
+    <StyledDetail>
+      <DatetimeDetail term="Onset Date" datetime={condition.onset?.dateTime} />
+      <StringDetail term="Clinical Status" description={condition.clinicalStatus?.toString()} />
+      <StringDetail term="Verification Status" description={condition.verificationStatus?.toString()} />
+      <CodeableConceptListDetail term="Category" concepts={condition.category} />
+      <CodeableConceptDetail term="Severity" concept={condition.severity} />
+      <CodeableConceptListDetail term="Location" concepts={condition.bodySite} links={links} />
+      <AnnotationListDetail term="Note(s)" notes={condition.note} />
+      <CodeableConceptDetail term="Stage" concept={condition.stage?.summary} links={links} />
+      <ResourceReferenceDetail term="Asserted By" resourceReference={condition.asserter} />
+      <DatetimeDetail term="Asserted Date" datetime={condition.assertedDate} />
+      <DatetimeDetail term="Abatement Date" datetime={condition.abatement?.dateTime} />
+    </StyledDetail>
+  </>
+)
 
 interface Props {
   condition: Condition

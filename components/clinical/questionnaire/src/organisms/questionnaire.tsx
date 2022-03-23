@@ -8,8 +8,7 @@ import {
   QuestionnaireResponseItem,
 } from '@ltht-react/types'
 
-import { isDesktopView, isTabletView } from '@ltht-react/utils'
-import { useWindowSize } from '@ltht-react/hooks'
+import { DESKTOP_MINIMUM_MEDIA_QUERY, MOBILE_MAXIMUM_MEDIA_QUERY, TABLET_ONLY_MEDIA_QUERY } from '@ltht-react/styles'
 import AuthorInfo from '../atoms/author-info'
 
 import QuestionGroup from '../molecules/question-group'
@@ -23,58 +22,74 @@ const StyledQuestionnaire = styled.div`
   }
 `
 
-const DynamicContainer = styled.div<IStyledViewport>`
+const DynamicContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
   margin-top: '1rem';
 
   & div.QuestionBlock {
-    width: ${({ isDesktop, isTablet }) => columns(isDesktop, isTablet)};
     margin-top: 0;
     margin-bottom: 1rem;
 
-    &:nth-child(4n + 1) {
-      text-align: ${({ isDesktop }) => (isDesktop ? 'start' : undefined)};
+    ${DESKTOP_MINIMUM_MEDIA_QUERY} {
+      width: 25%;
+
+      &:nth-last-child(1),
+      :nth-last-child(2),
+      :nth-last-child(3),
+      :nth-last-child(4) {
+        margin-bottom: 0px !important;
+      }
+
+      &:nth-child(4n + 1) {
+        text-align: left;
+      }
+
+      &:nth-child(4n + 2) {
+        text-align: center;
+      }
+
+      &:nth-child(4n + 3) {
+        text-align: center;
+      }
+
+      &:nth-child(4n) {
+        text-align: right;
+      }
     }
 
-    &:nth-child(4n + 2) {
-      text-align: ${({ isDesktop }) => (isDesktop ? 'center' : undefined)};
+    ${TABLET_ONLY_MEDIA_QUERY} {
+      width: 33.3%;
+
+      &:nth-last-child(1),
+      :nth-last-child(2),
+      :nth-last-child(3) {
+        margin-bottom: 0px !important;
+      }
+
+      &:nth-child(3n + 1) {
+        text-align: left;
+      }
+
+      &:nth-child(3n + 2) {
+        text-align: center;
+      }
+
+      &:nth-child(3n) {
+        text-align: right;
+      }
     }
 
-    &:nth-child(4n + 3) {
-      text-align: ${({ isDesktop }) => (isDesktop ? 'center' : undefined)};
-    }
+    ${MOBILE_MAXIMUM_MEDIA_QUERY} {
+      width: 100%;
 
-    &:nth-child(4n) {
-      text-align: ${({ isDesktop }) => (isDesktop ? 'end' : undefined)};
-    }
-
-    &:nth-child(3n + 1) {
-      text-align: ${({ isTablet }) => (isTablet ? 'start' : undefined)};
-    }
-
-    &:nth-child(3n + 2) {
-      text-align: ${({ isTablet }) => (isTablet ? 'center' : undefined)};
-    }
-
-    &:nth-child(3n) {
-      text-align: ${({ isTablet }) => (isTablet ? 'end' : undefined)};
+      &:nth-last-child(1) {
+        margin-bottom: 0px !important;
+      }
     }
   }
 `
-
-function columns(isDesktop: boolean, isTablet: boolean) {
-  if (isDesktop) {
-    return '25%'
-  }
-
-  if (isTablet) {
-    return '33.3%'
-  }
-
-  return '100%'
-}
 
 function QuestionnaireQuestions(
   questions: Maybe<Maybe<QuestionnaireItem>[]> | undefined,
@@ -111,7 +126,6 @@ function QuestionnaireQuestions(
 }
 
 const Questionnaire: FC<IProps> = ({ questionnaire, showTitle = false, displayDynamic = false }) => {
-  const { width } = useWindowSize()
   const questions = questionnaire?.questionnaire.item
   const answers = questionnaire?.item
   const title = questionnaire?.questionnaire?.title
@@ -122,22 +136,13 @@ const Questionnaire: FC<IProps> = ({ questionnaire, showTitle = false, displayDy
     <StyledQuestionnaire>
       {showTitle && <TitleInfo title={title} />}
 
-      {displayDynamic && (
-        <DynamicContainer isTablet={isTabletView(width)} isDesktop={isDesktopView(width)}>
-          {QuestionnaireQuestions(questions, answers, true)}
-        </DynamicContainer>
-      )}
+      {displayDynamic && <DynamicContainer>{QuestionnaireQuestions(questions, answers, true)}</DynamicContainer>}
 
       {!displayDynamic && QuestionnaireQuestions(questions, answers, false)}
 
       <AuthorInfo author={questionnaire?.author} authoredOn={questionnaire?.authored} />
     </StyledQuestionnaire>
   )
-}
-
-interface IStyledViewport {
-  isDesktop: boolean
-  isTablet: boolean
 }
 
 interface IProps {

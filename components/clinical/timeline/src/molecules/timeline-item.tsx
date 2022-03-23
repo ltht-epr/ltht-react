@@ -4,7 +4,6 @@ import { TRANSLUCENT_DARK_BLUE } from '@ltht-react/styles'
 import { AuditEvent, Maybe } from '@ltht-react/types'
 import { useWindowSize } from '@ltht-react/hooks'
 import { isMobileView } from '@ltht-react/utils'
-
 import TimelineDescription from '../atoms/timeline-description'
 import TimelineAuthor from '../atoms/timeline-author'
 import TimelineStatus from '../atoms/timeline-status'

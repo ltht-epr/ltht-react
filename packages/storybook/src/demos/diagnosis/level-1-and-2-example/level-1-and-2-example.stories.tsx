@@ -9,7 +9,7 @@ import DiagnosisDetail from '@ltht-react/diagnosis-detail'
 import FlagSummary from '@ltht-react/flag-summary'
 import HospitalStaySummary from '@ltht-react/hospital-stay-summary'
 import { ChevronIcon } from '@ltht-react/icon'
-import { DESKTOP_MEDIA_QUERY, ICON_COLOURS } from '@ltht-react/styles'
+import { DESKTOP_MINIMUM_MEDIA_QUERY, ICON_COLOURS } from '@ltht-react/styles'
 import Card from '@ltht-react/card'
 import conditions from './diagnosis.fixtures'
 
@@ -33,7 +33,7 @@ const Container = styled.div`
     padding-right: 0 !important;
   }
 
-  ${DESKTOP_MEDIA_QUERY} {
+  ${DESKTOP_MINIMUM_MEDIA_QUERY} {
     flex-direction: row;
 
     & > div {
@@ -43,7 +43,7 @@ const Container = styled.div`
 `
 
 const Column = styled.div`
-  ${DESKTOP_MEDIA_QUERY} {
+  ${DESKTOP_MINIMUM_MEDIA_QUERY} {
     flex: 1;
     height: 100%;
     max-height: 100%;
