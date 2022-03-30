@@ -260,6 +260,42 @@ const ConditionTwo: Condition = {
   },
 }
 
-const conditions: Condition[] = [ConditionOne, ConditionTwo]
+const ConditionThree: Condition = {
+  id: '345ha927-34e0-e911-a2c7-005087226er3|condition',
+  metadata: mockMetadata,
+  category: [
+    {
+      coding: [
+        {
+          code: '55607006',
+          display: 'Problem',
+        },
+      ],
+      text: 'Problem',
+    },
+  ],
+  code: {
+    coding: [
+      {
+        system: 'HEALTHPLUG',
+        code: '44054006',
+        display: 'Diabetes mellitus type 2',
+      },
+    ],
+    text: 'Entered in Error example',
+  },
+  clinicalStatus: ConditionClinicalStatus.Remission,
+  assertedDate: {
+    value: '2020-01-01T00:00:00+00:00',
+    kind: PartialDateTimeKindCode.Date,
+  },
+  verificationStatus: ConditionVerificationStatus.EnteredinError,
+  severity: {
+    coding: [{ code: '2448402', display: 'Mild' }],
+    text: 'Mild',
+  },
+}
+
+const conditions: Condition[] = [ConditionOne, ConditionTwo, ConditionThree]
 
 export default conditions
