@@ -15,7 +15,6 @@ const StyledConditionCategory = styled.div<IStyledDescription>`
 
 const DiagnosisCategory: FC<Props> = ({ condition, enteredInError, ...rest }) => {
   const values = []
-  enteredInError = false
 
   if (condition.category && condition.category.length) values.push(codeableConceptTextSummary(condition.category))
   if (condition.severity) values.push(codeableConceptDisplaySummary(condition.severity))

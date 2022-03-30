@@ -32,12 +32,12 @@ const DiagnosisSummary: FC<Props> = ({ condition, ...rest }) => {
   return (
     <StyledSummary {...rest}>
       <StyledDescription>
-        <Title enteredInError condition={condition} />
-        <Category enteredInError condition={condition} />
+        <Title enteredInError={false} condition={condition} />
+        <Category enteredInError={false} condition={condition} />
       </StyledDescription>
       <StyledDate>
         <DateSummary datetime={condition?.onset?.dateTime} />
-        <Status enteredInError condition={condition} />
+        <Status enteredInError={false} condition={condition} />
       </StyledDate>
     </StyledSummary>
   )
