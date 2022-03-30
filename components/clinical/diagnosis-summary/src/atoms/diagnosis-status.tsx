@@ -15,7 +15,6 @@ const StyledConditionStatus = styled.div<IStyledDescription>`
 
 const DiagnosisStatus: FC<Props> = ({ condition, enteredInError, ...rest }) => {
   const values = []
-  enteredInError = false
 
   if (condition.clinicalStatus) values.push(titleCase(condition.clinicalStatus))
   if (condition.verificationStatus) values.push(titleCase(condition.verificationStatus))

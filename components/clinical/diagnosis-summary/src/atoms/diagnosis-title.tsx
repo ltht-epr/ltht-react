@@ -13,7 +13,6 @@ const StyledConditionTitle = styled.div<IStyledDescription>`
 
 const DiagnosisTitle: FC<Props> = ({ condition, enteredInError, ...rest }) => {
   const codes = []
-  enteredInError = false
 
   if (condition.code) codes.push(condition.code)
 
