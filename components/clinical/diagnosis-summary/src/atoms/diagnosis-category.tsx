@@ -20,7 +20,7 @@ const DiagnosisCategory: FC<Props> = ({ condition, enteredInError, ...rest }) =>
   if (condition.category && condition.category.length) values.push(codeableConceptTextSummary(condition.category))
   if (condition.severity) values.push(codeableConceptDisplaySummary(condition.severity))
 
-  if (condition.verificationStatus == ConditionVerificationStatus.EnteredinError) enteredInError = true
+  if (condition.verificationStatus === ConditionVerificationStatus.EnteredinError) enteredInError = true
 
   return (
     <StyledConditionCategory enteredInError={enteredInError} {...rest}>

@@ -20,7 +20,7 @@ const DiagnosisStatus: FC<Props> = ({ condition, enteredInError, ...rest }) => {
   if (condition.clinicalStatus) values.push(titleCase(condition.clinicalStatus))
   if (condition.verificationStatus) values.push(titleCase(condition.verificationStatus))
 
-  if (condition.verificationStatus == ConditionVerificationStatus.EnteredinError) enteredInError = true
+  if (condition.verificationStatus === ConditionVerificationStatus.EnteredinError) enteredInError = true
 
   return (
     <StyledConditionStatus enteredInError={enteredInError} {...rest}>
