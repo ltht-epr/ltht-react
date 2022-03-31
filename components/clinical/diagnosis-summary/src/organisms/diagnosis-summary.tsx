@@ -1,7 +1,7 @@
 import { FC, HTMLAttributes } from 'react'
 import styled from '@emotion/styled'
 
-import { Condition } from '@ltht-react/types'
+import { Condition, ConditionVerificationStatus } from '@ltht-react/types'
 import { DateSummary } from '@ltht-react/type-summary'
 
 import Category from '../atoms/diagnosis-category'
@@ -29,15 +29,17 @@ const DiagnosisSummary: FC<Props> = ({ condition, ...rest }) => {
     )
   }
 
+  const enteredInError = condition.verificationStatus === ConditionVerificationStatus.EnteredinError
+
   return (
     <StyledSummary {...rest}>
       <StyledDescription>
-        <Title enteredInError={false} condition={condition} />
-        <Category enteredInError={false} condition={condition} />
+        <Title enteredInError={enteredInError} condition={condition} />
+        <Category enteredInError={enteredInError} condition={condition} />
       </StyledDescription>
       <StyledDate>
         <DateSummary datetime={condition?.onset?.dateTime} />
-        <Status enteredInError={false} condition={condition} />
+        <Status enteredInError={enteredInError} condition={condition} />
       </StyledDate>
     </StyledSummary>
   )

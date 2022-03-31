@@ -2,7 +2,7 @@ import { FC, HTMLAttributes } from 'react'
 import styled from '@emotion/styled'
 
 import { TEXT_COLOURS } from '@ltht-react/styles'
-import { Condition, ConditionVerificationStatus } from '@ltht-react/types'
+import { Condition } from '@ltht-react/types'
 import { titleCase } from '@ltht-react/utils'
 
 const StyledConditionStatus = styled.div<IStyledDescription>`
@@ -18,8 +18,6 @@ const DiagnosisStatus: FC<Props> = ({ condition, enteredInError, ...rest }) => {
 
   if (condition.clinicalStatus) values.push(titleCase(condition.clinicalStatus))
   if (condition.verificationStatus) values.push(titleCase(condition.verificationStatus))
-
-  if (condition.verificationStatus === ConditionVerificationStatus.EnteredinError) enteredInError = true
 
   return (
     <StyledConditionStatus enteredInError={enteredInError} {...rest}>

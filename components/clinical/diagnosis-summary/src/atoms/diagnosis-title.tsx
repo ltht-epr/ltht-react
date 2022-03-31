@@ -2,7 +2,7 @@ import { FC, HTMLAttributes } from 'react'
 import styled from '@emotion/styled'
 
 import { TEXT_COLOURS } from '@ltht-react/styles'
-import { Condition, ConditionVerificationStatus } from '@ltht-react/types'
+import { Condition } from '@ltht-react/types'
 import { codeableConceptTextSummary } from '@ltht-react/utils'
 
 const StyledConditionTitle = styled.div<IStyledDescription>`
@@ -15,8 +15,6 @@ const DiagnosisTitle: FC<Props> = ({ condition, enteredInError, ...rest }) => {
   const codes = []
 
   if (condition.code) codes.push(condition.code)
-
-  if (condition.verificationStatus === ConditionVerificationStatus.EnteredinError) enteredInError = true
 
   return (
     <StyledConditionTitle enteredInError={enteredInError} {...rest}>

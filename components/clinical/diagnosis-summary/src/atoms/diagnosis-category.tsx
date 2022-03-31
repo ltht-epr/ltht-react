@@ -2,7 +2,7 @@ import { FC, HTMLAttributes } from 'react'
 import styled from '@emotion/styled'
 
 import { TEXT_COLOURS } from '@ltht-react/styles'
-import { Condition, ConditionVerificationStatus } from '@ltht-react/types'
+import { Condition } from '@ltht-react/types'
 import { codeableConceptDisplaySummary, codeableConceptTextSummary } from '@ltht-react/utils'
 
 const StyledConditionCategory = styled.div<IStyledDescription>`
@@ -18,8 +18,6 @@ const DiagnosisCategory: FC<Props> = ({ condition, enteredInError, ...rest }) =>
 
   if (condition.category && condition.category.length) values.push(codeableConceptTextSummary(condition.category))
   if (condition.severity) values.push(codeableConceptDisplaySummary(condition.severity))
-
-  if (condition.verificationStatus === ConditionVerificationStatus.EnteredinError) enteredInError = true
 
   return (
     <StyledConditionCategory enteredInError={enteredInError} {...rest}>
