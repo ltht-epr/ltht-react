@@ -44,6 +44,8 @@ export type Ehr = {
   patient?: Maybe<Patient>
   questionnaire?: Maybe<QuestionnaireResponse>
   questionnaireLastCompleted?: Maybe<QuestionnaireResponse>
+  summaryDefinition?: Maybe<Questionnaire>
+  summaryRecords?: Maybe<QuestionnaireResponseContinuation>
   tasks?: Maybe<TaskContinuation>
   terminologyItems?: Maybe<TerminologyItemContinuation>
 }
@@ -129,6 +131,19 @@ export type EhrQuestionnaireLastCompletedArgs = {
   patientGuid: Scalars['String']
   name: Scalars['String']
   setGuid: Scalars['String']
+}
+
+/** Queries the LTHT EHR. */
+export type EhrSummaryDefinitionArgs = {
+  name: Scalars['String']
+}
+
+/** Queries the LTHT EHR. */
+export type EhrSummaryRecordsArgs = {
+  patientGuid: Scalars['String']
+  name: Scalars['String']
+  cursorToken?: Maybe<Scalars['String']>
+  count?: Maybe<Scalars['Int']>
 }
 
 /** Queries the LTHT EHR. */
@@ -546,6 +561,8 @@ export enum AuditEventAction {
 
 /** Actor involved in the event. */
 export type AuditEventAgent = {
+  /** Additional content defined by implementations. */
+  extension?: Maybe<Array<Maybe<Extension>>>
   /** Alternative User identity. */
   altId?: Maybe<Scalars['String']>
   /** Where. */
@@ -572,6 +589,8 @@ export type AuditEventAgent = {
 
 /** Logical network location for application activity. */
 export type AuditEventAgentNetwork = {
+  /** Additional content defined by implementations. */
+  extension?: Maybe<Array<Maybe<Extension>>>
   /** Identifier for the network access point of the user device. */
   address?: Maybe<Scalars['String']>
   /** The type of network access point. */
@@ -588,6 +607,8 @@ export enum AuditEventAgentNetworkType {
 
 /** Data or objects used. */
 export type AuditEventEntity = {
+  /** Additional content defined by implementations. */
+  extension?: Maybe<Array<Maybe<Extension>>>
   /** Alternative User identity. */
   description?: Maybe<Scalars['String']>
   /** Additional Information about the entity. */
@@ -610,6 +631,8 @@ export type AuditEventEntity = {
 
 /** Additional Information about the entity. */
 export type AuditEventEntityDetail = {
+  /** Additional content defined by implementations. */
+  extension?: Maybe<Array<Maybe<Extension>>>
   /** Name of the property. */
   type?: Maybe<Scalars['String']>
   /** Property value. */
@@ -625,6 +648,8 @@ export enum AuditEventOutcome {
 
 /** Audit Event Reporter. */
 export type AuditEventSource = {
+  /** Additional content defined by implementations. */
+  extension?: Maybe<Array<Maybe<Extension>>>
   /** The identity of source detecting the event. */
   observer: ResourceReference
   /** Logical source location within the enterprise. */
@@ -650,7 +675,6 @@ export type Condition = {
   clinicalStatus?: Maybe<ConditionClinicalStatus>
   code?: Maybe<CodeableConcept>
   context?: Maybe<ResourceReference>
-  note?: Maybe<Array<Maybe<Annotation>>>
   evidence?: Maybe<Array<Maybe<ConditionEvidence>>>
   extensionData?: Maybe<Array<Maybe<QuestionnaireResponse>>>
   identifier?: Maybe<Array<Maybe<Identifier>>>
@@ -717,6 +741,8 @@ export type QuestionnaireResponse = {
 
 /** Groups and questions. */
 export type QuestionnaireResponseItem = {
+  /** Additional content defined by implementations. */
+  extension?: Maybe<Array<Maybe<Extension>>>
   /** The response(s) to the question. */
   answer?: Maybe<Array<Maybe<QuestionnaireResponseItemAnswer>>>
   /** ElementDefinition - details for the item. */
@@ -731,6 +757,8 @@ export type QuestionnaireResponseItem = {
 
 /** The response(s) to the question. */
 export type QuestionnaireResponseItemAnswer = {
+  /** Additional content defined by implementations. */
+  extension?: Maybe<Array<Maybe<Extension>>>
   /** Nested groups and questions. */
   item?: Maybe<Array<Maybe<QuestionnaireResponseItem>>>
   /** Date Time Value. */
@@ -847,6 +875,8 @@ export enum ContactPointUseCode {
 
 /** Questions and sections within the Questionnaire. */
 export type QuestionnaireItem = {
+  /** Additional content defined by implementations. */
+  extension?: Maybe<Array<Maybe<Extension>>>
   /** Corresponding concept for this item in a terminology. */
   code?: Maybe<Array<Maybe<Coding>>>
   /** ElementDefinition - details for the item. */
@@ -1343,6 +1373,20 @@ export enum PatientLinkTypeCode {
   SeeAlso = 'SEE_ALSO',
 }
 
+/** A continuation of Questionnaire Response resources. */
+export type QuestionnaireResponseContinuation = {
+  /** The first cursor token. */
+  firstCursorToken?: Maybe<Scalars['String']>
+  /** The next cursor token. */
+  nextCursorToken?: Maybe<Scalars['String']>
+  /** The self cursor token. */
+  selfCursorToken: Scalars['String']
+  /** The total number of resources available (if known). */
+  totalResources?: Maybe<Scalars['Int']>
+  /** The continuation of Questionnaire Response resources. */
+  resources: Array<Maybe<QuestionnaireResponse>>
+}
+
 /** A continuation of Task resources. */
 export type TaskContinuation = {
   /** The first cursor token. */
@@ -1431,7 +1475,7 @@ export type TerminologyItem = {
   /** Metadata about the resource. */
   metadata: Metadata
   /** Code for item */
-  coding?: Maybe<Coding>
+  coding: Coding
 }
 
 /** Queries the GP Connect system. */
