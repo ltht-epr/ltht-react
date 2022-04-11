@@ -1,7 +1,7 @@
 import { QuestionnaireItemTypeCode } from '@ltht-react/types'
 
+//problems with some properties being required on Questionnaire, but this endpoint does not return them
 const summaryDefinition = {
-  //problems with some properties being required on Questionnaire, but this endpoint does not return them
   useContext: [
     {
       valueCodeableConcept: {

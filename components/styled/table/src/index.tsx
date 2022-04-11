@@ -22,7 +22,7 @@ const data: Array<IPerson> = [
   { firstName: 'Jess', lastName: 'Smith', birthYear: 2000, availability: false },
 ]
 
-const Table: FC<Props> = () => (
+const Table: FC = () => (
   <>
     <MaterialTable columns={columns} data={data} />
   </>
@@ -30,7 +30,7 @@ const Table: FC<Props> = () => (
 
 export default Table
 
-interface Props {
-  // records: any
-  // definition: any
-}
+// interface Props {
+//   // records: any
+//   // definition: any
+// }
