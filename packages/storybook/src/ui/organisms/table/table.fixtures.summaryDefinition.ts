@@ -1,7 +1,12 @@
-import { QuestionnaireItemTypeCode } from '@ltht-react/types'
+import { Questionnaire, QuestionnaireItemTypeCode, QuestionnairePublicationStatus } from '@ltht-react/types'
 
 // problems with some properties being required on Questionnaire, but this endpoint does not return them
-const summaryDefinition = {
+const summaryDefinition: Questionnaire = {
+  extension: [
+    {
+      url: 'https://leedsth.nhs.uk/cds/template',
+    },
+  ],
   useContext: [
     {
       valueCodeableConcept: {
@@ -14,6 +19,18 @@ const summaryDefinition = {
       },
     },
   ],
+  metadata: {
+    requestedWhen: '2022-04-14T14:07:12.5561803+01:00',
+    isRedacted: false,
+    dataSources: [],
+  },
+  identifier: [
+    {
+      system: 'TestSystem',
+      value: 'TestValue',
+    },
+  ],
+  status: QuestionnairePublicationStatus.Active,
   id: '1',
   title: 'Observations',
   item: [

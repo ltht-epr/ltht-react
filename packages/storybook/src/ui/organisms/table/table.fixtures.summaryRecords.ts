@@ -1,10 +1,21 @@
-import { PartialDateTimeKindCode, QuestionnaireResponseItem } from '@ltht-react/types'
+import {
+  PartialDateTimeKindCode,
+  QuestionnaireResponse,
+  QuestionnaireResponseItem,
+  QuestionnaireResponseStatus,
+} from '@ltht-react/types'
 
-const summaryRecordOne = {
+const summaryRecordOne: QuestionnaireResponse = {
   authored: {
     value: '2022-02-17T17:23:56+00:00',
     kind: PartialDateTimeKindCode.DateTime,
   },
+  metadata: {
+    requestedWhen: '2022-04-14T14:07:12.5779177+01:00',
+    isRedacted: false,
+    dataSources: [],
+  },
+  status: QuestionnaireResponseStatus.Completed,
   id: '1',
   item: [
     {
@@ -186,6 +197,12 @@ const summaryRecordTwo = {
     value: '2022-02-12T12:33:00+00:00',
     kind: PartialDateTimeKindCode.DateTime,
   },
+  metadata: {
+    requestedWhen: '2022-04-14T14:07:12.5779177+01:00',
+    isRedacted: false,
+    dataSources: [],
+  },
+  status: QuestionnaireResponseStatus.Completed,
   id: '1',
   item: [
     {
@@ -367,6 +384,12 @@ const summaryRecordThree = {
     value: '2022-01-01T16:02:00+00:00',
     kind: PartialDateTimeKindCode.DateTime,
   },
+  metadata: {
+    requestedWhen: '2022-04-14T14:07:12.5779177+01:00',
+    isRedacted: false,
+    dataSources: [],
+  },
+  status: QuestionnaireResponseStatus.Completed,
   id: '1',
   item: [
     {
@@ -543,6 +566,6 @@ const summaryRecordThree = {
   ],
 }
 
-const summaryRecordsList: QuestionnaireResponseItem[] = [summaryRecordOne, summaryRecordTwo, summaryRecordThree]
+const summaryRecordsList: QuestionnaireResponse[] = [summaryRecordOne, summaryRecordTwo, summaryRecordThree]
 
 export default summaryRecordsList

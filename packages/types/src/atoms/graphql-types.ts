@@ -720,7 +720,7 @@ export type QuestionnaireResponse = {
   /** Groups and questions. */
   item?: Maybe<Array<Maybe<QuestionnaireResponseItem>>>
   /** Form being answered. */
-  questionnaire: Questionnaire
+  questionnaire?: Maybe<Questionnaire>
   /** The person who answered the questions. */
   source?: Maybe<ResourceReference>
   /** Why this questionnaire is defined. */
