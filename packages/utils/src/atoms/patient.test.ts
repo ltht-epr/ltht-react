@@ -175,7 +175,7 @@ describe('formatPatientAge', () => {
   it('returns formatted age when birth date is specified (under 4 weeks and over 2 days)', () => {
     const date = new Date()
     const currentDate = date.getDate()
-    date.setDate(currentDate - 14) // set to two weeks ago
+    date.setDate(currentDate - 14) // set to 14 days ago
     patient.birthDate = {
       kind: PartialDateTimeKindCode.Date,
       value: date.toISOString(),
