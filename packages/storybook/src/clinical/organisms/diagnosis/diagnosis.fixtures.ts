@@ -20,19 +20,6 @@ const mockMetadata: Metadata = {
   requestedWhen: '',
 }
 
-const redactedMetadata: Metadata = {
-  dataSources: [
-    {
-      display: 'Mock Source A',
-    },
-    {
-      display: 'Mock Source B',
-    },
-  ],
-  isRedacted: true,
-  requestedWhen: '',
-}
-
 export const QuestionnaireResponse1: QuestionnaireResponse = {
   id: '435d2aca-7776-43e7-a33f-1ba481bd2892',
   metadata: mockMetadata,
