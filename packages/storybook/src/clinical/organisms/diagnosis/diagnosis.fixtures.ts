@@ -20,19 +20,6 @@ const mockMetadata: Metadata = {
   requestedWhen: '',
 }
 
-const redactedMetadata: Metadata = {
-  dataSources: [
-    {
-      display: 'Mock Source A',
-    },
-    {
-      display: 'Mock Source B',
-    },
-  ],
-  isRedacted: true,
-  requestedWhen: '',
-}
-
 export const QuestionnaireResponse1: QuestionnaireResponse = {
   id: '435d2aca-7776-43e7-a33f-1ba481bd2892',
   metadata: mockMetadata,
@@ -138,10 +125,32 @@ export const QuestionnaireResponse2: QuestionnaireResponse = {
 
 const ConditionOne: Condition = {
   id: '017ca927-67e0-e581-a2c7-115087226fg2|condition',
-  metadata: redactedMetadata,
   asserter: {
     display: 'BROWN, David (Dr)',
     typeName: 'Doctor',
+  },
+  metadata: {
+    requestedWhen: '2016-09-01T00:00:00+00:00',
+    dataSources: [],
+    isRedacted: false,
+    tag: [
+      {
+        system: 'https://leedsth.nhs.uk/cds/root-template-display-name',
+        display: 'Diagnosis Level One',
+      },
+      {
+        system: 'https://leedsth.nhs.uk/cds/root-template-name',
+        display: 'diagnosis-level-one',
+      },
+      {
+        system: 'https://leedsth.nhs.uk/cds/extension-template-name',
+        display: 'diagnosis-generic-cancer-level-2',
+      },
+      {
+        system: 'https://leedsth.nhs.uk/cds/extension-template-version',
+        display: '1',
+      },
+    ],
   },
   extensionData: [QuestionnaireResponse1, QuestionnaireResponse2],
   bodySite: [
@@ -296,6 +305,42 @@ const ConditionThree: Condition = {
   },
 }
 
-const conditions: Condition[] = [ConditionOne, ConditionTwo, ConditionThree]
+const ConditionFour: Condition = {
+  id: '345ha927-34e0-e911-a2c7-005087246er3|condition',
+  metadata: mockMetadata,
+  category: [
+    {
+      coding: [
+        {
+          code: '55607006',
+          display: 'Problem',
+        },
+      ],
+      text: 'Problem',
+    },
+  ],
+  code: {
+    coding: [
+      {
+        system: 'HEALTHPLUG',
+        code: '44054006',
+        display: 'Diabetes mellitus type 2',
+      },
+    ],
+    text: 'Entered in Error example',
+  },
+  clinicalStatus: ConditionClinicalStatus.Remission,
+  assertedDate: {
+    value: '2020-01-01T00:00:00+00:00',
+    kind: PartialDateTimeKindCode.Date,
+  },
+  verificationStatus: ConditionVerificationStatus.Confirmed,
+  severity: {
+    coding: [{ code: '2448402', display: 'Mild' }],
+    text: 'Mild',
+  },
+}
+
+const conditions: Condition[] = [ConditionOne, ConditionTwo, ConditionThree, ConditionFour]
 
 export default conditions

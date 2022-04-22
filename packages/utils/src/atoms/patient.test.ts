@@ -180,18 +180,7 @@ describe('formatPatientAge', () => {
       kind: PartialDateTimeKindCode.Date,
       value: date.toISOString(),
     }
-    expect(formatPatientAge(patient, false)).toEqual('13d')
-  })
-
-  it('returns formatted age when birth date is specified (under 4 weeks and over 2 days)', () => {
-    const date = new Date()
-    const currentDate = date.getDate()
-    date.setDate(currentDate - 14) // set to two weeks ago
-    patient.birthDate = {
-      kind: PartialDateTimeKindCode.Date,
-      value: date.toISOString(),
-    }
-    expect(formatPatientAge(patient, false)).toEqual('13d')
+    expect(formatPatientAge(patient, false)).toEqual('14d')
   })
 
   it('returns formatted age when birth date is specified (under 2 days and over 2 hours)', () => {
@@ -321,7 +310,7 @@ describe('formatPatientAge', () => {
         value: dod.toISOString(),
       },
     }
-    expect(formatPatientAge(patient, true)).toEqual('16d')
+    expect(formatPatientAge(patient, true)).toEqual('17d')
   })
 
   it('returns formatted age when patient is deceased (under 2 days and over 2 hours)', () => {
