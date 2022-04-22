@@ -5,7 +5,6 @@ import Badge from '@ltht-react/badge'
 import { Maybe } from '@ltht-react/types'
 
 const StyledMedicationAdditionalInfo = styled.div`
-  margin-top: 0.25rem;
   display: flex;
   align-items: center;
 `
