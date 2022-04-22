@@ -1,15 +1,14 @@
-import { FC } from 'react'
+import { FC, HTMLAttributes } from 'react'
 import { calculateIconSize, IconSizes } from '@ltht-react/styles'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFolderPlus } from '@fortawesome/free-solid-svg-icons'
 
-const FolderPlusIcon: FC<FolderPlusIconProps> = ({ size, title }) => (
-  <FontAwesomeIcon className="icon__folder__plus" icon={faFolderPlus} size={calculateIconSize(size)} title={title} />
+const FolderPlusIcon: FC<FolderPlusIconProps> = ({ size, ...rest }) => (
+  <FontAwesomeIcon className="icon__folder__plus" icon={faFolderPlus} size={calculateIconSize(size)} {...rest} />
 )
 
-interface FolderPlusIconProps {
+interface FolderPlusIconProps extends HTMLAttributes<SVGElement> {
   size: IconSizes
-  title?: string | undefined
 }
 
 export default FolderPlusIcon
