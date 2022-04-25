@@ -644,7 +644,7 @@ const SingleMedication1: MedicationRequest = {
         text: 'Oral',
         coding: [],
       },
-      text: '1 Tablet, Twice a Day',
+      text: '1 Chewable Tablet, Twice a Day',
       additionalInstruction: [
         {
           text: 'test < >    &',

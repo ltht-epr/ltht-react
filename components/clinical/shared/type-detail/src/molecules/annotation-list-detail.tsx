@@ -17,7 +17,7 @@ const StyledAnnotationAuthorInfo = styled(DescriptionList.Description)`
 `
 
 const AnnotationListDetail: FC<IProps> = ({ term, notes }) => {
-  if (!notes) return <></>
+  if (!notes?.length) return <></>
 
   return (
     <DescriptionList>

@@ -55,12 +55,12 @@ const MedicationSummary: FC<IProps> = ({ medication, ...rest }) => {
     <StyledSummary {...rest}>
       <StyledDescription>
         <Title medicationTitle={medication?.medicationReference?.code} form={medication?.medicationReference?.form} />
+        <AdditionalInfo hasChanged={hasChanged} hasVerificationComments={hasVerificationComments} />
         <Route route={route} />
         {hasIndications &&
           medication?.reasonCode?.map((indication, index) => (
             <Indication key={`medication-indication-${index + 1}`} indication={indication} />
           ))}
-        <AdditionalInfo hasChanged={hasChanged} hasVerificationComments={hasVerificationComments} />
       </StyledDescription>
       <StyledDosage>
         <MedicationDosageInstructions
