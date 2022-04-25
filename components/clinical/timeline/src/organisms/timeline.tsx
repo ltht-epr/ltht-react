@@ -114,6 +114,16 @@ const Timeline: FC<IProps> = (props, ...rest) => {
 
   const timelineDates: { [date: string]: Maybe<AuditEvent>[] } = {}
 
+  audit.sort((x, y) => {
+    if (+new Date(x?.period?.start?.value!) > +new Date(y?.period?.start?.value!)) {
+      return -1
+    }
+    if (+new Date(x?.period?.start?.value!) < +new Date(y?.period?.start?.value!)) {
+      return 1
+    }
+    return 0
+  })
+
   audit?.forEach((auditItem) => {
     if (!auditItem?.period?.start?.value) {
       return
