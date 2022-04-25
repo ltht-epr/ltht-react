@@ -17,9 +17,22 @@ export const Summary: Story = () => (
       <Card.Title>Problems & Diagnosis</Card.Title>
     </Card.Header>
     <Card.List>
-      {conditions.map((condition) => (
+      {conditions.map((condition, idx) => (
         <Card.ListItem key={condition.id}>
-          <DiagnosisSummary condition={condition} />
+          {idx === 0 && (
+            <DiagnosisSummary condition={condition} extendedTemplateName="Diagnosis Generic Cancer Level Two" />
+          )}
+          {idx === 1 && (
+            <DiagnosisSummary condition={condition} extensionTemplateName="Diagnosis Generic Cancer Level Two" />
+          )}
+          {idx === 2 && <DiagnosisSummary condition={condition} />}
+          {idx === 3 && (
+            <DiagnosisSummary
+              condition={condition}
+              extensionTemplateName="Diagnosis Generic Cancer Level Three"
+              extendedTemplateName="Diagnosis Generic Cancer Level Two"
+            />
+          )}
         </Card.ListItem>
       ))}
     </Card.List>

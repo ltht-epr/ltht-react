@@ -10,20 +10,20 @@ const StyleDosage = styled.div`
 const MedicationDosage: FC<IProps> = ({ dosageType }) => {
   if (!dosageType) return <></>
 
+  const dosageQuantityDisplay = dosageType.doseQuantity?.unit
+    ? `${dosageType.doseQuantity?.value} ${dosageType.doseQuantity?.unit}`
+    : `${dosageType.text?.split(',')[0] || ''}`
+
+  const dosageRangeDisplay =
+    dosageType.doseRange?.low?.unit && dosageType.doseRange?.high?.unit
+      ? `${dosageType.doseRange?.low?.value} ${dosageType.doseRange?.low?.unit} to ${dosageType.doseRange?.high?.value} ${dosageType.doseRange?.high?.unit}`
+      : `${dosageType.text?.split(',')[0] || ''}`
+
   if (dosageType.doseRange) {
-    return (
-      <StyleDosage>
-        {dosageType.doseRange?.low?.value} {dosageType.doseRange?.low?.unit} to {dosageType.doseRange?.high?.value}{' '}
-        {dosageType.doseRange?.high?.unit}
-      </StyleDosage>
-    )
+    return <StyleDosage>{dosageRangeDisplay}</StyleDosage>
   }
 
-  return (
-    <StyleDosage>
-      {dosageType.doseQuantity?.value} {dosageType.doseQuantity?.unit}
-    </StyleDosage>
-  )
+  return <StyleDosage>{dosageQuantityDisplay}</StyleDosage>
 }
 
 interface IProps {
