@@ -19,7 +19,7 @@ const MedicationAdditionalInfo: FC<IProps> = ({ hasChanged, hasVerificationComme
   return (
     <StyledMedicationAdditionalInfo>
       {hasChanged && <StyledBadge>Changed</StyledBadge>}
-      {hasVerificationComments && <CommentIcon size="large" />}
+      {hasVerificationComments && <CommentIcon size="medium" title="Has Additional Comments" />}
     </StyledMedicationAdditionalInfo>
   )
 }
