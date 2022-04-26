@@ -74,6 +74,9 @@ export const Dashboard: Story = () => {
     setView('detail')
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  const clickHandler = (): void => {}
+
   return (
     <Container>
       {view === 'summary' && (
@@ -124,7 +127,11 @@ export const Dashboard: Story = () => {
               <Card.List>
                 {conditions.map((condition) => (
                   <Card.ListItem key={condition.id} onClick={() => handleSetDetailView(condition.id)}>
-                    <DiagnosisSummary condition={condition} />
+                    <DiagnosisSummary
+                      condition={condition}
+                      extensionTemplateDisplayName="Test"
+                      extensionClickHandler={clickHandler}
+                    />
                   </Card.ListItem>
                 ))}
               </Card.List>

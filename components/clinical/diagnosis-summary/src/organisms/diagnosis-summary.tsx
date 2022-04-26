@@ -3,7 +3,7 @@ import styled from '@emotion/styled'
 
 import { Condition, ConditionVerificationStatus } from '@ltht-react/types'
 import { DateSummary } from '@ltht-react/type-summary'
-import { FolderPlusIcon, LayerGroupIcon } from '@ltht-react/icon'
+import { CommentIcon, FolderPlusIcon } from '@ltht-react/icon'
 
 import Category from '../atoms/diagnosis-category'
 import Status from '../atoms/diagnosis-status'
@@ -26,7 +26,13 @@ const IconWrapper = styled.div`
   display: inline-block;
 `
 
-const DiagnosisSummary: FC<Props> = ({ condition, extendedTemplateName, extensionTemplateName, ...rest }) => {
+const DiagnosisSummary: FC<Props> = ({
+  condition,
+  extendedTemplateDisplayName,
+  extensionTemplateDisplayName,
+  extensionClickHandler,
+  ...rest
+}) => {
   if (condition.metadata.isRedacted) {
     return (
       <StyledSummary {...rest}>
@@ -41,20 +47,21 @@ const DiagnosisSummary: FC<Props> = ({ condition, extendedTemplateName, extensio
     <StyledSummary {...rest}>
       <StyledDescription>
         <Title enteredInError={enteredInError} condition={condition} />
-        {extendedTemplateName && (
+        {extendedTemplateDisplayName && (
           <IconWrapper>
-            <LayerGroupIcon
+            <CommentIcon
               size="medium"
-              title={`This diagnosis has been extended beyond standard diagnosis with form '${extendedTemplateName}'.
+              title={`This diagnosis has been extended beyond standard diagnosis with form '${extendedTemplateDisplayName}'.
            To view these extra details, click into the full diagnosis detail or edit the existing form.`}
             />
           </IconWrapper>
         )}
-        {extensionTemplateName && (
+        {extensionTemplateDisplayName && (
           <IconWrapper>
             <FolderPlusIcon
               size="medium"
-              title={`This diagnosis can be extended further from the actions menu with form '${extensionTemplateName}'`}
+              title={`This diagnosis can be extended further to form '${extensionTemplateDisplayName}' by clicking here`}
+              onClick={extensionClickHandler}
             />
           </IconWrapper>
         )}
@@ -70,8 +77,9 @@ const DiagnosisSummary: FC<Props> = ({ condition, extendedTemplateName, extensio
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   condition: Condition
-  extendedTemplateName?: string | undefined
-  extensionTemplateName?: string | undefined
+  extendedTemplateDisplayName?: string | undefined
+  extensionTemplateDisplayName?: string | undefined
+  extensionClickHandler?(): void
 }
 
 export default DiagnosisSummary

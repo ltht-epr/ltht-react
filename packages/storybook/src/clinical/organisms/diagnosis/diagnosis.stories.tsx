@@ -11,33 +11,46 @@ const CODABLE_CONCEPT_LINK_MAP = {
   'Subcutaneous tissue of lateral border of sole of foot': 'https://www.google.com',
 }
 
-export const Summary: Story = () => (
-  <Card>
-    <Card.Header>
-      <Card.Title>Problems & Diagnosis</Card.Title>
-    </Card.Header>
-    <Card.List>
-      {conditions.map((condition, idx) => (
-        <Card.ListItem key={condition.id}>
-          {idx === 0 && (
-            <DiagnosisSummary condition={condition} extendedTemplateName="Diagnosis Generic Cancer Level Two" />
-          )}
-          {idx === 1 && (
-            <DiagnosisSummary condition={condition} extensionTemplateName="Diagnosis Generic Cancer Level Two" />
-          )}
-          {idx === 2 && <DiagnosisSummary condition={condition} />}
-          {idx === 3 && (
-            <DiagnosisSummary
-              condition={condition}
-              extensionTemplateName="Diagnosis Generic Cancer Level Three"
-              extendedTemplateName="Diagnosis Generic Cancer Level Two"
-            />
-          )}
-        </Card.ListItem>
-      ))}
-    </Card.List>
-  </Card>
-)
+export const Summary: Story = () => {
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  const clickHandler = (): void => {}
+
+  return (
+    <Card>
+      <Card.Header>
+        <Card.Title>Problems & Diagnosis</Card.Title>
+      </Card.Header>
+      <Card.List>
+        {conditions.map((condition, idx) => (
+          <Card.ListItem key={condition.id}>
+            {idx === 0 && (
+              <DiagnosisSummary
+                condition={condition}
+                extendedTemplateDisplayName="Diagnosis Generic Cancer Level Two"
+              />
+            )}
+            {idx === 1 && (
+              <DiagnosisSummary
+                condition={condition}
+                extensionTemplateDisplayName="Diagnosis Generic Cancer Level Two"
+                extensionClickHandler={clickHandler}
+              />
+            )}
+            {idx === 2 && <DiagnosisSummary condition={condition} />}
+            {idx === 3 && (
+              <DiagnosisSummary
+                condition={condition}
+                extensionTemplateDisplayName="Diagnosis Generic Cancer Level Three"
+                extendedTemplateDisplayName="Diagnosis Generic Cancer Level Two"
+                extensionClickHandler={clickHandler}
+              />
+            )}
+          </Card.ListItem>
+        ))}
+      </Card.List>
+    </Card>
+  )
+}
 
 export const Redacted: Story = () => (
   <Card>
