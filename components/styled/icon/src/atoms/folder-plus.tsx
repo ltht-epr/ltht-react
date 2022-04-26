@@ -11,17 +11,16 @@ const StyledFontAwesomeIcon = styled(FontAwesomeIcon)<ControlProps>`
     cursor: ${(clickable) => (clickable ? 'pointer' : '')};
   }
 `
-const FolderPlusIcon: FC<FolderPlusIconProps> = ({ size, ...rest }) => {
-  return (
-    <StyledFontAwesomeIcon
-      className="icon__folder__plus"
-      icon={faFolderPlus}
-      size={calculateIconSize(size)}
-      clickable={rest.onClick !== undefined}
-      {...rest}
-    />
-  )
-}
+const FolderPlusIcon: FC<FolderPlusIconProps> = ({ size, ...rest }) => (
+  <StyledFontAwesomeIcon
+    className="icon__folder__plus"
+    icon={faFolderPlus}
+    size={calculateIconSize(size)}
+    clickable={rest.onClick !== undefined}
+    {...rest}
+  />
+)
+
 interface ControlProps {
   clickable: boolean
 }
