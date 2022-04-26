@@ -61,7 +61,7 @@ const DiagnosisSummary: FC<Props> = ({
             <FolderPlusIcon
               size="medium"
               title={`This diagnosis can be extended further to form '${extensionTemplateDisplayName}' by clicking here`}
-              clickHandler={extensionClickHandler}
+              onClick={extensionClickHandler}
             />
           </IconWrapper>
         )}
