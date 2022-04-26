@@ -1,11 +1,9 @@
 import { Story } from '@storybook/react'
 import { FolderPlusIcon } from '@ltht-react/icon'
-
 // eslint-disable-next-line import/prefer-default-export
 export const FolderPlus: Story = () => {
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   const clickHandler = (): void => {}
-
   return (
     <>
       <FolderPlusIcon size="small" />
@@ -14,11 +12,11 @@ export const FolderPlus: Story = () => {
       <br />
       <FolderPlusIcon size="large" title="Test title" />
       <br />
-      <FolderPlusIcon size="small" clickHandler={clickHandler} />
+      <FolderPlusIcon size="small" onClick={clickHandler} />
       <br />
-      <FolderPlusIcon size="medium" clickHandler={clickHandler} />
+      <FolderPlusIcon size="medium" onClick={clickHandler} />
       <br />
-      <FolderPlusIcon size="large" title="Test title" clickHandler={clickHandler} />
+      <FolderPlusIcon size="large" title="Test title" onClick={clickHandler} />
     </>
   )
 }
