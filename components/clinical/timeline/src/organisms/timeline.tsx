@@ -9,6 +9,9 @@ import { useWindowSize } from '@ltht-react/hooks'
 import TimelineTime from '../atoms/timeline-time'
 import TimelineItem from '../molecules/timeline-item'
 
+/* eslint-disable  @typescript-eslint/no-non-null-assertion */
+/* eslint-disable  @typescript-eslint/no-non-null-asserted-optional-chain */
+
 const StyledTimeline = styled.div`
   margin: -0.75rem;
 `
