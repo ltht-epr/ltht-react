@@ -169,7 +169,7 @@ describe('formatPatientAge', () => {
       kind: PartialDateTimeKindCode.Date,
       value: date.toISOString(),
     }
-    expect(formatPatientAge(patient, false)).toEqual('5w')
+    expect(formatPatientAge(patient, false)).toEqual('5w 1d')
   })
 
   it('returns formatted age when birth date is specified (under 4 weeks and over 2 days)', () => {
