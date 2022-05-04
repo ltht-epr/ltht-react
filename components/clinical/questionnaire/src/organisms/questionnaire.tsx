@@ -16,9 +16,9 @@ const StyledQuestionnaire = styled.div`
 `
 
 const Questionnaire: FC<IProps> = ({ questionnaire, showTitle = false }) => {
-  const questions = questionnaire?.questionnaire.item
+  const questions = questionnaire?.questionnaire?.item
   const answers = questionnaire?.item
-  const title = questionnaire?.questionnaire.title
+  const title = questionnaire?.questionnaire?.title
 
   if (questionnaire?.metadata.isRedacted) return <Redacted questionnaire={questionnaire} />
 
