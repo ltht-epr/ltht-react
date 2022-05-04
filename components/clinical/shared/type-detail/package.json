@@ -36,5 +36,8 @@
     "react": "^17.0.0",
     "react-html-parser": "^2.0.2"
   },
+  "devDependencies": {
+    "@testing-library/react": "^11.2.3"
+  },
   "gitHead": "4d364556bb11e294d86697c2dac66742f7aabc7f"
 }
