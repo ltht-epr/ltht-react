@@ -1,14 +1,15 @@
 import { FC } from 'react'
-import { Period as PeriodType } from '@ltht-react/types'
+import { Maybe, Period as PeriodType } from '@ltht-react/types'
 import { periodSummaryText } from '@ltht-react/utils'
 import DescriptionList from '@ltht-react/description-list'
 
 const PeriodDetail: FC<Props> = ({ period }) => {
-  if (period?.start?.value || period?.end?.value) {
+  const summaryText = periodSummaryText(period)
+  if (summaryText !== '') {
     return (
       <DescriptionList>
         <DescriptionList.Term>Period</DescriptionList.Term>
-        <DescriptionList.Description>{periodSummaryText(period)}</DescriptionList.Description>
+        <DescriptionList.Description>{summaryText}</DescriptionList.Description>
       </DescriptionList>
     )
   }
@@ -16,7 +17,7 @@ const PeriodDetail: FC<Props> = ({ period }) => {
 }
 
 interface Props {
-  period?: PeriodType | null
+  period?: Maybe<PeriodType>
 }
 
 export default PeriodDetail

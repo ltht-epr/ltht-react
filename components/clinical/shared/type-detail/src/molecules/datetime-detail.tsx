@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { PartialDateTime } from '@ltht-react/types'
+import { Maybe, PartialDateTime } from '@ltht-react/types'
 import { partialDateTimeText } from '@ltht-react/utils'
 import DescriptionList from '@ltht-react/description-list'
 
@@ -18,7 +18,7 @@ const DatetimeDetail: FC<Props> = ({ term, datetime }) => {
 
 interface Props {
   term: string
-  datetime?: PartialDateTime | null
+  datetime?: Maybe<PartialDateTime>
 }
 
 export default DatetimeDetail

@@ -30,17 +30,18 @@ const CodeableConceptListDetail: FC<Props> = ({ term, concepts, links = {} }) =>
         <DescriptionList.Term>{term}</DescriptionList.Term>
         {concepts?.map((item, index) => {
           if (item?.text) {
-            const linkUrl = links[codeableConceptDisplaySummary(item)]
+            const displaySummary = codeableConceptDisplaySummary(item)
+            const linkUrl = links[displaySummary]
 
             return (
               <Fragment key={`${term}-${index}`}>
                 {linkUrl ? (
                   <StyledLink href={linkUrl} target="_blank">
-                    <DescriptionList.Description>{codeableConceptDisplaySummary(item)}</DescriptionList.Description>
+                    <DescriptionList.Description>{displaySummary}</DescriptionList.Description>
                     <ExternalLinkIcon size="small" />
                   </StyledLink>
                 ) : (
-                  <DescriptionList.Description>{codeableConceptDisplaySummary(item)}</DescriptionList.Description>
+                  <DescriptionList.Description>{displaySummary}</DescriptionList.Description>
                 )}
               </Fragment>
             )
@@ -56,7 +57,7 @@ const CodeableConceptListDetail: FC<Props> = ({ term, concepts, links = {} }) =>
 
 interface Props {
   term: string
-  concepts?: Maybe<CodeableConcept>[] | null
+  concepts?: Maybe<CodeableConcept[]>
   // TODO: Define 'links?' type once code link config implementation has been done
   links?: any // eslint-disable-line
 }

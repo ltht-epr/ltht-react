@@ -22,7 +22,7 @@ const CodingListDetail: FC<Props> = ({ term, codings }) => {
 
 interface Props {
   term: string
-  codings?: Maybe<Coding>[]
+  codings?: Maybe<Coding[]>
 }
 
 export default CodingListDetail

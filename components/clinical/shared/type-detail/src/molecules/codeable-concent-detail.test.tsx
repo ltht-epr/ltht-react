@@ -25,4 +25,6 @@ describe('CodeableConceptDetail', () => {
 
     expect(screen.queryAllByText('Some concepts').length).toBe(0)
   })
+
+  // TODO: Tests for external links
 })

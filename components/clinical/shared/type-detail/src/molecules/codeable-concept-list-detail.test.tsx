@@ -32,9 +32,17 @@ describe('CodeableConceptListDetail', () => {
     await screen.findByText('Concept text 2')
   })
 
-  it('shows nothing when there is no concept', async () => {
+  it('shows nothing when there is no concept', () => {
     render(<CodeableConceptListDetail term="Some concepts" />)
 
     expect(screen.queryByText('Some concepts')).toBeNull()
   })
+
+  it('shows nothing when the concept list is empty', () => {
+    render(<CodeableConceptListDetail term="Some concepts" concepts={[]} />)
+
+    expect(screen.queryByText('Some concepts')).toBeNull()
+  })
+
+  // TODO: Tests for external links
 })

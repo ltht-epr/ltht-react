@@ -24,7 +24,7 @@ const ResourceReferenceListDetail: FC<Props> = ({ term, resourceReferences }) =>
 
 interface Props {
   term: string
-  resourceReferences?: Maybe<ResourceReference>[] | null
+  resourceReferences?: Maybe<ResourceReference[]>
 }
 
 export default ResourceReferenceListDetail

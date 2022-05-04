@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import styled from '@emotion/styled'
-import { CodeableConcept } from '@ltht-react/types'
+import { CodeableConcept, Maybe } from '@ltht-react/types'
 import { ExternalLinkIcon } from '@ltht-react/icon'
 import { LINK_COLOURS } from '@ltht-react/styles'
 import { codeableConceptDisplaySummary } from '@ltht-react/utils'
@@ -25,18 +25,19 @@ const StyledLink = styled.a`
 
 const CodeableConceptDetail: FC<Props> = ({ term, concept, links = {} }) => {
   if (concept) {
-    const linkUrl = links[codeableConceptDisplaySummary(concept)]
+    const displaySummary = codeableConceptDisplaySummary(concept)
+    const linkUrl = links[displaySummary]
 
     return (
       <DescriptionList>
         <DescriptionList.Term>{term}</DescriptionList.Term>
         {linkUrl ? (
           <StyledLink href={linkUrl} target="_blank">
-            <DescriptionList.Description>{codeableConceptDisplaySummary(concept)}</DescriptionList.Description>
+            <DescriptionList.Description>{displaySummary}</DescriptionList.Description>
             <ExternalLinkIcon size="small" />
           </StyledLink>
         ) : (
-          <DescriptionList.Description>{codeableConceptDisplaySummary(concept)}</DescriptionList.Description>
+          <DescriptionList.Description>{displaySummary}</DescriptionList.Description>
         )}
       </DescriptionList>
     )
@@ -46,7 +47,7 @@ const CodeableConceptDetail: FC<Props> = ({ term, concept, links = {} }) => {
 
 interface Props {
   term: string
-  concept?: CodeableConcept | null
+  concept?: Maybe<CodeableConcept>
   // TODO: Define 'links?' type once code link config implementation has been done
   links?: any // eslint-disable-line
 }

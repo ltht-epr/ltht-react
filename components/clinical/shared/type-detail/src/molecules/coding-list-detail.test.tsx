@@ -26,4 +26,10 @@ describe('CodingListDetail', () => {
 
     expect(screen.queryByText('Coding list')).toBeNull()
   })
+
+  it('should show nothing if the codings list is empty', () => {
+    render(<CodingListDetail term="Coding list" codings={[]} />)
+
+    expect(screen.queryByText('Coding list')).toBeNull()
+  })
 })

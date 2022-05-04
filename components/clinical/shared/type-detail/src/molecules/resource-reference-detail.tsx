@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { ResourceReference } from '@ltht-react/types'
+import { Maybe, ResourceReference } from '@ltht-react/types'
 import DescriptionList from '@ltht-react/description-list'
 
 const ResourceReferenceDetail: FC<Props> = ({ term, resourceReference }) => {
@@ -24,7 +24,7 @@ const ResourceReferenceDetail: FC<Props> = ({ term, resourceReference }) => {
 
 interface Props {
   term?: string | null
-  resourceReference?: ResourceReference | null
+  resourceReference?: Maybe<ResourceReference>
 }
 
 export default ResourceReferenceDetail
