@@ -599,7 +599,7 @@ const SingleMedication1: MedicationRequest = {
   medicationReference: {
     code: {
       coding: [],
-      text: 'valsartan 26mg \u002B sacubitril 24mg',
+      text: 'DUAKLIR GENUAIR 340microgram+12microgram inhalation powder DPI',
     },
     form: {
       coding: [],
