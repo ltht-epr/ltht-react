@@ -1,6 +1,6 @@
 {
   "name": "@ltht-react/eform",
-  "version": "1.3.68",
+  "version": "1.3.69",
   "description": "ltht-react clinical EForm component.",
   "author": "LTHT",
   "homepage": "",
@@ -27,9 +27,9 @@
   "dependencies": {
     "@emotion/react": "^11.0.0",
     "@emotion/styled": "^11.0.0",
-    "@ltht-react/styles": "^1.3.62",
-    "@ltht-react/types": "^1.0.66",
-    "@ltht-react/utils": "^1.1.68",
+    "@ltht-react/styles": "^1.3.63",
+    "@ltht-react/types": "^1.0.67",
+    "@ltht-react/utils": "^1.1.69",
     "react": "^17.0.0"
   },
   "gitHead": "4d364556bb11e294d86697c2dac66742f7aabc7f"
