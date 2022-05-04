@@ -8,6 +8,7 @@ import { codeableConceptDisplaySummary } from '@ltht-react/utils'
 const StyledMedicationTitle = styled.div`
   color: ${TEXT_COLOURS.PRIMARY};
   text-align: left;
+  word-wrap: break-word;
 `
 
 const MedicationTitle: FC<IProps> = ({ medicationTitle, form, ...rest }) => (
