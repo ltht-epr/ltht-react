@@ -126,7 +126,7 @@ function QuestionnaireQuestions(
 }
 
 const Questionnaire: FC<IProps> = ({ questionnaire, showTitle = false, displayDynamic = false }) => {
-  const questions = questionnaire?.questionnaire.item
+  const questions = questionnaire?.questionnaire?.item
   const answers = questionnaire?.item
   const title = questionnaire?.questionnaire?.title
 
