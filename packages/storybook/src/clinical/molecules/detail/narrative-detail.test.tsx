@@ -1,12 +1,9 @@
-import { Narrative } from '@ltht-react/types'
 import { render, screen } from '@testing-library/react'
-import NarrativeDetail from './narrative-detail'
+import { NarrativeDetail } from '@ltht-react/type-detail'
+
+import { narrative } from './detail.fixtures'
 
 describe('NarrativeDetail', () => {
-  const narrative: Narrative = {
-    text: 'The narrative text',
-    div: '<div>The narrative xhtml</div>',
-  }
   it('should show narrative text if available', async () => {
     render(<NarrativeDetail narrative={narrative} />)
 

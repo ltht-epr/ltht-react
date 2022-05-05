@@ -1,17 +1,14 @@
-import { PartialDateTimeKindCode, Period } from '@ltht-react/types'
 import { render, screen } from '@testing-library/react'
-import PeriodDetail from './period-detail'
+import { PeriodDetail } from '@ltht-react/type-detail'
+
+import { period } from './detail.fixtures'
 
 describe('PeriodDetail', () => {
-  const period: Period = {
-    start: { value: '2022-05-04T08:00:00+00:00', kind: PartialDateTimeKindCode.Date },
-    end: { value: '2022-05-14T16:00:00+00:00', kind: PartialDateTimeKindCode.Date },
-  }
   it('should show details if present', async () => {
     render(<PeriodDetail period={period} />)
 
     await screen.findByText('Period')
-    await screen.findByText('04-May-2022 to 14-May-2022')
+    await screen.findByText('01-Apr-2020 to Present')
   })
 
   it('should not show anything if details are not present', () => {

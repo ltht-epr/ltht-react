@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react'
-import NestedListDetail from './nested-list-detail'
+import { NestedListDetail } from '@ltht-react/type-detail'
 
 describe('NarrativeDetail', () => {
   it('should show children if available', async () => {

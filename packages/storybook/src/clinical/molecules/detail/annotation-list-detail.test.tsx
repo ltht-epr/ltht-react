@@ -1,16 +1,15 @@
-import { Annotation } from '@ltht-react/types'
 import { render, screen } from '@testing-library/react'
+import { AnnotationListDetail } from '@ltht-react/type-detail'
 
-import AnnotationListDetail from './annotation-list-detail'
+import { annotations } from './detail.fixtures'
 
 describe('AnnotationListDetail', () => {
-  const notes: Annotation[] = [{ text: 'First note' }]
-
   it('shows title and value when available', async () => {
-    render(<AnnotationListDetail term="Some annotations" notes={notes} />)
+    render(<AnnotationListDetail term="Some annotations" notes={annotations} />)
 
-    await screen.findByText('Some annotations')
-    await screen.findByText('First note')
+    await screen.findByText(annotations[0].text)
+    await screen.findByText(annotations[1].text)
+    await screen.findByText(annotations[1].author?.display || '')
   })
 
   it('shows nothing when there are no notes', async () => {

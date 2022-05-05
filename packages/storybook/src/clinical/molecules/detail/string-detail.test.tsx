@@ -1,6 +1,5 @@
 import { render, screen } from '@testing-library/react'
-
-import StringDetail from './string-detail'
+import { StringDetail } from '@ltht-react/type-detail'
 
 describe('StringDetail', () => {
   it('Should show the term and details if availabile', async () => {

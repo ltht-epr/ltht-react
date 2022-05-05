@@ -1,12 +1,9 @@
-import { ResourceReference } from '@ltht-react/types'
 import { render, screen } from '@testing-library/react'
-import ResourceReferenceDetail from './resource-reference-detail'
+import { ResourceReferenceDetail } from '@ltht-react/type-detail'
+
+import { resourceReference } from './detail.fixtures'
 
 describe('ResourceReferenceDetail', () => {
-  const resourceReference: ResourceReference = {
-    display: 'A resource reference',
-    typeName: 'Patient',
-  }
   it('should show a term and details if available', async () => {
     render(<ResourceReferenceDetail term="RRD" resourceReference={resourceReference} />)
 

@@ -1,6 +1,6 @@
 import { Coding } from '@ltht-react/types'
 import { render, screen } from '@testing-library/react'
-import CodingListDetail from './coding-list-detail'
+import { CodingListDetail } from '@ltht-react/type-detail'
 
 describe('CodingListDetail', () => {
   const codings: Coding[] = [
@@ -13,6 +13,7 @@ describe('CodingListDetail', () => {
       display: 'Second coding',
     },
   ]
+
   it('should show title and codings if present', async () => {
     render(<CodingListDetail term="Coding list" codings={codings} />)
 
