@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { Maybe, Narrative } from '@ltht-react/types'
+import { Narrative } from '@ltht-react/types'
 import DescriptionList from '@ltht-react/description-list'
 
 const NarrativeDetail: FC<Props> = ({ narrative }) => {
@@ -15,7 +15,7 @@ const NarrativeDetail: FC<Props> = ({ narrative }) => {
 }
 
 interface Props {
-  narrative?: Maybe<Narrative>
+  narrative?: Narrative | null
 }
 
 export default NarrativeDetail

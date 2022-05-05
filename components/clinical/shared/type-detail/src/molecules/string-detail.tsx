@@ -2,7 +2,6 @@ import { FC } from 'react'
 import { titleCase } from '@ltht-react/utils'
 import DescriptionList from '@ltht-react/description-list'
 import ReactHtmlParser from 'react-html-parser'
-import { Maybe } from '@ltht-react/types'
 
 const StringDetail: FC<Props> = ({ term, description }) => {
   if (description) {
@@ -18,7 +17,7 @@ const StringDetail: FC<Props> = ({ term, description }) => {
 
 interface Props {
   term: string
-  description?: Maybe<string>
+  description?: string | null
 }
 
 export default StringDetail

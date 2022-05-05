@@ -35,7 +35,7 @@ const AnnotationListDetail: FC<IProps> = ({ term, notes }) => {
 
 interface IProps {
   term: string
-  notes?: Maybe<Annotation[]>
+  notes?: Maybe<Maybe<Annotation>[]>
 }
 
 interface IStyledAnnotation {

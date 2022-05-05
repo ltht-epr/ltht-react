@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { Maybe, Period as PeriodType } from '@ltht-react/types'
+import { Period as PeriodType } from '@ltht-react/types'
 import { periodSummaryText } from '@ltht-react/utils'
 import DescriptionList from '@ltht-react/description-list'
 
@@ -17,7 +17,7 @@ const PeriodDetail: FC<Props> = ({ period }) => {
 }
 
 interface Props {
-  period?: Maybe<PeriodType>
+  period?: PeriodType | null
 }
 
 export default PeriodDetail

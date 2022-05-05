@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import styled from '@emotion/styled'
-import { CodeableConcept, Maybe } from '@ltht-react/types'
+import { CodeableConcept } from '@ltht-react/types'
 import { ExternalLinkIcon } from '@ltht-react/icon'
 import { LINK_COLOURS } from '@ltht-react/styles'
 import { codeableConceptDisplaySummary } from '@ltht-react/utils'
@@ -47,7 +47,7 @@ const CodeableConceptDetail: FC<Props> = ({ term, concept, links = {} }) => {
 
 interface Props {
   term: string
-  concept?: Maybe<CodeableConcept>
+  concept?: CodeableConcept | null
   // TODO: Define 'links?' type once code link config implementation has been done
   links?: any // eslint-disable-line
 }
