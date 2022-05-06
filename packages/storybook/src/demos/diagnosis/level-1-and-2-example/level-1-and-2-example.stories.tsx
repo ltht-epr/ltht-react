@@ -68,7 +68,6 @@ const BackButtonText = styled.span`
 export const Dashboard: Story = () => {
   const [view, setView] = useState('summary')
   const [selectedCondition, setSelectedCondition] = useState(conditions[0])
-  const [showAll, setShowAll] = useState(false)
 
   const handleSetDetailView = (id: string) => {
     const selectedCondition = conditions.find(({ id: conditionId }) => id === conditionId) || conditions[0]

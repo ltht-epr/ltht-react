@@ -49,7 +49,8 @@ interface Props {
   term: string
   concept?: CodeableConcept | null
   // TODO: Define 'links?' type once code link config implementation has been done
-  links?: any // eslint-disable-line,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  links?: any
   showIfEmpty?: Maybe<Scalars['Boolean']>
 }
 
