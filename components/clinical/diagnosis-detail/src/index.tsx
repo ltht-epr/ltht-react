@@ -9,6 +9,7 @@ import {
   DatetimeDetail,
   ResourceReferenceDetail,
   CodingListDetail,
+  CollapsibleDetailCollection,
 } from '@ltht-react/type-detail'
 
 import Questionnaire from '@ltht-react/questionnaire'
@@ -102,7 +103,7 @@ const StyledDetail = styled.div`
   }
 `
 
-const DiagnosisDetail: FC<Props> = ({ condition, links, viewType }) => {
+const DiagnosisDetail: FC<Props> = ({ condition, links, viewType = DetailViewType.Compact }) => {
   // Default to compact view
   const showIfEmpty = viewType === DetailViewType.Expanded
   return (
@@ -120,38 +121,43 @@ const DiagnosisDetail: FC<Props> = ({ condition, links, viewType }) => {
             <Seperator />
           </>
         ))}
-
-      <StyledDetail>
-        <DatetimeDetail term="Onset Date" datetime={condition.onset?.dateTime} showIfEmpty={showIfEmpty} />
-        <StringDetail
-          term="Clinical Status"
-          description={condition.clinicalStatus?.toString()}
-          showIfEmpty={showIfEmpty}
-        />
-        <StringDetail
-          term="Verification Status"
-          description={condition.verificationStatus?.toString()}
-          showIfEmpty={showIfEmpty}
-        />
-        <CodeableConceptListDetail term="Category" concepts={condition.category} showIfEmpty={showIfEmpty} />
-        <CodeableConceptDetail term="Severity" concept={condition.severity} showIfEmpty={showIfEmpty} />
-        <CodeableConceptListDetail
-          term="Location"
-          concepts={condition.bodySite}
-          links={links}
-          showIfEmpty={showIfEmpty}
-        />
-        <AnnotationListDetail term="Note(s)" notes={condition.note} showIfEmpty={showIfEmpty} />
-        <CodeableConceptDetail
-          term="Stage"
-          concept={condition.stage?.summary}
-          links={links}
-          showIfEmpty={showIfEmpty}
-        />
-        <ResourceReferenceDetail term="Asserted By" resourceReference={condition.asserter} showIfEmpty={showIfEmpty} />
-        <DatetimeDetail term="Asserted Date" datetime={condition.assertedDate} showIfEmpty={showIfEmpty} />
-        <DatetimeDetail term="Abatement Date" datetime={condition.abatement?.dateTime} showIfEmpty={showIfEmpty} />
-      </StyledDetail>
+      <CollapsibleDetailCollection viewType={viewType}>
+        <StyledDetail>
+          <DatetimeDetail term="Onset Date" datetime={condition.onset?.dateTime} showIfEmpty={showIfEmpty} />
+          <StringDetail
+            term="Clinical Status"
+            description={condition.clinicalStatus?.toString()}
+            showIfEmpty={showIfEmpty}
+          />
+          <StringDetail
+            term="Verification Status"
+            description={condition.verificationStatus?.toString()}
+            showIfEmpty={showIfEmpty}
+          />
+          <CodeableConceptListDetail term="Category" concepts={condition.category} showIfEmpty={showIfEmpty} />
+          <CodeableConceptDetail term="Severity" concept={condition.severity} showIfEmpty={showIfEmpty} />
+          <CodeableConceptListDetail
+            term="Location"
+            concepts={condition.bodySite}
+            links={links}
+            showIfEmpty={showIfEmpty}
+          />
+          <AnnotationListDetail term="Note(s)" notes={condition.note} showIfEmpty={showIfEmpty} />
+          <CodeableConceptDetail
+            term="Stage"
+            concept={condition.stage?.summary}
+            links={links}
+            showIfEmpty={showIfEmpty}
+          />
+          <ResourceReferenceDetail
+            term="Asserted By"
+            resourceReference={condition.asserter}
+            showIfEmpty={showIfEmpty}
+          />
+          <DatetimeDetail term="Asserted Date" datetime={condition.assertedDate} showIfEmpty={showIfEmpty} />
+          <DatetimeDetail term="Abatement Date" datetime={condition.abatement?.dateTime} showIfEmpty={showIfEmpty} />
+        </StyledDetail>
+      </CollapsibleDetailCollection>
     </>
   )
 }
