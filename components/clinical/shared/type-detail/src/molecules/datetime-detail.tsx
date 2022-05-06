@@ -1,11 +1,11 @@
 import { FC } from 'react'
-import { PartialDateTime } from '@ltht-react/types'
+import { Maybe, PartialDateTime, Scalars } from '@ltht-react/types'
 import { partialDateTimeText } from '@ltht-react/utils'
 import DescriptionList from '@ltht-react/description-list'
 
-const DatetimeDetail: FC<Props> = ({ term, datetime }) => {
+const DatetimeDetail: FC<Props> = ({ term, datetime, showIfEmpty }) => {
   const dateTimeText = partialDateTimeText(datetime)
-  if (dateTimeText !== '') {
+  if (dateTimeText !== '' || showIfEmpty === true) {
     return (
       <DescriptionList>
         <DescriptionList.Term>{term}</DescriptionList.Term>
@@ -19,6 +19,7 @@ const DatetimeDetail: FC<Props> = ({ term, datetime }) => {
 interface Props {
   term: string
   datetime?: PartialDateTime | null
+  showIfEmpty?: Maybe<Scalars['Boolean']>
 }
 
 export default DatetimeDetail

@@ -33,4 +33,10 @@ describe('CodingListDetail', () => {
 
     expect(screen.queryByText('Coding list')).toBeNull()
   })
+
+  it('should show the term and no value if told to do so', async () => {
+    render(<CodingListDetail term="Coding list" codings={[]} showIfEmpty />)
+
+    await screen.findByText('Coding list')
+  })
 })

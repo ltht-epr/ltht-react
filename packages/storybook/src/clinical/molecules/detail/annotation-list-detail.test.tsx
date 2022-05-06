@@ -12,9 +12,22 @@ describe('AnnotationListDetail', () => {
     await screen.findByText(annotations[1].author?.display || '')
   })
 
-  it('shows nothing when there are no notes', async () => {
+  it('shows nothing when passed an empty list of notes', async () => {
     render(<AnnotationListDetail term="Some annotations" notes={[]} />)
 
-    expect(screen.queryAllByText('Some annotations').length).toBe(0)
+    expect(screen.queryByText('Some annotations')).toBeNull()
+  })
+
+  it('shows nothing when no notes are passed', async () => {
+    render(<AnnotationListDetail term="Some annotations" />)
+
+    expect(screen.queryByText('Some annotations')).toBeNull()
+  })
+
+  it('shows the term with no value if told to', async () => {
+    const showIfEmpty = true
+    render(<AnnotationListDetail term="Some annotations" showIfEmpty={showIfEmpty} />)
+
+    await screen.findByText('Some annotations')
   })
 })

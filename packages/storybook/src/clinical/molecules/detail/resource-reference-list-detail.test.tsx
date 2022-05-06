@@ -25,4 +25,13 @@ describe('ResourceReferenceDetailList', () => {
     expect(screen.queryByText('Smith, John (dr)')).toBeNull()
     expect(screen.queryByText('Doe, John (dr)')).toBeNull()
   })
+
+  it('should show a term and no details when told to', async () => {
+    render(<ResourceReferenceListDetail term="RRDL" showIfEmpty />)
+
+    await screen.findByText('RRDL')
+    screen.debug()
+    expect(screen.queryByText('Smith, John (dr)')).toBeNull()
+    expect(screen.queryByText('Doe, John (dr)')).toBeNull()
+  })
 })

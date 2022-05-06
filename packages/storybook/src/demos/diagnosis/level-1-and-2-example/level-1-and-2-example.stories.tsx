@@ -11,6 +11,8 @@ import HospitalStaySummary from '@ltht-react/hospital-stay-summary'
 import { ChevronIcon } from '@ltht-react/icon'
 import { DESKTOP_MINIMUM_MEDIA_QUERY, ICON_COLOURS } from '@ltht-react/styles'
 import Card from '@ltht-react/card'
+import { DetailViewType } from '@ltht-react/types'
+
 import conditions from './diagnosis.fixtures'
 
 import allergies from '../../../clinical/organisms/allergies/allergies.fixtures'
@@ -66,6 +68,7 @@ const BackButtonText = styled.span`
 export const Dashboard: Story = () => {
   const [view, setView] = useState('summary')
   const [selectedCondition, setSelectedCondition] = useState(conditions[0])
+  const [showAll, setShowAll] = useState(false)
 
   const handleSetDetailView = (id: string) => {
     const selectedCondition = conditions.find(({ id: conditionId }) => id === conditionId) || conditions[0]
@@ -201,7 +204,7 @@ export const Dashboard: Story = () => {
                 <Card.Title style={{ textAlign: 'center' }}>Diagnosis</Card.Title>
               </Card.Header>
               <Card.Body>
-                <DiagnosisDetail condition={selectedCondition} />
+                <DiagnosisDetail condition={selectedCondition} viewType={DetailViewType.Compact} />
               </Card.Body>
             </Card>
             <Card>

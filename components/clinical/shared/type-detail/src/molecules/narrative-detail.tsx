@@ -1,13 +1,13 @@
 import { FC } from 'react'
-import { Narrative } from '@ltht-react/types'
+import { Maybe, Narrative, Scalars } from '@ltht-react/types'
 import DescriptionList from '@ltht-react/description-list'
 
-const NarrativeDetail: FC<Props> = ({ narrative }) => {
-  if (narrative && narrative.text.length > 0) {
+const NarrativeDetail: FC<Props> = ({ narrative, showIfEmpty = false }) => {
+  if ((narrative && narrative.text.length > 0) || showIfEmpty === true) {
     return (
       <DescriptionList>
         <DescriptionList.Term>Text</DescriptionList.Term>
-        <DescriptionList.Description>{narrative.text}</DescriptionList.Description>
+        <DescriptionList.Description>{narrative?.text}</DescriptionList.Description>
       </DescriptionList>
     )
   }
@@ -16,6 +16,7 @@ const NarrativeDetail: FC<Props> = ({ narrative }) => {
 
 interface Props {
   narrative?: Narrative | null
+  showIfEmpty?: Maybe<Scalars['Boolean']>
 }
 
 export default NarrativeDetail

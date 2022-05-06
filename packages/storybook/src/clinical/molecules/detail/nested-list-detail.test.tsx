@@ -14,6 +14,7 @@ describe('NarrativeDetail', () => {
     await screen.findByText('Nested list')
     await screen.findByText('A list entry')
   })
+
   it('should still render without children', async () => {
     render(<NestedListDetail term="Nested list" />)
 

@@ -14,4 +14,10 @@ describe('StringDetail', () => {
 
     expect(screen.queryByText('String detail')).toBeNull()
   })
+
+  it('should show the term when no description and told to', async () => {
+    render(<StringDetail term="String detail" showIfEmpty />)
+
+    await screen.findByText('String detail')
+  })
 })

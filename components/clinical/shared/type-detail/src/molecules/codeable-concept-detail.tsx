@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import styled from '@emotion/styled'
-import { CodeableConcept } from '@ltht-react/types'
+import { CodeableConcept, Maybe, Scalars } from '@ltht-react/types'
 import { ExternalLinkIcon } from '@ltht-react/icon'
 import { LINK_COLOURS } from '@ltht-react/styles'
 import { codeableConceptDisplaySummary } from '@ltht-react/utils'
@@ -23,8 +23,8 @@ const StyledLink = styled.a`
   }
 `
 
-const CodeableConceptDetail: FC<Props> = ({ term, concept, links = {} }) => {
-  if (concept) {
+const CodeableConceptDetail: FC<Props> = ({ term, concept, links = {}, showIfEmpty = false }) => {
+  if (concept || showIfEmpty === true) {
     const displaySummary = codeableConceptDisplaySummary(concept)
     const linkUrl = links[displaySummary]
 
@@ -49,7 +49,8 @@ interface Props {
   term: string
   concept?: CodeableConcept | null
   // TODO: Define 'links?' type once code link config implementation has been done
-  links?: any // eslint-disable-line
+  links?: any // eslint-disable-line,
+  showIfEmpty?: Maybe<Scalars['Boolean']>
 }
 
 export default CodeableConceptDetail

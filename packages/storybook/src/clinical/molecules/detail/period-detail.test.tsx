@@ -16,4 +16,10 @@ describe('PeriodDetail', () => {
 
     expect(screen.queryByText('Period')).toBeNull()
   })
+
+  it('should show the term but no value if told to', async () => {
+    render(<PeriodDetail showIfEmpty />)
+
+    await screen.findByText('Period')
+  })
 })

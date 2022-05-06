@@ -24,4 +24,18 @@ describe('ResourceReferenceDetail', () => {
 
     expect(screen.queryByText(resourceReference.display)).toBeNull()
   })
+
+  it('should show term with no value if told to', async () => {
+    render(<ResourceReferenceDetail term="RRD" showIfEmpty />)
+
+    await screen.findByText('RRD')
+  })
+
+  it('should not show anything if  no value if told to', async () => {
+    render(<ResourceReferenceDetail showIfEmpty />)
+
+    screen.debug()
+
+    expect(screen.queryByText('RRD')).toBeNull()
+  })
 })

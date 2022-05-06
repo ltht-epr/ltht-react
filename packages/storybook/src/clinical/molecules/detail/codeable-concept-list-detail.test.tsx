@@ -38,5 +38,11 @@ describe('CodeableConceptListDetail', () => {
     expect(screen.queryByText('Some concepts')).toBeNull()
   })
 
+  it('shows the term with no value if told to', async () => {
+    render(<CodeableConceptListDetail term="Some concepts" showIfEmpty />)
+
+    await screen.findByText('Some concepts')
+  })
+
   // TODO: Tests for external links
 })

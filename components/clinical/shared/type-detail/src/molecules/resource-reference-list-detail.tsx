@@ -1,10 +1,10 @@
 import { FC } from 'react'
-import { ResourceReference, Maybe } from '@ltht-react/types'
+import { ResourceReference, Maybe, Scalars } from '@ltht-react/types'
 import DescriptionList from '@ltht-react/description-list'
 import { titleCase } from '@ltht-react/utils'
 
-const ResourceReferenceListDetail: FC<Props> = ({ term, resourceReferences }) => {
-  if (resourceReferences) {
+const ResourceReferenceListDetail: FC<Props> = ({ term, resourceReferences, showIfEmpty }) => {
+  if (resourceReferences || showIfEmpty) {
     return (
       <DescriptionList>
         <DescriptionList.Term>{term}</DescriptionList.Term>
@@ -25,6 +25,7 @@ const ResourceReferenceListDetail: FC<Props> = ({ term, resourceReferences }) =>
 interface Props {
   term: string
   resourceReferences?: Maybe<ResourceReference>[] | null
+  showIfEmpty?: Maybe<Scalars['Boolean']>
 }
 
 export default ResourceReferenceListDetail

@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import styled from '@emotion/styled'
-import { Condition } from '@ltht-react/types'
+import { Condition, Maybe, DetailViewType } from '@ltht-react/types'
 import {
   StringDetail,
   AnnotationListDetail,
@@ -102,42 +102,64 @@ const StyledDetail = styled.div`
   }
 `
 
-const DiagnosisDetail: FC<Props> = ({ condition, links }) => (
-  <>
-    <TopSection>
-      <CodeableConceptDetail term="Diagnosis" concept={condition.code} links={links} />
-      <CodingListDetail term="Data Source(s)" codings={condition.metadata.dataSources} />
-    </TopSection>
+const DiagnosisDetail: FC<Props> = ({ condition, links, viewType }) => {
+  // Default to compact view
+  const showIfEmpty = viewType === DetailViewType.Expanded
+  return (
+    <>
+      <TopSection>
+        <CodeableConceptDetail term="Diagnosis" concept={condition.code} links={links} />
+        <CodingListDetail term="Data Source(s)" codings={condition.metadata.dataSources} />
+      </TopSection>
 
-    {condition.extensionData &&
-      condition?.extensionData.map((item, index) => (
-        <>
-          {index === 0 && <Seperator />}
-          <Questionnaire questionnaire={item} showTitle displayDynamic />
-          <Seperator />
-        </>
-      ))}
+      {condition.extensionData &&
+        condition?.extensionData.map((item, index) => (
+          <>
+            {index === 0 && <Seperator />}
+            <Questionnaire questionnaire={item} showTitle displayDynamic />
+            <Seperator />
+          </>
+        ))}
 
-    <StyledDetail>
-      <DatetimeDetail term="Onset Date" datetime={condition.onset?.dateTime} />
-      <StringDetail term="Clinical Status" description={condition.clinicalStatus?.toString()} />
-      <StringDetail term="Verification Status" description={condition.verificationStatus?.toString()} />
-      <CodeableConceptListDetail term="Category" concepts={condition.category} />
-      <CodeableConceptDetail term="Severity" concept={condition.severity} />
-      <CodeableConceptListDetail term="Location" concepts={condition.bodySite} links={links} />
-      <AnnotationListDetail term="Note(s)" notes={condition.note} />
-      <CodeableConceptDetail term="Stage" concept={condition.stage?.summary} links={links} />
-      <ResourceReferenceDetail term="Asserted By" resourceReference={condition.asserter} />
-      <DatetimeDetail term="Asserted Date" datetime={condition.assertedDate} />
-      <DatetimeDetail term="Abatement Date" datetime={condition.abatement?.dateTime} />
-    </StyledDetail>
-  </>
-)
-
+      <StyledDetail>
+        <DatetimeDetail term="Onset Date" datetime={condition.onset?.dateTime} showIfEmpty={showIfEmpty} />
+        <StringDetail
+          term="Clinical Status"
+          description={condition.clinicalStatus?.toString()}
+          showIfEmpty={showIfEmpty}
+        />
+        <StringDetail
+          term="Verification Status"
+          description={condition.verificationStatus?.toString()}
+          showIfEmpty={showIfEmpty}
+        />
+        <CodeableConceptListDetail term="Category" concepts={condition.category} showIfEmpty={showIfEmpty} />
+        <CodeableConceptDetail term="Severity" concept={condition.severity} showIfEmpty={showIfEmpty} />
+        <CodeableConceptListDetail
+          term="Location"
+          concepts={condition.bodySite}
+          links={links}
+          showIfEmpty={showIfEmpty}
+        />
+        <AnnotationListDetail term="Note(s)" notes={condition.note} showIfEmpty={showIfEmpty} />
+        <CodeableConceptDetail
+          term="Stage"
+          concept={condition.stage?.summary}
+          links={links}
+          showIfEmpty={showIfEmpty}
+        />
+        <ResourceReferenceDetail term="Asserted By" resourceReference={condition.asserter} showIfEmpty={showIfEmpty} />
+        <DatetimeDetail term="Asserted Date" datetime={condition.assertedDate} showIfEmpty={showIfEmpty} />
+        <DatetimeDetail term="Abatement Date" datetime={condition.abatement?.dateTime} showIfEmpty={showIfEmpty} />
+      </StyledDetail>
+    </>
+  )
+}
 interface Props {
   condition: Condition
   // TODO: Define 'links?' type once code link config implementation has been done
-  links?: any // eslint-disable-line
+  links?: any // eslint-disable-line,
+  viewType?: Maybe<DetailViewType>
 }
 
 export default DiagnosisDetail
