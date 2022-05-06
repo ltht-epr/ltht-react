@@ -62,6 +62,7 @@ const AllergySummary: FC<Props> = ({ allergy, showDates = true, ...rest }) => {
 interface Props extends HTMLAttributes<HTMLDivElement> {
   allergy: AllergyIntolerance
   showDates?: boolean
+  enteredInError?: boolean | undefined
 }
 
 export default AllergySummary

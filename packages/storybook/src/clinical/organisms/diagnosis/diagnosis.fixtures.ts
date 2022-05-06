@@ -303,6 +303,12 @@ const ConditionThree: Condition = {
     coding: [{ code: '2448402', display: 'Mild' }],
     text: 'Mild',
   },
+  onset: {
+    dateTime: {
+      value: '2016-09-01T00:00:00+00:00',
+      kind: PartialDateTimeKindCode.YearMonth,
+    },
+  },
 }
 
 const ConditionFour: Condition = {
