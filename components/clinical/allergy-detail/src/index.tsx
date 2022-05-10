@@ -26,24 +26,25 @@ const TopSection = styled.div`
 `
 
 const AllergyDetail: FC<Props> = ({ allergy, showDates = true, viewType = DetailViewType.Compact }) => (
-  <CollapsibleDetailCollection viewType={viewType}>
+  <>
     <TopSection>
       <StringDetail term="Type" description={allergy.type?.toString()} />
       <CodingListDetail term="Data Source(s)" codings={allergy.metadata.dataSources} />
     </TopSection>
-
-    <StringDetail term="Category" description={allergy?.category?.toString()} />
-    <CodeableConceptDetail term="Allergy" concept={allergy.code} />
-    <StringDetail term="Verification Status" description={allergy.verificationStatus?.toString()} />
-    <StringDetail term="Clinical Status" description={allergy.clinicalStatus?.toString()} />
-    {showDates && <AllergyOnset term="Onset" onset={allergy.onSet} />}
-    <ResourceReferenceDetail term="Asserter" resourceReference={allergy?.asserter} />
-    {showDates && <DatetimeDetail term="Asserted Date" datetime={allergy?.assertedDate} />}
-    <AnnotationListDetail term="Note(s)" notes={allergy.note} />
-    <DatetimeDetail term="Last Occurence" datetime={allergy?.lastOccurrence} />
-    <StringDetail term="Criticality" description={allergy.criticality?.toString()} />
-    <ResourceReferenceDetail term="Recorder" resourceReference={allergy?.recorder} />
-  </CollapsibleDetailCollection>
+    <CollapsibleDetailCollection viewType={viewType}>
+      <StringDetail term="Category" description={allergy?.category?.toString()} />
+      <CodeableConceptDetail term="Allergy" concept={allergy.code} />
+      <StringDetail term="Verification Status" description={allergy.verificationStatus?.toString()} />
+      <StringDetail term="Clinical Status" description={allergy.clinicalStatus?.toString()} />
+      {showDates && <AllergyOnset term="Onset" onset={allergy.onSet} />}
+      <ResourceReferenceDetail term="Asserter" resourceReference={allergy?.asserter} />
+      {showDates && <DatetimeDetail term="Asserted Date" datetime={allergy?.assertedDate} />}
+      <AnnotationListDetail term="Note(s)" notes={allergy.note} />
+      <DatetimeDetail term="Last Occurence" datetime={allergy?.lastOccurrence} />
+      <StringDetail term="Criticality" description={allergy.criticality?.toString()} />
+      <ResourceReferenceDetail term="Recorder" resourceReference={allergy?.recorder} />
+    </CollapsibleDetailCollection>
+  </>
 )
 
 interface Props extends CollapsibleDetailCollectionProps {
