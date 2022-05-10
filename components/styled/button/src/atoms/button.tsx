@@ -53,12 +53,25 @@ const setColors = (buttonStyle: string): SerializedStyles => {
           background-color: ${BTN_COLOURS.DANGER.DISABLED};
         }
       `
+
+    case 'clear':
+      return css`
+        color: ${BTN_COLOURS.CLEAR.TEXT};
+        background-color: ${BTN_COLOURS.CLEAR.VALUE};
+        &:hover {
+          background-color: ${BTN_COLOURS.CLEAR.HOVER};
+        }
+
+        &:disabled {
+          background-color: ${BTN_COLOURS.CLEAR.DISABLED};
+        }
+      `
     default:
       return css``
   }
 }
 
-const setIconMargins = (placement: 'left' | 'right' | 'center'): SerializedStyles => {
+const setIconMargins = (placement: IconPlacement): SerializedStyles => {
   switch (placement) {
     case 'left':
       return css`
@@ -150,8 +163,9 @@ const Button: FC<Props> = ({
   </StyledButton>
 )
 
-type ButtonStyle = 'primary' | 'standard' | 'workflow' | 'danger'
+type ButtonStyle = 'primary' | 'standard' | 'workflow' | 'danger' | 'clear'
 type ButtonTypes = 'button' | 'submit' | 'reset'
+type IconPlacement = 'left' | 'right' | 'center'
 
 interface Props extends ButtonProps {
   buttonStyle?: ButtonStyle
@@ -162,7 +176,7 @@ interface StyledProps {
 }
 
 interface ButtonIconProps {
-  placement: 'left' | 'right' | 'center'
+  placement: IconPlacement
   iconColour: string
 }
 
@@ -171,7 +185,7 @@ export interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
   value?: string
   disabled?: boolean
   icon?: ReactNode
-  iconPlacement?: 'left' | 'right' | 'center'
+  iconPlacement?: IconPlacement
   iconColour?: string
 }
 

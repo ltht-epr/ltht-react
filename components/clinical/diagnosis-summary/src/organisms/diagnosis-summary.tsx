@@ -33,15 +33,10 @@ const IconButtonWrapper = styled(Button)`
   align-items: center;
   -webkit-box-pack: center;
   justify-content: center;
-  background-color: white;
   margin-right: 0.5rem;
   display: inline-block !important;
   margin-left: 0.5rem;
   width: auto;
-
-  :hover {
-    background-color: white;
-  }
 `
 
 const IconWrapper = styled.div`
@@ -79,6 +74,7 @@ const DiagnosisSummary: FC<Props> = ({
           <IconButtonWrapper
             onClick={extensionClickHandler}
             type="button"
+            buttonStyle="clear"
             value=""
             icon={<FolderPlusIcon size="medium" />}
             iconPlacement="center"

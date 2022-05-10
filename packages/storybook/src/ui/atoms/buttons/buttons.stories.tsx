@@ -46,6 +46,17 @@ export const DangerButton: Story = () => (
   </>
 )
 
+export const ClearButton: Story = () => (
+  <>
+    <div style={{ marginBottom: '1rem' }}>
+      <Button type="button" buttonStyle="clear" value="Clear Button" />
+    </div>
+    <div>
+      <Button type="button" buttonStyle="clear" value="Clear Button" disabled />
+    </div>
+  </>
+)
+
 export const ButtonWithLeftIcon: Story = () => (
   <>
     <div style={{ marginBottom: '1rem' }}>
