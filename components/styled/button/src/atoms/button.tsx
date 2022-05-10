@@ -58,6 +58,25 @@ const setColors = (buttonStyle: string): SerializedStyles => {
   }
 }
 
+const setIconMargins = (placement: 'left' | 'right' | 'center'): SerializedStyles => {
+  switch (placement) {
+    case 'left':
+      return css`
+        margin: 0 0.75rem 0 0;
+      `
+    case 'right':
+      return css`
+        margin: 0 0 0 0.75rem;
+      `
+    case 'center':
+      return css`
+        margin: 0;
+      `
+    default:
+      return css``
+  }
+}
+
 const StyledButton = styled.button<StyledProps>`
   display: flex;
   align-items: center;
@@ -93,10 +112,9 @@ const StyledButton = styled.button<StyledProps>`
 
 const ButtonIcon = styled.div<ButtonIconProps>`
   display: flex;
-  margin: ${({ placement }) => (placement === 'left' ? '0 0.75rem 0 0' : '0 0 0 0.75rem')};
-
+  ${({ placement }): SerializedStyles => setIconMargins(placement)}
   svg {
-    color: white;
+    color: ${({ iconColour }) => iconColour};
   }
 `
 
@@ -109,12 +127,26 @@ const Button: FC<Props> = ({
   disabled = false,
   icon,
   iconPlacement = 'left',
+  iconColour = 'white',
   ...rest
 }) => (
   <StyledButton type={type} buttonStyle={buttonStyle} disabled={disabled} {...rest}>
-    {icon && iconPlacement === 'left' && <ButtonIcon placement={iconPlacement}>{icon}</ButtonIcon>}
-    <ButtonText>{value}</ButtonText>
-    {icon && iconPlacement === 'right' && <ButtonIcon placement={iconPlacement}>{icon}</ButtonIcon>}
+    {icon && iconPlacement === 'left' && (
+      <ButtonIcon placement={iconPlacement} iconColour={iconColour}>
+        {icon}
+      </ButtonIcon>
+    )}
+    {value && <ButtonText>{value}</ButtonText>}
+    {icon && iconPlacement === 'right' && (
+      <ButtonIcon placement={iconPlacement} iconColour={iconColour}>
+        {icon}
+      </ButtonIcon>
+    )}
+    {!value && icon && iconPlacement === 'center' && (
+      <ButtonIcon placement={iconPlacement} iconColour={iconColour}>
+        {icon}
+      </ButtonIcon>
+    )}
   </StyledButton>
 )
 
@@ -130,15 +162,17 @@ interface StyledProps {
 }
 
 interface ButtonIconProps {
-  placement: 'left' | 'right'
+  placement: 'left' | 'right' | 'center'
+  iconColour: string
 }
 
 export interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
   type: ButtonTypes
-  value: string
+  value?: string
   disabled?: boolean
   icon?: ReactNode
-  iconPlacement?: 'left' | 'right'
+  iconPlacement?: 'left' | 'right' | 'center'
+  iconColour?: string
 }
 
 export default Button

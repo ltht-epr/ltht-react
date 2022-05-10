@@ -33,6 +33,8 @@
     "@ltht-react/type-summary": "^1.3.72",
     "@ltht-react/types": "^1.0.68",
     "@ltht-react/utils": "^1.1.70",
+    "@ltht-react/button": "^1.3.72",
+    "@ltht-react/hooks": "^1.0.62",
     "react": "^17.0.0"
   },
   "gitHead": "4d364556bb11e294d86697c2dac66742f7aabc7f"

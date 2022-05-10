@@ -22,7 +22,7 @@ export const Summary: Story = () => {
       </Card.Header>
       <Card.List>
         {conditions.map((condition, idx) => (
-          <Card.ListItem key={condition.id}>
+          <Card.ListItem key={condition.id} onClick={clickHandler}>
             {idx === 0 && (
               <DiagnosisSummary
                 condition={condition}
