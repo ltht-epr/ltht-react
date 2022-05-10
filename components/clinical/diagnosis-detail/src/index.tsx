@@ -10,6 +10,7 @@ import {
   ResourceReferenceDetail,
   CodingListDetail,
   CollapsibleDetailCollection,
+  CollapsibleDetailCollectionProps,
 } from '@ltht-react/type-detail'
 
 import Questionnaire from '@ltht-react/questionnaire'
@@ -161,12 +162,11 @@ const DiagnosisDetail: FC<Props> = ({ condition, links, viewType = DetailViewTyp
     </>
   )
 }
-interface Props {
+interface Props extends CollapsibleDetailCollectionProps {
   condition: Condition
   // TODO: Define 'links?' type once code link config implementation has been done
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   links?: any
-  viewType?: Maybe<DetailViewType>
 }
 
 export default DiagnosisDetail

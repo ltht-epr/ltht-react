@@ -1,9 +1,11 @@
-import { CodeSystem, Maybe, MedicationRequest } from '@ltht-react/types'
+import { CodeSystem, DetailViewType, Maybe, MedicationRequest } from '@ltht-react/types'
 import styled from '@emotion/styled'
 import {
   AnnotationListDetail,
   CodeableConceptDetail,
   CodeableConceptListDetail,
+  CollapsibleDetailCollection,
+  CollapsibleDetailCollectionProps,
   DatetimeDetail,
   StringDetail,
 } from '@ltht-react/type-detail'
@@ -21,7 +23,7 @@ const Seperator = styled.div`
   margin: 1rem 0;
 `
 
-const MedicationDetail: FC<IProps> = ({ medication }) => {
+const MedicationDetail: FC<IProps> = ({ medication, viewType = DetailViewType.Compact }) => {
   const route = medication?.dosageInstruction && medication.dosageInstruction[0]?.route
   const source = medication?.supportingInformation && medication.supportingInformation[0]?.identifier?.value
   const status = medication?.extension?.find((extension) => extension?.url.includes('status'))?.valueString
@@ -35,7 +37,7 @@ const MedicationDetail: FC<IProps> = ({ medication }) => {
       .join(', ')
 
   return (
-    <>
+    <CollapsibleDetailCollection viewType={viewType}>
       <TopSection>
         <StringDetail term="Status at Discharge" description={status} />
         <AnnotationListDetail term="Changes / Comments" notes={medication?.note} />
@@ -60,11 +62,11 @@ const MedicationDetail: FC<IProps> = ({ medication }) => {
       <DatetimeDetail term="Prescription Date" datetime={medication?.authoredOn} />
       <StringDetail term="Verification Comment" description={verificationComment} />
       <StringDetail term="Source" description={source} />
-    </>
+    </CollapsibleDetailCollection>
   )
 }
 
-interface IProps {
+interface IProps extends CollapsibleDetailCollectionProps {
   medication: Maybe<MedicationRequest>
 }
 

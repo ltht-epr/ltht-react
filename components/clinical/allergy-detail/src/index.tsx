@@ -1,10 +1,12 @@
 import { FC } from 'react'
 import styled from '@emotion/styled'
-import { AllergyIntolerance } from '@ltht-react/types'
+import { AllergyIntolerance, DetailViewType } from '@ltht-react/types'
 import {
   AnnotationListDetail,
   CodeableConceptDetail,
   CodingListDetail,
+  CollapsibleDetailCollection,
+  CollapsibleDetailCollectionProps,
   DatetimeDetail,
   ResourceReferenceDetail,
   StringDetail,
@@ -23,8 +25,8 @@ const TopSection = styled.div`
   }
 `
 
-const AllergyDetail: FC<Props> = ({ allergy, showDates = true }) => (
-  <>
+const AllergyDetail: FC<Props> = ({ allergy, showDates = true, viewType = DetailViewType.Compact }) => (
+  <CollapsibleDetailCollection viewType={viewType}>
     <TopSection>
       <StringDetail term="Type" description={allergy.type?.toString()} />
       <CodingListDetail term="Data Source(s)" codings={allergy.metadata.dataSources} />
@@ -41,10 +43,10 @@ const AllergyDetail: FC<Props> = ({ allergy, showDates = true }) => (
     <DatetimeDetail term="Last Occurence" datetime={allergy?.lastOccurrence} />
     <StringDetail term="Criticality" description={allergy.criticality?.toString()} />
     <ResourceReferenceDetail term="Recorder" resourceReference={allergy?.recorder} />
-  </>
+  </CollapsibleDetailCollection>
 )
 
-interface Props {
+interface Props extends CollapsibleDetailCollectionProps {
   allergy: AllergyIntolerance
   showDates?: boolean
 }

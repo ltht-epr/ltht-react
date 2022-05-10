@@ -292,7 +292,7 @@ describe('formatPatientAge', () => {
         value: dod.toISOString(),
       },
     }
-    expect(formatPatientAge(patient, true)).toEqual('6w 1d')
+    expect(formatPatientAge(patient, true)).toEqual('6w 2d')
   })
 
   it('returns formatted age when patient is deceased (under 4 weeks and over 2 days)', () => {
