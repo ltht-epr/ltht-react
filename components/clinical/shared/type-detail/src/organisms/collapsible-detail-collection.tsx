@@ -3,6 +3,7 @@ import { FC, Children, cloneElement } from 'react'
 
 const CollapsibleDetailCollection: FC<CollapsibleDetailCollectionProps> = ({ children, viewType }) => {
   const showIfEmpty = viewType === DetailViewType.Expanded
+  if (!children) return <></>
 
   return Children.map(children, (child) => cloneElement(child, { showIfEmpty }))
 }
@@ -10,7 +11,7 @@ const CollapsibleDetailCollection: FC<CollapsibleDetailCollectionProps> = ({ chi
 export interface CollapsibleDetailCollectionProps {
   viewType?: Maybe<DetailViewType>
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  children: any
+  children?: any
 }
 
 export default CollapsibleDetailCollection
