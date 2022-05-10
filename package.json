@@ -52,6 +52,7 @@
     "build:package": "yarn lerna run build",
     "build:sort": "lerna run build --sort",
     "build:storybook": "cd packages/storybook && yarn build:storybook",
+    "build:slow": "lerna run build",
     "build": "lerna run build --parallel",
     "clean": "lerna run clean --parallel",
     "postclean": "rimraf node_modules",
