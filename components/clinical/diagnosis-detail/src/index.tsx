@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import styled from '@emotion/styled'
-import { Condition, Maybe, DetailViewType } from '@ltht-react/types'
+import { Condition, DetailViewType } from '@ltht-react/types'
 import {
   StringDetail,
   AnnotationListDetail,
