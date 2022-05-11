@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { Identifier, Maybe } from '@ltht-react/types'
+import { Identifier, Maybe, Scalars } from '@ltht-react/types'
 import {
   StringDetail,
   PeriodDetail,
@@ -8,14 +8,14 @@ import {
   NestedListDetail,
 } from '../molecules'
 
-const IdentifierDetail: FC<Props> = ({ term, identifier }) => {
-  if (identifier) {
+const IdentifierDetail: FC<Props> = ({ term, identifier, showIfEmpty = true }) => {
+  if (identifier || showIfEmpty === true) {
     return (
       <NestedListDetail term={term}>
-        <StringDetail term="Use" description={identifier?.use} />
-        <CodeableConceptDetail term="Type" concept={identifier?.type} />
-        <ResourceReferenceDetail term="Assigner" resourceReference={identifier?.assigner} />
-        <PeriodDetail period={identifier?.period} />
+        <StringDetail term="Use" description={identifier?.use} showIfEmpty={showIfEmpty} />
+        <CodeableConceptDetail term="Type" concept={identifier?.type} showIfEmpty={showIfEmpty} />
+        <ResourceReferenceDetail term="Assigner" resourceReference={identifier?.assigner} showIfEmpty={showIfEmpty} />
+        <PeriodDetail period={identifier?.period} showIfEmpty={showIfEmpty} />
       </NestedListDetail>
     )
   }
@@ -25,6 +25,7 @@ const IdentifierDetail: FC<Props> = ({ term, identifier }) => {
 interface Props {
   term: string
   identifier?: Maybe<Identifier> | null
+  showIfEmpty?: Maybe<Scalars['Boolean']>
 }
 
 export default IdentifierDetail
