@@ -14,7 +14,6 @@ import {
 } from '@ltht-react/type-detail'
 
 import Questionnaire from '@ltht-react/questionnaire'
-import { DESKTOP_MINIMUM_MEDIA_QUERY, MOBILE_MAXIMUM_MEDIA_QUERY, TABLET_ONLY_MEDIA_QUERY } from '@ltht-react/styles'
 
 const TopSection = styled.div`
   display: flex;
@@ -35,75 +34,6 @@ const Seperator = styled.div`
   margin: 1rem 0;
 `
 
-const StyledDetail = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  margin-top: '1rem';
-
-  & dl {
-    margin-top: 0;
-    margin-bottom: 1rem;
-
-    ${DESKTOP_MINIMUM_MEDIA_QUERY} {
-      width: 25%;
-
-      &:nth-last-child(1),
-      :nth-last-child(2),
-      :nth-last-child(3),
-      :nth-last-child(4) {
-        margin-bottom: 0px !important;
-      }
-
-      &:nth-child(4n + 1) {
-        text-align: left;
-      }
-
-      &:nth-child(4n + 2) {
-        text-align: center;
-      }
-
-      &:nth-child(4n + 3) {
-        text-align: center;
-      }
-
-      &:nth-child(4n) {
-        text-align: right;
-      }
-    }
-
-    ${TABLET_ONLY_MEDIA_QUERY} {
-      width: 33.3%;
-
-      &:nth-last-child(1),
-      :nth-last-child(2),
-      :nth-last-child(3) {
-        margin-bottom: 0px !important;
-      }
-
-      &:nth-child(3n + 1) {
-        text-align: left;
-      }
-
-      &:nth-child(3n + 2) {
-        text-align: center;
-      }
-
-      &:nth-child(3n) {
-        text-align: right;
-      }
-    }
-
-    ${MOBILE_MAXIMUM_MEDIA_QUERY} {
-      width: 100%;
-
-      &:nth-last-child(1) {
-        margin-bottom: 0px !important;
-      }
-    }
-  }
-`
-
 const DiagnosisDetail: FC<Props> = ({ condition, links, viewType = DetailViewType.Compact }) => (
   <>
     <TopSection>
@@ -120,19 +50,17 @@ const DiagnosisDetail: FC<Props> = ({ condition, links, viewType = DetailViewTyp
         </>
       ))}
     <CollapsibleDetailCollection viewType={viewType}>
-      <StyledDetail>
-        <DatetimeDetail term="Onset Date" datetime={condition.onset?.dateTime} />
-        <StringDetail term="Clinical Status" description={condition.clinicalStatus?.toString()} />
-        <StringDetail term="Verification Status" description={condition.verificationStatus?.toString()} />
-        <CodeableConceptListDetail term="Category" concepts={condition.category} />
-        <CodeableConceptDetail term="Severity" concept={condition.severity} />
-        <CodeableConceptListDetail term="Location" concepts={condition.bodySite} links={links} />
-        <AnnotationListDetail term="Note(s)" notes={condition.note} />
-        <CodeableConceptDetail term="Stage" concept={condition.stage?.summary} links={links} />
-        <ResourceReferenceDetail term="Asserted By" resourceReference={condition.asserter} />
-        <DatetimeDetail term="Asserted Date" datetime={condition.assertedDate} />
-        <DatetimeDetail term="Abatement Date" datetime={condition.abatement?.dateTime} />
-      </StyledDetail>
+      <DatetimeDetail term="Onset Date" datetime={condition.onset?.dateTime} />
+      <StringDetail term="Clinical Status" description={condition.clinicalStatus?.toString()} />
+      <StringDetail term="Verification Status" description={condition.verificationStatus?.toString()} />
+      <CodeableConceptListDetail term="Category" concepts={condition.category} />
+      <CodeableConceptDetail term="Severity" concept={condition.severity} />
+      <CodeableConceptListDetail term="Location" concepts={condition.bodySite} links={links} />
+      <AnnotationListDetail term="Note(s)" notes={condition.note} />
+      <CodeableConceptDetail term="Stage" concept={condition.stage?.summary} links={links} />
+      <ResourceReferenceDetail term="Asserted By" resourceReference={condition.asserter} />
+      <DatetimeDetail term="Asserted Date" datetime={condition.assertedDate} />
+      <DatetimeDetail term="Abatement Date" datetime={condition.abatement?.dateTime} />
     </CollapsibleDetailCollection>
   </>
 )
