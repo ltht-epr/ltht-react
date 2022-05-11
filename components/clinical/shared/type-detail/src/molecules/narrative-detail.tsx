@@ -1,8 +1,8 @@
-import { FC } from 'react'
-import { Maybe, Narrative, Scalars } from '@ltht-react/types'
+import { Narrative } from '@ltht-react/types'
 import DescriptionList from '@ltht-react/description-list'
+import { DetailViewComponent, IDetailViewProps } from '../atoms/detail-view-props'
 
-const NarrativeDetail: FC<Props> = ({ narrative, showIfEmpty = false }) => {
+const NarrativeDetail: DetailViewComponent<IProps> = ({ narrative, showIfEmpty = false }) => {
   if ((narrative && narrative.text.length > 0) || showIfEmpty === true) {
     return (
       <DescriptionList>
@@ -14,9 +14,8 @@ const NarrativeDetail: FC<Props> = ({ narrative, showIfEmpty = false }) => {
   return <></>
 }
 
-interface Props {
+interface IProps extends IDetailViewProps {
   narrative?: Narrative | null
-  showIfEmpty?: Maybe<Scalars['Boolean']>
 }
 
 export default NarrativeDetail

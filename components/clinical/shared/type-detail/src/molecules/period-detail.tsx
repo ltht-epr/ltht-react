@@ -1,9 +1,9 @@
-import { FC } from 'react'
-import { Maybe, Period as PeriodType, Scalars } from '@ltht-react/types'
+import { Period as PeriodType } from '@ltht-react/types'
 import { periodSummaryText } from '@ltht-react/utils'
 import DescriptionList from '@ltht-react/description-list'
+import { DetailViewComponent, IDetailViewProps } from '../atoms/detail-view-props'
 
-const PeriodDetail: FC<Props> = ({ period, showIfEmpty = false }) => {
+const PeriodDetail: DetailViewComponent<IProps> = ({ period, showIfEmpty = false }) => {
   const summaryText = periodSummaryText(period)
   if (summaryText !== '' || showIfEmpty === true) {
     return (
@@ -16,9 +16,8 @@ const PeriodDetail: FC<Props> = ({ period, showIfEmpty = false }) => {
   return <></>
 }
 
-interface Props {
+interface IProps extends IDetailViewProps {
   period?: PeriodType | null
-  showIfEmpty?: Maybe<Scalars['Boolean']>
 }
 
 export default PeriodDetail

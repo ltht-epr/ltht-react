@@ -1,8 +1,8 @@
-import { FC } from 'react'
-import { Maybe, ResourceReference, Scalars } from '@ltht-react/types'
+import { ResourceReference } from '@ltht-react/types'
 import DescriptionList from '@ltht-react/description-list'
+import { DetailViewComponent, IDetailViewProps } from '../atoms/detail-view-props'
 
-const ResourceReferenceDetail: FC<Props> = ({ term, resourceReference, showIfEmpty }) => {
+const ResourceReferenceDetail: DetailViewComponent<IProps> = ({ term, resourceReference, showIfEmpty }) => {
   if (resourceReference) {
     if (term) {
       return (
@@ -29,10 +29,9 @@ const ResourceReferenceDetail: FC<Props> = ({ term, resourceReference, showIfEmp
   return <></>
 }
 
-interface Props {
+interface IProps extends IDetailViewProps {
   term?: string | null
   resourceReference?: ResourceReference | null
-  showIfEmpty?: Maybe<Scalars['Boolean']>
 }
 
 export default ResourceReferenceDetail

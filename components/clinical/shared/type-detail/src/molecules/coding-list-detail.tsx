@@ -1,8 +1,8 @@
-import { FC } from 'react'
 import DescriptionList from '@ltht-react/description-list'
-import { Coding, Maybe, Scalars } from '@ltht-react/types'
+import { Coding, Maybe } from '@ltht-react/types'
+import { DetailViewComponent, IDetailViewProps } from '../atoms/detail-view-props'
 
-const CodingListDetail: FC<Props> = ({ term, codings, showIfEmpty = false }) => {
+const CodingListDetail: DetailViewComponent<IProps> = ({ term, codings, showIfEmpty = false }) => {
   if ((codings && codings.length > 0) || showIfEmpty === true) {
     return (
       <DescriptionList>
@@ -20,10 +20,9 @@ const CodingListDetail: FC<Props> = ({ term, codings, showIfEmpty = false }) => 
   return <></>
 }
 
-interface Props {
+interface IProps extends IDetailViewProps {
   term: string
   codings?: Maybe<Coding>[]
-  showIfEmpty?: Maybe<Scalars['Boolean']>
 }
 
 export default CodingListDetail

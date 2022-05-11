@@ -1,9 +1,9 @@
-import { FC } from 'react'
-import { Maybe, PartialDateTime, Scalars } from '@ltht-react/types'
+import { PartialDateTime } from '@ltht-react/types'
 import { partialDateTimeText } from '@ltht-react/utils'
 import DescriptionList from '@ltht-react/description-list'
+import { DetailViewComponent, IDetailViewProps } from '../atoms/detail-view-props'
 
-const DatetimeDetail: FC<Props> = ({ term, datetime, showIfEmpty }) => {
+const DatetimeDetail: DetailViewComponent<IProps> = ({ term, datetime, showIfEmpty }) => {
   const dateTimeText = partialDateTimeText(datetime)
   if (dateTimeText !== '' || showIfEmpty === true) {
     return (
@@ -16,10 +16,9 @@ const DatetimeDetail: FC<Props> = ({ term, datetime, showIfEmpty }) => {
   return <></>
 }
 
-interface Props {
+interface IProps extends IDetailViewProps {
   term: string
   datetime?: PartialDateTime | null
-  showIfEmpty?: Maybe<Scalars['Boolean']>
 }
 
 export default DatetimeDetail

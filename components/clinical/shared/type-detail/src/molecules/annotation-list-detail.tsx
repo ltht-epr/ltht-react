@@ -1,8 +1,9 @@
-import { FC } from 'react'
 import styled from '@emotion/styled'
 import { Annotation, Maybe, Scalars } from '@ltht-react/types'
 import { partialDateTimeText } from '@ltht-react/utils'
 import DescriptionList from '@ltht-react/description-list'
+import { DetailViewComponent } from '../atoms/detail-view-props'
+import NestedListDetail from './nested-list-detail'
 
 const StyledAnnotation = styled.div<IStyledAnnotation>`
   margin-bottom: ${({ isLastAnnotation }) => (isLastAnnotation ? '0' : '1.5rem')};
@@ -16,12 +17,11 @@ const StyledAnnotationAuthorInfo = styled(DescriptionList.Description)`
   font-weight: bold;
 `
 
-const AnnotationListDetail: FC<IProps> = ({ term, notes, showIfEmpty = false }) => {
+const AnnotationListDetail: DetailViewComponent<IProps> = ({ term, notes, showIfEmpty = false }) => {
   if (showIfEmpty !== true && !notes?.length) return <></>
 
   return (
-    <DescriptionList>
-      <DescriptionList.Term>{term}</DescriptionList.Term>
+    <NestedListDetail term={term}>
       {notes?.map((note, index) => (
         <StyledAnnotation key={`allergy-note-${index + 1}`} isLastAnnotation={index === notes.length - 1}>
           {note?.author && <StyledAnnotationAuthorInfo>{note.author?.display}</StyledAnnotationAuthorInfo>}
@@ -29,7 +29,7 @@ const AnnotationListDetail: FC<IProps> = ({ term, notes, showIfEmpty = false }) 
           <StyledAnnotationNoteText>{note?.text}</StyledAnnotationNoteText>
         </StyledAnnotation>
       ))}
-    </DescriptionList>
+    </NestedListDetail>
   )
 }
 

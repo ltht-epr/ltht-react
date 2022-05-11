@@ -1,10 +1,9 @@
-import { FC } from 'react'
 import { titleCase } from '@ltht-react/utils'
 import DescriptionList from '@ltht-react/description-list'
 import ReactHtmlParser from 'react-html-parser'
-import { Maybe, Scalars } from '@ltht-react/types'
+import { DetailViewComponent, IDetailViewProps } from '../atoms/detail-view-props'
 
-const StringDetail: FC<Props> = ({ term, description, showIfEmpty }) => {
+const StringDetail: DetailViewComponent<IProps> = ({ term, description, showIfEmpty }) => {
   if (description || showIfEmpty) {
     return (
       <DescriptionList>
@@ -16,10 +15,9 @@ const StringDetail: FC<Props> = ({ term, description, showIfEmpty }) => {
   return <></>
 }
 
-interface Props {
+interface IProps extends IDetailViewProps {
   term: string
   description?: string | null
-  showIfEmpty?: Maybe<Scalars['Boolean']>
 }
 
 export default StringDetail

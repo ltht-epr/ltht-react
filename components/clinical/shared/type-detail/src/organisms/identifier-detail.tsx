@@ -1,5 +1,4 @@
-import { FC } from 'react'
-import { Identifier, Maybe, Scalars } from '@ltht-react/types'
+import { Identifier, Maybe } from '@ltht-react/types'
 import {
   StringDetail,
   PeriodDetail,
@@ -7,25 +6,33 @@ import {
   ResourceReferenceDetail,
   NestedListDetail,
 } from '../molecules'
+import { DetailViewComponent, IDetailViewProps } from '../atoms/detail-view-props'
 
-const IdentifierDetail: FC<Props> = ({ term, identifier, showIfEmpty = true }) => {
+const IdentifierDetail: DetailViewComponent<IProps> = ({ term, identifier, showIfEmpty = true }) => {
   if (identifier || showIfEmpty === true) {
     return (
-      <NestedListDetail term={term}>
-        <StringDetail term="Use" description={identifier?.use} showIfEmpty={showIfEmpty} />
-        <CodeableConceptDetail term="Type" concept={identifier?.type} showIfEmpty={showIfEmpty} />
-        <ResourceReferenceDetail term="Assigner" resourceReference={identifier?.assigner} showIfEmpty={showIfEmpty} />
-        <PeriodDetail period={identifier?.period} showIfEmpty={showIfEmpty} />
+      <NestedListDetail term={term} showIfEmpty={showIfEmpty}>
+        {(identifier || showIfEmpty === true) && (
+          <>
+            <StringDetail term="Use" description={identifier?.use} showIfEmpty={showIfEmpty} />
+            <CodeableConceptDetail term="Type" concept={identifier?.type} showIfEmpty={showIfEmpty} />
+            <ResourceReferenceDetail
+              term="Assigner"
+              resourceReference={identifier?.assigner}
+              showIfEmpty={showIfEmpty}
+            />
+            <PeriodDetail period={identifier?.period} showIfEmpty={showIfEmpty} />
+          </>
+        )}
       </NestedListDetail>
     )
   }
   return <></>
 }
 
-interface Props {
+interface IProps extends IDetailViewProps {
   term: string
   identifier?: Maybe<Identifier> | null
-  showIfEmpty?: Maybe<Scalars['Boolean']>
 }
 
 export default IdentifierDetail
