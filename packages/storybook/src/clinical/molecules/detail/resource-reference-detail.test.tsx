@@ -34,8 +34,6 @@ describe('ResourceReferenceDetail', () => {
   it('should not show anything if  no value if told to', async () => {
     render(<ResourceReferenceDetail showIfEmpty />)
 
-    screen.debug()
-
     expect(screen.queryByText('RRD')).toBeNull()
   })
 })

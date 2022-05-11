@@ -30,7 +30,6 @@ describe('ResourceReferenceDetailList', () => {
     render(<ResourceReferenceListDetail term="RRDL" showIfEmpty />)
 
     await screen.findByText('RRDL')
-    screen.debug()
     expect(screen.queryByText('Smith, John (dr)')).toBeNull()
     expect(screen.queryByText('Doe, John (dr)')).toBeNull()
   })
