@@ -71,7 +71,7 @@ const StyledDetail = styled.div`
     }
   }
 `
-const CollapsibleDetailCollection: FC<CollapsibleDetailCollectionProps> = ({ children, viewType }) => {
+const CollapsibleDetailCollection: FC<CollapsibleDetailCollectionProps> = ({ children, viewType }): JSX.Element => {
   const showIfEmpty = viewType === DetailViewType.Expanded
   if (!children) return <></>
 
@@ -84,6 +84,7 @@ export interface CollapsibleDetailCollectionProps {
   children?: any
 }
 
+// Hook that provides state data for managing the type of detail view
 export const useDetailViewType = (): UseDetailViewType => {
   const [viewType, setViewType] = useState(DetailViewType.Compact)
 

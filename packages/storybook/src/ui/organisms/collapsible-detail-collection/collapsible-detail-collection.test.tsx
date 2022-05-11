@@ -1,10 +1,10 @@
-import { CollapsibleDetailCollection } from '@ltht-react/type-detail'
+import { CollapsibleDetailCollection, IDetailViewProps } from '@ltht-react/type-detail'
 import { DetailViewType } from '@ltht-react/types'
 import { fireEvent, render, screen } from '@testing-library/react'
 import { FC, useState } from 'react'
 
 describe('CollapsibleDetailCollection', () => {
-  const TestableComponent: FC<TestableComponentProps> = ({ showIfEmpty }) => <>{showIfEmpty?.toString()}</>
+  const TestableComponent: FC<IDetailViewProps> = ({ showIfEmpty }) => <>{showIfEmpty?.toString()}</>
 
   it('passes showIfEmpty prop', async () => {
     render(
@@ -59,7 +59,3 @@ describe('CollapsibleDetailCollection', () => {
     await screen.findByText('true')
   })
 })
-
-interface TestableComponentProps {
-  showIfEmpty?: boolean | undefined
-}
