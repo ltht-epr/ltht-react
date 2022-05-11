@@ -680,6 +680,46 @@ const ConditionFour: Condition = {
   },
 }
 
-const conditions: Condition[] = [ConditionOne, ConditionTwo, ConditionThree, ConditionFour]
+const ConditionFive: Condition = {
+  id: '333',
+  metadata: mockMetadata,
+  category: [
+    {
+      coding: [
+        {
+          code: '55607006',
+          display: 'Problem',
+        },
+      ],
+      text: 'Problem',
+    },
+  ],
+  code: {
+    coding: [
+      {
+        system: 'HEALTHPLUG',
+        code: '44054006',
+        display: 'Hemophilia',
+      },
+    ],
+    text: 'Hemophilia',
+  },
+  clinicalStatus: ConditionClinicalStatus.Resolved,
+  asserter: {
+    display: 'Practitioner',
+    typeName: 'Practitioner',
+  },
+  assertedDate: {
+    value: '2017-12-12T00:00:00+00:00',
+    kind: PartialDateTimeKindCode.Date,
+  },
+  verificationStatus: ConditionVerificationStatus.Confirmed,
+  severity: {
+    coding: [{ code: '2448402', display: 'Moderate' }],
+    text: 'Moderate',
+  },
+}
+
+const conditions: Condition[] = [ConditionOne, ConditionTwo, ConditionThree, ConditionFour, ConditionFive]
 
 export default conditions
