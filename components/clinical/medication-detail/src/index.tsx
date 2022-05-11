@@ -37,32 +37,34 @@ const MedicationDetail: FC<IProps> = ({ medication, viewType = DetailViewType.Co
       .join(', ')
 
   return (
-    <CollapsibleDetailCollection viewType={viewType}>
+    <>
       <TopSection>
         <StringDetail term="Status at Discharge" description={status} />
         <AnnotationListDetail term="Changes / Comments" notes={medication?.note} />
         <Seperator />
       </TopSection>
-      <CodeableConceptDetail term="Medication" concept={medication?.medicationReference?.code} />
-      <DescriptionList>
-        <DescriptionList.Term>Dosage</DescriptionList.Term>
-        <DescriptionList.Description>
-          <MedicationDosageInstructions
-            dosageInstructions={medication?.dosageInstruction}
-            reasons={medication?.reasonCode}
-            type={type}
-          />
-        </DescriptionList.Description>
-      </DescriptionList>
-      <CodeableConceptDetail term="Form" concept={medication?.medicationReference?.form} />
-      <CodeableConceptListDetail term="Indication" concepts={medication?.reasonCode} />
-      <StringDetail term="Schedule" description={schedule} />
-      <StringDetail term="Qualifier" description={qualifier} />
-      <CodeableConceptDetail term="Route" concept={route} />
-      <DatetimeDetail term="Prescription Date" datetime={medication?.authoredOn} />
-      <StringDetail term="Verification Comment" description={verificationComment} />
-      <StringDetail term="Source" description={source} />
-    </CollapsibleDetailCollection>
+      <CollapsibleDetailCollection viewType={viewType}>
+        <CodeableConceptDetail term="Medication" concept={medication?.medicationReference?.code} />
+        <DescriptionList>
+          <DescriptionList.Term>Dosage</DescriptionList.Term>
+          <DescriptionList.Description>
+            <MedicationDosageInstructions
+              dosageInstructions={medication?.dosageInstruction}
+              reasons={medication?.reasonCode}
+              type={type}
+            />
+          </DescriptionList.Description>
+        </DescriptionList>
+        <CodeableConceptDetail term="Form" concept={medication?.medicationReference?.form} />
+        <CodeableConceptListDetail term="Indication" concepts={medication?.reasonCode} />
+        <StringDetail term="Schedule" description={schedule} />
+        <StringDetail term="Qualifier" description={qualifier} />
+        <CodeableConceptDetail term="Route" concept={route} />
+        <DatetimeDetail term="Prescription Date" datetime={medication?.authoredOn} />
+        <StringDetail term="Verification Comment" description={verificationComment} />
+        <StringDetail term="Source" description={source} />
+      </CollapsibleDetailCollection>
+    </>
   )
 }
 
