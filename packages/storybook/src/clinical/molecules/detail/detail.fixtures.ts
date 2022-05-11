@@ -6,6 +6,12 @@ import {
   CodeableConcept,
   Narrative,
   Period,
+  EncounterHospitalisation,
+  EncounterParticipant,
+  EncounterStatusHistory,
+  EncounterStatusCode,
+  Identifier,
+  IdentifierUseCode,
 } from '@ltht-react/types'
 
 const resourceReference: ResourceReference = {
@@ -56,4 +62,62 @@ const annotations: Annotation[] = [
   },
 ]
 
-export { annotations, resourceReference, partialDateTime, period, narrative, codeableConcept }
+const encounterHospitalisation: EncounterHospitalisation = {
+  extension: [
+    {
+      url: 'https://leedsth.nhs.uk/medication-request/has-changed',
+      valueBoolean: true,
+    },
+    {
+      url: 'https://leedsth.nhs.uk/medication-request/status',
+      valueString: 'Ceased',
+    },
+  ],
+  preAdmissionIdentifier: undefined,
+  origin: resourceReference,
+  admitSource: codeableConcept,
+  reAdmission: codeableConcept,
+  dietPreference: [codeableConcept],
+  specialCourtesy: [codeableConcept],
+  specialArrangement: [codeableConcept],
+  destination: resourceReference,
+  dischargeDisposition: codeableConcept,
+}
+
+const encounterParticipants: EncounterParticipant[] = [
+  {
+    individual: {
+      display: 'Dr. John Doe',
+      typeName: 'Practitioner',
+    },
+    period,
+  },
+]
+
+const encounterStatusHistories: EncounterStatusHistory[] = [
+  {
+    status: EncounterStatusCode.InProgress,
+    period,
+  },
+]
+
+const identifier: Identifier = {
+  use: IdentifierUseCode.Official,
+  type: codeableConcept,
+  assigner: resourceReference,
+  period,
+  value: 'value',
+}
+
+export {
+  annotations,
+  resourceReference,
+  partialDateTime,
+  period,
+  narrative,
+  codeableConcept,
+  encounterHospitalisation,
+  encounterParticipants,
+  encounterStatusHistories,
+  identifier,
+}
