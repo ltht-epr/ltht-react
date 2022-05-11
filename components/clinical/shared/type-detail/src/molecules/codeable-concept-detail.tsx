@@ -5,7 +5,6 @@ import { LINK_COLOURS } from '@ltht-react/styles'
 import { codeableConceptDisplaySummary } from '@ltht-react/utils'
 import DescriptionList from '@ltht-react/description-list'
 import { DetailViewComponent, IDetailViewProps } from '../atoms/detail-view-props'
-import NestedListDetail from './nested-list-detail'
 
 const StyledLink = styled.a`
   display: flex;
@@ -30,7 +29,8 @@ const CodeableConceptDetail: DetailViewComponent<IProps> = ({ term, concept, lin
     const linkUrl = links[displaySummary]
 
     return (
-      <NestedListDetail term={term} showIfEmpty={showIfEmpty}>
+      <DescriptionList>
+        <DescriptionList.Term>{term}</DescriptionList.Term>
         {linkUrl ? (
           <StyledLink href={linkUrl} target="_blank">
             <DescriptionList.Description>{displaySummary}</DescriptionList.Description>
@@ -39,7 +39,7 @@ const CodeableConceptDetail: DetailViewComponent<IProps> = ({ term, concept, lin
         ) : (
           <DescriptionList.Description>{displaySummary}</DescriptionList.Description>
         )}
-      </NestedListDetail>
+      </DescriptionList>
     )
   }
   return <></>
