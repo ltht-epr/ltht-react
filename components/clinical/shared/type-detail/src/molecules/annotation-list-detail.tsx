@@ -3,7 +3,6 @@ import { Annotation, Maybe, Scalars } from '@ltht-react/types'
 import { partialDateTimeText } from '@ltht-react/utils'
 import DescriptionList from '@ltht-react/description-list'
 import { DetailViewComponent } from '../atoms/detail-view-props'
-import NestedListDetail from './nested-list-detail'
 
 const StyledAnnotation = styled.div<IStyledAnnotation>`
   margin-bottom: ${({ isLastAnnotation }) => (isLastAnnotation ? '0' : '1.5rem')};
@@ -21,7 +20,8 @@ const AnnotationListDetail: DetailViewComponent<IProps> = ({ term, notes, showIf
   if (showIfEmpty !== true && !notes?.length) return <></>
 
   return (
-    <NestedListDetail term={term}>
+    <DescriptionList>
+      <DescriptionList.Term>{term}</DescriptionList.Term>
       {notes?.map((note, index) => (
         <StyledAnnotation key={`allergy-note-${index + 1}`} isLastAnnotation={index === notes.length - 1}>
           {note?.author && <StyledAnnotationAuthorInfo>{note.author?.display}</StyledAnnotationAuthorInfo>}
@@ -29,7 +29,7 @@ const AnnotationListDetail: DetailViewComponent<IProps> = ({ term, notes, showIf
           <StyledAnnotationNoteText>{note?.text}</StyledAnnotationNoteText>
         </StyledAnnotation>
       ))}
-    </NestedListDetail>
+    </DescriptionList>
   )
 }
 
