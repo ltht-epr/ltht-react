@@ -1,14 +1,14 @@
-import { FC } from 'react'
 import DescriptionList from '@ltht-react/description-list'
+import { DetailViewComponent, IDetailViewProps } from '../atoms/detail-view-props'
 
-const NestedListDetail: FC<Props> = ({ term, children }) => (
+const NestedListDetail: DetailViewComponent<IProps> = ({ term, children, showIfEmpty = true }) => (
   <DescriptionList>
-    <DescriptionList.Term>{term}</DescriptionList.Term>
-    <DescriptionList.Description>{children}</DescriptionList.Description>
+    {(children || showIfEmpty === true) && <DescriptionList.Term>{term}</DescriptionList.Term>}
+    {(children || showIfEmpty === true) && <DescriptionList.Description>{children}</DescriptionList.Description>}
   </DescriptionList>
 )
 
-interface Props {
+interface IProps extends IDetailViewProps {
   term: string
 }
 

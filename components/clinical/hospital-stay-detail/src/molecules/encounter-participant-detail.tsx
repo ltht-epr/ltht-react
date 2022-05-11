@@ -1,9 +1,9 @@
 import { FC } from 'react'
 import styled from '@emotion/styled'
-import { Maybe, EncounterParticipant, Scalars } from '@ltht-react/types'
+import { Maybe, EncounterParticipant } from '@ltht-react/types'
 import { periodSummaryText, titleCase } from '@ltht-react/utils'
 
-import { NestedListDetail } from '@ltht-react/type-detail'
+import { IDetailViewProps, NestedListDetail } from '@ltht-react/type-detail'
 
 const StyledNestedList = styled.div`
   margin-top: 0.5rem;
@@ -19,7 +19,7 @@ const term = 'Participant(s)'
 const EncounterParticipantDetail: FC<Props> = ({ participants, showIfEmpty = true }) => {
   if (participants && participants.length > 0) {
     return (
-      <NestedListDetail term={term}>
+      <NestedListDetail term={term} showIfEmpty={showIfEmpty}>
         {participants.map((item) => {
           if (item?.individual?.display && item?.individual?.typeName) {
             return (
@@ -44,9 +44,8 @@ const EncounterParticipantDetail: FC<Props> = ({ participants, showIfEmpty = tru
   return <></>
 }
 
-interface Props {
+interface Props extends IDetailViewProps {
   participants?: Maybe<Array<Maybe<EncounterParticipant>>>
-  showIfEmpty?: Maybe<Scalars['Boolean']>
 }
 
 export default EncounterParticipantDetail

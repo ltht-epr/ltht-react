@@ -1,8 +1,8 @@
 import { FC } from 'react'
 import styled from '@emotion/styled'
-import { EncounterStatusHistory, Maybe, Scalars } from '@ltht-react/types'
+import { EncounterStatusHistory, Maybe } from '@ltht-react/types'
 import DescriptionList from '@ltht-react/description-list'
-import { NestedListDetail } from '@ltht-react/type-detail'
+import { IDetailViewProps, NestedListDetail } from '@ltht-react/type-detail'
 import { periodSummaryText, titleCase } from '@ltht-react/utils'
 
 const StyledNestedList = styled.div`
@@ -19,7 +19,7 @@ const term = 'Status History'
 const EncounterStatusHistoryDetail: FC<Props> = ({ hospitalStatusHistories, showIfEmpty = true }) => {
   if (hospitalStatusHistories && hospitalStatusHistories.length > 0)
     return (
-      <NestedListDetail term={term}>
+      <NestedListDetail term={term} showIfEmpty={showIfEmpty}>
         {hospitalStatusHistories?.map((item) => {
           if (item?.status) {
             return (
@@ -44,9 +44,8 @@ const EncounterStatusHistoryDetail: FC<Props> = ({ hospitalStatusHistories, show
   return <></>
 }
 
-interface Props {
+interface Props extends IDetailViewProps {
   hospitalStatusHistories?: Maybe<Array<Maybe<EncounterStatusHistory>>>
-  showIfEmpty?: Maybe<Scalars['Boolean']>
 }
 
 export default EncounterStatusHistoryDetail
