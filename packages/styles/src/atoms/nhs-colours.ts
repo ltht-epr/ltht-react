@@ -47,8 +47,8 @@ export const NHS_ORANGE = '#ED8B00'
 export const NHS_WARM_YELLOW = '#FFB81C'
 export const NHS_YELLOW = '#FAE100'
 
-// nhs colours with 20% opacity
+// nhs colours with low opacity
 export const NHS_TRANSLUCENT_WARM_YELLOW = 'rgba(255, 184, 28, 0.2)'
 export const NHS_TRANSLUCENT_BRIGHT_BLUE = 'rgba(0, 114, 206, 0.2)'
 export const NHS_TRANSLUCENT_DARK_BLUE = 'rgba(0, 48, 135, 0.1)'
-export const NHS_TRANSLUCENT_LIGHT_GREY = 'rgba(0, 48, 135, 0.2)'
+export const NHS_TRANSLUCENT_MID_GREY = 'rgba(118, 134, 146, 0.1)'
