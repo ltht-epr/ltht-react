@@ -7,10 +7,10 @@ import {
   CollapsibleDetailCollection,
   CollapsibleDetailCollectionProps,
   DatetimeDetail,
+  NestedListDetail,
   StringDetail,
 } from '@ltht-react/type-detail'
 import { MedicationDosageInstructions } from '@ltht-react/medication'
-import DescriptionList from '@ltht-react/description-list'
 
 import { FC } from 'react'
 
@@ -45,16 +45,13 @@ const MedicationDetail: FC<IProps> = ({ medication, viewType = DetailViewType.Co
       </TopSection>
       <CollapsibleDetailCollection viewType={viewType}>
         <CodeableConceptDetail term="Medication" concept={medication?.medicationReference?.code} />
-        <DescriptionList>
-          <DescriptionList.Term>Dosage</DescriptionList.Term>
-          <DescriptionList.Description>
-            <MedicationDosageInstructions
-              dosageInstructions={medication?.dosageInstruction}
-              reasons={medication?.reasonCode}
-              type={type}
-            />
-          </DescriptionList.Description>
-        </DescriptionList>
+        <NestedListDetail term="Dosage">
+          <MedicationDosageInstructions
+            dosageInstructions={medication?.dosageInstruction}
+            reasons={medication?.reasonCode}
+            type={type}
+          />
+        </NestedListDetail>
         <CodeableConceptDetail term="Form" concept={medication?.medicationReference?.form} />
         <CodeableConceptListDetail term="Indication" concepts={medication?.reasonCode} />
         <StringDetail term="Schedule" description={schedule} />

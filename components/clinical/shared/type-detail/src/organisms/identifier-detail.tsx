@@ -8,27 +8,18 @@ import {
 } from '../molecules'
 import { DetailViewComponent, IDetailViewProps } from '../atoms/detail-view-component'
 
-const IdentifierDetail: DetailViewComponent<IProps> = ({ term, identifier, showIfEmpty = true }) => {
-  if (identifier || showIfEmpty === true) {
-    return (
-      <NestedListDetail term={term} showIfEmpty={showIfEmpty}>
-        {(identifier || showIfEmpty === true) && (
-          <>
-            <StringDetail term="Use" description={identifier?.use} showIfEmpty={showIfEmpty} />
-            <CodeableConceptDetail term="Type" concept={identifier?.type} showIfEmpty={showIfEmpty} />
-            <ResourceReferenceDetail
-              term="Assigner"
-              resourceReference={identifier?.assigner}
-              showIfEmpty={showIfEmpty}
-            />
-            <PeriodDetail period={identifier?.period} showIfEmpty={showIfEmpty} />
-          </>
-        )}
-      </NestedListDetail>
-    )
-  }
-  return <></>
-}
+const IdentifierDetail: DetailViewComponent<IProps> = ({ term, identifier, showIfEmpty = true }) => (
+  <NestedListDetail term={term} showIfEmpty={showIfEmpty}>
+    {(identifier || showIfEmpty === true) && (
+      <>
+        <StringDetail term="Use" description={identifier?.use} showIfEmpty={showIfEmpty} />
+        <CodeableConceptDetail term="Type" concept={identifier?.type} showIfEmpty={showIfEmpty} />
+        <ResourceReferenceDetail term="Assigner" resourceReference={identifier?.assigner} showIfEmpty={showIfEmpty} />
+        <PeriodDetail period={identifier?.period} showIfEmpty={showIfEmpty} />
+      </>
+    )}
+  </NestedListDetail>
+)
 
 interface IProps extends IDetailViewProps {
   term: string

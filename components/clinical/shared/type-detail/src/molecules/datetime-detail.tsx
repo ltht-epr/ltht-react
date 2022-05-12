@@ -1,16 +1,15 @@
 import { PartialDateTime } from '@ltht-react/types'
 import { partialDateTimeText } from '@ltht-react/utils'
-import DescriptionList from '@ltht-react/description-list'
 import { DetailViewComponent, IDetailViewProps } from '../atoms/detail-view-component'
+import NestedListDetail from './nested-list-detail'
 
 const DatetimeDetail: DetailViewComponent<IProps> = ({ term, datetime, showIfEmpty }) => {
   const dateTimeText = partialDateTimeText(datetime)
   if (dateTimeText !== '' || showIfEmpty === true) {
     return (
-      <DescriptionList>
-        <DescriptionList.Term>{term}</DescriptionList.Term>
-        <DescriptionList.Description>{dateTimeText}</DescriptionList.Description>
-      </DescriptionList>
+      <NestedListDetail term={term} showIfEmpty={showIfEmpty}>
+        {dateTimeText}
+      </NestedListDetail>
     )
   }
   return <></>

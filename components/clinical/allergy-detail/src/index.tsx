@@ -36,9 +36,9 @@ const AllergyDetail: FC<Props> = ({ allergy, showDates = true, viewType = Detail
       <CodeableConceptDetail term="Allergy" concept={allergy.code} />
       <StringDetail term="Verification Status" description={allergy.verificationStatus?.toString()} />
       <StringDetail term="Clinical Status" description={allergy.clinicalStatus?.toString()} />
-      {showDates && <AllergyOnset term="Onset" onset={allergy.onSet} />}
+      {showDates ? <AllergyOnset term="Onset" onset={allergy.onSet} /> : <></>}
       <ResourceReferenceDetail term="Asserter" resourceReference={allergy?.asserter} />
-      {showDates && <DatetimeDetail term="Asserted Date" datetime={allergy?.assertedDate} />}
+      {showDates ? <DatetimeDetail term="Asserted Date" datetime={allergy?.assertedDate} /> : <></>}
       <AnnotationListDetail term="Note(s)" notes={allergy.note} />
       <DatetimeDetail term="Last Occurence" datetime={allergy?.lastOccurrence} />
       <StringDetail term="Criticality" description={allergy.criticality?.toString()} />

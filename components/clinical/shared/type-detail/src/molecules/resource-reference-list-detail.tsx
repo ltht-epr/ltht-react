@@ -2,12 +2,12 @@ import { ResourceReference, Maybe } from '@ltht-react/types'
 import DescriptionList from '@ltht-react/description-list'
 import { titleCase } from '@ltht-react/utils'
 import { DetailViewComponent, IDetailViewProps } from '../atoms/detail-view-component'
+import NestedListDetail from './nested-list-detail'
 
 const ResourceReferenceListDetail: DetailViewComponent<Props> = ({ term, resourceReferences, showIfEmpty }) => {
   if (resourceReferences || showIfEmpty) {
     return (
-      <DescriptionList>
-        <DescriptionList.Term>{term}</DescriptionList.Term>
+      <NestedListDetail term={term} showIfEmpty={showIfEmpty} wrapDescription={false}>
         {resourceReferences?.map((item) => {
           if (item?.display) {
             return (
@@ -16,7 +16,7 @@ const ResourceReferenceListDetail: DetailViewComponent<Props> = ({ term, resourc
           }
           return <></>
         })}
-      </DescriptionList>
+      </NestedListDetail>
     )
   }
   return <></>

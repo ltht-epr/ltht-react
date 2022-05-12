@@ -5,6 +5,7 @@ import {
   CodeableConceptDetail,
   DatetimeDetail,
   NarrativeDetail,
+  NestedListDetail,
   PeriodDetail,
   ResourceReferenceDetail,
   StringDetail,
@@ -19,6 +20,11 @@ export const Period: Story = () => <PeriodDetail period={fixtures.period} />
 export const String: Story = () => <StringDetail term="Term" description="description test" />
 export const ResourceReference: Story = () => (
   <ResourceReferenceDetail term="Author" resourceReference={fixtures.resourceReference} />
+)
+export const NestedList: Story = () => (
+  <NestedListDetail term="Definition list term" wrapDescription showIfEmpty>
+    Definition list description
+  </NestedListDetail>
 )
 
 export default { title: 'Clinical/Molecules/Detail' }

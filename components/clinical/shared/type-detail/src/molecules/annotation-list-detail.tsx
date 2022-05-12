@@ -1,8 +1,9 @@
 import styled from '@emotion/styled'
-import { Annotation, Maybe, Scalars } from '@ltht-react/types'
+import { Annotation, Maybe } from '@ltht-react/types'
 import { partialDateTimeText } from '@ltht-react/utils'
 import DescriptionList from '@ltht-react/description-list'
-import { DetailViewComponent } from '../atoms/detail-view-component'
+import { DetailViewComponent, IDetailViewProps } from '../atoms/detail-view-component'
+import NestedListDetail from './nested-list-detail'
 
 const StyledAnnotation = styled.div<IStyledAnnotation>`
   margin-bottom: ${({ isLastAnnotation }) => (isLastAnnotation ? '0' : '1.5rem')};
@@ -20,8 +21,7 @@ const AnnotationListDetail: DetailViewComponent<IProps> = ({ term, notes, showIf
   if (showIfEmpty !== true && !notes?.length) return <></>
 
   return (
-    <DescriptionList>
-      <DescriptionList.Term>{term}</DescriptionList.Term>
+    <NestedListDetail term={term} showIfEmpty={showIfEmpty} wrapDescription={false}>
       {notes?.map((note, index) => (
         <StyledAnnotation key={`allergy-note-${index + 1}`} isLastAnnotation={index === notes.length - 1}>
           {note?.author && <StyledAnnotationAuthorInfo>{note.author?.display}</StyledAnnotationAuthorInfo>}
@@ -29,14 +29,13 @@ const AnnotationListDetail: DetailViewComponent<IProps> = ({ term, notes, showIf
           <StyledAnnotationNoteText>{note?.text}</StyledAnnotationNoteText>
         </StyledAnnotation>
       ))}
-    </DescriptionList>
+    </NestedListDetail>
   )
 }
 
-interface IProps {
+interface IProps extends IDetailViewProps {
   term: string
   notes?: Maybe<Maybe<Annotation>[]>
-  showIfEmpty?: Maybe<Scalars['Boolean']>
 }
 
 interface IStyledAnnotation {
