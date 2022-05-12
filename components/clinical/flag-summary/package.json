@@ -1,6 +1,6 @@
 {
   "name": "@ltht-react/flag-summary",
-  "version": "1.3.73",
+  "version": "1.3.74",
   "description": "> TODO: description",
   "author": "Jonny Smith <jonny.asmith@gmail.com>",
   "homepage": "",
@@ -24,12 +24,12 @@
   "dependencies": {
     "@emotion/react": "^11.0.0",
     "@emotion/styled": "^11.0.0",
-    "@ltht-react/icon": "^1.3.73",
-    "@ltht-react/list": "^1.3.71",
-    "@ltht-react/styles": "^1.3.65",
-    "@ltht-react/type-summary": "^1.3.73",
-    "@ltht-react/types": "^1.0.69",
-    "@ltht-react/utils": "^1.1.71",
+    "@ltht-react/icon": "^1.3.74",
+    "@ltht-react/list": "^1.3.72",
+    "@ltht-react/styles": "^1.3.66",
+    "@ltht-react/type-summary": "^1.3.74",
+    "@ltht-react/types": "^1.0.70",
+    "@ltht-react/utils": "^1.1.72",
     "react": "^17.0.0"
   },
   "gitHead": "4d364556bb11e294d86697c2dac66742f7aabc7f"
