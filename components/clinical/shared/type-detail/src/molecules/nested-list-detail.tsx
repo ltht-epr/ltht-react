@@ -1,5 +1,5 @@
 import DescriptionList from '@ltht-react/description-list'
-import { DetailViewComponent, IDetailViewProps } from '../atoms/detail-view-props'
+import { DetailViewComponent, IDetailViewProps } from '../atoms/detail-view-component'
 
 const NestedListDetail: DetailViewComponent<IProps> = ({ term, children, showIfEmpty = true }) => (
   <DescriptionList>

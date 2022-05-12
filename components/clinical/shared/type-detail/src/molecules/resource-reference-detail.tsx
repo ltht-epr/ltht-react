@@ -1,6 +1,6 @@
 import { ResourceReference } from '@ltht-react/types'
 import DescriptionList from '@ltht-react/description-list'
-import { DetailViewComponent, IDetailViewProps } from '../atoms/detail-view-props'
+import { DetailViewComponent, IDetailViewProps } from '../atoms/detail-view-component'
 
 const ResourceReferenceDetail: DetailViewComponent<IProps> = ({ term, resourceReference, showIfEmpty }) => {
   if (resourceReference) {

@@ -2,7 +2,7 @@ import styled from '@emotion/styled'
 import { Annotation, Maybe, Scalars } from '@ltht-react/types'
 import { partialDateTimeText } from '@ltht-react/utils'
 import DescriptionList from '@ltht-react/description-list'
-import { DetailViewComponent } from '../atoms/detail-view-props'
+import { DetailViewComponent } from '../atoms/detail-view-component'
 
 const StyledAnnotation = styled.div<IStyledAnnotation>`
   margin-bottom: ${({ isLastAnnotation }) => (isLastAnnotation ? '0' : '1.5rem')};

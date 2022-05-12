@@ -1,7 +1,7 @@
 import { PartialDateTime } from '@ltht-react/types'
 import { partialDateTimeText } from '@ltht-react/utils'
 import DescriptionList from '@ltht-react/description-list'
-import { DetailViewComponent, IDetailViewProps } from '../atoms/detail-view-props'
+import { DetailViewComponent, IDetailViewProps } from '../atoms/detail-view-component'
 
 const DatetimeDetail: DetailViewComponent<IProps> = ({ term, datetime, showIfEmpty }) => {
   const dateTimeText = partialDateTimeText(datetime)

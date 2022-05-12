@@ -1,7 +1,7 @@
 import { ResourceReference, Maybe } from '@ltht-react/types'
 import DescriptionList from '@ltht-react/description-list'
 import { titleCase } from '@ltht-react/utils'
-import { DetailViewComponent, IDetailViewProps } from '../atoms/detail-view-props'
+import { DetailViewComponent, IDetailViewProps } from '../atoms/detail-view-component'
 
 const ResourceReferenceListDetail: DetailViewComponent<Props> = ({ term, resourceReferences, showIfEmpty }) => {
   if (resourceReferences || showIfEmpty) {

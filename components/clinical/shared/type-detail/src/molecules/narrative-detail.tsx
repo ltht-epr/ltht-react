@@ -1,6 +1,6 @@
 import { Narrative } from '@ltht-react/types'
 import DescriptionList from '@ltht-react/description-list'
-import { DetailViewComponent, IDetailViewProps } from '../atoms/detail-view-props'
+import { DetailViewComponent, IDetailViewProps } from '../atoms/detail-view-component'
 
 const NarrativeDetail: DetailViewComponent<IProps> = ({ narrative, showIfEmpty = false }) => {
   if ((narrative && narrative.text.length > 0) || showIfEmpty === true) {

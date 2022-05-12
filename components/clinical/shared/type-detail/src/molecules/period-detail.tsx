@@ -1,7 +1,7 @@
 import { Period as PeriodType } from '@ltht-react/types'
 import { periodSummaryText } from '@ltht-react/utils'
 import DescriptionList from '@ltht-react/description-list'
-import { DetailViewComponent, IDetailViewProps } from '../atoms/detail-view-props'
+import { DetailViewComponent, IDetailViewProps } from '../atoms/detail-view-component'
 
 const PeriodDetail: DetailViewComponent<IProps> = ({ period, showIfEmpty = false }) => {
   const summaryText = periodSummaryText(period)

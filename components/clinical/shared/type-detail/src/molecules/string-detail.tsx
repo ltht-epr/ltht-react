@@ -1,7 +1,7 @@
 import { titleCase } from '@ltht-react/utils'
 import DescriptionList from '@ltht-react/description-list'
 import ReactHtmlParser from 'react-html-parser'
-import { DetailViewComponent, IDetailViewProps } from '../atoms/detail-view-props'
+import { DetailViewComponent, IDetailViewProps } from '../atoms/detail-view-component'
 
 const StringDetail: DetailViewComponent<IProps> = ({ term, description, showIfEmpty }) => {
   if (description || showIfEmpty) {

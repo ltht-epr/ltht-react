@@ -6,7 +6,7 @@ import {
   ResourceReferenceDetail,
   NestedListDetail,
 } from '../molecules'
-import { DetailViewComponent, IDetailViewProps } from '../atoms/detail-view-props'
+import { DetailViewComponent, IDetailViewProps } from '../atoms/detail-view-component'
 
 const IdentifierDetail: DetailViewComponent<IProps> = ({ term, identifier, showIfEmpty = true }) => {
   if (identifier || showIfEmpty === true) {

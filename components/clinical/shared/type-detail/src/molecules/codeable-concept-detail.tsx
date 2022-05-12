@@ -4,7 +4,7 @@ import { ExternalLinkIcon } from '@ltht-react/icon'
 import { LINK_COLOURS } from '@ltht-react/styles'
 import { codeableConceptDisplaySummary } from '@ltht-react/utils'
 import DescriptionList from '@ltht-react/description-list'
-import { DetailViewComponent, IDetailViewProps } from '../atoms/detail-view-props'
+import { DetailViewComponent, IDetailViewProps } from '../atoms/detail-view-component'
 
 const StyledLink = styled.a`
   display: flex;
