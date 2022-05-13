@@ -6,7 +6,7 @@ import AllergySummary from '@ltht-react/allergy-summary'
 import Card from '@ltht-react/card'
 import { AllergyIntolerance, DetailViewType } from '@ltht-react/types'
 import { Button } from '@ltht-react/button'
-import { useDetailViewType } from '@ltht-react/type-detail'
+import { useDetailViewType } from '../hooks/useDetailViewTypeHook'
 import allergies, { RedactedAllergy } from './allergies.fixtures'
 
 export const Detail: Story = () => (

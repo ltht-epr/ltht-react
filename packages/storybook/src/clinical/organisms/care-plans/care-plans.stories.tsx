@@ -3,9 +3,9 @@ import { Story } from '@storybook/react'
 import CarePlanDetail from '@ltht-react/care-plan-detail'
 import CarePlanSummary from '@ltht-react/care-plan-summary'
 import Card from '@ltht-react/card'
-import { useDetailViewType } from '@ltht-react/type-detail'
 import { Button } from '@ltht-react/button'
 import { DetailViewType } from '@ltht-react/types'
+import { useDetailViewType } from '../hooks/useDetailViewTypeHook'
 import carePlans from './care-plans.fixtures'
 
 export const Detail: Story = () => (

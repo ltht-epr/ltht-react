@@ -6,6 +6,7 @@ import {
   Maybe,
   QuestionnaireItem,
   QuestionnaireResponseItem,
+  DetailViewType,
 } from '@ltht-react/types'
 
 import { DESKTOP_MINIMUM_MEDIA_QUERY, MOBILE_MAXIMUM_MEDIA_QUERY, TABLET_ONLY_MEDIA_QUERY } from '@ltht-react/styles'
@@ -28,7 +29,8 @@ const DynamicContainer = styled.div`
   justify-content: flex-start;
   margin-top: '1rem';
 
-  & div.QuestionBlock {
+  & div.QuestionBlock,
+  & div.QuestionGroup {
     margin-top: 0;
     margin-bottom: 1rem;
 
@@ -89,12 +91,22 @@ const DynamicContainer = styled.div`
       }
     }
   }
+
+  & div.QuestionGroup div.QuestionBlock {
+    width: 100%;
+    text-align: left;
+    margin-bottom: 1rem !important;
+
+    &:last-child {
+      margin-bottom: 0px !important;
+    }
+  }
 `
 
 function QuestionnaireQuestions(
   questions: Maybe<Maybe<QuestionnaireItem>[]> | undefined,
   answers: Maybe<Maybe<QuestionnaireResponseItem>[]> | undefined,
-  displayDynamic: boolean
+  viewType: DetailViewType
 ): ReactNode {
   return questions?.map((question) => {
     if (question?.type === QuestionnaireItemTypeCode.Group) {
@@ -104,11 +116,12 @@ function QuestionnaireQuestions(
 
       return groupAnswers?.map((groupAnswer, index) => (
         <QuestionGroup
+          className="QuestionGroup"
           key={`${question?.text || 'question-group'}-${question?.linkId}-${index + 1}`}
           header={question.text}
           questions={question.item}
           answers={groupAnswer}
-          displayDynamic={displayDynamic}
+          viewType={viewType}
         />
       ))
     }
@@ -125,7 +138,7 @@ function QuestionnaireQuestions(
   })
 }
 
-const Questionnaire: FC<IProps> = ({ questionnaire, showTitle = false, displayDynamic = false }) => {
+const Questionnaire: FC<IProps> = ({ questionnaire, showTitle = false, viewType = DetailViewType.Expanded }) => {
   const questions = questionnaire?.questionnaire?.item
   const answers = questionnaire?.item
   const title = questionnaire?.questionnaire?.title
@@ -136,9 +149,11 @@ const Questionnaire: FC<IProps> = ({ questionnaire, showTitle = false, displayDy
     <StyledQuestionnaire>
       {showTitle && <TitleInfo title={title} />}
 
-      {displayDynamic && <DynamicContainer>{QuestionnaireQuestions(questions, answers, true)}</DynamicContainer>}
-
-      {!displayDynamic && QuestionnaireQuestions(questions, answers, false)}
+      {viewType === DetailViewType.Compact ? (
+        <DynamicContainer>{QuestionnaireQuestions(questions, answers, viewType)}</DynamicContainer>
+      ) : (
+        QuestionnaireQuestions(questions, answers, viewType || DetailViewType.Expanded)
+      )}
 
       <AuthorInfo author={questionnaire?.author} authoredOn={questionnaire?.authored} />
     </StyledQuestionnaire>
@@ -148,7 +163,7 @@ const Questionnaire: FC<IProps> = ({ questionnaire, showTitle = false, displayDy
 interface IProps {
   questionnaire: Maybe<QuestionnaireResponse> | undefined
   showTitle?: boolean | undefined
-  displayDynamic?: boolean | undefined
+  viewType?: Maybe<DetailViewType>
 }
 
 export default Questionnaire

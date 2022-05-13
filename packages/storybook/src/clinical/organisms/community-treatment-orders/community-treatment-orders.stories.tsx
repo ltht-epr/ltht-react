@@ -5,7 +5,7 @@ import CommunityTreatmentOrderSummary from '@ltht-react/community-treatment-orde
 import Card from '@ltht-react/card'
 import { Button } from '@ltht-react/button'
 import { DetailViewType } from '@ltht-react/types'
-import { useDetailViewType } from '@ltht-react/type-detail'
+import { useDetailViewType } from '../hooks/useDetailViewTypeHook'
 import orders from './community-treatment-orders.fixtures'
 
 export const Detail: Story = () => (

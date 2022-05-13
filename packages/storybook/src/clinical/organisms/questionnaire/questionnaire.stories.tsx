@@ -3,6 +3,7 @@ import { Story } from '@storybook/react'
 import Questionnaire from '@ltht-react/questionnaire'
 import Card from '@ltht-react/card'
 
+import { DetailViewType } from '@ltht-react/types'
 import {
   BooleanFieldData,
   DisplayFieldData,
@@ -135,6 +136,17 @@ export const ComposedExample: Story = () => (
     </Card.Header>
     <Card.Body>
       <Questionnaire questionnaire={ComposedExampleData} />
+    </Card.Body>
+  </Card>
+)
+
+export const CompactExample: Story = () => (
+  <Card>
+    <Card.Header>
+      <Card.Title>Questionnaire</Card.Title>
+    </Card.Header>
+    <Card.Body>
+      <Questionnaire questionnaire={NestedGroupWithDisplayExampleData} viewType={DetailViewType.Compact} />
     </Card.Body>
   </Card>
 )

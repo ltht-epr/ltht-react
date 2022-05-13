@@ -3,9 +3,9 @@ import { Story } from '@storybook/react'
 import HospitalStayDetail from '@ltht-react/hospital-stay-detail'
 import HospitalStaySummary from '@ltht-react/hospital-stay-summary'
 import Card from '@ltht-react/card'
-import { useDetailViewType } from '@ltht-react/type-detail'
 import { Button } from '@ltht-react/button'
-import { DetailViewType } from '@ltht-react/types'
+import * as types from '@ltht-react/types'
+import { useDetailViewType } from '../hooks/useDetailViewTypeHook'
 import stays from './hospital-stays.fixtures'
 
 export const Detail: Story = () => (
@@ -29,7 +29,7 @@ export const DetailsCollapsibleView: Story = () => {
           Collapsible detail view{' '}
           <Button
             type="button"
-            value={viewType === DetailViewType.Expanded ? 'View compacted' : 'View expanded'}
+            value={viewType === types.DetailViewType.Expanded ? 'View compacted' : 'View expanded'}
             onClick={toggle}
           />
         </Card.Title>

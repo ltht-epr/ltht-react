@@ -4,9 +4,9 @@ import Card from '@ltht-react/card'
 import MedicationSummary from '@ltht-react/medication-summary'
 import MedicationDetail from '@ltht-react/medication-detail'
 
-import { useDetailViewType } from '@ltht-react/type-detail'
 import { Button } from '@ltht-react/button'
 import { DetailViewType } from '@ltht-react/types'
+import { useDetailViewType } from '../hooks/useDetailViewTypeHook'
 import MedicationFixtures from './medications.fixture'
 
 export const Summary: Story = () => {

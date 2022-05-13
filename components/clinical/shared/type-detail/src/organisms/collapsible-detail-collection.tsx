@@ -1,4 +1,4 @@
-import { FC, Children, cloneElement, useState, Dispatch, SetStateAction } from 'react'
+import { FC, Children, cloneElement } from 'react'
 import styled from '@emotion/styled'
 import { DetailViewType, Maybe } from '@ltht-react/types'
 import { DESKTOP_MINIMUM_MEDIA_QUERY, MOBILE_MAXIMUM_MEDIA_QUERY, TABLET_ONLY_MEDIA_QUERY } from '@ltht-react/styles'
@@ -77,29 +77,10 @@ const CollapsibleDetailCollection: FC<CollapsibleDetailCollectionProps> = ({ chi
 
   return <StyledDetail>{Children.map(children, (child) => cloneElement(child, { showIfEmpty }))}</StyledDetail>
 }
-
 export interface CollapsibleDetailCollectionProps {
   viewType?: Maybe<DetailViewType>
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   children?: any
-}
-
-// Hook that provides state data for managing the type of detail view
-export const useDetailViewType = (): UseDetailViewType => {
-  const [viewType, setViewType] = useState(DetailViewType.Compact)
-
-  const toggleViewType = () => {
-    if (viewType === DetailViewType.Compact) setViewType(DetailViewType.Expanded)
-    else setViewType(DetailViewType.Compact)
-  }
-
-  return { viewType, toggle: toggleViewType, setViewType }
-}
-
-type UseDetailViewType = {
-  viewType: DetailViewType
-  toggle: () => void
-  setViewType: Dispatch<SetStateAction<DetailViewType>>
 }
 
 export default CollapsibleDetailCollection

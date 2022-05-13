@@ -4,9 +4,9 @@ import FlagDetail from '@ltht-react/flag-detail'
 import FlagSummary from '@ltht-react/flag-summary'
 import Card from '@ltht-react/card'
 
-import { useDetailViewType } from '@ltht-react/type-detail'
 import { Button } from '@ltht-react/button'
 import { DetailViewType } from '@ltht-react/types'
+import { useDetailViewType } from '../hooks/useDetailViewTypeHook'
 import flags from './flags.fixtures'
 
 export const Detail: Story = () => (

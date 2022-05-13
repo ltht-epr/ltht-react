@@ -7,15 +7,18 @@ const NestedListDetail: DetailViewComponent<IProps> = ({
   children,
   wrapDescription = true,
   showIfEmpty = true,
-}) => (
-  <DescriptionList>
-    {(children || showIfEmpty === true) && <DescriptionList.Term>{term}</DescriptionList.Term>}
-    {(children || showIfEmpty === true) && wrapDescription === true && (
-      <DescriptionList.Description>{children}</DescriptionList.Description>
-    )}
-    {(children || showIfEmpty === true) && wrapDescription === false && <>{children}</>}
-  </DescriptionList>
-)
+}) =>
+  children || showIfEmpty === true ? (
+    <DescriptionList>
+      {(children || showIfEmpty === true) && <DescriptionList.Term>{term}</DescriptionList.Term>}
+      {(children || showIfEmpty === true) && wrapDescription === true && (
+        <DescriptionList.Description>{children}</DescriptionList.Description>
+      )}
+      {(children || showIfEmpty === true) && wrapDescription === false && <>{children}</>}
+    </DescriptionList>
+  ) : (
+    <></>
+  )
 
 interface IProps extends IDetailViewProps {
   term: string

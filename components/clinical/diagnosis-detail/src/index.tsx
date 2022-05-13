@@ -45,7 +45,7 @@ const DiagnosisDetail: FC<Props> = ({ condition, links, viewType = DetailViewTyp
       condition?.extensionData.map((item, index) => (
         <>
           {index === 0 && <Seperator />}
-          <Questionnaire questionnaire={item} showTitle displayDynamic />
+          <Questionnaire questionnaire={item} showTitle viewType={viewType} />
           <Seperator />
         </>
       ))}
