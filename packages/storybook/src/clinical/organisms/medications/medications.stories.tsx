@@ -4,6 +4,9 @@ import Card from '@ltht-react/card'
 import MedicationSummary from '@ltht-react/medication-summary'
 import MedicationDetail from '@ltht-react/medication-detail'
 
+import { Button } from '@ltht-react/button'
+import { DetailViewType } from '@ltht-react/types'
+import { useDetailViewType } from '../hooks/useDetailViewTypeHook'
 import MedicationFixtures from './medications.fixture'
 
 export const Summary: Story = () => {
@@ -71,5 +74,27 @@ export const Detail: Story = () => (
     </Card.Body>
   </Card>
 )
+
+export const DetailsCollapsibleView: Story = () => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const { viewType, toggle } = useDetailViewType()
+  return (
+    <Card>
+      <Card.Header>
+        <Card.Title>
+          Collapsible detail view{' '}
+          <Button
+            type="button"
+            value={viewType === DetailViewType.Expanded ? 'View compacted' : 'View expanded'}
+            onClick={toggle}
+          />
+        </Card.Title>
+      </Card.Header>
+      <Card.Body>
+        <MedicationDetail medication={MedicationFixtures[1]} viewType={viewType} />
+      </Card.Body>
+    </Card>
+  )
+}
 
 export default { title: 'Clinical/Organisms/Medications' }

@@ -1,4 +1,4 @@
-import isMobileView from './mobile-view'
+import isMobileView from './isMobileView'
 
 describe('isMobileView', () => {
   it('Equal value is not mobile', () => {

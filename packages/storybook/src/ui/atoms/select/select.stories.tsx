@@ -2,12 +2,12 @@ import { useState } from 'react'
 import styled from '@emotion/styled'
 import { Story } from '@storybook/react'
 import Select from '@ltht-react/select'
-import { DESKTOP_MEDIA_QUERY } from '@ltht-react/styles'
+import { DESKTOP_MINIMUM_MEDIA_QUERY } from '@ltht-react/styles'
 
 const StyledSelectContainer = styled.div`
   width: 100%;
 
-  ${DESKTOP_MEDIA_QUERY} {
+  ${DESKTOP_MINIMUM_MEDIA_QUERY} {
     width: 30%;
   }
 `

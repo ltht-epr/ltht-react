@@ -1,6 +1,6 @@
 import { FC, HTMLAttributes, useEffect, useRef, useState } from 'react'
 import styled from '@emotion/styled'
-import { CSS_RESET, DESKTOP_MEDIA_QUERY } from '@ltht-react/styles'
+import { CSS_RESET, DESKTOP_MINIMUM_MEDIA_QUERY } from '@ltht-react/styles'
 import { ChevronIcon } from '@ltht-react/icon'
 
 import Option, { IProps as OptionProps } from './atoms/option'
@@ -23,7 +23,7 @@ const SelectTrigger = styled.div`
   background: white;
   cursor: pointer;
 
-  ${DESKTOP_MEDIA_QUERY} {
+  ${DESKTOP_MINIMUM_MEDIA_QUERY} {
     min-height: 39px;
   }
 `

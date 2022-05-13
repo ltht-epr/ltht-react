@@ -3,6 +3,9 @@ import { Story } from '@storybook/react'
 import DiagnosisSummary from '@ltht-react/diagnosis-summary'
 import DiagnosisDetail from '@ltht-react/diagnosis-detail'
 import Card from '@ltht-react/card'
+import { Button } from '@ltht-react/button'
+import { DetailViewType } from '@ltht-react/types'
+import { useDetailViewType } from '../hooks/useDetailViewTypeHook'
 import conditions from './diagnosis.fixtures'
 
 const CODABLE_CONCEPT_LINK_MAP = {
@@ -72,6 +75,39 @@ export const LevelOneDetail: Story = () => (
     </Card.Header>
     <Card.Body>
       <DiagnosisDetail condition={conditions[1]} links={CODABLE_CONCEPT_LINK_MAP} />
+    </Card.Body>
+  </Card>
+)
+
+export const LevelOneDetailsCollapsibleView: Story = () => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const { viewType, toggle } = useDetailViewType()
+  return (
+    <Card>
+      <Card.Header>
+        <Card.Title>
+          Collapsible detail view{' '}
+          <Button
+            type="button"
+            value={viewType === DetailViewType.Expanded ? 'View compacted' : 'View expanded'}
+            onClick={toggle}
+          />
+        </Card.Title>
+      </Card.Header>
+      <Card.Body>
+        <DiagnosisDetail condition={conditions[4]} links={CODABLE_CONCEPT_LINK_MAP} viewType={viewType} />
+      </Card.Body>
+    </Card>
+  )
+}
+
+export const LevelOneDetail2: Story = () => (
+  <Card>
+    <Card.Header>
+      <Card.Title style={{ textAlign: 'center' }}>Diagnosis</Card.Title>
+    </Card.Header>
+    <Card.Body>
+      <DiagnosisDetail condition={conditions[2]} />
     </Card.Body>
   </Card>
 )

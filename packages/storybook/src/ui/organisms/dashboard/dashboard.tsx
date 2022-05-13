@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import styled from '@emotion/styled'
-import { TABLET_MEDIA_QUERY } from '@ltht-react/styles'
+import { TABLET_MINIMUM_MEDIA_QUERY } from '@ltht-react/styles'
 
 const StyledContainer = styled.div`
   display: flex;
@@ -10,7 +10,7 @@ const StyledContainer = styled.div`
     padding-right: 0 !important;
   }
 
-  ${TABLET_MEDIA_QUERY} {
+  ${TABLET_MINIMUM_MEDIA_QUERY} {
     flex-direction: row;
     & > div {
       padding-right: 0.5rem;
@@ -19,7 +19,7 @@ const StyledContainer = styled.div`
 `
 
 const StyledColumn = styled.div`
-  ${TABLET_MEDIA_QUERY} {
+  ${TABLET_MINIMUM_MEDIA_QUERY} {
     flex: 1;
   }
 `

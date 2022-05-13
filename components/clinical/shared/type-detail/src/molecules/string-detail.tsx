@@ -1,21 +1,16 @@
-import { FC } from 'react'
 import { titleCase } from '@ltht-react/utils'
-import DescriptionList from '@ltht-react/description-list'
 import ReactHtmlParser from 'react-html-parser'
+import { DetailViewComponent, IDetailViewProps } from '../atoms/detail-view-component'
+import NestedListDetail from './nested-list-detail'
 
-const StringDetail: FC<Props> = ({ term, description }) => {
-  if (description) {
-    return (
-      <DescriptionList>
-        <DescriptionList.Term>{term}</DescriptionList.Term>
-        <DescriptionList.Description>{ReactHtmlParser(titleCase(description))}</DescriptionList.Description>
-      </DescriptionList>
-    )
+const StringDetail: DetailViewComponent<IProps> = ({ term, description, showIfEmpty }) => {
+  if (description || showIfEmpty) {
+    return <NestedListDetail term={term}>{ReactHtmlParser(titleCase(description ?? ''))}</NestedListDetail>
   }
   return <></>
 }
 
-interface Props {
+interface IProps extends IDetailViewProps {
   term: string
   description?: string | null
 }

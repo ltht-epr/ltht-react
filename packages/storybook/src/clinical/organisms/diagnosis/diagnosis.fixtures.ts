@@ -91,6 +91,21 @@ export const QuestionnaireResponse2: QuestionnaireResponse = {
         text: 'Laterality',
         type: QuestionnaireItemTypeCode.QuestionCoding,
       },
+      {
+        linkId: 'Principal',
+        text: 'Principal',
+        type: QuestionnaireItemTypeCode.QuestionCoding,
+      },
+      {
+        linkId: 'Status',
+        text: 'Status',
+        type: QuestionnaireItemTypeCode.QuestionCoding,
+      },
+      {
+        linkId: 'Dexterity',
+        text: 'Dexterity',
+        type: QuestionnaireItemTypeCode.QuestionCoding,
+      },
     ],
   },
   item: [
@@ -119,6 +134,336 @@ export const QuestionnaireResponse2: QuestionnaireResponse = {
         },
       ],
       item: null,
+    },
+    {
+      linkId: 'Principal',
+      text: null,
+      answer: [
+        {
+          valueString: null,
+          valueBoolean: false,
+          valueDateTime: null,
+          valueCoding: { display: 'Progress' },
+        },
+      ],
+      item: null,
+    },
+    {
+      linkId: 'Status',
+      text: null,
+      answer: [
+        {
+          valueString: null,
+          valueBoolean: false,
+          valueDateTime: null,
+          valueCoding: { display: 'Confirmed' },
+        },
+      ],
+      item: null,
+    },
+    {
+      linkId: 'Dexterity',
+      text: null,
+      answer: [
+        {
+          valueString: null,
+          valueBoolean: false,
+          valueDateTime: null,
+          valueCoding: { display: 'Excellent' },
+        },
+      ],
+      item: null,
+    },
+  ],
+}
+
+export const NestedGroupWithDisplayExampleData: QuestionnaireResponse = {
+  id: 'f9fb120a-6d65-427c-9c9e-51031e0607b3',
+  status: QuestionnaireResponseStatus.Completed,
+  authored: {
+    kind: PartialDateTimeKindCode.DateTime,
+    value: '2021-10-14T12:17:46.683+00:00',
+  },
+  metadata: mockMetadata,
+  author: {
+    typeName: 'EhrUser',
+    identifier: {
+      system: null,
+      value: 'ed166c7a-d8cb-450f-aba5-4471f1bbe430',
+    },
+    display: 'SMITH, Bob (Dr) Doctor - specialtyCodeName',
+  },
+  questionnaire: {
+    id: '4789c2b3-7e37-4dd7-9642-0d456ae2f2bd',
+    identifier: [
+      {
+        system: 'http://leedsth.nhs.uk/user/guid',
+        value: 'cfe6a9d7-f23d-4bb9-a28d-8a3895bee48a',
+      },
+    ],
+    metadata: mockMetadata,
+    url: null,
+    version: '1',
+    title: 'Discharge Actions',
+    status: QuestionnairePublicationStatus.Active,
+    item: [
+      {
+        linkId: '1',
+        text: 'Trust Actions',
+        type: QuestionnaireItemTypeCode.Group,
+        repeats: false,
+        item: [
+          {
+            linkId: '1.1',
+            text: 'No actions for the Trust post-discharge',
+            type: QuestionnaireItemTypeCode.Display,
+          },
+          {
+            linkId: '1.2',
+            text: null,
+            type: QuestionnaireItemTypeCode.Group,
+            item: [
+              {
+                linkId: '1.2.1',
+                text: 'Trust Actions',
+                type: QuestionnaireItemTypeCode.QuestionString,
+                repeats: false,
+              },
+              {
+                linkId: '1.2.2',
+                text: 'Action Organised?',
+                type: QuestionnaireItemTypeCode.QuestionBoolean,
+                repeats: false,
+              },
+            ],
+          },
+        ],
+      },
+      {
+        linkId: '2',
+        text: 'GP Actions',
+        type: QuestionnaireItemTypeCode.Group,
+        repeats: false,
+        item: [
+          {
+            linkId: '2.1',
+            text: 'No actions for the GP post-discharge',
+            type: QuestionnaireItemTypeCode.Display,
+          },
+          {
+            linkId: '2.2',
+            text: null,
+            type: QuestionnaireItemTypeCode.Group,
+            item: [
+              {
+                linkId: '2.2.1',
+                text: 'GP Actions',
+                type: QuestionnaireItemTypeCode.QuestionString,
+                repeats: false,
+              },
+              {
+                linkId: '2.2.2',
+                text: 'Requested By?',
+                type: QuestionnaireItemTypeCode.QuestionString,
+                repeats: false,
+              },
+            ],
+          },
+        ],
+      },
+      {
+        linkId: '3',
+        text: 'Community Pharmacy Actions',
+        type: QuestionnaireItemTypeCode.Group,
+        repeats: false,
+        item: [
+          {
+            linkId: '3.1',
+            text: 'No actions for the Community Pharmacy post-discharge',
+            type: QuestionnaireItemTypeCode.Display,
+          },
+          {
+            linkId: '3.2',
+            text: null,
+            type: QuestionnaireItemTypeCode.Group,
+            item: [
+              {
+                linkId: '3.2.1',
+                text: 'Community Pharmacy Actions',
+                type: QuestionnaireItemTypeCode.QuestionString,
+                repeats: false,
+              },
+              {
+                linkId: '3.2.2',
+                text: 'Requested By?',
+                type: QuestionnaireItemTypeCode.QuestionString,
+                repeats: false,
+              },
+            ],
+          },
+        ],
+      },
+      {
+        linkId: '4',
+        text: 'CCG Actions',
+        type: QuestionnaireItemTypeCode.Group,
+        repeats: false,
+        item: [
+          {
+            linkId: '4.1',
+            text: 'No actions for the CCG post-discharge',
+            type: QuestionnaireItemTypeCode.Display,
+          },
+          {
+            linkId: '4.2',
+            text: null,
+            type: QuestionnaireItemTypeCode.Group,
+            item: [
+              {
+                linkId: '4.2.1',
+                text: 'CCG Actions',
+                type: QuestionnaireItemTypeCode.QuestionString,
+                repeats: false,
+              },
+              {
+                linkId: '4.2.2',
+                text: 'Requested By?',
+                type: QuestionnaireItemTypeCode.QuestionString,
+                repeats: false,
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+  item: [
+    {
+      linkId: '1',
+      text: 'Trust Actions',
+      answer: null,
+      item: [
+        {
+          linkId: '1.2',
+          text: null,
+          answer: null,
+          item: [
+            {
+              linkId: '1.2.1',
+              text: null,
+              answer: [
+                {
+                  valueString: 'Trust Action 1',
+                  valueBoolean: null,
+                  valueDateTime: null,
+                },
+              ],
+            },
+            {
+              linkId: '1.2.2',
+              text: null,
+              answer: [
+                {
+                  valueString: null,
+                  valueBoolean: false,
+                  valueDateTime: null,
+                },
+              ],
+            },
+          ],
+        },
+        {
+          linkId: '1.2',
+          text: null,
+          answer: null,
+          item: [
+            {
+              linkId: '1.2.1',
+              text: null,
+              answer: [
+                {
+                  valueString: 'Trust Action 2',
+                  valueBoolean: null,
+                  valueDateTime: null,
+                },
+              ],
+            },
+            {
+              linkId: '1.2.2',
+              text: null,
+              answer: [
+                {
+                  valueString: null,
+                  valueBoolean: true,
+                  valueDateTime: null,
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    },
+    {
+      linkId: '2',
+      text: 'GP Actions',
+      answer: null,
+      item: [
+        {
+          linkId: '2.1',
+          text: 'No actions for the GP post-discharge',
+          answer: null,
+          item: [],
+        },
+      ],
+    },
+    {
+      linkId: '3',
+      text: 'Community Pharmacy Actions',
+      answer: null,
+      item: [
+        {
+          linkId: '3.2',
+          text: null,
+          answer: null,
+          item: [
+            {
+              linkId: '3.2.1',
+              text: null,
+              answer: [
+                {
+                  valueString: 'Community Pharmacy Action 1',
+                  valueBoolean: null,
+                  valueDateTime: null,
+                },
+              ],
+            },
+            {
+              linkId: '3.2.2',
+              text: null,
+              answer: [
+                {
+                  valueString: 'Phil',
+                  valueBoolean: null,
+                  valueDateTime: null,
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    },
+    {
+      linkId: '4',
+      text: 'CCG Actions',
+      answer: null,
+      item: [
+        {
+          linkId: '4.1',
+          text: 'No actions for the CCG post-discharge',
+          answer: null,
+          item: [],
+        },
+      ],
     },
   ],
 }
@@ -152,7 +497,7 @@ const ConditionOne: Condition = {
       },
     ],
   },
-  extensionData: [QuestionnaireResponse1, QuestionnaireResponse2],
+  extensionData: [QuestionnaireResponse1, QuestionnaireResponse2, NestedGroupWithDisplayExampleData],
   bodySite: [
     {
       coding: [
@@ -206,10 +551,10 @@ const ConditionOne: Condition = {
   note: [{ text: 'Blister of foot without infection' }, { text: 'Nonvenomous insect bite of foot with indection' }],
   clinicalStatus: ConditionClinicalStatus.Active,
   verificationStatus: ConditionVerificationStatus.Confirmed,
-  assertedDate: {
-    value: '2018-08-07T00:00:00+00:00',
-    kind: PartialDateTimeKindCode.Date,
-  },
+  // assertedDate: {
+  //   value: '2018-08-07T00:00:00+00:00',
+  //   kind: PartialDateTimeKindCode.Date,
+  // },
   onset: {
     dateTime: {
       value: '2016-09-01T00:00:00+00:00',
@@ -270,33 +615,11 @@ const ConditionTwo: Condition = {
 }
 
 const ConditionThree: Condition = {
-  id: '345ha927-34e0-e911-a2c7-005087226er3|condition',
+  abatement: null,
   metadata: mockMetadata,
-  category: [
-    {
-      coding: [
-        {
-          code: '55607006',
-          display: 'Problem',
-        },
-      ],
-      text: 'Problem',
-    },
-  ],
-  code: {
-    coding: [
-      {
-        system: 'HEALTHPLUG',
-        code: '44054006',
-        display: 'Diabetes mellitus type 2',
-      },
-    ],
-    text: 'Entered in Error example',
-  },
-  clinicalStatus: ConditionClinicalStatus.Remission,
   assertedDate: {
-    value: '2020-01-01T00:00:00+00:00',
     kind: PartialDateTimeKindCode.Date,
+    value: '2022-03-18T00:00:00+00:00',
   },
   verificationStatus: ConditionVerificationStatus.EnteredinError,
   severity: {
@@ -309,6 +632,16 @@ const ConditionThree: Condition = {
       kind: PartialDateTimeKindCode.YearMonth,
     },
   },
+  asserter: null,
+  bodySite: [],
+  category: [],
+  clinicalStatus: ConditionClinicalStatus.Active,
+  code: { coding: [{ code: '3135009', display: 'Otitis externa' }], text: 'Otitis externa' },
+  evidence: [],
+  extension: null,
+  extensionData: null,
+  id: 'R3|cce08927-b95b-4d16-89e7-f92bd7853059',
+  stage: null,
 }
 
 const ConditionFour: Condition = {
@@ -347,6 +680,46 @@ const ConditionFour: Condition = {
   },
 }
 
-const conditions: Condition[] = [ConditionOne, ConditionTwo, ConditionThree, ConditionFour]
+const ConditionFive: Condition = {
+  id: '333',
+  metadata: mockMetadata,
+  category: [
+    {
+      coding: [
+        {
+          code: '55607006',
+          display: 'Problem',
+        },
+      ],
+      text: 'Problem',
+    },
+  ],
+  code: {
+    coding: [
+      {
+        system: 'HEALTHPLUG',
+        code: '44054006',
+        display: 'Hemophilia',
+      },
+    ],
+    text: 'Hemophilia',
+  },
+  clinicalStatus: ConditionClinicalStatus.Resolved,
+  asserter: {
+    display: 'Practitioner',
+    typeName: 'Practitioner',
+  },
+  assertedDate: {
+    value: '2017-12-12T00:00:00+00:00',
+    kind: PartialDateTimeKindCode.Date,
+  },
+  verificationStatus: ConditionVerificationStatus.Confirmed,
+  severity: {
+    coding: [{ code: '2448402', display: 'Moderate' }],
+    text: 'Moderate',
+  },
+}
+
+const conditions: Condition[] = [ConditionOne, ConditionTwo, ConditionThree, ConditionFour, ConditionFive]
 
 export default conditions

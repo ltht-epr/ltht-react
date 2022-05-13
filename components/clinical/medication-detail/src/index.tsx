@@ -1,14 +1,16 @@
-import { CodeSystem, Maybe, MedicationRequest } from '@ltht-react/types'
+import { CodeSystem, DetailViewType, Maybe, MedicationRequest } from '@ltht-react/types'
 import styled from '@emotion/styled'
 import {
   AnnotationListDetail,
   CodeableConceptDetail,
   CodeableConceptListDetail,
+  CollapsibleDetailCollection,
+  CollapsibleDetailCollectionProps,
   DatetimeDetail,
+  NestedListDetail,
   StringDetail,
 } from '@ltht-react/type-detail'
 import { MedicationDosageInstructions } from '@ltht-react/medication'
-import DescriptionList from '@ltht-react/description-list'
 
 import { FC } from 'react'
 
@@ -21,7 +23,7 @@ const Seperator = styled.div`
   margin: 1rem 0;
 `
 
-const MedicationDetail: FC<IProps> = ({ medication }) => {
+const MedicationDetail: FC<IProps> = ({ medication, viewType = DetailViewType.Compact }) => {
   const route = medication?.dosageInstruction && medication.dosageInstruction[0]?.route
   const source = medication?.supportingInformation && medication.supportingInformation[0]?.identifier?.value
   const status = medication?.extension?.find((extension) => extension?.url.includes('status'))?.valueString
@@ -41,30 +43,29 @@ const MedicationDetail: FC<IProps> = ({ medication }) => {
         <AnnotationListDetail term="Changes / Comments" notes={medication?.note} />
         <Seperator />
       </TopSection>
-      <CodeableConceptDetail term="Medication" concept={medication?.medicationReference?.code} />
-      <DescriptionList>
-        <DescriptionList.Term>Dosage</DescriptionList.Term>
-        <DescriptionList.Description>
+      <CollapsibleDetailCollection viewType={viewType}>
+        <CodeableConceptDetail term="Medication" concept={medication?.medicationReference?.code} />
+        <NestedListDetail term="Dosage">
           <MedicationDosageInstructions
             dosageInstructions={medication?.dosageInstruction}
             reasons={medication?.reasonCode}
             type={type}
           />
-        </DescriptionList.Description>
-      </DescriptionList>
-      <CodeableConceptDetail term="Form" concept={medication?.medicationReference?.form} />
-      <CodeableConceptListDetail term="Indication" concepts={medication?.reasonCode} />
-      <StringDetail term="Schedule" description={schedule} />
-      <StringDetail term="Qualifier" description={qualifier} />
-      <CodeableConceptDetail term="Route" concept={route} />
-      <DatetimeDetail term="Prescription Date" datetime={medication?.authoredOn} />
-      <StringDetail term="Verification Comment" description={verificationComment} />
-      <StringDetail term="Source" description={source} />
+        </NestedListDetail>
+        <CodeableConceptDetail term="Form" concept={medication?.medicationReference?.form} />
+        <CodeableConceptListDetail term="Indication" concepts={medication?.reasonCode} />
+        <StringDetail term="Schedule" description={schedule} />
+        <StringDetail term="Qualifier" description={qualifier} />
+        <CodeableConceptDetail term="Route" concept={route} />
+        <DatetimeDetail term="Prescription Date" datetime={medication?.authoredOn} />
+        <StringDetail term="Verification Comment" description={verificationComment} />
+        <StringDetail term="Source" description={source} />
+      </CollapsibleDetailCollection>
     </>
   )
 }
 
-interface IProps {
+interface IProps extends CollapsibleDetailCollectionProps {
   medication: Maybe<MedicationRequest>
 }
 
