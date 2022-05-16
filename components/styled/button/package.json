@@ -1,6 +1,6 @@
 {
   "name": "@ltht-react/button",
-  "version": "1.3.75",
+  "version": "1.3.76",
   "description": "ltht-react atoms Button component.",
   "author": "LTHT",
   "homepage": "",
@@ -27,10 +27,10 @@
   "dependencies": {
     "@emotion/react": "^11.0.0",
     "@emotion/styled": "^11.0.0",
-    "@ltht-react/icon": "^1.3.75",
-    "@ltht-react/styles": "^1.3.67",
-    "@ltht-react/types": "^1.0.71",
-    "@ltht-react/utils": "^1.1.73",
+    "@ltht-react/icon": "^1.3.76",
+    "@ltht-react/styles": "^1.3.68",
+    "@ltht-react/types": "^1.0.72",
+    "@ltht-react/utils": "^1.1.74",
     "react": "^17.0.0"
   },
   "gitHead": "4d364556bb11e294d86697c2dac66742f7aabc7f"
