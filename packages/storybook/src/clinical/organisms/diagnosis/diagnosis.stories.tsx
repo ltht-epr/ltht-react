@@ -123,4 +123,26 @@ export const LevelTwoDetail: Story = () => (
   </Card>
 )
 
+export const LevelTwoDetailsCollapsibleView: Story = () => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const { viewType, toggle } = useDetailViewType()
+  return (
+    <Card>
+      <Card.Header>
+        <Card.Title>
+          Collapsible detail view{' '}
+          <Button
+            type="button"
+            value={viewType === DetailViewType.Expanded ? 'View compacted' : 'View expanded'}
+            onClick={toggle}
+          />
+        </Card.Title>
+      </Card.Header>
+      <Card.Body>
+        <DiagnosisDetail condition={conditions[0]} links={CODABLE_CONCEPT_LINK_MAP} viewType={viewType} />
+      </Card.Body>
+    </Card>
+  )
+}
+
 export default { title: 'Clinical/Organisms/Diagnosis' }
