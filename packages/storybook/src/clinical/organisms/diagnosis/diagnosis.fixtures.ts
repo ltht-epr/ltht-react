@@ -128,9 +128,9 @@ export const QuestionnaireResponse2: QuestionnaireResponse = {
       answer: [
         {
           valueString: null,
-          valueBoolean: false,
+          valueBoolean: null,
           valueDateTime: null,
-          valueCoding: { display: 'Right' },
+          valueCoding: null,
         },
       ],
       item: null,

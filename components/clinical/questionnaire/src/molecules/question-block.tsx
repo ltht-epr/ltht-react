@@ -33,11 +33,22 @@ const Answer = styled.p`
   margin: 0;
 `
 
-const QuestionBlock: FC<IProps> = ({ type, question, answer, className }) => {
-  const noAnswerResponse = answer === undefined
-  const noAnswerProvided = answer?.answer && answer?.answer?.length === 0
+const QuestionBlock: FC<IProps> = ({ type, question, responseItem, className, showIfEmpty = false }) => {
+  const noAnswerResponse = responseItem === undefined
+  const noAnswerProvided =
+    (responseItem?.answer && responseItem?.answer?.length === 0) ||
+    // Also no answer if each answer in the array has null for every valuetype property
+    responseItem?.answer?.every((answer) => answer && Object.values(answer).every((x) => x === null))
 
-  if (noAnswerResponse) return null
+  if (noAnswerResponse || noAnswerProvided) {
+    if (showIfEmpty === false) return <></>
+
+    return (
+      <StyledQuestionBlock className={className}>
+        <Question>{question}</Question>
+      </StyledQuestionBlock>
+    )
+  }
 
   return (
     <StyledQuestionBlock className={className}>
@@ -46,14 +57,14 @@ const QuestionBlock: FC<IProps> = ({ type, question, answer, className }) => {
           <StyledInfoIcon>
             <InfoCircleIcon status="info" size="medium" />
           </StyledInfoIcon>
-          {answer?.text}
+          {responseItem?.text}
         </DisplayBlock>
       )}
       {type === QuestionnaireItemTypeCode.QuestionBoolean && (
         <>
           <Question>{question}</Question>
           {noAnswerProvided && <Answer>-</Answer>}
-          {answer?.answer?.map((answerItem, index) => (
+          {responseItem?.answer?.map((answerItem, index) => (
             <Answer key={`${question}-${answerItem?.valueBoolean}-${index + 1}`}>
               {answerItem?.valueBoolean === true ? 'Yes' : 'No'}
             </Answer>
@@ -64,7 +75,7 @@ const QuestionBlock: FC<IProps> = ({ type, question, answer, className }) => {
         <>
           <Question>{question}</Question>
           {noAnswerProvided && <Answer>-</Answer>}
-          {answer?.answer?.map((answerItem, index) => (
+          {responseItem?.answer?.map((answerItem, index) => (
             <Answer key={`${question}-${answerItem?.valueString}-${index + 1}`}>
               {ReactHtmlParser(answerItem?.valueString || '')}
             </Answer>
@@ -75,7 +86,7 @@ const QuestionBlock: FC<IProps> = ({ type, question, answer, className }) => {
         <>
           <Question>{question}</Question>
           {noAnswerProvided && <Answer>-</Answer>}
-          {answer?.answer?.map((answerItem, index) => (
+          {responseItem?.answer?.map((answerItem, index) => (
             <Answer key={`${question}-${answerItem?.valueDateTime?.value}-${index + 1}`}>
               {partialDateTimeText(answerItem?.valueDateTime)}
             </Answer>
@@ -86,7 +97,7 @@ const QuestionBlock: FC<IProps> = ({ type, question, answer, className }) => {
         <>
           <Question>{question}</Question>
           {noAnswerProvided && <Answer>-</Answer>}
-          {answer?.answer?.map((answerItem, index) => (
+          {responseItem?.answer?.map((answerItem, index) => (
             <Answer key={`${question}-${answerItem?.valueString}-${index + 1}`}>
               {ReactHtmlParser(parser.toHTML(answerItem?.valueString || ''))}
             </Answer>
@@ -97,7 +108,7 @@ const QuestionBlock: FC<IProps> = ({ type, question, answer, className }) => {
         <>
           <Question>{question}</Question>
           {noAnswerProvided && <Answer>-</Answer>}
-          {answer?.answer?.map((answerItem, index) => (
+          {responseItem?.answer?.map((answerItem, index) => (
             <Answer key={`${question}-${answerItem?.valueString}-${index + 1}`}>
               {answerItem?.valueString ? ReactHtmlParser(answerItem?.valueString) : ''}
             </Answer>
@@ -108,7 +119,7 @@ const QuestionBlock: FC<IProps> = ({ type, question, answer, className }) => {
         <>
           <Question>{question}</Question>
           {noAnswerProvided && <Answer>-</Answer>}
-          {answer?.answer?.map((answerItem, index) => (
+          {responseItem?.answer?.map((answerItem, index) => (
             <Answer key={`${question}-${answerItem?.valueCoding?.display}-${index + 1}`}>
               {answerItem?.valueCoding?.display}
             </Answer>
@@ -123,7 +134,8 @@ interface IProps {
   className?: string
   type?: QuestionTypes
   question?: Maybe<string>
-  answer?: Maybe<QuestionnaireResponseItem>
+  responseItem?: Maybe<QuestionnaireResponseItem>
+  showIfEmpty?: Maybe<boolean>
 }
 
 type QuestionTypes =

@@ -106,7 +106,7 @@ const DynamicContainer = styled.div`
 function QuestionnaireQuestions(
   questions: Maybe<Maybe<QuestionnaireItem>[]> | undefined,
   answers: Maybe<Maybe<QuestionnaireResponseItem>[]> | undefined,
-  viewType: DetailViewType
+  viewType?: Maybe<DetailViewType>
 ): ReactNode {
   return questions?.map((question) => {
     if (question?.type === QuestionnaireItemTypeCode.Group) {
@@ -132,7 +132,8 @@ function QuestionnaireQuestions(
         key={`${question?.text}-${question?.linkId}`}
         type={question?.type}
         question={question?.text}
-        answer={answers?.find((answer) => question?.linkId === answer?.linkId)}
+        responseItem={answers?.find((answer) => question?.linkId === answer?.linkId)}
+        showIfEmpty={viewType === DetailViewType.Expanded}
       />
     )
   })
@@ -148,13 +149,7 @@ const Questionnaire: FC<IProps> = ({ questionnaire, showTitle = false, viewType 
   return (
     <StyledQuestionnaire>
       {showTitle && <TitleInfo title={title} />}
-
-      {viewType === DetailViewType.Compact ? (
-        <DynamicContainer>{QuestionnaireQuestions(questions, answers, viewType)}</DynamicContainer>
-      ) : (
-        QuestionnaireQuestions(questions, answers, viewType || DetailViewType.Expanded)
-      )}
-
+      <DynamicContainer>{QuestionnaireQuestions(questions, answers, viewType)}</DynamicContainer>
       <AuthorInfo author={questionnaire?.author} authoredOn={questionnaire?.authored} />
     </StyledQuestionnaire>
   )

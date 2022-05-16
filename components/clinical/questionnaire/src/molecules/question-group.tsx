@@ -70,7 +70,8 @@ function QuestionnaireQuestions(
         key={`${question?.text}-${question?.linkId}`}
         type={question?.type}
         question={question?.text}
-        answer={answers?.find((answer) => question?.linkId === answer?.linkId)}
+        responseItem={answers?.find((answer) => question?.linkId === answer?.linkId)}
+        showIfEmpty={viewType === DetailViewType.Expanded}
       />
     )
   })
