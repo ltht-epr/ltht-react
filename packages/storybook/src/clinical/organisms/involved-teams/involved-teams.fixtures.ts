@@ -22,6 +22,7 @@ const redactedMetadata: Metadata = {
 
 const InvolvedTeamOne: EpisodeOfCare = {
   id: '580ca927-34e0-e911-a2c7-005056926fe4|involvedteam',
+  isEnteredInError: false,
   metadata: redactedMetadata,
   team: [{ display: 'LYPFT Outbound Care Team', typeName: 'Test Team' }],
   period: {
@@ -45,6 +46,7 @@ const InvolvedTeamOne: EpisodeOfCare = {
 
 const InvolvedTeamTwo: EpisodeOfCare = {
   id: '690ca927-68e0-c511-b2c7-898056926ze4|involvedteam',
+  isEnteredInError: false,
   metadata: mockMetadata,
   team: [{ display: 'LYPFT Inbound Care Team', typeName: 'Test Team' }],
   period: {

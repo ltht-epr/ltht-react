@@ -18,6 +18,7 @@ const redactedMetaData: Metadata = {
 
 const Document1: DocumentReference = {
   id: '6b554095-bd5f-4134-8dbb-a21971959fd3',
+  isEnteredInError: false,
   metadata: mockMetadata,
   content: [],
   description: 'Description of document one',
@@ -33,6 +34,7 @@ const Document1: DocumentReference = {
 
 const Document2: DocumentReference = {
   id: '2d889a55-d7ec-46ae-b674-23dfc6666014',
+  isEnteredInError: false,
   metadata: mockMetadata,
   content: [],
   description: 'Description of document two',
@@ -48,6 +50,7 @@ const Document2: DocumentReference = {
 
 const Document3: DocumentReference = {
   id: '38962be0-4e5e-4640-a23e-af45da7c0578',
+  isEnteredInError: false,
   metadata: redactedMetaData,
   content: [],
   description: 'Description of document three',
@@ -63,6 +66,7 @@ const Document3: DocumentReference = {
 
 const Document4: DocumentReference = {
   id: '38962be0-4e5e-4640-a23e-af45da7c0777',
+  isEnteredInError: false,
   metadata: mockMetadata,
   content: [],
   description: 'Description of document three',

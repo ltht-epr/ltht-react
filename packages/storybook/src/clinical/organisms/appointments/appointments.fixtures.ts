@@ -22,6 +22,7 @@ const redactedMetadata: Metadata = {
 
 const AppointmentOne: Encounter = {
   id: '346ca927-67e0-e951-a2c7-115087226fg2|appointment',
+  isEnteredInError: false,
   metadata: mockMetadata,
   text: {
     text: 'See GP regarding sore throat',
@@ -48,6 +49,7 @@ const AppointmentOne: Encounter = {
 
 const AppointmentTwo: Encounter = {
   id: '941ca927-31e0-e911-a2c7-005087226fe4|appointment',
+  isEnteredInError: false,
   metadata: mockMetadata,
   text: {
     text: 'Chest x-ray for recent car accident',
@@ -74,6 +76,7 @@ const AppointmentTwo: Encounter = {
 
 const AppointmentThree: Encounter = {
   id: '941ca927-34e0-e9113a2c7-005087226fe4|appointment',
+  isEnteredInError: false,
   metadata: mockMetadata,
   text: {
     text: 'Chest x-ray for recent car accident',
@@ -96,6 +99,7 @@ const AppointmentThree: Encounter = {
 
 const AppointmentFour: Encounter = {
   id: '941ca927-34e0-e911-a2c7-005087226f44|appointment',
+  isEnteredInError: false,
   metadata: redactedMetadata,
   text: {
     text: 'Chest x-ray for recent car accident',

@@ -22,6 +22,7 @@ const redactedMetadata: Metadata = {
 
 const CommunityTreatmentOrderOne: LypftCommunityTreatmentOrder = {
   id: '580ca927-34e0-e911-a2c7-005056926fe4|communityTreatmentOrder',
+  isEnteredInError: false,
   metadata: mockMetadata,
   consentToTreat: 'Consent Not Given',
   legalStatus: {
@@ -43,6 +44,7 @@ const CommunityTreatmentOrderOne: LypftCommunityTreatmentOrder = {
 
 const CommunityTreatmentOrderTwo: LypftCommunityTreatmentOrder = {
   id: '690ca927-68e0-c511-b2c7-898056926ze4|communityTreatmentOrder',
+  isEnteredInError: false,
   metadata: redactedMetadata,
   consentToTreat: 'Consent Given',
   legalStatus: {
@@ -60,6 +62,7 @@ const CommunityTreatmentOrderTwo: LypftCommunityTreatmentOrder = {
 
 const CommunityTreatmentOrderThree: LypftCommunityTreatmentOrder = {
   id: '690ca927-68e0-c511-b2c7-898056926ze4|communityTreatmentOrder',
+  isEnteredInError: false,
   metadata: redactedMetadata,
   consentToTreat: 'Consent Given',
   legalStatus: {
