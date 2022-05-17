@@ -19,6 +19,7 @@ const initializePatient = (): void => {
       requestedWhen: '',
     },
     name: [],
+    isEnteredInError: false,
   }
 }
 

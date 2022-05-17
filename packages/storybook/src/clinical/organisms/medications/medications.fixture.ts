@@ -573,10 +573,12 @@ const thenDosageInstruction8: DosageType = {
 
 const RedactedMedication: MedicationRequest = {
   id: 'a13e06df-c931-4df1-a9a9-af4db56d7a51',
+  isEnteredInError: false,
   metadata: redactedMetadata,
   status: MedicationRequestStatusType.Active,
   intent: MedicationRequestIntentType.Plan,
   medicationReference: {
+    isEnteredInError: false,
     code: {
       coding: [{ code: '111', display: 'Paracetamol' }],
     },
@@ -589,6 +591,7 @@ const RedactedMedication: MedicationRequest = {
 
 const SingleMedication1: MedicationRequest = {
   id: 'R3|959190a8-4b19-461c-8b64-b2c747977660',
+  isEnteredInError: false,
   status: MedicationRequestStatusType.Active,
   intent: MedicationRequestIntentType.Order,
   reasonCode: [
@@ -597,6 +600,7 @@ const SingleMedication1: MedicationRequest = {
     },
   ],
   medicationReference: {
+    isEnteredInError: false,
     code: {
       coding: [],
       text: 'DUAKLIR GENUAIR 340microgram+12microgram inhalation powder DPI',
@@ -734,6 +738,7 @@ const SingleMedication1: MedicationRequest = {
 
 const OrMedication1: MedicationRequest = {
   id: '146dd7ae-8fa9-4abe-a909-dde929c96e36',
+  isEnteredInError: false,
   metadata: {
     dataSources: [
       {
@@ -771,6 +776,7 @@ const OrMedication1: MedicationRequest = {
   ],
   dosageInstruction: [dosageInstruction6, orDosageInstruction2],
   medicationReference: {
+    isEnteredInError: false,
     code: {
       coding: [{ code: '111', display: 'Paracetamol' }],
     },
@@ -780,6 +786,7 @@ const OrMedication1: MedicationRequest = {
 
 const AndMedication1: MedicationRequest = {
   id: '146dd7ae-8fa9-4abe-a909-dde929c96e36',
+  isEnteredInError: false,
   metadata: {
     dataSources: [
       {
@@ -817,6 +824,7 @@ const AndMedication1: MedicationRequest = {
   ],
   dosageInstruction: [orDosageInstruction1, orDosageInstruction2],
   medicationReference: {
+    isEnteredInError: false,
     code: {
       coding: [{ code: '111', display: 'Paracetamol' }],
     },
@@ -827,6 +835,7 @@ const AndMedication1: MedicationRequest = {
 // with then, add new start time to extra instruction
 const ThenMedication1: MedicationRequest = {
   id: '146dd7ae-8fa9-4abe-a909-dde929c96e36',
+  isEnteredInError: false,
   metadata: {
     dataSources: [
       {
@@ -878,6 +887,7 @@ const ThenMedication1: MedicationRequest = {
     },
   ],
   medicationReference: {
+    isEnteredInError: false,
     code: {
       text: 'prednisolone 5mg',
     },
@@ -891,6 +901,7 @@ const ThenMedication1: MedicationRequest = {
 
 const ChangedMedication: MedicationRequest = {
   id: '146dd7ae-8fa9-4abe-a909-dde929c96e36',
+  isEnteredInError: false,
   metadata: mockMetadata,
   status: MedicationRequestStatusType.Active,
   intent: MedicationRequestIntentType.Plan,
@@ -901,6 +912,7 @@ const ChangedMedication: MedicationRequest = {
   reasonCode: [{ text: 'Allergies' }],
   dosageInstruction: [dosageInstruction1],
   medicationReference: {
+    isEnteredInError: false,
     code: {
       coding: [{ code: '111', display: 'Paracetamol' }],
     },

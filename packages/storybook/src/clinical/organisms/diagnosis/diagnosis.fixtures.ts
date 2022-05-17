@@ -24,8 +24,10 @@ export const QuestionnaireResponse1: QuestionnaireResponse = {
   id: '435d2aca-7776-43e7-a33f-1ba481bd2892',
   metadata: mockMetadata,
   status: QuestionnaireResponseStatus.Completed,
+  isEnteredInError: false,
   questionnaire: {
     id: '14720227-b1f7-4cc5-a0d0-403938cf710d',
+    isEnteredInError: false,
     identifier: [
       {
         system: 'http://leedsth.nhs.uk/user/guid',
@@ -66,9 +68,11 @@ export const QuestionnaireResponse1: QuestionnaireResponse = {
 export const QuestionnaireResponse2: QuestionnaireResponse = {
   id: '435d2aca-7776-43e7-a33f-1ba481bd2892',
   metadata: mockMetadata,
+  isEnteredInError: false,
   status: QuestionnaireResponseStatus.Completed,
   questionnaire: {
     id: '14720227-b1f7-4cc5-a0d0-403938cf710d',
+    isEnteredInError: false,
     identifier: [
       {
         system: 'http://leedsth.nhs.uk/user/guid',
@@ -179,6 +183,7 @@ export const QuestionnaireResponse2: QuestionnaireResponse = {
 
 export const NestedGroupWithDisplayExampleData: QuestionnaireResponse = {
   id: 'f9fb120a-6d65-427c-9c9e-51031e0607b3',
+  isEnteredInError: false,
   status: QuestionnaireResponseStatus.Completed,
   authored: {
     kind: PartialDateTimeKindCode.DateTime,
@@ -195,6 +200,7 @@ export const NestedGroupWithDisplayExampleData: QuestionnaireResponse = {
   },
   questionnaire: {
     id: '4789c2b3-7e37-4dd7-9642-0d456ae2f2bd',
+    isEnteredInError: false,
     identifier: [
       {
         system: 'http://leedsth.nhs.uk/user/guid',
@@ -470,6 +476,7 @@ export const NestedGroupWithDisplayExampleData: QuestionnaireResponse = {
 
 const ConditionOne: Condition = {
   id: '017ca927-67e0-e581-a2c7-115087226fg2|condition',
+  isEnteredInError: false,
   asserter: {
     display: 'BROWN, David (Dr)',
     typeName: 'Doctor',
@@ -580,6 +587,7 @@ const ConditionOne: Condition = {
 
 const ConditionTwo: Condition = {
   id: '345ha927-34e0-e911-a2c7-005087226er3|condition',
+  isEnteredInError: false,
   metadata: mockMetadata,
   category: [
     {
@@ -615,6 +623,7 @@ const ConditionTwo: Condition = {
 }
 
 const ConditionThree: Condition = {
+  isEnteredInError: false,
   abatement: null,
   metadata: mockMetadata,
   assertedDate: {
@@ -646,6 +655,7 @@ const ConditionThree: Condition = {
 
 const ConditionFour: Condition = {
   id: '345ha927-34e0-e911-a2c7-005087246er3|condition',
+  isEnteredInError: false,
   metadata: mockMetadata,
   category: [
     {
@@ -682,6 +692,7 @@ const ConditionFour: Condition = {
 
 const ConditionFive: Condition = {
   id: '333',
+  isEnteredInError: false,
   metadata: mockMetadata,
   category: [
     {

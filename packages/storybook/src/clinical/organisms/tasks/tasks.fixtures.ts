@@ -22,6 +22,7 @@ const redactedMetadata: Metadata = {
 
 const Task1: Task = {
   id: 'task-1',
+  isEnteredInError: false,
   intent: IntentCode.Order,
   metadata: mockMetadata,
   status: TaskStatusCode.Overdue,
@@ -41,6 +42,7 @@ const Task1: Task = {
 
 const Task2: Task = {
   id: 'task-2',
+  isEnteredInError: false,
   intent: IntentCode.Plan,
   metadata: mockMetadata,
   status: TaskStatusCode.Overdue,
@@ -60,6 +62,7 @@ const Task2: Task = {
 
 const Task3: Task = {
   id: 'task-3',
+  isEnteredInError: false,
   intent: IntentCode.Order,
   metadata: mockMetadata,
   status: TaskStatusCode.Overdue,
@@ -79,6 +82,7 @@ const Task3: Task = {
 
 const Task4: Task = {
   id: 'task-4',
+  isEnteredInError: false,
   intent: IntentCode.Plan,
   metadata: mockMetadata,
   status: TaskStatusCode.Due,
@@ -98,6 +102,7 @@ const Task4: Task = {
 
 const Task5: Task = {
   id: 'task-4',
+  isEnteredInError: false,
   intent: IntentCode.Plan,
   metadata: mockMetadata,
   status: TaskStatusCode.NotYetDue,
@@ -117,6 +122,7 @@ const Task5: Task = {
 
 export const CompletedTask: Task = {
   id: 'completed-task',
+  isEnteredInError: false,
   intent: IntentCode.Plan,
   metadata: mockMetadata,
   status: TaskStatusCode.Complete,
@@ -136,6 +142,7 @@ export const CompletedTask: Task = {
 
 export const CancelledTask: Task = {
   id: 'cancelled-task',
+  isEnteredInError: false,
   intent: IntentCode.Plan,
   metadata: mockMetadata,
   status: TaskStatusCode.Cancelled,
@@ -155,6 +162,7 @@ export const CancelledTask: Task = {
 
 export const RedactedTask: Task = {
   id: 'redacted-task',
+  isEnteredInError: false,
   intent: IntentCode.Plan,
   metadata: redactedMetadata,
   status: TaskStatusCode.Due,

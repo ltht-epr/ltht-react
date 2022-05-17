@@ -29,6 +29,7 @@ const mockRedactedMetadata: Metadata = {
 
 export const AuthorInfoData: QuestionnaireResponse = {
   id: '435d2aca-7776-43e7-a33f-1ba481bd2892',
+  isEnteredInError: false,
   metadata: mockMetadata,
   status: QuestionnaireResponseStatus.Completed,
   authored: {
@@ -45,6 +46,7 @@ export const AuthorInfoData: QuestionnaireResponse = {
   },
   questionnaire: {
     id: '14720227-b1f7-4cc5-a0d0-403938cf710d',
+    isEnteredInError: false,
     identifier: [
       {
         system: 'http://leedsth.nhs.uk/user/guid',
@@ -63,10 +65,12 @@ export const AuthorInfoData: QuestionnaireResponse = {
 
 export const TextFieldData: QuestionnaireResponse = {
   id: '435d2aca-7776-43e7-a33f-1ba481bd2892',
+  isEnteredInError: false,
   metadata: mockMetadata,
   status: QuestionnaireResponseStatus.Completed,
   questionnaire: {
     id: '14720227-b1f7-4cc5-a0d0-403938cf710d',
+    isEnteredInError: false,
     identifier: [
       {
         system: 'http://leedsth.nhs.uk/user/guid',
@@ -104,6 +108,7 @@ export const TextFieldData: QuestionnaireResponse = {
 
 export const RedactedExampleData: QuestionnaireResponse = {
   id: '435d2aca-7776-43e7-a33f-1ba481bd2892',
+  isEnteredInError: false,
   metadata: mockRedactedMetadata,
   status: QuestionnaireResponseStatus.Completed,
   authored: {
@@ -120,6 +125,7 @@ export const RedactedExampleData: QuestionnaireResponse = {
   },
   questionnaire: {
     id: '14720227-b1f7-4cc5-a0d0-403938cf710d',
+    isEnteredInError: false,
     identifier: [
       {
         system: 'http://leedsth.nhs.uk/user/guid',
@@ -157,10 +163,12 @@ export const RedactedExampleData: QuestionnaireResponse = {
 
 export const DateFieldData: QuestionnaireResponse = {
   id: '435d2aca-7776-43e7-a33f-1ba481bd2892',
+  isEnteredInError: false,
   metadata: mockMetadata,
   status: QuestionnaireResponseStatus.Completed,
   questionnaire: {
     id: '14720227-b1f7-4cc5-a0d0-403938cf710d',
+    isEnteredInError: false,
     identifier: [
       {
         system: 'http://leedsth.nhs.uk/user/guid',
@@ -200,10 +208,12 @@ export const DateFieldData: QuestionnaireResponse = {
 
 export const RichTextFieldData: QuestionnaireResponse = {
   id: '435d2aca-7776-43e7-a33f-1ba481bd2892',
+  isEnteredInError: false,
   metadata: mockMetadata,
   status: QuestionnaireResponseStatus.Completed,
   questionnaire: {
     id: '14720227-b1f7-4cc5-a0d0-403938cf710d',
+    isEnteredInError: false,
     identifier: [
       {
         system: 'http://leedsth.nhs.uk/user/guid',
@@ -242,10 +252,12 @@ export const RichTextFieldData: QuestionnaireResponse = {
 
 export const DisplayFieldData: QuestionnaireResponse = {
   id: '435d2aca-7776-43e7-a33f-1ba481bd2892',
+  isEnteredInError: false,
   metadata: mockMetadata,
   status: QuestionnaireResponseStatus.Completed,
   questionnaire: {
     id: '14720227-b1f7-4cc5-a0d0-403938cf710d',
+    isEnteredInError: false,
     identifier: [
       {
         system: 'http://leedsth.nhs.uk/user/guid',
@@ -277,10 +289,12 @@ export const DisplayFieldData: QuestionnaireResponse = {
 
 export const GroupTypeData: QuestionnaireResponse = {
   id: '435d2aca-7776-43e7-a33f-1ba481bd2892',
+  isEnteredInError: false,
   metadata: mockMetadata,
   status: QuestionnaireResponseStatus.Completed,
   questionnaire: {
     id: '14720227-b1f7-4cc5-a0d0-403938cf710d',
+    isEnteredInError: false,
     identifier: [
       {
         system: 'http://leedsth.nhs.uk/user/guid',
@@ -350,10 +364,12 @@ export const GroupTypeData: QuestionnaireResponse = {
 
 export const NoAnswerData: QuestionnaireResponse = {
   id: '435d2aca-7776-43e7-a33f-1ba481bd2892',
+  isEnteredInError: false,
   metadata: mockMetadata,
   status: QuestionnaireResponseStatus.Completed,
   questionnaire: {
     id: '14720227-b1f7-4cc5-a0d0-403938cf710d',
+    isEnteredInError: false,
     identifier: [
       {
         system: 'http://leedsth.nhs.uk/user/guid',
@@ -386,10 +402,12 @@ export const NoAnswerData: QuestionnaireResponse = {
 
 export const BooleanFieldData: QuestionnaireResponse = {
   id: '435d2aca-7776-43e7-a33f-1ba481bd2892',
+  isEnteredInError: false,
   metadata: mockMetadata,
   status: QuestionnaireResponseStatus.Completed,
   questionnaire: {
     id: '14720227-b1f7-4cc5-a0d0-403938cf710d',
+    isEnteredInError: false,
     identifier: [
       {
         system: 'http://leedsth.nhs.uk/user/guid',
@@ -428,6 +446,7 @@ export const BooleanFieldData: QuestionnaireResponse = {
 
 export const RepeatingGroupsExampleData: QuestionnaireResponse = {
   id: '435d2aca-7776-43e7-a33f-1ba481bd2892',
+  isEnteredInError: false,
   metadata: mockMetadata,
   status: QuestionnaireResponseStatus.Completed,
   authored: {
@@ -444,6 +463,7 @@ export const RepeatingGroupsExampleData: QuestionnaireResponse = {
   },
   questionnaire: {
     id: '14720227-b1f7-4cc5-a0d0-403938cf710d',
+    isEnteredInError: false,
     identifier: [
       {
         system: 'http://leedsth.nhs.uk/user/guid',
@@ -570,6 +590,7 @@ export const RepeatingGroupsExampleData: QuestionnaireResponse = {
 
 export const ComposedExampleData: QuestionnaireResponse = {
   id: '435d2aca-7776-43e7-a33f-1ba481bd2892',
+  isEnteredInError: false,
   metadata: mockMetadata,
   status: QuestionnaireResponseStatus.Completed,
   authored: {
@@ -586,6 +607,7 @@ export const ComposedExampleData: QuestionnaireResponse = {
   },
   questionnaire: {
     id: '14720227-b1f7-4cc5-a0d0-403938cf710d',
+    isEnteredInError: false,
     identifier: [
       {
         system: 'http://leedsth.nhs.uk/user/guid',
@@ -688,6 +710,7 @@ export const ComposedExampleData: QuestionnaireResponse = {
 
 export const NestedGroupWithDisplayExampleData: QuestionnaireResponse = {
   id: 'f9fb120a-6d65-427c-9c9e-51031e0607b3',
+  isEnteredInError: false,
   status: QuestionnaireResponseStatus.Completed,
   authored: {
     kind: PartialDateTimeKindCode.DateTime,
@@ -704,6 +727,7 @@ export const NestedGroupWithDisplayExampleData: QuestionnaireResponse = {
   },
   questionnaire: {
     id: '4789c2b3-7e37-4dd7-9642-0d456ae2f2bd',
+    isEnteredInError: false,
     identifier: [
       {
         system: 'http://leedsth.nhs.uk/user/guid',

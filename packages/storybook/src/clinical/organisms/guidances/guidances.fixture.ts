@@ -22,6 +22,7 @@ const redactedMetadata: Metadata = {
 
 const guidanceOne: Guidance = {
   id: 'c2ee5d22-6fcd-4ec8-b12a-e9c6e83876b1',
+  isEnteredInError: false,
   metadata: mockMetadata,
   text: {
     div: '',
@@ -48,6 +49,7 @@ const guidanceOne: Guidance = {
 
 const guidanceTwo: Guidance = {
   id: 'c2ee5d22-6fcd-4ec8-b12a-e9c6e83876b2',
+  isEnteredInError: false,
   metadata: redactedMetadata,
   text: {
     div: '',
@@ -62,6 +64,7 @@ const guidanceTwo: Guidance = {
 
 const guidanceThree: Guidance = {
   id: '1e4fd41d-5c55-4c46-acc9-e216b3dc2732',
+  isEnteredInError: false,
   metadata: mockMetadata,
   text: {
     div: '',
