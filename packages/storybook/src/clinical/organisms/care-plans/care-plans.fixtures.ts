@@ -30,6 +30,7 @@ const redactedMetadata: Metadata = {
 
 const CarePlanOne: CarePlan = {
   id: '580ca927-34e0-e911-a2c7-005056926fe4|careplan',
+  isEnteredInError: false,
   metadata: redactedMetadata,
   author: [
     { display: 'Dr Joe Bloggs', typeName: 'Test' },
@@ -65,6 +66,7 @@ const CarePlanOne: CarePlan = {
 
 const CarePlanTwo: CarePlan = {
   id: '690ca927-68e0-c511-b2c7-898056926ze4|careplan',
+  isEnteredInError: false,
   metadata: mockMetadata,
   author: [{ display: 'John Mclane', typeName: 'Test' }],
   careTeam: [
@@ -90,6 +92,7 @@ const CarePlanTwo: CarePlan = {
 
 const CarePlanThree: CarePlan = {
   id: 'gpvisit',
+  isEnteredInError: false,
   metadata: mockMetadata,
   author: [
     { display: 'Dr Joe Bloggs', typeName: 'Test' },

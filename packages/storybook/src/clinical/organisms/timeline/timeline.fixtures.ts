@@ -2,6 +2,7 @@ import { AuditEventContinuation, AuditEvent, PartialDateTimeKindCode } from '@lt
 
 const Audit1: AuditEvent = {
   id: 'id1',
+  isEnteredInError: false,
   metadata: {
     dataSources: [],
     isRedacted: false,
@@ -53,6 +54,7 @@ const Audit1: AuditEvent = {
 
 const Audit2: AuditEvent = {
   id: 'id2',
+  isEnteredInError: false,
   metadata: {
     dataSources: [],
     isRedacted: false,
@@ -114,6 +116,7 @@ const Audit2: AuditEvent = {
 
 const Audit3: AuditEvent = {
   id: 'id1',
+  isEnteredInError: false,
   metadata: {
     dataSources: [],
     isRedacted: false,
@@ -166,6 +169,7 @@ const Audit3: AuditEvent = {
 
 const Audit4: AuditEvent = {
   id: 'id3',
+  isEnteredInError: false,
   metadata: {
     dataSources: [],
     isRedacted: false,
@@ -218,6 +222,7 @@ const Audit4: AuditEvent = {
 
 const Audit5: AuditEvent = {
   id: 'id6',
+  isEnteredInError: false,
   metadata: {
     dataSources: [],
     isRedacted: false,
@@ -270,6 +275,7 @@ const Audit5: AuditEvent = {
 
 const Audit6: AuditEvent = {
   id: 'id1',
+  isEnteredInError: false,
   metadata: {
     dataSources: [],
     isRedacted: false,
@@ -321,6 +327,7 @@ const Audit6: AuditEvent = {
 
 const Audit7: AuditEvent = {
   id: 'id1',
+  isEnteredInError: false,
   metadata: {
     dataSources: [],
     isRedacted: false,
@@ -372,6 +379,7 @@ const Audit7: AuditEvent = {
 
 const Audit8: AuditEvent = {
   id: 'id1',
+  isEnteredInError: false,
   metadata: {
     dataSources: [],
     isRedacted: false,
@@ -424,6 +432,7 @@ const Audit8: AuditEvent = {
 
 const Audit9: AuditEvent = {
   id: 'id1',
+  isEnteredInError: false,
   metadata: {
     dataSources: [],
     isRedacted: false,
@@ -475,6 +484,7 @@ const Audit9: AuditEvent = {
 
 const Audit10: AuditEvent = {
   id: 'id1',
+  isEnteredInError: false,
   metadata: {
     dataSources: [],
     isRedacted: false,
@@ -526,6 +536,7 @@ const Audit10: AuditEvent = {
 
 const Audit11: AuditEvent = {
   id: 'id1',
+  isEnteredInError: false,
   metadata: {
     dataSources: [],
     isRedacted: false,
@@ -578,6 +589,7 @@ const Audit11: AuditEvent = {
 
 const Audit12: AuditEvent = {
   id: 'id1',
+  isEnteredInError: false,
   metadata: {
     dataSources: [],
     isRedacted: false,
@@ -630,6 +642,7 @@ const Audit12: AuditEvent = {
 
 const RedactedAuditOne: AuditEvent = {
   id: 'id1',
+  isEnteredInError: false,
   metadata: {
     dataSources: [],
     isRedacted: true,
@@ -666,6 +679,7 @@ const RedactedAuditOne: AuditEvent = {
 
 const RedactedAuditTwo: AuditEvent = {
   id: 'id1',
+  isEnteredInError: false,
   metadata: {
     dataSources: [],
     isRedacted: true,
@@ -702,6 +716,7 @@ const RedactedAuditTwo: AuditEvent = {
 
 const RedactedAuditThree: AuditEvent = {
   id: 'id1',
+  isEnteredInError: false,
   metadata: {
     dataSources: [],
     isRedacted: true,

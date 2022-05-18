@@ -1,6 +1,6 @@
 import { FC, HTMLAttributes } from 'react'
 import styled from '@emotion/styled'
-import { CSS_RESET, BADGE_COLOURS, TABLET_MEDIA_QUERY, DESKTOP_MEDIA_QUERY } from '@ltht-react/styles'
+import { CSS_RESET, BADGE_COLOURS, TABLET_ONLY_MEDIA_QUERY, DESKTOP_MINIMUM_MEDIA_QUERY } from '@ltht-react/styles'
 
 const setBackgroundColor = (type: BadgeTypes) => {
   switch (type) {
@@ -28,11 +28,11 @@ const StyledBadge = styled.span<IStyledBadgeProps>`
   font-weight: bold;
   background-color: ${({ type }) => setBackgroundColor(type)};
 
-  ${TABLET_MEDIA_QUERY} {
+  ${TABLET_ONLY_MEDIA_QUERY} {
     font-size: 0.7rem;
   }
 
-  ${DESKTOP_MEDIA_QUERY} {
+  ${DESKTOP_MINIMUM_MEDIA_QUERY} {
     font-size: 0.8rem;
   }
 `

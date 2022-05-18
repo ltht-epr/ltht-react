@@ -3,7 +3,7 @@ import { Story } from '@storybook/react'
 import styled from '@emotion/styled'
 
 import Card from '@ltht-react/card'
-import { TEXT_COLOURS, DESKTOP_MEDIA_QUERY } from '@ltht-react/styles'
+import { TEXT_COLOURS, DESKTOP_MINIMUM_MEDIA_QUERY } from '@ltht-react/styles'
 import { Form, FormCheck } from '@ltht-react/form'
 import { RadioButton } from '@ltht-react/input'
 import { PrimaryButton } from '@ltht-react/button'
@@ -12,7 +12,7 @@ const StyledForm = styled.div`
   margin-top: 5px;
   margin-left: 5px;
 
-  ${DESKTOP_MEDIA_QUERY} {
+  ${DESKTOP_MINIMUM_MEDIA_QUERY} {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -25,7 +25,7 @@ const StyledText = styled.p`
   margin: 0;
   padding-bottom: 0.3rem;
 
-  ${DESKTOP_MEDIA_QUERY} {
+  ${DESKTOP_MINIMUM_MEDIA_QUERY} {
     padding-bottom: 0.5rem;
   }
 `

@@ -1,21 +1,21 @@
-import { FC } from 'react'
 import { PartialDateTime } from '@ltht-react/types'
 import { partialDateTimeText } from '@ltht-react/utils'
-import DescriptionList from '@ltht-react/description-list'
+import { DetailViewComponent, IDetailViewProps } from '../atoms/detail-view-component'
+import NestedListDetail from './nested-list-detail'
 
-const DatetimeDetail: FC<Props> = ({ term, datetime }) => {
-  if (datetime?.value) {
+const DatetimeDetail: DetailViewComponent<IProps> = ({ term, datetime, showIfEmpty }) => {
+  const dateTimeText = partialDateTimeText(datetime)
+  if (dateTimeText !== '' || showIfEmpty === true) {
     return (
-      <DescriptionList>
-        <DescriptionList.Term>{term}</DescriptionList.Term>
-        <DescriptionList.Description>{partialDateTimeText(datetime)}</DescriptionList.Description>
-      </DescriptionList>
+      <NestedListDetail term={term} showIfEmpty={showIfEmpty}>
+        {dateTimeText}
+      </NestedListDetail>
     )
   }
   return <></>
 }
 
-interface Props {
+interface IProps extends IDetailViewProps {
   term: string
   datetime?: PartialDateTime | null
 }

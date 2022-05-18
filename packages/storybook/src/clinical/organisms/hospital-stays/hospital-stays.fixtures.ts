@@ -22,6 +22,7 @@ const redactedMetadata: Metadata = {
 
 const HospitalStayOne: Encounter = {
   id: '580ca927-34e0-e911-a2c7-005056926fe4|hospitalstay',
+  isEnteredInError: false,
   metadata: mockMetadata,
   serviceProvider: { display: 'Chapel Allerton Hospital', typeName: 'Hospital' },
   period: {
@@ -38,6 +39,7 @@ const HospitalStayOne: Encounter = {
 
 const HospitalStayTwo: Encounter = {
   id: '690ca927-68e0-c511-b2c7-898056926ze4|hospitalstay',
+  isEnteredInError: false,
   metadata: redactedMetadata,
   serviceProvider: { display: 'Beaumont Hospital', typeName: 'Hospital' },
   text: {
@@ -54,6 +56,7 @@ const HospitalStayTwo: Encounter = {
 
 const HospitalStayThree: Encounter = {
   id: '2aad27ef-6cd4-e911-a2c7-005056926fe4|case',
+  isEnteredInError: false,
   type: [
     {
       text: 'Transferred from other hospital due to lack of space',

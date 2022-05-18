@@ -1,14 +1,14 @@
 import { FC, InputHTMLAttributes } from 'react'
 import { SearchIcon } from '@ltht-react/icon'
 import styled from '@emotion/styled'
-import { DESKTOP_MEDIA_QUERY } from '@ltht-react/styles'
+import { DESKTOP_MINIMUM_MEDIA_QUERY } from '@ltht-react/styles'
 
 const TextInputContainer = styled.div`
   width: 100%;
   display: inline-block;
   position: relative;
 
-  ${DESKTOP_MEDIA_QUERY} {
+  ${DESKTOP_MINIMUM_MEDIA_QUERY} {
     width: auto;
   }
 `
@@ -23,7 +23,7 @@ const StyledTextInput = styled.input`
     color: #98a4ad;
   }
 
-  ${DESKTOP_MEDIA_QUERY} {
+  ${DESKTOP_MINIMUM_MEDIA_QUERY} {
     width: auto;
   }
 `
@@ -38,7 +38,7 @@ const StyledSearchIcon = styled.div`
     color: #98a4ad;
   }
 
-  ${DESKTOP_MEDIA_QUERY} {
+  ${DESKTOP_MINIMUM_MEDIA_QUERY} {
     width: auto;
   }
 `

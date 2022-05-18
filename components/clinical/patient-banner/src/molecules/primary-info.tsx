@@ -3,9 +3,9 @@ import styled from '@emotion/styled'
 import { css, SerializedStyles } from '@emotion/react'
 import { Patient } from '@ltht-react/types'
 import {
-  TABLET_MEDIA_QUERY,
   PATIENT_BANNER_BACKGROUND_COLOUR,
   PATIENT_BANNER_DECEASED_BACKGROUND_COLOUR,
+  TABLET_MINIMUM_MEDIA_QUERY,
 } from '@ltht-react/styles'
 import { ChevronCircleIcon } from '@ltht-react/icon'
 
@@ -26,7 +26,7 @@ const StyledPrimaryInformation = styled.div<StyledPrimaryInformationProps>`
   background-color: ${({ deceased }): string =>
     deceased ? `${PATIENT_BANNER_DECEASED_BACKGROUND_COLOUR}` : `${PATIENT_BANNER_BACKGROUND_COLOUR}`};
 
-  ${TABLET_MEDIA_QUERY} {
+  ${TABLET_MINIMUM_MEDIA_QUERY} {
     flex-direction: row;
     align-items: center;
     cursor: initial;
@@ -38,7 +38,7 @@ const StyledPrimaryInformation = styled.div<StyledPrimaryInformationProps>`
       height: 2rem;
       overflow-y: hidden;
 
-      ${TABLET_MEDIA_QUERY} {
+      ${TABLET_MINIMUM_MEDIA_QUERY} {
         height: auto;
       }
     `}
@@ -47,7 +47,7 @@ const StyledPrimaryInformation = styled.div<StyledPrimaryInformationProps>`
 const StyledName = styled.div`
   margin-bottom: 0.5rem;
 
-  ${TABLET_MEDIA_QUERY} {
+  ${TABLET_MINIMUM_MEDIA_QUERY} {
     flex: 1;
     margin-bottom: 0;
   }
@@ -58,7 +58,7 @@ const StyledInfo = styled.div`
   flex-direction: column;
   margin-right: 1.5rem;
 
-  ${TABLET_MEDIA_QUERY} {
+  ${TABLET_MINIMUM_MEDIA_QUERY} {
     text-align: right;
   }
 `
@@ -71,7 +71,7 @@ const StyledChevronCircleIcon = styled.div`
   color: white;
   font-size: 0.9rem;
 
-  ${TABLET_MEDIA_QUERY} {
+  ${TABLET_MINIMUM_MEDIA_QUERY} {
     display: none;
   }
 `

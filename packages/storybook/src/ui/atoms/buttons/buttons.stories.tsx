@@ -46,13 +46,46 @@ export const DangerButton: Story = () => (
   </>
 )
 
-export const ButtonWithIcon: Story = () => (
+export const ClearButton: Story = () => (
   <>
     <div style={{ marginBottom: '1rem' }}>
-      <Button type="button" value="Button With Icon" icon={<PlusIcon size="medium" />} />
+      <Button type="button" buttonStyle="clear" value="Clear Button" />
     </div>
     <div>
-      <Button type="button" value="Button With Icon" icon={<PlusIcon size="medium" />} disabled />
+      <Button type="button" buttonStyle="clear" value="Clear Button" disabled />
+    </div>
+  </>
+)
+
+export const ButtonWithLeftIcon: Story = () => (
+  <>
+    <div style={{ marginBottom: '1rem' }}>
+      <Button type="button" value="Button With Icon" icon={<PlusIcon size="medium" />} iconPlacement="left" />
+    </div>
+    <div>
+      <Button type="button" value="Button With Icon" icon={<PlusIcon size="medium" />} iconPlacement="left" disabled />
+    </div>
+  </>
+)
+
+export const ButtonWithRightIcon: Story = () => (
+  <>
+    <div style={{ marginBottom: '1rem' }}>
+      <Button type="button" value="Button With Icon" icon={<PlusIcon size="medium" />} iconPlacement="right" />
+    </div>
+    <div>
+      <Button type="button" value="Button With Icon" icon={<PlusIcon size="medium" />} iconPlacement="right" disabled />
+    </div>
+  </>
+)
+
+export const ButtonWithCenterIcon: Story = () => (
+  <>
+    <div style={{ marginBottom: '1rem' }}>
+      <Button type="button" icon={<PlusIcon size="medium" />} iconPlacement="center" />
+    </div>
+    <div>
+      <Button type="button" icon={<PlusIcon size="medium" />} iconPlacement="center" disabled />
     </div>
   </>
 )

@@ -1,10 +1,11 @@
-import { FC } from 'react'
 import styled from '@emotion/styled'
 import { CodeableConcept } from '@ltht-react/types'
 import { ExternalLinkIcon } from '@ltht-react/icon'
 import { LINK_COLOURS } from '@ltht-react/styles'
 import { codeableConceptDisplaySummary } from '@ltht-react/utils'
 import DescriptionList from '@ltht-react/description-list'
+import { DetailViewComponent, IDetailViewProps } from '../atoms/detail-view-component'
+import NestedListDetail from './nested-list-detail'
 
 const StyledLink = styled.a`
   display: flex;
@@ -23,32 +24,33 @@ const StyledLink = styled.a`
   }
 `
 
-const CodeableConceptDetail: FC<Props> = ({ term, concept, links = {} }) => {
-  if (concept) {
-    const linkUrl = links[codeableConceptDisplaySummary(concept)]
+const CodeableConceptDetail: DetailViewComponent<IProps> = ({ term, concept, links = {}, showIfEmpty = false }) => {
+  if (concept || showIfEmpty === true) {
+    const displaySummary = codeableConceptDisplaySummary(concept)
+    const linkUrl = links[displaySummary]
 
     return (
-      <DescriptionList>
-        <DescriptionList.Term>{term}</DescriptionList.Term>
+      <NestedListDetail term={term} showIfEmpty={showIfEmpty} wrapDescription={false}>
         {linkUrl ? (
           <StyledLink href={linkUrl} target="_blank">
-            <DescriptionList.Description>{codeableConceptDisplaySummary(concept)}</DescriptionList.Description>
+            <DescriptionList.Description>{displaySummary}</DescriptionList.Description>
             <ExternalLinkIcon size="small" />
           </StyledLink>
         ) : (
-          <DescriptionList.Description>{codeableConceptDisplaySummary(concept)}</DescriptionList.Description>
+          <DescriptionList.Description>{displaySummary}</DescriptionList.Description>
         )}
-      </DescriptionList>
+      </NestedListDetail>
     )
   }
   return <></>
 }
 
-interface Props {
+interface IProps extends IDetailViewProps {
   term: string
   concept?: CodeableConcept | null
   // TODO: Define 'links?' type once code link config implementation has been done
-  links?: any // eslint-disable-line
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  links?: any
 }
 
 export default CodeableConceptDetail

@@ -1,7 +1,7 @@
 import { FC, ReactNode, HTMLAttributes } from 'react'
 import styled from '@emotion/styled'
 import { css, SerializedStyles } from '@emotion/react'
-import { DESKTOP_MEDIA_QUERY, BTN_COLOURS } from '@ltht-react/styles'
+import { DESKTOP_MINIMUM_MEDIA_QUERY, BTN_COLOURS } from '@ltht-react/styles'
 
 const setColors = (buttonStyle: string): SerializedStyles => {
   switch (buttonStyle) {
@@ -53,6 +53,38 @@ const setColors = (buttonStyle: string): SerializedStyles => {
           background-color: ${BTN_COLOURS.DANGER.DISABLED};
         }
       `
+
+    case 'clear':
+      return css`
+        color: ${BTN_COLOURS.CLEAR.TEXT};
+        background-color: ${BTN_COLOURS.CLEAR.VALUE};
+        &:hover {
+          background-color: ${BTN_COLOURS.CLEAR.HOVER};
+        }
+
+        &:disabled {
+          background-color: ${BTN_COLOURS.CLEAR.DISABLED};
+        }
+      `
+    default:
+      return css``
+  }
+}
+
+const setIconMargins = (placement: IconPlacement): SerializedStyles => {
+  switch (placement) {
+    case 'left':
+      return css`
+        margin: 0 0.75rem 0 0;
+      `
+    case 'right':
+      return css`
+        margin: 0 0 0 0.75rem;
+      `
+    case 'center':
+      return css`
+        margin: 0;
+      `
     default:
       return css``
   }
@@ -80,7 +112,7 @@ const StyledButton = styled.button<StyledProps>`
     cursor: not-allowed;
   }
 
-  ${DESKTOP_MEDIA_QUERY} {
+  ${DESKTOP_MINIMUM_MEDIA_QUERY} {
     font-size: 0.9rem;
     display: flex;
     align-items: center;
@@ -93,10 +125,9 @@ const StyledButton = styled.button<StyledProps>`
 
 const ButtonIcon = styled.div<ButtonIconProps>`
   display: flex;
-  margin: ${({ placement }) => (placement === 'left' ? '0 0.75rem 0 0' : '0 0 0 0.75rem')};
-
+  ${({ placement }): SerializedStyles => setIconMargins(placement)}
   svg {
-    color: white;
+    color: ${({ iconColour }) => iconColour};
   }
 `
 
@@ -109,17 +140,32 @@ const Button: FC<Props> = ({
   disabled = false,
   icon,
   iconPlacement = 'left',
+  iconColour = 'white',
   ...rest
 }) => (
   <StyledButton type={type} buttonStyle={buttonStyle} disabled={disabled} {...rest}>
-    {icon && iconPlacement === 'left' && <ButtonIcon placement={iconPlacement}>{icon}</ButtonIcon>}
-    <ButtonText>{value}</ButtonText>
-    {icon && iconPlacement === 'right' && <ButtonIcon placement={iconPlacement}>{icon}</ButtonIcon>}
+    {icon && iconPlacement === 'left' && (
+      <ButtonIcon placement={iconPlacement} iconColour={iconColour}>
+        {icon}
+      </ButtonIcon>
+    )}
+    {value && <ButtonText>{value}</ButtonText>}
+    {icon && iconPlacement === 'right' && (
+      <ButtonIcon placement={iconPlacement} iconColour={iconColour}>
+        {icon}
+      </ButtonIcon>
+    )}
+    {!value && icon && iconPlacement === 'center' && (
+      <ButtonIcon placement={iconPlacement} iconColour={iconColour}>
+        {icon}
+      </ButtonIcon>
+    )}
   </StyledButton>
 )
 
-type ButtonStyle = 'primary' | 'standard' | 'workflow' | 'danger'
+type ButtonStyle = 'primary' | 'standard' | 'workflow' | 'danger' | 'clear'
 type ButtonTypes = 'button' | 'submit' | 'reset'
+type IconPlacement = 'left' | 'right' | 'center'
 
 interface Props extends ButtonProps {
   buttonStyle?: ButtonStyle
@@ -130,15 +176,17 @@ interface StyledProps {
 }
 
 interface ButtonIconProps {
-  placement: 'left' | 'right'
+  placement: IconPlacement
+  iconColour: string
 }
 
 export interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
   type: ButtonTypes
-  value: string
+  value?: string
   disabled?: boolean
   icon?: ReactNode
-  iconPlacement?: 'left' | 'right'
+  iconPlacement?: IconPlacement
+  iconColour?: string
 }
 
 export default Button

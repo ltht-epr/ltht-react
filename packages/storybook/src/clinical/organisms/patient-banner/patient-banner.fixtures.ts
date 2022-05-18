@@ -21,6 +21,7 @@ const mockMetadata: Metadata = {
 
 const AlivePatient: Patient = {
   id: '346ca927-67e0-e951-a2c7-115087226fg2|patient',
+  isEnteredInError: false,
   metadata: mockMetadata,
   active: true,
   address: [
@@ -86,6 +87,7 @@ const AlivePatient: Patient = {
 
 const DeceasedPatient: Patient = {
   id: '829ca260-67e0-e357-b2c7-115087226fg2|patient',
+  isEnteredInError: false,
   metadata: mockMetadata,
   active: true,
   address: [
@@ -156,6 +158,7 @@ const DeceasedPatient: Patient = {
 
 const DeceasedPatientWithoutDate: Patient = {
   id: '829ca260-67e0-e357-b2c7-115087226fg2|patient',
+  isEnteredInError: false,
   metadata: mockMetadata,
   active: true,
   address: [
@@ -223,6 +226,7 @@ const DeceasedPatientWithoutDate: Patient = {
 
 const DeceasedPatientWithoutBoolean: Patient = {
   id: '829ca260-67e0-e357-b2c7-115087226fg2|patient',
+  isEnteredInError: false,
   metadata: mockMetadata,
   active: true,
   address: [

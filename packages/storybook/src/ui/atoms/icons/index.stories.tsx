@@ -17,5 +17,7 @@ export * from './spinner-icon.stories'
 export * from './table-icon.stories'
 export * from './trash-icon.stories'
 export * from './user-icon.stories'
+export * from './folder-plus.stories'
+export * from './layer-group.stories'
 
 export default { title: 'UI/Atoms/Icons' }

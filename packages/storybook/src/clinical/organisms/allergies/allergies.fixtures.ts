@@ -31,6 +31,7 @@ const redactedMetadata: Metadata = {
 
 const AllergyOne: AllergyIntolerance = {
   id: '580ca927-34e0-e911-a2c7-005056926fe4|allergyalert',
+  isEnteredInError: false,
   metadata: mockMetadata,
   assertedDate: {
     value: '2016-01-01T00:00:00+00:00',
@@ -83,6 +84,7 @@ const AllergyOne: AllergyIntolerance = {
 
 const AllergyTwo: AllergyIntolerance = {
   id: '690ca927-68e0-c511-b2c7-89804g926fg4|allergyalert',
+  isEnteredInError: false,
   metadata: mockMetadata,
   assertedDate: {
     value: '2015-03-01T00:00:00+00:00',
@@ -101,6 +103,7 @@ const AllergyTwo: AllergyIntolerance = {
 
 const AllergyThree: AllergyIntolerance = {
   id: '690ca927-68e0-c511-b2c7-898056926ze4|allergyalert',
+  isEnteredInError: false,
   metadata: mockMetadata,
   assertedDate: {
     value: '2013-01-01T00:00:00+00:00',
@@ -114,6 +117,7 @@ const AllergyThree: AllergyIntolerance = {
 
 export const RedactedAllergy: AllergyIntolerance = {
   id: '690ca927-68e0-c511-b2c7-898056928xe4|allergyalert',
+  isEnteredInError: false,
   metadata: redactedMetadata,
   assertedDate: {
     value: '2013-01-01T00:00:00+00:00',

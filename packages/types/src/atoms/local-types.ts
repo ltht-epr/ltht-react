@@ -14,3 +14,8 @@ export enum CodeSystem {
 }
 
 export type StatusTypes = 'info' | 'danger' | 'warning'
+
+export enum DetailViewType {
+  Compact = 'COMPACT',
+  Expanded = 'EXPANDED',
+}

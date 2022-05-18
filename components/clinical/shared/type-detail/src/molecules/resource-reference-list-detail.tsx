@@ -1,13 +1,13 @@
-import { FC } from 'react'
 import { ResourceReference, Maybe } from '@ltht-react/types'
 import DescriptionList from '@ltht-react/description-list'
 import { titleCase } from '@ltht-react/utils'
+import { DetailViewComponent, IDetailViewProps } from '../atoms/detail-view-component'
+import NestedListDetail from './nested-list-detail'
 
-const ResourceReferenceDetail: FC<Props> = ({ term, resourceReferences }) => {
-  if (resourceReferences) {
+const ResourceReferenceListDetail: DetailViewComponent<Props> = ({ term, resourceReferences, showIfEmpty }) => {
+  if (resourceReferences || showIfEmpty) {
     return (
-      <DescriptionList>
-        <DescriptionList.Term>{term}</DescriptionList.Term>
+      <NestedListDetail term={term} showIfEmpty={showIfEmpty} wrapDescription={false}>
         {resourceReferences?.map((item) => {
           if (item?.display) {
             return (
@@ -16,15 +16,15 @@ const ResourceReferenceDetail: FC<Props> = ({ term, resourceReferences }) => {
           }
           return <></>
         })}
-      </DescriptionList>
+      </NestedListDetail>
     )
   }
   return <></>
 }
 
-interface Props {
+interface Props extends IDetailViewProps {
   term: string
   resourceReferences?: Maybe<ResourceReference>[] | null
 }
 
-export default ResourceReferenceDetail
+export default ResourceReferenceListDetail

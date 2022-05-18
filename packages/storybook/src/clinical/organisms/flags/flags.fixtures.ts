@@ -22,6 +22,7 @@ const redactedMetadata: Metadata = {
 
 const FlagOne: Flag = {
   id: '580ca927-34e0-e911-a2c7-005056926fe5|personalertandhazard',
+  isEnteredInError: false,
   metadata: redactedMetadata,
   author: {
     display: 'Smith, John (Dr)',
@@ -55,6 +56,7 @@ const FlagOne: Flag = {
 
 const FlagTwo: Flag = {
   id: '580ca927-34e0-e911-a2c7-005056926fe4|personalertandhazard',
+  isEnteredInError: false,
   metadata: mockMetadata,
   author: {
     display: 'John Smith',

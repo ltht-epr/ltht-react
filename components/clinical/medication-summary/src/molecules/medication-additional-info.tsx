@@ -5,7 +5,6 @@ import Badge from '@ltht-react/badge'
 import { Maybe } from '@ltht-react/types'
 
 const StyledMedicationAdditionalInfo = styled.div`
-  margin-top: 0.25rem;
   display: flex;
   align-items: center;
 `
@@ -20,7 +19,7 @@ const MedicationAdditionalInfo: FC<IProps> = ({ hasChanged, hasVerificationComme
   return (
     <StyledMedicationAdditionalInfo>
       {hasChanged && <StyledBadge>Changed</StyledBadge>}
-      {hasVerificationComments && <CommentIcon size="large" />}
+      {hasVerificationComments && <CommentIcon size="medium" title="Has Additional Comments" />}
     </StyledMedicationAdditionalInfo>
   )
 }
