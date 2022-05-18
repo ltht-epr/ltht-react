@@ -1,6 +1,6 @@
 import { QuestionnaireResponse } from '@ltht-react/types'
 
-//import { PartialDateTimeKindCode, QuestionnaireResponse, QuestionnaireResponseStatus } from '@ltht-react/types'
+// import { PartialDateTimeKindCode, QuestionnaireResponse, QuestionnaireResponseStatus } from '@ltht-react/types'
 
 // const summaryRecordOne: QuestionnaireResponse = {
 //   authored: {
@@ -563,7 +563,7 @@ import { QuestionnaireResponse } from '@ltht-react/types'
 //   ],
 // }
 
-//const summaryRecordsList: QuestionnaireResponse[] = [summaryRecordOne, summaryRecordTwo, summaryRecordThree]
+// const summaryRecordsList: QuestionnaireResponse[] = [summaryRecordOne, summaryRecordTwo, summaryRecordThree]
 
 const summaryRecordsList: QuestionnaireResponse[] = []
 
