@@ -39,13 +39,7 @@ const QuestionBlock: FC<IProps> = ({ type, question, responseItem, className, sh
     responseItem?.answer?.every((answer) => answer && Object.values(answer).every((x) => x === null))
 
   if ((noAnswerResponse || noAnswerProvided) && type === QuestionnaireItemTypeCode.Display) {
-    if (showIfEmpty === false) return <></>
     return <></>
-    return (
-      <StyledQuestionBlock className={className}>
-        <NestedListDetail term={question || '-'} showIfEmpty={showIfEmpty} />
-      </StyledQuestionBlock>
-    )
   }
 
   return (
