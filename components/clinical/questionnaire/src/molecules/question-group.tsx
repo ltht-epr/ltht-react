@@ -7,7 +7,6 @@ import {
   QuestionnaireItemTypeCode,
   QuestionnaireResponseItem,
 } from '@ltht-react/types'
-// import { DESKTOP_MINIMUM_MEDIA_QUERY, MOBILE_MAXIMUM_MEDIA_QUERY, TABLET_ONLY_MEDIA_QUERY } from '@ltht-react/styles'
 import QuestionBlock from './question-block'
 
 const StyledQuestionGroup = styled.div`
