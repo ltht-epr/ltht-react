@@ -33,6 +33,7 @@ const QuestionContainer = styled.div`
   > div.QuestionBlock,
   > div.QuestionGroup {
     padding: 0.5rem 0.5rem 0 0;
+    border-bottom: none;
 
     ${DESKTOP_MINIMUM_MEDIA_QUERY} {
       flex-basis: 33%;

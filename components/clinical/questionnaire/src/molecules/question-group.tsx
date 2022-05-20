@@ -13,6 +13,11 @@ const StyledQuestionGroup = styled.div`
   flex-basis: 100%;
   display: flex;
   flex-direction: column;
+
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+  &:last-of-type {
+    border-bottom: none;
+  }
 `
 
 const GroupHeader = styled.h3`
@@ -24,21 +29,15 @@ const GroupHeader = styled.h3`
 
 const ExpandedGroupBlock = styled.div`
   background: #eaeaea;
-  border: 1px solid rgba(0, 0, 0, 0.125);
   flex: 2;
 `
 
 const CompactGroupBlock = styled.div`
   background: #eaeaea;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
   flex: 2;
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
-
-  &:last-child {
-    border-bottom: none;
-  }
 `
 
 function QuestionnaireQuestions(
