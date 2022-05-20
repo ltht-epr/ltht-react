@@ -14,6 +14,7 @@ import {
 } from '@ltht-react/type-detail'
 
 import Questionnaire from '@ltht-react/questionnaire'
+import { TEXT_COLOURS } from '@ltht-react/styles'
 
 const TopSection = styled.div`
   display: flex;
@@ -33,6 +34,10 @@ const Seperator = styled.div`
   width: calc(100% + 12px);
   margin: 1rem 0;
 `
+const Title = styled.h4`
+  margin: 1rem 0 1rem;
+  color: ${TEXT_COLOURS.SECONDARY.VALUE};
+`
 
 const DiagnosisDetail: FC<Props> = ({ condition, links, viewType = DetailViewType.Compact }) => (
   <>
@@ -40,15 +45,16 @@ const DiagnosisDetail: FC<Props> = ({ condition, links, viewType = DetailViewTyp
       <CodeableConceptDetail term="Diagnosis" concept={condition.code} links={links} />
       <CodingListDetail term="Data Source(s)" codings={condition.metadata.dataSources} />
     </TopSection>
-
+    <Seperator />
     {condition.extensionData &&
       condition?.extensionData.map((item, index) => (
-        <>
-          {index === 0 && <Seperator />}
+        <div key={`diagnosis-detail-questionnaire-${index}`}>
           <Questionnaire questionnaire={item} showTitle viewType={viewType} />
           <Seperator />
-        </>
+        </div>
       ))}
+
+    <Title>Details</Title>
     <CollapsibleDetailCollection viewType={viewType}>
       <DatetimeDetail term="Onset Date" datetime={condition.onset?.dateTime} />
       <StringDetail term="Clinical Status" description={condition.clinicalStatus?.toString()} />
