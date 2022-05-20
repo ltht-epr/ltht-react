@@ -41,8 +41,8 @@ const MedicationDetail: FC<IProps> = ({ medication, viewType = DetailViewType.Co
       <TopSection>
         <StringDetail term="Status at Discharge" description={status} />
         <AnnotationListDetail term="Changes / Comments" notes={medication?.note} />
-        <Seperator />
       </TopSection>
+      <Seperator />
       <CollapsibleDetailCollection viewType={viewType}>
         <CodeableConceptDetail term="Medication" concept={medication?.medicationReference?.code} />
         <NestedListDetail term="Dosage">
