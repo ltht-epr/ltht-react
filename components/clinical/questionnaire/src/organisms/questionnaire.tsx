@@ -17,88 +17,33 @@ import QuestionBlock from '../molecules/question-block'
 import Redacted from '../molecules/redacted'
 import TitleInfo from '../atoms/title-info'
 
-const StyledQuestionnaire = styled.div`
-  & div:last-child {
-    margin-bottom: 0;
-  }
-`
+const StyledQuestionnaire = styled.div``
 
-const DynamicContainer = styled.div`
+const QuestionContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
-  margin-top: '1rem';
+  align-content: stretch;
+  margin-bottom: 1rem;
 
-  & div.QuestionBlock,
-  & div.QuestionGroup {
-    margin-top: 0;
-    margin-bottom: 1rem;
+  div.QuestionBlock {
+    padding: 0.25rem;
+  }
+
+  > div.QuestionBlock,
+  > div.QuestionGroup {
+    padding: 0.5rem 0.5rem 0 0;
 
     ${DESKTOP_MINIMUM_MEDIA_QUERY} {
-      width: 25%;
-
-      &:nth-last-child(1),
-      :nth-last-child(2),
-      :nth-last-child(3),
-      :nth-last-child(4) {
-        margin-bottom: 0px !important;
-      }
-
-      &:nth-child(4n + 1) {
-        text-align: left;
-      }
-
-      &:nth-child(4n + 2) {
-        text-align: center;
-      }
-
-      &:nth-child(4n + 3) {
-        text-align: center;
-      }
-
-      &:nth-child(4n) {
-        text-align: right;
-      }
+      flex-basis: 33%;
     }
 
     ${TABLET_ONLY_MEDIA_QUERY} {
-      width: 33.3%;
-
-      &:nth-last-child(1),
-      :nth-last-child(2),
-      :nth-last-child(3) {
-        margin-bottom: 0px !important;
-      }
-
-      &:nth-child(3n + 1) {
-        text-align: left;
-      }
-
-      &:nth-child(3n + 2) {
-        text-align: center;
-      }
-
-      &:nth-child(3n) {
-        text-align: right;
-      }
+      flex-basis: 50%;
     }
 
     ${MOBILE_MAXIMUM_MEDIA_QUERY} {
-      width: 100%;
-
-      &:nth-last-child(1) {
-        margin-bottom: 0px !important;
-      }
-    }
-  }
-
-  & div.QuestionGroup div.QuestionBlock {
-    width: 100%;
-    text-align: left;
-    margin-bottom: 1rem !important;
-
-    &:last-child {
-      margin-bottom: 0px !important;
+      flex-basis: 100%;
     }
   }
 `
@@ -149,7 +94,7 @@ const Questionnaire: FC<IProps> = ({ questionnaire, showTitle = false, viewType 
   return (
     <StyledQuestionnaire>
       {showTitle && <TitleInfo title={title} />}
-      <DynamicContainer>{QuestionnaireQuestions(questions, answers, viewType)}</DynamicContainer>
+      <QuestionContainer>{QuestionnaireQuestions(questions, answers, viewType)}</QuestionContainer>
       <AuthorInfo author={questionnaire?.author} authoredOn={questionnaire?.authored} />
     </StyledQuestionnaire>
   )

@@ -11,35 +11,35 @@ import {
 import QuestionBlock from './question-block'
 
 const StyledQuestionGroup = styled.div`
-  margin-bottom: 1rem;
+  flex-basis: 100%;
+  display: flex;
+  flex-direction: column;
 `
 
 const GroupHeader = styled.h3`
   margin: 0;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.5rem;
   font-weight: bold;
-  font-size: 13px;
   color: #677f67;
 `
 
-const GroupBlock = styled.div`
+const ExpandedGroupBlock = styled.div`
   background: #eaeaea;
-  padding: 0.5rem;
   border: 1px solid rgba(0, 0, 0, 0.125);
-
-  & div:last-child {
-    margin-bottom: 0;
-  }
+  flex: 2;
 `
 
-const DynamicGroupBlock = styled.div`
+const CompactGroupBlock = styled.div`
   background: #eaeaea;
-  padding: 0.5rem;
-  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+  flex: 2;
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
-  margin-top: '1rem';
+
+  &:last-child {
+    border-bottom: none;
+  }
 `
 
 function QuestionnaireQuestions(
@@ -84,10 +84,10 @@ const QuestionGroup: FC<IProps> = ({ header, questions, answers, viewType = Deta
     <StyledQuestionGroup className={className}>
       {header && <GroupHeader>{header}</GroupHeader>}
       {viewType === DetailViewType.Compact && (
-        <DynamicGroupBlock>{QuestionnaireQuestions(questions, answers, viewType)}</DynamicGroupBlock>
+        <CompactGroupBlock>{QuestionnaireQuestions(questions, answers, viewType)}</CompactGroupBlock>
       )}
       {viewType === DetailViewType.Expanded && (
-        <GroupBlock>{QuestionnaireQuestions(questions, answers, viewType)}</GroupBlock>
+        <ExpandedGroupBlock>{QuestionnaireQuestions(questions, answers, viewType)}</ExpandedGroupBlock>
       )}
     </StyledQuestionGroup>
   )

@@ -4,33 +4,31 @@ import ReactHtmlParser from 'react-html-parser'
 import styled from '@emotion/styled'
 import { Maybe, QuestionnaireItemTypeCode, QuestionnaireResponseItem } from '@ltht-react/types'
 import { InfoCircleIcon } from '@ltht-react/icon'
-import { TEXT_COLOURS } from '@ltht-react/styles'
 import { partialDateTimeText } from '@ltht-react/utils'
+import { NestedListDetail } from '@ltht-react/type-detail'
+import { DESKTOP_MINIMUM_MEDIA_QUERY, TABLET_ONLY_MEDIA_QUERY } from '@ltht-react/styles'
 
 const StyledInfoIcon = styled.div`
   padding-right: 0.25rem;
 `
 
 const StyledQuestionBlock = styled.div`
-  margin-bottom: 1rem;
+  margin: 5px 0;
+  ${DESKTOP_MINIMUM_MEDIA_QUERY} {
+    flex-basis: 50%;
+  }
+
+  ${TABLET_ONLY_MEDIA_QUERY} {
+    flex-basis: 100%;
+  }
 `
 
 const DisplayBlock = styled.div`
+  padding: 2px 4px;
   display: flex;
   align-items: center;
   background-color: #cbdbee;
   color: #0053c3;
-  padding: 0.5rem;
-`
-
-const Question = styled.p`
-  margin: 0;
-  margin-bottom: 0.25rem;
-  color: ${TEXT_COLOURS.SECONDARY.VALUE};
-`
-
-const Answer = styled.p`
-  margin: 0;
 `
 
 const QuestionBlock: FC<IProps> = ({ type, question, responseItem, className, showIfEmpty = false }) => {
@@ -40,12 +38,12 @@ const QuestionBlock: FC<IProps> = ({ type, question, responseItem, className, sh
     // Also no answer if each answer in the array has null for every valuetype property
     responseItem?.answer?.every((answer) => answer && Object.values(answer).every((x) => x === null))
 
-  if (noAnswerResponse || noAnswerProvided) {
+  if ((noAnswerResponse || noAnswerProvided) && type === QuestionnaireItemTypeCode.Display) {
     if (showIfEmpty === false) return <></>
-
+    return <></>
     return (
       <StyledQuestionBlock className={className}>
-        <Question>{question}</Question>
+        <NestedListDetail term={question || '-'} showIfEmpty={showIfEmpty} />
       </StyledQuestionBlock>
     )
   }
@@ -61,70 +59,64 @@ const QuestionBlock: FC<IProps> = ({ type, question, responseItem, className, sh
         </DisplayBlock>
       )}
       {type === QuestionnaireItemTypeCode.QuestionBoolean && (
-        <>
-          <Question>{question}</Question>
-          {noAnswerProvided && <Answer>-</Answer>}
+        <NestedListDetail term={question || '-'} showIfEmpty={showIfEmpty}>
+          {noAnswerProvided && <>-</>}
           {responseItem?.answer?.map((answerItem, index) => (
-            <Answer key={`${question}-${answerItem?.valueBoolean}-${index + 1}`}>
+            <div key={`${question}-${answerItem?.valueBoolean}-${index + 1}`}>
               {answerItem?.valueBoolean === true ? 'Yes' : 'No'}
-            </Answer>
+            </div>
           ))}
-        </>
+        </NestedListDetail>
       )}
       {type === QuestionnaireItemTypeCode.QuestionString && (
-        <>
-          <Question>{question}</Question>
-          {noAnswerProvided && <Answer>-</Answer>}
+        <NestedListDetail term={question || '-'} showIfEmpty={showIfEmpty}>
+          {noAnswerProvided && <>-</>}
           {responseItem?.answer?.map((answerItem, index) => (
-            <Answer key={`${question}-${answerItem?.valueString}-${index + 1}`}>
+            <div key={`${question}-${answerItem?.valueString}-${index + 1}`}>
               {ReactHtmlParser(answerItem?.valueString || '')}
-            </Answer>
+            </div>
           ))}
-        </>
+        </NestedListDetail>
       )}
       {type === QuestionnaireItemTypeCode.QuestionDate && (
-        <>
-          <Question>{question}</Question>
-          {noAnswerProvided && <Answer>-</Answer>}
+        <NestedListDetail term={question || '-'} showIfEmpty={showIfEmpty}>
+          {noAnswerProvided && <>-</>}
           {responseItem?.answer?.map((answerItem, index) => (
-            <Answer key={`${question}-${answerItem?.valueDateTime?.value}-${index + 1}`}>
+            <div key={`${question}-${answerItem?.valueDateTime?.value}-${index + 1}`}>
               {partialDateTimeText(answerItem?.valueDateTime)}
-            </Answer>
+            </div>
           ))}
-        </>
+        </NestedListDetail>
       )}
       {type === QuestionnaireItemTypeCode.QuestionStringBbCode && (
-        <>
-          <Question>{question}</Question>
-          {noAnswerProvided && <Answer>-</Answer>}
+        <NestedListDetail term={question || '-'} showIfEmpty={showIfEmpty}>
+          {noAnswerProvided && <>-</>}
           {responseItem?.answer?.map((answerItem, index) => (
-            <Answer key={`${question}-${answerItem?.valueString}-${index + 1}`}>
+            <div key={`${question}-${answerItem?.valueString}-${index + 1}`}>
               {ReactHtmlParser(parser.toHTML(answerItem?.valueString || ''))}
-            </Answer>
+            </div>
           ))}
-        </>
+        </NestedListDetail>
       )}
       {type === QuestionnaireItemTypeCode.QuestionStringHtml && (
-        <>
-          <Question>{question}</Question>
-          {noAnswerProvided && <Answer>-</Answer>}
+        <NestedListDetail term={question || '-'} showIfEmpty={showIfEmpty}>
+          {noAnswerProvided && <>-</>}
           {responseItem?.answer?.map((answerItem, index) => (
-            <Answer key={`${question}-${answerItem?.valueString}-${index + 1}`}>
+            <div key={`${question}-${answerItem?.valueString}-${index + 1}`}>
               {answerItem?.valueString ? ReactHtmlParser(answerItem?.valueString) : ''}
-            </Answer>
+            </div>
           ))}
-        </>
+        </NestedListDetail>
       )}
       {type === QuestionnaireItemTypeCode.QuestionCoding && (
-        <>
-          <Question>{question}</Question>
-          {noAnswerProvided && <Answer>-</Answer>}
+        <NestedListDetail term={question || '-'} showIfEmpty={showIfEmpty}>
+          {noAnswerProvided && <>-</>}
           {responseItem?.answer?.map((answerItem, index) => (
-            <Answer key={`${question}-${answerItem?.valueCoding?.display}-${index + 1}`}>
+            <div key={`${question}-${answerItem?.valueCoding?.display}-${index + 1}`}>
               {answerItem?.valueCoding?.display}
-            </Answer>
+            </div>
           ))}
-        </>
+        </NestedListDetail>
       )}
     </StyledQuestionBlock>
   )
