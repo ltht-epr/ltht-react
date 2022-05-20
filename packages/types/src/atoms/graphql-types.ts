@@ -675,7 +675,7 @@ export type Condition = {
   isEnteredInError?: Maybe<Scalars['Boolean']>
   abatement?: Maybe<ConditionAbatement>
   assertedDate?: Maybe<PartialDateTime>
-  asserter?: Maybe<ResourceReference>
+  asserter?: Maybe<ConditionAsserter>
   bodySite?: Maybe<Array<Maybe<CodeableConcept>>>
   category?: Maybe<Array<Maybe<CodeableConcept>>>
   clinicalStatus?: Maybe<ConditionClinicalStatus>
@@ -697,6 +697,11 @@ export type ConditionAbatement = {
   age?: Maybe<Quantity>
   period: Period
   dateTime: PartialDateTime
+}
+
+export type ConditionAsserter = {
+  asserterName?: Maybe<Scalars['String']>
+  asserterType?: Maybe<Scalars['String']>
 }
 
 export enum ConditionClinicalStatus {
