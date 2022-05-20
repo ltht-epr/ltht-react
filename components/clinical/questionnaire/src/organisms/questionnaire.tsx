@@ -84,7 +84,7 @@ function QuestionnaireQuestions(
   })
 }
 
-const Questionnaire: FC<IProps> = ({ questionnaire, showTitle = false, viewType = DetailViewType.Expanded }) => {
+const Questionnaire: FC<IProps> = ({ questionnaire, showTitle = false, viewType = DetailViewType.Compact }) => {
   const questions = questionnaire?.questionnaire?.item
   const answers = questionnaire?.item
   const title = questionnaire?.questionnaire?.title
