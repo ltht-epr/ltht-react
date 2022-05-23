@@ -973,7 +973,8 @@ export const NestedGroupWithDisplayExampleData: QuestionnaireResponse = {
               text: null,
               answer: [
                 {
-                  valueString: 'Trust Action 1',
+                  valueString:
+                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ultricies diam ornare lorem interdum cursus. Pellentesque vel justo erat. Ut fringilla mauris nec libero facilisis, a interdum ex hendrerit. Maecenas id posuere nulla. Proin a risus hendrerit, eleifend diam vel, pretium orci. Integer nec pharetra diam. Aliquam id blandit metus. Fusce sit amet ex nec mauris sagittis hendrerit. Duis et est faucibus, scelerisque massa venenatis, maximus tortor. Donec et felis ultricies, interdum purus eget, euismod leo. Nulla a aliquam leo. Phasellus dictum arcu eget posuere iaculis. Nullam hendrerit eget metus id mattis.',
                   valueBoolean: null,
                   valueDateTime: null,
                 },
@@ -1086,4 +1087,209 @@ export const NestedGroupWithDisplayExampleData: QuestionnaireResponse = {
       ],
     },
   ],
+}
+
+export const NestedDischargeExample: QuestionnaireResponse = {
+  id: 'e100a254-a590-42bf-8b46-4004c0951d1c',
+  status: QuestionnaireResponseStatus.Completed,
+  authored: {
+    kind: PartialDateTimeKindCode.DateTime,
+    value: '2022-01-05T18:14:01.88+00:00',
+  },
+  author: {
+    typeName: 'EhrUser',
+    identifier: {
+      system: null,
+      value: '7a95fbca-1485-4145-8e07-5291e54bf8c2',
+    },
+    display: 'VARGHESE, Anila (Ms) Test Analyst - Accident and Emergency, The Leeds Teaching Hospitals NHS Trust',
+  },
+  questionnaire: {
+    id: '4789c2b3-7e37-4dd7-9642-0d456ae2f2bd',
+    identifier: [
+      {
+        system: 'http://leedsth.nhs.uk/user/guid',
+        value: 'cfe6a9d7-f23d-4bb9-a28d-8a3895bee48a',
+      },
+    ],
+    metadata: mockMetadata,
+    url: null,
+    version: '1',
+    title: 'Discharge Actions',
+    status: QuestionnairePublicationStatus.Active,
+    item: [
+      {
+        linkId: '1',
+        text: 'Trust Actions',
+        type: QuestionnaireItemTypeCode.Group,
+        repeats: false,
+        item: [
+          {
+            linkId: '1.1',
+            text: 'No actions for the Trust post-discharge',
+            type: QuestionnaireItemTypeCode.Display,
+            item: null,
+          },
+          {
+            linkId: '1.2',
+            text: null,
+            type: QuestionnaireItemTypeCode.Group,
+            item: [
+              {
+                linkId: '1.2.1',
+                text: 'Trust Action',
+                type: QuestionnaireItemTypeCode.QuestionString,
+                repeats: false,
+              },
+              {
+                linkId: '1.2.2',
+                text: 'Action Organised?',
+                type: QuestionnaireItemTypeCode.QuestionBoolean,
+                repeats: false,
+              },
+            ],
+          },
+        ],
+      },
+      {
+        linkId: '2',
+        text: 'GP Actions',
+        type: QuestionnaireItemTypeCode.Group,
+        repeats: false,
+        item: [
+          {
+            linkId: '2.1',
+            text: 'No actions for the GP post-discharge',
+            type: QuestionnaireItemTypeCode.Display,
+            item: null,
+          },
+          {
+            linkId: '2.2',
+            text: null,
+            type: QuestionnaireItemTypeCode.Group,
+            item: [
+              {
+                linkId: '2.2.1',
+                text: 'GP Action',
+                type: QuestionnaireItemTypeCode.QuestionString,
+                repeats: false,
+              },
+              {
+                linkId: '2.2.2',
+                text: 'Requested By?',
+                type: QuestionnaireItemTypeCode.QuestionString,
+                repeats: false,
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+  item: [
+    {
+      linkId: '1',
+      text: 'Trust Actions',
+      answer: null,
+      item: [
+        {
+          linkId: '1.2',
+          text: null,
+          answer: null,
+          item: [
+            {
+              linkId: '1.2.1',
+              text: null,
+              answer: [
+                {
+                  valueString: 'Plans for secondary care follow up\n,',
+                  valueBoolean: null,
+                  valueDateTime: null,
+                },
+              ],
+            },
+            {
+              linkId: '1.2.2',
+              text: null,
+              answer: [
+                {
+                  valueString: null,
+                  valueBoolean: true,
+                  valueDateTime: null,
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    },
+    {
+      linkId: '2',
+      text: 'GP Actions',
+      answer: null,
+      item: [
+        {
+          linkId: '2.2',
+          text: null,
+          answer: null,
+          item: [
+            {
+              linkId: '2.2.1',
+              text: null,
+              answer: [
+                {
+                  valueString:
+                    'Please indicate What, When, Why, and any actions to be completed based on the result\n,',
+                  valueBoolean: null,
+                  valueDateTime: null,
+                },
+              ],
+            },
+            {
+              linkId: '2.2.2',
+              text: null,
+              answer: [
+                {
+                  valueString: 'testestsetestsetestest',
+                  valueBoolean: null,
+                  valueDateTime: null,
+                },
+              ],
+            },
+          ],
+        },
+        {
+          linkId: '2.2',
+          text: null,
+          answer: null,
+          item: [
+            {
+              linkId: '2.2.1',
+              text: null,
+              answer: [
+                {
+                  valueString:
+                    'Please indicate What, When, Why, and any actions to be completed based on the result\nPlease indicate What, When, Why, and any actions to be completed based on the result2\n32\n3\n,',
+                  valueBoolean: null,
+                  valueDateTime: null,
+                },
+              ],
+            },
+            {
+              linkId: '2.2.2',
+              text: null,
+              answer: [
+                {
+                  valueString: 'testsetsetsets',
+                  valueBoolean: null,
+                  valueDateTime: null,
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    },
+  ],
+  metadata: mockMetadata,
 }
