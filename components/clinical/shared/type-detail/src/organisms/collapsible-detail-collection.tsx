@@ -1,7 +1,7 @@
 import { FC, Children, cloneElement } from 'react'
 import styled from '@emotion/styled'
 import { DetailViewType, Maybe } from '@ltht-react/types'
-import { DESKTOP_MINIMUM_MEDIA_QUERY, MOBILE_MAXIMUM_MEDIA_QUERY, TABLET_MINIMUM_MEDIA_QUERY } from '@ltht-react/styles'
+import { DESKTOP_MINIMUM_MEDIA_QUERY, MOBILE_MAXIMUM_MEDIA_QUERY, TABLET_ONLY_MEDIA_QUERY } from '@ltht-react/styles'
 
 const StyledCollapsibleDetailCollection = styled.div`
   display: flex;
@@ -25,7 +25,7 @@ const StyledCollapsibleDetailCollection = styled.div`
       }
     }
 
-    ${TABLET_MINIMUM_MEDIA_QUERY} {
+    ${TABLET_ONLY_MEDIA_QUERY} {
       flex-basis: 50%;
 
       &:nth-last-child(1),
