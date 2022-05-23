@@ -88,6 +88,21 @@ export const TextFieldData: QuestionnaireResponse = {
         text: 'What is your gender?',
         type: QuestionnaireItemTypeCode.QuestionString,
       },
+      {
+        linkId: '2',
+        text: 'Investigations',
+        type: QuestionnaireItemTypeCode.QuestionString,
+      },
+      {
+        linkId: '3',
+        text: 'Summary',
+        type: QuestionnaireItemTypeCode.QuestionString,
+      },
+      {
+        linkId: '4',
+        text: 'Do you have allergies?',
+        type: QuestionnaireItemTypeCode.QuestionString,
+      },
     ],
   },
   item: [
@@ -97,6 +112,44 @@ export const TextFieldData: QuestionnaireResponse = {
       answer: [
         {
           valueString: 'Male',
+          valueBoolean: false,
+          valueDateTime: null,
+        },
+      ],
+      item: null,
+    },
+    {
+      linkId: '2',
+      text: null,
+      answer: [
+        {
+          valueString: 'Male',
+          valueBoolean: false,
+          valueDateTime: null,
+        },
+      ],
+      item: null,
+    },
+    {
+      linkId: '3',
+      text: null,
+      answer: [
+        {
+          valueString:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris pellentesque mauris ut elementum ultrices. Fusce eu erat est. Etiam pulvinar eget ex id pharetra. Maecenas a neque molestie, rhoncus ex ac, gravida lectus. Ut non magna ornare, vulputate magna a, eleifend ipsum. Cras sit amet massa eu nisl efficitur facilisis fermentum non nunc. Donec iaculis mauris ut metus semper facilisis. Praesent pretium tristique est, tristique tempor mi luctus et.',
+          valueBoolean: false,
+          valueDateTime: null,
+        },
+      ],
+      item: null,
+    },
+    {
+      linkId: '4',
+      text: null,
+      answer: [
+        {
+          valueString:
+            'Mauris quis augue sed quam rhoncus commodo et ut urna. Pellentesque condimentum justo et urna euismod eleifend. Mauris interdum convallis tortor ut lacinia. In ullamcorper sem a dapibus maximus. Nunc cursus eu nibh sed gravida. Curabitur velit nibh, scelerisque ut neque sit amet, tempus ornare sapien. Phasellus lobortis dui vitae ante viverra, gravida finibus diam aliquet. Ut auctor semper eros, quis venenatis est porttitor non. Donec mattis euismod scelerisque. Duis in lectus sit amet metus bibendum euismod. Cras pulvinar dictum tellus, at pellentesque ex consectetur id. Mauris cursus risus quis fermentum ultricies. Mauris non fringilla est. Etiam cursus dictum mauris eu porta. Aliquam sagittis velit ut varius elementum.',
           valueBoolean: false,
           valueDateTime: null,
         },
@@ -232,11 +285,30 @@ export const RichTextFieldData: QuestionnaireResponse = {
         type: QuestionnaireItemTypeCode.QuestionStringBbCode,
         item: null,
       },
+      {
+        linkId: '2',
+        text: 'Investigation',
+        type: QuestionnaireItemTypeCode.QuestionStringBbCode,
+        item: null,
+      },
     ],
   },
   item: [
     {
       linkId: '1',
+      text: null,
+      answer: [
+        {
+          valueString:
+            '[b]Bold text...[/b][i]Italic text...[/i][u]Underline text...[/u] and then some more text to make it obvious that this is a long string that should be the [b]whole width[/b]',
+          valueBoolean: false,
+          valueDateTime: null,
+        },
+      ],
+      item: null,
+    },
+    {
+      linkId: '2',
       text: null,
       answer: [
         {
@@ -647,6 +719,11 @@ export const ComposedExampleData: QuestionnaireResponse = {
             text: 'What is your date of birth?',
             type: QuestionnaireItemTypeCode.QuestionDate,
           },
+          {
+            linkId: '3.3',
+            text: 'Investigations',
+            type: QuestionnaireItemTypeCode.QuestionStringHtml,
+          },
         ],
       },
       {
@@ -690,6 +767,16 @@ export const ComposedExampleData: QuestionnaireResponse = {
           linkId: '3.2',
           text: null,
           answer: [],
+        },
+        {
+          linkId: '3.3',
+          text: null,
+          answer: [
+            {
+              valueString:
+                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris pellentesque mauris ut elementum ultrices. Fusce eu erat est. Etiam pulvinar eget ex id pharetra. Maecenas a neque molestie, rhoncus ex ac, gravida lectus. Ut non magna ornare, vulputate magna a, eleifend ipsum. Cras sit amet massa eu nisl efficitur facilisis fermentum non nunc. Donec iaculis mauris ut metus semper facilisis. Praesent pretium tristique est, tristique tempor mi luctus et.',
+            },
+          ],
         },
       ],
     },

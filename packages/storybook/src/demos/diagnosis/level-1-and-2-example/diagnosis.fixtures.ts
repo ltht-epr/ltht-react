@@ -1140,7 +1140,154 @@ const LevelTwoDiagnosis: Condition = {
     asserterName: 'John smith (Dr)',
     asserterType: 'Practitioner',
   },
-  extensionData: [QuestionnaireResponse1, QuestionnaireResponse2, GroupTypeData],
+  extensionData: [
+    QuestionnaireResponse1,
+    QuestionnaireResponse2,
+    GroupTypeData,
+    {
+      id: '435d2aca-7776-43e7-a33f-1ba481bd2892',
+      isEnteredInError: false,
+      metadata: mockMetadata,
+      status: QuestionnaireResponseStatus.Completed,
+      authored: {
+        kind: PartialDateTimeKindCode.DateTime,
+        value: '2021-08-17T13:13:56.9755581+01:00',
+      },
+      author: {
+        typeName: 'EhrUser',
+        identifier: {
+          system: 'http://leedsth.nhs.uk/user/guid',
+          value: 'cfe6a9d7-f23d-4bb9-a28d-8a3895bee48a',
+        },
+        display: 'John Smith',
+      },
+      questionnaire: {
+        id: '14720227-b1f7-4cc5-a0d0-403938cf710d',
+        isEnteredInError: false,
+        identifier: [
+          {
+            system: 'http://leedsth.nhs.uk/user/guid',
+            value: 'cfe6a9d7-f23d-4bb9-a28d-8a3895bee48a',
+          },
+        ],
+        metadata: mockMetadata,
+        url: 'http://ehr.leedsth.nhs.uk/questionnaire/Right-To-Reside',
+        version: '1',
+        title: 'Right to Reside',
+        status: QuestionnairePublicationStatus.Active,
+        item: [
+          {
+            linkId: '1',
+            text: null,
+            type: QuestionnaireItemTypeCode.Group,
+            repeats: true,
+            item: [
+              {
+                linkId: '1.1',
+                text: 'Criteria',
+                type: QuestionnaireItemTypeCode.QuestionString,
+              },
+              {
+                linkId: '1.2',
+                text: 'Met?',
+                type: QuestionnaireItemTypeCode.QuestionBoolean,
+              },
+            ],
+          },
+        ],
+      },
+      item: [
+        {
+          linkId: '1',
+          text: null,
+          answer: null,
+          item: [
+            {
+              linkId: '1.1',
+              text: null,
+              answer: [
+                {
+                  valueString:
+                    'Mauris quis augue sed quam rhoncus commodo et ut urna. Pellentesque condimentum justo et urna euismod eleifend. Mauris interdum convallis tortor ut lacinia. In ullamcorper sem a dapibus maximus. Nunc cursus eu nibh sed gravida. Curabitur velit nibh, scelerisque ut neque sit amet, tempus ornare sapien. Phasellus lobortis dui vitae ante viverra, gravida finibus diam aliquet. Ut auctor semper eros, quis venenatis est porttitor non. Donec mattis euismod scelerisque. Duis in lectus sit amet metus bibendum euismod. Cras pulvinar dictum tellus, at pellentesque ex consectetur id. Mauris cursus risus quis fermentum ultricies. Mauris non fringilla est. Etiam cursus dictum mauris eu porta. Aliquam sagittis velit ut varius elementum.',
+                  valueBoolean: null,
+                  valueDateTime: null,
+                },
+              ],
+            },
+            {
+              linkId: '1.2',
+              text: null,
+              answer: [
+                {
+                  valueString: null,
+                  valueBoolean: true,
+                  valueDateTime: null,
+                },
+              ],
+            },
+          ],
+        },
+        {
+          linkId: '1',
+          text: null,
+          answer: null,
+          item: [
+            {
+              linkId: '1.1',
+              text: null,
+              answer: [
+                {
+                  valueString: 'Pain Management: Pain under control',
+                  valueBoolean: null,
+                  valueDateTime: null,
+                },
+              ],
+            },
+            {
+              linkId: '1.2',
+              text: null,
+              answer: [
+                {
+                  valueString: null,
+                  valueBoolean: false,
+                  valueDateTime: null,
+                },
+              ],
+            },
+          ],
+        },
+        {
+          linkId: '1',
+          text: null,
+          answer: null,
+          item: [
+            {
+              linkId: '1.1',
+              text: null,
+              answer: [
+                {
+                  valueString: 'Blood Results',
+                  valueBoolean: null,
+                  valueDateTime: null,
+                },
+              ],
+            },
+            {
+              linkId: '1.2',
+              text: null,
+              answer: [
+                {
+                  valueString: null,
+                  valueBoolean: true,
+                  valueDateTime: null,
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    },
+  ],
   bodySite: [
     {
       coding: [

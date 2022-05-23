@@ -9,7 +9,6 @@ import {
   DetailViewType,
 } from '@ltht-react/types'
 
-import { DESKTOP_MINIMUM_MEDIA_QUERY, MOBILE_MAXIMUM_MEDIA_QUERY, TABLET_ONLY_MEDIA_QUERY } from '@ltht-react/styles'
 import AuthorInfo from '../atoms/author-info'
 
 import QuestionGroup from '../molecules/question-group'
@@ -34,18 +33,10 @@ const QuestionContainer = styled.div`
   > div.QuestionGroup {
     padding: 0.5rem 0.5rem 0 0;
     border-bottom: none;
+  }
 
-    ${DESKTOP_MINIMUM_MEDIA_QUERY} {
-      flex-basis: 33%;
-    }
-
-    ${TABLET_ONLY_MEDIA_QUERY} {
-      flex-basis: 50%;
-    }
-
-    ${MOBILE_MAXIMUM_MEDIA_QUERY} {
-      flex-basis: 100%;
-    }
+  > div.QuestionGroup {
+    flex-basis: 100%;
   }
 `
 
