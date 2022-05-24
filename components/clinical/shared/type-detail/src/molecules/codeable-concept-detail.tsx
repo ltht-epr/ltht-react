@@ -18,7 +18,7 @@ const StyledLink = styled.a`
   color: ${LINK_COLOURS.TEXT.DEFAULT};
   transition: all 0.1s ease-in-out;
 
-  & > :first-child {
+  & > dd:first-of-type {
     margin-right: 0.2rem;
   }
 
