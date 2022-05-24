@@ -4,7 +4,7 @@ import ReactHtmlParser from 'react-html-parser'
 import styled from '@emotion/styled'
 import { Maybe, QuestionnaireItemTypeCode, QuestionnaireResponseItem } from '@ltht-react/types'
 import { InfoCircleIcon } from '@ltht-react/icon'
-import { partialDateTimeText } from '@ltht-react/utils'
+import { partialDateTimeText, stripBBTags, stripHtmlTags } from '@ltht-react/utils'
 import { NestedListDetail } from '@ltht-react/type-detail'
 import { DESKTOP_MINIMUM_MEDIA_QUERY, MOBILE_MAXIMUM_MEDIA_QUERY, TABLET_ONLY_MEDIA_QUERY } from '@ltht-react/styles'
 
@@ -119,10 +119,7 @@ const generateAnswer = (
             ))}
           </NestedListDetail>
         ),
-        isFullWidth:
-          responseItem?.answer?.some(
-            (answer) => answer?.valueString && answer.valueString.replace(/(\[([^\]]+)\])/gi, '').length > 50
-          ) ?? false,
+        isFullWidth: responseItem?.answer?.some((answer) => stripBBTags(answer?.valueString).length > 50) ?? false,
       }
     case QuestionnaireItemTypeCode.QuestionStringHtml:
       return {
@@ -136,10 +133,7 @@ const generateAnswer = (
             ))}
           </NestedListDetail>
         ),
-        isFullWidth:
-          responseItem?.answer?.some(
-            (answer) => answer?.valueString && answer.valueString.replace(/(<([^>]+)>)/gi, '').length > 50
-          ) ?? false,
+        isFullWidth: responseItem?.answer?.some((answer) => stripHtmlTags(answer?.valueString).length > 50) ?? false,
       }
     case QuestionnaireItemTypeCode.QuestionCoding:
       return {
