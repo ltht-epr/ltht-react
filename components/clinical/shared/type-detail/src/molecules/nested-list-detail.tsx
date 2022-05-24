@@ -2,7 +2,7 @@ import DescriptionList from '@ltht-react/description-list'
 import { Maybe } from '@ltht-react/types'
 import { DetailViewComponent, IDetailViewProps } from '../atoms/detail-view-component'
 
-const NestedListDetail: DetailViewComponent<IProps> = ({
+const NestedListDetail: DetailViewComponent<INestedListDetailProps> = ({
   term,
   children,
   wrapDescription = true,
@@ -20,7 +20,7 @@ const NestedListDetail: DetailViewComponent<IProps> = ({
     <></>
   )
 
-interface IProps extends IDetailViewProps {
+interface INestedListDetailProps extends IDetailViewProps {
   term: string
   wrapDescription?: Maybe<boolean>
 }

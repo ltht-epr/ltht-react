@@ -17,29 +17,14 @@ const StyledCollapsibleDetailCollection = styled.div`
 
     ${DESKTOP_MINIMUM_MEDIA_QUERY} {
       flex-basis: 33%;
-
-      &:nth-last-child(1),
-      :nth-last-child(2),
-      :nth-last-child(3) {
-        margin-bottom: 0px !important;
-      }
     }
 
     ${TABLET_ONLY_MEDIA_QUERY} {
       flex-basis: 50%;
-
-      &:nth-last-child(1),
-      :nth-last-child(2) {
-        margin-bottom: 0px !important;
-      }
     }
 
     ${MOBILE_MAXIMUM_MEDIA_QUERY} {
       flex-basis: 100%;
-
-      &:nth-last-child(1) {
-        margin-bottom: 0px !important;
-      }
     }
   }
 `
