@@ -36,6 +36,11 @@ const MedicationDetail: FC<IProps> = ({ medication, viewType = DetailViewType.Co
       .map((dosageInstruction) => dosageInstruction?.additionalInstruction?.map((el) => el?.text).join(', '))
       .join(', ')
 
+  const medicationClasses =
+    type === 'AND' || type === 'OR' || type === 'THEN'
+      ? 'medication-dosage-instruction--full-width'
+      : 'medication-dosage-instruction'
+
   return (
     <>
       <TopSection>
@@ -45,7 +50,7 @@ const MedicationDetail: FC<IProps> = ({ medication, viewType = DetailViewType.Co
       <Seperator />
       <CollapsibleDetailCollection viewType={viewType}>
         <CodeableConceptDetail term="Medication" concept={medication?.medicationReference?.code} />
-        <NestedListDetail term="Dosage">
+        <NestedListDetail term="Dosage" className={medicationClasses}>
           <MedicationDosageInstructions
             dosageInstructions={medication?.dosageInstruction}
             reasons={medication?.reasonCode}

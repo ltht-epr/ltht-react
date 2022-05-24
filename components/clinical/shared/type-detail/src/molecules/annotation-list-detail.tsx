@@ -21,7 +21,16 @@ const AnnotationListDetail: DetailViewComponent<IProps> = ({ term, notes, showIf
   if (showIfEmpty !== true && !notes?.length) return <></>
 
   return (
-    <NestedListDetail term={term} showIfEmpty={showIfEmpty} wrapDescription={false}>
+    <NestedListDetail
+      term={term}
+      showIfEmpty={showIfEmpty}
+      wrapDescription={false}
+      className={
+        notes?.some((note) => note && note.text.length > 150)
+          ? 'annotation-list-detail--full-width'
+          : 'annotation-list-detail'
+      }
+    >
       <StyledList>
         {notes?.map((note, index) => (
           <li key={`allergy-note-${index + 1}`}>

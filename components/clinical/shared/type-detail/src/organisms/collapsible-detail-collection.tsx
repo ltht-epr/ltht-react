@@ -27,6 +27,10 @@ const StyledCollapsibleDetailCollection = styled.div`
       flex-basis: 100%;
     }
   }
+
+  > dl[class*='--full-width'] {
+    flex-basis: 100%;
+  }
 `
 
 const CollapsibleDetailCollection: FC<CollapsibleDetailCollectionProps> = ({ children, viewType }): JSX.Element => {

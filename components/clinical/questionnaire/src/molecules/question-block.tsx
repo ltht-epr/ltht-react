@@ -62,7 +62,7 @@ const generateAnswer = (
             {responseItem?.text}
           </DisplayBlock>
         ),
-        isFullWidth: !!(responseItem?.text && responseItem.text.length > 50),
+        isFullWidth: !!(responseItem?.text && responseItem.text.length > 150),
       }
     case QuestionnaireItemTypeCode.QuestionBoolean:
       return {
@@ -91,7 +91,7 @@ const generateAnswer = (
           </NestedListDetail>
         ),
         isFullWidth:
-          responseItem?.answer?.some((answer) => answer?.valueString && answer.valueString.length > 50) ?? false,
+          responseItem?.answer?.some((answer) => answer?.valueString && answer.valueString.length > 150) ?? false,
       }
     case QuestionnaireItemTypeCode.QuestionDate:
       return {
@@ -119,7 +119,7 @@ const generateAnswer = (
             ))}
           </NestedListDetail>
         ),
-        isFullWidth: responseItem?.answer?.some((answer) => stripBBTags(answer?.valueString).length > 50) ?? false,
+        isFullWidth: responseItem?.answer?.some((answer) => stripBBTags(answer?.valueString).length > 150) ?? false,
       }
     case QuestionnaireItemTypeCode.QuestionStringHtml:
       return {
@@ -133,7 +133,7 @@ const generateAnswer = (
             ))}
           </NestedListDetail>
         ),
-        isFullWidth: responseItem?.answer?.some((answer) => stripHtmlTags(answer?.valueString).length > 50) ?? false,
+        isFullWidth: responseItem?.answer?.some((answer) => stripHtmlTags(answer?.valueString).length > 150) ?? false,
       }
     case QuestionnaireItemTypeCode.QuestionCoding:
       return {
