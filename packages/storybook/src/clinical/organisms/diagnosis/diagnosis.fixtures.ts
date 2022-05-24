@@ -478,6 +478,8 @@ const ConditionOne: Condition = {
   id: '017ca927-67e0-e581-a2c7-115087226fg2|condition',
   isEnteredInError: false,
   asserter: {
+    display: 'BROWN, David (Dr)',
+    typeName: 'Doctor',
     asserterName: 'BROWN, David (Dr)',
     asserterType: 'Practitioner',
   },
@@ -717,6 +719,8 @@ const ConditionFive: Condition = {
   },
   clinicalStatus: ConditionClinicalStatus.Resolved,
   asserter: {
+    display: 'SMITH, John (Dr)',
+    typeName: 'Doctor',
     asserterName: 'SMITH, John (Dr)',
     asserterType: 'Practitioner',
   },
