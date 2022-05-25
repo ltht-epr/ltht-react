@@ -45,7 +45,7 @@ import {
 //   { firstName: 'Jess', lastName: 'Smith', birthYear: 2000, availability: false },
 // ]
 
-const summaryDefinition: Questionnaire = {
+const summaryDefinition: QuestionnaireLocal = {
   extension: [
     {
       url: 'https://leedsth.nhs.uk/cds/template',
@@ -80,7 +80,7 @@ const summaryDefinition: Questionnaire = {
   item: [
     {
       text: 'Score',
-      type1: 'string',
+      type: 'string',
       linkId: '1',
       item: null,
     },
@@ -766,8 +766,8 @@ const testData: Array<QuestionnaireResponseItemAndQuestionnaireItemBaseClass> = 
 
 // could try to us
 
-console.log(testData)
-console.log(testColumns)
+console.log(testData[0])
+console.log(testColumns[0])
 
 // const testDataMutated: ExtensionTest = {
 //   baseData: testData,
@@ -783,22 +783,19 @@ console.log(testColumns)
 
 // console.log(testDataMutated)
 
-// interface MyType extends Record<string, any> {
-//   baseData: QuestionnaireResponseItemLocal[]
-//   linkIdValue: string
-// }
-
-interface IData extends Record<string, any> {
+interface ExtensionType extends Record<string, any> {
   linkIdValue1: string
+}
+
+interface IData {
+  answer?: string
+  linkIdValue1?: string
+  extensionType?: ExtensionType
 }
 
 const testcolumns: Array<Column<IData>> = [{ title: 'Question/Date', field: 'linkIdValue1' }]
 
-const testdata: Array<foot> = [{ linkIdValue1: 'answer' }]
-
-function foo<T extends { item1: string }>(bar: T): void {}
-
-const testDatafoo = foo([{ item1: 'Answer1', item2: 'Answer2' }])
+const testdata: Array<IData> = [{ linkIdValue1: 'test' }]
 
 interface IPerson {
   firstName: string
@@ -822,8 +819,8 @@ const data: Array<IPerson> = [
 const Table: FC = () => (
   <>
     <MaterialTable columns={columns} data={data} />
+    <MaterialTable columns={testColumns} data={testData} />
     <MaterialTable columns={testcolumns} data={testdata} />
-    <MaterialTable columns={} data={testDatafoo} />
   </>
 )
 
@@ -849,7 +846,7 @@ export declare type QuestionnaireItemBaseTest = {
   /** Data type. */
   //type: QuestionnaireItemTypeCode
 
-  type1: Maybe<Scalars['String']>
+  type: Maybe<Scalars['String']>
   /** Unique id for item in questionnaire. */
   linkId?: Maybe<Scalars['String']>
   /** The response(s) to the question. */
@@ -874,7 +871,7 @@ export type QuestionnaireLocal = {
   /** Additional identifier for the questionnaire. */
   identifier: Array<Maybe<Identifier>>
   /** Questions and sections within the Questionnaire. */
-  item?: Maybe<Array<Maybe<QuestionnaireItem>>>
+  item?: Maybe<Array<Maybe<QuestionnaireItemLocal>>>
   /** Intended jurisdiction for questionnaire (if applicable). */
   jurisdiction?: Maybe<Array<Maybe<CodeableConcept>>>
   /** Name for this questionnaire (computer friendly). */
@@ -1039,7 +1036,7 @@ export type QuestionnaireItemLocal = {
   /** Primary text for the item. */
   text?: Maybe<Scalars['String']>
   /** Data type. */
-  type: QuestionnaireItemTypeCode
+  type: Maybe<Scalars['String']>
   /** Unique id for item in questionnaire. */
   linkId?: Maybe<Scalars['String']>
 }
@@ -1085,6 +1082,8 @@ export type QuestionnaireResponseItemAndQuestionnaireItemBaseClass = {
 
   questionnaireResponseItem?: Maybe<Array<Maybe<QuestionnaireResponseItemLocal>>>
   /** Name for group or question text. */
+
+  // myType?: MyType
 }
 
 // interface ExtensionTest extends Record<string, any> {
