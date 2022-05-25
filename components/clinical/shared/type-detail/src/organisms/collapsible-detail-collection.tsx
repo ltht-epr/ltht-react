@@ -10,6 +10,10 @@ const StyledCollapsibleDetailCollection = styled.div`
   align-content: stretch;
   margin: 1rem 0;
 
+  dl > dt {
+    font-weight: bold;
+  }
+
   > dl {
     margin-top: 0;
     margin-bottom: 1rem;
@@ -30,6 +34,10 @@ const StyledCollapsibleDetailCollection = styled.div`
 
   > dl[class*='--full-width'] {
     flex-basis: 100%;
+  }
+
+  > :not(dl[class*='--full-width']) {
+    padding: 0.5rem 2rem 0 0;
   }
 `
 
