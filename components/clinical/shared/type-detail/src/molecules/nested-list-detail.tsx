@@ -6,7 +6,7 @@ const NestedListDetail: DetailViewComponent<IProps> = ({
   term,
   children,
   wrapDescription = true,
-  showIfEmpty = true,
+  showIfEmpty = false,
 }) =>
   children || showIfEmpty === true ? (
     <DescriptionList>

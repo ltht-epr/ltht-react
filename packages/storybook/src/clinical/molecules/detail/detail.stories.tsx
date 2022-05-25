@@ -9,6 +9,7 @@ import {
   PeriodDetail,
   ResourceReferenceDetail,
   StringDetail,
+  AsserterDetail,
 } from '@ltht-react/type-detail'
 import * as fixtures from './detail.fixtures'
 
@@ -26,5 +27,7 @@ export const NestedList: Story = () => (
     Definition list description
   </NestedListDetail>
 )
+
+export const Asserter: Story = () => <AsserterDetail asserter={fixtures.asserter} showIfEmpty />
 
 export default { title: 'Clinical/Molecules/Detail' }

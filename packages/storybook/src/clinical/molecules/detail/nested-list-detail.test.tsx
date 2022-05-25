@@ -16,7 +16,7 @@ describe('NarrativeDetail', () => {
   })
 
   it('should still render term without children', async () => {
-    render(<NestedListDetail term="Nested list" />)
+    render(<NestedListDetail term="Nested list" showIfEmpty />)
 
     await screen.findByText('Nested list')
   })

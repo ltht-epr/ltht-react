@@ -7,10 +7,10 @@ import {
   CodeableConceptDetail,
   CodeableConceptListDetail,
   DatetimeDetail,
-  ResourceReferenceDetail,
   CodingListDetail,
   CollapsibleDetailCollection,
   CollapsibleDetailCollectionProps,
+  AsserterDetail,
 } from '@ltht-react/type-detail'
 
 import Questionnaire from '@ltht-react/questionnaire'
@@ -58,7 +58,7 @@ const DiagnosisDetail: FC<Props> = ({ condition, links, viewType = DetailViewTyp
       <CodeableConceptListDetail term="Location" concepts={condition.bodySite} links={links} />
       <AnnotationListDetail term="Note(s)" notes={condition.note} />
       <CodeableConceptDetail term="Stage" concept={condition.stage?.summary} links={links} />
-      <ResourceReferenceDetail term="Asserted By" resourceReference={condition.asserter} />
+      <AsserterDetail asserter={condition.asserter} />
       <DatetimeDetail term="Asserted Date" datetime={condition.assertedDate} />
       <DatetimeDetail term="Abatement Date" datetime={condition.abatement?.dateTime} />
     </CollapsibleDetailCollection>

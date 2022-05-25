@@ -480,6 +480,8 @@ const ConditionOne: Condition = {
   asserter: {
     display: 'BROWN, David (Dr)',
     typeName: 'Doctor',
+    asserterName: 'BROWN, David (Dr)',
+    asserterType: 'Practitioner',
   },
   metadata: {
     requestedWhen: '2016-09-01T00:00:00+00:00',
@@ -717,8 +719,10 @@ const ConditionFive: Condition = {
   },
   clinicalStatus: ConditionClinicalStatus.Resolved,
   asserter: {
-    display: 'Practitioner',
-    typeName: 'Practitioner',
+    display: 'SMITH, John (Dr)',
+    typeName: 'Doctor',
+    asserterName: 'SMITH, John (Dr)',
+    asserterType: 'Practitioner',
   },
   assertedDate: {
     value: '2017-12-12T00:00:00+00:00',
