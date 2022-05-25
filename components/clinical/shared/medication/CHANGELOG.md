@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.0.47 (2022-05-25)
+
+**Note:** Version bump only for package @ltht-react/medication
+
+
+
+
+
 ## 1.0.46 (2022-05-18)
 
 **Note:** Version bump only for package @ltht-react/medication
