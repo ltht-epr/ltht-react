@@ -175,8 +175,6 @@ export type AllergyIntolerance = {
   extension?: Maybe<Array<Maybe<Extension>>>
   /** Text summary of the resource, for human interpretation. */
   text?: Maybe<Narrative>
-  /** Flag to state whether the resource should be displayed as entered in error in user interface */
-  isEnteredInError?: Maybe<Scalars['Boolean']>
   /** Business identifiers. */
   identifier?: Maybe<Array<Maybe<Identifier>>>
   /** http://hl7.org/fhir/stu3/valueset-allergy-clinical-status.html */
@@ -546,8 +544,6 @@ export type AuditEvent = {
   extension?: Maybe<Array<Maybe<Extension>>>
   /** Text summary of the resource, for human interpretation. */
   text?: Maybe<Narrative>
-  /** Flag to state whether the resource should be displayed as entered in error in user interface */
-  isEnteredInError?: Maybe<Scalars['Boolean']>
 }
 
 export enum AuditEventAction {
@@ -671,8 +667,6 @@ export type Condition = {
   extension?: Maybe<Array<Maybe<Extension>>>
   /** Text summary of the resource, for human interpretation. */
   text?: Maybe<Narrative>
-  /** Flag to state whether the resource should be displayed as entered in error in user interface */
-  isEnteredInError?: Maybe<Scalars['Boolean']>
   abatement?: Maybe<ConditionAbatement>
   assertedDate?: Maybe<PartialDateTime>
   asserter?: Maybe<ResourceReference>
@@ -681,6 +675,7 @@ export type Condition = {
   clinicalStatus?: Maybe<ConditionClinicalStatus>
   code?: Maybe<CodeableConcept>
   context?: Maybe<ResourceReference>
+  note?: Maybe<Array<Maybe<Annotation>>>
   evidence?: Maybe<Array<Maybe<ConditionEvidence>>>
   extensionData?: Maybe<Array<Maybe<QuestionnaireResponse>>>
   identifier?: Maybe<Array<Maybe<Identifier>>>
@@ -743,8 +738,6 @@ export type QuestionnaireResponse = {
   extension?: Maybe<Array<Maybe<Extension>>>
   /** Text summary of the resource, for human interpretation. */
   text?: Maybe<Narrative>
-  /** Flag to state whether the resource should be displayed as entered in error in user interface */
-  isEnteredInError?: Maybe<Scalars['Boolean']>
 }
 
 /** Groups and questions. */
@@ -833,8 +826,6 @@ export type Questionnaire = {
   extension?: Maybe<Array<Maybe<Extension>>>
   /** Text summary of the resource, for human interpretation. */
   text?: Maybe<Narrative>
-  /** Flag to state whether the resource should be displayed as entered in error in user interface */
-  isEnteredInError?: Maybe<Scalars['Boolean']>
 }
 
 /** The ContactDetail structure defines general contact details. */
@@ -1020,8 +1011,6 @@ export type Guidance = {
   extension?: Maybe<Array<Maybe<Extension>>>
   /** Text summary of the resource, for human interpretation. */
   text?: Maybe<Narrative>
-  /** Flag to state whether the resource should be displayed as entered in error in user interface */
-  isEnteredInError?: Maybe<Scalars['Boolean']>
 }
 
 export enum GuidanceStatusCode {
@@ -1042,8 +1031,6 @@ export type MedicationRequest = {
   extension?: Maybe<Array<Maybe<Extension>>>
   /** Text summary of the resource, for human interpretation. */
   text?: Maybe<Narrative>
-  /** Flag to state whether the resource should be displayed as entered in error in user interface */
-  isEnteredInError?: Maybe<Scalars['Boolean']>
   status?: Maybe<MedicationRequestStatusType>
   intent?: Maybe<MedicationRequestIntentType>
   priority?: Maybe<MedicationRequestPriorityType>
@@ -1094,8 +1081,6 @@ export type MedicationType = {
   extension?: Maybe<Array<Maybe<Extension>>>
   /** Text summary of the resource, for human interpretation. */
   text?: Maybe<Narrative>
-  /** Flag to state whether the resource should be displayed as entered in error in user interface */
-  isEnteredInError?: Maybe<Scalars['Boolean']>
   code?: Maybe<CodeableConcept>
   isBrand?: Maybe<Scalars['Boolean']>
   form?: Maybe<CodeableConcept>
@@ -1219,8 +1204,6 @@ export type Patient = {
   extension?: Maybe<Array<Maybe<Extension>>>
   /** Text summary of the resource, for human interpretation. */
   text?: Maybe<Narrative>
-  /** Flag to state whether the resource should be displayed as entered in error in user interface */
-  isEnteredInError?: Maybe<Scalars['Boolean']>
   /** An identifier for this patient. */
   identifier?: Maybe<Array<Maybe<Identifier>>>
   /** Whether this patient's record is in active use. */
@@ -1447,8 +1430,6 @@ export type Task = {
   extension?: Maybe<Array<Maybe<Extension>>>
   /** Text summary of the resource, for human interpretation. */
   text?: Maybe<Narrative>
-  /** Flag to state whether the resource should be displayed as entered in error in user interface */
-  isEnteredInError?: Maybe<Scalars['Boolean']>
 }
 
 export enum IntentCode {
@@ -1604,8 +1585,6 @@ export type Encounter = {
   extension?: Maybe<Array<Maybe<Extension>>>
   /** Text summary of the resource, for human interpretation. */
   text?: Maybe<Narrative>
-  /** Flag to state whether the resource should be displayed as entered in error in user interface */
-  isEnteredInError?: Maybe<Scalars['Boolean']>
   /** Business identifiers. */
   identifier?: Maybe<Array<Maybe<Identifier>>>
   /** http://hl7.org/fhir/stu3/valueset-encounter-status.html */
@@ -1757,8 +1736,6 @@ export type CarePlan = {
   extension?: Maybe<Array<Maybe<Extension>>>
   /** Text summary of the resource, for human interpretation. */
   text?: Maybe<Narrative>
-  /** Flag to state whether the resource should be displayed as entered in error in user interface */
-  isEnteredInError?: Maybe<Scalars['Boolean']>
   /** Business identifiers. */
   identifier?: Maybe<Array<Maybe<Identifier>>>
   /** Protocol or definition. */
@@ -1898,8 +1875,6 @@ export type EpisodeOfCare = {
   extension?: Maybe<Array<Maybe<Extension>>>
   /** Text summary of the resource, for human interpretation. */
   text?: Maybe<Narrative>
-  /** Flag to state whether the resource should be displayed as entered in error in user interface */
-  isEnteredInError?: Maybe<Scalars['Boolean']>
   /** Business identifiers. */
   identifier?: Maybe<Array<Maybe<Identifier>>>
   /** http://hl7.org/fhir/stu3/valueset-episode-of-care-status.html */
@@ -1966,8 +1941,6 @@ export type LypftCommunityTreatmentOrder = {
   extension?: Maybe<Array<Maybe<Extension>>>
   /** Text summary of the resource, for human interpretation. */
   text?: Maybe<Narrative>
-  /** Flag to state whether the resource should be displayed as entered in error in user interface */
-  isEnteredInError?: Maybe<Scalars['Boolean']>
   /** The legal status of the treatment order. */
   legalStatus?: Maybe<CodeableConcept>
   /** The time period of the treatment order. */
@@ -1988,8 +1961,6 @@ export type DocumentReference = {
   extension?: Maybe<Array<Maybe<Extension>>>
   /** Text summary of the resource, for human interpretation. */
   text?: Maybe<Narrative>
-  /** Flag to state whether the resource should be displayed as entered in error in user interface */
-  isEnteredInError?: Maybe<Scalars['Boolean']>
   /** Master Version Specific Identifier. */
   masterIdentifier?: Maybe<Identifier>
   /** Business identifiers. */
@@ -2105,8 +2076,6 @@ export type Flag = {
   extension?: Maybe<Array<Maybe<Extension>>>
   /** Text summary of the resource, for human interpretation. */
   text?: Maybe<Narrative>
-  /** Flag to state whether the resource should be displayed as entered in error in user interface */
-  isEnteredInError?: Maybe<Scalars['Boolean']>
   /** Business identifiers. */
   identifier?: Maybe<Array<Maybe<Identifier>>>
   /** http://hl7.org/fhir/stu3/valueset-flag-status.html */
@@ -2211,8 +2180,6 @@ export type Observation = {
   extension?: Maybe<Array<Maybe<Extension>>>
   /** Text summary of the resource, for human interpretation. */
   text?: Maybe<Narrative>
-  /** Flag to state whether the resource should be displayed as entered in error in user interface */
-  isEnteredInError?: Maybe<Scalars['Boolean']>
   basedOn?: Maybe<ResourceReference>
   bodySite?: Maybe<Array<Maybe<CodeableConcept>>>
   category?: Maybe<Array<Maybe<CodeableConcept>>>
