@@ -822,6 +822,8 @@ const LungCancer: Condition = {
   asserter: {
     display: 'Practitioner',
     typeName: 'Practitioner',
+    asserterName: 'John smith (Dr)',
+    asserterType: 'Practitioner',
   },
   assertedDate: {
     value: '2020-01-01T00:00:00+00:00',
@@ -884,6 +886,8 @@ const Hemophilia: Condition = {
   asserter: {
     display: 'Practitioner',
     typeName: 'Practitioner',
+    asserterName: 'John smith (Dr)',
+    asserterType: 'Practitioner',
   },
   assertedDate: {
     value: '2017-12-12T00:00:00+00:00',
@@ -1133,6 +1137,8 @@ const LevelTwoDiagnosis: Condition = {
   asserter: {
     display: 'BROWN, David (Dr)',
     typeName: 'Doctor',
+    asserterName: 'John smith (Dr)',
+    asserterType: 'Practitioner',
   },
   extensionData: [QuestionnaireResponse1, QuestionnaireResponse2, GroupTypeData],
   bodySite: [

@@ -12,6 +12,7 @@ import {
   EncounterStatusCode,
   Identifier,
   IdentifierUseCode,
+  ConditionAsserter,
 } from '@ltht-react/types'
 
 const resourceReference: ResourceReference = {
@@ -109,6 +110,13 @@ const identifier: Identifier = {
   value: 'value',
 }
 
+const asserter: ConditionAsserter = {
+  typeName: 'Doctor',
+  display: 'John Smith (Dr)',
+  asserterName: 'John smith (Dr)',
+  asserterType: 'Practitioner',
+}
+
 export {
   annotations,
   resourceReference,
@@ -120,4 +128,5 @@ export {
   encounterParticipants,
   encounterStatusHistories,
   identifier,
+  asserter,
 }
