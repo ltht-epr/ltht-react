@@ -17,6 +17,8 @@ import {
   NestedGroupWithDisplayExampleData,
   ComposedExampleData,
   RedactedExampleData,
+  NestedDischargeExample,
+  DischargeClinicalSummaryExampleData,
 } from './questionnaire.fixtures'
 
 export const TextField: Story = () => (
@@ -139,6 +141,16 @@ export const ComposedExample: Story = () => (
     </Card.Body>
   </Card>
 )
+export const DischargeActionsExample: Story = () => (
+  <Card>
+    <Card.Header>
+      <Card.Title>Questionnaire</Card.Title>
+    </Card.Header>
+    <Card.Body>
+      <Questionnaire questionnaire={NestedDischargeExample} />
+    </Card.Body>
+  </Card>
+)
 
 export const CompactExample: Story = () => (
   <Card>
@@ -158,6 +170,17 @@ export const RedactedExample: Story = () => (
     </Card.Header>
     <Card.Body>
       <Questionnaire questionnaire={RedactedExampleData} />
+    </Card.Body>
+  </Card>
+)
+
+export const DischargeClinicalSummaryExample: Story = () => (
+  <Card>
+    <Card.Header>
+      <Card.Title>Questionnaire</Card.Title>
+    </Card.Header>
+    <Card.Body>
+      <Questionnaire questionnaire={DischargeClinicalSummaryExampleData} />
     </Card.Body>
   </Card>
 )

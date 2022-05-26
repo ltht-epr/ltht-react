@@ -1,8 +1,9 @@
 import { FC } from 'react'
-import { Maybe, Scalars } from '@ltht-react/types'
+import { Maybe } from '@ltht-react/types'
 
 interface IDetailViewProps {
-  showIfEmpty?: Maybe<Scalars['Boolean']>
+  showIfEmpty?: Maybe<boolean>
+  className?: string
 }
 
 type DetailViewComponent<T extends IDetailViewProps> = FC<T>

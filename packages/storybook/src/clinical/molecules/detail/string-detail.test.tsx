@@ -20,4 +20,21 @@ describe('StringDetail', () => {
 
     await screen.findByText('String detail')
   })
+
+  it('should not add full width class under 150 chars', () => {
+    const { container } = render(<StringDetail term="String detail" description="This is under 150 characters" />)
+
+    expect(container.querySelector('dl')).not.toHaveClass('string-detail--full-width')
+  })
+
+  it('should add full width class over 150 chars', () => {
+    const { container } = render(
+      <StringDetail
+        term="String detail"
+        description="This text is over 150 characters long so that we can safely say that we're adding the right class to make this go flex-basis: 100%. Here's hoping it works!"
+      />
+    )
+
+    expect(container.querySelector('dl')).toHaveClass('string-detail--full-width')
+  })
 })

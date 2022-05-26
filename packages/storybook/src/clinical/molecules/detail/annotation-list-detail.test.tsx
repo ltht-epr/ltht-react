@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import { AnnotationListDetail } from '@ltht-react/type-detail'
 
-import { annotations } from './detail.fixtures'
+import { annotations, shortAnnotations } from './detail.fixtures'
 
 describe('AnnotationListDetail', () => {
   it('shows title and value when available', async () => {
@@ -29,5 +29,17 @@ describe('AnnotationListDetail', () => {
     render(<AnnotationListDetail term="Some annotations" showIfEmpty={showIfEmpty} />)
 
     await screen.findByText('Some annotations')
+  })
+
+  it('should not add full width class under 150 chars', () => {
+    const { container } = render(<AnnotationListDetail term="Some annotations" notes={shortAnnotations} />)
+
+    expect(container.querySelector('dl')).not.toHaveClass('annotation-list-detail--full-width')
+  })
+
+  it('should add full width class over 150 chars', () => {
+    const { container } = render(<AnnotationListDetail term="Some annotations" notes={annotations} />)
+
+    expect(container.querySelector('dl')).toHaveClass('annotation-list-detail--full-width')
   })
 })

@@ -9,7 +9,6 @@ import {
   DetailViewType,
 } from '@ltht-react/types'
 
-import { DESKTOP_MINIMUM_MEDIA_QUERY, MOBILE_MAXIMUM_MEDIA_QUERY, TABLET_ONLY_MEDIA_QUERY } from '@ltht-react/styles'
 import AuthorInfo from '../atoms/author-info'
 
 import QuestionGroup from '../molecules/question-group'
@@ -17,89 +16,27 @@ import QuestionBlock from '../molecules/question-block'
 import Redacted from '../molecules/redacted'
 import TitleInfo from '../atoms/title-info'
 
-const StyledQuestionnaire = styled.div`
-  & div:last-child {
-    margin-bottom: 0;
-  }
-`
+const StyledQuestionnaire = styled.div``
 
-const DynamicContainer = styled.div`
+const QuestionContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
-  margin-top: '1rem';
+  align-content: stretch;
+  margin-bottom: 1rem;
 
-  & div.QuestionBlock,
-  & div.QuestionGroup {
-    margin-top: 0;
-    margin-bottom: 1rem;
-
-    ${DESKTOP_MINIMUM_MEDIA_QUERY} {
-      width: 25%;
-
-      &:nth-last-child(1),
-      :nth-last-child(2),
-      :nth-last-child(3),
-      :nth-last-child(4) {
-        margin-bottom: 0px !important;
-      }
-
-      &:nth-child(4n + 1) {
-        text-align: left;
-      }
-
-      &:nth-child(4n + 2) {
-        text-align: center;
-      }
-
-      &:nth-child(4n + 3) {
-        text-align: center;
-      }
-
-      &:nth-child(4n) {
-        text-align: right;
-      }
-    }
-
-    ${TABLET_ONLY_MEDIA_QUERY} {
-      width: 33.3%;
-
-      &:nth-last-child(1),
-      :nth-last-child(2),
-      :nth-last-child(3) {
-        margin-bottom: 0px !important;
-      }
-
-      &:nth-child(3n + 1) {
-        text-align: left;
-      }
-
-      &:nth-child(3n + 2) {
-        text-align: center;
-      }
-
-      &:nth-child(3n) {
-        text-align: right;
-      }
-    }
-
-    ${MOBILE_MAXIMUM_MEDIA_QUERY} {
-      width: 100%;
-
-      &:nth-last-child(1) {
-        margin-bottom: 0px !important;
-      }
-    }
+  > div.QuestionBlock,
+  > div.QuestionGroup {
+    padding: 0.5rem 2rem 0 0;
+    border-bottom: none;
   }
 
-  & div.QuestionGroup div.QuestionBlock {
-    width: 100%;
-    text-align: left;
-    margin-bottom: 1rem !important;
+  > div.QuestionGroup {
+    flex-basis: 100%;
+  }
 
-    &:last-child {
-      margin-bottom: 0px !important;
-    }
+  dl > dt {
+    font-weight: bold;
   }
 `
 
@@ -139,7 +76,7 @@ function QuestionnaireQuestions(
   })
 }
 
-const Questionnaire: FC<IProps> = ({ questionnaire, showTitle = false, viewType = DetailViewType.Expanded }) => {
+const Questionnaire: FC<IProps> = ({ questionnaire, showTitle = false, viewType = DetailViewType.Compact }) => {
   const questions = questionnaire?.questionnaire?.item
   const answers = questionnaire?.item
   const title = questionnaire?.questionnaire?.title
@@ -149,7 +86,7 @@ const Questionnaire: FC<IProps> = ({ questionnaire, showTitle = false, viewType 
   return (
     <StyledQuestionnaire>
       {showTitle && <TitleInfo title={title} />}
-      <DynamicContainer>{QuestionnaireQuestions(questions, answers, viewType)}</DynamicContainer>
+      <QuestionContainer>{QuestionnaireQuestions(questions, answers, viewType)}</QuestionContainer>
       <AuthorInfo author={questionnaire?.author} authoredOn={questionnaire?.authored} />
     </StyledQuestionnaire>
   )

@@ -1,37 +1,161 @@
-import { FC } from 'react'
+import { FC, ReactElement } from 'react'
 import parser from 'bbcode-to-react'
 import ReactHtmlParser from 'react-html-parser'
 import styled from '@emotion/styled'
 import { Maybe, QuestionnaireItemTypeCode, QuestionnaireResponseItem } from '@ltht-react/types'
 import { InfoCircleIcon } from '@ltht-react/icon'
-import { TEXT_COLOURS } from '@ltht-react/styles'
-import { partialDateTimeText } from '@ltht-react/utils'
+import { partialDateTimeText, stripBBTags, stripHtmlTags } from '@ltht-react/utils'
+import { NestedListDetail } from '@ltht-react/type-detail'
+import { DESKTOP_MINIMUM_MEDIA_QUERY, MOBILE_MAXIMUM_MEDIA_QUERY, TABLET_ONLY_MEDIA_QUERY } from '@ltht-react/styles'
 
 const StyledInfoIcon = styled.div`
   padding-right: 0.25rem;
 `
 
-const StyledQuestionBlock = styled.div`
-  margin-bottom: 1rem;
+const StyledQuestionBlock = styled.div<IStyledQuestionBlockProps>`
+  margin: 5px 0;
+
+  ${DESKTOP_MINIMUM_MEDIA_QUERY} {
+    flex-basis: ${({ isFullWidth }) => (isFullWidth ? '100%' : '33%')};
+    padding-right: ${({ isFullWidth }) => (isFullWidth ? '0.5rem' : '2rem')} !important;
+  }
+
+  ${TABLET_ONLY_MEDIA_QUERY} {
+    flex-basis: ${({ isFullWidth }) => (isFullWidth ? '100%' : '50%')};
+    padding-right: ${({ isFullWidth }) => (isFullWidth ? '0.5rem' : '2rem')} !important;
+  }
+
+  ${MOBILE_MAXIMUM_MEDIA_QUERY} {
+    flex-basis: 100%;
+    padding-right: 0.5rem;
+  }
 `
 
+interface IStyledQuestionBlockProps {
+  isFullWidth: boolean
+}
+
 const DisplayBlock = styled.div`
+  padding: 2px 4px;
   display: flex;
   align-items: center;
   background-color: #cbdbee;
   color: #0053c3;
-  padding: 0.5rem;
 `
 
-const Question = styled.p`
-  margin: 0;
-  margin-bottom: 0.25rem;
-  color: ${TEXT_COLOURS.SECONDARY.VALUE};
-`
-
-const Answer = styled.p`
-  margin: 0;
-`
+interface IAnswer {
+  Answer: ReactElement
+  isFullWidth: boolean
+}
+const generateAnswer = (
+  type?: QuestionTypes,
+  responseItem?: Maybe<QuestionnaireResponseItem>,
+  showIfEmpty?: Maybe<boolean>,
+  question?: Maybe<string>,
+  noAnswerProvided?: boolean | undefined
+): IAnswer => {
+  switch (type) {
+    case QuestionnaireItemTypeCode.Display:
+      return {
+        Answer: (
+          <DisplayBlock>
+            <StyledInfoIcon>
+              <InfoCircleIcon status="info" size="medium" />
+            </StyledInfoIcon>
+            {responseItem?.text}
+          </DisplayBlock>
+        ),
+        isFullWidth: !!(responseItem?.text && responseItem.text.length > 150),
+      }
+    case QuestionnaireItemTypeCode.QuestionBoolean:
+      return {
+        Answer: (
+          <NestedListDetail term={question || '-'} showIfEmpty={showIfEmpty}>
+            {noAnswerProvided && <>-</>}
+            {responseItem?.answer?.map((answerItem, index) => (
+              <div key={`${question}-${answerItem?.valueBoolean}-${index + 1}`}>
+                {answerItem?.valueBoolean === true ? 'Yes' : 'No'}
+              </div>
+            ))}
+          </NestedListDetail>
+        ),
+        isFullWidth: false,
+      }
+    case QuestionnaireItemTypeCode.QuestionString:
+      return {
+        Answer: (
+          <NestedListDetail term={question || '-'} showIfEmpty={showIfEmpty}>
+            {noAnswerProvided && <>-</>}
+            {responseItem?.answer?.map((answerItem, index) => (
+              <div key={`${question}-${answerItem?.valueString}-${index + 1}`}>
+                {ReactHtmlParser(answerItem?.valueString || '')}
+              </div>
+            ))}
+          </NestedListDetail>
+        ),
+        isFullWidth:
+          responseItem?.answer?.some((answer) => answer?.valueString && answer.valueString.length > 150) ?? false,
+      }
+    case QuestionnaireItemTypeCode.QuestionDate:
+      return {
+        Answer: (
+          <NestedListDetail term={question || '-'} showIfEmpty={showIfEmpty}>
+            {noAnswerProvided && <>-</>}
+            {responseItem?.answer?.map((answerItem, index) => (
+              <div key={`${question}-${answerItem?.valueDateTime?.value}-${index + 1}`}>
+                {partialDateTimeText(answerItem?.valueDateTime)}
+              </div>
+            ))}
+          </NestedListDetail>
+        ),
+        isFullWidth: false,
+      }
+    case QuestionnaireItemTypeCode.QuestionStringBbCode:
+      return {
+        Answer: (
+          <NestedListDetail term={question || '-'} showIfEmpty={showIfEmpty}>
+            {noAnswerProvided && <>-</>}
+            {responseItem?.answer?.map((answerItem, index) => (
+              <div key={`${question}-${answerItem?.valueString}-${index + 1}`}>
+                {ReactHtmlParser(parser.toHTML(answerItem?.valueString || ''))}
+              </div>
+            ))}
+          </NestedListDetail>
+        ),
+        isFullWidth: responseItem?.answer?.some((answer) => stripBBTags(answer?.valueString).length > 150) ?? false,
+      }
+    case QuestionnaireItemTypeCode.QuestionStringHtml:
+      return {
+        Answer: (
+          <NestedListDetail term={question || '-'} showIfEmpty={showIfEmpty}>
+            {noAnswerProvided && <>-</>}
+            {responseItem?.answer?.map((answerItem, index) => (
+              <div key={`${question}-${answerItem?.valueString}-${index + 1}`}>
+                {answerItem?.valueString ? ReactHtmlParser(answerItem?.valueString) : ''}
+              </div>
+            ))}
+          </NestedListDetail>
+        ),
+        isFullWidth: responseItem?.answer?.some((answer) => stripHtmlTags(answer?.valueString).length > 150) ?? false,
+      }
+    case QuestionnaireItemTypeCode.QuestionCoding:
+      return {
+        Answer: (
+          <NestedListDetail term={question || '-'} showIfEmpty={showIfEmpty}>
+            {noAnswerProvided && <>-</>}
+            {responseItem?.answer?.map((answerItem, index) => (
+              <div key={`${question}-${answerItem?.valueCoding?.display}-${index + 1}`}>
+                {answerItem?.valueCoding?.display}
+              </div>
+            ))}
+          </NestedListDetail>
+        ),
+        isFullWidth: false,
+      }
+    default:
+      return { Answer: <></>, isFullWidth: false }
+  }
+}
 
 const QuestionBlock: FC<IProps> = ({ type, question, responseItem, className, showIfEmpty = false }) => {
   const noAnswerResponse = responseItem === undefined
@@ -40,92 +164,15 @@ const QuestionBlock: FC<IProps> = ({ type, question, responseItem, className, sh
     // Also no answer if each answer in the array has null for every valuetype property
     responseItem?.answer?.every((answer) => answer && Object.values(answer).every((x) => x === null))
 
-  if (noAnswerResponse || noAnswerProvided) {
-    if (showIfEmpty === false) return <></>
-
-    return (
-      <StyledQuestionBlock className={className}>
-        <Question>{question}</Question>
-      </StyledQuestionBlock>
-    )
+  if ((noAnswerResponse || noAnswerProvided) && type === QuestionnaireItemTypeCode.Display) {
+    return <></>
   }
 
+  const { Answer, isFullWidth } = generateAnswer(type, responseItem, showIfEmpty, question, noAnswerProvided)
+
   return (
-    <StyledQuestionBlock className={className}>
-      {type === QuestionnaireItemTypeCode.Display && (
-        <DisplayBlock>
-          <StyledInfoIcon>
-            <InfoCircleIcon status="info" size="medium" />
-          </StyledInfoIcon>
-          {responseItem?.text}
-        </DisplayBlock>
-      )}
-      {type === QuestionnaireItemTypeCode.QuestionBoolean && (
-        <>
-          <Question>{question}</Question>
-          {noAnswerProvided && <Answer>-</Answer>}
-          {responseItem?.answer?.map((answerItem, index) => (
-            <Answer key={`${question}-${answerItem?.valueBoolean}-${index + 1}`}>
-              {answerItem?.valueBoolean === true ? 'Yes' : 'No'}
-            </Answer>
-          ))}
-        </>
-      )}
-      {type === QuestionnaireItemTypeCode.QuestionString && (
-        <>
-          <Question>{question}</Question>
-          {noAnswerProvided && <Answer>-</Answer>}
-          {responseItem?.answer?.map((answerItem, index) => (
-            <Answer key={`${question}-${answerItem?.valueString}-${index + 1}`}>
-              {ReactHtmlParser(answerItem?.valueString || '')}
-            </Answer>
-          ))}
-        </>
-      )}
-      {type === QuestionnaireItemTypeCode.QuestionDate && (
-        <>
-          <Question>{question}</Question>
-          {noAnswerProvided && <Answer>-</Answer>}
-          {responseItem?.answer?.map((answerItem, index) => (
-            <Answer key={`${question}-${answerItem?.valueDateTime?.value}-${index + 1}`}>
-              {partialDateTimeText(answerItem?.valueDateTime)}
-            </Answer>
-          ))}
-        </>
-      )}
-      {type === QuestionnaireItemTypeCode.QuestionStringBbCode && (
-        <>
-          <Question>{question}</Question>
-          {noAnswerProvided && <Answer>-</Answer>}
-          {responseItem?.answer?.map((answerItem, index) => (
-            <Answer key={`${question}-${answerItem?.valueString}-${index + 1}`}>
-              {ReactHtmlParser(parser.toHTML(answerItem?.valueString || ''))}
-            </Answer>
-          ))}
-        </>
-      )}
-      {type === QuestionnaireItemTypeCode.QuestionStringHtml && (
-        <>
-          <Question>{question}</Question>
-          {noAnswerProvided && <Answer>-</Answer>}
-          {responseItem?.answer?.map((answerItem, index) => (
-            <Answer key={`${question}-${answerItem?.valueString}-${index + 1}`}>
-              {answerItem?.valueString ? ReactHtmlParser(answerItem?.valueString) : ''}
-            </Answer>
-          ))}
-        </>
-      )}
-      {type === QuestionnaireItemTypeCode.QuestionCoding && (
-        <>
-          <Question>{question}</Question>
-          {noAnswerProvided && <Answer>-</Answer>}
-          {responseItem?.answer?.map((answerItem, index) => (
-            <Answer key={`${question}-${answerItem?.valueCoding?.display}-${index + 1}`}>
-              {answerItem?.valueCoding?.display}
-            </Answer>
-          ))}
-        </>
-      )}
+    <StyledQuestionBlock className={className} isFullWidth={isFullWidth}>
+      {Answer}
     </StyledQuestionBlock>
   )
 }

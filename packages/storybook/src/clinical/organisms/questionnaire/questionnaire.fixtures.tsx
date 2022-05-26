@@ -88,6 +88,21 @@ export const TextFieldData: QuestionnaireResponse = {
         text: 'What is your gender?',
         type: QuestionnaireItemTypeCode.QuestionString,
       },
+      {
+        linkId: '2',
+        text: 'Investigations',
+        type: QuestionnaireItemTypeCode.QuestionString,
+      },
+      {
+        linkId: '3',
+        text: 'Summary',
+        type: QuestionnaireItemTypeCode.QuestionString,
+      },
+      {
+        linkId: '4',
+        text: 'Do you have allergies?',
+        type: QuestionnaireItemTypeCode.QuestionString,
+      },
     ],
   },
   item: [
@@ -97,6 +112,44 @@ export const TextFieldData: QuestionnaireResponse = {
       answer: [
         {
           valueString: 'Male',
+          valueBoolean: false,
+          valueDateTime: null,
+        },
+      ],
+      item: null,
+    },
+    {
+      linkId: '2',
+      text: null,
+      answer: [
+        {
+          valueString: 'Male',
+          valueBoolean: false,
+          valueDateTime: null,
+        },
+      ],
+      item: null,
+    },
+    {
+      linkId: '3',
+      text: null,
+      answer: [
+        {
+          valueString:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris pellentesque mauris ut elementum ultrices. Fusce eu erat est. Etiam pulvinar eget ex id pharetra. Maecenas a neque molestie, rhoncus ex ac, gravida lectus. Ut non magna ornare, vulputate magna a, eleifend ipsum. Cras sit amet massa eu nisl efficitur facilisis fermentum non nunc. Donec iaculis mauris ut metus semper facilisis. Praesent pretium tristique est, tristique tempor mi luctus et.',
+          valueBoolean: false,
+          valueDateTime: null,
+        },
+      ],
+      item: null,
+    },
+    {
+      linkId: '4',
+      text: null,
+      answer: [
+        {
+          valueString:
+            'Mauris quis augue sed quam rhoncus commodo et ut urna. Pellentesque condimentum justo et urna euismod eleifend. Mauris interdum convallis tortor ut lacinia. In ullamcorper sem a dapibus maximus. Nunc cursus eu nibh sed gravida. Curabitur velit nibh, scelerisque ut neque sit amet, tempus ornare sapien. Phasellus lobortis dui vitae ante viverra, gravida finibus diam aliquet. Ut auctor semper eros, quis venenatis est porttitor non. Donec mattis euismod scelerisque. Duis in lectus sit amet metus bibendum euismod. Cras pulvinar dictum tellus, at pellentesque ex consectetur id. Mauris cursus risus quis fermentum ultricies. Mauris non fringilla est. Etiam cursus dictum mauris eu porta. Aliquam sagittis velit ut varius elementum.',
           valueBoolean: false,
           valueDateTime: null,
         },
@@ -232,11 +285,30 @@ export const RichTextFieldData: QuestionnaireResponse = {
         type: QuestionnaireItemTypeCode.QuestionStringBbCode,
         item: null,
       },
+      {
+        linkId: '2',
+        text: 'Investigation',
+        type: QuestionnaireItemTypeCode.QuestionStringBbCode,
+        item: null,
+      },
     ],
   },
   item: [
     {
       linkId: '1',
+      text: null,
+      answer: [
+        {
+          valueString:
+            '[b]Bold text...[/b][i]Italic text...[/i][u]Underline text...[/u] and then some more text to make it obvious that this is a long string that should be the [b]whole width[/b]',
+          valueBoolean: false,
+          valueDateTime: null,
+        },
+      ],
+      item: null,
+    },
+    {
+      linkId: '2',
       text: null,
       answer: [
         {
@@ -647,6 +719,11 @@ export const ComposedExampleData: QuestionnaireResponse = {
             text: 'What is your date of birth?',
             type: QuestionnaireItemTypeCode.QuestionDate,
           },
+          {
+            linkId: '3.3',
+            text: 'Investigations',
+            type: QuestionnaireItemTypeCode.QuestionStringHtml,
+          },
         ],
       },
       {
@@ -690,6 +767,16 @@ export const ComposedExampleData: QuestionnaireResponse = {
           linkId: '3.2',
           text: null,
           answer: [],
+        },
+        {
+          linkId: '3.3',
+          text: null,
+          answer: [
+            {
+              valueString:
+                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris pellentesque mauris ut elementum ultrices. Fusce eu erat est. Etiam pulvinar eget ex id pharetra. Maecenas a neque molestie, rhoncus ex ac, gravida lectus. Ut non magna ornare, vulputate magna a, eleifend ipsum. Cras sit amet massa eu nisl efficitur facilisis fermentum non nunc. Donec iaculis mauris ut metus semper facilisis. Praesent pretium tristique est, tristique tempor mi luctus et.',
+            },
+          ],
         },
       ],
     },
@@ -886,7 +973,8 @@ export const NestedGroupWithDisplayExampleData: QuestionnaireResponse = {
               text: null,
               answer: [
                 {
-                  valueString: 'Trust Action 1',
+                  valueString:
+                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ultricies diam ornare lorem interdum cursus. Pellentesque vel justo erat. Ut fringilla mauris nec libero facilisis, a interdum ex hendrerit. Maecenas id posuere nulla. Proin a risus hendrerit, eleifend diam vel, pretium orci. Integer nec pharetra diam. Aliquam id blandit metus. Fusce sit amet ex nec mauris sagittis hendrerit. Duis et est faucibus, scelerisque massa venenatis, maximus tortor. Donec et felis ultricies, interdum purus eget, euismod leo. Nulla a aliquam leo. Phasellus dictum arcu eget posuere iaculis. Nullam hendrerit eget metus id mattis.',
                   valueBoolean: null,
                   valueDateTime: null,
                 },
@@ -997,6 +1085,462 @@ export const NestedGroupWithDisplayExampleData: QuestionnaireResponse = {
           item: [],
         },
       ],
+    },
+  ],
+}
+
+export const NestedDischargeExample: QuestionnaireResponse = {
+  id: 'e100a254-a590-42bf-8b46-4004c0951d1c',
+  status: QuestionnaireResponseStatus.Completed,
+  authored: {
+    kind: PartialDateTimeKindCode.DateTime,
+    value: '2022-01-05T18:14:01.88+00:00',
+  },
+  author: {
+    typeName: 'EhrUser',
+    identifier: {
+      system: null,
+      value: '7a95fbca-1485-4145-8e07-5291e54bf8c2',
+    },
+    display: 'VARGHESE, Anila (Ms) Test Analyst - Accident and Emergency, The Leeds Teaching Hospitals NHS Trust',
+  },
+  questionnaire: {
+    id: '4789c2b3-7e37-4dd7-9642-0d456ae2f2bd',
+    identifier: [
+      {
+        system: 'http://leedsth.nhs.uk/user/guid',
+        value: 'cfe6a9d7-f23d-4bb9-a28d-8a3895bee48a',
+      },
+    ],
+    metadata: mockMetadata,
+    url: null,
+    version: '1',
+    title: 'Discharge Actions',
+    status: QuestionnairePublicationStatus.Active,
+    item: [
+      {
+        linkId: '1',
+        text: 'Trust Actions',
+        type: QuestionnaireItemTypeCode.Group,
+        repeats: false,
+        item: [
+          {
+            linkId: '1.1',
+            text: 'No actions for the Trust post-discharge',
+            type: QuestionnaireItemTypeCode.Display,
+            item: null,
+          },
+          {
+            linkId: '1.2',
+            text: null,
+            type: QuestionnaireItemTypeCode.Group,
+            item: [
+              {
+                linkId: '1.2.1',
+                text: 'Trust Action',
+                type: QuestionnaireItemTypeCode.QuestionString,
+                repeats: false,
+              },
+              {
+                linkId: '1.2.2',
+                text: 'Action Organised?',
+                type: QuestionnaireItemTypeCode.QuestionBoolean,
+                repeats: false,
+              },
+            ],
+          },
+        ],
+      },
+      {
+        linkId: '2',
+        text: 'GP Actions',
+        type: QuestionnaireItemTypeCode.Group,
+        repeats: false,
+        item: [
+          {
+            linkId: '2.1',
+            text: 'No actions for the GP post-discharge',
+            type: QuestionnaireItemTypeCode.Display,
+            item: null,
+          },
+          {
+            linkId: '2.2',
+            text: null,
+            type: QuestionnaireItemTypeCode.Group,
+            item: [
+              {
+                linkId: '2.2.1',
+                text: 'GP Action',
+                type: QuestionnaireItemTypeCode.QuestionString,
+                repeats: false,
+              },
+              {
+                linkId: '2.2.2',
+                text: 'Requested By?',
+                type: QuestionnaireItemTypeCode.QuestionString,
+                repeats: false,
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+  item: [
+    {
+      linkId: '1',
+      text: 'Trust Actions',
+      answer: null,
+      item: [
+        {
+          linkId: '1.2',
+          text: null,
+          answer: null,
+          item: [
+            {
+              linkId: '1.2.1',
+              text: null,
+              answer: [
+                {
+                  valueString: 'Plans for secondary care follow up\n,',
+                  valueBoolean: null,
+                  valueDateTime: null,
+                },
+              ],
+            },
+            {
+              linkId: '1.2.2',
+              text: null,
+              answer: [
+                {
+                  valueString: null,
+                  valueBoolean: true,
+                  valueDateTime: null,
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    },
+    {
+      linkId: '2',
+      text: 'GP Actions',
+      answer: null,
+      item: [
+        {
+          linkId: '2.2',
+          text: null,
+          answer: null,
+          item: [
+            {
+              linkId: '2.2.1',
+              text: null,
+              answer: [
+                {
+                  valueString:
+                    'Please indicate What, When, Why, and any actions to be completed based on the result\n,',
+                  valueBoolean: null,
+                  valueDateTime: null,
+                },
+              ],
+            },
+            {
+              linkId: '2.2.2',
+              text: null,
+              answer: [
+                {
+                  valueString: 'testestsetestsetestest',
+                  valueBoolean: null,
+                  valueDateTime: null,
+                },
+              ],
+            },
+          ],
+        },
+        {
+          linkId: '2.2',
+          text: null,
+          answer: null,
+          item: [
+            {
+              linkId: '2.2.1',
+              text: null,
+              answer: [
+                {
+                  valueString:
+                    'Please indicate What, When, Why, and any actions to be completed based on the result\nPlease indicate What, When, Why, and any actions to be completed based on the result2\n32\n3\n,',
+                  valueBoolean: null,
+                  valueDateTime: null,
+                },
+              ],
+            },
+            {
+              linkId: '2.2.2',
+              text: null,
+              answer: [
+                {
+                  valueString: 'testsetsetsets',
+                  valueBoolean: null,
+                  valueDateTime: null,
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    },
+  ],
+  metadata: mockMetadata,
+}
+
+export const DischargeClinicalSummaryExampleData: QuestionnaireResponse = {
+  id: '4a188d5f-7e52-41bd-9404-2f4f85b05d37',
+  status: QuestionnaireResponseStatus.Completed,
+  isEnteredInError: false,
+  metadata: mockMetadata,
+  authored: {
+    kind: PartialDateTimeKindCode.DateTime,
+    value: '2022-02-18T11:06:02.987+00:00',
+  },
+  author: {
+    typeName: 'EhrUser',
+    identifier: {
+      system: null,
+      value: 'd6e742bd-770d-4172-9a07-e78960739be2',
+    },
+    display: 'MANTRI, Aparna (Mrs) Test Analyst, The Leeds Teaching Hospitals NHS Trust',
+  },
+  questionnaire: {
+    id: '4789c2b3-7e37-4dd7-9642-0d456ae2f2bd',
+    identifier: [
+      {
+        system: 'http://leedsth.nhs.uk/user/guid',
+        value: 'cfe6a9d7-f23d-4bb9-a28d-8a3895bee48a',
+      },
+    ],
+    metadata: mockMetadata,
+    url: null,
+    version: '1',
+    title: 'Discharge Clinical Summary',
+    status: QuestionnairePublicationStatus.Active,
+    item: [
+      {
+        linkId: '1',
+        text: 'Contact details',
+        type: QuestionnaireItemTypeCode.QuestionString,
+        repeats: false,
+        item: null,
+      },
+      {
+        linkId: '2',
+        text: 'Reason for admission',
+        type: QuestionnaireItemTypeCode.QuestionString,
+        repeats: false,
+        item: null,
+      },
+      {
+        linkId: '3',
+        text: 'Primary diagnosis',
+        type: QuestionnaireItemTypeCode.QuestionString,
+        repeats: false,
+        item: null,
+      },
+      {
+        linkId: '4',
+        text: 'Secondary diagnosis',
+        type: QuestionnaireItemTypeCode.QuestionString,
+        repeats: false,
+        item: null,
+      },
+      {
+        linkId: '5',
+        text: 'Significant discussions',
+        type: QuestionnaireItemTypeCode.QuestionString,
+        repeats: false,
+        item: null,
+      },
+      {
+        linkId: '6',
+        text: 'Involvement',
+        type: QuestionnaireItemTypeCode.QuestionString,
+        repeats: false,
+        item: null,
+      },
+      {
+        linkId: '7',
+        text: 'Investigation results',
+        type: QuestionnaireItemTypeCode.QuestionString,
+        repeats: false,
+        item: null,
+      },
+      {
+        linkId: '8',
+        text: 'Key treatments',
+        type: QuestionnaireItemTypeCode.QuestionString,
+        repeats: false,
+        item: null,
+      },
+      {
+        linkId: '9',
+        text: 'Information given to patient',
+        type: QuestionnaireItemTypeCode.QuestionString,
+        repeats: false,
+        item: null,
+      },
+      {
+        linkId: '10',
+        text: 'Complications',
+        type: QuestionnaireItemTypeCode.QuestionString,
+        repeats: false,
+        item: null,
+      },
+      {
+        linkId: '11',
+        text: 'Fit Note Completed?',
+        type: QuestionnaireItemTypeCode.QuestionBoolean,
+        repeats: false,
+        item: null,
+      },
+    ],
+  },
+  item: [
+    {
+      linkId: '1',
+      text: null,
+      answer: [
+        {
+          valueString:
+            "Patient's phone number and email address were given and would like to be contacted via phone. Carer's phone number also recored/",
+          valueBoolean: null,
+          valueDateTime: null,
+        },
+      ],
+      item: [],
+    },
+    {
+      linkId: '2',
+      text: null,
+      answer: [
+        {
+          valueString:
+            'Patient complains of chest pain, dyspnoea and shortness of breath the day before admissions. \nAlso was tested positive for COVID-19 \nPatient was diagnosed with juvenile diabetes, Goitre and lung infections and was treated for the same. \nIs having regular follow ups with the Endocrinologist and Respiratory medicine. Getting regular bloods and investigations by GP.',
+          valueBoolean: null,
+          valueDateTime: null,
+        },
+      ],
+      item: [],
+    },
+    {
+      linkId: '3',
+      text: null,
+      answer: [
+        {
+          valueString: 'Juvenile diabetes mellitus\nCOVID-19 positive\nMyocardial infarction\nAtherosclerosis',
+          valueBoolean: null,
+          valueDateTime: null,
+        },
+      ],
+      item: [],
+    },
+    {
+      linkId: '4',
+      text: null,
+      answer: [
+        {
+          valueString: 'Pancreatitis\nLung fibrosis',
+          valueBoolean: null,
+          valueDateTime: null,
+        },
+      ],
+      item: [],
+    },
+    {
+      linkId: '5',
+      text: null,
+      answer: [
+        {
+          valueString:
+            'Patient admitted to SJUH\nUnderwent angiogram and cardiac surgery \nLung surgery\nWas monitored for diabetes Mellitus',
+          valueBoolean: null,
+          valueDateTime: null,
+        },
+      ],
+      item: [],
+    },
+    {
+      linkId: '6',
+      text: null,
+      answer: [
+        {
+          valueString:
+            'Endocrinologists and Respiratory medicine specialists were involved while treating the patient for cardiac symptoms.',
+          valueBoolean: null,
+          valueDateTime: null,
+        },
+      ],
+      item: [],
+    },
+    {
+      linkId: '7',
+      text: null,
+      answer: [
+        {
+          valueString: 'Xray\nAngiogram\nBloods including U&amp;E and LFTs\nCT and MRI',
+          valueBoolean: null,
+          valueDateTime: null,
+        },
+      ],
+      item: [],
+    },
+    {
+      linkId: '8',
+      text: null,
+      answer: [
+        {
+          valueString: 'Angraioplasty\nBypass surgery\n',
+          valueBoolean: null,
+          valueDateTime: null,
+        },
+      ],
+      item: [],
+    },
+    {
+      linkId: '9',
+      text: null,
+      answer: [
+        {
+          valueString:
+            'Regular follow ups appointment with the consultant and GPs for regular bloods and other investigations. \nAvoid heavy exercises and dietary instructions by Dietician. No smoking and alcohol.',
+          valueBoolean: null,
+          valueDateTime: null,
+        },
+      ],
+      item: [],
+    },
+    {
+      linkId: '10',
+      text: null,
+      answer: [
+        {
+          valueString: 'Patient had severe lung infections due to COVID-19 and diarrhoea due to allergy to Nuts',
+          valueBoolean: null,
+          valueDateTime: null,
+        },
+      ],
+      item: [],
+    },
+    {
+      linkId: '11',
+      text: null,
+      answer: [
+        {
+          valueString: null,
+          valueBoolean: true,
+          valueDateTime: null,
+        },
+      ],
+      item: [],
     },
   ],
 }

@@ -5,7 +5,14 @@ import NestedListDetail from './nested-list-detail'
 
 const StringDetail: DetailViewComponent<IProps> = ({ term, description, showIfEmpty }) => {
   if (description || showIfEmpty) {
-    return <NestedListDetail term={term}>{ReactHtmlParser(titleCase(description ?? ''))}</NestedListDetail>
+    return (
+      <NestedListDetail
+        term={term}
+        className={(description ?? '').length > 150 ? 'string-detail--full-width' : 'string-detail'}
+      >
+        {ReactHtmlParser(titleCase(description ?? ''))}
+      </NestedListDetail>
+    )
   }
   return <></>
 }

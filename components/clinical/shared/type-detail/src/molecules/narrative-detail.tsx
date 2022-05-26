@@ -5,7 +5,11 @@ import NestedListDetail from './nested-list-detail'
 const NarrativeDetail: DetailViewComponent<IProps> = ({ narrative, showIfEmpty = false }) => {
   if ((narrative && narrative.text.length > 0) || showIfEmpty === true) {
     return (
-      <NestedListDetail term="Text" showIfEmpty={showIfEmpty}>
+      <NestedListDetail
+        term="Text"
+        showIfEmpty={showIfEmpty}
+        className={(narrative?.text ?? '').length > 150 ? 'narrative-detail--full-width' : 'narrative-detail'}
+      >
         {narrative?.text}
       </NestedListDetail>
     )

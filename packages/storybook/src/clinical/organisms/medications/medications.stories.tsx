@@ -33,6 +33,9 @@ export const Summary: Story = () => {
         <Card.ListItem onClick={clickHandler}>
           <MedicationSummary medication={MedicationFixtures[3]} />
         </Card.ListItem>
+        <Card.ListItem onClick={clickHandler}>
+          <MedicationSummary medication={MedicationFixtures[6]} />
+        </Card.ListItem>
       </Card.List>
     </Card>
   )
@@ -96,5 +99,16 @@ export const DetailsCollapsibleView: Story = () => {
     </Card>
   )
 }
+
+export const DetailsCollapsibleViewWithLargeContent: Story = () => (
+  <Card>
+    <Card.Header>
+      <Card.Title>Medication detail</Card.Title>
+    </Card.Header>
+    <Card.Body>
+      <MedicationDetail medication={MedicationFixtures[6]} />
+    </Card.Body>
+  </Card>
+)
 
 export default { title: 'Clinical/Organisms/Medications' }

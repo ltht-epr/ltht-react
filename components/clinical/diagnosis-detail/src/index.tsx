@@ -20,11 +20,6 @@ const TopSection = styled.div`
   justify-content: space-between;
   align-items: flex-start;
   margin-bottom: 1rem;
-
-  & dl:last-of-type {
-    margin-top: 0;
-    text-align: right;
-  }
 `
 
 const Seperator = styled.div`
@@ -40,15 +35,15 @@ const DiagnosisDetail: FC<Props> = ({ condition, links, viewType = DetailViewTyp
       <CodeableConceptDetail term="Diagnosis" concept={condition.code} links={links} />
       <CodingListDetail term="Data Source(s)" codings={condition.metadata.dataSources} />
     </TopSection>
-
+    <Seperator />
     {condition.extensionData &&
       condition?.extensionData.map((item, index) => (
-        <>
-          {index === 0 && <Seperator />}
+        <div key={`diagnosis-detail-questionnaire-${index}`}>
           <Questionnaire questionnaire={item} showTitle viewType={viewType} />
           <Seperator />
-        </>
+        </div>
       ))}
+
     <CollapsibleDetailCollection viewType={viewType}>
       <DatetimeDetail term="Onset Date" datetime={condition.onset?.dateTime} />
       <StringDetail term="Clinical Status" description={condition.clinicalStatus?.toString()} />

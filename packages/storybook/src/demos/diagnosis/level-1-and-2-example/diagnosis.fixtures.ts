@@ -1140,7 +1140,404 @@ const LevelTwoDiagnosis: Condition = {
     asserterName: 'John smith (Dr)',
     asserterType: 'Practitioner',
   },
-  extensionData: [QuestionnaireResponse1, QuestionnaireResponse2, GroupTypeData],
+  extensionData: [
+    QuestionnaireResponse1,
+    QuestionnaireResponse2,
+    GroupTypeData,
+    {
+      id: '435d2aca-7776-43e7-a33f-1ba481bd2892',
+      isEnteredInError: false,
+      metadata: mockMetadata,
+      status: QuestionnaireResponseStatus.Completed,
+      authored: {
+        kind: PartialDateTimeKindCode.DateTime,
+        value: '2021-08-17T13:13:56.9755581+01:00',
+      },
+      author: {
+        typeName: 'EhrUser',
+        identifier: {
+          system: 'http://leedsth.nhs.uk/user/guid',
+          value: 'cfe6a9d7-f23d-4bb9-a28d-8a3895bee48a',
+        },
+        display: 'John Smith',
+      },
+      questionnaire: {
+        id: '14720227-b1f7-4cc5-a0d0-403938cf710d',
+        isEnteredInError: false,
+        identifier: [
+          {
+            system: 'http://leedsth.nhs.uk/user/guid',
+            value: 'cfe6a9d7-f23d-4bb9-a28d-8a3895bee48a',
+          },
+        ],
+        metadata: mockMetadata,
+        url: 'http://ehr.leedsth.nhs.uk/questionnaire/Right-To-Reside',
+        version: '1',
+        title: 'Right to Reside',
+        status: QuestionnairePublicationStatus.Active,
+        item: [
+          {
+            linkId: '1',
+            text: null,
+            type: QuestionnaireItemTypeCode.Group,
+            repeats: true,
+            item: [
+              {
+                linkId: '1.1',
+                text: 'Criteria',
+                type: QuestionnaireItemTypeCode.QuestionString,
+              },
+              {
+                linkId: '1.2',
+                text: 'Met?',
+                type: QuestionnaireItemTypeCode.QuestionBoolean,
+              },
+            ],
+          },
+        ],
+      },
+      item: [
+        {
+          linkId: '1',
+          text: null,
+          answer: null,
+          item: [
+            {
+              linkId: '1.1',
+              text: null,
+              answer: [
+                {
+                  valueString:
+                    'Mauris quis augue sed quam rhoncus commodo et ut urna. Pellentesque condimentum justo et urna euismod eleifend. Mauris interdum convallis tortor ut lacinia. In ullamcorper sem a dapibus maximus. Nunc cursus eu nibh sed gravida. Curabitur velit nibh, scelerisque ut neque sit amet, tempus ornare sapien. Phasellus lobortis dui vitae ante viverra, gravida finibus diam aliquet. Ut auctor semper eros, quis venenatis est porttitor non. Donec mattis euismod scelerisque. Duis in lectus sit amet metus bibendum euismod. Cras pulvinar dictum tellus, at pellentesque ex consectetur id. Mauris cursus risus quis fermentum ultricies. Mauris non fringilla est. Etiam cursus dictum mauris eu porta. Aliquam sagittis velit ut varius elementum.',
+                  valueBoolean: null,
+                  valueDateTime: null,
+                },
+              ],
+            },
+            {
+              linkId: '1.2',
+              text: null,
+              answer: [
+                {
+                  valueString: null,
+                  valueBoolean: true,
+                  valueDateTime: null,
+                },
+              ],
+            },
+          ],
+        },
+        {
+          linkId: '1',
+          text: null,
+          answer: null,
+          item: [
+            {
+              linkId: '1.1',
+              text: null,
+              answer: [
+                {
+                  valueString: 'Pain Management: Pain under control',
+                  valueBoolean: null,
+                  valueDateTime: null,
+                },
+              ],
+            },
+            {
+              linkId: '1.2',
+              text: null,
+              answer: [
+                {
+                  valueString: null,
+                  valueBoolean: false,
+                  valueDateTime: null,
+                },
+              ],
+            },
+          ],
+        },
+        {
+          linkId: '1',
+          text: null,
+          answer: null,
+          item: [
+            {
+              linkId: '1.1',
+              text: null,
+              answer: [
+                {
+                  valueString: 'Blood Results',
+                  valueBoolean: null,
+                  valueDateTime: null,
+                },
+              ],
+            },
+            {
+              linkId: '1.2',
+              text: null,
+              answer: [
+                {
+                  valueString: null,
+                  valueBoolean: true,
+                  valueDateTime: null,
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    },
+    {
+      id: '4a188d5f-7e52-41bd-9404-2f4f85b05d37',
+      status: QuestionnaireResponseStatus.Completed,
+      isEnteredInError: false,
+      metadata: mockMetadata,
+      authored: {
+        kind: PartialDateTimeKindCode.DateTime,
+        value: '2022-02-18T11:06:02.987+00:00',
+      },
+      author: {
+        typeName: 'EhrUser',
+        identifier: {
+          system: null,
+          value: 'd6e742bd-770d-4172-9a07-e78960739be2',
+        },
+        display: 'MANTRI, Aparna (Mrs) Test Analyst, The Leeds Teaching Hospitals NHS Trust',
+      },
+      questionnaire: {
+        id: '4789c2b3-7e37-4dd7-9642-0d456ae2f2bd',
+        identifier: [
+          {
+            system: 'http://leedsth.nhs.uk/user/guid',
+            value: 'cfe6a9d7-f23d-4bb9-a28d-8a3895bee48a',
+          },
+        ],
+        metadata: mockMetadata,
+        url: null,
+        version: '1',
+        title: 'Discharge Clinical Summary',
+        status: QuestionnairePublicationStatus.Active,
+        item: [
+          {
+            linkId: '1',
+            text: 'Contact details',
+            type: QuestionnaireItemTypeCode.QuestionString,
+            repeats: false,
+            item: null,
+          },
+          {
+            linkId: '2',
+            text: 'Reason for admission',
+            type: QuestionnaireItemTypeCode.QuestionString,
+            repeats: false,
+            item: null,
+          },
+          {
+            linkId: '3',
+            text: 'Primary diagnosis',
+            type: QuestionnaireItemTypeCode.QuestionString,
+            repeats: false,
+            item: null,
+          },
+          {
+            linkId: '4',
+            text: 'Secondary diagnosis',
+            type: QuestionnaireItemTypeCode.QuestionString,
+            repeats: false,
+            item: null,
+          },
+          {
+            linkId: '5',
+            text: 'Significant discussions',
+            type: QuestionnaireItemTypeCode.QuestionString,
+            repeats: false,
+            item: null,
+          },
+          {
+            linkId: '6',
+            text: 'Involvement',
+            type: QuestionnaireItemTypeCode.QuestionString,
+            repeats: false,
+            item: null,
+          },
+          {
+            linkId: '7',
+            text: 'Investigation results',
+            type: QuestionnaireItemTypeCode.QuestionString,
+            repeats: false,
+            item: null,
+          },
+          {
+            linkId: '8',
+            text: 'Key treatments',
+            type: QuestionnaireItemTypeCode.QuestionString,
+            repeats: false,
+            item: null,
+          },
+          {
+            linkId: '9',
+            text: 'Information given to patient',
+            type: QuestionnaireItemTypeCode.QuestionString,
+            repeats: false,
+            item: null,
+          },
+          {
+            linkId: '10',
+            text: 'Complications',
+            type: QuestionnaireItemTypeCode.QuestionString,
+            repeats: false,
+            item: null,
+          },
+          {
+            linkId: '11',
+            text: 'Fit Note Completed?',
+            type: QuestionnaireItemTypeCode.QuestionBoolean,
+            repeats: false,
+            item: null,
+          },
+        ],
+      },
+      item: [
+        {
+          linkId: '1',
+          text: null,
+          answer: [
+            {
+              valueString:
+                "Patient's phone number and email address were given and would like to be contacted via phone. Carer's phone number also recored/",
+              valueBoolean: null,
+              valueDateTime: null,
+            },
+          ],
+          item: [],
+        },
+        {
+          linkId: '2',
+          text: null,
+          answer: [
+            {
+              valueString:
+                'Patient complains of chest pain, dyspnoea and shortness of breath the day before admissions. \nAlso was tested positive for COVID-19 \nPatient was diagnosed with juvenile diabetes, Goitre and lung infections and was treated for the same. \nIs having regular follow ups with the Endocrinologist and Respiratory medicine. Getting regular bloods and investigations by GP.',
+              valueBoolean: null,
+              valueDateTime: null,
+            },
+          ],
+          item: [],
+        },
+        {
+          linkId: '3',
+          text: null,
+          answer: [
+            {
+              valueString: 'Juvenile diabetes mellitus\nCOVID-19 positive\nMyocardial infarction\nAtherosclerosis',
+              valueBoolean: null,
+              valueDateTime: null,
+            },
+          ],
+          item: [],
+        },
+        {
+          linkId: '4',
+          text: null,
+          answer: [
+            {
+              valueString: 'Pancreatitis\nLung fibrosis',
+              valueBoolean: null,
+              valueDateTime: null,
+            },
+          ],
+          item: [],
+        },
+        {
+          linkId: '5',
+          text: null,
+          answer: [
+            {
+              valueString:
+                'Patient admitted to SJUH\nUnderwent angiogram and cardiac surgery \nLung surgery\nWas monitored for diabetes Mellitus',
+              valueBoolean: null,
+              valueDateTime: null,
+            },
+          ],
+          item: [],
+        },
+        {
+          linkId: '6',
+          text: null,
+          answer: [
+            {
+              valueString:
+                'Endocrinologists and Respiratory medicine specialists were involved while treating the patient for cardiac symptoms.',
+              valueBoolean: null,
+              valueDateTime: null,
+            },
+          ],
+          item: [],
+        },
+        {
+          linkId: '7',
+          text: null,
+          answer: [
+            {
+              valueString: 'Xray\nAngiogram\nBloods including U&amp;E and LFTs\nCT and MRI',
+              valueBoolean: null,
+              valueDateTime: null,
+            },
+          ],
+          item: [],
+        },
+        {
+          linkId: '8',
+          text: null,
+          answer: [
+            {
+              valueString: 'Angraioplasty\nBypass surgery\n',
+              valueBoolean: null,
+              valueDateTime: null,
+            },
+          ],
+          item: [],
+        },
+        {
+          linkId: '9',
+          text: null,
+          answer: [
+            {
+              valueString:
+                'Regular follow ups appointment with the consultant and GPs for regular bloods and other investigations. \nAvoid heavy exercises and dietary instructions by Dietician. No smoking and alcohol.',
+              valueBoolean: null,
+              valueDateTime: null,
+            },
+          ],
+          item: [],
+        },
+        {
+          linkId: '10',
+          text: null,
+          answer: [
+            {
+              valueString: 'Patient had severe lung infections due to COVID-19 and diarrhoea due to allergy to Nuts',
+              valueBoolean: null,
+              valueDateTime: null,
+            },
+          ],
+          item: [],
+        },
+        {
+          linkId: '11',
+          text: null,
+          answer: [
+            {
+              valueString: null,
+              valueBoolean: true,
+              valueDateTime: null,
+            },
+          ],
+          item: [],
+        },
+      ],
+    },
+  ],
   bodySite: [
     {
       coding: [

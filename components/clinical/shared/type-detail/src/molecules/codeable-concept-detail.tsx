@@ -18,6 +18,10 @@ const StyledLink = styled.a`
   color: ${LINK_COLOURS.TEXT.DEFAULT};
   transition: all 0.1s ease-in-out;
 
+  & > dd:first-of-type {
+    margin-right: 0.2rem;
+  }
+
   &:hover {
     color: ${LINK_COLOURS.TEXT.HOVER};
     background-color: ${LINK_COLOURS.BACKGROUND.HOVER};

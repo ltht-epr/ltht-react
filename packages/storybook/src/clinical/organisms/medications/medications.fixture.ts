@@ -924,6 +924,162 @@ const ChangedMedication: MedicationRequest = {
   extension: medicationChangedStatus,
 }
 
+const EAAGelMedication: MedicationRequest = {
+  id: 'R3|be602d16-3b00-4702-9e79-18a4e2d52858',
+  status: MedicationRequestStatusType.Active,
+  intent: MedicationRequestIntentType.Order,
+  reasonCode: [
+    {
+      text: 'Trial Supplement - Patient’s own supply from research team',
+    },
+  ],
+  medicationReference: {
+    code: {
+      coding: [],
+      text: 'EAA Gel',
+    },
+    form: {
+      coding: [],
+      text: 'Gel',
+    },
+  },
+  supportingInformation: [
+    {
+      display: 'John Smith',
+      typeName: 'Reference',
+      identifier: {
+        system: 'https://fhir.leedsth.nhs.uk/CodeSystem/medchart-source-1',
+        value: 'a. IP Nurse request to pharmacy',
+      },
+    },
+    {
+      display: 'John Smith',
+      typeName: 'Reference',
+      identifier: {
+        system: 'https://fhir.leedsth.nhs.uk/CodeSystem/medchart-source-1',
+        value: 'a. IP Nurse request to pharmacy',
+      },
+    },
+  ],
+  identifier: [
+    {
+      system: 'https://leedsth.nhs.uk/cds/instance-identifier',
+      value: 'be602d16-3b00-4702-9e79-18a4e2d52858',
+    },
+    {
+      system: 'https://leedsth.nhs.uk/cds/instance-set-identifier',
+      value: 'edbddd39-bfc6-42ce-99f9-d4c8f3886d13',
+    },
+    {
+      system: 'https://leedsth.nhs.uk/cds/root-instance-identifier',
+      value: 'e72109a1-3944-4606-bb00-5db208c0734f',
+    },
+  ],
+  extension: [
+    {
+      url: 'https://leedsth.nhs.uk/medication-request/status',
+      valueString: 'Continued/Changed',
+      valueBoolean: null,
+    },
+    {
+      url: 'https://leedsth.nhs.uk/medication-request/has-changed',
+      valueString: null,
+      valueBoolean: false,
+    },
+  ],
+  dosageInstruction: [
+    {
+      route: {
+        text: 'Oral',
+        coding: [],
+      },
+      text: ', At Lunch Time',
+      additionalInstruction: [
+        {
+          text: 'Store in the fridge. Take 10 minutes before a meal',
+        },
+      ],
+      patientInstruction: 'At Lunch Time (12:00) every day',
+      timing: {
+        repeat: {
+          boundsPeriod: {
+            start: {
+              value: '2022-02-18T12:00:00+00:00',
+              kind: PartialDateTimeKindCode.DateTime,
+            },
+            end: null,
+          },
+        },
+        event: null,
+      },
+      doseRange: null,
+      doseQuantity: null,
+    },
+    {
+      route: {
+        text: 'Oral',
+        coding: [],
+      },
+      text: ', At Breakfast Time',
+      additionalInstruction: [
+        {
+          text: 'Store in the fridge. Take 10 minutes before a meal',
+        },
+      ],
+      patientInstruction: 'At Breakfast Time (08:00) every day for 4 weeks',
+      timing: {
+        repeat: {
+          boundsPeriod: {
+            start: {
+              value: '2022-02-19T08:00:00+00:00',
+              kind: PartialDateTimeKindCode.DateTime,
+            },
+            end: {
+              value: '2022-03-18T08:00:00+00:00',
+              kind: PartialDateTimeKindCode.DateTime,
+            },
+          },
+        },
+        event: null,
+      },
+      doseRange: null,
+      doseQuantity: null,
+    },
+  ],
+  authoredOn: {
+    kind: PartialDateTimeKindCode.DateTime,
+    value: '2022-02-18T10:21:51+00:00',
+  },
+  note: [
+    {
+      author: null,
+      text: 'Patient was instructed to take it before food from 19/02/2022',
+      time: null,
+    },
+  ],
+  metadata: {
+    dataSources: [
+      {
+        display: 'Mock',
+      },
+    ],
+    isRedacted: false,
+    requestedWhen: '',
+    tag: [
+      {
+        code: null,
+        display: 'MedChart',
+        system: 'https://fhir.leedsth.nhs.uk/CodeSystem/source-system',
+      },
+      {
+        code: null,
+        display: 'AND',
+        system: 'https://fhir.leedsth.nhs.uk/CodeSystem/medication-type-identifier-1',
+      },
+    ],
+  },
+}
+
 export default [
   SingleMedication1,
   OrMedication1,
@@ -931,4 +1087,5 @@ export default [
   ThenMedication1,
   ChangedMedication,
   RedactedMedication,
+  EAAGelMedication,
 ]
