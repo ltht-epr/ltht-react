@@ -24,8 +24,8 @@
     "deploy:storybook": "storybook-to-ghpages -e storybook-static"
   },
   "devDependencies": {
-    "@storybook/addon-essentials": "^6.1.15",
-    "@storybook/storybook-deployer": "^2.8.7",
+    "@storybook/addon-essentials": "^6.5.5",
+    "@storybook/storybook-deployer": "^2.8.11",
     "babel-loader": "^8.0.6"
   },
   "dependencies": {
