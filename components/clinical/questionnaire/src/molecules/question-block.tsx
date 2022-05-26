@@ -17,14 +17,17 @@ const StyledQuestionBlock = styled.div<IStyledQuestionBlockProps>`
 
   ${DESKTOP_MINIMUM_MEDIA_QUERY} {
     flex-basis: ${({ isFullWidth }) => (isFullWidth ? '100%' : '33%')};
+    padding-right: ${({ isFullWidth }) => (isFullWidth ? '0.5rem' : '2rem')} !important;
   }
 
   ${TABLET_ONLY_MEDIA_QUERY} {
     flex-basis: ${({ isFullWidth }) => (isFullWidth ? '100%' : '50%')};
+    padding-right: ${({ isFullWidth }) => (isFullWidth ? '0.5rem' : '2rem')} !important;
   }
 
   ${MOBILE_MAXIMUM_MEDIA_QUERY} {
     flex-basis: 100%;
+    padding-right: 0.5rem;
   }
 `
 

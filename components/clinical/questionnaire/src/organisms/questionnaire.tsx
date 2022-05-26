@@ -25,10 +25,6 @@ const QuestionContainer = styled.div`
   align-content: stretch;
   margin-bottom: 1rem;
 
-  div.QuestionBlock {
-    padding: 0.25rem;
-  }
-
   > div.QuestionBlock,
   > div.QuestionGroup {
     padding: 0.5rem 2rem 0 0;

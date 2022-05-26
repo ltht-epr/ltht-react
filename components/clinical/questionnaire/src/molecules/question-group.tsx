@@ -18,6 +18,10 @@ const StyledQuestionGroup = styled.div`
   &:last-of-type {
     border-bottom: none;
   }
+
+  .QuestionBlock {
+    padding-left: 0.5rem;
+  }
 `
 
 const GroupHeader = styled.h3`

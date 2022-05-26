@@ -29,6 +29,7 @@ const StyledCollapsibleDetailCollection = styled.div`
 
     ${MOBILE_MAXIMUM_MEDIA_QUERY} {
       flex-basis: 100%;
+      padding-right: 0.5rem;
     }
   }
 
