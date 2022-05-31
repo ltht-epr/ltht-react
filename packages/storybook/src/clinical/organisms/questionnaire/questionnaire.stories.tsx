@@ -4,6 +4,7 @@ import Questionnaire from '@ltht-react/questionnaire'
 import Card from '@ltht-react/card'
 
 import { DetailViewType } from '@ltht-react/types'
+import { Button } from '@ltht-react/button'
 import {
   BooleanFieldData,
   DisplayFieldData,
@@ -19,7 +20,9 @@ import {
   RedactedExampleData,
   NestedDischargeExample,
   DischargeClinicalSummaryExampleData,
+  MissingAnswersExampleData,
 } from './questionnaire.fixtures'
+import { useDetailViewType } from '../hooks/useDetailViewTypeHook'
 
 export const TextField: Story = () => (
   <Card>
@@ -152,16 +155,24 @@ export const DischargeActionsExample: Story = () => (
   </Card>
 )
 
-export const CompactExample: Story = () => (
-  <Card>
-    <Card.Header>
-      <Card.Title>Questionnaire</Card.Title>
-    </Card.Header>
-    <Card.Body>
-      <Questionnaire questionnaire={NestedGroupWithDisplayExampleData} viewType={DetailViewType.Compact} />
-    </Card.Body>
-  </Card>
-)
+export const CompactExample: Story = () => {
+  const { viewType, toggle } = useDetailViewType()
+  return (
+    <Card>
+      <Card.Header>
+        <Card.Title>Questionnaire</Card.Title>{' '}
+        <Button
+          type="button"
+          value={viewType === DetailViewType.Expanded ? 'View compacted' : 'View expanded'}
+          onClick={toggle}
+        />
+      </Card.Header>
+      <Card.Body>
+        <Questionnaire questionnaire={MissingAnswersExampleData} viewType={viewType} />
+      </Card.Body>
+    </Card>
+  )
+}
 
 export const RedactedExample: Story = () => (
   <Card>
