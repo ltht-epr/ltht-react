@@ -162,9 +162,9 @@ const QuestionBlock: FC<IProps> = ({ type, question, responseItem, className, sh
   const noAnswerProvided =
     (responseItem?.answer && responseItem?.answer?.length === 0) ||
     // Also no answer if each answer in the array has null for every valuetype property
-    responseItem?.answer?.every((answer) => answer && Object.values(answer).every((x) => x === null))
+    responseItem?.answer?.every((answer) => !answer || Object.values(answer).every((x) => x === null))
 
-  if ((noAnswerResponse || noAnswerProvided) && type === QuestionnaireItemTypeCode.Display) {
+  if ((noAnswerResponse || noAnswerProvided) && (type === QuestionnaireItemTypeCode.Display || showIfEmpty === false)) {
     return <></>
   }
 
