@@ -31,12 +31,7 @@ const GroupHeader = styled.h3`
   color: #677f67;
 `
 
-const ExpandedGroupBlock = styled.div`
-  background: #eaeaea;
-  flex: 2;
-`
-
-const CompactGroupBlock = styled.div`
+const StyledGroupBlock = styled.div`
   background: #eaeaea;
   flex: 2;
   display: flex;
@@ -79,18 +74,15 @@ function QuestionnaireQuestions(
   })
 }
 
-const QuestionGroup: FC<IProps> = ({ header, questions, answers, viewType = DetailViewType.Expanded, className }) => {
+const QuestionGroup: FC<IProps> = ({ header, questions, answers, viewType = DetailViewType.Compact, className }) => {
   if (answers?.length === 0) return null
 
   return (
     <StyledQuestionGroup className={className}>
       {header && <GroupHeader>{header}</GroupHeader>}
-      {viewType === DetailViewType.Compact && (
-        <CompactGroupBlock>{QuestionnaireQuestions(questions, answers, viewType)}</CompactGroupBlock>
-      )}
-      {viewType === DetailViewType.Expanded && (
-        <ExpandedGroupBlock>{QuestionnaireQuestions(questions, answers, viewType)}</ExpandedGroupBlock>
-      )}
+      <StyledGroupBlock>
+        {QuestionnaireQuestions(questions, answers, viewType ?? DetailViewType.Compact)}
+      </StyledGroupBlock>
     </StyledQuestionGroup>
   )
 }
