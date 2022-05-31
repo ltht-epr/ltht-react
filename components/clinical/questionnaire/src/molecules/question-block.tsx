@@ -13,7 +13,7 @@ const StyledInfoIcon = styled.div`
 `
 
 const StyledQuestionBlock = styled.div<IStyledQuestionBlockProps>`
-  margin: 5px 0;
+  padding: 0.5rem 2rem 0.5rem 0;
 
   ${DESKTOP_MINIMUM_MEDIA_QUERY} {
     flex-basis: ${({ isFullWidth }) => (isFullWidth ? '100%' : '33%')};
@@ -31,10 +31,6 @@ const StyledQuestionBlock = styled.div<IStyledQuestionBlockProps>`
   }
 `
 
-interface IStyledQuestionBlockProps {
-  isFullWidth: boolean
-}
-
 const DisplayBlock = styled.div`
   padding: 2px 4px;
   display: flex;
@@ -43,16 +39,11 @@ const DisplayBlock = styled.div`
   color: #0053c3;
 `
 
-interface IAnswer {
-  Answer: ReactElement
-  isFullWidth: boolean
-}
 const generateAnswer = (
   type?: QuestionTypes,
   responseItem?: Maybe<QuestionnaireResponseItem>,
   showIfEmpty?: Maybe<boolean>,
-  question?: Maybe<string>,
-  noAnswerProvided?: boolean | undefined
+  question?: Maybe<string>
 ): IAnswer => {
   switch (type) {
     case QuestionnaireItemTypeCode.Display:
@@ -71,7 +62,6 @@ const generateAnswer = (
       return {
         Answer: (
           <NestedListDetail term={question || '-'} showIfEmpty={showIfEmpty}>
-            {noAnswerProvided && <>-</>}
             {responseItem?.answer?.map((answerItem, index) => (
               <div key={`${question}-${answerItem?.valueBoolean}-${index + 1}`}>
                 {answerItem?.valueBoolean === true ? 'Yes' : 'No'}
@@ -85,7 +75,6 @@ const generateAnswer = (
       return {
         Answer: (
           <NestedListDetail term={question || '-'} showIfEmpty={showIfEmpty}>
-            {noAnswerProvided && <>-</>}
             {responseItem?.answer?.map((answerItem, index) => (
               <div key={`${question}-${answerItem?.valueString}-${index + 1}`}>
                 {ReactHtmlParser(answerItem?.valueString || '')}
@@ -100,7 +89,6 @@ const generateAnswer = (
       return {
         Answer: (
           <NestedListDetail term={question || '-'} showIfEmpty={showIfEmpty}>
-            {noAnswerProvided && <>-</>}
             {responseItem?.answer?.map((answerItem, index) => (
               <div key={`${question}-${answerItem?.valueDateTime?.value}-${index + 1}`}>
                 {partialDateTimeText(answerItem?.valueDateTime)}
@@ -114,7 +102,6 @@ const generateAnswer = (
       return {
         Answer: (
           <NestedListDetail term={question || '-'} showIfEmpty={showIfEmpty}>
-            {noAnswerProvided && <>-</>}
             {responseItem?.answer?.map((answerItem, index) => (
               <div key={`${question}-${answerItem?.valueString}-${index + 1}`}>
                 {ReactHtmlParser(parser.toHTML(answerItem?.valueString || ''))}
@@ -128,7 +115,6 @@ const generateAnswer = (
       return {
         Answer: (
           <NestedListDetail term={question || '-'} showIfEmpty={showIfEmpty}>
-            {noAnswerProvided && <>-</>}
             {responseItem?.answer?.map((answerItem, index) => (
               <div key={`${question}-${answerItem?.valueString}-${index + 1}`}>
                 {answerItem?.valueString ? ReactHtmlParser(answerItem?.valueString) : ''}
@@ -142,7 +128,6 @@ const generateAnswer = (
       return {
         Answer: (
           <NestedListDetail term={question || '-'} showIfEmpty={showIfEmpty}>
-            {noAnswerProvided && <>-</>}
             {responseItem?.answer?.map((answerItem, index) => (
               <div key={`${question}-${answerItem?.valueCoding?.display}-${index + 1}`}>
                 {answerItem?.valueCoding?.display}
@@ -162,19 +147,28 @@ const QuestionBlock: FC<IProps> = ({ type, question, responseItem, className, sh
   const noAnswerProvided =
     (responseItem?.answer && responseItem?.answer?.length === 0) ||
     // Also no answer if each answer in the array has null for every valuetype property
-    responseItem?.answer?.every((answer) => answer && Object.values(answer).every((x) => x === null))
+    responseItem?.answer?.every((answer) => !answer || Object.values(answer).every((x) => x === null))
 
-  if ((noAnswerResponse || noAnswerProvided) && type === QuestionnaireItemTypeCode.Display) {
+  if ((noAnswerResponse || noAnswerProvided) && (type === QuestionnaireItemTypeCode.Display || showIfEmpty === false)) {
     return <></>
   }
 
-  const { Answer, isFullWidth } = generateAnswer(type, responseItem, showIfEmpty, question, noAnswerProvided)
+  const { Answer, isFullWidth } = generateAnswer(type, responseItem, showIfEmpty, question)
 
   return (
     <StyledQuestionBlock className={className} isFullWidth={isFullWidth}>
       {Answer}
     </StyledQuestionBlock>
   )
+}
+
+interface IStyledQuestionBlockProps {
+  isFullWidth: boolean
+}
+
+interface IAnswer {
+  Answer: ReactElement
+  isFullWidth: boolean
 }
 
 interface IProps {
