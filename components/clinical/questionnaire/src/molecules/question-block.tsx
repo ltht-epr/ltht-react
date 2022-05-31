@@ -13,7 +13,7 @@ const StyledInfoIcon = styled.div`
 `
 
 const StyledQuestionBlock = styled.div<IStyledQuestionBlockProps>`
-  margin: 5px 0;
+  padding: 0.5rem 2rem 0.5rem 0;
 
   ${DESKTOP_MINIMUM_MEDIA_QUERY} {
     flex-basis: ${({ isFullWidth }) => (isFullWidth ? '100%' : '33%')};
