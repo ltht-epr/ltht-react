@@ -49,7 +49,7 @@ See the [Storybook](https://ltht-epr.github.io/ltht-react) for examples of all a
 >
 > You can do this by navigating to the appropriate project and running `yarn build --watch` to continuously compile new changes.
 
-### Adding components
+### Contributing
 
 When adding to this library, please ensure that it;
 
@@ -57,6 +57,8 @@ When adding to this library, please ensure that it;
 - has sufficient unit tests,
 - includes an example in the storybook,
 - includes relevant fixtures to show expected data formats
+
+> **Note:** You will not be able to push if your branch returns any unit test or linting errors
 
 ### Running unit tests
 
