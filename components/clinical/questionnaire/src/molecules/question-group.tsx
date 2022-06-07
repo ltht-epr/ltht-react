@@ -10,14 +10,12 @@ import {
 import QuestionBlock from './question-block'
 
 const StyledQuestionGroup = styled.div`
+  border: solid 2px #ccc;
+  border-radius: 0.25rem;
+  margin-bottom: 1rem;
   flex-basis: 100%;
   display: flex;
   flex-direction: column;
-
-  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
-  &:last-of-type {
-    border-bottom: none;
-  }
 
   .QuestionBlock {
     padding-left: 0.5rem;
@@ -32,7 +30,6 @@ const GroupHeader = styled.h3`
 `
 
 const StyledGroupBlock = styled.div`
-  background: #eaeaea;
   flex: 2;
   display: flex;
   flex-wrap: wrap;
