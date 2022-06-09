@@ -62,7 +62,7 @@ const DiagnosisSummary: FC<Props> = ({
     )
   }
 
-  const enteredInError = condition.verificationStatus === ConditionVerificationStatus.EnteredinError
+  const enteredInError = condition.verificationStatus === ConditionVerificationStatus.EnteredInError
 
   return (
     <StyledSummary {...rest}>
