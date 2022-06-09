@@ -987,7 +987,7 @@ export enum ConditionVerificationStatus {
   Differential = 'DIFFERENTIAL',
   Confirmed = 'CONFIRMED',
   Refuted = 'REFUTED',
-  EnteredinError = 'ENTEREDIN_ERROR',
+  EnteredInError = 'ENTERED_IN_ERROR',
   Unknown = 'UNKNOWN',
 }
 
