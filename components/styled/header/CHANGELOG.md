@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.3.82 (2022-06-09)
+
+**Note:** Version bump only for package @ltht-react/header
+
+
+
+
+
 ## 1.3.81 (2022-06-07)
 
 **Note:** Version bump only for package @ltht-react/header
