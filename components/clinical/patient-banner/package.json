@@ -1,6 +1,6 @@
 {
   "name": "@ltht-react/patient-banner",
-  "version": "1.3.84",
+  "version": "1.3.85",
   "description": "ltht-react clinical PatientBanner component.",
   "author": "LTHT",
   "homepage": "",
@@ -27,10 +27,10 @@
   "dependencies": {
     "@emotion/react": "^11.0.0",
     "@emotion/styled": "^11.0.0",
-    "@ltht-react/icon": "^1.3.84",
-    "@ltht-react/styles": "^1.3.76",
-    "@ltht-react/types": "^1.0.80",
-    "@ltht-react/utils": "^1.1.82",
+    "@ltht-react/icon": "^1.3.85",
+    "@ltht-react/styles": "^1.3.77",
+    "@ltht-react/types": "^1.0.81",
+    "@ltht-react/utils": "^1.1.83",
     "react": "^17.0.0"
   },
   "gitHead": "4d364556bb11e294d86697c2dac66742f7aabc7f"
