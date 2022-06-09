@@ -30,7 +30,6 @@ const GroupHeader = styled.h3`
 `
 
 const StyledGroupBlock = styled.div`
-  flex: 2;
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
