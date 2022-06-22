@@ -2603,9 +2603,9 @@ export type ConditionMinimalInputList = {
 export type ConditionMinimalInput = {
   id: Scalars['String']
   code: CodeableConceptInput
-  onset: ConditionOnsetMinimalInput
-  clinicalStatus: ConditionClinicalStatus
-  verificationStatus: ConditionVerificationStatus
+  onset?: Maybe<ConditionOnsetMinimalInput>
+  clinicalStatus?: Maybe<ConditionClinicalStatus>
+  verificationStatus?: Maybe<ConditionVerificationStatus>
 }
 
 /** A reference to one or more terminologies or ontologies but may also be defined by the provision of text. */
