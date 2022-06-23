@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import styled from '@emotion/styled'
 import { TRANSLUCENT_DARK_BLUE } from '@ltht-react/styles'
-import { Maybe } from '@ltht-react/types'
+import { AuditEvent, Maybe } from '@ltht-react/types'
 import { useWindowSize } from '@ltht-react/hooks'
 import { isMobileView } from '@ltht-react/utils'
 import TimelineDescription from '../atoms/timeline-description'
@@ -9,7 +9,6 @@ import TimelineAuthor from '../atoms/timeline-author'
 import TimelineStatus from '../atoms/timeline-status'
 import TimelineTitle from '../atoms/timeline-title'
 import TimelineTime from '../atoms/timeline-time'
-import { ITimelineItem } from '../organisms/timeline'
 import Banner from '../../../../styled/banner/src/index'
 
 const StyledTimelineItem = styled.div`
@@ -110,6 +109,11 @@ interface IProps {
 
 interface IStyledMobile {
   isMobile: boolean
+}
+
+interface ITimelineItem {
+  auditEvent: Maybe<AuditEvent>
+  clickHandler?(): void
 }
 
 export default TimelineItem

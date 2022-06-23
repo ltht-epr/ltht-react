@@ -110,7 +110,7 @@ const Timeline: FC<IProps> = (props, ...rest) => {
   const { width } = useWindowSize()
   const isMobile = isMobileView(width)
 
-  const audit = props.timelineItems.map(i => i?.auditEvent)
+  const audit = props.timelineItems.map((i) => i?.auditEvent)
 
   const timelineDates: { [date: string]: Maybe<ITimelineItem>[] } = {}
 
@@ -184,7 +184,7 @@ const Timeline: FC<IProps> = (props, ...rest) => {
                     return (
                       <StyledTimelineDayItem isMobile={isMobile} key={key}>
                         <StyledTimelineDayContent isMobile={isMobile}>
-                          <TimelineItem timelineItem={timelineItem}/>
+                          <TimelineItem timelineItem={timelineItem} />
                         </StyledTimelineDayContent>
                         <StyledTimelineDayLine>
                           <StyledOuterCircle>
@@ -234,11 +234,12 @@ interface IProps {
 
 interface ITimelineItem {
   auditEvent: Maybe<AuditEvent>
-  clickHandler? (): void
+  clickHandler?(): void
 }
 
 interface IStyledMobile {
   isMobile: boolean
 }
 
-export { Timeline, ITimelineItem }
+export default Timeline
+// { Timeline, ITimelineItem }

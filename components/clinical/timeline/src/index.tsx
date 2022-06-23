@@ -1,1 +1,1 @@
-export {Timeline, ITimelineItem } from './organisms/timeline'
+export { default as Timeline } from './organisms/timeline'
