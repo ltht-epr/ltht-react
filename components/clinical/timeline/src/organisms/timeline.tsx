@@ -2,12 +2,12 @@ import { FC } from 'react'
 import styled from '@emotion/styled'
 import { CircleIcon } from '@ltht-react/icon'
 import { TEXT_COLOURS, BANNER_COLOURS } from '@ltht-react/styles'
-import { AuditEvent, Maybe } from '@ltht-react/types'
+import { Maybe } from '@ltht-react/types'
 import { formatDateExplicitMonth, formatTime, isMobileView } from '@ltht-react/utils'
 import { useWindowSize } from '@ltht-react/hooks'
 
 import TimelineTime from '../atoms/timeline-time'
-import TimelineItem from '../molecules/timeline-item'
+import TimelineItem, { ITimelineItem } from '../molecules/timeline-item'
 
 const StyledTimeline = styled.div`
   margin: -0.75rem;
@@ -232,14 +232,8 @@ interface IProps {
   timelineItems: Maybe<ITimelineItem>[]
 }
 
-interface ITimelineItem {
-  auditEvent: Maybe<AuditEvent>
-  clickHandler?(): void
-}
-
 interface IStyledMobile {
   isMobile: boolean
 }
 
 export default Timeline
-// { Timeline, ITimelineItem }

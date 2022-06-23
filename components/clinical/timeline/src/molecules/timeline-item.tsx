@@ -1,5 +1,7 @@
 import { FC } from 'react'
 import styled from '@emotion/styled'
+import Banner from '@ltht-react/banner'
+import { ExternalLinkIcon } from '@ltht-react/icon'
 import { TRANSLUCENT_DARK_BLUE } from '@ltht-react/styles'
 import { AuditEvent, Maybe } from '@ltht-react/types'
 import { useWindowSize } from '@ltht-react/hooks'
@@ -9,7 +11,6 @@ import TimelineAuthor from '../atoms/timeline-author'
 import TimelineStatus from '../atoms/timeline-status'
 import TimelineTitle from '../atoms/timeline-title'
 import TimelineTime from '../atoms/timeline-time'
-import Banner from '../../../../styled/banner/src/index'
 
 const StyledTimelineItem = styled.div`
   background-color: ${TRANSLUCENT_DARK_BLUE};
@@ -60,6 +61,11 @@ const StyledStatus = styled.div`
   text-align: right;
 `
 
+const StyledBanner = styled(Banner)`
+  margin: -0.5rem;
+  margin-top: 0.5rem;
+`
+
 const TimelineItem: FC<IProps> = (props) => {
   const { width } = useWindowSize()
 
@@ -97,7 +103,13 @@ const TimelineItem: FC<IProps> = (props) => {
             </StyledStatus>
           </StyledTimelineItemRight>
         </StyledTimelineItemBottom>
-        {props.timelineItem.clickHandler && <Banner type="info" onClick={props.timelineItem.clickHandler}></Banner>}
+        {props.timelineItem.clickHandler && (
+          <StyledBanner
+            type="info"
+            icon={<ExternalLinkIcon size="medium" />}
+            onClick={props.timelineItem.clickHandler}
+          />
+        )}
       </StyledTimelineItem>
     </>
   )
@@ -107,13 +119,13 @@ interface IProps {
   timelineItem: Maybe<ITimelineItem>
 }
 
-interface IStyledMobile {
-  isMobile: boolean
-}
-
-interface ITimelineItem {
+export interface ITimelineItem {
   auditEvent: Maybe<AuditEvent>
   clickHandler?(): void
+}
+
+interface IStyledMobile {
+  isMobile: boolean
 }
 
 export default TimelineItem
