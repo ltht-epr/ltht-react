@@ -31,6 +31,7 @@ export const ClickableDetails: Story = () => {
             console.log('Clicked')
           }
         : undefined,
+    clickPrompt: idx % 2 === 0 ? `View Form: ${idx}` : undefined,
   }))
 
   return (

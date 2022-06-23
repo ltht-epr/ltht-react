@@ -66,6 +66,8 @@ const StyledBanner = styled(Banner)`
   margin-top: 0.5rem;
 `
 
+const StyledBannerContent = styled.div``
+
 const TimelineItem: FC<IProps> = (props) => {
   const { width } = useWindowSize()
 
@@ -104,11 +106,11 @@ const TimelineItem: FC<IProps> = (props) => {
           </StyledTimelineItemRight>
         </StyledTimelineItemBottom>
         {props.timelineItem.clickHandler && (
-          <StyledBanner
-            type="info"
-            icon={<ExternalLinkIcon size="medium" />}
-            onClick={props.timelineItem.clickHandler}
-          />
+          <StyledBanner type="info" icon={<ExternalLinkIcon size="medium" />} onClick={props.timelineItem.clickHandler}>
+            {props.timelineItem.clickPrompt && (
+              <StyledBannerContent>{props.timelineItem.clickPrompt}</StyledBannerContent>
+            )}
+          </StyledBanner>
         )}
       </StyledTimelineItem>
     </>
@@ -122,6 +124,7 @@ interface IProps {
 export interface ITimelineItem {
   auditEvent: Maybe<AuditEvent>
   clickHandler?(): void
+  clickPrompt?: string
 }
 
 interface IStyledMobile {
