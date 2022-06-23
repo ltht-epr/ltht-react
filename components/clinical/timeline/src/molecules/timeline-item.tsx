@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import styled from '@emotion/styled'
 import { TRANSLUCENT_DARK_BLUE } from '@ltht-react/styles'
-import { AuditEvent, Maybe } from '@ltht-react/types'
+import { Maybe } from '@ltht-react/types'
 import { useWindowSize } from '@ltht-react/hooks'
 import { isMobileView } from '@ltht-react/utils'
 import TimelineDescription from '../atoms/timeline-description'
@@ -9,6 +9,8 @@ import TimelineAuthor from '../atoms/timeline-author'
 import TimelineStatus from '../atoms/timeline-status'
 import TimelineTitle from '../atoms/timeline-title'
 import TimelineTime from '../atoms/timeline-time'
+import { ITimelineItem } from '../organisms/timeline'
+import Banner from '../../../../styled/banner/src/index'
 
 const StyledTimelineItem = styled.div`
   background-color: ${TRANSLUCENT_DARK_BLUE};
@@ -64,7 +66,7 @@ const TimelineItem: FC<IProps> = (props) => {
 
   const isMobile = isMobileView(width)
 
-  if (!props.audit) {
+  if (!props.timelineItem?.auditEvent) {
     return <></>
   }
 
@@ -73,22 +75,22 @@ const TimelineItem: FC<IProps> = (props) => {
       <StyledTimelineItem>
         <StyledTimelineItemTop>
           <StyledTitle isMobile={isMobile}>
-            <TimelineTitle audit={props.audit} />
+            <TimelineTitle audit={props.timelineItem.auditEvent} />
           </StyledTitle>
           {isMobile ? (
             <StyledTimelineTime>
-              <TimelineTime audit={props.audit} />
+              <TimelineTime audit={props.timelineItem.auditEvent} />
             </StyledTimelineTime>
           ) : null}
         </StyledTimelineItemTop>
         <StyledTimelineItemMiddle>
           <StyledDescription>
-            <TimelineDescription outcomeDesc={props.audit.outcomeDesc} />
+            <TimelineDescription outcomeDesc={props.timelineItem.auditEvent.outcomeDesc} />
           </StyledDescription>
         </StyledTimelineItemMiddle>
         <StyledTimelineItemBottom>
           <StyledTimelineItemLeft>
-            <TimelineAuthor audit={props.audit} />
+            <TimelineAuthor audit={props.timelineItem.auditEvent} />
           </StyledTimelineItemLeft>
           <StyledTimelineItemRight>
             <StyledStatus>
@@ -96,13 +98,14 @@ const TimelineItem: FC<IProps> = (props) => {
             </StyledStatus>
           </StyledTimelineItemRight>
         </StyledTimelineItemBottom>
+        {props.timelineItem.clickHandler && <Banner type="info" onClick={props.timelineItem.clickHandler}></Banner>}
       </StyledTimelineItem>
     </>
   )
 }
 
 interface IProps {
-  audit: Maybe<AuditEvent>
+  timelineItem: Maybe<ITimelineItem>
 }
 
 interface IStyledMobile {

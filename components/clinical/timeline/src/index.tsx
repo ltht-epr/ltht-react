@@ -1,3 +1,1 @@
-import Timeline from './organisms/timeline'
-
-export default Timeline
+export {Timeline, ITimelineItem } from './organisms/timeline'
