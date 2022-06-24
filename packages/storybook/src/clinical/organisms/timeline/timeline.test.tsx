@@ -36,7 +36,11 @@ describe('Timeline', () => {
 
     render(<Timeline timelineItems={timelineItems} />)
 
-    expect(screen.getByText('Click Here Please')).toBeVisible()
+    screen.debug()
+
+    screen.debug(screen.getAllByText('Click Here Please'))
+
+    expect(screen.getAllByText('Click Here Please')).toHaveLength(AuditTrail.resources.length)
   })
 
   it('No click handler does not display click Prompt', () => {
