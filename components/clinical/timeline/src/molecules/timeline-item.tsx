@@ -1,5 +1,7 @@
 import { FC } from 'react'
 import styled from '@emotion/styled'
+import Banner from '@ltht-react/banner'
+import { ExternalLinkIcon } from '@ltht-react/icon'
 import { TRANSLUCENT_DARK_BLUE } from '@ltht-react/styles'
 import { AuditEvent, Maybe } from '@ltht-react/types'
 import { useWindowSize } from '@ltht-react/hooks'
@@ -59,12 +61,19 @@ const StyledStatus = styled.div`
   text-align: right;
 `
 
+const StyledBanner = styled(Banner)`
+  margin: -0.5rem;
+  margin-top: 0.5rem;
+`
+
+const StyledBannerContent = styled.div``
+
 const TimelineItem: FC<IProps> = (props) => {
   const { width } = useWindowSize()
 
   const isMobile = isMobileView(width)
 
-  if (!props.audit) {
+  if (!props.timelineItem?.auditEvent) {
     return <></>
   }
 
@@ -73,22 +82,22 @@ const TimelineItem: FC<IProps> = (props) => {
       <StyledTimelineItem>
         <StyledTimelineItemTop>
           <StyledTitle isMobile={isMobile}>
-            <TimelineTitle audit={props.audit} />
+            <TimelineTitle audit={props.timelineItem.auditEvent} />
           </StyledTitle>
           {isMobile ? (
             <StyledTimelineTime>
-              <TimelineTime audit={props.audit} />
+              <TimelineTime audit={props.timelineItem.auditEvent} />
             </StyledTimelineTime>
           ) : null}
         </StyledTimelineItemTop>
         <StyledTimelineItemMiddle>
           <StyledDescription>
-            <TimelineDescription outcomeDesc={props.audit.outcomeDesc} />
+            <TimelineDescription outcomeDesc={props.timelineItem.auditEvent.outcomeDesc} />
           </StyledDescription>
         </StyledTimelineItemMiddle>
         <StyledTimelineItemBottom>
           <StyledTimelineItemLeft>
-            <TimelineAuthor audit={props.audit} />
+            <TimelineAuthor audit={props.timelineItem.auditEvent} />
           </StyledTimelineItemLeft>
           <StyledTimelineItemRight>
             <StyledStatus>
@@ -96,13 +105,26 @@ const TimelineItem: FC<IProps> = (props) => {
             </StyledStatus>
           </StyledTimelineItemRight>
         </StyledTimelineItemBottom>
+        {props.timelineItem.clickHandler && (
+          <StyledBanner type="info" icon={<ExternalLinkIcon size="medium" />} onClick={props.timelineItem.clickHandler}>
+            {props.timelineItem.clickPrompt && (
+              <StyledBannerContent>{props.timelineItem.clickPrompt}</StyledBannerContent>
+            )}
+          </StyledBanner>
+        )}
       </StyledTimelineItem>
     </>
   )
 }
 
 interface IProps {
-  audit: Maybe<AuditEvent>
+  timelineItem: Maybe<ITimelineItem>
+}
+
+export interface ITimelineItem {
+  auditEvent: Maybe<AuditEvent>
+  clickHandler?(): void
+  clickPrompt?: string
 }
 
 interface IStyledMobile {

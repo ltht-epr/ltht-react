@@ -28,6 +28,7 @@
     "@ltht-react/styles": "^1.3.78",
     "@ltht-react/types": "^1.0.82",
     "@ltht-react/utils": "^1.1.84",
+    "@ltht-react/banner": "^1.0.59",
     "react": "^17.0.0",
     "react-html-parser": "^2.0.2"
   },

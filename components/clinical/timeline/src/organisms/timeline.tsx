@@ -2,12 +2,12 @@ import { FC } from 'react'
 import styled from '@emotion/styled'
 import { CircleIcon } from '@ltht-react/icon'
 import { TEXT_COLOURS, BANNER_COLOURS } from '@ltht-react/styles'
-import { AuditEvent, Maybe } from '@ltht-react/types'
+import { Maybe } from '@ltht-react/types'
 import { formatDateExplicitMonth, formatTime, isMobileView } from '@ltht-react/utils'
 import { useWindowSize } from '@ltht-react/hooks'
 
 import TimelineTime from '../atoms/timeline-time'
-import TimelineItem from '../molecules/timeline-item'
+import TimelineItem, { ITimelineItem } from '../molecules/timeline-item'
 
 const StyledTimeline = styled.div`
   margin: -0.75rem;
@@ -110,23 +110,23 @@ const Timeline: FC<IProps> = (props, ...rest) => {
   const { width } = useWindowSize()
   const isMobile = isMobileView(width)
 
-  const audit = props.auditTrail
+  const audit = props.timelineItems.map((i) => i?.auditEvent)
 
-  const timelineDates: { [date: string]: Maybe<AuditEvent>[] } = {}
+  const timelineDates: { [date: string]: Maybe<ITimelineItem>[] } = {}
 
-  audit?.forEach((auditItem) => {
-    if (!auditItem?.period?.start?.value) {
+  props.timelineItems?.forEach((timelineItem) => {
+    if (!timelineItem?.auditEvent?.period?.start?.value) {
       return
     }
 
-    const date = formatDateExplicitMonth(new Date(auditItem?.period?.start?.value))
+    const date = formatDateExplicitMonth(new Date(timelineItem.auditEvent?.period?.start?.value))
 
     const lookup = timelineDates[date]
 
     if (!lookup) {
-      timelineDates[date] = [auditItem]
+      timelineDates[date] = [timelineItem]
     } else {
-      lookup.push(auditItem)
+      lookup.push(timelineItem)
       timelineDates[date] = lookup
     }
   })
@@ -143,10 +143,10 @@ const Timeline: FC<IProps> = (props, ...rest) => {
               <>
                 <StyledTimelineDayHeader>{key}</StyledTimelineDayHeader>
                 <StyledTimelineDayBody isMobile={isMobile}>
-                  {value?.map((auditItem) => (
+                  {value?.map((timelineItem) => (
                     <StyledTimelineDayItem isMobile={isMobile}>
                       <StyledTimelineDayContent isMobile={isMobile}>
-                        <TimelineItem audit={auditItem} />
+                        <TimelineItem timelineItem={timelineItem} />
                       </StyledTimelineDayContent>
                     </StyledTimelineDayItem>
                   ))}
@@ -159,11 +159,11 @@ const Timeline: FC<IProps> = (props, ...rest) => {
             <>
               <StyledTimelineDayHeader>{key}</StyledTimelineDayHeader>
               <StyledTimelineDayBody isMobile={isMobile}>
-                {value?.map((auditItem, idx) => {
-                  if (!auditItem?.period?.start?.value) {
+                {value?.map((timelineItem, idx) => {
+                  if (!timelineItem?.auditEvent?.period?.start?.value) {
                     return <></>
                   }
-                  const currentTime = formatTime(new Date(auditItem?.period?.start?.value))
+                  const currentTime = formatTime(new Date(timelineItem.auditEvent?.period?.start?.value))
                   let previousTime = currentTime
 
                   if (idx > 0) {
@@ -184,7 +184,7 @@ const Timeline: FC<IProps> = (props, ...rest) => {
                     return (
                       <StyledTimelineDayItem isMobile={isMobile} key={key}>
                         <StyledTimelineDayContent isMobile={isMobile}>
-                          <TimelineItem audit={auditItem} />
+                          <TimelineItem timelineItem={timelineItem} />
                         </StyledTimelineDayContent>
                         <StyledTimelineDayLine>
                           <StyledOuterCircle>
@@ -195,7 +195,7 @@ const Timeline: FC<IProps> = (props, ...rest) => {
                           </StyledInnerCircle>
                         </StyledTimelineDayLine>
                         <StyledTimelineDayTimeRight>
-                          <TimelineTime audit={auditItem} />
+                          <TimelineTime audit={timelineItem?.auditEvent} />
                         </StyledTimelineDayTimeRight>
                       </StyledTimelineDayItem>
                     )
@@ -203,7 +203,7 @@ const Timeline: FC<IProps> = (props, ...rest) => {
                   return (
                     <StyledTimelineDayItem isMobile={isMobile} key={key}>
                       <StyledTimelineDayTimeLeft>
-                        <TimelineTime audit={auditItem} />
+                        <TimelineTime audit={timelineItem?.auditEvent} />
                       </StyledTimelineDayTimeLeft>
                       <StyledTimelineDayLine>
                         <StyledOuterCircle>
@@ -214,7 +214,7 @@ const Timeline: FC<IProps> = (props, ...rest) => {
                         </StyledInnerCircle>
                       </StyledTimelineDayLine>
                       <StyledTimelineDayContent isMobile={isMobile}>
-                        <TimelineItem audit={auditItem} />
+                        <TimelineItem timelineItem={timelineItem} />
                       </StyledTimelineDayContent>
                     </StyledTimelineDayItem>
                   )
@@ -227,8 +227,9 @@ const Timeline: FC<IProps> = (props, ...rest) => {
     </>
   )
 }
+
 interface IProps {
-  auditTrail: Maybe<AuditEvent>[]
+  timelineItems: Maybe<ITimelineItem>[]
 }
 
 interface IStyledMobile {
