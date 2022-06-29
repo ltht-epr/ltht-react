@@ -220,7 +220,7 @@ describe('formatPatientAge', () => {
 
   it('returns formatted age when patient is deceased', () => {
     const dod = new Date()
-    const dob = new Date()
+    const dob = new Date(dod)
     dob.setFullYear(dod.getFullYear() - 45) // dob set to 45 years ago
     patient.birthDate = {
       kind: PartialDateTimeKindCode.Date,
@@ -238,7 +238,7 @@ describe('formatPatientAge', () => {
 
   it('returns formatted age when patient is deceased (under 18 and over 2)', () => {
     const dod = new Date()
-    const dob = new Date()
+    const dob = new Date(dod)
     dob.setFullYear(dod.getFullYear() - 15) // dob set to 15 years ago
     dob.setMonth(0) // set to jan
     patient.birthDate = {
@@ -257,7 +257,7 @@ describe('formatPatientAge', () => {
 
   it('returns formatted age when patient is deceased (under 2 and over 1)', () => {
     const dod = new Date()
-    const dob = new Date()
+    const dob = new Date(dod)
     dob.setFullYear(dod.getFullYear() - 1) // dob set to 1 year ago
     dob.setDate(1) // set to first day of current month
     const days = dod.getDate() - 1
@@ -280,7 +280,7 @@ describe('formatPatientAge', () => {
 
   it('returns formatted age when patient is deceased (under 1 and over 4 weeks)', () => {
     const dod = new Date()
-    const dob = new Date()
+    const dob = new Date(dod)
     dob.setDate(dod.getDate() - 44) // set to 6 weeks and 2 days ago
     patient.birthDate = {
       kind: PartialDateTimeKindCode.Date,
@@ -298,7 +298,7 @@ describe('formatPatientAge', () => {
 
   it('returns formatted age when patient is deceased (under 4 weeks and over 2 days)', () => {
     const dod = new Date()
-    const dob = new Date()
+    const dob = new Date(dod)
     dob.setDate(dod.getDate() - 17) // set to 17 days ago
     patient.birthDate = {
       kind: PartialDateTimeKindCode.Date,
@@ -316,7 +316,8 @@ describe('formatPatientAge', () => {
 
   it('returns formatted age when patient is deceased (under 2 days and over 2 hours)', () => {
     const dod = new Date()
-    const dob = new Date()
+    const dob = new Date(dod)
+
     dob.setHours(dod.getHours() - 27) // set to 27 hours ago
     patient.birthDate = {
       kind: PartialDateTimeKindCode.Date,
@@ -334,7 +335,7 @@ describe('formatPatientAge', () => {
 
   it('returns formatted age when patient is deceased (under 2 hours)', () => {
     const dod = new Date()
-    const dob = new Date()
+    const dob = new Date(dod)
     dob.setMinutes(dod.getMinutes() - 95) // set to 95 min ago
     patient.birthDate = {
       kind: PartialDateTimeKindCode.Date,
