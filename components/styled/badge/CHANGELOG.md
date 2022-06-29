@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.0.64 (2022-06-29)
+
+**Note:** Version bump only for package @ltht-react/badge
+
+
+
+
+
 ## 1.0.63 (2022-06-29)
 
 **Note:** Version bump only for package @ltht-react/badge
