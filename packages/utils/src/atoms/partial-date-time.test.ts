@@ -32,6 +32,11 @@ describe('partialDateTimeText', () => {
     const date = new Date(2022, 0, 10, 9, 47, 10, 10)
     expect(formatDateTime(date)).toEqual('10 January 2022 : 09:47')
   })
+
+  it('formats DateTimes as midnight by default if no time is provided', () => {
+    const date = new Date(2022, 0, 10)
+    expect(formatDateTime(date)).toEqual('10 January 2022 : 00:00')
+  })
 })
 
 const dateValue = '2013-02-03T13:15:16+00:00'
