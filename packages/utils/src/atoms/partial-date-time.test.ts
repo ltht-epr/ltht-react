@@ -1,5 +1,5 @@
 import { PartialDateTime, PartialDateTimeKindCode } from '@ltht-react/types'
-import { partialDateTimeText } from './partial-date-time'
+import { formatDateTime, partialDateTimeText } from './partial-date-time'
 
 describe('partialDateTimeText', () => {
   // it('formats date correctly', () => {
@@ -21,6 +21,16 @@ describe('partialDateTimeText', () => {
   it('formats year-month correctly', () => {
     const date = partialDateTime(PartialDateTimeKindCode.YearMonth)
     expect(partialDateTimeText(date)).toEqual('Feb-2013')
+  })
+
+  it('formats dateTimes correctly', () => {
+    const date = new Date(2022, 0, 10, 9, 47)
+    expect(formatDateTime(date)).toEqual('10 January 2022 : 09:47')
+  })
+
+  it('formats dateTimes without seconds or milliseconds', () => {
+    const date = new Date(2022, 0, 10, 9, 47, 10, 10)
+    expect(formatDateTime(date)).toEqual('10 January 2022 : 09:47')
   })
 })
 
