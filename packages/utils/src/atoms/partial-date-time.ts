@@ -17,6 +17,10 @@ export const formatDateExplicitMonth = (date: Date): string =>
 export const formatTime = (date: Date): string =>
   date.toLocaleString(locale, { hour: hourFormat, minute: minuteFormat, hour12: false }).split(' ').join(':')
 
+export const formatDateTime = (date: Date): string => {
+  return `${formatDateExplicitMonth(date)} : ${formatTime(date)}`
+}
+
 export const partialDateTimeText = (partialDateTime?: PartialDateTime | null): string => {
   if (!partialDateTime || !partialDateTime.value) {
     return ''
