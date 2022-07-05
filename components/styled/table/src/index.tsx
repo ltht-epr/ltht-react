@@ -24,27 +24,6 @@ import {
   UsageContext,
 } from '@ltht-react/types'
 
-// interface IPerson {
-//   firstName: string
-//   lastName: string
-//   birthYear: number
-//   availability: boolean
-// }
-
-// const lookup = { true: 'Available', false: 'Unavailable' }
-
-// const columns: Array<Column<IPerson>> = [
-//   { title: 'First Name', field: 'firstName' },
-//   { title: 'Last Name', field: 'lastName' },
-//   { title: 'Birth Year', field: 'birthYear', type: 'numeric' },
-//   { title: 'Availablity', field: 'availability', lookup },
-// ]
-
-// const data: Array<IPerson> = [
-//   { firstName: 'Tod', lastName: 'Miles', birthYear: 1987, availability: true },
-//   { firstName: 'Jess', lastName: 'Smith', birthYear: 2000, availability: false },
-// ]
-
 const summaryDefinition: QuestionnaireLocal = {
   extension: [
     {
@@ -84,80 +63,80 @@ const summaryDefinition: QuestionnaireLocal = {
       linkId: '1',
       item: null,
     },
-    // {
-    //   text: 'Intervention',
-    //   type: QuestionnaireItemTypeCode.QuestionString,
-    //   linkId: '2',
-    //   item: null,
-    // },
-    // {
-    //   text: 'Partial Indication',
-    //   type: QuestionnaireItemTypeCode.QuestionString,
-    //   linkId: '3',
-    //   item: null,
-    // },
-    // {
-    //   text: 'Standard Observations',
-    //   type: QuestionnaireItemTypeCode.Group,
-    //   linkId: '4',
-    //   item: [
-    //     {
-    //       text: 'RR (breaths/min)',
-    //       type: QuestionnaireItemTypeCode.QuestionString,
-    //       linkId: '4.1',
-    //     },
-    //     {
-    //       text: 'O2 Sat (%)',
-    //       type: QuestionnaireItemTypeCode.QuestionString,
-    //       linkId: '4.2',
-    //     },
-    //     {
-    //       text: 'Supp O2',
-    //       type: QuestionnaireItemTypeCode.QuestionString,
-    //       linkId: '4.3',
-    //     },
-    //     {
-    //       text: 'Blood Pressure',
-    //       type: QuestionnaireItemTypeCode.QuestionString,
-    //       linkId: '4.4',
-    //     },
-    //     {
-    //       text: 'Standing 1 Minute BP',
-    //       type: QuestionnaireItemTypeCode.QuestionString,
-    //       linkId: '4.5',
-    //     },
-    //     {
-    //       text: 'Standing 3 Minute BP',
-    //       type: QuestionnaireItemTypeCode.QuestionString,
-    //       linkId: '4.6',
-    //     },
-    //     {
-    //       text: 'HR (BPM)',
-    //       type: QuestionnaireItemTypeCode.QuestionString,
-    //       linkId: '4.7',
-    //     },
-    //     {
-    //       text: 'Temp (°C)',
-    //       type: QuestionnaireItemTypeCode.QuestionString,
-    //       linkId: '4.8',
-    //     },
-    //     {
-    //       text: 'Consciousness',
-    //       type: QuestionnaireItemTypeCode.QuestionString,
-    //       linkId: '4.9',
-    //     },
-    //     {
-    //       text: 'Pain Score',
-    //       type: QuestionnaireItemTypeCode.QuestionString,
-    //       linkId: '4.10',
-    //     },
-    //     {
-    //       text: 'Blood Glucose (mmol/L)',
-    //       type: QuestionnaireItemTypeCode.QuestionString,
-    //       linkId: '4.11',
-    //     },
-    //   ],
-    //}
+    {
+      text: 'Intervention',
+      type: QuestionnaireItemTypeCode.QuestionString,
+      linkId: '2',
+      item: null,
+    },
+    {
+      text: 'Partial Indication',
+      type: QuestionnaireItemTypeCode.QuestionString,
+      linkId: '3',
+      item: null,
+    },
+    {
+      text: 'Standard Observations',
+      type: QuestionnaireItemTypeCode.Group,
+      linkId: '4',
+      item: [
+        {
+          text: 'RR (breaths/min)',
+          type: QuestionnaireItemTypeCode.QuestionString,
+          linkId: '4.1',
+        },
+        {
+          text: 'O2 Sat (%)',
+          type: QuestionnaireItemTypeCode.QuestionString,
+          linkId: '4.2',
+        },
+        {
+          text: 'Supp O2',
+          type: QuestionnaireItemTypeCode.QuestionString,
+          linkId: '4.3',
+        },
+        {
+          text: 'Blood Pressure',
+          type: QuestionnaireItemTypeCode.QuestionString,
+          linkId: '4.4',
+        },
+        {
+          text: 'Standing 1 Minute BP',
+          type: QuestionnaireItemTypeCode.QuestionString,
+          linkId: '4.5',
+        },
+        {
+          text: 'Standing 3 Minute BP',
+          type: QuestionnaireItemTypeCode.QuestionString,
+          linkId: '4.6',
+        },
+        {
+          text: 'HR (BPM)',
+          type: QuestionnaireItemTypeCode.QuestionString,
+          linkId: '4.7',
+        },
+        {
+          text: 'Temp (°C)',
+          type: QuestionnaireItemTypeCode.QuestionString,
+          linkId: '4.8',
+        },
+        {
+          text: 'Consciousness',
+          type: QuestionnaireItemTypeCode.QuestionString,
+          linkId: '4.9',
+        },
+        {
+          text: 'Pain Score',
+          type: QuestionnaireItemTypeCode.QuestionString,
+          linkId: '4.10',
+        },
+        {
+          text: 'Blood Glucose (mmol/L)',
+          type: QuestionnaireItemTypeCode.QuestionString,
+          linkId: '4.11',
+        },
+      ],
+    },
   ],
 }
 
@@ -742,47 +721,6 @@ const testData: Array<QuestionnaireResponseItemAndQuestionnaireItemBaseClass> = 
 
 //the above are cast to their base class
 
-// const testColumns: Array<Column<QuestionnaireLocal>> = (summaryDefinition as unknown) as Array<
-//   Column<QuestionnaireLocal> // this is an array of QuestionnaireItem
-// >
-
-// const testData: Array<QuestionnaireResponseLocal> = summaryRecordsList as Array<QuestionnaireResponseLocal>
-
-//the above are cast to their correc type
-
-// const testColumns: Array<
-//   Column<QuestionnaireAndQuestionnaireResponseBaseClass>
-// > = (summaryDefinition as unknown) as Array<
-//   Column<QuestionnaireAndQuestionnaireResponseBaseClass> // this is an array of QuestionnaireItem
-// >
-
-// const testData: Array<QuestionnaireAndQuestionnaireResponseBaseClass> = summaryRecordsList as Array<QuestionnaireAndQuestionnaireResponseBaseClass>
-
-//the above are cast to correct base class
-
-// const testColumns = summaryDefinition.item
-
-// const testData = summaryRecordOne.item
-
-// could try to us
-
-console.log(testData[0])
-console.log(testColumns[0])
-
-// const testDataMutated: ExtensionTest = {
-//   baseData: testData,
-//   baseColumn: null,
-//   linkIdValue: '1',
-// }
-
-// const testColumnsMutated: ExtensionTest = {
-//   baseData: testData,
-//   baseColumn: testColumns,
-//   linkIdValue: '1',
-// }
-
-// console.log(testDataMutated)
-
 interface ExtensionType extends Record<string, any> {
   linkIdValue1: string
 }
@@ -797,29 +735,8 @@ const testcolumns: Array<Column<IData>> = [{ title: 'Question/Date', field: 'lin
 
 const testdata: Array<IData> = [{ linkIdValue1: 'test' }]
 
-interface IPerson {
-  firstName: string
-  lastName: string
-  birthYear: number
-  availability: boolean
-}
-
-const columns: Array<Column<IPerson>> = [
-  { title: 'First Name', field: 'firstName' },
-  { title: 'Last Name', field: 'lastName' },
-  { title: 'Birth Year', field: 'birthYear', type: 'numeric' },
-  { title: 'Availablity', field: 'availability' },
-]
-
-const data: Array<IPerson> = [
-  { firstName: 'Tod', lastName: 'Miles', birthYear: 1987, availability: true },
-  { firstName: 'Jess', lastName: 'Smith', birthYear: 2000, availability: false },
-]
-
 const Table: FC = () => (
   <>
-    <MaterialTable columns={columns} data={data} />
-    <MaterialTable columns={testColumns} data={testData} />
     <MaterialTable columns={testcolumns} data={testdata} />
   </>
 )
@@ -1085,9 +1002,3 @@ export type QuestionnaireResponseItemAndQuestionnaireItemBaseClass = {
 
   // myType?: MyType
 }
-
-// interface ExtensionTest extends Record<string, any> {
-//   baseData?: QuestionnaireResponseItemAndQuestionnaireItemBaseClass[]
-//   baseColumns?: QuestionnaireResponseItemAndQuestionnaireItemBaseClass
-//   linkIdValue: string
-// }
