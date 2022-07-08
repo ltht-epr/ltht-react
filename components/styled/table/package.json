@@ -1,0 +1,37 @@
+{
+  "name": "@ltht-react/table",
+  "version": "1.0.0",
+  "description": "ltht-react Table component.",
+  "author": "LTHT",
+  "homepage": "",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
+  "files": [
+    "lib"
+  ],
+  "directories": {
+    "lib": "lib"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "clean": "rimraf lib",
+    "build": "yarn build:lib",
+    "watch": "tsc -w",
+    "build:lib": "tsc",
+    "type:check": "tsc --noEmit",
+    "lint": "prettylint 'src/*.{ts,tsx}'"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.0.0",
+    "@emotion/styled": "^11.0.0",
+    "react": "^17.0.0",
+    "react-table": "^7.8.0"
+  },
+  "gitHead": "4d364556bb11e294d86697c2dac66742f7aabc7f",
+  "devDependencies": {
+    "@types/react-table": "^7.7.12"
+  }
+}

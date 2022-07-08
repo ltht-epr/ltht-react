@@ -19,7 +19,7 @@ const EncounterParticipantDetail: DetailViewComponent<IProps> = ({ participants,
   <NestedListDetail term={term} showIfEmpty={showIfEmpty}>
     {participants &&
       participants.length > 0 &&
-      participants.map((item) => {
+      participants.map(item => {
         if (item?.individual?.display && item?.individual?.typeName) {
           return (
             <StyledNestedList key={item.individual.display}>

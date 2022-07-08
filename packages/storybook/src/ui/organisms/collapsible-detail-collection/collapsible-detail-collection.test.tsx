@@ -27,7 +27,7 @@ describe('CollapsibleDetailCollection', () => {
   })
 
   it('lets you toggle', async () => {
-    const Wrapper = () => {
+    function Wrapper() {
       const [viewType, setViewType] = useState(DetailViewType.Compact)
 
       return (

@@ -23,6 +23,7 @@ module.exports = {
     'jsx-a11y/interactive-supports-focus': 'off',
     'no-shadow': 'off',
     'prettier/prettier': ['error'],
+    'react/require-default-props': 'off',
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx', '.tsx'] }],
     'react/jsx-props-no-spreading': 0,
     'react/no-array-index-key': 0,

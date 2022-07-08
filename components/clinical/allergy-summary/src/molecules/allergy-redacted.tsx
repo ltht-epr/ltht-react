@@ -25,7 +25,6 @@ const AllergyRedacted: FC<Props> = ({ allergy, showDates }) => (
 interface Props {
   allergy?: AllergyIntolerance | null
   showDates?: boolean
-  enteredInError?: boolean | undefined
 }
 
 export default AllergyRedacted

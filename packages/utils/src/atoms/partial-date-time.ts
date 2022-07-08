@@ -9,13 +9,22 @@ const hourFormat = '2-digit'
 const minuteFormat = '2-digit'
 
 export const formatDate = (date: Date): string =>
-  date.toLocaleString(locale, { day: dayFormat, month: monthFormat, year: yearFormat }).split(' ').join('-')
+  date
+    .toLocaleString(locale, { day: dayFormat, month: monthFormat, year: yearFormat })
+    .split(' ')
+    .join('-')
 
 export const formatDateExplicitMonth = (date: Date): string =>
-  date.toLocaleString(locale, { day: dayFormat, month: monthFormatLong, year: yearFormat }).split(' ').join(' ')
+  date
+    .toLocaleString(locale, { day: dayFormat, month: monthFormatLong, year: yearFormat })
+    .split(' ')
+    .join(' ')
 
 export const formatTime = (date: Date): string =>
-  date.toLocaleString(locale, { hour: hourFormat, minute: minuteFormat, hour12: false }).split(' ').join(':')
+  date
+    .toLocaleString(locale, { hour: hourFormat, minute: minuteFormat, hour12: false })
+    .split(' ')
+    .join(':')
 
 export const formatDateTime = (date: Date): string => `${formatDateExplicitMonth(date)} : ${formatTime(date)}`
 

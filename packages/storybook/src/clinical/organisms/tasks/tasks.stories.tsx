@@ -20,7 +20,7 @@ export const TasksStory: Story = () => {
         <Card.Title>Tasks</Card.Title>
       </Card.Header>
       <Card.List>
-        {Tasks.map((task) => {
+        {Tasks.map(task => {
           const canPerformAction = !['COMPLETE', 'CANCELLED'].includes(task.status) && !task.metadata.isRedacted
 
           const props = {

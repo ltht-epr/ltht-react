@@ -18,7 +18,7 @@ const StyledValue = styled.span`
 `
 
 const PasNumber: FC<Props> = ({ patient, ...rest }) => {
-  const pasNo = patient?.identifier?.find((x) => x?.system === PatientIdentifierType.PasNumber)?.value
+  const pasNo = patient?.identifier?.find(x => x?.system === PatientIdentifierType.PasNumber)?.value
 
   return (
     <StyledPasNumber {...rest}>

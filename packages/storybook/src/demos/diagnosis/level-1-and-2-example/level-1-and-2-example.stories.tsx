@@ -122,7 +122,7 @@ export const Dashboard: Story = () => {
                 <Card.Title>Alerts</Card.Title>
               </Card.Header>
               <Card.List>
-                {flags.map((flag) => (
+                {flags.map(flag => (
                   <Card.ListItem key={flag.id}>
                     <FlagSummary flag={flag} />
                   </Card.ListItem>
@@ -134,7 +134,7 @@ export const Dashboard: Story = () => {
                 <Card.Title>Allergies</Card.Title>
               </Card.Header>
               <Card.List>
-                {allergies.map((allergy) => (
+                {allergies.map(allergy => (
                   <Card.ListItem key={allergy.id}>
                     <AllergySummary allergy={allergy} />
                   </Card.ListItem>
@@ -146,7 +146,7 @@ export const Dashboard: Story = () => {
                 <Card.Title>Hospital Stays</Card.Title>
               </Card.Header>
               <Card.List>
-                {hospitalStays.map((stay) => (
+                {hospitalStays.map(stay => (
                   <Card.ListItem key={stay.id}>
                     <HospitalStaySummary hospitalStay={stay} />
                   </Card.ListItem>
@@ -160,7 +160,7 @@ export const Dashboard: Story = () => {
                 <Card.Title>Problems & Diagnosis</Card.Title>
               </Card.Header>
               <Card.List>
-                {conditions.map((condition) => (
+                {conditions.map(condition => (
                   <Card.ListItem key={condition.id} onClick={() => handleSetDetailView(condition.id)}>
                     <DiagnosisSummary
                       condition={condition}
@@ -176,7 +176,7 @@ export const Dashboard: Story = () => {
                 <Card.Title>Appointments</Card.Title>
               </Card.Header>
               <Card.List>
-                {appointments.map((appointment) => (
+                {appointments.map(appointment => (
                   <Card.ListItem key={appointment.id}>
                     <AppointmentSummary encounter={appointment} />
                   </Card.ListItem>
@@ -194,7 +194,7 @@ export const Dashboard: Story = () => {
                 <Card.Title>Alerts</Card.Title>
               </Card.Header>
               <Card.List>
-                {flags.map((flag) => (
+                {flags.map(flag => (
                   <Card.ListItem key={flag.id}>
                     <FlagSummary flag={flag} />
                   </Card.ListItem>
@@ -206,7 +206,7 @@ export const Dashboard: Story = () => {
                 <Card.Title>Allergies</Card.Title>
               </Card.Header>
               <Card.List>
-                {allergies.map((allergy) => (
+                {allergies.map(allergy => (
                   <Card.ListItem key={allergy.id}>
                     <AllergySummary allergy={allergy} />
                   </Card.ListItem>
@@ -218,7 +218,7 @@ export const Dashboard: Story = () => {
                 <Card.Title>Hospital Stays</Card.Title>
               </Card.Header>
               <Card.List>
-                {hospitalStays.map((stay) => (
+                {hospitalStays.map(stay => (
                   <Card.ListItem key={stay.id}>
                     <HospitalStaySummary hospitalStay={stay} />
                   </Card.ListItem>
@@ -244,7 +244,7 @@ export const Dashboard: Story = () => {
                 <Card.Title>Appointments</Card.Title>
               </Card.Header>
               <Card.List>
-                {appointments.map((appointment) => (
+                {appointments.map(appointment => (
                   <Card.ListItem key={appointment.id}>
                     <AppointmentSummary encounter={appointment} />
                   </Card.ListItem>

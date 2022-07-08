@@ -19,7 +19,7 @@ const EncounterStatusHistoryDetail: DetailViewComponent<IProps> = ({ hospitalSta
   <NestedListDetail term={term} showIfEmpty={showIfEmpty}>
     {hospitalStatusHistories &&
       hospitalStatusHistories.length > 0 &&
-      hospitalStatusHistories.map((item) => {
+      hospitalStatusHistories.map(item => {
         if (item?.status) {
           return (
             <StyledNestedList key={item.status}>

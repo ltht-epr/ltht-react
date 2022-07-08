@@ -12,7 +12,7 @@ import {
 
 const EncounterHospitalisationDetail: DetailViewComponent<IProps> = ({ hospitalisation, showIfEmpty = true }) => {
   const extensions: CodeableConcept[] = []
-  hospitalisation?.extension?.forEach((item) => {
+  hospitalisation?.extension?.forEach(item => {
     if (item?.valueCodeableConcept) {
       extensions.push(item?.valueCodeableConcept)
     }

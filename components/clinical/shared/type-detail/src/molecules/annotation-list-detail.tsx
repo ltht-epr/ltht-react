@@ -28,7 +28,7 @@ const AnnotationListDetail: DetailViewComponent<IProps> = ({ term, notes, showIf
       showIfEmpty={showIfEmpty}
       wrapDescription={false}
       className={
-        notes?.some((note) => note && note.text.length > 150)
+        notes?.some(note => note && note.text.length > 150)
           ? 'annotation-list-detail--full-width'
           : 'annotation-list-detail'
       }

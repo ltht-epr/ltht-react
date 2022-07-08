@@ -47,7 +47,7 @@ export const Summary: Story = () => (
       <Card.Title>Orders</Card.Title>
     </Card.Header>
     <Card.List>
-      {orders.map((order) => (
+      {orders.map(order => (
         <Card.ListItem key={order.id}>
           <CommunityTreatmentOrderSummary communityTreatmentOrder={order} />
         </Card.ListItem>

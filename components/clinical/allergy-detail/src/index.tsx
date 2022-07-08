@@ -57,7 +57,7 @@ const AllergyDetail: FC<Props> = ({ allergy, showDates = true, viewType = Detail
 
 interface Props extends CollapsibleDetailCollectionProps {
   allergy: AllergyIntolerance
-  showDates?: boolean
+  showDates?: boolean | undefined
 }
 
 export default AllergyDetail

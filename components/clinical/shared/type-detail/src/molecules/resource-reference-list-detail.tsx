@@ -8,7 +8,7 @@ const ResourceReferenceListDetail: DetailViewComponent<Props> = ({ term, resourc
   if (resourceReferences || showIfEmpty) {
     return (
       <NestedListDetail term={term} showIfEmpty={showIfEmpty} wrapDescription={false}>
-        {resourceReferences?.map((item) => {
+        {resourceReferences?.map(item => {
           if (item?.display) {
             return (
               <DescriptionList.Description key={item.display}>{titleCase(item?.display)}</DescriptionList.Description>

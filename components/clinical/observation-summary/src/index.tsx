@@ -6,7 +6,7 @@ import ObservationSumaryItem from './organisms/observation-summary-item'
 
 const ObservationSummary: FC<Props> = ({ observations = [], clickHandler }) => (
   <>
-    {observations.map((observation) => (
+    {observations.map(observation => (
       <ListItem key={observation.id}>
         <ObservationSumaryItem observation={observation} clickHandler={clickHandler} />
       </ListItem>
