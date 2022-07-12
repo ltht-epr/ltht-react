@@ -696,7 +696,7 @@ const Table: FC<IProps> = () => {
   //   ],
   // }
 
-  //this should be the actual data we pass in, but I've commented it out for simplicity
+  // this should be the actual data we pass in, but I've commented it out for simplicity
   // const summaryRecordsList: QuestionnaireResponse[] = [summaryRecordOne, summaryRecordTwo, summaryRecordThree]
 
   // const summaryRecordsList: QuestionnaireResponse[] = [summaryRecordOne]
