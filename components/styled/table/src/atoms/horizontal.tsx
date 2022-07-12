@@ -34,7 +34,7 @@ const HorizontalTable: FC<IProps> = ({ definitionItems, records }) => {
   const data: LooseObject[] = records.map(record => {
     const obj: LooseObject = {}
     if (record.item) {
-      obj['date'] = partialDateTimeText(record.authored)
+      obj.date = partialDateTimeText(record.authored)
 
       for (let index = 0; index < record.item.length; index++) {
         const prop = record.item[index]?.linkId
