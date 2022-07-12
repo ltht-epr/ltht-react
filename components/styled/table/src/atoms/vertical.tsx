@@ -25,7 +25,7 @@ const VerticalTable: FC<IProps> = ({ definitionItems, records }) => {
   }))
 
   const data: LooseObject[] = records.map(record => {
-    let obj: LooseObject = {}
+    const obj: LooseObject = {}
     if (record.item) {
       for (let index = 0; index < record.item.length; index++) {
         const prop = record.item[index]?.linkId

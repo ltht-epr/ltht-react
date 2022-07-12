@@ -32,7 +32,7 @@ const HorizontalTable: FC<IProps> = ({ definitionItems, records }) => {
   ]
 
   const data: LooseObject[] = records.map(record => {
-    let obj: LooseObject = {}
+    const obj: LooseObject = {}
     if (record.item) {
       obj['date'] = partialDateTimeText(record.authored)
 
