@@ -7,7 +7,7 @@ import TableBody from '@material-ui/core/TableBody'
 import TableCell from '@material-ui/core/TableCell'
 import TableHead from '@material-ui/core/TableHead'
 import TableRow from '@material-ui/core/TableRow'
-import { Questionnaire, QuestionnaireResponse } from '@ltht-react/types'
+import { Maybe, QuestionnaireItem, QuestionnaireResponse } from '@ltht-react/types'
 import styled from '@emotion/styled'
 
 const Container = styled.div`
@@ -18,75 +18,71 @@ const StyledTableCell = styled(TableCell)`
   text-align: center !important;
 `
 
-const VerticalTable: FC<IProps> = ({ definition, records }) => {
-  if (definition.item) {
-    const columns: Column<LooseObject>[] = definition.item.map(item => ({
-      Header: item?.text ?? '',
-      accessor: item?.linkId ?? '',
-    }))
+const VerticalTable: FC<IProps> = ({ definitionItems, records }) => {
+  const columns: Column<LooseObject>[] = definitionItems.map(item => ({
+    Header: item?.text ?? '',
+    accessor: item?.linkId ?? '',
+  }))
 
-    const data: LooseObject[] = records.map(record => {
-      let obj: LooseObject = {}
-      if (record.item) {
-        for (let index = 0; index < record.item.length; index++) {
-          const prop = record.item[index]?.linkId
-          const value = record.item[index]?.answer
-          if (prop && value) {
-            if (record.item[index]?.answer) {
-              // todo util for processing cell value
-              obj[prop] = value[0]?.valueString ?? ''
-            }
+  const data: LooseObject[] = records.map(record => {
+    let obj: LooseObject = {}
+    if (record.item) {
+      for (let index = 0; index < record.item.length; index++) {
+        const prop = record.item[index]?.linkId
+        const value = record.item[index]?.answer
+        if (prop && value) {
+          if (record.item[index]?.answer) {
+            // todo util for processing cell value
+            obj[prop] = value[0]?.valueString ?? ''
           }
         }
       }
-      return obj
-    })
+    }
+    return obj
+  })
 
-    const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = useTable({
-      columns,
-      data,
-    })
+  const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = useTable({
+    columns,
+    data,
+  })
 
-    return (
-      <Container>
-        <CssBaseline />
-        <MaUTable {...getTableProps()}>
-          <TableHead>
-            {headerGroups.map(headerGroup => (
-              <tr {...headerGroup.getHeaderGroupProps()}>
-                {headerGroup.headers.map(column => (
-                  <th {...column.getHeaderProps()}>{column.render('Header')}</th>
+  return (
+    <Container>
+      <CssBaseline />
+      <MaUTable {...getTableProps()}>
+        <TableHead>
+          {headerGroups.map(headerGroup => (
+            <tr {...headerGroup.getHeaderGroupProps()}>
+              {headerGroup.headers.map(column => (
+                <th {...column.getHeaderProps()}>{column.render('Header')}</th>
+              ))}
+            </tr>
+          ))}
+        </TableHead>
+        <TableBody {...getTableBodyProps()}>
+          {rows.map(row => {
+            prepareRow(row)
+            return (
+              <TableRow {...row.getRowProps()}>
+                {row.cells.map(cell => (
+                  <StyledTableCell {...cell.getCellProps()}>{cell.render('Cell')}</StyledTableCell>
                 ))}
-              </tr>
-            ))}
-          </TableHead>
-          <TableBody {...getTableBodyProps()}>
-            {rows.map(row => {
-              prepareRow(row)
-              return (
-                <TableRow {...row.getRowProps()}>
-                  {row.cells.map(cell => (
-                    <StyledTableCell {...cell.getCellProps()}>{cell.render('Cell')}</StyledTableCell>
-                  ))}
-                </TableRow>
-              )
-            })}
-          </TableBody>
-        </MaUTable>
-      </Container>
-    )
-  }
-
-  return <></>
+              </TableRow>
+            )
+          })}
+        </TableBody>
+      </MaUTable>
+    </Container>
+  )
 }
 
 interface IProps {
-  definition: Questionnaire
+  definitionItems: Array<Maybe<QuestionnaireItem>>
   records: QuestionnaireResponse[]
 }
 
 interface LooseObject {
-  [key: string]: any
+  [key: string]: string
 }
 
 export default VerticalTable

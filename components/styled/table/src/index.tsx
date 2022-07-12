@@ -5,11 +5,15 @@ import HorizontalTable from './atoms/horizontal'
 import VerticalTable from './atoms/vertical'
 
 const Table: FC<IProps> = ({ definition, records, orientation = 'vertical' }) => {
-  if (orientation === 'horizontal') {
-    return <HorizontalTable definition={definition} records={records} />
+  if (!definition.item) {
+    return <></>
   }
 
-  return <VerticalTable definition={definition} records={records} />
+  if (orientation === 'horizontal') {
+    return <HorizontalTable definitionItems={definition.item} records={records} />
+  }
+
+  return <VerticalTable definitionItems={definition.item} records={records} />
 }
 
 interface IProps {
