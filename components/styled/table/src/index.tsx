@@ -17,7 +17,7 @@ import TableRow from '@material-ui/core/TableRow'
 //   QuestionnaireResponseStatus,
 // } from '@ltht-react/types'
 
-const Table: FC<IProps> = () => {
+const Table: FC = () => {
   // const summaryDefinition: Questionnaire = {
   //   extension: [
   //     {
@@ -764,10 +764,6 @@ const Table: FC<IProps> = () => {
       </MaUTable>
     </div>
   )
-}
-
-interface IProps {
-  options: string
 }
 
 export default Table
