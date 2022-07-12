@@ -7,8 +7,9 @@ import TableBody from '@material-ui/core/TableBody'
 import TableCell from '@material-ui/core/TableCell'
 import TableHead from '@material-ui/core/TableHead'
 import TableRow from '@material-ui/core/TableRow'
-import { Maybe, QuestionnaireItem, QuestionnaireResponse } from '@ltht-react/types'
+import { Maybe, QuestionnaireItem, QuestionnaireResponse, KeyValue } from '@ltht-react/types'
 import styled from '@emotion/styled'
+import { partialDateTimeText, answerText } from '@ltht-react/utils'
 
 const Container = styled.div`
   background-color: white;
@@ -19,13 +20,36 @@ const StyledTableCell = styled(TableCell)`
 `
 
 const VerticalTable: FC<IProps> = ({ definitionItems, records }) => {
-  const columns: Column<LooseObject>[] = definitionItems.map(item => ({
-    Header: item?.text ?? '',
-    accessor: item?.linkId ?? '',
-  }))
+  const columns: Column<KeyValue>[] = [
+    {
+      Header: '',
+      accessor: 'property',
+    },
+    ...records.map(record => ({
+      Header: partialDateTimeText(record.authored) ?? '',
+      accessor: record?.id ?? '',
+    })),
+  ]
 
-  const data: LooseObject[] = records.map(record => {
-    const obj: LooseObject = {}
+  // const data: KeyValue[] = records.map(record => {
+  //   const obj: KeyValue = {}
+  //   if (record.item) {
+  //     for (let index = 0; index < record.item.length; index++) {
+  //       const prop = record.item[index]?.linkId
+  //       const value = record.item[index]?.answer
+  //       if (prop && value) {
+  //         if (record.item[index]?.answer) {
+  //           // todo util for processing cell value
+  //           obj[prop] = value[0]?.valueString ?? ''
+  //         }
+  //       }
+  //     }
+  //   }
+  //   return obj
+  // })
+
+  const data: KeyValue[] = records.map(record => {
+    const obj: KeyValue = {}
     if (record.item) {
       for (let index = 0; index < record.item.length; index++) {
         const prop = record.item[index]?.linkId
@@ -33,7 +57,7 @@ const VerticalTable: FC<IProps> = ({ definitionItems, records }) => {
         if (prop && value) {
           if (record.item[index]?.answer) {
             // todo util for processing cell value
-            obj[prop] = value[0]?.valueString ?? ''
+            obj[prop] = answerText() value[0]?.valueString ?? ''
           }
         }
       }
@@ -79,10 +103,6 @@ const VerticalTable: FC<IProps> = ({ definitionItems, records }) => {
 interface IProps {
   definitionItems: Array<Maybe<QuestionnaireItem>>
   records: QuestionnaireResponse[]
-}
-
-interface LooseObject {
-  [key: string]: string
 }
 
 export default VerticalTable

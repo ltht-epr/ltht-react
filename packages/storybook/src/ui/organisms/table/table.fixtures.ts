@@ -322,7 +322,7 @@ const summaryRecordTwo = {
     dataSources: [],
   },
   status: QuestionnaireResponseStatus.Completed,
-  id: '1',
+  id: '2',
   item: [
     {
       linkId: '1',
@@ -509,7 +509,7 @@ const summaryRecordThree = {
     dataSources: [],
   },
   status: QuestionnaireResponseStatus.Completed,
-  id: '1',
+  id: '3',
   item: [
     {
       linkId: '1',

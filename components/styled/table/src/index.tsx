@@ -1,6 +1,6 @@
 import { FC } from 'react'
 
-import { Questionnaire, QuestionnaireResponse } from '@ltht-react/types'
+import { Questionnaire, QuestionnaireResponse, SummaryTableViewType } from '@ltht-react/types'
 import HorizontalTable from './atoms/horizontal'
 import VerticalTable from './atoms/vertical'
 
@@ -17,7 +17,7 @@ const Table: FC<IProps> = ({ definition, records, orientation = 'vertical' }) =>
 }
 
 interface IProps {
-  orientation?: 'vertical' | 'horizontal'
+  orientation?: SummaryTableViewType
   definition: Questionnaire
   records: QuestionnaireResponse[]
 }

@@ -8,7 +8,7 @@ import TableBody from '@material-ui/core/TableBody'
 import TableCell from '@material-ui/core/TableCell'
 import TableHead from '@material-ui/core/TableHead'
 import TableRow from '@material-ui/core/TableRow'
-import { Maybe, QuestionnaireItem, QuestionnaireResponse } from '@ltht-react/types'
+import { Maybe, QuestionnaireItem, QuestionnaireResponse, KeyValue } from '@ltht-react/types'
 import styled from '@emotion/styled'
 
 const Container = styled.div`
@@ -20,7 +20,7 @@ const StyledTableCell = styled(TableCell)`
 `
 
 const HorizontalTable: FC<IProps> = ({ definitionItems, records }) => {
-  const columns: Column<LooseObject>[] = [
+  const columns: Column<KeyValue>[] = [
     {
       Header: 'Record Date',
       accessor: 'date',
@@ -31,8 +31,8 @@ const HorizontalTable: FC<IProps> = ({ definitionItems, records }) => {
     })),
   ]
 
-  const data: LooseObject[] = records.map(record => {
-    const obj: LooseObject = {}
+  const data: KeyValue[] = records.map(record => {
+    const obj: KeyValue = {}
     if (record.item) {
       obj.date = partialDateTimeText(record.authored)
 
@@ -88,10 +88,6 @@ const HorizontalTable: FC<IProps> = ({ definitionItems, records }) => {
 interface IProps {
   definitionItems: Array<Maybe<QuestionnaireItem>>
   records: QuestionnaireResponse[]
-}
-
-interface LooseObject {
-  [key: string]: string
 }
 
 export default HorizontalTable
