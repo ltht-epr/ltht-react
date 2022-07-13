@@ -984,7 +984,6 @@ export type ConditionStage = {
 
 export enum ConditionVerificationStatus {
   Provisional = 'PROVISIONAL',
-  Differential = 'DIFFERENTIAL',
   Confirmed = 'CONFIRMED',
   Refuted = 'REFUTED',
   EnteredInError = 'ENTERED_IN_ERROR',
