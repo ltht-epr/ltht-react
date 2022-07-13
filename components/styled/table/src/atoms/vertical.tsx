@@ -38,14 +38,16 @@ const VerticalTable: FC<IProps> = ({ definitionItems, records }) => {
     return obj
   })
 
-  data.map(item => {
-    records.map(record => {
+  data = data.map(_item => {
+    const item = { ..._item }
+    records.forEach(record => {
       const find = record.item?.find(x => x?.linkId === item.linkId)
       if (find && find.answer) {
         const answer = find.answer[0]
         item[record.id] = answerText(answer) ?? ''
       }
     })
+    return item
   })
 
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = useTable({
