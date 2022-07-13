@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import { Column, useTable } from 'react-table'
-import { partialDateTimeText } from '@ltht-react/utils'
+import { answerText, partialDateTimeText } from '@ltht-react/utils'
 
 import CssBaseline from '@material-ui/core/CssBaseline'
 import MaUTable from '@material-ui/core/Table'
@@ -41,8 +41,7 @@ const HorizontalTable: FC<IProps> = ({ definitionItems, records }) => {
         const value = record.item[index]?.answer
         if (prop && value) {
           if (record.item[index]?.answer) {
-            // todo util for processing cell value
-            obj[prop] = value[0]?.valueString ?? ''
+            obj[prop] = answerText(value[0]) ?? ''
           }
         }
       }

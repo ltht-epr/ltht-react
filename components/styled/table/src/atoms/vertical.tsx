@@ -9,7 +9,7 @@ import TableHead from '@material-ui/core/TableHead'
 import TableRow from '@material-ui/core/TableRow'
 import { Maybe, QuestionnaireItem, QuestionnaireResponse, KeyValue } from '@ltht-react/types'
 import styled from '@emotion/styled'
-import { partialDateTimeText, answerText } from '@ltht-react/utils'
+import { answerText, partialDateTimeText } from '@ltht-react/utils'
 
 const Container = styled.div`
   background-color: white;
@@ -31,38 +31,21 @@ const VerticalTable: FC<IProps> = ({ definitionItems, records }) => {
     })),
   ]
 
-  // const data: KeyValue[] = records.map(record => {
-  //   const obj: KeyValue = {}
-  //   if (record.item) {
-  //     for (let index = 0; index < record.item.length; index++) {
-  //       const prop = record.item[index]?.linkId
-  //       const value = record.item[index]?.answer
-  //       if (prop && value) {
-  //         if (record.item[index]?.answer) {
-  //           // todo util for processing cell value
-  //           obj[prop] = value[0]?.valueString ?? ''
-  //         }
-  //       }
-  //     }
-  //   }
-  //   return obj
-  // })
-
-  const data: KeyValue[] = records.map(record => {
+  let data: KeyValue[] = definitionItems.map(def => {
     const obj: KeyValue = {}
-    if (record.item) {
-      for (let index = 0; index < record.item.length; index++) {
-        const prop = record.item[index]?.linkId
-        const value = record.item[index]?.answer
-        if (prop && value) {
-          if (record.item[index]?.answer) {
-            // todo util for processing cell value
-            obj[prop] = answerText() value[0]?.valueString ?? ''
-          }
-        }
-      }
-    }
+    obj.property = def?.text ?? ''
+    obj.linkId = def?.linkId ?? ''
     return obj
+  })
+
+  data.map(item => {
+    records.map(record => {
+      const find = record.item?.find(x => x?.linkId === item.linkId)
+      if (find && find.answer) {
+        const answer = find.answer[0]
+        item[record.id] = answerText(answer) ?? ''
+      }
+    })
   })
 
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = useTable({
