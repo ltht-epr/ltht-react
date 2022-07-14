@@ -1,8 +1,8 @@
 import { FC } from 'react'
 import styled from '@emotion/styled'
 import Banner from '@ltht-react/banner'
-import { ExternalLinkIcon } from '@ltht-react/icon'
-import { TRANSLUCENT_DARK_BLUE } from '@ltht-react/styles'
+import { ChevronIcon, ExternalLinkIcon } from '@ltht-react/icon'
+import { HIGHLIGHT_GREEN, TRANSLUCENT_DARK_BLUE } from '@ltht-react/styles'
 import { AuditEvent, Maybe } from '@ltht-react/types'
 import { useWindowSize } from '@ltht-react/hooks'
 import { isMobileView } from '@ltht-react/utils'
@@ -12,8 +12,8 @@ import TimelineStatus from '../atoms/timeline-status'
 import TimelineTitle from '../atoms/timeline-title'
 import TimelineTime from '../atoms/timeline-time'
 
-const StyledTimelineItem = styled.div`
-  background-color: ${TRANSLUCENT_DARK_BLUE};
+const StyledTimelineItem = styled.div<IStyledTimelineItem>`
+  background-color: ${({ isSelected }) => (isSelected ? HIGHLIGHT_GREEN.VALUE : TRANSLUCENT_DARK_BLUE)};
   padding: 0.5rem;
 `
 
@@ -68,36 +68,35 @@ const StyledBanner = styled(Banner)`
 
 const StyledBannerContent = styled.div``
 
-const TimelineItem: FC<IProps> = (props) => {
+const TimelineItem: FC<IProps> = ({ timelineItem }) => {
   const { width } = useWindowSize()
-
   const isMobile = isMobileView(width)
 
-  if (!props.timelineItem?.auditEvent) {
+  if (!timelineItem?.auditEvent) {
     return <></>
   }
 
   return (
     <>
-      <StyledTimelineItem>
+      <StyledTimelineItem isSelected={timelineItem.isSelected}>
         <StyledTimelineItemTop>
           <StyledTitle isMobile={isMobile}>
-            <TimelineTitle audit={props.timelineItem.auditEvent} />
+            <TimelineTitle audit={timelineItem.auditEvent} />
           </StyledTitle>
-          {isMobile ? (
+          {isMobile && (
             <StyledTimelineTime>
-              <TimelineTime audit={props.timelineItem.auditEvent} />
+              <TimelineTime audit={timelineItem.auditEvent} />
             </StyledTimelineTime>
-          ) : null}
+          )}
         </StyledTimelineItemTop>
         <StyledTimelineItemMiddle>
           <StyledDescription>
-            <TimelineDescription outcomeDesc={props.timelineItem.auditEvent.outcomeDesc} />
+            <TimelineDescription outcomeDesc={timelineItem.auditEvent.outcomeDesc} />
           </StyledDescription>
         </StyledTimelineItemMiddle>
         <StyledTimelineItemBottom>
           <StyledTimelineItemLeft>
-            <TimelineAuthor audit={props.timelineItem.auditEvent} />
+            <TimelineAuthor audit={timelineItem.auditEvent} />
           </StyledTimelineItemLeft>
           <StyledTimelineItemRight>
             <StyledStatus>
@@ -105,11 +104,14 @@ const TimelineItem: FC<IProps> = (props) => {
             </StyledStatus>
           </StyledTimelineItemRight>
         </StyledTimelineItemBottom>
-        {props.timelineItem.clickHandler && (
-          <StyledBanner type="info" icon={<ExternalLinkIcon size="medium" />} onClick={props.timelineItem.clickHandler}>
-            {props.timelineItem.clickPrompt && (
-              <StyledBannerContent>{props.timelineItem.clickPrompt}</StyledBannerContent>
-            )}
+        {timelineItem.clickHandler && !timelineItem.isSelected && (
+          <StyledBanner type="info" icon={<ExternalLinkIcon size="medium" />} onClick={timelineItem.clickHandler}>
+            {timelineItem.clickPrompt && <StyledBannerContent>{timelineItem.clickPrompt}</StyledBannerContent>}
+          </StyledBanner>
+        )}
+        {timelineItem.clickHandler && timelineItem.isSelected && (
+          <StyledBanner type="highlight" icon={<ChevronIcon direction="left" size="medium" />}>
+            {timelineItem.deselectPrompt && <StyledBannerContent>{timelineItem.deselectPrompt}</StyledBannerContent>}
           </StyledBanner>
         )}
       </StyledTimelineItem>
@@ -125,6 +127,12 @@ export interface ITimelineItem {
   auditEvent: Maybe<AuditEvent>
   clickHandler?(): void
   clickPrompt?: string
+  isSelected: boolean
+  deselectPrompt?: string
+}
+
+interface IStyledTimelineItem {
+  isSelected: boolean
 }
 
 interface IStyledMobile {

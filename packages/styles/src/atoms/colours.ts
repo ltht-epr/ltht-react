@@ -66,6 +66,7 @@ export const TRANSLUCENT_WARM_YELLOW = colours.NHS_TRANSLUCENT_WARM_YELLOW
 export const TRANSLUCENT_BRIGHT_BLUE = colours.NHS_TRANSLUCENT_BRIGHT_BLUE
 export const TRANSLUCENT_DARK_BLUE = colours.NHS_TRANSLUCENT_DARK_BLUE
 export const TRANSLUCENT_MID_GREY = colours.NHS_TRANSLUCENT_MID_GREY
+export const HIGHLIGHT_GREEN = colours.NHS_HIGHLIGHT_GREEN
 
 export const BTN_COLOURS = {
   PRIMARY: {
@@ -128,5 +129,12 @@ export const BANNER_COLOURS = {
     BORDER: '#ec9bb0',
     ICON: '#f50b47',
     HOVER: '#ea94aa',
+  },
+  HIGHLIGHT: {
+    BACKGROUND: colours.NHS_HIGHLIGHT_GREEN.DARKER25,
+    TEXT: '#0053c3',
+    BORDER: '#bdd2ec',
+    ICON: '#107dbd',
+    HOVER: '#b2cae6',
   },
 }
