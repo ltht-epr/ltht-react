@@ -33,7 +33,7 @@ export const ClickableDetails: Story = () => {
           }
         : undefined,
     clickPrompt: idx % 2 === 0 ? `View Form: ${idx}` : undefined,
-    isSelected: idx === 0 ? true : false,
+    isSelected: idx === 0,
     deselectPrompt: idx === 0 ? 'Close me' : undefined,
   }))
 
