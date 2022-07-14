@@ -105,16 +105,12 @@ const TimelineItem: FC<IProps> = ({ timelineItem }) => {
           </StyledTimelineItemRight>
         </StyledTimelineItemBottom>
         {timelineItem.clickHandler && !timelineItem.isSelected && (
-          <StyledBanner type="info" onClick={timelineItem.clickHandler} icon={<ExternalLinkIcon size="medium" />}>
+          <StyledBanner type="info" onClick={timelineItem.clickHandler}>
             {timelineItem.clickPrompt && <StyledBannerContent>{timelineItem.clickPrompt}</StyledBannerContent>}
           </StyledBanner>
         )}
         {timelineItem.clickHandler && timelineItem.isSelected && (
-          <StyledBanner
-            type="highlight"
-            onClick={timelineItem.clickHandler}
-            icon={<ChevronIcon direction="left" size="medium" />}
-          >
+          <StyledBanner type="highlight" onClick={timelineItem.clickHandler}>
             {timelineItem.deselectPrompt && <StyledBannerContent>{timelineItem.deselectPrompt}</StyledBannerContent>}
           </StyledBanner>
         )}

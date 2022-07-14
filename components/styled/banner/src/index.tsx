@@ -74,7 +74,6 @@ const Banner: FC<IProps> = ({ type = 'info', icon, children, ...rest }) => (
         {type === 'info' && <InfoCircleIcon status="info" size="medium" />}
         {type === 'warning' && <ExclamationIcon status="amber" size="medium" />}
         {type === 'danger' && <ExclamationIcon status="red" size="medium" />}
-        {type === 'highlight' && <InfoCircleIcon status="info" size="medium" />}
       </StyledIcon>
     )}
     <BannerContent>{children}</BannerContent>
