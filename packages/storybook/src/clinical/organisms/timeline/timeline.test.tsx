@@ -7,6 +7,7 @@ describe('Timeline', () => {
   it('Renders Without Click Handler', () => {
     const timelineItems = AuditTrail.resources.map((ti) => ({
       auditEvent: ti,
+      isSelected: false,
     }))
 
     render(<Timeline timelineItems={timelineItems} />)
@@ -19,12 +20,13 @@ describe('Timeline', () => {
         // eslint-disable-next-line no-console
         console.log('Clicked')
       },
+      isSelected: false,
     }))
 
     render(<Timeline timelineItems={timelineItems} />)
   })
 
-  it('Renders With Click Handler', () => {
+  it('Shows the click prompt', () => {
     const timelineItems = AuditTrail.resources.map((ti) => ({
       auditEvent: ti,
       clickHandler: () => {
@@ -32,13 +34,10 @@ describe('Timeline', () => {
         console.log('Clicked')
       },
       clickPrompt: 'Click Here Please',
+      isSelected: false,
     }))
 
     render(<Timeline timelineItems={timelineItems} />)
-
-    screen.debug()
-
-    screen.debug(screen.getAllByText('Click Here Please'))
 
     expect(screen.getAllByText('Click Here Please')).toHaveLength(AuditTrail.resources.length)
   })
@@ -47,10 +46,28 @@ describe('Timeline', () => {
     const timelineItems = AuditTrail.resources.map((ti) => ({
       auditEvent: ti,
       clickPrompt: 'Click Here Please',
+      isSelected: false,
     }))
 
     render(<Timeline timelineItems={timelineItems} />)
 
     expect(screen.queryByText('Click Here Please')).not.toBeInTheDocument()
+  })
+
+  it('Shows the deselect prompt over the clickHandler prompt if both are present', () => {
+    const timelineItems = AuditTrail.resources.map((ti) => ({
+      auditEvent: ti,
+      clickHandler: () => {
+        // eslint-disable-next-line no-console
+        console.log('Clicked')
+      },
+      clickPrompt: 'Click Here Please',
+      isSelected: true,
+      deselectPrompt: 'Click here to close me',
+    }))
+
+    render(<Timeline timelineItems={timelineItems} />)
+
+    expect(screen.getAllByText('Click here to close me')).toHaveLength(AuditTrail.resources.length)
   })
 })

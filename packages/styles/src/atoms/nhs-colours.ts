@@ -27,6 +27,14 @@ export const NHS_GREEN = {
   DARKER25: '#00712b',
   LIGHTER25: '#40b06b',
 }
+
+export const NHS_HIGHLIGHT_GREEN = {
+  VALUE: '#E6FF99',
+  DARKER25: '#cfe589',
+  LIGHTER25: '#ebffad',
+  LIGHTER75: '#f5ffd6',
+}
+
 export const NHS_LIGHT_GREEN = {
   VALUE: '#78BE20',
   DARKER25: '#5a8f18',

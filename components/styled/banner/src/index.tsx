@@ -27,6 +27,13 @@ const generateStyles = (type: StatusTypes) => {
         color: BANNER_COLOURS.DANGER.TEXT,
         hover: BANNER_COLOURS.DANGER.HOVER,
       }
+    case 'highlight':
+      return {
+        background: BANNER_COLOURS.HIGHLIGHT.BACKGROUND,
+        borderColor: BANNER_COLOURS.HIGHLIGHT.BORDER,
+        color: BANNER_COLOURS.HIGHLIGHT.TEXT,
+        hover: BANNER_COLOURS.HIGHLIGHT.HOVER,
+      }
     default:
       return {}
   }
@@ -67,6 +74,7 @@ const Banner: FC<IProps> = ({ type = 'info', icon, children, ...rest }) => (
         {type === 'info' && <InfoCircleIcon status="info" size="medium" />}
         {type === 'warning' && <ExclamationIcon status="amber" size="medium" />}
         {type === 'danger' && <ExclamationIcon status="red" size="medium" />}
+        {type === 'highlight' && <InfoCircleIcon status="info" size="medium" />}
       </StyledIcon>
     )}
     <BannerContent>{children}</BannerContent>

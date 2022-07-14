@@ -6,6 +6,7 @@ import AuditTrail, { RedactedAuditTrail } from './timeline.fixtures'
 export const Details: Story = () => {
   const timelineItems = AuditTrail.resources.map((ti) => ({
     auditEvent: ti,
+    isSelected: false,
   }))
 
   return (
@@ -32,6 +33,8 @@ export const ClickableDetails: Story = () => {
           }
         : undefined,
     clickPrompt: idx % 2 === 0 ? `View Form: ${idx}` : undefined,
+    isSelected: idx === 0 ? true : false,
+    deselectPrompt: idx === 0 ? 'Close me' : undefined,
   }))
 
   return (
@@ -51,6 +54,7 @@ export const Redacted: Story = () => {
     auditEvent: ti,
     // eslint-disable-next-line @typescript-eslint/no-empty-function
     clickHandler: () => {},
+    isSelected: false,
   }))
 
   return (

@@ -13,7 +13,7 @@ export enum CodeSystem {
   MedicationTypeIdentifier = 'https://fhir.leedsth.nhs.uk/CodeSystem/medication-type-identifier-1',
 }
 
-export type StatusTypes = 'info' | 'danger' | 'warning'
+export type StatusTypes = 'info' | 'danger' | 'warning' | 'highlight'
 
 export enum DetailViewType {
   Compact = 'COMPACT',
