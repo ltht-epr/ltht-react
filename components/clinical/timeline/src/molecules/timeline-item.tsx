@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import styled from '@emotion/styled'
 import Banner from '@ltht-react/banner'
-import { ChevronIcon, ExternalLinkIcon } from '@ltht-react/icon'
+import { InfoCircleIcon } from '@ltht-react/icon'
 import { HIGHLIGHT_GREEN, TRANSLUCENT_DARK_BLUE } from '@ltht-react/styles'
 import { AuditEvent, Maybe } from '@ltht-react/types'
 import { useWindowSize } from '@ltht-react/hooks'
@@ -105,15 +105,15 @@ const TimelineItem: FC<IProps> = ({ timelineItem }) => {
           </StyledTimelineItemRight>
         </StyledTimelineItemBottom>
         {timelineItem.clickHandler && !timelineItem.isSelected && (
-          <StyledBanner type="info" onClick={timelineItem.clickHandler} icon={<ExternalLinkIcon size="medium" />}>
+          <StyledBanner type="info" onClick={timelineItem.clickHandler}>
             {timelineItem.clickPrompt && <StyledBannerContent>{timelineItem.clickPrompt}</StyledBannerContent>}
           </StyledBanner>
         )}
         {timelineItem.clickHandler && timelineItem.isSelected && (
           <StyledBanner
             type="highlight"
+            icon={<InfoCircleIcon status="info" size="medium" />}
             onClick={timelineItem.clickHandler}
-            icon={<ChevronIcon direction="left" size="medium" />}
           >
             {timelineItem.deselectPrompt && <StyledBannerContent>{timelineItem.deselectPrompt}</StyledBannerContent>}
           </StyledBanner>

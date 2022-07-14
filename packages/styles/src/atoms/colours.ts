@@ -135,6 +135,6 @@ export const BANNER_COLOURS = {
     TEXT: '#0053c3',
     BORDER: '#bdd2ec',
     ICON: '#107dbd',
-    HOVER: '#b2cae6',
+    HOVER: colours.NHS_HIGHLIGHT_GREEN.DARKER50,
   },
 }

@@ -31,6 +31,7 @@ export const NHS_GREEN = {
 export const NHS_HIGHLIGHT_GREEN = {
   VALUE: '#E6FF99',
   DARKER25: '#cfe589',
+  DARKER50: '#b8cc7a',
   LIGHTER25: '#ebffad',
   LIGHTER75: '#f5ffd6',
 }
