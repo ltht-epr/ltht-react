@@ -23,8 +23,8 @@ const StyledTableHeader = styled.th`
   border: 1px solid;
 `
 
-const processColumnItems = (items: Maybe<QuestionnaireItem>[]): Column<KeyValue>[] => {
-  return items.map(item => {
+const processColumnItems = (items: Maybe<QuestionnaireItem>[]): Column<KeyValue>[] =>
+  items.map(item => {
     if (item?.item?.length && item?.item?.length > 0) {
       return {
         Header: item?.text ?? '',
@@ -36,7 +36,6 @@ const processColumnItems = (items: Maybe<QuestionnaireItem>[]): Column<KeyValue>
       accessor: item?.linkId ?? '',
     }
   })
-}
 
 const processResponse = (records: Maybe<QuestionnaireResponse>[]): KeyValue[] => {
   const result: KeyValue[] = []
@@ -51,12 +50,13 @@ const processResponse = (records: Maybe<QuestionnaireResponse>[]): KeyValue[] =>
         if (prop && value) {
           if (value[0]?.item) {
             const items = processResponseItems(value[0]?.item)
-            items.forEach(x => (obj[x.key] = x.value))
+            items.forEach(x => {
+              obj[x.key] = x.value
+            })
           }
           obj[prop] = answerText(value[0]) ?? ''
         }
       }
-      console.log(obj)
       result.push(obj)
     }
   })
@@ -71,7 +71,6 @@ const processResponseItems = (items: Maybe<QuestionnaireResponseItem>[]): Tuple[
       key: '',
       value: '',
     }
-    // console.log(item)
     if (item) {
       const prop = item.linkId
       const value = item.answer
