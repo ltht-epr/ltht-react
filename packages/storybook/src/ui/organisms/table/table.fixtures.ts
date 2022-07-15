@@ -65,58 +65,70 @@ export const summaryDefinition: Questionnaire = {
       item: [
         {
           text: 'RR (breaths/min)',
-          type: QuestionnaireItemTypeCode.QuestionString,
-          linkId: '4.1',
+          type: QuestionnaireItemTypeCode.Group,
+          linkId: '4a',
+          item: [
+            {
+              text: 'RR Part 1 (breaths/min)',
+              type: QuestionnaireItemTypeCode.QuestionString,
+              linkId: '4aa',
+            },
+            {
+              text: 'RR Part 2 (breaths/min)',
+              type: QuestionnaireItemTypeCode.QuestionString,
+              linkId: '4ab',
+            },
+          ],
         },
         {
           text: 'O2 Sat (%)',
           type: QuestionnaireItemTypeCode.QuestionString,
-          linkId: '4.2',
+          linkId: '4b',
         },
         {
           text: 'Supp O2',
           type: QuestionnaireItemTypeCode.QuestionString,
-          linkId: '4.3',
+          linkId: '4c',
         },
         {
           text: 'Blood Pressure',
           type: QuestionnaireItemTypeCode.QuestionString,
-          linkId: '4.4',
+          linkId: '4d',
         },
         {
           text: 'Standing 1 Minute BP',
           type: QuestionnaireItemTypeCode.QuestionString,
-          linkId: '4.5',
+          linkId: '4e',
         },
         {
           text: 'Standing 3 Minute BP',
           type: QuestionnaireItemTypeCode.QuestionString,
-          linkId: '4.6',
+          linkId: '4f',
         },
         {
           text: 'HR (BPM)',
           type: QuestionnaireItemTypeCode.QuestionString,
-          linkId: '4.7',
+          linkId: '4g',
         },
         {
           text: 'Temp (°C)',
           type: QuestionnaireItemTypeCode.QuestionString,
-          linkId: '4.8',
+          linkId: '4h',
         },
         {
           text: 'Consciousness',
           type: QuestionnaireItemTypeCode.QuestionString,
-          linkId: '4.9',
+          linkId: '4i',
         },
         {
           text: 'Pain Score',
           type: QuestionnaireItemTypeCode.QuestionString,
-          linkId: '4.10',
+          linkId: '4j',
         },
         {
           text: 'Blood Glucose (mmol/L)',
           type: QuestionnaireItemTypeCode.QuestionString,
-          linkId: '4.11',
+          linkId: '4k',
         },
       ],
     },
@@ -195,17 +207,39 @@ const summaryRecordOne: QuestionnaireResponse = {
           valueString: 'CHECKBOX',
           item: [
             {
-              linkId: '4.1',
+              linkId: '4a',
               answer: [
                 {
                   valueDateTime: null,
                   valueBoolean: null,
                   valueString: '25',
+                  item: [
+                    {
+                      linkId: '4aa',
+                      answer: [
+                        {
+                          valueDateTime: null,
+                          valueBoolean: null,
+                          valueString: '25(1)',
+                        },
+                      ],
+                    },
+                    {
+                      linkId: '4ab',
+                      answer: [
+                        {
+                          valueDateTime: null,
+                          valueBoolean: null,
+                          valueString: '25(2)',
+                        },
+                      ],
+                    },
+                  ],
                 },
               ],
             },
             {
-              linkId: '4.2',
+              linkId: '4b',
               answer: [
                 {
                   valueDateTime: null,
@@ -215,7 +249,7 @@ const summaryRecordOne: QuestionnaireResponse = {
               ],
             },
             {
-              linkId: '4.3',
+              linkId: '4c',
               answer: [
                 {
                   valueDateTime: null,
@@ -225,7 +259,7 @@ const summaryRecordOne: QuestionnaireResponse = {
               ],
             },
             {
-              linkId: '4.4',
+              linkId: '4d',
               answer: [
                 {
                   valueDateTime: null,
@@ -235,7 +269,7 @@ const summaryRecordOne: QuestionnaireResponse = {
               ],
             },
             {
-              linkId: '4.5',
+              linkId: '4e',
               answer: [
                 {
                   valueDateTime: null,
@@ -245,7 +279,7 @@ const summaryRecordOne: QuestionnaireResponse = {
               ],
             },
             {
-              linkId: '4.6',
+              linkId: '4f',
               answer: [
                 {
                   valueDateTime: null,
@@ -255,7 +289,7 @@ const summaryRecordOne: QuestionnaireResponse = {
               ],
             },
             {
-              linkId: '4.7',
+              linkId: '4g',
               answer: [
                 {
                   valueDateTime: null,
@@ -265,7 +299,7 @@ const summaryRecordOne: QuestionnaireResponse = {
               ],
             },
             {
-              linkId: '4.8',
+              linkId: '4h',
               answer: [
                 {
                   valueDateTime: null,
@@ -275,7 +309,7 @@ const summaryRecordOne: QuestionnaireResponse = {
               ],
             },
             {
-              linkId: '4.9',
+              linkId: '4i',
               answer: [
                 {
                   valueDateTime: null,
@@ -285,7 +319,7 @@ const summaryRecordOne: QuestionnaireResponse = {
               ],
             },
             {
-              linkId: '4.10',
+              linkId: '4j',
               answer: [
                 {
                   valueDateTime: null,
@@ -295,7 +329,7 @@ const summaryRecordOne: QuestionnaireResponse = {
               ],
             },
             {
-              linkId: '4.11',
+              linkId: '4k',
               answer: [
                 {
                   valueDateTime: null,
