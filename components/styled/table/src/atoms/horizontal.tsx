@@ -1,6 +1,7 @@
 import { FC } from 'react'
-import { Column, useTable } from 'react-table'
+import { Column, TableCellProps, useTable } from 'react-table'
 import { answerText, partialDateTimeText } from '@ltht-react/utils'
+import { TRANSLUCENT_BRIGHT_BLUE_TABLE, TRANSLUCENT_GREY_TABLE } from '@ltht-react/styles'
 
 import CssBaseline from '@material-ui/core/CssBaseline'
 import MaUTable from '@material-ui/core/Table'
@@ -15,12 +16,15 @@ const Container = styled.div`
   background-color: white;
 `
 
-const StyledTableCell = styled(TableCell)`
+const StyledTableCell: FC<RowProps> = styled(TableCell)`
   text-align: center !important;
+  background-color: ${(props: RowProps) =>
+    props.rowIndex % 2 === 1 ? TRANSLUCENT_GREY_TABLE : TRANSLUCENT_BRIGHT_BLUE_TABLE};
+}
 `
 
 const StyledTableHeader = styled.th`
-  border: 1px solid;
+  border: 1px solid rgba(200, 200, 200, 1);
 `
 
 const processColumnItems = (items: Maybe<QuestionnaireItem>[]): Column<KeyValue>[] =>
@@ -120,12 +124,14 @@ const HorizontalTable: FC<IProps> = ({ definitionItems, records }) => {
           ))}
         </TableHead>
         <TableBody {...getTableBodyProps()}>
-          {rows.map(row => {
+          {rows.map((row, rowIdx) => {
             prepareRow(row)
             return (
               <TableRow {...row.getRowProps()}>
                 {row.cells.map(cell => (
-                  <StyledTableCell {...cell.getCellProps()}>{cell.render('Cell')}</StyledTableCell>
+                  <StyledTableCell rowIndex={rowIdx} {...cell.getCellProps()}>
+                    {cell.render('Cell')}
+                  </StyledTableCell>
                 ))}
               </TableRow>
             )
@@ -139,6 +145,10 @@ const HorizontalTable: FC<IProps> = ({ definitionItems, records }) => {
 interface IProps {
   definitionItems: Array<Maybe<QuestionnaireItem>>
   records: QuestionnaireResponse[]
+}
+
+interface RowProps extends TableCellProps {
+  rowIndex: number
 }
 
 interface Tuple {

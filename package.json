@@ -63,6 +63,7 @@
     "doc:components": "nx run-many --all --target=docs",
     "lint": "yarn lint:pretty && yarn lint:eslint",
     "lint:eslint": "eslint \"./{components,packages}/**/src/**/*.{ts,tsx}\" --max-warnings=0",
+    "lint:eslint:fix": "eslint \"./{components,packages}/**/src/**/*.{ts,tsx}\" --max-warnings=0 --fix",
     "lint:pretty": "prettylint './{components,packages}/**/src/**/*.{ts,tsx}'",
     "new:version": "lerna version --conventional-commits --yes",
     "new:version:patch": "lerna version patch --yes",

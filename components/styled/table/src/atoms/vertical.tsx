@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { Column, useTable } from 'react-table'
+import { Column, useTable, TableCellProps } from 'react-table'
 
 import CssBaseline from '@material-ui/core/CssBaseline'
 import MaUTable from '@material-ui/core/Table'
@@ -10,13 +10,20 @@ import TableRow from '@material-ui/core/TableRow'
 import { Maybe, QuestionnaireItem, QuestionnaireResponse, KeyValue } from '@ltht-react/types'
 import styled from '@emotion/styled'
 import { answerText, partialDateTimeText } from '@ltht-react/utils'
+import { TRANSLUCENT_BRIGHT_BLUE_TABLE, TRANSLUCENT_GREY_TABLE } from '@ltht-react/styles'
 
 const Container = styled.div`
   background-color: white;
 `
 
-const StyledTableCell = styled(TableCell)`
+const StyledTableCell: FC<CellProps> = styled(TableCell)`
   text-align: center !important;
+  background-color: ${(props: CellProps) =>
+    props.cellIndex % 2 === 1 ? TRANSLUCENT_GREY_TABLE : TRANSLUCENT_BRIGHT_BLUE_TABLE};
+`
+
+const StyledTableHeader = styled.th`
+  border: 1px solid rgba(200, 200, 200, 1);
 `
 
 const VerticalTable: FC<IProps> = ({ definitionItems, records }) => {
@@ -63,7 +70,7 @@ const VerticalTable: FC<IProps> = ({ definitionItems, records }) => {
           {headerGroups.map(headerGroup => (
             <tr {...headerGroup.getHeaderGroupProps()}>
               {headerGroup.headers.map(column => (
-                <th {...column.getHeaderProps()}>{column.render('Header')}</th>
+                <StyledTableHeader {...column.getHeaderProps()}>{column.render('Header')}</StyledTableHeader>
               ))}
             </tr>
           ))}
@@ -73,8 +80,10 @@ const VerticalTable: FC<IProps> = ({ definitionItems, records }) => {
             prepareRow(row)
             return (
               <TableRow {...row.getRowProps()}>
-                {row.cells.map(cell => (
-                  <StyledTableCell {...cell.getCellProps()}>{cell.render('Cell')}</StyledTableCell>
+                {row.cells.map((cell, cellIdx) => (
+                  <StyledTableCell cellIndex={cellIdx} {...cell.getCellProps()}>
+                    {cell.render('Cell')}
+                  </StyledTableCell>
                 ))}
               </TableRow>
             )
@@ -83,6 +92,10 @@ const VerticalTable: FC<IProps> = ({ definitionItems, records }) => {
       </MaUTable>
     </Container>
   )
+}
+
+interface CellProps extends TableCellProps {
+  cellIndex: number
 }
 
 interface IProps {
