@@ -52,7 +52,7 @@ const StyledDialogSheet = styled.div`
 //   }
 // `
 
-const DayPickerInput: FC<Props> = () => {
+const Daypicker: FC<Props> = () => {
   const [selected, setSelected] = useState<Date>()
   const [inputValue, setInputValue] = useState<string>('')
   const [isPopperOpen, setIsPopperOpen] = useState(false)
@@ -68,7 +68,7 @@ const DayPickerInput: FC<Props> = () => {
     setIsPopperOpen(false)
   }
 
-  const handleInputChange: ChangeEventHandler<HTMLInputElement> = e => {
+  const handleInputChange: ChangeEventHandler<HTMLInputElement> = (e) => {
     setInputValue(e.currentTarget.value)
     const date = parse(e.currentTarget.value, 'y-MM-dd', new Date())
     if (isValid(date)) {
@@ -154,4 +154,4 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
   // changeHandler: ((day: Date, DayModifiers: DayModifiers, dayPickerInput: DayPickerInput) => void) | undefined
 }
 
-export default DayPickerInput
+export default Daypicker
