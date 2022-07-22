@@ -1,10 +1,12 @@
 import { ChangeEventHandler, FC, HTMLAttributes, MouseEventHandler, useRef, useState } from 'react'
 import styled from '@emotion/styled'
-import { DayPicker, Modifier, SelectSingleEventHandler } from 'react-day-picker'
-// import { TABLET_MINIMUM_MEDIA_QUERY, TEXT_COLOURS } from '@ltht-react/styles'
+import { DayPicker, SelectSingleEventHandler, DateBefore, Matcher, DateAfter } from 'react-day-picker'
+import { BTN_COLOURS, TEXT_COLOURS, TRANSLUCENT_DARK_BLUE } from '@ltht-react/styles'
+import { Button } from '@ltht-react/button'
 import { usePopper } from 'react-popper'
 import { format, isValid, parse } from 'date-fns'
 import FocusTrap from 'focus-trap-react'
+import { CalendarIcon } from '@ltht-react/icon'
 
 const StyledDialogSheet = styled.div`
   background: white;
@@ -12,50 +14,82 @@ const StyledDialogSheet = styled.div`
   box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.04), 0px 4px 5px rgba(0, 0, 0, 0.06), 0px 2px 4px -1px rgba(0, 0, 0, 0.09);
 `
 
-// const StyledDayPickerInput = styled.div`
-//   margin-bottom: 0.25rem;
-//   display: flex;
-//   flex-direction: column;
+const DayPickerLabel = styled.small`
+  color: ${TEXT_COLOURS.SECONDARY.LIGHTER25};
+`
 
-//   ${TABLET_MINIMUM_MEDIA_QUERY} {
-//     margin-right: 0.5rem;
-//     flex: 1;
-//   }
+const DayPickerInput = styled.input`
+  :focus-visible {
+    outline-color: ${BTN_COLOURS.PRIMARY.VALUE};
+    outline-style: auto;
+    outline-width: 1px;
+  }
+`
 
-//   .DayPickerInput-Overlay {
-//     z-index: 999;
+const InputContainer = styled.div`
+  display: flex;
+`
 
-//     * {
-//       font-size: 0.8rem;
+const StyledButton = styled(Button)`
+  position: relative;
+  right: 30px;
+  width: 30px !important;
+`
 
-//       ${TABLET_MINIMUM_MEDIA_QUERY} {
-//         font-size: 1rem;
-//       }
-//     }
-//   }
+const StyledDayPicker = styled(DayPicker)`
+  button.rdp-button:hover:not([aria-disabled='true']) {
+    background-color: ${TRANSLUCENT_DARK_BLUE};
+  }
 
-//   .DayPickerInput {
-//     width: 100%;
+  button.rdp-day_selected: not([aria-disabled= 'true' ]), button.rdp-day_selected:not([aria-disabled='true']),
+  button.rdp-day_selected:focus:not([aria-disabled='true']),
+  button.rdp-day_selected:active:not([aria-disabled='true']),
+  button.rdp-day_selected:hover:not([aria-disabled='true']) {
+    color: white;
+    background-color: ${BTN_COLOURS.PRIMARY.VALUE};
+  }
 
-//     input {
-//       letter-spacing: 0.03rem;
-//       cursor: pointer;
-//       padding: 0.25rem;
-//       width: 100%;
-//     }
-//   }
+  button.rdp-button:focus, button.rdp-button:active {
+    border-color: ${BTN_COLOURS.PRIMARY.VALUE};
+  }
+`
 
-//   .DayPicker-TodayButton {
-//     width: 100%;
-//     display: block;
-//     text-align: center;
-//   }
-// `
+const Daypicker: FC<Props> = ({
+  initialDate,
+  showIcon,
+  dayFormat,
+  label,
+  minDate,
+  maxDate,
+  navigationNumberOfMonths,
+  changeHandler,
+}) => {
+  // useEffect(() => {
+  //   setTrapActive(true)
+  // })
 
-const Daypicker: FC<Props> = () => {
-  const [selected, setSelected] = useState<Date>()
-  const [inputValue, setInputValue] = useState<string>('')
+  const [selected, setSelected] = useState<Date | undefined>(initialDate)
+  const [inputValue, setInputValue] = useState<string>(format(initialDate ?? new Date(), dayFormat))
   const [isPopperOpen, setIsPopperOpen] = useState(false)
+  // const [trapActive, setTrapActive] = useState(false)
+
+  const disabledDays: Matcher[] = []
+
+  if (minDate) {
+    const disabledBefore: DateBefore = {
+      before: minDate,
+    }
+
+    disabledDays.push(disabledBefore)
+  }
+
+  if (maxDate) {
+    const disabledAfter: DateAfter = {
+      after: maxDate,
+    }
+
+    disabledDays.push(disabledAfter)
+  }
 
   const popperRef = useRef<HTMLDivElement>(null)
   const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(null)
@@ -68,53 +102,63 @@ const Daypicker: FC<Props> = () => {
     setIsPopperOpen(false)
   }
 
+  const selectDate = (date: Date | undefined) => {
+    setSelected(date)
+    changeHandler(date)
+  }
+
   const handleInputChange: ChangeEventHandler<HTMLInputElement> = (e) => {
     setInputValue(e.currentTarget.value)
-    const date = parse(e.currentTarget.value, 'y-MM-dd', new Date())
+    const date = parse(e.currentTarget.value, dayFormat, new Date())
     if (isValid(date)) {
-      setSelected(date)
+      selectDate(date)
     } else {
-      setSelected(undefined)
+      selectDate(undefined)
     }
   }
 
   const handleSelect: SelectSingleEventHandler = (_day, selectedDay, _activeModifiers, _e) => {
-    setSelected(selectedDay)
+    selectDate(selectedDay)
     if (selectedDay) {
-      setInputValue(format(selectedDay, 'y-MM-dd'))
+      setInputValue(format(selectedDay, dayFormat))
       closePopper()
     } else {
       setInputValue('')
     }
   }
 
-  const onInputFocus: MouseEventHandler<HTMLInputElement> = () => {
-    // console.log('Focus')
+  const onInputClick: MouseEventHandler<HTMLInputElement> = () => {
     setIsPopperOpen(true)
   }
 
-  // const onInputBlur: FocusEventHandler<HTMLInputElement> = () => {
-  //   console.log('Blur')
-  //   setIsPopperOpen(false)
-  // }
+  const onButtonClick: MouseEventHandler<HTMLButtonElement> = () => {
+    setIsPopperOpen(!isPopperOpen)
+  }
 
   return (
     <div>
-      <div ref={popperRef}>
-        <input
+      {label && <DayPickerLabel>{label}</DayPickerLabel>}
+      <InputContainer ref={popperRef}>
+        <DayPickerInput
           type="text"
-          placeholder={format(new Date(), 'y-MM-dd')}
+          readOnly
+          placeholder={format(initialDate ?? new Date(), dayFormat)}
           value={inputValue}
           onChange={handleInputChange}
-          onClick={onInputFocus}
-          // onFocus={onInputFocus}
-          // onBlur={onInputBlur}
-          className="input-reset pa2 ma2 bg-white black ba"
+          onClick={!showIcon ? onInputClick : undefined}
         />
-      </div>
+        {showIcon && (
+          <StyledButton
+            type="button"
+            icon={<CalendarIcon size="medium" />}
+            iconPlacement="center"
+            onClick={onButtonClick}
+          />
+        )}
+      </InputContainer>
       {isPopperOpen && (
         <FocusTrap
-          active
+          active={false}
           focusTrapOptions={{
             initialFocus: false,
             allowOutsideClick: true,
@@ -125,17 +169,21 @@ const Daypicker: FC<Props> = () => {
           <StyledDialogSheet
             tabIndex={-1}
             style={popper.styles.popper}
-            className="dialog-sheet"
             {...popper.attributes.popper}
             ref={setPopperElement}
             role="dialog"
           >
-            <DayPicker
+            <StyledDayPicker
               initialFocus={isPopperOpen}
               mode="single"
               defaultMonth={selected}
               selected={selected}
               onSelect={handleSelect}
+              fromMonth={minDate}
+              toMonth={maxDate}
+              disabled={disabledDays}
+              numberOfMonths={navigationNumberOfMonths}
+              pagedNavigation
             />
           </StyledDialogSheet>
         </FocusTrap>
@@ -145,13 +193,20 @@ const Daypicker: FC<Props> = () => {
 }
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
-  selectedDate?: Date
+  initialDate?: Date
+  showIcon: boolean
   dayFormat: string
   label?: string
-  fromMonth?: Date | undefined
-  toMonth?: Date | undefined
-  disabledDays?: Modifier | Modifier[]
-  // changeHandler: ((day: Date, DayModifiers: DayModifiers, dayPickerInput: DayPickerInput) => void) | undefined
+  minDate?: Date | undefined
+  maxDate?: Date | undefined
+  /**
+   * The number of displayed months in navigation. Defaults to `1`.
+   */
+  navigationNumberOfMonths?: number | undefined
+  /**
+   * Executes whenever a day is selected from picker
+   */
+  changeHandler: (day: Date | undefined) => void | undefined
 }
 
 export default Daypicker
