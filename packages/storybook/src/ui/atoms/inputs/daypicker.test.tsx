@@ -25,6 +25,7 @@ describe('<Daypicker showIcon/>', () => {
     expect(input).toBeInTheDocument()
     expect(screen.queryByDisplayValue(format(minDate, dayFormat))).toBeNull()
     expect(screen.queryByDisplayValue(format(maxDate, dayFormat))).toBeNull()
+    expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
   })
 
   it('Daypicker input clicked should NOT open datepicker dialog', () => {
@@ -98,6 +99,32 @@ describe('<Daypicker showIcon=false/>', () => {
 
     const input = screen.getByDisplayValue(format(initialDate, dayFormat))
     fireEvent.click(input)
+    expect(screen.getByRole('dialog')).toBeInTheDocument()
+  })
+})
+
+describe('<Daypicker pickerOpen />', () => {
+  beforeEach(() => {
+    render(
+      <Daypicker
+        dayFormat={dayFormat}
+        changeHandler={mockOnClick1}
+        initialDate={initialDate}
+        pickerOpen
+        showIcon={false}
+      />
+    )
+  })
+
+  it('Daypicker input should exist with initial text, not the mins or maxs', () => {
+    const input = screen.getByDisplayValue(format(initialDate, dayFormat))
+
+    expect(input).toBeInTheDocument()
+    expect(screen.queryByDisplayValue(format(minDate, dayFormat))).toBeNull()
+    expect(screen.queryByDisplayValue(format(maxDate, dayFormat))).toBeNull()
+  })
+
+  it('Daypicker input clicked should open datepicker dialog', () => {
     expect(screen.getByRole('dialog')).toBeInTheDocument()
   })
 })

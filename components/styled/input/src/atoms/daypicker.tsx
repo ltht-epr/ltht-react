@@ -9,6 +9,7 @@ import FocusTrap from 'focus-trap-react'
 import { CalendarIcon } from '@ltht-react/icon'
 
 const StyledDialogSheet = styled.div`
+  z-index: 1;
   background: white;
   border-radius: 4px;
   box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.04), 0px 4px 5px rgba(0, 0, 0, 0.06), 0px 2px 4px -1px rgba(0, 0, 0, 0.09);
@@ -26,14 +27,16 @@ const DayPickerInput = styled.input`
   }
 `
 
-const InputContainer = styled.div`
+const InputContainer = styled.div<InputProps>`
   display: flex;
+  margin-right: ${({ showIcon }) => (showIcon ? '0rem;' : '2rem;')};
+  height: 1.5rem;
 `
 
 const StyledButton = styled(Button)`
   position: relative;
-  right: 30px;
-  width: 30px !important;
+  right: 2rem;
+  width: 2rem !important;
 `
 
 const StyledDayPicker = styled(DayPicker)`
@@ -54,8 +57,9 @@ const StyledDayPicker = styled(DayPicker)`
   }
 `
 
-const Daypicker: FC<Props> = ({
+const Daypicker: FC<DaypickerProps> = ({
   initialDate,
+  pickerOpen,
   showIcon,
   dayFormat,
   label,
@@ -63,6 +67,7 @@ const Daypicker: FC<Props> = ({
   maxDate,
   navigationNumberOfMonths,
   changeHandler,
+  buttonHandler,
 }) => {
   // useEffect(() => {
   //   setTrapActive(true)
@@ -70,7 +75,7 @@ const Daypicker: FC<Props> = ({
 
   const [selected, setSelected] = useState<Date | undefined>(initialDate)
   const [inputValue, setInputValue] = useState<string>(format(initialDate ?? new Date(), dayFormat))
-  const [isPopperOpen, setIsPopperOpen] = useState(false)
+  const [isPopperOpen, setIsPopperOpen] = useState(pickerOpen ?? false)
   // const [trapActive, setTrapActive] = useState(false)
 
   const disabledDays: Matcher[] = []
@@ -104,7 +109,7 @@ const Daypicker: FC<Props> = ({
 
   const selectDate = (date: Date | undefined) => {
     setSelected(date)
-    changeHandler(date)
+    changeHandler && changeHandler(date)
   }
 
   const handleInputChange: ChangeEventHandler<HTMLInputElement> = (e) => {
@@ -132,13 +137,15 @@ const Daypicker: FC<Props> = ({
   }
 
   const onButtonClick: MouseEventHandler<HTMLButtonElement> = () => {
-    setIsPopperOpen(!isPopperOpen)
+    const popperOpen = !isPopperOpen
+    setIsPopperOpen(popperOpen)
+    buttonHandler && buttonHandler(popperOpen)
   }
 
   return (
-    <div>
+    <>
       {label && <DayPickerLabel>{label}</DayPickerLabel>}
-      <InputContainer ref={popperRef}>
+      <InputContainer ref={popperRef} showIcon={showIcon}>
         <DayPickerInput
           type="text"
           readOnly
@@ -188,12 +195,17 @@ const Daypicker: FC<Props> = ({
           </StyledDialogSheet>
         </FocusTrap>
       )}
-    </div>
+    </>
   )
 }
 
-interface Props extends HTMLAttributes<HTMLDivElement> {
+interface InputProps extends HTMLAttributes<HTMLDivElement> {
+  showIcon: boolean
+}
+
+export interface DaypickerProps extends HTMLAttributes<HTMLDivElement> {
   initialDate?: Date
+  pickerOpen?: boolean | undefined
   showIcon: boolean
   dayFormat: string
   label?: string
@@ -206,7 +218,11 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
   /**
    * Executes whenever a day is selected from picker
    */
-  changeHandler: (day: Date | undefined) => void | undefined
+  changeHandler?: (day: Date | undefined) => void | undefined
+  /**
+   * Executes when the button icon clicked
+   */
+  buttonHandler?: (datepickerOpen: boolean) => void | undefined
 }
 
 export default Daypicker
