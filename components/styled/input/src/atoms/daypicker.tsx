@@ -165,10 +165,13 @@ const Daypicker: FC<DaypickerProps> = ({
       </InputContainer>
       {isPopperOpen && (
         <FocusTrap
-          active={false}
+          active={isPopperOpen}
           focusTrapOptions={{
+            tabbableOptions: {
+              displayCheck: 'none',
+            },
             initialFocus: false,
-            allowOutsideClick: true,
+            allowOutsideClick: false,
             clickOutsideDeactivates: true,
             onDeactivate: closePopper,
           }}

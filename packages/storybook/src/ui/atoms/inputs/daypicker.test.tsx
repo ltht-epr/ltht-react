@@ -1,6 +1,7 @@
 import { fireEvent, render, screen } from '@testing-library/react'
 import { Daypicker } from '@ltht-react/input'
 import { format } from 'date-fns'
+import Card from '@ltht-react/card'
 
 const mockOnClick1 = jest.fn()
 
@@ -11,8 +12,6 @@ const maxDate = new Date()
 const minDate = new Date()
 maxDate.setMonth(maxDate.getMonth() + 1)
 minDate.setMonth(minDate.getMonth() - 1)
-
-// TODO issue with focusTrap and click events
 
 describe('<Daypicker showIcon/>', () => {
   beforeEach(() => {
@@ -35,10 +34,9 @@ describe('<Daypicker showIcon/>', () => {
     expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
   })
 
-  it('Daypicker button icon clicked should open datepicker dialog', () => {
+  it('Daypicker button icon clicked should open datepicker dialog', async () => {
     const button = screen.getByRole('button')
     fireEvent.click(button)
-    // console.log(prettyDOM(button))
     expect(screen.getByRole('dialog')).toBeInTheDocument()
   })
 
@@ -82,7 +80,13 @@ describe('<Daypicker showIcon/>', () => {
 
 describe('<Daypicker showIcon=false/>', () => {
   beforeEach(() => {
-    render(<Daypicker dayFormat={dayFormat} changeHandler={mockOnClick1} initialDate={initialDate} showIcon={false} />)
+    render(
+      <Card>
+        <Card.Header>
+          <Daypicker dayFormat={dayFormat} changeHandler={mockOnClick1} initialDate={initialDate} showIcon={false} />
+        </Card.Header>
+      </Card>
+    )
   })
 
   it('Daypicker input should exist with initial text, not the mins or maxs', () => {
@@ -96,7 +100,6 @@ describe('<Daypicker showIcon=false/>', () => {
   it('Daypicker input clicked should open datepicker dialog', () => {
     const button = screen.queryByRole('button')
     expect(button).toBeNull()
-
     const input = screen.getByDisplayValue(format(initialDate, dayFormat))
     fireEvent.click(input)
     expect(screen.getByRole('dialog')).toBeInTheDocument()
@@ -118,7 +121,6 @@ describe('<Daypicker pickerOpen />', () => {
 
   it('Daypicker input should exist with initial text, not the mins or maxs', () => {
     const input = screen.getByDisplayValue(format(initialDate, dayFormat))
-
     expect(input).toBeInTheDocument()
     expect(screen.queryByDisplayValue(format(minDate, dayFormat))).toBeNull()
     expect(screen.queryByDisplayValue(format(maxDate, dayFormat))).toBeNull()
