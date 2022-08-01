@@ -40,7 +40,7 @@ describe('<Daypicker showIcon/>', () => {
     expect(screen.getByRole('dialog')).toBeInTheDocument()
   })
 
-  it('Daypicker button icon double clicked should close datepicker dialog', () => {
+  it('Daypicker button icon double clicked should close datepicker dialog', async () => {
     const button = screen.getByRole('button')
     fireEvent.dblClick(button)
     expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
@@ -126,7 +126,7 @@ describe('<Daypicker pickerOpen />', () => {
     expect(screen.queryByDisplayValue(format(maxDate, dayFormat))).toBeNull()
   })
 
-  it('Daypicker input clicked should open datepicker dialog', () => {
+  it('Daypicker dialog should be visible by default', () => {
     expect(screen.getByRole('dialog')).toBeInTheDocument()
   })
 })

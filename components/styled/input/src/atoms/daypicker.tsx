@@ -69,14 +69,9 @@ const Daypicker: FC<DaypickerProps> = ({
   changeHandler,
   buttonHandler,
 }) => {
-  // useEffect(() => {
-  //   setTrapActive(true)
-  // })
-
   const [selected, setSelected] = useState<Date | undefined>(initialDate)
   const [inputValue, setInputValue] = useState<string>(format(initialDate ?? new Date(), dayFormat))
   const [isPopperOpen, setIsPopperOpen] = useState(pickerOpen ?? false)
-  // const [trapActive, setTrapActive] = useState(false)
 
   const disabledDays: Matcher[] = []
 
@@ -143,39 +138,39 @@ const Daypicker: FC<DaypickerProps> = ({
   }
 
   return (
-    <>
-      {label && <DayPickerLabel>{label}</DayPickerLabel>}
-      <InputContainer ref={popperRef} showIcon={showIcon}>
-        <DayPickerInput
-          type="text"
-          readOnly
-          placeholder={format(initialDate ?? new Date(), dayFormat)}
-          value={inputValue}
-          onChange={handleInputChange}
-          onClick={!showIcon ? onInputClick : undefined}
-        />
-        {showIcon && (
-          <StyledButton
-            type="button"
-            icon={<CalendarIcon size="medium" />}
-            iconPlacement="center"
-            onClick={onButtonClick}
+    <FocusTrap
+      active={isPopperOpen}
+      focusTrapOptions={{
+        tabbableOptions: {
+          displayCheck: 'none',
+        },
+        initialFocus: false,
+        allowOutsideClick: false,
+        clickOutsideDeactivates: true,
+        onDeactivate: closePopper,
+      }}
+    >
+      <div>
+        {label && <DayPickerLabel>{label}</DayPickerLabel>}
+        <InputContainer ref={popperRef} showIcon={showIcon}>
+          <DayPickerInput
+            type="text"
+            readOnly
+            placeholder={format(initialDate ?? new Date(), dayFormat)}
+            value={inputValue}
+            onChange={handleInputChange}
+            onClick={!showIcon ? onInputClick : undefined}
           />
-        )}
-      </InputContainer>
-      {isPopperOpen && (
-        <FocusTrap
-          active={isPopperOpen}
-          focusTrapOptions={{
-            tabbableOptions: {
-              displayCheck: 'none',
-            },
-            initialFocus: false,
-            allowOutsideClick: false,
-            clickOutsideDeactivates: true,
-            onDeactivate: closePopper,
-          }}
-        >
+          {showIcon && (
+            <StyledButton
+              type="button"
+              icon={<CalendarIcon size="medium" />}
+              iconPlacement="center"
+              onClick={onButtonClick}
+            />
+          )}
+        </InputContainer>
+        {isPopperOpen && (
           <StyledDialogSheet
             tabIndex={-1}
             style={popper.styles.popper}
@@ -196,9 +191,9 @@ const Daypicker: FC<DaypickerProps> = ({
               pagedNavigation
             />
           </StyledDialogSheet>
-        </FocusTrap>
-      )}
-    </>
+        )}
+      </div>
+    </FocusTrap>
   )
 }
 
