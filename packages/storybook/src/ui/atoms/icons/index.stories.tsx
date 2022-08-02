@@ -1,3 +1,4 @@
+export * from './bullseye-icon.stories'
 export * from './chevron-icon.stories'
 export * from './circle-icon.stories'
 export * from './column-icon.stories'
