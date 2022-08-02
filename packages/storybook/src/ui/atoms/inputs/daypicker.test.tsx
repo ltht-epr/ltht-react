@@ -1,7 +1,8 @@
-import { fireEvent, render, screen } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import { Daypicker } from '@ltht-react/input'
 import { format } from 'date-fns'
 import Card from '@ltht-react/card'
+import userEvent from '@testing-library/user-event'
 
 const mockOnClick1 = jest.fn()
 
@@ -20,7 +21,6 @@ describe('<Daypicker showIcon/>', () => {
 
   it('Daypicker input should exist with initial text, not the mins or maxs', () => {
     const input = screen.getByDisplayValue(format(initialDate, dayFormat))
-
     expect(input).toBeInTheDocument()
     expect(screen.queryByDisplayValue(format(minDate, dayFormat))).toBeNull()
     expect(screen.queryByDisplayValue(format(maxDate, dayFormat))).toBeNull()
@@ -29,27 +29,26 @@ describe('<Daypicker showIcon/>', () => {
 
   it('Daypicker input clicked should NOT open datepicker dialog', () => {
     const input = screen.getByDisplayValue(format(initialDate, dayFormat))
-    fireEvent.click(input)
-    // console.log(prettyDOM(button))
+    userEvent.click(input)
     expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
   })
 
   it('Daypicker button icon clicked should open datepicker dialog', async () => {
     const button = screen.getByRole('button')
-    fireEvent.click(button)
+    userEvent.click(button)
     expect(screen.getByRole('dialog')).toBeInTheDocument()
   })
 
   it('Daypicker button icon double clicked should close datepicker dialog', async () => {
     const button = screen.getByRole('button')
-    fireEvent.dblClick(button)
+    userEvent.dblClick(button)
     expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
   })
 
   it('Daypicker button icon triple clicked should open datepicker dialog', () => {
     const button = screen.getByRole('button')
-    fireEvent.dblClick(button)
-    fireEvent.click(button)
+    userEvent.dblClick(button)
+    userEvent.click(button)
     expect(screen.getByRole('dialog')).toBeInTheDocument()
   })
 
@@ -58,14 +57,13 @@ describe('<Daypicker showIcon/>', () => {
     expect(input).toBeInTheDocument()
     expect(input).toHaveValue(format(initialDate, dayFormat))
     const button = screen.getByRole('button')
-    fireEvent.click(button)
+    userEvent.click(button)
     const newDay = 16
     const newDate = screen.getByText(newDay)
     const cell = newDate.closest('button')
     if (cell) {
       expect(cell).not.toBeNull()
-      fireEvent.click(cell)
-      // console.log(prettyDOM(cell))
+      userEvent.click(cell)
       expect(mockOnClick1).toBeCalledTimes(1)
       const newDate = new Date()
       newDate.setDate(newDay)
@@ -101,7 +99,7 @@ describe('<Daypicker showIcon=false/>', () => {
     const button = screen.queryByRole('button')
     expect(button).toBeNull()
     const input = screen.getByDisplayValue(format(initialDate, dayFormat))
-    fireEvent.click(input)
+    userEvent.click(input)
     expect(screen.getByRole('dialog')).toBeInTheDocument()
   })
 })

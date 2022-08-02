@@ -35,20 +35,25 @@ const toChangeHandler = (date: Date | undefined) => {
 
 // eslint-disable-next-line import/prefer-default-export
 export const DaypickerRangeIconInput: Story = () => {
-  const fromDate = new Date()
-  fromDate.setMonth(fromDate.getMonth() - 1)
-  const toDate = new Date()
-  toDate.setMonth(toDate.getMonth() + 1)
+  // const fromDate = new Date()
+  // fromDate.setMonth(fromDate.getMonth() - 1)
+  // const toDate = new Date()
+  // toDate.setMonth(toDate.getMonth() + 1)
 
-  const minDate = getOneYearBeforeDate(fromDate)
-  const maxDate = getOneYearAfterDate(toDate)
+  const fromDate = new Date()
+  fromDate.setDate(1)
+  const toDate = new Date()
+  toDate.setDate(28)
+
+  // const minDate = getOneYearBeforeDate(fromDate)
+  // const maxDate = getOneYearAfterDate(toDate)
 
   const fromProps: fromDaypickerRangeProps = {
     showIcon: true,
     label: 'From Date',
     dayFormat: 'dd-MMM-yyyy',
     initialDate: fromDate,
-    minDate,
+    minDate: fromDate,
     changeHandler: fromChangeHandler,
   }
 
@@ -57,7 +62,7 @@ export const DaypickerRangeIconInput: Story = () => {
     label: 'To Date',
     dayFormat: 'dd-MMM-yyyy',
     initialDate: toDate,
-    maxDate,
+    maxDate: toDate,
     changeHandler: toChangeHandler,
   }
 

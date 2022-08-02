@@ -1,6 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import { DaypickerRange, fromDaypickerRangeProps, toDaypickerRangeProps } from '@ltht-react/input'
 import { format } from 'date-fns'
+import userEvent from '@testing-library/user-event'
 
 const mockOnClick1 = jest.fn()
 const mockOnClick2 = jest.fn()
@@ -19,33 +20,32 @@ const getOneYearAfterDate = (date: Date) => {
   return newDate
 }
 
+const dayFormat = 'dd-MMM-yyyy'
 const fromDate = new Date()
-fromDate.setMonth(fromDate.getMonth() - 1)
+fromDate.setDate(1)
 const toDate = new Date()
-toDate.setMonth(toDate.getMonth() + 1)
+toDate.setDate(28)
 
 const minDate = getOneYearBeforeDate(fromDate)
 const maxDate = getOneYearAfterDate(toDate)
 
 const fromProps: fromDaypickerRangeProps = {
-  showIcon: false,
+  showIcon: true,
   label: 'From Date',
-  dayFormat: 'dd-MMM-yyyy',
+  dayFormat,
   initialDate: fromDate,
   minDate,
   changeHandler: mockOnClick1,
 }
 
 const toProps: toDaypickerRangeProps = {
-  showIcon: false,
+  showIcon: true,
   label: 'To Date',
-  dayFormat: 'dd-MMM-yyyy',
+  dayFormat,
   initialDate: toDate,
   maxDate,
   changeHandler: mockOnClick2,
 }
-
-// TODO issue with focusTrap and click events
 
 describe('<DaypickerRange showIcon/>', () => {
   beforeEach(() => {
@@ -63,11 +63,46 @@ describe('<DaypickerRange showIcon/>', () => {
     expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
   })
 
-  // it('Daypicker range button icon clicked should open datepicker dialog', () => {
-  //   // const button1 = screen.getAllByRole('button')
-  //   // console.log(prettyDOM(button1))
-  //   // fireEvent.click(button1)
-  //   expect(screen.queryAllByRole('dialog')).toBeInTheDocument()
-  //   expect(screen.queryAllByRole('dialog')).toHaveLength(1)
-  // })
+  it('Daypicker range first button clicked should open one datepicker dialog', () => {
+    const buttons = screen.getAllByRole('button')
+    userEvent.click(buttons[0])
+    expect(screen.getByRole('dialog')).toBeInTheDocument()
+    expect(screen.queryAllByRole('dialog')).toHaveLength(1)
+  })
+
+  it('Daypicker range from date selected changes input text and value, and changes minDate for ToPicker', () => {
+    const buttons = screen.getAllByRole('button')
+    userEvent.click(buttons[0])
+    const newDay = 10
+    const newDateText = screen.getByText(newDay)
+    const cell = newDateText.closest('button')
+    if (cell) {
+      expect(cell).not.toBeNull()
+      userEvent.click(cell)
+      expect(mockOnClick1).toBeCalledTimes(1)
+      const newDate = new Date()
+      newDate.setDate(newDay)
+      const input = screen.getByDisplayValue(format(newDate, dayFormat))
+      expect(input).toBeInTheDocument()
+      expect(input).toHaveValue(format(newDate, dayFormat))
+
+      // changed ToPicker...
+      userEvent.click(buttons[1])
+      expect(screen.queryAllByRole('dialog')).toHaveLength(1)
+      const disabledDay = 9
+      const disabledDateText = screen.getByText(disabledDay)
+      const disabledCell = disabledDateText.closest('button')
+      if (disabledCell) {
+        expect(disabledCell).toHaveAttribute('aria-disabled', 'true')
+        userEvent.click(disabledCell)
+        expect(mockOnClick2).toBeCalledTimes(0)
+        const disabledDate = new Date()
+        disabledDate.setDate(disabledDay)
+        const input = screen.queryByDisplayValue(format(disabledDate, dayFormat))
+        expect(input).toBeNull()
+      }
+    } else {
+      throw new Error('No button found')
+    }
+  })
 })

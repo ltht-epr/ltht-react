@@ -118,6 +118,9 @@ const Daypicker: FC<DaypickerProps> = ({
   }
 
   const handleSelect: SelectSingleEventHandler = (_day, selectedDay, _activeModifiers, _e) => {
+    if (_activeModifiers.disabled) {
+      return
+    }
     selectDate(selectedDay)
     if (selectedDay) {
       setInputValue(format(selectedDay, dayFormat))
