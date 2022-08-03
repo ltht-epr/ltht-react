@@ -51,7 +51,7 @@ const formatPatientAge = (patient: Patient | undefined, deceased: boolean): stri
 
   // Children 12 to 24 months: **months and days**.
   if (yearAge === 1) {
-    return `${12 + monthAge}m${String(dateAge) ? ` ${dateAge}d` : ''}`
+    return `${12 + monthAge}m${String(dateAge) && dateAge > 0 ? ` ${dateAge}d` : ''}`
   }
 
   // Calculate age measured in simple units.
