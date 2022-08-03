@@ -35,11 +35,11 @@
     "date-fns": "^2.22.1",
     "react": "^17.0.0",
     "react-day-picker": "^8.0.7",
-    "popper": "latest",
-    "react-popper": "latest",
-    "@popperjs/core": "latest",
-    "focus-trap-react": "latest",
-    "prop-types": "latest"
+    "popper": "^1.0.1",
+    "react-popper": "^2.3.0",
+    "@popperjs/core": "^2.11.5",
+    "focus-trap-react": "^9.0.2",
+    "prop-types": "^15.8.1"
   },
   "gitHead": "4d364556bb11e294d86697c2dac66742f7aabc7f"
 }

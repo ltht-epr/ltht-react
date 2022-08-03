@@ -1,7 +1,6 @@
 import { Story } from '@storybook/react'
 import { Daypicker } from '@ltht-react/input'
 import Card from '@ltht-react/card'
-// TODO figure out how to get css styles into functional comp.
 import 'react-day-picker/dist/style.css'
 
 const getOneYearBeforeDate = (date: Date) => {
