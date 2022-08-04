@@ -3,7 +3,7 @@ import styled from '@emotion/styled'
 import Banner from '@ltht-react/banner'
 import { InfoCircleIcon } from '@ltht-react/icon'
 import { HIGHLIGHT_GREEN, TRANSLUCENT_DARK_BLUE } from '@ltht-react/styles'
-import { AuditEvent, Maybe } from '@ltht-react/types'
+import { AuditEvent, DocumentReference, Maybe } from '@ltht-react/types'
 import { useWindowSize } from '@ltht-react/hooks'
 import { isMobileView } from '@ltht-react/utils'
 import TimelineDescription from '../atoms/timeline-description'
@@ -72,54 +72,52 @@ const TimelineItem: FC<IProps> = ({ timelineItem }) => {
   const { width } = useWindowSize()
   const isMobile = isMobileView(width)
 
-  if (!timelineItem?.auditEvent) {
+  if (!timelineItem?.domainResource) {
     return <></>
   }
 
   return (
-    <>
-      <StyledTimelineItem isSelected={timelineItem.isSelected}>
-        <StyledTimelineItemTop>
-          <StyledTitle isMobile={isMobile}>
-            <TimelineTitle audit={timelineItem.auditEvent} />
-          </StyledTitle>
-          {isMobile && (
-            <StyledTimelineTime>
-              <TimelineTime audit={timelineItem.auditEvent} />
-            </StyledTimelineTime>
-          )}
-        </StyledTimelineItemTop>
-        <StyledTimelineItemMiddle>
-          <StyledDescription>
-            <TimelineDescription outcomeDesc={timelineItem.auditEvent.outcomeDesc} />
-          </StyledDescription>
-        </StyledTimelineItemMiddle>
-        <StyledTimelineItemBottom>
-          <StyledTimelineItemLeft>
-            <TimelineAuthor audit={timelineItem.auditEvent} />
-          </StyledTimelineItemLeft>
-          <StyledTimelineItemRight>
-            <StyledStatus>
-              <TimelineStatus />
-            </StyledStatus>
-          </StyledTimelineItemRight>
-        </StyledTimelineItemBottom>
-        {timelineItem.clickHandler && !timelineItem.isSelected && (
-          <StyledBanner type="info" onClick={timelineItem.clickHandler}>
-            {timelineItem.clickPrompt && <StyledBannerContent>{timelineItem.clickPrompt}</StyledBannerContent>}
-          </StyledBanner>
+    <StyledTimelineItem isSelected={timelineItem.isSelected ?? false} key={timelineItem.domainResource.id}>
+      <StyledTimelineItemTop>
+        <StyledTitle isMobile={isMobile}>
+          <TimelineTitle domainResource={timelineItem.domainResource} />
+        </StyledTitle>
+        {isMobile && (
+          <StyledTimelineTime>
+            <TimelineTime domainResource={timelineItem.domainResource} />
+          </StyledTimelineTime>
         )}
-        {timelineItem.clickHandler && timelineItem.isSelected && (
-          <StyledBanner
-            type="highlight"
-            icon={<InfoCircleIcon status="info" size="medium" />}
-            onClick={timelineItem.clickHandler}
-          >
-            {timelineItem.deselectPrompt && <StyledBannerContent>{timelineItem.deselectPrompt}</StyledBannerContent>}
-          </StyledBanner>
-        )}
-      </StyledTimelineItem>
-    </>
+      </StyledTimelineItemTop>
+      <StyledTimelineItemMiddle>
+        <StyledDescription>
+          <TimelineDescription domainResource={timelineItem.domainResource} />
+        </StyledDescription>
+      </StyledTimelineItemMiddle>
+      <StyledTimelineItemBottom>
+        <StyledTimelineItemLeft>
+          <TimelineAuthor domainResource={timelineItem.domainResource} />
+        </StyledTimelineItemLeft>
+        <StyledTimelineItemRight>
+          <StyledStatus>
+            <TimelineStatus />
+          </StyledStatus>
+        </StyledTimelineItemRight>
+      </StyledTimelineItemBottom>
+      {timelineItem.clickHandler && !timelineItem.isSelected && (
+        <StyledBanner type="info" onClick={timelineItem.clickHandler}>
+          {timelineItem.clickPrompt && <StyledBannerContent>{timelineItem.clickPrompt}</StyledBannerContent>}
+        </StyledBanner>
+      )}
+      {timelineItem.clickHandler && timelineItem.isSelected && (
+        <StyledBanner
+          type="highlight"
+          icon={<InfoCircleIcon status="info" size="medium" />}
+          onClick={timelineItem.clickHandler}
+        >
+          {timelineItem.deselectPrompt && <StyledBannerContent>{timelineItem.deselectPrompt}</StyledBannerContent>}
+        </StyledBanner>
+      )}
+    </StyledTimelineItem>
   )
 }
 
@@ -128,10 +126,10 @@ interface IProps {
 }
 
 export interface ITimelineItem {
-  auditEvent: Maybe<AuditEvent>
+  domainResource?: Maybe<AuditEvent | DocumentReference>
   clickHandler?(): void
   clickPrompt?: string
-  isSelected: boolean
+  isSelected: boolean | undefined
   deselectPrompt?: string
 }
 
