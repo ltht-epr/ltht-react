@@ -1943,3 +1943,162 @@ export const MissingAnswersExampleData: QuestionnaireResponse = {
     },
   ],
 }
+
+export const DischargeDestinationExampleData: QuestionnaireResponse = {
+  id: '788c08bc-b8b6-4265-91eb-cf116ef63aba',
+  status: QuestionnaireResponseStatus.Completed,
+  authored: {
+    kind: PartialDateTimeKindCode.DateTime,
+    value: '2022-08-04T10:02:14.903+00:00',
+  },
+  author: {
+    typeName: 'EhrUser',
+    identifier: {
+      system: null,
+      value: '13b66ada-eee1-4084-b824-5aa3f2deb064',
+    },
+    display: 'SYKES, Michelle Project Nurse, The Leeds Teaching Hospitals NHS Trust',
+  },
+  questionnaire: {
+    id: '4789c2b3-7e37-4dd7-9642-0d456ae2f2bd',
+    url: null,
+    version: '1',
+    title: 'Discharge Destination',
+    status: QuestionnairePublicationStatus.Active,
+    metadata: mockMetadata,
+    identifier: [
+      {
+        system: 'http://leedsth.nhs.uk/user/guid',
+        value: 'cfe6a9d7-f23d-4bb9-a28d-8a3895bee48a',
+      },
+    ],
+    item: [
+      {
+        linkId: '1',
+        text: 'Discharge',
+        type: QuestionnaireItemTypeCode.Group,
+        repeats: false,
+        item: [
+          {
+            linkId: '1.1',
+            text: 'Expected discharge destination',
+            type: QuestionnaireItemTypeCode.QuestionString,
+            item: null,
+          },
+          {
+            linkId: '1.2',
+            text:
+              'Is the patient still residing in hospital because a COVID-19 test or test result is still outstanding?',
+            type: QuestionnaireItemTypeCode.QuestionBoolean,
+            item: null,
+          },
+        ],
+      },
+      {
+        linkId: '2',
+        text: 'External Transfer',
+        repeats: false,
+        type: QuestionnaireItemTypeCode.Group,
+        item: [
+          {
+            linkId: '2.1',
+            text: 'Hospital',
+            type: QuestionnaireItemTypeCode.QuestionString,
+            item: null,
+          },
+          {
+            linkId: '2.2',
+            text: 'Other Hospital',
+            type: QuestionnaireItemTypeCode.QuestionString,
+            item: null,
+          },
+          {
+            linkId: '2.3',
+            text: 'Additional Details',
+            type: QuestionnaireItemTypeCode.QuestionString,
+            item: null,
+          },
+        ],
+      },
+      {
+        linkId: '3',
+        text: 'Discharge Address',
+        type: QuestionnaireItemTypeCode.Group,
+        repeats: false,
+        item: [
+          {
+            linkId: '3.1',
+            text: 'Address',
+            type: QuestionnaireItemTypeCode.QuestionString,
+            item: null,
+          },
+          {
+            linkId: '3.2',
+            text: 'Postcode',
+            type: QuestionnaireItemTypeCode.QuestionString,
+            item: null,
+          },
+          {
+            linkId: '3.3',
+            text: 'Telephone Number',
+            type: QuestionnaireItemTypeCode.QuestionString,
+            item: null,
+          },
+        ],
+      },
+    ],
+  },
+  item: [
+    {
+      linkId: '2',
+      text: 'External Transfer',
+      answer: null,
+      item: [
+        {
+          linkId: '2.1',
+          text: null,
+          answer: [
+            {
+              valueString: 'Dewsbury District Hospital',
+              valueBoolean: null,
+              valueDateTime: null,
+            },
+          ],
+          item: [],
+        },
+        {
+          linkId: '2.3',
+          text: null,
+          answer: [],
+          item: [],
+        },
+      ],
+    },
+    {
+      linkId: '3',
+      text: 'Discharge Address',
+      answer: null,
+      item: [
+        {
+          linkId: '3.1',
+          text: null,
+          answer: [],
+          item: [],
+        },
+        {
+          linkId: '3.2',
+          text: null,
+          answer: [],
+          item: [],
+        },
+        {
+          linkId: '3.3',
+          text: null,
+          answer: [],
+          item: [],
+        },
+      ],
+    },
+  ],
+  metadata: mockMetadata,
+}
