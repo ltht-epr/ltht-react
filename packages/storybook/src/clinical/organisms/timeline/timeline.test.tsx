@@ -11,7 +11,8 @@ describe('Timeline', () => {
       isSelected: false,
     }))
 
-    render(<Timeline timelineItems={timelineItems} key="Timeline" />)
+    render(<Timeline timelineItems={timelineItems} />)
+    expect(screen.queryAllByTestId(new RegExp('^timeline_day_item'))).toHaveLength(AuditTrail.resources.length)
   })
 
   it('Renders With Click Handler', () => {
@@ -24,10 +25,9 @@ describe('Timeline', () => {
       isSelected: false,
     }))
 
-    render(<Timeline timelineItems={timelineItems} key="Timeline" />)
+    render(<Timeline timelineItems={timelineItems} />)
+    expect(screen.queryAllByTestId(new RegExp('^timeline_day_item'))).toHaveLength(AuditTrail.resources.length)
   })
-
-  // TODO Add better tests for when items dont render
 
   it('Shows the click prompt', () => {
     const timelineItems: ITimelineItem[] = AuditTrail.resources.map((ti) => ({
@@ -40,8 +40,9 @@ describe('Timeline', () => {
       isSelected: false,
     }))
 
-    render(<Timeline timelineItems={timelineItems} key="Timeline" />)
+    render(<Timeline timelineItems={timelineItems} />)
 
+    expect(screen.queryAllByTestId(new RegExp('^timeline_day_item'))).toHaveLength(AuditTrail.resources.length)
     expect(screen.getAllByText('Click Here Please')).toHaveLength(AuditTrail.resources.length)
   })
 
@@ -52,8 +53,9 @@ describe('Timeline', () => {
       isSelected: false,
     }))
 
-    render(<Timeline timelineItems={timelineItems} key="Timeline" />)
+    render(<Timeline timelineItems={timelineItems} />)
 
+    expect(screen.queryAllByTestId(new RegExp('^timeline_day_item'))).toHaveLength(AuditTrail.resources.length)
     expect(screen.queryByText('Click Here Please')).not.toBeInTheDocument()
   })
 
@@ -69,8 +71,8 @@ describe('Timeline', () => {
       deselectPrompt: 'Click here to close me',
     }))
 
-    render(<Timeline timelineItems={timelineItems} key="Timeline" />)
-
+    render(<Timeline timelineItems={timelineItems} />)
+    expect(screen.queryAllByTestId(new RegExp('^timeline_day_item'))).toHaveLength(AuditTrail.resources.length)
     expect(screen.getAllByText('Click here to close me')).toHaveLength(AuditTrail.resources.length)
   })
 })

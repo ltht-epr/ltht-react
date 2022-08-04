@@ -107,7 +107,7 @@ const StyledInnerCircle = styled.div`
   }
 `
 
-const Timeline: FC<IProps> = ({ timelineItems }, ...rest) => {
+const Timeline: FC<IProps> = ({ timelineItems }) => {
   const { width } = useWindowSize()
   const isMobile = isMobileView(width)
 
@@ -150,39 +150,20 @@ const Timeline: FC<IProps> = ({ timelineItems }, ...rest) => {
   let position = 0
 
   return (
-    <StyledTimeline {...rest}>
+    <StyledTimeline key="timeline" data-testid="timeline">
       {Object.entries(timelineDates).map(([dateKey, value]) => {
         position += 1
-
-        if (isMobile) {
-          return (
-            <>
-              <StyledTimelineDayHeader>{dateKey}</StyledTimelineDayHeader>
-              <StyledTimelineDayBody isMobile={isMobile}>
-                {value?.map((timelineItem) => (
-                  <StyledTimelineDayItem isMobile={isMobile}>
-                    <StyledTimelineDayContent isMobile={isMobile}>
-                      <TimelineItem timelineItem={timelineItem} />
-                    </StyledTimelineDayContent>
-                  </StyledTimelineDayItem>
-                ))}
-              </StyledTimelineDayBody>
-            </>
-          )
-        }
-
         return (
-          <>
+          <div key={dateKey} data-testid={dateKey}>
             <StyledTimelineDayHeader>{dateKey}</StyledTimelineDayHeader>
             <StyledTimelineDayBody isMobile={isMobile}>
               {value?.map((timelineItem, idx) => {
+                let content: JSX.Element = <></>
                 if (!timelineItem?.domainResource) {
                   return <></>
                 }
-
                 let currentTime = ''
                 let previousTime = ''
-
                 if (isDocumentReference(timelineItem?.domainResource)) {
                   const docRef = timelineItem?.domainResource as DocumentReference
                   if (!docRef.created?.value) {
@@ -219,11 +200,18 @@ const Timeline: FC<IProps> = ({ timelineItems }, ...rest) => {
                   position += 1
                 }
 
-                const itemKey = `${currentTime}_${idx}`
-                if (position % 2 === 1) {
-                  return (
-                    <StyledTimelineDayItem isMobile={isMobile} key={itemKey}>
-                      <StyledTimelineDayContent isMobile={isMobile}>
+                const itemKey = `timeline_day_item_${currentTime}_${idx}`
+
+                if (isMobile) {
+                  content = (
+                    <StyledTimelineDayContent isMobile>
+                      <TimelineItem timelineItem={timelineItem} />
+                    </StyledTimelineDayContent>
+                  )
+                } else if (position % 2 === 1) {
+                  content = (
+                    <>
+                      <StyledTimelineDayContent isMobile={false}>
                         <TimelineItem timelineItem={timelineItem} />
                       </StyledTimelineDayContent>
                       <StyledTimelineDayLine>
@@ -237,30 +225,37 @@ const Timeline: FC<IProps> = ({ timelineItems }, ...rest) => {
                       <StyledTimelineDayTimeRight>
                         <TimelineTime domainResource={timelineItem?.domainResource} />
                       </StyledTimelineDayTimeRight>
-                    </StyledTimelineDayItem>
+                    </>
+                  )
+                } else if (position % 2 === 0) {
+                  content = (
+                    <>
+                      <StyledTimelineDayTimeLeft>
+                        <TimelineTime domainResource={timelineItem?.domainResource} />
+                      </StyledTimelineDayTimeLeft>
+                      <StyledTimelineDayLine>
+                        <StyledOuterCircle>
+                          <CircleIcon status="info" size="medium" />
+                        </StyledOuterCircle>
+                        <StyledInnerCircle>
+                          <CircleIcon status="info" size="medium" />
+                        </StyledInnerCircle>
+                      </StyledTimelineDayLine>
+                      <StyledTimelineDayContent isMobile={false}>
+                        <TimelineItem timelineItem={timelineItem} />
+                      </StyledTimelineDayContent>
+                    </>
                   )
                 }
+
                 return (
-                  <StyledTimelineDayItem isMobile={isMobile} key={itemKey}>
-                    <StyledTimelineDayTimeLeft>
-                      <TimelineTime domainResource={timelineItem?.domainResource} />
-                    </StyledTimelineDayTimeLeft>
-                    <StyledTimelineDayLine>
-                      <StyledOuterCircle>
-                        <CircleIcon status="info" size="medium" />
-                      </StyledOuterCircle>
-                      <StyledInnerCircle>
-                        <CircleIcon status="info" size="medium" />
-                      </StyledInnerCircle>
-                    </StyledTimelineDayLine>
-                    <StyledTimelineDayContent isMobile={isMobile}>
-                      <TimelineItem timelineItem={timelineItem} />
-                    </StyledTimelineDayContent>
+                  <StyledTimelineDayItem isMobile={isMobile} key={itemKey} data-testid={itemKey}>
+                    {content}
                   </StyledTimelineDayItem>
                 )
               })}
             </StyledTimelineDayBody>
-          </>
+          </div>
         )
       })}
     </StyledTimeline>

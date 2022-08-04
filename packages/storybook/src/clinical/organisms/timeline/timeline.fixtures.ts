@@ -115,7 +115,7 @@ const Audit2: AuditEvent = {
 }
 
 const Audit3: AuditEvent = {
-  id: 'id1',
+  id: 'id3',
   isEnteredInError: false,
   metadata: {
     dataSources: [],
@@ -168,7 +168,7 @@ const Audit3: AuditEvent = {
 }
 
 const Audit4: AuditEvent = {
-  id: 'id3',
+  id: 'id4',
   isEnteredInError: false,
   metadata: {
     dataSources: [],
@@ -221,7 +221,7 @@ const Audit4: AuditEvent = {
 }
 
 const Audit5: AuditEvent = {
-  id: 'id6',
+  id: 'id5',
   isEnteredInError: false,
   metadata: {
     dataSources: [],
@@ -274,7 +274,7 @@ const Audit5: AuditEvent = {
 }
 
 const Audit6: AuditEvent = {
-  id: 'id1',
+  id: 'id6',
   isEnteredInError: false,
   metadata: {
     dataSources: [],
@@ -326,7 +326,7 @@ const Audit6: AuditEvent = {
 }
 
 const Audit7: AuditEvent = {
-  id: 'id1',
+  id: 'id7',
   isEnteredInError: false,
   metadata: {
     dataSources: [],
@@ -378,7 +378,7 @@ const Audit7: AuditEvent = {
 }
 
 const Audit8: AuditEvent = {
-  id: 'id1',
+  id: 'id8',
   isEnteredInError: false,
   metadata: {
     dataSources: [],
@@ -431,7 +431,7 @@ const Audit8: AuditEvent = {
 }
 
 const Audit9: AuditEvent = {
-  id: 'id1',
+  id: 'id9',
   isEnteredInError: false,
   metadata: {
     dataSources: [],
@@ -483,7 +483,7 @@ const Audit9: AuditEvent = {
 }
 
 const Audit10: AuditEvent = {
-  id: 'id1',
+  id: 'id10',
   isEnteredInError: false,
   metadata: {
     dataSources: [],
@@ -535,7 +535,7 @@ const Audit10: AuditEvent = {
 }
 
 const Audit11: AuditEvent = {
-  id: 'id1',
+  id: 'id11',
   isEnteredInError: false,
   metadata: {
     dataSources: [],
@@ -588,7 +588,7 @@ const Audit11: AuditEvent = {
 }
 
 const Audit12: AuditEvent = {
-  id: 'id1',
+  id: 'id12',
   isEnteredInError: false,
   metadata: {
     dataSources: [],
@@ -641,7 +641,7 @@ const Audit12: AuditEvent = {
 }
 
 const RedactedAuditOne: AuditEvent = {
-  id: 'id1',
+  id: 'idr1',
   isEnteredInError: false,
   metadata: {
     dataSources: [],
@@ -678,7 +678,7 @@ const RedactedAuditOne: AuditEvent = {
 }
 
 const RedactedAuditTwo: AuditEvent = {
-  id: 'id1',
+  id: 'idr2',
   isEnteredInError: false,
   metadata: {
     dataSources: [],
@@ -715,7 +715,7 @@ const RedactedAuditTwo: AuditEvent = {
 }
 
 const RedactedAuditThree: AuditEvent = {
-  id: 'id1',
+  id: 'idr3',
   isEnteredInError: false,
   metadata: {
     dataSources: [],

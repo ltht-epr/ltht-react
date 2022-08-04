@@ -76,8 +76,10 @@ const TimelineItem: FC<IProps> = ({ timelineItem }) => {
     return <></>
   }
 
+  const itemKey = `timelineItem_${timelineItem.domainResource.id}`
+
   return (
-    <StyledTimelineItem isSelected={timelineItem.isSelected ?? false} key={timelineItem.domainResource.id}>
+    <StyledTimelineItem isSelected={timelineItem.isSelected ?? false} key={itemKey}>
       <StyledTimelineItemTop>
         <StyledTitle isMobile={isMobile}>
           <TimelineTitle domainResource={timelineItem.domainResource} />
