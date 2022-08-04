@@ -101,16 +101,25 @@ export const GroupedQuestions: Story = () => (
   </Card>
 )
 
-export const NoAnswer: Story = () => (
-  <Card>
-    <Card.Header>
-      <Card.Title>Questionnaire</Card.Title>
-    </Card.Header>
-    <Card.Body>
-      <Questionnaire questionnaire={NoAnswerData} />
-    </Card.Body>
-  </Card>
-)
+export const NoAnswer: Story = () => {
+  const { viewType, toggle } = useDetailViewType()
+
+  return (
+    <Card>
+      <Card.Header>
+        <Card.Title>Questionnaire</Card.Title>{' '}
+        <Button
+          type="button"
+          value={viewType === DetailViewType.Expanded ? 'View compacted' : 'View expanded'}
+          onClick={toggle}
+        />
+      </Card.Header>
+      <Card.Body>
+        <Questionnaire questionnaire={NoAnswerData} viewType={viewType} />
+      </Card.Body>
+    </Card>
+  )
+}
 
 export const RepeatingGroups: Story = () => (
   <Card>

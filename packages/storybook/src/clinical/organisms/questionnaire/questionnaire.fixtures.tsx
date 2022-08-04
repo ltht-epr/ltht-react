@@ -460,6 +460,23 @@ export const NoAnswerData: QuestionnaireResponse = {
         type: QuestionnaireItemTypeCode.QuestionBoolean,
         item: null,
       },
+      {
+        linkId: '2',
+        text: 'General questions',
+        type: QuestionnaireItemTypeCode.Group,
+        item: [
+          {
+            linkId: '2.1',
+            text: 'What is your gender?',
+            type: QuestionnaireItemTypeCode.QuestionString,
+          },
+          {
+            linkId: '2.2',
+            text: 'What is your date of birth?',
+            type: QuestionnaireItemTypeCode.QuestionDate,
+          },
+        ],
+      },
     ],
   },
   item: [
@@ -468,6 +485,23 @@ export const NoAnswerData: QuestionnaireResponse = {
       text: null,
       answer: [],
       item: null,
+    },
+    {
+      linkId: '2',
+      text: null,
+      answer: null,
+      item: [
+        {
+          linkId: '2.1',
+          text: null,
+          answer: [],
+        },
+        {
+          linkId: '2.2',
+          text: null,
+          answer: [],
+        },
+      ],
     },
   ],
 }
