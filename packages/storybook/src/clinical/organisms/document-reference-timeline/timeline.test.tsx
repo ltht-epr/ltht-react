@@ -3,11 +3,11 @@ import { ITimelineItem } from '@ltht-react/timeline/src'
 
 import Timeline from '@ltht-react/timeline'
 import { formatTime, formatDate } from '@ltht-react/utils'
-import AuditTrail from './timeline.fixtures'
+import DocumentReferences from './document-timeline.fixtures'
 
 describe('Timeline without handlers', () => {
   beforeEach(() => {
-    const timelineItems: ITimelineItem[] = AuditTrail.resources.map((ti) => ({
+    const timelineItems: ITimelineItem[] = DocumentReferences.resources.map((ti) => ({
       domainResource: ti,
       isSelected: false,
     }))
@@ -16,11 +16,11 @@ describe('Timeline without handlers', () => {
   })
 
   it('Renders Without Click Handler', () => {
-    expect(screen.queryAllByTestId(new RegExp('^timeline_day_item'))).toHaveLength(AuditTrail.resources.length)
+    expect(screen.queryAllByTestId(new RegExp('^timeline_day_item'))).toHaveLength(DocumentReferences.resources.length)
   })
 
   it('Each day section only exists once', () => {
-    const datetimes = AuditTrail.resources.map((x) => x?.period?.start)
+    const datetimes = DocumentReferences.resources.map((x) => x?.created)
     const uniqueDays: string[] = []
     datetimes.forEach((x) => {
       if (x?.value) {
@@ -36,7 +36,7 @@ describe('Timeline without handlers', () => {
   })
 
   it('Left and right divide work', () => {
-    const datetimes = AuditTrail.resources.map((x) => x?.period?.start)
+    const datetimes = DocumentReferences.resources.map((x) => x?.created)
     const uniqueTimes: string[] = []
     datetimes.forEach((x) => {
       if (x?.value) {
@@ -63,13 +63,13 @@ describe('Timeline without handlers', () => {
         }
       }
     })
-    expect(screen.queryAllByTestId(new RegExp('^timeline_day_item'))).toHaveLength(AuditTrail.resources.length)
+    expect(screen.queryAllByTestId(new RegExp('^timeline_day_item'))).toHaveLength(DocumentReferences.resources.length)
     expect(screen.queryByText('Click Here Please')).not.toBeInTheDocument()
   })
 })
 
 it('Shows the deselect prompt over the clickHandler prompt if both are present', () => {
-  const timelineItems: ITimelineItem[] = AuditTrail.resources.map((ti) => ({
+  const timelineItems: ITimelineItem[] = DocumentReferences.resources.map((ti) => ({
     domainResource: ti,
     clickHandler: () => {
       // eslint-disable-next-line no-console
@@ -81,12 +81,12 @@ it('Shows the deselect prompt over the clickHandler prompt if both are present',
   }))
 
   render(<Timeline timelineItems={timelineItems} />)
-  expect(screen.queryAllByTestId(new RegExp('^timeline_day_item'))).toHaveLength(AuditTrail.resources.length)
-  expect(screen.getAllByText('Click here to close me')).toHaveLength(AuditTrail.resources.length)
+  expect(screen.queryAllByTestId(new RegExp('^timeline_day_item'))).toHaveLength(DocumentReferences.resources.length)
+  expect(screen.getAllByText('Click here to close me')).toHaveLength(DocumentReferences.resources.length)
 })
 
 it('Renders With Click Handler', () => {
-  const timelineItems: ITimelineItem[] = AuditTrail.resources.map((ti) => ({
+  const timelineItems: ITimelineItem[] = DocumentReferences.resources.map((ti) => ({
     domainResource: ti,
     clickHandler: () => {
       // eslint-disable-next-line no-console
@@ -96,11 +96,11 @@ it('Renders With Click Handler', () => {
   }))
 
   render(<Timeline timelineItems={timelineItems} />)
-  expect(screen.queryAllByTestId(new RegExp('^timeline_day_item'))).toHaveLength(AuditTrail.resources.length)
+  expect(screen.queryAllByTestId(new RegExp('^timeline_day_item'))).toHaveLength(DocumentReferences.resources.length)
 })
 
 it('Shows the click prompt', () => {
-  const timelineItems: ITimelineItem[] = AuditTrail.resources.map((ti) => ({
+  const timelineItems: ITimelineItem[] = DocumentReferences.resources.map((ti) => ({
     domainResource: ti,
     clickHandler: () => {
       // eslint-disable-next-line no-console
@@ -112,12 +112,12 @@ it('Shows the click prompt', () => {
 
   render(<Timeline timelineItems={timelineItems} />)
 
-  expect(screen.queryAllByTestId(new RegExp('^timeline_day_item'))).toHaveLength(AuditTrail.resources.length)
-  expect(screen.getAllByText('Click Here Please')).toHaveLength(AuditTrail.resources.length)
+  expect(screen.queryAllByTestId(new RegExp('^timeline_day_item'))).toHaveLength(DocumentReferences.resources.length)
+  expect(screen.getAllByText('Click Here Please')).toHaveLength(DocumentReferences.resources.length)
 })
 
 it('No click handler does not display click Prompt', () => {
-  const timelineItems: ITimelineItem[] = AuditTrail.resources.map((ti) => ({
+  const timelineItems: ITimelineItem[] = DocumentReferences.resources.map((ti) => ({
     domainResource: ti,
     clickPrompt: 'Click Here Please',
     isSelected: false,
@@ -125,6 +125,6 @@ it('No click handler does not display click Prompt', () => {
 
   render(<Timeline timelineItems={timelineItems} />)
 
-  expect(screen.queryAllByTestId(new RegExp('^timeline_day_item'))).toHaveLength(AuditTrail.resources.length)
+  expect(screen.queryAllByTestId(new RegExp('^timeline_day_item'))).toHaveLength(DocumentReferences.resources.length)
   expect(screen.queryByText('Click Here Please')).not.toBeInTheDocument()
 })

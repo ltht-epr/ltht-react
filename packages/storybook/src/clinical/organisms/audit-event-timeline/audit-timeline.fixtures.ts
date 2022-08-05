@@ -804,7 +804,7 @@ const RedactedAuditThree: AuditEvent = {
   ],
 }
 
-const AuditTrail: AuditEventContinuation = {
+export const AuditTrail: AuditEventContinuation = {
   resources: [
     Audit13,
     Audit12,
@@ -827,5 +827,3 @@ export const RedactedAuditTrail: AuditEventContinuation = {
   resources: [RedactedAuditOne, RedactedAuditTwo, RedactedAuditThree],
   selfCursorToken: '',
 }
-
-export default AuditTrail

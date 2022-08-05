@@ -2,12 +2,12 @@ import { Story } from '@storybook/react'
 import Card from '@ltht-react/card'
 import Timeline from '@ltht-react/timeline'
 import { ITimelineItem } from '@ltht-react/timeline/src'
-import { AuditEvent } from '@ltht-react/types'
-import AuditTrail, { RedactedAuditTrail } from './timeline.fixtures'
+import { DocumentReference } from '@ltht-react/types'
+import DocumentReferences from './document-timeline.fixtures'
 
 export const Details: Story = () => {
-  const timelineItems: ITimelineItem[] = AuditTrail.resources.map((ti) => ({
-    domainResource: ti as AuditEvent,
+  const timelineItems: ITimelineItem[] = DocumentReferences.resources.map((ti) => ({
+    domainResource: ti as DocumentReference,
     isSelected: false,
   }))
 
@@ -24,8 +24,8 @@ export const Details: Story = () => {
 }
 
 export const ClickableDetails: Story = () => {
-  const timelineItems: ITimelineItem[] = AuditTrail.resources.map((ti, idx) => ({
-    domainResource: ti as AuditEvent,
+  const timelineItems: ITimelineItem[] = DocumentReferences.resources.map((ti, idx) => ({
+    domainResource: ti as DocumentReference,
     // eslint-disable-next-line @typescript-eslint/no-empty-function
     clickHandler:
       idx % 2 === 0
@@ -52,8 +52,8 @@ export const ClickableDetails: Story = () => {
 }
 
 export const Redacted: Story = () => {
-  const timelineItems: ITimelineItem[] = RedactedAuditTrail.resources.map((ti) => ({
-    domainResource: ti as AuditEvent,
+  const timelineItems: ITimelineItem[] = DocumentReferences.resources.map((ti) => ({
+    domainResource: ti as DocumentReference,
     // eslint-disable-next-line @typescript-eslint/no-empty-function
     clickHandler: () => {},
     isSelected: false,
@@ -71,4 +71,4 @@ export const Redacted: Story = () => {
   )
 }
 
-export default { title: 'Clinical/Organisms/Timeline' }
+export default { title: 'Clinical/Organisms/DocumentReferenceTimeline' }
