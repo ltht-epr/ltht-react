@@ -1,4 +1,4 @@
-import { FC, ReactNode } from 'react'
+import { FC } from 'react'
 import styled from '@emotion/styled'
 import {
   QuestionnaireResponse,
@@ -39,41 +39,39 @@ const QuestionContainer = styled.div`
   }
 `
 
-function QuestionnaireQuestions(
-  questions: Maybe<Maybe<QuestionnaireItem>[]> | undefined,
-  answers: Maybe<Maybe<QuestionnaireResponseItem>[]> | undefined,
-  viewType?: Maybe<DetailViewType>
-): ReactNode {
-  return questions?.map((question) => {
-    if (question?.type === QuestionnaireItemTypeCode.Group) {
-      const groupAnswers = answers
-        ?.filter((answerGroup) => question.linkId === answerGroup?.linkId)
-        .map((answerGroup) => answerGroup?.item)
+const QuestionnaireQuestions: FC<IQuestionnaireQuestionsProps> = ({ questions, answers, viewType }) => (
+  <>
+    {questions?.map((question) => {
+      if (question?.type === QuestionnaireItemTypeCode.Group) {
+        const groupAnswers = answers
+          ?.filter((answerGroup) => question.linkId === answerGroup?.linkId)
+          .map((answerGroup) => answerGroup?.item)
 
-      return groupAnswers?.map((groupAnswer, index) => (
-        <QuestionGroup
-          className="QuestionGroup"
-          key={`${question?.text || 'question-group'}-${question?.linkId}-${index + 1}`}
-          header={question.text}
-          questions={question.item}
-          answers={groupAnswer}
-          viewType={viewType}
+        return groupAnswers?.map((groupAnswer, index) => (
+          <QuestionGroup
+            className="QuestionGroup"
+            key={`${question?.text || 'question-group'}-${question?.linkId}-${index + 1}`}
+            header={question.text}
+            questions={question.item}
+            answers={groupAnswer}
+            viewType={viewType}
+          />
+        ))
+      }
+
+      return (
+        <QuestionBlock
+          className="QuestionBlock"
+          key={`${question?.text}-${question?.linkId}`}
+          type={question?.type}
+          question={question?.text}
+          responseItem={answers?.find((answer) => question?.linkId === answer?.linkId)}
+          showIfEmpty={viewType === DetailViewType.Expanded}
         />
-      ))
-    }
-
-    return (
-      <QuestionBlock
-        className="QuestionBlock"
-        key={`${question?.text}-${question?.linkId}`}
-        type={question?.type}
-        question={question?.text}
-        responseItem={answers?.find((answer) => question?.linkId === answer?.linkId)}
-        showIfEmpty={viewType === DetailViewType.Expanded}
-      />
-    )
-  })
-}
+      )
+    })}
+  </>
+)
 
 const Questionnaire: FC<IProps> = ({ questionnaire, showTitle = false, viewType = DetailViewType.Compact }) => {
   const questions = questionnaire?.questionnaire?.item
@@ -85,7 +83,9 @@ const Questionnaire: FC<IProps> = ({ questionnaire, showTitle = false, viewType 
   return (
     <StyledQuestionnaire>
       {showTitle && <TitleInfo title={title} />}
-      <QuestionContainer>{QuestionnaireQuestions(questions, answers, viewType)}</QuestionContainer>
+      <QuestionContainer>
+        <QuestionnaireQuestions questions={questions} answers={answers} viewType={viewType} />
+      </QuestionContainer>
       <AuthorInfo author={questionnaire?.author} authoredOn={questionnaire?.authored} />
     </StyledQuestionnaire>
   )
@@ -94,6 +94,12 @@ const Questionnaire: FC<IProps> = ({ questionnaire, showTitle = false, viewType 
 interface IProps {
   questionnaire: Maybe<QuestionnaireResponse> | undefined
   showTitle?: boolean | undefined
+  viewType?: Maybe<DetailViewType>
+}
+
+interface IQuestionnaireQuestionsProps {
+  questions: Maybe<Maybe<QuestionnaireItem>[]> | undefined
+  answers: Maybe<Maybe<QuestionnaireResponseItem>[]> | undefined
   viewType?: Maybe<DetailViewType>
 }
 
