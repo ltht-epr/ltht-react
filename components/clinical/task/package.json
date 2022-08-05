@@ -1,6 +1,6 @@
 {
   "name": "@ltht-react/task",
-  "version": "1.0.99",
+  "version": "1.0.100",
   "description": "ltht-react clinical Task component.",
   "author": "LTHT",
   "homepage": "",
@@ -27,11 +27,11 @@
   "dependencies": {
     "@emotion/react": "^11.0.0",
     "@emotion/styled": "^11.0.0",
-    "@ltht-react/hooks": "^1.0.91",
-    "@ltht-react/styles": "^1.3.93",
-    "@ltht-react/type-summary": "^1.3.101",
-    "@ltht-react/types": "^1.0.97",
-    "@ltht-react/utils": "^1.1.99",
+    "@ltht-react/hooks": "^1.0.92",
+    "@ltht-react/styles": "^1.3.94",
+    "@ltht-react/type-summary": "^1.3.102",
+    "@ltht-react/types": "^1.0.98",
+    "@ltht-react/utils": "^1.1.100",
     "moment": "^2.29.1",
     "react": "^17.0.0"
   }
