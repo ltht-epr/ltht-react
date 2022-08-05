@@ -640,6 +640,59 @@ const Audit12: AuditEvent = {
   ],
 }
 
+const Audit13: AuditEvent = {
+  id: 'id13',
+  isEnteredInError: false,
+  metadata: {
+    dataSources: [],
+    isRedacted: false,
+    requestedWhen: '2021-08-05T13:15:15+01:00',
+  },
+  source: {
+    observer: {
+      display: '',
+      typeName: '',
+    },
+  },
+  type: {
+    display: '',
+  },
+  text: {
+    div: '',
+    text: 'Pathway Ended',
+  },
+  outcomeDesc: 'Patient being readied for discharge',
+  period: {
+    start: {
+      kind: PartialDateTimeKindCode.DateTime,
+      value: '2021-09-13T17:04:14.0716494+00:00',
+    },
+  },
+  recorded: {
+    value: '2021-09-13T17:04:14.0716494+00:00',
+  },
+  agent: [
+    {
+      role: [
+        {
+          coding: [
+            {
+              code: 'PRIMAUTH',
+              display: 'User name',
+              system: 'http://hl7.org/fhir/ValueSet/security-role-type',
+            },
+          ],
+        },
+      ],
+      requestor: true,
+      who: {
+        display: 'DYSON, Jonny (Dr) Transplant Surgeon',
+        typeName: '',
+      },
+    },
+  ],
+}
+
 const RedactedAuditOne: AuditEvent = {
   id: 'idr1',
   isEnteredInError: false,
@@ -752,7 +805,21 @@ const RedactedAuditThree: AuditEvent = {
 }
 
 const AuditTrail: AuditEventContinuation = {
-  resources: [Audit12, Audit11, Audit10, Audit9, Audit8, Audit7, Audit6, Audit5, Audit4, Audit3, Audit2, Audit1],
+  resources: [
+    Audit13,
+    Audit12,
+    Audit11,
+    Audit10,
+    Audit9,
+    Audit8,
+    Audit7,
+    Audit6,
+    Audit5,
+    Audit4,
+    Audit3,
+    Audit2,
+    Audit1,
+  ],
   selfCursorToken: '',
 }
 

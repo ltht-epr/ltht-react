@@ -3,7 +3,7 @@ import styled from '@emotion/styled'
 import { CircleIcon } from '@ltht-react/icon'
 import { TEXT_COLOURS, BANNER_COLOURS } from '@ltht-react/styles'
 import { AuditEvent, DocumentReference, Maybe } from '@ltht-react/types'
-import { formatDateExplicitMonth, formatTime, isMobileView } from '@ltht-react/utils'
+import { formatDate, formatDateExplicitMonth, formatTime, isMobileView } from '@ltht-react/utils'
 import { useWindowSize } from '@ltht-react/hooks'
 
 import TimelineTime from '../atoms/timeline-time'
@@ -112,38 +112,36 @@ const Timeline: FC<IProps> = ({ timelineItems }) => {
   const isMobile = isMobileView(width)
 
   const resources = timelineItems.map((i) => i?.domainResource)
-  const timelineDates: { [date: string]: Maybe<ITimelineItem>[] } = {}
+  const timelineDates: { [date: string]: { item: Maybe<ITimelineItem>[]; formattedDate: string } } = {}
 
   timelineItems?.forEach((timelineItem) => {
     if (!timelineItem?.domainResource) {
       return
     }
+    let date = ''
+    let displayDate = ''
     if (isDocumentReference(timelineItem?.domainResource)) {
       const docRef = timelineItem?.domainResource as DocumentReference
       if (!docRef.created?.value) {
         return
       }
-      const date = formatDateExplicitMonth(new Date(docRef.created.value))
-      const lookup = timelineDates[date]
-      if (!lookup) {
-        timelineDates[date] = [timelineItem]
-      } else {
-        lookup.push(timelineItem)
-        timelineDates[date] = lookup
-      }
+      date = formatDate(new Date(docRef.created.value))
+      displayDate = formatDateExplicitMonth(new Date(docRef.created.value))
     } else {
       const audit = timelineItem?.domainResource as AuditEvent
       if (!audit.period?.start?.value) {
         return
       }
-      const date = formatDateExplicitMonth(new Date(audit.period?.start?.value))
-      const lookup = timelineDates[date]
-      if (!lookup) {
-        timelineDates[date] = [timelineItem]
-      } else {
-        lookup.push(timelineItem)
-        timelineDates[date] = lookup
-      }
+      date = formatDate(new Date(audit.period?.start?.value))
+      displayDate = formatDateExplicitMonth(new Date(audit.period?.start?.value))
+    }
+
+    const lookup = timelineDates[date]
+    if (!lookup) {
+      timelineDates[date] = { item: [timelineItem], formattedDate: displayDate }
+    } else {
+      lookup.item.push(timelineItem)
+      timelineDates[date] = lookup
     }
   })
 
@@ -155,9 +153,9 @@ const Timeline: FC<IProps> = ({ timelineItems }) => {
         position += 1
         return (
           <div key={dateKey} data-testid={dateKey}>
-            <StyledTimelineDayHeader>{dateKey}</StyledTimelineDayHeader>
+            <StyledTimelineDayHeader>{value.formattedDate}</StyledTimelineDayHeader>
             <StyledTimelineDayBody isMobile={isMobile}>
-              {value?.map((timelineItem, idx) => {
+              {value.item?.map((timelineItem, idx) => {
                 let content: JSX.Element = <></>
                 if (!timelineItem?.domainResource) {
                   return <></>
@@ -173,7 +171,7 @@ const Timeline: FC<IProps> = ({ timelineItems }) => {
                   previousTime = currentTime
 
                   if (idx > 0) {
-                    const previousItem = resources[idx - 1] as DocumentReference
+                    const previousItem = value.item[idx - 1]?.domainResource as DocumentReference
                     if (!previousItem?.created?.value) {
                       return <></>
                     }
@@ -188,7 +186,7 @@ const Timeline: FC<IProps> = ({ timelineItems }) => {
                   previousTime = currentTime
 
                   if (idx > 0) {
-                    const previousItem = resources[idx - 1] as AuditEvent
+                    const previousItem = value.item[idx - 1]?.domainResource as AuditEvent
                     if (!previousItem?.period?.start?.value) {
                       return <></>
                     }
@@ -200,7 +198,7 @@ const Timeline: FC<IProps> = ({ timelineItems }) => {
                   position += 1
                 }
 
-                const itemKey = `timeline_day_item_${currentTime}_${idx}`
+                const itemKey = `timeline_day_item_${dateKey}_${currentTime}_${idx}`
 
                 if (isMobile) {
                   content = (
@@ -209,8 +207,9 @@ const Timeline: FC<IProps> = ({ timelineItems }) => {
                     </StyledTimelineDayContent>
                   )
                 } else if (position % 2 === 1) {
+                  const contentKey = `content_left_${itemKey}`
                   content = (
-                    <>
+                    <div key={contentKey} data-testid={contentKey}>
                       <StyledTimelineDayContent isMobile={false}>
                         <TimelineItem timelineItem={timelineItem} />
                       </StyledTimelineDayContent>
@@ -225,11 +224,12 @@ const Timeline: FC<IProps> = ({ timelineItems }) => {
                       <StyledTimelineDayTimeRight>
                         <TimelineTime domainResource={timelineItem?.domainResource} />
                       </StyledTimelineDayTimeRight>
-                    </>
+                    </div>
                   )
                 } else if (position % 2 === 0) {
+                  const contentKey = `content_right_${itemKey}`
                   content = (
-                    <>
+                    <div key={contentKey} data-testid={contentKey}>
                       <StyledTimelineDayTimeLeft>
                         <TimelineTime domainResource={timelineItem?.domainResource} />
                       </StyledTimelineDayTimeLeft>
@@ -244,7 +244,7 @@ const Timeline: FC<IProps> = ({ timelineItems }) => {
                       <StyledTimelineDayContent isMobile={false}>
                         <TimelineItem timelineItem={timelineItem} />
                       </StyledTimelineDayContent>
-                    </>
+                    </div>
                   )
                 }
 
