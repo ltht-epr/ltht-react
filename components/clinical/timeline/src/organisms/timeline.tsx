@@ -110,8 +110,6 @@ const StyledInnerCircle = styled.div`
 const Timeline: FC<IProps> = ({ timelineItems }) => {
   const { width } = useWindowSize()
   const isMobile = isMobileView(width)
-
-  const resources = timelineItems.map((i) => i?.domainResource)
   const timelineDates: { [date: string]: { item: Maybe<ITimelineItem>[]; formattedDate: string } } = {}
 
   timelineItems?.forEach((timelineItem) => {

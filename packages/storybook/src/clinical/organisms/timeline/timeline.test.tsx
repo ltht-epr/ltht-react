@@ -2,8 +2,8 @@ import { render, screen } from '@testing-library/react'
 import { ITimelineItem } from '@ltht-react/timeline/src'
 
 import Timeline from '@ltht-react/timeline'
-import AuditTrail from './timeline.fixtures'
 import { formatTime, formatDate } from '@ltht-react/utils'
+import AuditTrail from './timeline.fixtures'
 
 describe('Timeline without handlers', () => {
   beforeEach(() => {
@@ -21,7 +21,7 @@ describe('Timeline without handlers', () => {
 
   it('Each day section only exists once', () => {
     const datetimes = AuditTrail.resources.map((x) => x?.period?.start)
-    let uniqueDays: string[] = []
+    const uniqueDays: string[] = []
     datetimes.forEach((x) => {
       if (x?.value) {
         const date = formatDate(new Date(x.value))
@@ -37,7 +37,7 @@ describe('Timeline without handlers', () => {
 
   it('Left and right divide work', () => {
     const datetimes = AuditTrail.resources.map((x) => x?.period?.start)
-    let uniqueTimes: string[] = []
+    const uniqueTimes: string[] = []
     datetimes.forEach((x) => {
       if (x?.value) {
         if (uniqueTimes.includes(x.value)) {
