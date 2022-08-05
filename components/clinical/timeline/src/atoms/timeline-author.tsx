@@ -2,7 +2,8 @@ import { FC, HTMLAttributes } from 'react'
 import { UserIcon } from '@ltht-react/icon'
 import styled from '@emotion/styled'
 
-import { AuditEvent, Maybe } from '@ltht-react/types'
+import { AuditEvent, DocumentReference, Maybe } from '@ltht-react/types'
+import isDocumentReference from '../methods'
 
 const StyledTimelineItemLeft = styled.div`
   flex-grow: 1;
@@ -10,9 +11,14 @@ const StyledTimelineItemLeft = styled.div`
 
 const PRIMARY_AUTHOR = 'PRIMAUTH'
 
-const TimelineAuthor: FC<Props> = ({ audit }) => {
-  if (!audit) return <></>
+const TimelineAuthor: FC<Props> = ({ domainResource }) => {
+  if (!domainResource) return <></>
 
+  if (isDocumentReference(domainResource)) {
+    return <></>
+  }
+
+  const audit = domainResource as AuditEvent
   let authorName = ''
 
   audit.agent.forEach((agent) => {
@@ -34,7 +40,7 @@ const TimelineAuthor: FC<Props> = ({ audit }) => {
 }
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
-  audit: Maybe<AuditEvent>
+  domainResource: Maybe<AuditEvent | DocumentReference>
 }
 
 export default TimelineAuthor

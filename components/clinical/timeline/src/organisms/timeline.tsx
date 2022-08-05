@@ -2,12 +2,13 @@ import { FC } from 'react'
 import styled from '@emotion/styled'
 import { CircleIcon } from '@ltht-react/icon'
 import { TEXT_COLOURS, BANNER_COLOURS } from '@ltht-react/styles'
-import { Maybe } from '@ltht-react/types'
-import { formatDateExplicitMonth, formatTime, isMobileView } from '@ltht-react/utils'
+import { AuditEvent, DocumentReference, Maybe } from '@ltht-react/types'
+import { formatDate, formatDateExplicitMonth, formatTime, isMobileView } from '@ltht-react/utils'
 import { useWindowSize } from '@ltht-react/hooks'
 
 import TimelineTime from '../atoms/timeline-time'
 import TimelineItem, { ITimelineItem } from '../molecules/timeline-item'
+import isDocumentReference from '../methods'
 
 const StyledTimeline = styled.div`
   margin: -0.75rem;
@@ -106,27 +107,38 @@ const StyledInnerCircle = styled.div`
   }
 `
 
-const Timeline: FC<IProps> = (props, ...rest) => {
+const Timeline: FC<IProps> = ({ timelineItems }) => {
   const { width } = useWindowSize()
   const isMobile = isMobileView(width)
+  const timelineDates: { [date: string]: { item: Maybe<ITimelineItem>[]; formattedDate: string } } = {}
 
-  const audit = props.timelineItems.map((i) => i?.auditEvent)
-
-  const timelineDates: { [date: string]: Maybe<ITimelineItem>[] } = {}
-
-  props.timelineItems?.forEach((timelineItem) => {
-    if (!timelineItem?.auditEvent?.period?.start?.value) {
+  timelineItems?.forEach((timelineItem) => {
+    if (!timelineItem?.domainResource) {
       return
     }
-
-    const date = formatDateExplicitMonth(new Date(timelineItem.auditEvent?.period?.start?.value))
+    let date = ''
+    let displayDate = ''
+    if (isDocumentReference(timelineItem?.domainResource)) {
+      const docRef = timelineItem?.domainResource as DocumentReference
+      if (!docRef.created?.value) {
+        return
+      }
+      date = formatDate(new Date(docRef.created.value))
+      displayDate = formatDateExplicitMonth(new Date(docRef.created.value))
+    } else {
+      const audit = timelineItem?.domainResource as AuditEvent
+      if (!audit.period?.start?.value) {
+        return
+      }
+      date = formatDate(new Date(audit.period?.start?.value))
+      displayDate = formatDateExplicitMonth(new Date(audit.period?.start?.value))
+    }
 
     const lookup = timelineDates[date]
-
     if (!lookup) {
-      timelineDates[date] = [timelineItem]
+      timelineDates[date] = { item: [timelineItem], formattedDate: displayDate }
     } else {
-      lookup.push(timelineItem)
+      lookup.item.push(timelineItem)
       timelineDates[date] = lookup
     }
   })
@@ -134,76 +146,90 @@ const Timeline: FC<IProps> = (props, ...rest) => {
   let position = 0
 
   return (
-    <>
-      <StyledTimeline {...rest}>
-        {Object.entries(timelineDates).map(([key, value]) => {
-          position += 1
-          if (isMobile) {
-            return (
-              <>
-                <StyledTimelineDayHeader>{key}</StyledTimelineDayHeader>
-                <StyledTimelineDayBody isMobile={isMobile}>
-                  {value?.map((timelineItem) => (
-                    <StyledTimelineDayItem isMobile={isMobile}>
-                      <StyledTimelineDayContent isMobile={isMobile}>
-                        <TimelineItem timelineItem={timelineItem} />
-                      </StyledTimelineDayContent>
-                    </StyledTimelineDayItem>
-                  ))}
-                </StyledTimelineDayBody>
-              </>
-            )
-          }
-
-          return (
-            <>
-              <StyledTimelineDayHeader>{key}</StyledTimelineDayHeader>
-              <StyledTimelineDayBody isMobile={isMobile}>
-                {value?.map((timelineItem, idx) => {
-                  if (!timelineItem?.auditEvent?.period?.start?.value) {
+    <StyledTimeline key="timeline" data-testid="timeline">
+      {Object.entries(timelineDates).map(([dateKey, value]) => {
+        position += 1
+        return (
+          <div key={dateKey} data-testid={dateKey}>
+            <StyledTimelineDayHeader>{value.formattedDate}</StyledTimelineDayHeader>
+            <StyledTimelineDayBody isMobile={isMobile}>
+              {value.item?.map((timelineItem, idx) => {
+                let content: JSX.Element = <></>
+                if (!timelineItem?.domainResource) {
+                  return <></>
+                }
+                let currentTime = ''
+                let previousTime = ''
+                if (isDocumentReference(timelineItem?.domainResource)) {
+                  const docRef = timelineItem?.domainResource as DocumentReference
+                  if (!docRef.created?.value) {
                     return <></>
                   }
-                  const currentTime = formatTime(new Date(timelineItem.auditEvent?.period?.start?.value))
-                  let previousTime = currentTime
+                  currentTime = formatTime(new Date(docRef.created.value))
+                  previousTime = currentTime
 
                   if (idx > 0) {
-                    const previousItem = audit[idx - 1]
+                    const previousItem = value.item[idx - 1]?.domainResource as DocumentReference
+                    if (!previousItem?.created?.value) {
+                      return <></>
+                    }
+                    previousTime = formatTime(new Date(previousItem?.created?.value))
+                  }
+                } else {
+                  const audit = timelineItem?.domainResource as AuditEvent
+                  if (!audit.period?.start?.value) {
+                    return <></>
+                  }
+                  currentTime = formatTime(new Date(audit.period?.start?.value))
+                  previousTime = currentTime
+
+                  if (idx > 0) {
+                    const previousItem = value.item[idx - 1]?.domainResource as AuditEvent
                     if (!previousItem?.period?.start?.value) {
                       return <></>
                     }
                     previousTime = formatTime(new Date(previousItem?.period?.start?.value))
                   }
+                }
 
-                  if (currentTime !== previousTime) {
-                    position += 1
-                  }
+                if (currentTime !== previousTime) {
+                  position += 1
+                }
 
-                  const key = `${currentTime}_${idx}`
+                const itemKey = `timeline_day_item_${dateKey}_${currentTime}_${idx}`
 
-                  if (position % 2 === 1) {
-                    return (
-                      <StyledTimelineDayItem isMobile={isMobile} key={key}>
-                        <StyledTimelineDayContent isMobile={isMobile}>
-                          <TimelineItem timelineItem={timelineItem} />
-                        </StyledTimelineDayContent>
-                        <StyledTimelineDayLine>
-                          <StyledOuterCircle>
-                            <CircleIcon status="info" size="medium" />
-                          </StyledOuterCircle>
-                          <StyledInnerCircle>
-                            <CircleIcon status="info" size="medium" />
-                          </StyledInnerCircle>
-                        </StyledTimelineDayLine>
-                        <StyledTimelineDayTimeRight>
-                          <TimelineTime audit={timelineItem?.auditEvent} />
-                        </StyledTimelineDayTimeRight>
-                      </StyledTimelineDayItem>
-                    )
-                  }
-                  return (
-                    <StyledTimelineDayItem isMobile={isMobile} key={key}>
+                if (isMobile) {
+                  content = (
+                    <StyledTimelineDayContent isMobile>
+                      <TimelineItem timelineItem={timelineItem} />
+                    </StyledTimelineDayContent>
+                  )
+                } else if (position % 2 === 1) {
+                  const contentKey = `content_left_${itemKey}`
+                  content = (
+                    <div key={contentKey} data-testid={contentKey}>
+                      <StyledTimelineDayContent isMobile={false}>
+                        <TimelineItem timelineItem={timelineItem} />
+                      </StyledTimelineDayContent>
+                      <StyledTimelineDayLine>
+                        <StyledOuterCircle>
+                          <CircleIcon status="info" size="medium" />
+                        </StyledOuterCircle>
+                        <StyledInnerCircle>
+                          <CircleIcon status="info" size="medium" />
+                        </StyledInnerCircle>
+                      </StyledTimelineDayLine>
+                      <StyledTimelineDayTimeRight>
+                        <TimelineTime domainResource={timelineItem?.domainResource} />
+                      </StyledTimelineDayTimeRight>
+                    </div>
+                  )
+                } else if (position % 2 === 0) {
+                  const contentKey = `content_right_${itemKey}`
+                  content = (
+                    <div key={contentKey} data-testid={contentKey}>
                       <StyledTimelineDayTimeLeft>
-                        <TimelineTime audit={timelineItem?.auditEvent} />
+                        <TimelineTime domainResource={timelineItem?.domainResource} />
                       </StyledTimelineDayTimeLeft>
                       <StyledTimelineDayLine>
                         <StyledOuterCircle>
@@ -213,18 +239,24 @@ const Timeline: FC<IProps> = (props, ...rest) => {
                           <CircleIcon status="info" size="medium" />
                         </StyledInnerCircle>
                       </StyledTimelineDayLine>
-                      <StyledTimelineDayContent isMobile={isMobile}>
+                      <StyledTimelineDayContent isMobile={false}>
                         <TimelineItem timelineItem={timelineItem} />
                       </StyledTimelineDayContent>
-                    </StyledTimelineDayItem>
+                    </div>
                   )
-                })}
-              </StyledTimelineDayBody>
-            </>
-          )
-        })}
-      </StyledTimeline>
-    </>
+                }
+
+                return (
+                  <StyledTimelineDayItem isMobile={isMobile} key={itemKey} data-testid={itemKey}>
+                    {content}
+                  </StyledTimelineDayItem>
+                )
+              })}
+            </StyledTimelineDayBody>
+          </div>
+        )
+      })}
+    </StyledTimeline>
   )
 }
 

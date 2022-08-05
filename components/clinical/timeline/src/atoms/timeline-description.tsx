@@ -1,7 +1,8 @@
 import { FC, HTMLAttributes } from 'react'
-import { Maybe } from '@ltht-react/types'
+import { AuditEvent, DocumentReference, Maybe } from '@ltht-react/types'
 import ReactHtmlParser from 'react-html-parser'
 import styled from '@emotion/styled'
+import isDocumentReference from '../methods'
 
 const StyledDescription = styled.div`
   p {
@@ -10,16 +11,21 @@ const StyledDescription = styled.div`
   }
 `
 
-const TimelineDescription: FC<Props> = (props) => {
-  if (!props.outcomeDesc) {
+const TimelineDescription: FC<Props> = ({ domainResource }) => {
+  if (!domainResource) return <></>
+  if (isDocumentReference(domainResource)) {
+    return <></>
+  }
+  const audit = domainResource as AuditEvent
+  if (!audit.outcomeDesc) {
     return <></>
   }
 
-  return <StyledDescription>{ReactHtmlParser(props.outcomeDesc)}</StyledDescription>
+  return <StyledDescription>{ReactHtmlParser(audit.outcomeDesc)}</StyledDescription>
 }
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
-  outcomeDesc?: Maybe<string>
+  domainResource: Maybe<AuditEvent | DocumentReference>
 }
 
 export default TimelineDescription
