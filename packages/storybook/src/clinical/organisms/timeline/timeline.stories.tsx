@@ -2,8 +2,11 @@ import { Story } from '@storybook/react'
 import Card from '@ltht-react/card'
 import Timeline from '@ltht-react/timeline'
 import { ITimelineItem } from '@ltht-react/timeline/src'
-import { AuditEvent, DocumentReference } from '@ltht-react/types'
+import { AuditEvent, DocumentReference, TimelineDomainResourceType } from '@ltht-react/types'
 import DocumentReferences, { AuditTrail, RedactedAuditTrail } from './timeline.fixtures'
+
+const auditType = TimelineDomainResourceType.AuditEvent
+const documentType = TimelineDomainResourceType.DocumentReference
 
 export const AuditEventTimeline: Story = () => {
   const timelineItems: ITimelineItem[] = AuditTrail.resources.map((ti) => ({
@@ -17,7 +20,7 @@ export const AuditEventTimeline: Story = () => {
         <Card.Title style={{ textAlign: 'center' }}>Timeline</Card.Title>
       </Card.Header>
       <Card.Body>
-        <Timeline timelineItems={timelineItems} key="Timeline1" />
+        <Timeline timelineItems={timelineItems} key="Timeline1" domainResourceType={auditType} />
       </Card.Body>
     </Card>
   )
@@ -45,7 +48,7 @@ export const AuditEventClickableTimeline: Story = () => {
         <Card.Title style={{ textAlign: 'center' }}>Timeline</Card.Title>
       </Card.Header>
       <Card.Body>
-        <Timeline timelineItems={timelineItems} key="Timeline2" />
+        <Timeline timelineItems={timelineItems} key="Timeline2" domainResourceType={auditType} />
       </Card.Body>
     </Card>
   )
@@ -65,7 +68,7 @@ export const AuditEventRedactedTimeline: Story = () => {
         <Card.Title style={{ textAlign: 'center' }}>Timeline</Card.Title>
       </Card.Header>
       <Card.Body>
-        <Timeline timelineItems={timelineItems} key="Timeline3" />
+        <Timeline timelineItems={timelineItems} key="Timeline3" domainResourceType={auditType} />
       </Card.Body>
     </Card>
   )
@@ -83,7 +86,7 @@ export const DocumentTimeline: Story = () => {
         <Card.Title style={{ textAlign: 'center' }}>Timeline</Card.Title>
       </Card.Header>
       <Card.Body>
-        <Timeline timelineItems={timelineItems} key="Timeline1" />
+        <Timeline timelineItems={timelineItems} key="Timeline1" domainResourceType={documentType} />
       </Card.Body>
     </Card>
   )
@@ -111,7 +114,7 @@ export const DocumentClickableTimeline: Story = () => {
         <Card.Title style={{ textAlign: 'center' }}>Timeline</Card.Title>
       </Card.Header>
       <Card.Body>
-        <Timeline timelineItems={timelineItems} key="Timeline2" />
+        <Timeline timelineItems={timelineItems} key="Timeline2" domainResourceType={documentType} />
       </Card.Body>
     </Card>
   )
@@ -131,7 +134,7 @@ export const DocumentRedactedTimeline: Story = () => {
         <Card.Title style={{ textAlign: 'center' }}>Timeline</Card.Title>
       </Card.Header>
       <Card.Body>
-        <Timeline timelineItems={timelineItems} key="Timeline3" />
+        <Timeline timelineItems={timelineItems} key="Timeline3" domainResourceType={documentType} />
       </Card.Body>
     </Card>
   )

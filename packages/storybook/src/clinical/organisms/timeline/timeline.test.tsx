@@ -3,6 +3,7 @@ import { ITimelineItem } from '@ltht-react/timeline/src'
 
 import Timeline from '@ltht-react/timeline'
 import { formatTime, formatDate } from '@ltht-react/utils'
+import { TimelineDomainResourceType } from '@ltht-react/types'
 import DocumentReferences, { AuditTrail } from './timeline.fixtures'
 
 const auditTimelineItems: ITimelineItem[] = AuditTrail.resources.map((ti) => ({
@@ -10,19 +11,21 @@ const auditTimelineItems: ITimelineItem[] = AuditTrail.resources.map((ti) => ({
   isSelected: false,
 }))
 const auditDatetimes = AuditTrail.resources.map((x) => x?.period?.start)
+const auditType = TimelineDomainResourceType.AuditEvent
 
 const documentTimelineItems: ITimelineItem[] = DocumentReferences.resources.map((ti) => ({
   domainResource: ti,
   isSelected: false,
 }))
 const documentDatetimes = DocumentReferences.resources.map((x) => x?.created)
+const documentType = TimelineDomainResourceType.DocumentReference
 
 describe.each([
-  [auditTimelineItems, auditDatetimes],
-  [documentTimelineItems, documentDatetimes],
-])('Timeline without handlers', (timelineItems, datetimes) => {
+  [auditTimelineItems, auditDatetimes, auditType],
+  [documentTimelineItems, documentDatetimes, documentType],
+])('Timeline without handlers', (timelineItems, datetimes, domainResourceType) => {
   beforeEach(() => {
-    render(<Timeline timelineItems={timelineItems} />)
+    render(<Timeline timelineItems={timelineItems} domainResourceType={domainResourceType} />)
   })
 
   it('Renders Without Click Handler', () => {
@@ -76,9 +79,12 @@ describe.each([
   })
 })
 
-it.each([[auditTimelineItems], [documentTimelineItems]])(
+it.each([
+  [auditTimelineItems, auditType],
+  [documentTimelineItems, documentType],
+])(
   'Shows the deselect prompt over the clickHandler prompt if both are present',
-  (timelineItems) => {
+  (timelineItems, domainResourceType) => {
     const alteredTimelineItems: ITimelineItem[] = timelineItems.map((x) => ({
       domainResource: x.domainResource,
       clickHandler: () => {
@@ -90,13 +96,16 @@ it.each([[auditTimelineItems], [documentTimelineItems]])(
       deselectPrompt: 'Click here to close me',
     }))
 
-    render(<Timeline timelineItems={alteredTimelineItems} />)
+    render(<Timeline timelineItems={alteredTimelineItems} domainResourceType={domainResourceType} />)
     expect(screen.queryAllByTestId(new RegExp('^timeline_day_item'))).toHaveLength(alteredTimelineItems.length)
     expect(screen.getAllByText('Click here to close me')).toHaveLength(alteredTimelineItems.length)
   }
 )
 
-it.each([[auditTimelineItems], [documentTimelineItems]])('Renders With Click Handler', (timelineItems) => {
+it.each([
+  [auditTimelineItems, auditType],
+  [documentTimelineItems, documentType],
+])('Renders With Click Handler', (timelineItems, domainResourceType) => {
   const alteredTimelineItems: ITimelineItem[] = timelineItems.map((x) => ({
     domainResource: x.domainResource,
     clickHandler: () => {
@@ -106,11 +115,14 @@ it.each([[auditTimelineItems], [documentTimelineItems]])('Renders With Click Han
     isSelected: false,
   }))
 
-  render(<Timeline timelineItems={alteredTimelineItems} />)
+  render(<Timeline timelineItems={alteredTimelineItems} domainResourceType={domainResourceType} />)
   expect(screen.queryAllByTestId(new RegExp('^timeline_day_item'))).toHaveLength(alteredTimelineItems.length)
 })
 
-it.each([[auditTimelineItems], [documentTimelineItems]])('Shows the click prompt', (timelineItems) => {
+it.each([
+  [auditTimelineItems, auditType],
+  [documentTimelineItems, documentType],
+])('Shows the click prompt', (timelineItems, domainResourceType) => {
   const alteredTimelineItems: ITimelineItem[] = timelineItems.map((x) => ({
     domainResource: x.domainResource,
     clickHandler: () => {
@@ -121,22 +133,22 @@ it.each([[auditTimelineItems], [documentTimelineItems]])('Shows the click prompt
     isSelected: false,
   }))
 
-  render(<Timeline timelineItems={alteredTimelineItems} />)
+  render(<Timeline timelineItems={alteredTimelineItems} domainResourceType={domainResourceType} />)
   expect(screen.queryAllByTestId(new RegExp('^timeline_day_item'))).toHaveLength(alteredTimelineItems.length)
   expect(screen.getAllByText('Click Here Please')).toHaveLength(alteredTimelineItems.length)
 })
 
-it.each([[auditTimelineItems], [documentTimelineItems]])(
-  'No click handler does not display click Prompt',
-  (timelineItems) => {
-    const alteredTimelineItems: ITimelineItem[] = timelineItems.map((x) => ({
-      domainResource: x.domainResource,
-      clickPrompt: 'Click Here Please',
-      isSelected: false,
-    }))
+it.each([
+  [auditTimelineItems, auditType],
+  [documentTimelineItems, documentType],
+])('No click handler does not display click Prompt', (timelineItems, domainResourceType) => {
+  const alteredTimelineItems: ITimelineItem[] = timelineItems.map((x) => ({
+    domainResource: x.domainResource,
+    clickPrompt: 'Click Here Please',
+    isSelected: false,
+  }))
 
-    render(<Timeline timelineItems={alteredTimelineItems} />)
-    expect(screen.queryAllByTestId(new RegExp('^timeline_day_item'))).toHaveLength(alteredTimelineItems.length)
-    expect(screen.queryByText('Click Here Please')).not.toBeInTheDocument()
-  }
-)
+  render(<Timeline timelineItems={alteredTimelineItems} domainResourceType={domainResourceType} />)
+  expect(screen.queryAllByTestId(new RegExp('^timeline_day_item'))).toHaveLength(alteredTimelineItems.length)
+  expect(screen.queryByText('Click Here Please')).not.toBeInTheDocument()
+})

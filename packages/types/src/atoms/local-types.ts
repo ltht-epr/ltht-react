@@ -15,6 +15,11 @@ export enum CodeSystem {
 
 export type StatusTypes = 'info' | 'danger' | 'warning' | 'highlight'
 
+export enum TimelineDomainResourceType {
+  AuditEvent = 'AUDITEVENT',
+  DocumentReference = 'DOCUMENTREFERENCE',
+}
+
 export enum DetailViewType {
   Compact = 'COMPACT',
   Expanded = 'EXPANDED',
