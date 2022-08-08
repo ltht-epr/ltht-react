@@ -2,13 +2,12 @@ import { FC } from 'react'
 import styled from '@emotion/styled'
 import { CircleIcon } from '@ltht-react/icon'
 import { TEXT_COLOURS, BANNER_COLOURS } from '@ltht-react/styles'
-import { AuditEvent, DocumentReference, Maybe } from '@ltht-react/types'
+import { AuditEvent, DocumentReference, Maybe, TimelineDomainResourceType } from '@ltht-react/types'
 import { formatDate, formatDateExplicitMonth, formatTime, isMobileView } from '@ltht-react/utils'
 import { useWindowSize } from '@ltht-react/hooks'
 
 import TimelineTime from '../atoms/timeline-time'
 import TimelineItem, { ITimelineItem } from '../molecules/timeline-item'
-import isDocumentReference from '../methods'
 
 const StyledTimeline = styled.div`
   margin: -0.75rem;
@@ -107,7 +106,7 @@ const StyledInnerCircle = styled.div`
   }
 `
 
-const Timeline: FC<IProps> = ({ timelineItems }) => {
+const Timeline: FC<IProps> = ({ timelineItems, domainResourceType }) => {
   const { width } = useWindowSize()
   const isMobile = isMobileView(width)
   const timelineDates: { [date: string]: { item: Maybe<ITimelineItem>[]; formattedDate: string } } = {}
@@ -118,20 +117,29 @@ const Timeline: FC<IProps> = ({ timelineItems }) => {
     }
     let date = ''
     let displayDate = ''
-    if (isDocumentReference(timelineItem?.domainResource)) {
-      const docRef = timelineItem?.domainResource as DocumentReference
-      if (!docRef.created?.value) {
-        return
+
+    switch (domainResourceType) {
+      case TimelineDomainResourceType.DocumentReference: {
+        const docRef = timelineItem?.domainResource as DocumentReference
+        if (!docRef.created?.value) {
+          return
+        }
+        date = formatDate(new Date(docRef.created.value))
+        displayDate = formatDateExplicitMonth(new Date(docRef.created.value))
+        break
       }
-      date = formatDate(new Date(docRef.created.value))
-      displayDate = formatDateExplicitMonth(new Date(docRef.created.value))
-    } else {
-      const audit = timelineItem?.domainResource as AuditEvent
-      if (!audit.period?.start?.value) {
-        return
+
+      case TimelineDomainResourceType.AuditEvent: {
+        const audit = timelineItem?.domainResource as AuditEvent
+        if (!audit.period?.start?.value) {
+          return
+        }
+        date = formatDate(new Date(audit.period?.start?.value))
+        displayDate = formatDateExplicitMonth(new Date(audit.period?.start?.value))
+        break
       }
-      date = formatDate(new Date(audit.period?.start?.value))
-      displayDate = formatDateExplicitMonth(new Date(audit.period?.start?.value))
+      default:
+        throw Error('Unrecognised resource type')
     }
 
     const lookup = timelineDates[date]
@@ -160,35 +168,41 @@ const Timeline: FC<IProps> = ({ timelineItems }) => {
                 }
                 let currentTime = ''
                 let previousTime = ''
-                if (isDocumentReference(timelineItem?.domainResource)) {
-                  const docRef = timelineItem?.domainResource as DocumentReference
-                  if (!docRef.created?.value) {
-                    return <></>
-                  }
-                  currentTime = formatTime(new Date(docRef.created.value))
-                  previousTime = currentTime
 
-                  if (idx > 0) {
-                    const previousItem = value.item[idx - 1]?.domainResource as DocumentReference
-                    if (!previousItem?.created?.value) {
+                switch (domainResourceType) {
+                  case TimelineDomainResourceType.DocumentReference: {
+                    const docRef = timelineItem?.domainResource as DocumentReference
+                    if (!docRef.created?.value) {
                       return <></>
                     }
-                    previousTime = formatTime(new Date(previousItem?.created?.value))
-                  }
-                } else {
-                  const audit = timelineItem?.domainResource as AuditEvent
-                  if (!audit.period?.start?.value) {
-                    return <></>
-                  }
-                  currentTime = formatTime(new Date(audit.period?.start?.value))
-                  previousTime = currentTime
+                    currentTime = formatTime(new Date(docRef.created.value))
+                    previousTime = currentTime
 
-                  if (idx > 0) {
-                    const previousItem = value.item[idx - 1]?.domainResource as AuditEvent
-                    if (!previousItem?.period?.start?.value) {
+                    if (idx > 0) {
+                      const previousItem = value.item[idx - 1]?.domainResource as DocumentReference
+                      if (!previousItem?.created?.value) {
+                        return <></>
+                      }
+                      previousTime = formatTime(new Date(previousItem?.created?.value))
+                    }
+                    break
+                  }
+                  case TimelineDomainResourceType.AuditEvent: {
+                    const audit = timelineItem?.domainResource as AuditEvent
+                    if (!audit.period?.start?.value) {
                       return <></>
                     }
-                    previousTime = formatTime(new Date(previousItem?.period?.start?.value))
+                    currentTime = formatTime(new Date(audit.period?.start?.value))
+                    previousTime = currentTime
+
+                    if (idx > 0) {
+                      const previousItem = value.item[idx - 1]?.domainResource as AuditEvent
+                      if (!previousItem?.period?.start?.value) {
+                        return <></>
+                      }
+                      previousTime = formatTime(new Date(previousItem?.period?.start?.value))
+                    }
+                    break
                   }
                 }
 
@@ -201,7 +215,7 @@ const Timeline: FC<IProps> = ({ timelineItems }) => {
                 if (isMobile) {
                   content = (
                     <StyledTimelineDayContent isMobile>
-                      <TimelineItem timelineItem={timelineItem} />
+                      <TimelineItem timelineItem={timelineItem} domainResourceType={domainResourceType} />
                     </StyledTimelineDayContent>
                   )
                 } else if (position % 2 === 1) {
@@ -209,7 +223,7 @@ const Timeline: FC<IProps> = ({ timelineItems }) => {
                   content = (
                     <div key={contentKey} data-testid={contentKey}>
                       <StyledTimelineDayContent isMobile={false}>
-                        <TimelineItem timelineItem={timelineItem} />
+                        <TimelineItem timelineItem={timelineItem} domainResourceType={domainResourceType} />
                       </StyledTimelineDayContent>
                       <StyledTimelineDayLine>
                         <StyledOuterCircle>
@@ -220,7 +234,10 @@ const Timeline: FC<IProps> = ({ timelineItems }) => {
                         </StyledInnerCircle>
                       </StyledTimelineDayLine>
                       <StyledTimelineDayTimeRight>
-                        <TimelineTime domainResource={timelineItem?.domainResource} />
+                        <TimelineTime
+                          domainResource={timelineItem?.domainResource}
+                          domainResourceType={domainResourceType}
+                        />
                       </StyledTimelineDayTimeRight>
                     </div>
                   )
@@ -229,7 +246,10 @@ const Timeline: FC<IProps> = ({ timelineItems }) => {
                   content = (
                     <div key={contentKey} data-testid={contentKey}>
                       <StyledTimelineDayTimeLeft>
-                        <TimelineTime domainResource={timelineItem?.domainResource} />
+                        <TimelineTime
+                          domainResource={timelineItem?.domainResource}
+                          domainResourceType={domainResourceType}
+                        />
                       </StyledTimelineDayTimeLeft>
                       <StyledTimelineDayLine>
                         <StyledOuterCircle>
@@ -240,7 +260,7 @@ const Timeline: FC<IProps> = ({ timelineItems }) => {
                         </StyledInnerCircle>
                       </StyledTimelineDayLine>
                       <StyledTimelineDayContent isMobile={false}>
-                        <TimelineItem timelineItem={timelineItem} />
+                        <TimelineItem timelineItem={timelineItem} domainResourceType={domainResourceType} />
                       </StyledTimelineDayContent>
                     </div>
                   )
@@ -262,6 +282,7 @@ const Timeline: FC<IProps> = ({ timelineItems }) => {
 
 interface IProps {
   timelineItems: Maybe<ITimelineItem>[]
+  domainResourceType: TimelineDomainResourceType
 }
 
 interface IStyledMobile {

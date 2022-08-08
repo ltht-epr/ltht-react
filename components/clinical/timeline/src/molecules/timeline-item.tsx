@@ -3,7 +3,7 @@ import styled from '@emotion/styled'
 import Banner from '@ltht-react/banner'
 import { InfoCircleIcon } from '@ltht-react/icon'
 import { HIGHLIGHT_GREEN, TRANSLUCENT_DARK_BLUE } from '@ltht-react/styles'
-import { AuditEvent, DocumentReference, Maybe } from '@ltht-react/types'
+import { AuditEvent, DocumentReference, Maybe, TimelineDomainResourceType } from '@ltht-react/types'
 import { useWindowSize } from '@ltht-react/hooks'
 import { isMobileView } from '@ltht-react/utils'
 import TimelineDescription from '../atoms/timeline-description'
@@ -68,7 +68,7 @@ const StyledBanner = styled(Banner)`
 
 const StyledBannerContent = styled.div``
 
-const TimelineItem: FC<IProps> = ({ timelineItem }) => {
+const TimelineItem: FC<IProps> = ({ timelineItem, domainResourceType }) => {
   const { width } = useWindowSize()
   const isMobile = isMobileView(width)
 
@@ -82,22 +82,22 @@ const TimelineItem: FC<IProps> = ({ timelineItem }) => {
     <StyledTimelineItem isSelected={timelineItem.isSelected ?? false} key={itemKey}>
       <StyledTimelineItemTop>
         <StyledTitle isMobile={isMobile}>
-          <TimelineTitle domainResource={timelineItem.domainResource} />
+          <TimelineTitle domainResource={timelineItem.domainResource} domainResourceType={domainResourceType} />
         </StyledTitle>
         {isMobile && (
           <StyledTimelineTime>
-            <TimelineTime domainResource={timelineItem.domainResource} />
+            <TimelineTime domainResource={timelineItem.domainResource} domainResourceType={domainResourceType} />
           </StyledTimelineTime>
         )}
       </StyledTimelineItemTop>
       <StyledTimelineItemMiddle>
         <StyledDescription>
-          <TimelineDescription domainResource={timelineItem.domainResource} />
+          <TimelineDescription domainResource={timelineItem.domainResource} domainResourceType={domainResourceType} />
         </StyledDescription>
       </StyledTimelineItemMiddle>
       <StyledTimelineItemBottom>
         <StyledTimelineItemLeft>
-          <TimelineAuthor domainResource={timelineItem.domainResource} />
+          <TimelineAuthor domainResource={timelineItem.domainResource} domainResourceType={domainResourceType} />
         </StyledTimelineItemLeft>
         <StyledTimelineItemRight>
           <StyledStatus>
@@ -125,6 +125,7 @@ const TimelineItem: FC<IProps> = ({ timelineItem }) => {
 
 interface IProps {
   timelineItem: Maybe<ITimelineItem>
+  domainResourceType: TimelineDomainResourceType
 }
 
 export interface ITimelineItem {
