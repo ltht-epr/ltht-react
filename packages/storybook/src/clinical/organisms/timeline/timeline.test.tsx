@@ -45,8 +45,6 @@ describe.each([
     })
   })
 
-  it('Each day section only exists once', () => {})
-
   it('Left and right divide work', () => {
     const uniqueTimes: string[] = []
     datetimes.forEach((x) => {

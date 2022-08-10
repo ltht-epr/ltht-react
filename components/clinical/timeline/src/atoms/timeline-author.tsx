@@ -3,7 +3,7 @@ import { UserIcon } from '@ltht-react/icon'
 import styled from '@emotion/styled'
 
 import { AuditEvent, DocumentReference, Maybe, TimelineDomainResourceType } from '@ltht-react/types'
-import { PRIMARY_AUTHOR } from '../constants'
+import PRIMARY_AUTHOR from '../constants'
 
 const StyledTimelineItemLeft = styled.div`
   flex-grow: 1;
@@ -15,7 +15,7 @@ const TimelineAuthor: FC<Props> = ({ domainResource, domainResourceType }) => {
   switch (domainResourceType) {
     case TimelineDomainResourceType.DocumentReference: {
       const docRef = domainResource as DocumentReference
-      let authorList: string[] = []
+      const authorList: string[] = []
 
       if (docRef?.author == null) {
         return <></>
