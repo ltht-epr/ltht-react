@@ -36,9 +36,6 @@ export type Ehr = {
   allergyIntolerance?: Maybe<AllergyIntolerance>
   allergyIntolerances?: Maybe<AllergyIntoleranceContinuationType>
   auditPathway?: Maybe<AuditEventContinuation>
-  carePlanDefinition?: Maybe<PlanDefinition>
-  carePlanDefinitions?: Maybe<PlanDefinitionContinuationType>
-  carePlanDefinitionUseContext?: Maybe<Array<Maybe<UsageContext>>>
   condition?: Maybe<Condition>
   conditions?: Maybe<ConditionContinuation>
   guidance?: Maybe<Array<Maybe<Guidance>>>
@@ -75,25 +72,6 @@ export type EhrAuditPathwayArgs = {
   auditProfile?: Maybe<Scalars['String']>
   cursorToken?: Maybe<Scalars['String']>
   count?: Maybe<Scalars['Int']>
-}
-
-/** Queries the LTHT EHR. */
-export type EhrCarePlanDefinitionArgs = {
-  id: Scalars['String']
-}
-
-/** Queries the LTHT EHR. */
-export type EhrCarePlanDefinitionsArgs = {
-  pathwayType: Scalars['String']
-  filter?: Maybe<Scalars['String']>
-  usageContext?: Maybe<Scalars['String']>
-  cursorToken?: Maybe<Scalars['String']>
-  count?: Maybe<Scalars['Int']>
-}
-
-/** Queries the LTHT EHR. */
-export type EhrCarePlanDefinitionUseContextArgs = {
-  pathwayType: Scalars['String']
 }
 
 /** Queries the LTHT EHR. */
@@ -231,8 +209,6 @@ export type AllergyIntolerance = {
 
 /** Metadata about the resource. */
 export type Metadata = {
-  /** Unique id for inter-element referencing. */
-  elementId?: Maybe<Scalars['String']>
   /** Additional content defined by implementations. */
   extension?: Maybe<Array<Maybe<Extension>>>
   /** The version specific identifier. This value changes when the resource is created, updated, or deleted. */
@@ -253,8 +229,6 @@ export type Metadata = {
 
 /** Additional content defined by implementations. */
 export type Extension = {
-  /** Unique id for inter-element referencing. */
-  elementId?: Maybe<Scalars['String']>
   /** Additional content defined by implementations. */
   extension?: Maybe<Array<Maybe<Extension>>>
   /** Identifies the meaning of the extension. */
@@ -271,8 +245,6 @@ export type Extension = {
 
 /** A reference to one or more terminologies or ontologies but may also be defined by the provision of text. */
 export type CodeableConcept = {
-  /** Unique id for inter-element referencing. */
-  elementId?: Maybe<Scalars['String']>
   /** Additional content defined by implementations. */
   extension?: Maybe<Array<Maybe<Extension>>>
   /** Code defined by a terminology system. */
@@ -283,8 +255,6 @@ export type CodeableConcept = {
 
 /** A defined concept using a symbol from a code system. */
 export type Coding = {
-  /** Unique id for inter-element referencing. */
-  elementId?: Maybe<Scalars['String']>
   /** Additional content defined by implementations. */
   extension?: Maybe<Array<Maybe<Extension>>>
   /** Symbol in syntax defined by the system. */
@@ -299,8 +269,6 @@ export type Coding = {
 
 /** Content in a format defined elsewhere. */
 export type Attachment = {
-  /** Unique id for inter-element referencing. */
-  elementId?: Maybe<Scalars['String']>
   /** Additional content defined by implementations. */
   extension?: Maybe<Array<Maybe<Extension>>>
   /** Mime type of the content, with charset etc. */
@@ -339,8 +307,6 @@ export enum PartialDateTimeKindCode {
 
 /** Text summary of the resource, for human interpretation. */
 export type Narrative = {
-  /** Unique id for inter-element referencing. */
-  elementId?: Maybe<Scalars['String']>
   /** Additional content defined by implementations. */
   extension?: Maybe<Array<Maybe<Extension>>>
   /** http://hl7.org/fhir/narrative-status */
@@ -360,8 +326,6 @@ export enum NarrativeStatusCode {
 
 /** A business identifier associated with a single object or entity within a given system. */
 export type Identifier = {
-  /** Unique id for inter-element referencing. */
-  elementId?: Maybe<Scalars['String']>
   /** Additional content defined by implementations. */
   extension?: Maybe<Array<Maybe<Extension>>>
   /** The namespace for the identifier value. */
@@ -387,8 +351,6 @@ export enum IdentifierUseCode {
 
 /** A time period defined by a start and end date/time. */
 export type Period = {
-  /** Unique id for inter-element referencing. */
-  elementId?: Maybe<Scalars['String']>
   /** Additional content defined by implementations. */
   extension?: Maybe<Array<Maybe<Extension>>>
   /** Starting time with inclusive boundary. */
@@ -399,8 +361,6 @@ export type Period = {
 
 /** General references between resources. */
 export type ResourceReference = {
-  /** Unique id for inter-element referencing. */
-  elementId?: Maybe<Scalars['String']>
   /** Additional content defined by implementations. */
   extension?: Maybe<Array<Maybe<Extension>>>
   /** Text alternative for the resource. */
@@ -446,8 +406,6 @@ export enum AllergyIntoleranceCriticalityCode {
 
 /** When allergy or intolerance was identified. */
 export type AllergyIntoleranceOnSet = {
-  /** Unique id for inter-element referencing. */
-  elementId?: Maybe<Scalars['String']>
   /** Additional content defined by implementations. */
   extension?: Maybe<Array<Maybe<Extension>>>
   onSetAge?: Maybe<Quantity>
@@ -459,8 +417,6 @@ export type AllergyIntoleranceOnSet = {
 
 /** A measured amount (or an amount that can potentially be measured). */
 export type Quantity = {
-  /** Unique id for inter-element referencing. */
-  elementId?: Maybe<Scalars['String']>
   /** Additional content defined by implementations. */
   extension?: Maybe<Array<Maybe<Extension>>>
   /** Numerical value (with implicit precision). */
@@ -484,8 +440,6 @@ export enum QuantityComparatorCode {
 
 /** A set of ordered Quantity values defined by a low and high limit. */
 export type Range = {
-  /** Unique id for inter-element referencing. */
-  elementId?: Maybe<Scalars['String']>
   /** Additional content defined by implementations. */
   extension?: Maybe<Array<Maybe<Extension>>>
   /** Low limit. */
@@ -496,8 +450,6 @@ export type Range = {
 
 /** A text note which also contains information about who made the statement and when. */
 export type Annotation = {
-  /** Unique id for inter-element referencing. */
-  elementId?: Maybe<Scalars['String']>
   /** Additional content defined by implementations. */
   extension?: Maybe<Array<Maybe<Extension>>>
   /** Individual responsible for the annotation. */
@@ -510,8 +462,6 @@ export type Annotation = {
 
 /** Adverse Reaction Events linked to exposure to substance. */
 export type AllergyIntoleranceReaction = {
-  /** Unique id for inter-element referencing. */
-  elementId?: Maybe<Scalars['String']>
   /** Additional content defined by implementations. */
   extension?: Maybe<Array<Maybe<Extension>>>
   /** http://hl7.org/fhir/stu3/valueset-substance-code.html */
@@ -615,8 +565,6 @@ export enum AuditEventAction {
 
 /** Actor involved in the event. */
 export type AuditEventAgent = {
-  /** Unique id for inter-element referencing. */
-  elementId?: Maybe<Scalars['String']>
   /** Additional content defined by implementations. */
   extension?: Maybe<Array<Maybe<Extension>>>
   /** Alternative User identity. */
@@ -645,8 +593,6 @@ export type AuditEventAgent = {
 
 /** Logical network location for application activity. */
 export type AuditEventAgentNetwork = {
-  /** Unique id for inter-element referencing. */
-  elementId?: Maybe<Scalars['String']>
   /** Additional content defined by implementations. */
   extension?: Maybe<Array<Maybe<Extension>>>
   /** Identifier for the network access point of the user device. */
@@ -665,8 +611,6 @@ export enum AuditEventAgentNetworkType {
 
 /** Data or objects used. */
 export type AuditEventEntity = {
-  /** Unique id for inter-element referencing. */
-  elementId?: Maybe<Scalars['String']>
   /** Additional content defined by implementations. */
   extension?: Maybe<Array<Maybe<Extension>>>
   /** Alternative User identity. */
@@ -691,8 +635,6 @@ export type AuditEventEntity = {
 
 /** Additional Information about the entity. */
 export type AuditEventEntityDetail = {
-  /** Unique id for inter-element referencing. */
-  elementId?: Maybe<Scalars['String']>
   /** Additional content defined by implementations. */
   extension?: Maybe<Array<Maybe<Extension>>>
   /** Name of the property. */
@@ -710,8 +652,6 @@ export enum AuditEventOutcome {
 
 /** Audit Event Reporter. */
 export type AuditEventSource = {
-  /** Unique id for inter-element referencing. */
-  elementId?: Maybe<Scalars['String']>
   /** Additional content defined by implementations. */
   extension?: Maybe<Array<Maybe<Extension>>>
   /** The identity of source detecting the event. */
@@ -720,271 +660,6 @@ export type AuditEventSource = {
   site?: Maybe<Scalars['String']>
   /** The type of source where event originated. */
   type?: Maybe<Array<Maybe<Coding>>>
-}
-
-/** https://www.hl7.org/fhir/R4/plandefinition.html */
-export type PlanDefinition = {
-  /** Logical Id of the resource. */
-  id: Scalars['ID']
-  /** Metadata about the resource. */
-  metadata: Metadata
-  /** Additional content defined by implementations. */
-  extension?: Maybe<Array<Maybe<Extension>>>
-  /** Text summary of the resource, for human interpretation. */
-  text?: Maybe<Narrative>
-  /** Flag to state whether the resource should be displayed as entered in error in user interface */
-  isEnteredInError?: Maybe<Scalars['Boolean']>
-  /** Canonical identifier for this plan definition, represented as a URI (globally unique) */
-  url?: Maybe<Scalars['String']>
-  /** Additional identifier for the plan definition. */
-  identifier?: Maybe<Array<Maybe<Identifier>>>
-  /** Business version of the plan definition. */
-  version?: Maybe<Scalars['String']>
-  /** Name for this plan definition (computer friendly). */
-  name?: Maybe<Scalars['String']>
-  /** Name for this plan definition (human friendly). */
-  title?: Maybe<Scalars['String']>
-  /** Subordinate title of the plan definition. */
-  subTitle?: Maybe<Scalars['String']>
-  /** order-set | clinical-protocol | eca-rule | workflow-definition */
-  type?: Maybe<CodeableConcept>
-  /** draft | active | retired | unknown */
-  status: PlanDefinitionStatus
-  /** For testing purposes, not real usage. */
-  experimental?: Maybe<Scalars['Boolean']>
-  /** Date last changed. */
-  date?: Maybe<PartialDateTime>
-  /** Name of the publisher (organization or individual). */
-  publisher?: Maybe<Scalars['String']>
-  /** Name of the publisher (organization or individual). */
-  contact?: Maybe<Array<Maybe<ContactDetail>>>
-  /** Natural language description of the plan definition. */
-  description?: Maybe<Scalars['String']>
-  /** Describes the clinical usage of the plan. */
-  usageContext?: Maybe<Array<Maybe<UsageContext>>>
-  /** Intended jurisdiction for plan definition (if applicable). */
-  jurisdiction?: Maybe<Array<Maybe<CodeableConcept>>>
-  /** Why this plan definition is defined. */
-  purpose?: Maybe<Scalars['String']>
-  /** Describes the clinical usage of the plan. */
-  usage?: Maybe<Scalars['String']>
-  /** Use and/or publishing restrictions. */
-  copyright?: Maybe<Scalars['String']>
-  /** When the plan definition was approved by publisher. */
-  approvalDate?: Maybe<PartialDateTime>
-  /** When the plan definition was last reviewed. */
-  lastReviewDate?: Maybe<PartialDateTime>
-  /** When the plan definition is expected to be used. */
-  effectivePeriod?: Maybe<Period>
-  /** Keywords defined by the Care Plan Definition. */
-  topic?: Maybe<Array<Maybe<CodeableConcept>>>
-  /** Who authored the content. */
-  author?: Maybe<Array<Maybe<ContactDetail>>>
-  /** Who edited the content. */
-  editor?: Maybe<Array<Maybe<ContactDetail>>>
-  /** Who reviewed the content. */
-  reviewer?: Maybe<Array<Maybe<ContactDetail>>>
-  /** Who endorsed the content. */
-  endorser?: Maybe<Array<Maybe<ContactDetail>>>
-  /** Additional documentation, citations. */
-  relatedArtifact?: Maybe<Array<Maybe<RelatedArtifact>>>
-  /** Logic used by the plan definition. */
-  library?: Maybe<Array<Maybe<Scalars['String']>>>
-  /** What the plan is trying to accomplish. */
-  goal?: Maybe<Array<Maybe<PlanDefinitionGoal>>>
-  /** Action defined by the plan. */
-  action?: Maybe<Array<Maybe<PlanDefinitionAction>>>
-}
-
-export enum PlanDefinitionStatus {
-  Draft = 'DRAFT',
-  Active = 'ACTIVE',
-  Retired = 'RETIRED',
-  Unknown = 'UNKNOWN',
-}
-
-/** The ContactDetail structure defines general contact details. */
-export type ContactDetail = {
-  /** Unique id for inter-element referencing. */
-  elementId?: Maybe<Scalars['String']>
-  /** Additional content defined by implementations. */
-  extension?: Maybe<Array<Maybe<Extension>>>
-  /** Name of an individual to contact. */
-  name?: Maybe<Scalars['String']>
-  /** Contact details for individual or organization. */
-  telecom?: Maybe<Array<Maybe<ContactPoint>>>
-}
-
-/** Details for all kinds of technology-mediated contact points for a person or organization, including telephone, email, etc. */
-export type ContactPoint = {
-  /** Unique id for inter-element referencing. */
-  elementId?: Maybe<Scalars['String']>
-  /** Additional content defined by implementations. */
-  extension?: Maybe<Array<Maybe<Extension>>>
-  /** http://hl7.org/fhir/stu3/valueset-contact-point-system.html */
-  system?: Maybe<ContactPointSystemCode>
-  /** The actual contact point details. */
-  value?: Maybe<Scalars['String']>
-  /** http://hl7.org/fhir/stu3/valueset-contact-point-use.html */
-  use?: Maybe<ContactPointUseCode>
-  /** Specify preferred order of use (1 = highest). */
-  rank?: Maybe<Scalars['Int']>
-  /** Time period when name was/is in use. */
-  period?: Maybe<Period>
-}
-
-/** http://hl7.org/fhir/stu3/valueset-contact-point-system.html */
-export enum ContactPointSystemCode {
-  Phone = 'PHONE',
-  Fax = 'FAX',
-  Email = 'EMAIL',
-  Pager = 'PAGER',
-  Url = 'URL',
-  Sms = 'SMS',
-  Other = 'OTHER',
-}
-
-/** http://hl7.org/fhir/stu3/valueset-contact-point-use.html */
-export enum ContactPointUseCode {
-  Home = 'HOME',
-  Work = 'WORK',
-  Temp = 'TEMP',
-  Old = 'OLD',
-  Mobile = 'MOBILE',
-}
-
-export type UsageContext = {
-  /** Unique id for inter-element referencing. */
-  elementId?: Maybe<Scalars['String']>
-  /** Additional content defined by implementations. */
-  extension?: Maybe<Array<Maybe<Extension>>>
-  code?: Maybe<Coding>
-  valueCodeableConcept?: Maybe<CodeableConcept>
-  valueQuantity?: Maybe<Quantity>
-  valueRange?: Maybe<Range>
-  valueReference?: Maybe<ResourceReference>
-}
-
-/** Related artifacts for a knowledge resource. */
-export type RelatedArtifact = {
-  /** Unique id for inter-element referencing. */
-  elementId?: Maybe<Scalars['String']>
-  /** Additional content defined by implementations. */
-  extension?: Maybe<Array<Maybe<Extension>>>
-  /** RelatedArtifactType code. */
-  type: RelatedArtifactType
-  /** Short label. */
-  label?: Maybe<Scalars['String']>
-  /** Brief description of the related artifact. */
-  display?: Maybe<Scalars['String']>
-  /** Bibliographic citation for the artifact. */
-  citation?: Maybe<Scalars['String']>
-  /** Where the artifact can be accessed. */
-  url?: Maybe<Scalars['String']>
-  /** What document is being referenced. */
-  document?: Maybe<Attachment>
-  /** What resource is being referenced. */
-  resource?: Maybe<ResourceReference>
-}
-
-export enum RelatedArtifactType {
-  Documentation = 'DOCUMENTATION',
-  Justification = 'JUSTIFICATION',
-  Citation = 'CITATION',
-  Predecessor = 'PREDECESSOR',
-  Successor = 'SUCCESSOR',
-  DerivedFrom = 'DERIVED_FROM',
-  DependsOn = 'DEPENDS_ON',
-  ComposedOf = 'COMPOSED_OF',
-}
-
-/** https://www.hl7.org/fhir/plandefinition-definitions.html#PlanDefinition.goal */
-export type PlanDefinitionGoal = {
-  /** Unique id for inter-element referencing. */
-  elementId?: Maybe<Scalars['String']>
-  /** Additional content defined by implementations. */
-  extension?: Maybe<Array<Maybe<Extension>>>
-  /** Goal category. */
-  category?: Maybe<CodeableConcept>
-  /** Code or text describing the goal. */
-  description: CodeableConcept
-  /** Goal priority. */
-  priority?: Maybe<CodeableConcept>
-  /** When goal pursuit begins. */
-  start?: Maybe<CodeableConcept>
-  /** What does the goal address. */
-  addresses?: Maybe<Array<Maybe<CodeableConcept>>>
-  /** Supporting documentation for the goal. */
-  documentation?: Maybe<Array<Maybe<RelatedArtifact>>>
-  /** Target outcome for the goal. */
-  target?: Maybe<Array<Maybe<PlanDefinitionGoalTarget>>>
-}
-
-/** https://www.hl7.org/fhir/plandefinition-definitions.html#PlanDefinition.goal.target */
-export type PlanDefinitionGoalTarget = {
-  /** Unique id for inter-element referencing. */
-  elementId?: Maybe<Scalars['String']>
-  /** Additional content defined by implementations. */
-  extension?: Maybe<Array<Maybe<Extension>>>
-  /** The parameter whose value is to be tracked. */
-  measure?: Maybe<CodeableConcept>
-  /** The target value to be achieved. */
-  detailQuantity?: Maybe<Quantity>
-  /** The target value to be achieved. */
-  detailRange?: Maybe<Range>
-  /** The target value to be achieved. */
-  detailCodeableConcept?: Maybe<CodeableConcept>
-  /** Reach goal within. */
-  due?: Maybe<Scalars['String']>
-}
-
-/** https://www.hl7.org/fhir/R4/plandefinition-definitions.html#PlanDefinition.action */
-export type PlanDefinitionAction = {
-  /** Unique id for inter-element referencing. */
-  elementId?: Maybe<Scalars['String']>
-  /** Additional content defined by implementations. */
-  extension?: Maybe<Array<Maybe<Extension>>>
-  /** User-visible prefix for the action (e.g. 1. or A.). */
-  prefix?: Maybe<Scalars['String']>
-  /** User-visible title. */
-  title?: Maybe<Scalars['String']>
-  /** Brief description of the action. */
-  description?: Maybe<Scalars['String']>
-  /** Static text equivalent of the action, used if the dynamic aspects cannot be interpreted by the receiving system. */
-  textEquivalent?: Maybe<Scalars['String']>
-  /** Action priority. */
-  priority?: Maybe<PlanDefinitionActionPriority>
-  /** Code representing the meaning of the action or sub-actions. */
-  code?: Maybe<Array<Maybe<CodeableConcept>>>
-  /** Why the action should be performed. */
-  reason?: Maybe<Array<Maybe<CodeableConcept>>>
-  /** Supporting documentation for the intended performer of the action. */
-  documentation?: Maybe<Array<Maybe<RelatedArtifact>>>
-  /** A sub-action. */
-  action?: Maybe<Array<Maybe<PlanDefinitionAction>>>
-  /** ID of the Goal this action links to */
-  goalId?: Maybe<Array<Maybe<Scalars['String']>>>
-}
-
-export enum PlanDefinitionActionPriority {
-  Routine = 'ROUTINE',
-  Urgent = 'URGENT',
-  Asap = 'ASAP',
-  Stat = 'STAT',
-}
-
-/** A continuation of Plan Definition resources. */
-export type PlanDefinitionContinuationType = {
-  /** The first cursor token. */
-  firstCursorToken?: Maybe<Scalars['String']>
-  /** The next cursor token. */
-  nextCursorToken?: Maybe<Scalars['String']>
-  /** The self cursor token. */
-  selfCursorToken: Scalars['String']
-  /** The total number of resources available (if known). */
-  totalResources?: Maybe<Scalars['Int']>
-  /** The continuation of Plan Definition resources. */
-  resources: Array<Maybe<PlanDefinition>>
 }
 
 export type Condition = {
@@ -1017,8 +692,6 @@ export type Condition = {
 }
 
 export type ConditionAbatement = {
-  /** Unique id for inter-element referencing. */
-  elementId?: Maybe<Scalars['String']>
   /** Additional content defined by implementations. */
   extension?: Maybe<Array<Maybe<Extension>>>
   age?: Maybe<Quantity>
@@ -1027,8 +700,6 @@ export type ConditionAbatement = {
 }
 
 export type ConditionAsserter = {
-  /** Unique id for inter-element referencing. */
-  elementId?: Maybe<Scalars['String']>
   /** Additional content defined by implementations. */
   extension?: Maybe<Array<Maybe<Extension>>>
   /** Text alternative for the resource. */
@@ -1052,8 +723,6 @@ export enum ConditionClinicalStatus {
 }
 
 export type ConditionEvidence = {
-  /** Unique id for inter-element referencing. */
-  elementId?: Maybe<Scalars['String']>
   /** Additional content defined by implementations. */
   extension?: Maybe<Array<Maybe<Extension>>>
   code?: Maybe<Array<Maybe<CodeableConcept>>>
@@ -1096,8 +765,6 @@ export type QuestionnaireResponse = {
 
 /** Groups and questions. */
 export type QuestionnaireResponseItem = {
-  /** Unique id for inter-element referencing. */
-  elementId?: Maybe<Scalars['String']>
   /** Additional content defined by implementations. */
   extension?: Maybe<Array<Maybe<Extension>>>
   /** The response(s) to the question. */
@@ -1114,8 +781,6 @@ export type QuestionnaireResponseItem = {
 
 /** The response(s) to the question. */
 export type QuestionnaireResponseItemAnswer = {
-  /** Unique id for inter-element referencing. */
-  elementId?: Maybe<Scalars['String']>
   /** Additional content defined by implementations. */
   extension?: Maybe<Array<Maybe<Extension>>>
   /** Nested groups and questions. */
@@ -1188,10 +853,54 @@ export type Questionnaire = {
   isEnteredInError?: Maybe<Scalars['Boolean']>
 }
 
+/** The ContactDetail structure defines general contact details. */
+export type ContactDetail = {
+  /** Additional content defined by implementations. */
+  extension?: Maybe<Array<Maybe<Extension>>>
+  /** Name of an individual to contact. */
+  name?: Maybe<Scalars['String']>
+  /** Contact details for individual or organization. */
+  telecom?: Maybe<Array<Maybe<ContactPoint>>>
+}
+
+/** Details for all kinds of technology-mediated contact points for a person or organization, including telephone, email, etc. */
+export type ContactPoint = {
+  /** Additional content defined by implementations. */
+  extension?: Maybe<Array<Maybe<Extension>>>
+  /** http://hl7.org/fhir/stu3/valueset-contact-point-system.html */
+  system?: Maybe<ContactPointSystemCode>
+  /** The actual contact point details. */
+  value?: Maybe<Scalars['String']>
+  /** http://hl7.org/fhir/stu3/valueset-contact-point-use.html */
+  use?: Maybe<ContactPointUseCode>
+  /** Specify preferred order of use (1 = highest). */
+  rank?: Maybe<Scalars['Int']>
+  /** Time period when name was/is in use. */
+  period?: Maybe<Period>
+}
+
+/** http://hl7.org/fhir/stu3/valueset-contact-point-system.html */
+export enum ContactPointSystemCode {
+  Phone = 'PHONE',
+  Fax = 'FAX',
+  Email = 'EMAIL',
+  Pager = 'PAGER',
+  Url = 'URL',
+  Sms = 'SMS',
+  Other = 'OTHER',
+}
+
+/** http://hl7.org/fhir/stu3/valueset-contact-point-use.html */
+export enum ContactPointUseCode {
+  Home = 'HOME',
+  Work = 'WORK',
+  Temp = 'TEMP',
+  Old = 'OLD',
+  Mobile = 'MOBILE',
+}
+
 /** Questions and sections within the Questionnaire. */
 export type QuestionnaireItem = {
-  /** Unique id for inter-element referencing. */
-  elementId?: Maybe<Scalars['String']>
   /** Additional content defined by implementations. */
   extension?: Maybe<Array<Maybe<Extension>>>
   /** Corresponding concept for this item in a terminology. */
@@ -1232,6 +941,22 @@ export enum QuestionnairePublicationStatus {
   Unknown = 'UNKNOWN',
 }
 
+/** The UsageContext structure defines the context of use for a module. */
+export type UsageContext = {
+  /** Additional content defined by implementations. */
+  extension?: Maybe<Array<Maybe<Extension>>>
+  /** Type of context being specified. */
+  code?: Maybe<Coding>
+  /** CodeableConcept Value. */
+  valueCodeableConcept?: Maybe<CodeableConcept>
+  /** Quantity Value. */
+  valueQuantity?: Maybe<Quantity>
+  /** Range Value. */
+  valueRange?: Maybe<Range>
+  /** Reference Value. */
+  valueReference?: Maybe<ResourceReference>
+}
+
 export enum QuestionnaireResponseStatus {
   InProgress = 'IN_PROGRESS',
   Completed = 'COMPLETED',
@@ -1241,8 +966,6 @@ export enum QuestionnaireResponseStatus {
 }
 
 export type ConditionOnset = {
-  /** Unique id for inter-element referencing. */
-  elementId?: Maybe<Scalars['String']>
   /** Additional content defined by implementations. */
   extension?: Maybe<Array<Maybe<Extension>>>
   age?: Maybe<Quantity>
@@ -1253,8 +976,6 @@ export type ConditionOnset = {
 }
 
 export type ConditionStage = {
-  /** Unique id for inter-element referencing. */
-  elementId?: Maybe<Scalars['String']>
   /** Additional content defined by implementations. */
   extension?: Maybe<Array<Maybe<Extension>>>
   assessment?: Maybe<Array<Maybe<ResourceReference>>>
@@ -1397,8 +1118,6 @@ export type MedicationType = {
 }
 
 export type DosageType = {
-  /** Unique id for inter-element referencing. */
-  elementId?: Maybe<Scalars['String']>
   /** Additional content defined by implementations. */
   extension?: Maybe<Array<Maybe<Extension>>>
   sequence?: Maybe<Scalars['Int']>
@@ -1421,8 +1140,6 @@ export type DosageType = {
 }
 
 export type TimingType = {
-  /** Unique id for inter-element referencing. */
-  elementId?: Maybe<Scalars['String']>
   /** Additional content defined by implementations. */
   extension?: Maybe<Array<Maybe<Extension>>>
   event?: Maybe<Array<Maybe<PartialDateTime>>>
@@ -1431,8 +1148,6 @@ export type TimingType = {
 }
 
 export type TimingRepeatType = {
-  /** Unique id for inter-element referencing. */
-  elementId?: Maybe<Scalars['String']>
   /** Additional content defined by implementations. */
   extension?: Maybe<Array<Maybe<Extension>>>
   boundsRange?: Maybe<Range>
@@ -1490,8 +1205,6 @@ export enum DaysOfWeekType {
 
 /** A relationship between two Quantity values expressed as a numerator and a denominator. */
 export type Ratio = {
-  /** Unique id for inter-element referencing. */
-  elementId?: Maybe<Scalars['String']>
   /** Additional content defined by implementations. */
   extension?: Maybe<Array<Maybe<Extension>>>
   numerator?: Maybe<Quantity>
@@ -1558,8 +1271,6 @@ export type Patient = {
 
 /** A name of a human with text, parts and usage information. */
 export type HumanName = {
-  /** Unique id for inter-element referencing. */
-  elementId?: Maybe<Scalars['String']>
   /** Additional content defined by implementations. */
   extension?: Maybe<Array<Maybe<Extension>>>
   /** http://hl7.org/fhir/stu3/valueset-name-use.html */
@@ -1599,8 +1310,6 @@ export enum AdministrativeGenderCode {
 
 /** Indicates if the individual is deceased or not. */
 export type PatientDeceased = {
-  /** Unique id for inter-element referencing. */
-  elementId?: Maybe<Scalars['String']>
   /** Additional content defined by implementations. */
   extension?: Maybe<Array<Maybe<Extension>>>
   /** Indicates if the individual is deceased or not. */
@@ -1611,8 +1320,6 @@ export type PatientDeceased = {
 
 /** An address expressed using postal conventions (as opposed to GPS or other location definition formats). This data type may be used to convey addresses for use in delivering mail as well as for visiting locations which might not be valid for mail delivery. There are a variety of postal address formats defined around the world. */
 export type Address = {
-  /** Unique id for inter-element referencing. */
-  elementId?: Maybe<Scalars['String']>
   /** Additional content defined by implementations. */
   extension?: Maybe<Array<Maybe<Extension>>>
   /** http://hl7.org/fhir/stu3/valueset-address-use.html */
@@ -1654,8 +1361,6 @@ export enum AddressTypeCode {
 
 /** Whether patient is part of a multiple birth. */
 export type PatientMultipleBirth = {
-  /** Unique id for inter-element referencing. */
-  elementId?: Maybe<Scalars['String']>
   /** Additional content defined by implementations. */
   extension?: Maybe<Array<Maybe<Extension>>>
   /** Whether patient is part of a multiple birth. */
@@ -1666,8 +1371,6 @@ export type PatientMultipleBirth = {
 
 /** A contact party (e.g. guardian, partner, friend) for the patient. */
 export type PatientContact = {
-  /** Unique id for inter-element referencing. */
-  elementId?: Maybe<Scalars['String']>
   /** Additional content defined by implementations. */
   extension?: Maybe<Array<Maybe<Extension>>>
   /** The nature of the relationship between a patient and a contact person for that patient. http://hl7.org/fhir/stu3/ValueSet/v2-0131 */
@@ -1688,8 +1391,6 @@ export type PatientContact = {
 
 /** Link to another patient resource that concerns the same actual person. */
 export type PatientLink = {
-  /** Unique id for inter-element referencing. */
-  elementId?: Maybe<Scalars['String']>
   /** Additional content defined by implementations. */
   extension?: Maybe<Array<Maybe<Extension>>>
   /** The other patient or related person resource that the link refers to. */
@@ -1977,8 +1678,6 @@ export enum EncounterStatusCode {
 
 /** List of past encounter statuses. */
 export type EncounterStatusHistory = {
-  /** Unique id for inter-element referencing. */
-  elementId?: Maybe<Scalars['String']>
   /** Additional content defined by implementations. */
   extension?: Maybe<Array<Maybe<Extension>>>
   /** http://hl7.org/fhir/stu3/valueset-encounter-status.html */
@@ -1989,8 +1688,6 @@ export type EncounterStatusHistory = {
 
 /** List of past encounter classes. */
 export type EncounterClassHistory = {
-  /** Unique id for inter-element referencing. */
-  elementId?: Maybe<Scalars['String']>
   /** Additional content defined by implementations. */
   extension?: Maybe<Array<Maybe<Extension>>>
   /** http://hl7.org/fhir/stu3/v3/ActEncounterCode/vs.html */
@@ -2001,8 +1698,6 @@ export type EncounterClassHistory = {
 
 /** List of participants involved in the encounter. */
 export type EncounterParticipant = {
-  /** Unique id for inter-element referencing. */
-  elementId?: Maybe<Scalars['String']>
   /** Additional content defined by implementations. */
   extension?: Maybe<Array<Maybe<Extension>>>
   /** http://hl7.org/fhir/stu3/valueset-encounter-participant-type.html */
@@ -2015,8 +1710,6 @@ export type EncounterParticipant = {
 
 /** The list of diagnosis relevant to this encounter. */
 export type EncounterDiagnosis = {
-  /** Unique id for inter-element referencing. */
-  elementId?: Maybe<Scalars['String']>
   /** Additional content defined by implementations. */
   extension?: Maybe<Array<Maybe<Extension>>>
   /** Reason the encounter takes place (resource). */
@@ -2029,8 +1722,6 @@ export type EncounterDiagnosis = {
 
 /** AuthDetails about the admission to a healthcare service. */
 export type EncounterHospitalisation = {
-  /** Unique id for inter-element referencing. */
-  elementId?: Maybe<Scalars['String']>
   /** Additional content defined by implementations. */
   extension?: Maybe<Array<Maybe<Extension>>>
   /** Pre-admission identifier. */
@@ -2055,8 +1746,6 @@ export type EncounterHospitalisation = {
 
 /** List of locations where the patient has been. */
 export type EncounterLocation = {
-  /** Unique id for inter-element referencing. */
-  elementId?: Maybe<Scalars['String']>
   /** Additional content defined by implementations. */
   extension?: Maybe<Array<Maybe<Extension>>>
   /** Location the encounter takes place. */
@@ -2145,8 +1834,6 @@ export enum CarePlanIntentCode {
 
 /** Action to occur as part of plan. */
 export type CarePlanActivity = {
-  /** Unique id for inter-element referencing. */
-  elementId?: Maybe<Scalars['String']>
   /** Additional content defined by implementations. */
   extension?: Maybe<Array<Maybe<Extension>>>
   /** http://hl7.org/fhir/stu3/valueset-care-plan-activity-outcome.html */
@@ -2163,8 +1850,6 @@ export type CarePlanActivity = {
 
 /** In-line definition of activity. */
 export type CarePlanActivityDetail = {
-  /** Unique id for inter-element referencing. */
-  elementId?: Maybe<Scalars['String']>
   /** Additional content defined by implementations. */
   extension?: Maybe<Array<Maybe<Extension>>>
   /** http://hl7.org/fhir/stu3/valueset-care-plan-activity-category.html */
@@ -2211,8 +1896,6 @@ export enum CarePlanActivityDetailStatusCode {
 
 /** What is to be administered/supplied. */
 export type CarePlanActivityDetailProduct = {
-  /** Unique id for inter-element referencing. */
-  elementId?: Maybe<Scalars['String']>
   /** Additional content defined by implementations. */
   extension?: Maybe<Array<Maybe<Extension>>>
   /** What is to be administered/supplied. */
@@ -2269,8 +1952,6 @@ export enum EpisodeOfCareStatusCode {
 
 /** Past list of status codes (the current status may be included to cover the start date of the status). */
 export type EpisodeOfCareStatusHistory = {
-  /** Unique id for inter-element referencing. */
-  elementId?: Maybe<Scalars['String']>
   /** Additional content defined by implementations. */
   extension?: Maybe<Array<Maybe<Extension>>>
   /** http://hl7.org/fhir/stu3/valueset-episode-of-care-status.html */
@@ -2281,8 +1962,6 @@ export type EpisodeOfCareStatusHistory = {
 
 /** The list of diagnosis relevant to this episode of care. */
 export type EpisodeOfCareDiagnosis = {
-  /** Unique id for inter-element referencing. */
-  elementId?: Maybe<Scalars['String']>
   /** Additional content defined by implementations. */
   extension?: Maybe<Array<Maybe<Extension>>>
   /** Conditions/problems/diagnoses this episode of care is for. */
@@ -2344,7 +2023,7 @@ export type DocumentReference = {
   /** When this document reference was created. */
   indexed: PartialDateTime
   /** Who and/or what authored the document. */
-  author?: Maybe<Array<Maybe<ResourceReference>>>
+  author?: Maybe<Array<Maybe<DocumentReferenceAuthor>>>
   /** Who/what authenticated the document. */
   authenticator?: Maybe<ResourceReference>
   /** Organization which maintains the document. */
@@ -2375,10 +2054,27 @@ export enum DocumentReferenceDocStatusCode {
   EnteredInError = 'ENTERED_IN_ERROR',
 }
 
+export type DocumentReferenceAuthor = {
+  /** Additional content defined by implementations. */
+  extension?: Maybe<Array<Maybe<Extension>>>
+  /** Text alternative for the resource. */
+  display: Scalars['String']
+  /** Business identifier for the referenced resource. */
+  identifier?: Maybe<Identifier>
+  /** Literal reference, Relative, internal or absolute URL. */
+  reference?: Maybe<Scalars['String']>
+  /** Type the reference refers to (e.g. Patient. */
+  typeName: Scalars['String']
+  /** The authors full name */
+  fullName: Scalars['String']
+  /** The authors username within the system */
+  username: Scalars['String']
+  /** The authors specialty (e.g. Oncologist, AHP,..) */
+  specialty?: Maybe<Scalars['String']>
+}
+
 /** Relationships to other documents. */
 export type DocumentReferenceRelatesTo = {
-  /** Unique id for inter-element referencing. */
-  elementId?: Maybe<Scalars['String']>
   /** Additional content defined by implementations. */
   extension?: Maybe<Array<Maybe<Extension>>>
   /** http://hl7.org/fhir/stu3/valueset-document-relationship-type.html */
@@ -2396,8 +2092,6 @@ export enum DocumentReferenceRelatesToCode {
 
 /** Document referenced. */
 export type DocumentReferenceContent = {
-  /** Unique id for inter-element referencing. */
-  elementId?: Maybe<Scalars['String']>
   /** Additional content defined by implementations. */
   extension?: Maybe<Array<Maybe<Extension>>>
   /** Where to access the document. */
@@ -2408,8 +2102,6 @@ export type DocumentReferenceContent = {
 
 /** Clinical context of document. */
 export type DocumentReferenceContext = {
-  /** Unique id for inter-element referencing. */
-  elementId?: Maybe<Scalars['String']>
   /** Additional content defined by implementations. */
   extension?: Maybe<Array<Maybe<Extension>>>
   /** Context of the document content. */
@@ -2430,8 +2122,6 @@ export type DocumentReferenceContext = {
 
 /** Related identifiers or resources. */
 export type DocumentReferenceRelated = {
-  /** Unique id for inter-element referencing. */
-  elementId?: Maybe<Scalars['String']>
   /** Additional content defined by implementations. */
   extension?: Maybe<Array<Maybe<Extension>>>
   /** Identifier of related objects or events. */
@@ -2582,8 +2272,6 @@ export type Observation = {
 
 /** Component results */
 export type ObservationComponent = {
-  /** Unique id for inter-element referencing. */
-  elementId?: Maybe<Scalars['String']>
   /** Additional content defined by implementations. */
   extension?: Maybe<Array<Maybe<Extension>>>
   code: CodeableConcept
@@ -2595,8 +2283,6 @@ export type ObservationComponent = {
 
 /** Provides guide for interpretation */
 export type ObservationReferenceRange = {
-  /** Unique id for inter-element referencing. */
-  elementId?: Maybe<Scalars['String']>
   /** Additional content defined by implementations. */
   extension?: Maybe<Array<Maybe<Extension>>>
   age?: Maybe<Range>
@@ -2609,8 +2295,6 @@ export type ObservationReferenceRange = {
 
 /** Actual result */
 export type ObservationValue = {
-  /** Unique id for inter-element referencing. */
-  elementId?: Maybe<Scalars['String']>
   /** Additional content defined by implementations. */
   extension?: Maybe<Array<Maybe<Extension>>>
   valueAttachment?: Maybe<Attachment>
@@ -2627,8 +2311,6 @@ export type ObservationValue = {
 
 /** Data that comes from a series of measurements taken by a device, which may have upper and lower limits. The data type also supports more than one dimension in the data. */
 export type SampledData = {
-  /** Unique id for inter-element referencing. */
-  elementId?: Maybe<Scalars['String']>
   /** Additional content defined by implementations. */
   extension?: Maybe<Array<Maybe<Extension>>>
   /** Decimal values with spaces, or "E" | "U" | "L" */
@@ -2649,8 +2331,6 @@ export type SampledData = {
 
 /** Clinically relevant time/time-period for observation */
 export type ObservationEffective = {
-  /** Unique id for inter-element referencing. */
-  elementId?: Maybe<Scalars['String']>
   /** Additional content defined by implementations. */
   extension?: Maybe<Array<Maybe<Extension>>>
   effectivePeriod?: Maybe<Period>
@@ -2724,8 +2404,6 @@ export enum DataProviderPermission {
 
 /** Permission to perform one or more Operations on a given Entity. */
 export type EntityPermission = {
-  /** Unique id for inter-element referencing. */
-  elementId?: Maybe<Scalars['String']>
   /** Additional content defined by implementations. */
   extension?: Maybe<Array<Maybe<Extension>>>
   /** The Operation(s) the User can perform on the Entity. */
@@ -2879,8 +2557,6 @@ export enum EntityType {
 
 /** Permission to launch one or more Apps with the given Intents. */
 export type LaunchPermission = {
-  /** Unique id for inter-element referencing. */
-  elementId?: Maybe<Scalars['String']>
   /** Additional content defined by implementations. */
   extension?: Maybe<Array<Maybe<Extension>>>
   /** The Intent(s) the user can launch the App with. */
@@ -2897,8 +2573,6 @@ export enum LaunchApp {
 
 /** An instance of a feature that is controlled via a toggle. */
 export type FeatureToggle = {
-  /** Unique id for inter-element referencing. */
-  elementId?: Maybe<Scalars['String']>
   /** Additional content defined by implementations. */
   extension?: Maybe<Array<Maybe<Extension>>>
   /** The feature instance the toggle controls. */

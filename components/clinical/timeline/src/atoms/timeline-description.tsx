@@ -15,7 +15,8 @@ const TimelineDescription: FC<Props> = ({ domainResource, domainResourceType }) 
 
   switch (domainResourceType) {
     case TimelineDomainResourceType.DocumentReference: {
-      return <></>
+      const docRef = domainResource as DocumentReference
+      return docRef.description ? <>{docRef.description}</> : <></>
     }
     case TimelineDomainResourceType.AuditEvent: {
       const audit = domainResource as AuditEvent
