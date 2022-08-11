@@ -3,19 +3,39 @@ import { UserIcon } from '@ltht-react/icon'
 import styled from '@emotion/styled'
 
 import { AuditEvent, DocumentReference, Maybe, TimelineDomainResourceType } from '@ltht-react/types'
+import PRIMARY_AUTHOR from '../constants'
 
 const StyledTimelineItemLeft = styled.div`
   flex-grow: 1;
 `
-
-const PRIMARY_AUTHOR = 'PRIMAUTH'
 
 const TimelineAuthor: FC<Props> = ({ domainResource, domainResourceType }) => {
   if (!domainResource) return <></>
 
   switch (domainResourceType) {
     case TimelineDomainResourceType.DocumentReference: {
-      return <></>
+      const docRef = domainResource as DocumentReference
+      const authorList: string[] = []
+
+      if (docRef?.author == null) {
+        return <></>
+      }
+
+      docRef.author.forEach((auth) => {
+        if (auth) {
+          authorList.push(auth.specialty ? `${auth.fullName} (${auth.specialty})` : `${auth.fullName}`)
+        }
+      })
+
+      if (authorList.length === 0) {
+        return <></>
+      }
+
+      return (
+        <StyledTimelineItemLeft>
+          <UserIcon size="medium" /> by {authorList.join(', ')}
+        </StyledTimelineItemLeft>
+      )
     }
     case TimelineDomainResourceType.AuditEvent: {
       const audit = domainResource as AuditEvent

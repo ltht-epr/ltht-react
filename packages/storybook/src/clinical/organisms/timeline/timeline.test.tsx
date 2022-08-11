@@ -1,7 +1,5 @@
 import { render, screen } from '@testing-library/react'
-import { ITimelineItem } from '@ltht-react/timeline/src'
-
-import Timeline from '@ltht-react/timeline'
+import Timeline, { ITimelineItem } from '@ltht-react/timeline'
 import { formatTime, formatDate } from '@ltht-react/utils'
 import { TimelineDomainResourceType } from '@ltht-react/types'
 import DocumentReferences, { AuditTrail } from './timeline.fixtures'

@@ -840,11 +840,20 @@ const DocumentReference6: DocumentReference = {
   created: {
     value: '2022-07-06T11:40:28.023+00:00',
   },
-  description: 'Clinical Note (Active)',
+  description: 'Submission 1',
   text: {
     text: 'Clinical Note (Active)',
     div: '',
   },
+  author: [
+    {
+      fullName: 'Jonny Dyson',
+      display: 'Jonny Dyson (Oncologist)',
+      specialty: 'Oncologist',
+      username: 'dysonj',
+      typeName: 'Practicioner',
+    },
+  ],
   identifier: [
     {
       system: 'EventTypeName',
@@ -896,6 +905,22 @@ const DocumentReference5: DocumentReference = {
     text: 'Clinical Note (Active)',
     div: '',
   },
+  author: [
+    {
+      fullName: 'Jonny Dyson',
+      display: 'Jonny Dyson (Oncologist)',
+      specialty: 'Oncologist',
+      username: 'dysonj',
+      typeName: 'Practicioner',
+    },
+    {
+      fullName: 'Jonny Dyson 2',
+      display: 'Jonny Dyson 2 (Oncologist 2)',
+      specialty: 'Oncologist 2',
+      username: 'dysonj2',
+      typeName: 'Practicioner 2',
+    },
+  ],
   identifier: [
     {
       system: 'EventTypeName',

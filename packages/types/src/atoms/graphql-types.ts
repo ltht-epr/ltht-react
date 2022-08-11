@@ -38,9 +38,10 @@ export type Ehr = {
   auditPathway?: Maybe<AuditEventContinuation>
   carePlanDefinition?: Maybe<PlanDefinition>
   carePlanDefinitions?: Maybe<PlanDefinitionContinuationType>
-  carePlanDefinitionUseContext?: Maybe<Array<Maybe<UsageContext>>>
+  carePlanDefinitionUseContexts?: Maybe<Array<Maybe<TerminologyItem>>>
   condition?: Maybe<Condition>
   conditions?: Maybe<ConditionContinuation>
+  documentReferenceByTemplate?: Maybe<DocumentReferenceContinuation>
   guidance?: Maybe<Array<Maybe<Guidance>>>
   medication?: Maybe<MedicationRequest>
   medications?: Maybe<MedicationRequestContinuationType>
@@ -92,7 +93,7 @@ export type EhrCarePlanDefinitionsArgs = {
 }
 
 /** Queries the LTHT EHR. */
-export type EhrCarePlanDefinitionUseContextArgs = {
+export type EhrCarePlanDefinitionUseContextsArgs = {
   pathwayType: Scalars['String']
 }
 
@@ -111,6 +112,12 @@ export type EhrConditionsArgs = {
   sortBy?: Maybe<SortOptionType>
   cursorToken?: Maybe<Scalars['String']>
   count?: Maybe<Scalars['Int']>
+}
+
+/** Queries the LTHT EHR. */
+export type EhrDocumentReferenceByTemplateArgs = {
+  patientGuid: Scalars['String']
+  template: Scalars['String']
 }
 
 /** Queries the LTHT EHR. */
@@ -987,6 +994,16 @@ export type PlanDefinitionContinuationType = {
   resources: Array<Maybe<PlanDefinition>>
 }
 
+/** The terminology item resource represents the terminology for an item in a particular coding system and version for a particular organisation. */
+export type TerminologyItem = {
+  /** Logical Id of the resource. */
+  id: Scalars['ID']
+  /** Metadata about the resource. */
+  metadata: Metadata
+  /** Code for item */
+  coding: Coding
+}
+
 export type Condition = {
   /** Logical Id of the resource. */
   id: Scalars['ID']
@@ -1293,6 +1310,166 @@ export enum ConditionAdmissionPeriodType {
 export enum SortOptionType {
   Alphabetical = 'ALPHABETICAL',
   MostRecent = 'MOST_RECENT',
+}
+
+/** A continuation of DocumentReference resources. */
+export type DocumentReferenceContinuation = {
+  /** The first cursor token. */
+  firstCursorToken?: Maybe<Scalars['String']>
+  /** The next cursor token. */
+  nextCursorToken?: Maybe<Scalars['String']>
+  /** The self cursor token. */
+  selfCursorToken: Scalars['String']
+  /** The total number of resources available (if known). */
+  totalResources?: Maybe<Scalars['Int']>
+  /** The continuation of DocumentReference resources. */
+  resources: Array<Maybe<DocumentReference>>
+}
+
+/** The DocumentReference resource is used to describe a document that is made available to a healthcare system. */
+export type DocumentReference = {
+  /** Logical Id of the resource. */
+  id: Scalars['ID']
+  /** Metadata about the resource. */
+  metadata: Metadata
+  /** Additional content defined by implementations. */
+  extension?: Maybe<Array<Maybe<Extension>>>
+  /** Text summary of the resource, for human interpretation. */
+  text?: Maybe<Narrative>
+  /** Flag to state whether the resource should be displayed as entered in error in user interface */
+  isEnteredInError?: Maybe<Scalars['Boolean']>
+  /** Master Version Specific Identifier. */
+  masterIdentifier?: Maybe<Identifier>
+  /** Business identifiers. */
+  identifier?: Maybe<Array<Maybe<Identifier>>>
+  /** http://hl7.org/fhir/stu3/valueset-document-reference-status.html */
+  status: DocumentReferenceStatusCode
+  /** http://hl7.org/fhir/stu3/valueset-composition-status.html */
+  docStatus?: Maybe<DocumentReferenceDocStatusCode>
+  /** https://fhir.hl7.org.uk/STU3/ValueSet/CareConnect-DocumentType-1 */
+  type: CodeableConcept
+  /** http://hl7.org/fhir/stu3/valueset-c80-doc-classcodes.html */
+  class?: Maybe<CodeableConcept>
+  /** Document creation time. */
+  created?: Maybe<PartialDateTime>
+  /** When this document reference was created. */
+  indexed: PartialDateTime
+  /** Who and/or what authored the document. */
+  author?: Maybe<Array<Maybe<DocumentReferenceAuthor>>>
+  /** Who/what authenticated the document. */
+  authenticator?: Maybe<ResourceReference>
+  /** Organization which maintains the document. */
+  custodian?: Maybe<ResourceReference>
+  /** Relationships to other documents. */
+  relatesTo?: Maybe<Array<Maybe<DocumentReferenceRelatesTo>>>
+  /** Human-readable description (title). */
+  description?: Maybe<Scalars['String']>
+  /** Document security-tags. */
+  securityLabel?: Maybe<Array<Maybe<ResourceReference>>>
+  /** Document referenced. */
+  content: Array<Maybe<DocumentReferenceContent>>
+  /** Clinical context of document. */
+  context?: Maybe<DocumentReferenceContext>
+}
+
+export enum DocumentReferenceStatusCode {
+  Current = 'CURRENT',
+  Superseded = 'SUPERSEDED',
+  EnteredInError = 'ENTERED_IN_ERROR',
+}
+
+export enum DocumentReferenceDocStatusCode {
+  Preliminary = 'PRELIMINARY',
+  Final = 'FINAL',
+  Appended = 'APPENDED',
+  Amended = 'AMENDED',
+  EnteredInError = 'ENTERED_IN_ERROR',
+}
+
+export type DocumentReferenceAuthor = {
+  /** Unique id for inter-element referencing. */
+  elementId?: Maybe<Scalars['String']>
+  /** Additional content defined by implementations. */
+  extension?: Maybe<Array<Maybe<Extension>>>
+  /** Text alternative for the resource. */
+  display: Scalars['String']
+  /** Business identifier for the referenced resource. */
+  identifier?: Maybe<Identifier>
+  /** Literal reference, Relative, internal or absolute URL. */
+  reference?: Maybe<Scalars['String']>
+  /** Type the reference refers to (e.g. Patient. */
+  typeName: Scalars['String']
+  /** The authors full name */
+  fullName: Scalars['String']
+  /** The authors username within the system */
+  username: Scalars['String']
+  /** The authors specialty (e.g. Oncologist, AHP,..) */
+  specialty?: Maybe<Scalars['String']>
+}
+
+/** Relationships to other documents. */
+export type DocumentReferenceRelatesTo = {
+  /** Unique id for inter-element referencing. */
+  elementId?: Maybe<Scalars['String']>
+  /** Additional content defined by implementations. */
+  extension?: Maybe<Array<Maybe<Extension>>>
+  /** http://hl7.org/fhir/stu3/valueset-document-relationship-type.html */
+  code: DocumentReferenceRelatesToCode
+  /** Target of the relationship. */
+  target: ResourceReference
+}
+
+export enum DocumentReferenceRelatesToCode {
+  Replaces = 'REPLACES',
+  Transforms = 'TRANSFORMS',
+  Signs = 'SIGNS',
+  Appends = 'APPENDS',
+}
+
+/** Document referenced. */
+export type DocumentReferenceContent = {
+  /** Unique id for inter-element referencing. */
+  elementId?: Maybe<Scalars['String']>
+  /** Additional content defined by implementations. */
+  extension?: Maybe<Array<Maybe<Extension>>>
+  /** Where to access the document. */
+  attachment: Attachment
+  /** Format/content rules for the document. */
+  format?: Maybe<Coding>
+}
+
+/** Clinical context of document. */
+export type DocumentReferenceContext = {
+  /** Unique id for inter-element referencing. */
+  elementId?: Maybe<Scalars['String']>
+  /** Additional content defined by implementations. */
+  extension?: Maybe<Array<Maybe<Extension>>>
+  /** Context of the document content. */
+  encounter?: Maybe<DocumentReference>
+  /** Main clinical acts documented. */
+  event?: Maybe<Array<Maybe<CodeableConcept>>>
+  /** Time of service that is being documented. */
+  period?: Maybe<Period>
+  /** Kind of facility where patient was seen. */
+  facilityType?: Maybe<CodeableConcept>
+  /** Additional details about where the content was created (e.g. clinical specialty). */
+  practiceSetting?: Maybe<CodeableConcept>
+  /** Patient demographics from source. */
+  sourcePatientInfo?: Maybe<DocumentReference>
+  /** Related identifiers or resources. */
+  related?: Maybe<Array<Maybe<DocumentReferenceRelated>>>
+}
+
+/** Related identifiers or resources. */
+export type DocumentReferenceRelated = {
+  /** Unique id for inter-element referencing. */
+  elementId?: Maybe<Scalars['String']>
+  /** Additional content defined by implementations. */
+  extension?: Maybe<Array<Maybe<Extension>>>
+  /** Identifier of related objects or events. */
+  identifier?: Maybe<Identifier>
+  /** Related Resource. */
+  ref?: Maybe<ResourceReference>
 }
 
 /** https://hl7.org/fhir/2018May/guidanceresponse.html */
@@ -1803,16 +1980,6 @@ export type TerminologyItemContinuation = {
   resources: Array<Maybe<TerminologyItem>>
 }
 
-/** The terminology item resource represents the terminology for an item in a particular coding system and version for a particular organisation. */
-export type TerminologyItem = {
-  /** Logical Id of the resource. */
-  id: Scalars['ID']
-  /** Metadata about the resource. */
-  metadata: Metadata
-  /** Code for item */
-  coding: Coding
-}
-
 /** Queries the GP Connect system. */
 export type GpConnect = {
   dataAvailability?: Maybe<DataAvailability>
@@ -2315,131 +2482,6 @@ export type LypftCommunityTreatmentOrder = {
   consentToTreat?: Maybe<Scalars['String']>
 }
 
-/** The DocumentReference resource is used to describe a document that is made available to a healthcare system. */
-export type DocumentReference = {
-  /** Logical Id of the resource. */
-  id: Scalars['ID']
-  /** Metadata about the resource. */
-  metadata: Metadata
-  /** Additional content defined by implementations. */
-  extension?: Maybe<Array<Maybe<Extension>>>
-  /** Text summary of the resource, for human interpretation. */
-  text?: Maybe<Narrative>
-  /** Flag to state whether the resource should be displayed as entered in error in user interface */
-  isEnteredInError?: Maybe<Scalars['Boolean']>
-  /** Master Version Specific Identifier. */
-  masterIdentifier?: Maybe<Identifier>
-  /** Business identifiers. */
-  identifier?: Maybe<Array<Maybe<Identifier>>>
-  /** http://hl7.org/fhir/stu3/valueset-document-reference-status.html */
-  status: DocumentReferenceStatusCode
-  /** http://hl7.org/fhir/stu3/valueset-composition-status.html */
-  docStatus?: Maybe<DocumentReferenceDocStatusCode>
-  /** https://fhir.hl7.org.uk/STU3/ValueSet/CareConnect-DocumentType-1 */
-  type: CodeableConcept
-  /** http://hl7.org/fhir/stu3/valueset-c80-doc-classcodes.html */
-  class?: Maybe<CodeableConcept>
-  /** Document creation time. */
-  created?: Maybe<PartialDateTime>
-  /** When this document reference was created. */
-  indexed: PartialDateTime
-  /** Who and/or what authored the document. */
-  author?: Maybe<Array<Maybe<ResourceReference>>>
-  /** Who/what authenticated the document. */
-  authenticator?: Maybe<ResourceReference>
-  /** Organization which maintains the document. */
-  custodian?: Maybe<ResourceReference>
-  /** Relationships to other documents. */
-  relatesTo?: Maybe<Array<Maybe<DocumentReferenceRelatesTo>>>
-  /** Human-readable description (title). */
-  description?: Maybe<Scalars['String']>
-  /** Document security-tags. */
-  securityLabel?: Maybe<Array<Maybe<ResourceReference>>>
-  /** Document referenced. */
-  content: Array<Maybe<DocumentReferenceContent>>
-  /** Clinical context of document. */
-  context?: Maybe<DocumentReferenceContext>
-}
-
-export enum DocumentReferenceStatusCode {
-  Current = 'CURRENT',
-  Superseded = 'SUPERSEDED',
-  EnteredInError = 'ENTERED_IN_ERROR',
-}
-
-export enum DocumentReferenceDocStatusCode {
-  Preliminary = 'PRELIMINARY',
-  Final = 'FINAL',
-  Appended = 'APPENDED',
-  Amended = 'AMENDED',
-  EnteredInError = 'ENTERED_IN_ERROR',
-}
-
-/** Relationships to other documents. */
-export type DocumentReferenceRelatesTo = {
-  /** Unique id for inter-element referencing. */
-  elementId?: Maybe<Scalars['String']>
-  /** Additional content defined by implementations. */
-  extension?: Maybe<Array<Maybe<Extension>>>
-  /** http://hl7.org/fhir/stu3/valueset-document-relationship-type.html */
-  code: DocumentReferenceRelatesToCode
-  /** Target of the relationship. */
-  target: ResourceReference
-}
-
-export enum DocumentReferenceRelatesToCode {
-  Replaces = 'REPLACES',
-  Transforms = 'TRANSFORMS',
-  Signs = 'SIGNS',
-  Appends = 'APPENDS',
-}
-
-/** Document referenced. */
-export type DocumentReferenceContent = {
-  /** Unique id for inter-element referencing. */
-  elementId?: Maybe<Scalars['String']>
-  /** Additional content defined by implementations. */
-  extension?: Maybe<Array<Maybe<Extension>>>
-  /** Where to access the document. */
-  attachment: Attachment
-  /** Format/content rules for the document. */
-  format?: Maybe<Coding>
-}
-
-/** Clinical context of document. */
-export type DocumentReferenceContext = {
-  /** Unique id for inter-element referencing. */
-  elementId?: Maybe<Scalars['String']>
-  /** Additional content defined by implementations. */
-  extension?: Maybe<Array<Maybe<Extension>>>
-  /** Context of the document content. */
-  encounter?: Maybe<DocumentReference>
-  /** Main clinical acts documented. */
-  event?: Maybe<Array<Maybe<CodeableConcept>>>
-  /** Time of service that is being documented. */
-  period?: Maybe<Period>
-  /** Kind of facility where patient was seen. */
-  facilityType?: Maybe<CodeableConcept>
-  /** Additional details about where the content was created (e.g. clinical specialty). */
-  practiceSetting?: Maybe<CodeableConcept>
-  /** Patient demographics from source. */
-  sourcePatientInfo?: Maybe<DocumentReference>
-  /** Related identifiers or resources. */
-  related?: Maybe<Array<Maybe<DocumentReferenceRelated>>>
-}
-
-/** Related identifiers or resources. */
-export type DocumentReferenceRelated = {
-  /** Unique id for inter-element referencing. */
-  elementId?: Maybe<Scalars['String']>
-  /** Additional content defined by implementations. */
-  extension?: Maybe<Array<Maybe<Extension>>>
-  /** Identifier of related objects or events. */
-  identifier?: Maybe<Identifier>
-  /** Related Resource. */
-  ref?: Maybe<ResourceReference>
-}
-
 /** Prospective warnings of potential issues when providing care to the patient. */
 export type Flag = {
   /** Logical Id of the resource. */
@@ -2530,20 +2572,6 @@ export type YhcrHospitalStaysArgs = {
 /** Queries the YHCR System-of-Systems. */
 export type YhcrObservationsArgs = {
   nhsNumber: Scalars['String']
-}
-
-/** A continuation of DocumentReference resources. */
-export type DocumentReferenceContinuation = {
-  /** The first cursor token. */
-  firstCursorToken?: Maybe<Scalars['String']>
-  /** The next cursor token. */
-  nextCursorToken?: Maybe<Scalars['String']>
-  /** The self cursor token. */
-  selfCursorToken: Scalars['String']
-  /** The total number of resources available (if known). */
-  totalResources?: Maybe<Scalars['Int']>
-  /** The continuation of DocumentReference resources. */
-  resources: Array<Maybe<DocumentReference>>
 }
 
 /** https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Observation-1 */
