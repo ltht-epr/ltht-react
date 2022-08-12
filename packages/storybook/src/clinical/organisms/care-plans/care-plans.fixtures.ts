@@ -134,25 +134,27 @@ const CarePlanThree: CarePlan = {
       typeName: '',
     },
   ],
-  activity: {
-    outcomeReference: [
-      {
-        reference: 'Encounter/example',
-        typeName: '',
-        display: '',
-      },
-    ],
-    detail: {
-      status: CarePlanActivityDetailStatusCode.Completed,
-      performer: [
+  activity: [
+    {
+      outcomeReference: [
         {
-          reference: 'Practitioner/13',
-          display: 'Nurse Nancy',
+          reference: 'Encounter/example',
           typeName: '',
+          display: '',
         },
       ],
+      detail: {
+        status: CarePlanActivityDetailStatusCode.Completed,
+        performer: [
+          {
+            reference: 'Practitioner/13',
+            display: 'Nurse Nancy',
+            typeName: '',
+          },
+        ],
+      },
     },
-  },
+  ],
 }
 
 const carePlans: CarePlan[] = [CarePlanOne, CarePlanTwo, CarePlanThree]
