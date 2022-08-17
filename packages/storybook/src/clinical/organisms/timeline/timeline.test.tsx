@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react'
 import Timeline, { ITimelineItem } from '@ltht-react/timeline'
 import { formatTime, formatDate } from '@ltht-react/utils'
 import { TimelineDomainResourceType } from '@ltht-react/types'
-import Questionnaires, { AuditTrail, DocumentReferences } from './timeline.fixtures'
+import Questionnaires, { AuditTrail, DocumentReferences, TextTitleResponse, TitleResponse } from './timeline.fixtures'
 
 const auditTimelineItems: ITimelineItem[] = AuditTrail.resources.map((ti) => ({
   domainResource: ti,
@@ -160,4 +160,34 @@ it.each([
   render(<Timeline timelineItems={alteredTimelineItems} domainResourceType={domainResourceType} />)
   expect(screen.queryAllByTestId(new RegExp('^timeline_day_item'))).toHaveLength(alteredTimelineItems.length)
   expect(screen.queryByText('Click Here Please')).not.toBeInTheDocument()
+})
+
+it('Questionnaire uses text as default title, doesnt show questionnaire.title', () => {
+  const timelineItems: ITimelineItem[] = [
+    {
+      domainResource: TextTitleResponse,
+      isSelected: false,
+    },
+  ]
+  render(
+    <Timeline timelineItems={timelineItems} domainResourceType={TimelineDomainResourceType.QuestionnaireResponse} />
+  )
+  const expectedTitle = TextTitleResponse.text?.text ?? ''
+  const backupTitle = TextTitleResponse.questionnaire?.title ?? ''
+  expect(screen.queryAllByText(expectedTitle)).toHaveLength(1)
+  expect(screen.queryAllByText(backupTitle)).toHaveLength(0)
+})
+
+it('Questionnaire uses questionnaire.title as backup title', () => {
+  const timelineItems: ITimelineItem[] = [
+    {
+      domainResource: TitleResponse,
+      isSelected: false,
+    },
+  ]
+  render(
+    <Timeline timelineItems={timelineItems} domainResourceType={TimelineDomainResourceType.QuestionnaireResponse} />
+  )
+  const backupTitle = TitleResponse.questionnaire?.title ?? ''
+  expect(screen.queryAllByText(backupTitle)).toHaveLength(1)
 })

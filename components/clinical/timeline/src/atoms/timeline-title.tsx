@@ -13,7 +13,9 @@ const TimelineTitle: FC<Props> = ({ domainResource, domainResourceType }) => {
   switch (domainResourceType) {
     case TimelineDomainResourceType.QuestionnaireResponse: {
       const qr = domainResource as QuestionnaireResponse
-      const questionnaireTitle = qr.metadata.isRedacted ? 'Insufficient privileges' : qr.questionnaire?.title
+      const questionnaireTitle = qr.metadata.isRedacted
+        ? 'Insufficient privileges'
+        : qr.text?.text ?? qr.questionnaire?.title
       return <>{questionnaireTitle}</>
     }
     case TimelineDomainResourceType.DocumentReference: {
