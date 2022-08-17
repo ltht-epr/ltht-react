@@ -35,13 +35,15 @@ export type QueryYhcrArgs = {
 export type Ehr = {
   allergyIntolerance?: Maybe<AllergyIntolerance>
   allergyIntolerances?: Maybe<AllergyIntoleranceContinuationType>
-  auditPathway?: Maybe<AuditEventContinuation>
+  auditEvents?: Maybe<AuditEventContinuation>
   carePlanDefinition?: Maybe<PlanDefinition>
   carePlanDefinitions?: Maybe<PlanDefinitionContinuationType>
+  carePlanDefinitionUseContext?: Maybe<Array<Maybe<UsageContext>>>
   carePlanDefinitionUseContexts?: Maybe<Array<Maybe<TerminologyItem>>>
+  activeCarePlans?: Maybe<CarePlanContinuationType>
   condition?: Maybe<Condition>
   conditions?: Maybe<ConditionContinuation>
-  documentReferenceByTemplate?: Maybe<DocumentReferenceContinuation>
+  documentReferences?: Maybe<DocumentReferenceContinuation>
   guidance?: Maybe<Array<Maybe<Guidance>>>
   medication?: Maybe<MedicationRequest>
   medications?: Maybe<MedicationRequestContinuationType>
@@ -69,7 +71,7 @@ export type EhrAllergyIntolerancesArgs = {
 }
 
 /** Queries the LTHT EHR. */
-export type EhrAuditPathwayArgs = {
+export type EhrAuditEventsArgs = {
   patientGuid: Scalars['String']
   pathwayType: Scalars['String']
   pathwayId: Scalars['String']
@@ -93,8 +95,19 @@ export type EhrCarePlanDefinitionsArgs = {
 }
 
 /** Queries the LTHT EHR. */
+export type EhrCarePlanDefinitionUseContextArgs = {
+  pathwayType: Scalars['String']
+}
+
+/** Queries the LTHT EHR. */
 export type EhrCarePlanDefinitionUseContextsArgs = {
   pathwayType: Scalars['String']
+}
+
+/** Queries the LTHT EHR. */
+export type EhrActiveCarePlansArgs = {
+  pathwayType: Scalars['String']
+  patientGuid: Scalars['String']
 }
 
 /** Queries the LTHT EHR. */
@@ -115,7 +128,7 @@ export type EhrConditionsArgs = {
 }
 
 /** Queries the LTHT EHR. */
-export type EhrDocumentReferenceByTemplateArgs = {
+export type EhrDocumentReferencesArgs = {
   patientGuid: Scalars['String']
   template: Scalars['String']
 }
@@ -961,7 +974,7 @@ export type PlanDefinitionAction = {
   textEquivalent?: Maybe<Scalars['String']>
   /** Action priority. */
   priority?: Maybe<PlanDefinitionActionPriority>
-  /** Code representing the meaning of the action or sub-actions. */
+  /** Code representing the meaning of the action or sub-model. */
   code?: Maybe<Array<Maybe<CodeableConcept>>>
   /** Why the action should be performed. */
   reason?: Maybe<Array<Maybe<CodeableConcept>>>
@@ -1002,6 +1015,167 @@ export type TerminologyItem = {
   metadata: Metadata
   /** Code for item */
   coding: Coding
+}
+
+/** A continuation of Care Plan resources. */
+export type CarePlanContinuationType = {
+  /** The first cursor token. */
+  firstCursorToken?: Maybe<Scalars['String']>
+  /** The next cursor token. */
+  nextCursorToken?: Maybe<Scalars['String']>
+  /** The self cursor token. */
+  selfCursorToken: Scalars['String']
+  /** The total number of resources available (if known). */
+  totalResources?: Maybe<Scalars['Int']>
+  /** The continuation of Care Plan resources. */
+  resources: Array<Maybe<CarePlan>>
+}
+
+/** Describes the intention of how one or more practitioners intend to deliver care for a particular patient, group or community for a period of time, possibly limited to care for a specific condition or set of conditions. */
+export type CarePlan = {
+  /** Logical Id of the resource. */
+  id: Scalars['ID']
+  /** Metadata about the resource. */
+  metadata: Metadata
+  /** Additional content defined by implementations. */
+  extension?: Maybe<Array<Maybe<Extension>>>
+  /** Text summary of the resource, for human interpretation. */
+  text?: Maybe<Narrative>
+  /** Flag to state whether the resource should be displayed as entered in error in user interface */
+  isEnteredInError?: Maybe<Scalars['Boolean']>
+  /** Business identifiers. */
+  identifier?: Maybe<Array<Maybe<Identifier>>>
+  /** Protocol or definition. */
+  definition?: Maybe<Array<Maybe<ResourceReference>>>
+  /** Fulfills care plan. */
+  basedOn?: Maybe<Array<Maybe<ResourceReference>>>
+  /** CarePlan replaced by this CarePlan. */
+  replaces?: Maybe<Array<Maybe<ResourceReference>>>
+  /** Part of referenced CarePlan. */
+  partOf?: Maybe<Array<Maybe<ResourceReference>>>
+  /** http://hl7.org/fhir/stu3/valueset-care-plan-status.html */
+  status: CarePlanStatusCode
+  /** http://hl7.org/fhir/stu3/valueset-care-plan-intent.html */
+  intent: CarePlanIntentCode
+  /** http://hl7.org/fhir/stu3/valueset-care-plan-category.html */
+  category?: Maybe<Array<Maybe<CodeableConcept>>>
+  /** Human-friendly name for the CarePlan. */
+  title?: Maybe<Scalars['String']>
+  /** Summary of nature of plan. */
+  description?: Maybe<Scalars['String']>
+  /** Created in context of. */
+  context?: Maybe<ResourceReference>
+  /** Time period plan covers. */
+  period?: Maybe<Period>
+  /** Who is responsible for contents of the plan. */
+  author?: Maybe<Array<Maybe<ResourceReference>>>
+  /** Who's involved in plan? */
+  careTeam?: Maybe<Array<Maybe<ResourceReference>>>
+  /** Health issues this plan addresses. */
+  addresses?: Maybe<Array<Maybe<ResourceReference>>>
+  /** Information considered as part of plan. */
+  supportingInfo?: Maybe<Array<Maybe<ResourceReference>>>
+  /** Desired outcome of plan. */
+  goal?: Maybe<Array<Maybe<ResourceReference>>>
+  /** Action to occur as part of plan. */
+  activity?: Maybe<Array<Maybe<CarePlanActivity>>>
+  /** Comments about the plan. */
+  note?: Maybe<Array<Maybe<Annotation>>>
+}
+
+export enum CarePlanStatusCode {
+  Draft = 'DRAFT',
+  Active = 'ACTIVE',
+  Suspended = 'SUSPENDED',
+  Completed = 'COMPLETED',
+  EnteredInError = 'ENTERED_IN_ERROR',
+  Cancelled = 'CANCELLED',
+  Unknown = 'UNKNOWN',
+}
+
+export enum CarePlanIntentCode {
+  Proposal = 'PROPOSAL',
+  Plan = 'PLAN',
+  Order = 'ORDER',
+  Option = 'OPTION',
+}
+
+/** Action to occur as part of plan. */
+export type CarePlanActivity = {
+  /** Unique id for inter-element referencing. */
+  elementId?: Maybe<Scalars['String']>
+  /** Additional content defined by implementations. */
+  extension?: Maybe<Array<Maybe<Extension>>>
+  /** http://hl7.org/fhir/stu3/valueset-care-plan-activity-outcome.html */
+  outcomeCodeableConcept?: Maybe<Array<Maybe<CodeableConcept>>>
+  /** Appointment, Encounter, Procedure, etc. */
+  outcomeReference?: Maybe<Array<Maybe<ResourceReference>>>
+  /** Comments about the activity status/progress. */
+  progress?: Maybe<Array<Maybe<Annotation>>>
+  /** Activity details defined in specific resource. */
+  reference?: Maybe<ResourceReference>
+  /** In-line definition of activity. */
+  detail?: Maybe<CarePlanActivityDetail>
+}
+
+/** In-line definition of activity. */
+export type CarePlanActivityDetail = {
+  /** Unique id for inter-element referencing. */
+  elementId?: Maybe<Scalars['String']>
+  /** Additional content defined by implementations. */
+  extension?: Maybe<Array<Maybe<Extension>>>
+  /** http://hl7.org/fhir/stu3/valueset-care-plan-activity-category.html */
+  category?: Maybe<CodeableConcept>
+  /** Protocol or definition. */
+  definition?: Maybe<ResourceReference>
+  /** http://hl7.org/fhir/stu3/valueset-care-plan-activity.html */
+  code?: Maybe<CodeableConcept>
+  /** http://hl7.org/fhir/stu3/valueset-activity-reason.html */
+  reasonCode?: Maybe<Array<Maybe<CodeableConcept>>>
+  /** Condition triggering need for activity. */
+  reasonReference?: Maybe<Array<Maybe<ResourceReference>>>
+  /** Goals this activity relates to. */
+  goal?: Maybe<Array<Maybe<ResourceReference>>>
+  /** http://hl7.org/fhir/stu3/valueset-care-plan-activity-status.html */
+  status: CarePlanActivityDetailStatusCode
+  /** Reason for current status. */
+  statusReason?: Maybe<Scalars['String']>
+  /** Do NOT do. */
+  prohibited?: Maybe<Scalars['Boolean']>
+  /** Where it should happen. */
+  location?: Maybe<ResourceReference>
+  /** Who will be responsible? */
+  performer?: Maybe<Array<Maybe<ResourceReference>>>
+  /** What is to be administered/supplied. */
+  product?: Maybe<CarePlanActivityDetailProduct>
+  /** How to consume/day? */
+  dailyAmount?: Maybe<Quantity>
+  /** How much to administer/supply/consume. */
+  quantity?: Maybe<Quantity>
+  /** Extra info describing activity to perform. */
+  description?: Maybe<Scalars['String']>
+}
+
+export enum CarePlanActivityDetailStatusCode {
+  NotStarted = 'NOT_STARTED',
+  Scheduled = 'SCHEDULED',
+  InProgress = 'IN_PROGRESS',
+  OnHold = 'ON_HOLD',
+  Completed = 'COMPLETED',
+  Cancelled = 'CANCELLED',
+  Unknown = 'UNKNOWN',
+}
+
+/** What is to be administered/supplied. */
+export type CarePlanActivityDetailProduct = {
+  /** Unique id for inter-element referencing. */
+  elementId?: Maybe<Scalars['String']>
+  /** Additional content defined by implementations. */
+  extension?: Maybe<Array<Maybe<Extension>>>
+  /** What is to be administered/supplied. */
+  productReference?: Maybe<ResourceReference>
+  /** What is to be administered/supplied. */
+  productCodeableConcept?: Maybe<CodeableConcept>
 }
 
 export type Condition = {
@@ -1399,11 +1573,11 @@ export type DocumentReferenceAuthor = {
   reference?: Maybe<Scalars['String']>
   /** Type the reference refers to (e.g. Patient. */
   typeName: Scalars['String']
-  /** The authors full name */
+  /** The author's full name */
   fullName: Scalars['String']
-  /** The authors username within the system */
+  /** The author's username within the system */
   username: Scalars['String']
-  /** The authors specialty (e.g. Oncologist, AHP,..) */
+  /** The author's specialty (e.g. Oncologist, AHP,..) */
   specialty?: Maybe<Scalars['String']>
 }
 
@@ -2241,153 +2415,6 @@ export enum EncounterLocationStatusCode {
   Completed = 'COMPLETED',
 }
 
-/** Describes the intention of how one or more practitioners intend to deliver care for a particular patient, group or community for a period of time, possibly limited to care for a specific condition or set of conditions. */
-export type CarePlan = {
-  /** Logical Id of the resource. */
-  id: Scalars['ID']
-  /** Metadata about the resource. */
-  metadata: Metadata
-  /** Additional content defined by implementations. */
-  extension?: Maybe<Array<Maybe<Extension>>>
-  /** Text summary of the resource, for human interpretation. */
-  text?: Maybe<Narrative>
-  /** Flag to state whether the resource should be displayed as entered in error in user interface */
-  isEnteredInError?: Maybe<Scalars['Boolean']>
-  /** Business identifiers. */
-  identifier?: Maybe<Array<Maybe<Identifier>>>
-  /** Protocol or definition. */
-  definition?: Maybe<Array<Maybe<ResourceReference>>>
-  /** Fulfills care plan. */
-  basedOn?: Maybe<Array<Maybe<ResourceReference>>>
-  /** CarePlan replaced by this CarePlan. */
-  replaces?: Maybe<Array<Maybe<ResourceReference>>>
-  /** Part of referenced CarePlan. */
-  partOf?: Maybe<Array<Maybe<ResourceReference>>>
-  /** http://hl7.org/fhir/stu3/valueset-care-plan-status.html */
-  status: CarePlanStatusCode
-  /** http://hl7.org/fhir/stu3/valueset-care-plan-intent.html */
-  intent: CarePlanIntentCode
-  /** http://hl7.org/fhir/stu3/valueset-care-plan-category.html */
-  category?: Maybe<Array<Maybe<CodeableConcept>>>
-  /** Human-friendly name for the CarePlan. */
-  title?: Maybe<Scalars['String']>
-  /** Summary of nature of plan. */
-  description?: Maybe<Scalars['String']>
-  /** Created in context of. */
-  context?: Maybe<ResourceReference>
-  /** Time period plan covers. */
-  period?: Maybe<Period>
-  /** Who is responsible for contents of the plan. */
-  author?: Maybe<Array<Maybe<ResourceReference>>>
-  /** Who's involved in plan? */
-  careTeam?: Maybe<Array<Maybe<ResourceReference>>>
-  /** Health issues this plan addresses. */
-  addresses?: Maybe<Array<Maybe<ResourceReference>>>
-  /** Information considered as part of plan. */
-  supportingInfo?: Maybe<Array<Maybe<ResourceReference>>>
-  /** Desired outcome of plan. */
-  goal?: Maybe<Array<Maybe<ResourceReference>>>
-  /** Action to occur as part of plan. */
-  activity?: Maybe<CarePlanActivity>
-  /** Comments about the plan. */
-  note?: Maybe<Array<Maybe<Annotation>>>
-}
-
-export enum CarePlanStatusCode {
-  Draft = 'DRAFT',
-  Active = 'ACTIVE',
-  Suspended = 'SUSPENDED',
-  Completed = 'COMPLETED',
-  EnteredInError = 'ENTERED_IN_ERROR',
-  Cancelled = 'CANCELLED',
-  Unknown = 'UNKNOWN',
-}
-
-export enum CarePlanIntentCode {
-  Proposal = 'PROPOSAL',
-  Plan = 'PLAN',
-  Order = 'ORDER',
-  Option = 'OPTION',
-}
-
-/** Action to occur as part of plan. */
-export type CarePlanActivity = {
-  /** Unique id for inter-element referencing. */
-  elementId?: Maybe<Scalars['String']>
-  /** Additional content defined by implementations. */
-  extension?: Maybe<Array<Maybe<Extension>>>
-  /** http://hl7.org/fhir/stu3/valueset-care-plan-activity-outcome.html */
-  outcomeCodeableConcept?: Maybe<Array<Maybe<CodeableConcept>>>
-  /** Appointment, Encounter, Procedure, etc. */
-  outcomeReference?: Maybe<Array<Maybe<ResourceReference>>>
-  /** Comments about the activity status/progress. */
-  progress?: Maybe<Array<Maybe<Annotation>>>
-  /** Activity details defined in specific resource. */
-  reference?: Maybe<ResourceReference>
-  /** In-line definition of activity. */
-  detail?: Maybe<CarePlanActivityDetail>
-}
-
-/** In-line definition of activity. */
-export type CarePlanActivityDetail = {
-  /** Unique id for inter-element referencing. */
-  elementId?: Maybe<Scalars['String']>
-  /** Additional content defined by implementations. */
-  extension?: Maybe<Array<Maybe<Extension>>>
-  /** http://hl7.org/fhir/stu3/valueset-care-plan-activity-category.html */
-  category?: Maybe<CodeableConcept>
-  /** Protocol or definition. */
-  definition?: Maybe<ResourceReference>
-  /** http://hl7.org/fhir/stu3/valueset-care-plan-activity.html */
-  code?: Maybe<CodeableConcept>
-  /** http://hl7.org/fhir/stu3/valueset-activity-reason.html */
-  reasonCode?: Maybe<Array<Maybe<CodeableConcept>>>
-  /** Condition triggering need for activity. */
-  reasonReference?: Maybe<Array<Maybe<ResourceReference>>>
-  /** Goals this activity relates to. */
-  goal?: Maybe<Array<Maybe<ResourceReference>>>
-  /** http://hl7.org/fhir/stu3/valueset-care-plan-activity-status.html */
-  status: CarePlanActivityDetailStatusCode
-  /** Reason for current status. */
-  statusReason?: Maybe<Scalars['String']>
-  /** Do NOT do. */
-  prohibited?: Maybe<Scalars['Boolean']>
-  /** Where it should happen. */
-  location?: Maybe<ResourceReference>
-  /** Who will be responsible? */
-  performer?: Maybe<Array<Maybe<ResourceReference>>>
-  /** What is to be administered/supplied. */
-  product?: Maybe<CarePlanActivityDetailProduct>
-  /** How to consume/day? */
-  dailyAmount?: Maybe<Quantity>
-  /** How much to administer/supply/consume. */
-  quantity?: Maybe<Quantity>
-  /** Extra info describing activity to perform. */
-  description?: Maybe<Scalars['String']>
-}
-
-export enum CarePlanActivityDetailStatusCode {
-  NotStarted = 'NOT_STARTED',
-  Scheduled = 'SCHEDULED',
-  InProgress = 'IN_PROGRESS',
-  OnHold = 'ON_HOLD',
-  Completed = 'COMPLETED',
-  Cancelled = 'CANCELLED',
-  Unknown = 'UNKNOWN',
-}
-
-/** What is to be administered/supplied. */
-export type CarePlanActivityDetailProduct = {
-  /** Unique id for inter-element referencing. */
-  elementId?: Maybe<Scalars['String']>
-  /** Additional content defined by implementations. */
-  extension?: Maybe<Array<Maybe<Extension>>>
-  /** What is to be administered/supplied. */
-  productReference?: Maybe<ResourceReference>
-  /** What is to be administered/supplied. */
-  productCodeableConcept?: Maybe<CodeableConcept>
-}
-
 /** An association between a patient and an organization / healthcare provider(s) during which time encounters may occur. The managing organization assumes a level of responsibility for the patient during this time. */
 export type EpisodeOfCare = {
   /** Logical Id of the resource. */
@@ -2950,8 +2977,25 @@ export type Mutation = {
 
 /** Mutations of the LTHT EHR. */
 export type EhrMutation = {
+  addCarePlan?: Maybe<CarePlan>
+  updateCarePlan?: Maybe<CarePlan>
   setConditionStatus?: Maybe<Condition>
   addConditions?: Maybe<Array<Maybe<Condition>>>
+}
+
+/** Mutations of the LTHT EHR. */
+export type EhrMutationAddCarePlanArgs = {
+  patientGuid: Scalars['Guid']
+  model: CarePlanActionsInput
+  template: Scalars['String']
+}
+
+/** Mutations of the LTHT EHR. */
+export type EhrMutationUpdateCarePlanArgs = {
+  patientGuid: Scalars['Guid']
+  model: CarePlanActionsInput
+  template: Scalars['String']
+  carePlanId: Scalars['Guid']
 }
 
 /** Mutations of the LTHT EHR. */
@@ -2968,6 +3012,21 @@ export type EhrMutationAddConditionsArgs = {
   patientGuid: Scalars['String']
   conditions: ConditionMinimalInputList
   template: Scalars['String']
+}
+
+export type CarePlanActionsInput = {
+  planDefinitionId?: Maybe<Scalars['Guid']>
+  planDefinitionLabel?: Maybe<Scalars['String']>
+  reasonCode?: Maybe<Scalars['String']>
+  reasonText?: Maybe<Scalars['String']>
+  actions?: Maybe<Array<Maybe<CarePlanActionInput>>>
+}
+
+export type CarePlanActionInput = {
+  id?: Maybe<Scalars['String']>
+  label?: Maybe<Scalars['String']>
+  reasonCode?: Maybe<Scalars['String']>
+  reasonText?: Maybe<Scalars['String']>
 }
 
 export type ConditionMinimalInputList = {
