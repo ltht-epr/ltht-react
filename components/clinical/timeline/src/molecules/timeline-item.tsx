@@ -3,7 +3,13 @@ import styled from '@emotion/styled'
 import Banner from '@ltht-react/banner'
 import { InfoCircleIcon } from '@ltht-react/icon'
 import { HIGHLIGHT_GREEN, TRANSLUCENT_DARK_BLUE } from '@ltht-react/styles'
-import { AuditEvent, DocumentReference, Maybe, TimelineDomainResourceType } from '@ltht-react/types'
+import {
+  AuditEvent,
+  DocumentReference,
+  Maybe,
+  QuestionnaireResponse,
+  TimelineDomainResourceType,
+} from '@ltht-react/types'
 import { useWindowSize } from '@ltht-react/hooks'
 import { isMobileView } from '@ltht-react/utils'
 import TimelineDescription from '../atoms/timeline-description'
@@ -129,7 +135,7 @@ interface IProps {
 }
 
 export interface ITimelineItem {
-  domainResource?: Maybe<AuditEvent | DocumentReference>
+  domainResource?: Maybe<AuditEvent | QuestionnaireResponse | DocumentReference>
   clickHandler?(): void
   clickPrompt?: string
   isSelected: boolean | undefined

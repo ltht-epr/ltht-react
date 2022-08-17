@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react'
 import Timeline, { ITimelineItem } from '@ltht-react/timeline'
 import { formatTime, formatDate } from '@ltht-react/utils'
 import { TimelineDomainResourceType } from '@ltht-react/types'
-import DocumentReferences, { AuditTrail } from './timeline.fixtures'
+import Questionnaires, { AuditTrail, DocumentReferences } from './timeline.fixtures'
 
 const auditTimelineItems: ITimelineItem[] = AuditTrail.resources.map((ti) => ({
   domainResource: ti,
@@ -10,6 +10,13 @@ const auditTimelineItems: ITimelineItem[] = AuditTrail.resources.map((ti) => ({
 }))
 const auditDatetimes = AuditTrail.resources.map((x) => x?.period?.start)
 const auditType = TimelineDomainResourceType.AuditEvent
+
+const questionnaireTimelineItems: ITimelineItem[] = Questionnaires.resources.map((ti) => ({
+  domainResource: ti,
+  isSelected: false,
+}))
+const questionnaireDatetimes = Questionnaires.resources.map((x) => x?.authored)
+const questionnaireType = TimelineDomainResourceType.QuestionnaireResponse
 
 const documentTimelineItems: ITimelineItem[] = DocumentReferences.resources.map((ti) => ({
   domainResource: ti,
@@ -20,6 +27,7 @@ const documentType = TimelineDomainResourceType.DocumentReference
 
 describe.each([
   [auditTimelineItems, auditDatetimes, auditType],
+  [questionnaireTimelineItems, questionnaireDatetimes, questionnaireType],
   [documentTimelineItems, documentDatetimes, documentType],
 ])('Timeline without handlers', (timelineItems, datetimes, domainResourceType) => {
   beforeEach(() => {
@@ -79,6 +87,7 @@ describe.each([
 
 it.each([
   [auditTimelineItems, auditType],
+  [questionnaireTimelineItems, questionnaireType],
   [documentTimelineItems, documentType],
 ])(
   'Shows the deselect prompt over the clickHandler prompt if both are present',
@@ -119,6 +128,7 @@ it.each([
 
 it.each([
   [auditTimelineItems, auditType],
+  [questionnaireTimelineItems, questionnaireType],
   [documentTimelineItems, documentType],
 ])('Shows the click prompt', (timelineItems, domainResourceType) => {
   const alteredTimelineItems: ITimelineItem[] = timelineItems.map((x) => ({
@@ -138,6 +148,7 @@ it.each([
 
 it.each([
   [auditTimelineItems, auditType],
+  [questionnaireTimelineItems, questionnaireType],
   [documentTimelineItems, documentType],
 ])('No click handler does not display click Prompt', (timelineItems, domainResourceType) => {
   const alteredTimelineItems: ITimelineItem[] = timelineItems.map((x) => ({

@@ -18,6 +18,7 @@ export type StatusTypes = 'info' | 'danger' | 'warning' | 'highlight'
 export enum TimelineDomainResourceType {
   AuditEvent = 'AUDITEVENT',
   DocumentReference = 'DOCUMENTREFERENCE',
+  QuestionnaireResponse = 'QUESTIONNAIRERESPONSE',
 }
 
 export enum DetailViewType {
