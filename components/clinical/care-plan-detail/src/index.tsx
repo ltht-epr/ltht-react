@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { CarePlan, DetailViewType, ResourceReference } from '@ltht-react/types'
+import { CarePlan, DetailViewType } from '@ltht-react/types'
 import {
   StringDetail,
   PeriodDetail,
@@ -10,13 +10,7 @@ import {
 } from '@ltht-react/type-detail'
 
 const CarePlanDetail: FC<Props> = ({ carePlan, viewType = DetailViewType.Compact }) => {
-  const performers: ResourceReference[] = []
-
-  carePlan?.activity?.forEach((activity) => {
-    if (activity?.detail?.performer) {
-      activity?.detail?.performer.forEach((performer) => performers.push(performer as ResourceReference))
-    }
-  })
+  const performers = carePlan?.activity?.map((a) => a?.detail?.performer?.map((p) => p)).reduce((p) => p)
 
   return (
     <CollapsibleDetailCollection viewType={viewType}>
