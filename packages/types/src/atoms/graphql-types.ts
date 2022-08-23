@@ -38,7 +38,6 @@ export type Ehr = {
   auditEvents?: Maybe<AuditEventContinuation>
   carePlanDefinition?: Maybe<PlanDefinition>
   carePlanDefinitions?: Maybe<PlanDefinitionContinuationType>
-  carePlanDefinitionUseContext?: Maybe<Array<Maybe<UsageContext>>>
   carePlanDefinitionUseContexts?: Maybe<Array<Maybe<TerminologyItem>>>
   activeCarePlans?: Maybe<CarePlanContinuationType>
   condition?: Maybe<Condition>
@@ -92,11 +91,6 @@ export type EhrCarePlanDefinitionsArgs = {
   usageContext?: Maybe<Scalars['String']>
   cursorToken?: Maybe<Scalars['String']>
   count?: Maybe<Scalars['Int']>
-}
-
-/** Queries the LTHT EHR. */
-export type EhrCarePlanDefinitionUseContextArgs = {
-  pathwayType: Scalars['String']
 }
 
 /** Queries the LTHT EHR. */
@@ -1701,6 +1695,7 @@ export type MedicationRequest = {
   reasonReference?: Maybe<ResourceReference>
   medicationReference?: Maybe<MedicationType>
   dosageInstruction?: Maybe<Array<Maybe<DosageType>>>
+  dosageRelationship?: Maybe<DosageRelationshipType>
   note?: Maybe<Array<Maybe<Annotation>>>
   supportingInformation?: Maybe<Array<Maybe<ResourceReference>>>
   identifier?: Maybe<Array<Maybe<Identifier>>>
@@ -1847,6 +1842,13 @@ export type Ratio = {
   extension?: Maybe<Array<Maybe<Extension>>>
   numerator?: Maybe<Quantity>
   denominator?: Maybe<Quantity>
+}
+
+export enum DosageRelationshipType {
+  Or = 'OR',
+  Then = 'THEN',
+  And = 'AND',
+  Singleline = 'SINGLELINE',
 }
 
 /** A continuation of Medication Request resources. */
