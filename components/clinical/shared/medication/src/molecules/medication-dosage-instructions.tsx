@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 import { TEXT_COLOURS } from '@ltht-react/styles'
-import { CodeableConcept, DosageType, Maybe } from '@ltht-react/types'
+import { CodeableConcept, DosageRelationshipType, DosageType, Maybe } from '@ltht-react/types'
 import { partialDateTimeText, periodSummaryText, medicationTitleSeparator } from '@ltht-react/utils'
 import { FC } from 'react'
 import MedicationDosage from '../atoms/medication-dosage'
@@ -20,16 +20,15 @@ const StyledType = styled.div`
   color: ${TEXT_COLOURS.SECONDARY.VALUE};
 `
 
-const MedicationDosageInstructions: FC<IProps> = ({ dosageInstructions, reasons, type }) => {
-  if (dosageInstructions === undefined) {
-    return <></>
-  }
-
+const MedicationDosageInstructions: FC<IProps> = ({ dosageInstructions, dosageRelationshipType, reasons }) => {
   let startDate = ''
 
-  switch (type) {
-    case 'AND':
-    case 'THEN':
+  switch (dosageRelationshipType) {
+    case DosageRelationshipType.And:
+    case DosageRelationshipType.Then:
+      if (!dosageInstructions || dosageInstructions.length < 2) {
+        throw new Error('Expecting at least two instructions if relationship type defined and not SingleLine')
+      }
       return (
         <StyledInstructions>
           {dosageInstructions?.map((instruction, idx) => {
@@ -55,7 +54,7 @@ const MedicationDosageInstructions: FC<IProps> = ({ dosageInstructions, reasons,
 
             return (
               <>
-                <StyledType>{type === 'AND' ? 'And' : 'Then'}</StyledType>
+                <StyledType>{dosageRelationshipType === DosageRelationshipType.And ? 'And' : 'Then'}</StyledType>
                 <MedicationDosageStartDate startDate={start} />
                 <MedicationDosage dosageType={instruction} />
                 {medicationTitleSeparator(instruction)}
@@ -66,9 +65,9 @@ const MedicationDosageInstructions: FC<IProps> = ({ dosageInstructions, reasons,
           })}
         </StyledInstructions>
       )
-    case 'OR':
-      if (dosageInstructions == null) {
-        return <></>
+    case DosageRelationshipType.Or:
+      if (!dosageInstructions || dosageInstructions.length < 2) {
+        throw new Error('Expecting at least two instructions if relationship type defined and not SingleLine')
       }
 
       if (dosageInstructions[0]?.timing?.event != null) {
@@ -104,8 +103,17 @@ const MedicationDosageInstructions: FC<IProps> = ({ dosageInstructions, reasons,
           })}
         </StyledInstructions>
       )
+    case DosageRelationshipType.Singleline:
     default:
-      if (dosageInstructions != null) {
+      if (dosageRelationshipType === DosageRelationshipType.Singleline && dosageInstructions?.length !== 1) {
+        throw new Error('Expecting exactly one instruction if relationship type is SingleLine')
+      }
+
+      if (dosageInstructions && dosageInstructions.length > 1) {
+        throw new Error('Expecting one or less instructions if relationship type is undefined or SingleLine')
+      }
+
+      if (dosageInstructions?.length === 1) {
         return (
           <StyledInstructions>
             <>
@@ -123,8 +131,8 @@ const MedicationDosageInstructions: FC<IProps> = ({ dosageInstructions, reasons,
 
 interface IProps {
   dosageInstructions: Maybe<Array<Maybe<DosageType>>> | undefined
+  dosageRelationshipType: Maybe<DosageRelationshipType> | undefined
   reasons: Maybe<Array<Maybe<CodeableConcept>>> | undefined
-  type: Maybe<string> | undefined
 }
 
 export default MedicationDosageInstructions

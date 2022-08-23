@@ -1,4 +1,4 @@
-import { CodeSystem, DetailViewType, Maybe, MedicationRequest } from '@ltht-react/types'
+import { DetailViewType, DosageRelationshipType, Maybe, MedicationRequest } from '@ltht-react/types'
 import styled from '@emotion/styled'
 import {
   AnnotationListDetail,
@@ -28,7 +28,6 @@ const MedicationDetail: FC<IProps> = ({ medication, viewType = DetailViewType.Co
   const source = medication?.supportingInformation && medication.supportingInformation[0]?.identifier?.value
   const status = medication?.extension?.find((extension) => extension?.url.includes('status'))?.valueString
   const schedule = medication?.dosageInstruction && medication.dosageInstruction[0]?.patientInstruction
-  const type = medication?.metadata.tag?.find((tag) => tag?.system === CodeSystem.MedicationTypeIdentifier)?.display
   const verificationComment = medication?.note && medication?.note[0]?.text
   const qualifier =
     medication?.dosageInstruction &&
@@ -37,7 +36,9 @@ const MedicationDetail: FC<IProps> = ({ medication, viewType = DetailViewType.Co
       .join(', ')
 
   const medicationClasses =
-    type === 'AND' || type === 'OR' || type === 'THEN'
+    medication?.dosageRelationship === DosageRelationshipType.And ||
+    medication?.dosageRelationship === DosageRelationshipType.Or ||
+    medication?.dosageRelationship === DosageRelationshipType.Then
       ? 'medication-dosage-instruction--full-width'
       : 'medication-dosage-instruction'
 
@@ -54,7 +55,7 @@ const MedicationDetail: FC<IProps> = ({ medication, viewType = DetailViewType.Co
           <MedicationDosageInstructions
             dosageInstructions={medication?.dosageInstruction}
             reasons={medication?.reasonCode}
-            type={type}
+            dosageRelationshipType={medication?.dosageRelationship}
           />
         </NestedListDetail>
         <CodeableConceptDetail term="Form" concept={medication?.medicationReference?.form} />
