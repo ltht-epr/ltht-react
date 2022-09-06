@@ -7,14 +7,14 @@ import { Condition } from '@ltht-react/types'
 const StyledOnsetEstimated = styled.div<IStyledDescription>`
   color: ${TEXT_COLOURS.INFO};
   font-size: x-small;
-  display: inline-block;
   white-space: pre-wrap;
+  display: inline-block;
   text-decoration: ${({ enteredInError }) => (enteredInError ? 'line-through' : 'none')};
 `
 
 const DiagnosisOnsetEstimated: FC<Props> = ({ condition, enteredInError, ...rest }) => (
   <StyledOnsetEstimated enteredInError={enteredInError} {...rest}>
-    {condition.onset?.estimated ? ' (estimated)' : ''}
+    {condition.onset?.estimated ? '(estimated) ' : ''}
   </StyledOnsetEstimated>
 )
 
