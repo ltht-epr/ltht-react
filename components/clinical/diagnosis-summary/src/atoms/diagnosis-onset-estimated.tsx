@@ -12,13 +12,11 @@ const StyledOnsetEstimated = styled.div<IStyledDescription>`
   text-decoration: ${({ enteredInError }) => (enteredInError ? 'line-through' : 'none')};
 `
 
-const DiagnosisOnsetEstimated: FC<Props> = ({ condition, enteredInError, ...rest }) => {
-  return (
-    <StyledOnsetEstimated enteredInError={enteredInError} {...rest}>
-      {condition.onset?.estimated ? ' (estimated)' : ''}
-    </StyledOnsetEstimated>
-  )
-}
+const DiagnosisOnsetEstimated: FC<Props> = ({ condition, enteredInError, ...rest }) => (
+  <StyledOnsetEstimated enteredInError={enteredInError} {...rest}>
+    {condition.onset?.estimated ? ' (estimated)' : ''}
+  </StyledOnsetEstimated>
+)
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   condition: Condition
