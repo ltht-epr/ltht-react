@@ -1,5 +1,11 @@
 import { FC, HTMLAttributes } from 'react'
-import { AuditEvent, DocumentReference, Maybe, TimelineDomainResourceType } from '@ltht-react/types'
+import {
+  AuditEvent,
+  DocumentReference,
+  Maybe,
+  QuestionnaireResponse,
+  TimelineDomainResourceType,
+} from '@ltht-react/types'
 import ReactHtmlParser from 'react-html-parser'
 import styled from '@emotion/styled'
 
@@ -14,6 +20,13 @@ const TimelineDescription: FC<Props> = ({ domainResource, domainResourceType }) 
   if (!domainResource) return <></>
 
   switch (domainResourceType) {
+    case TimelineDomainResourceType.QuestionnaireResponse: {
+      const qr = domainResource as QuestionnaireResponse
+      if (!qr.questionnaire?.description) {
+        return <></>
+      }
+      return <StyledDescription>{ReactHtmlParser(qr.questionnaire?.description)}</StyledDescription>
+    }
     case TimelineDomainResourceType.DocumentReference: {
       const docRef = domainResource as DocumentReference
       return docRef.description ? <>{docRef.description}</> : <></>
@@ -32,7 +45,7 @@ const TimelineDescription: FC<Props> = ({ domainResource, domainResourceType }) 
 }
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
-  domainResource: Maybe<AuditEvent | DocumentReference>
+  domainResource?: Maybe<AuditEvent | QuestionnaireResponse | DocumentReference>
   domainResourceType: TimelineDomainResourceType
 }
 

@@ -5,6 +5,11 @@ import {
   DocumentReference,
   DocumentReferenceContinuation,
   DocumentReferenceStatusCode,
+  QuestionnaireResponse,
+  QuestionnaireResponseStatus,
+  QuestionnairePublicationStatus,
+  Metadata,
+  QuestionnaireResponseContinuation,
 } from '@ltht-react/types'
 
 const Audit1: AuditEvent = {
@@ -835,6 +840,249 @@ export const RedactedAuditTrail: AuditEventContinuation = {
   selfCursorToken: '',
 }
 
+const mockMetadata: Metadata = {
+  dataSources: [
+    {
+      display: 'Mock',
+    },
+  ],
+  isRedacted: false,
+  requestedWhen: '',
+}
+
+const QuestionnaireResponse1: QuestionnaireResponse = {
+  id: '435d2aca-7776-43e7-a33f-1ba481bd2892',
+  isEnteredInError: false,
+  metadata: mockMetadata,
+  status: QuestionnaireResponseStatus.Completed,
+  authored: {
+    kind: PartialDateTimeKindCode.DateTime,
+    value: '2021-08-17T13:13:56.9755581+01:00',
+  },
+  author: {
+    typeName: 'EhrUser',
+    identifier: {
+      system: 'http://leedsth.nhs.uk/user/guid',
+      value: 'cfe6a9d7-f23d-4bb9-a28d-8a3895bee48a',
+    },
+    display: 'John Smith',
+  },
+  questionnaire: {
+    id: '14720227-b1f7-4cc5-a0d0-403938cf710d',
+    isEnteredInError: false,
+    identifier: [
+      {
+        system: 'http://leedsth.nhs.uk/user/guid',
+        value: 'cfe6a9d7-f23d-4bb9-a28d-8a3895bee48a',
+      },
+    ],
+    metadata: mockMetadata,
+    url: 'http://ehr.leedsth.nhs.uk/questionnaire/Right-To-Reside',
+    version: '1',
+    title: 'Clinical Note (Created)',
+    description: 'Submission 1',
+    status: QuestionnairePublicationStatus.Active,
+    item: [],
+  },
+  item: [],
+}
+
+const QuestionnaireResponse2: QuestionnaireResponse = {
+  id: '435d2aca-7776-43e7-a33f-1ba481bd2893',
+  isEnteredInError: false,
+  metadata: mockMetadata,
+  status: QuestionnaireResponseStatus.Completed,
+  authored: {
+    kind: PartialDateTimeKindCode.DateTime,
+    value: '2021-08-17T16:13:56.9755581+01:00',
+  },
+  author: {
+    typeName: 'EhrUser',
+    identifier: {
+      system: 'http://leedsth.nhs.uk/user/guid',
+      value: 'cfe6a9d7-f23d-4bb9-a28d-8a3895bee48a',
+    },
+    display: 'Jonny Dyson',
+  },
+  questionnaire: {
+    id: '14720227-b1f7-4cc5-a0d0-403938cf710e',
+    isEnteredInError: false,
+    identifier: [
+      {
+        system: 'http://leedsth.nhs.uk/user/guid',
+        value: 'cfe6a9d7-f23d-4bb9-a28d-8a3895bee48a',
+      },
+    ],
+    metadata: mockMetadata,
+    url: 'http://ehr.leedsth.nhs.uk/questionnaire/Right-To-Reside',
+    version: '1',
+    title: 'Clinical Note (Edited)',
+    description: 'Submission 1',
+    status: QuestionnairePublicationStatus.Active,
+    item: [],
+  },
+  item: [],
+}
+
+const QuestionnaireResponse3: QuestionnaireResponse = {
+  id: '435d2aca-7776-43e7-a33f-1ba481bd2894',
+  isEnteredInError: false,
+  metadata: mockMetadata,
+  status: QuestionnaireResponseStatus.Completed,
+  authored: {
+    kind: PartialDateTimeKindCode.DateTime,
+    value: '2021-08-20T13:13:56.9755581+01:00',
+  },
+  author: {
+    typeName: 'EhrUser',
+    identifier: {
+      system: 'http://leedsth.nhs.uk/user/guid',
+      value: 'cfe6a9d7-f23d-4bb9-a28d-8a3895bee48a',
+    },
+    display: 'Jonny Dyson',
+  },
+  questionnaire: {
+    id: '14720227-b1f7-4cc5-a0d0-403938cf710e',
+    isEnteredInError: false,
+    identifier: [
+      {
+        system: 'http://leedsth.nhs.uk/user/guid',
+        value: 'cfe6a9d7-f23d-4bb9-a28d-8a3895bee48a',
+      },
+    ],
+    metadata: mockMetadata,
+    url: 'http://ehr.leedsth.nhs.uk/questionnaire/Right-To-Reside',
+    version: '1',
+    title: 'Clinical Note (Edited)',
+    description: 'Submission 1',
+    status: QuestionnairePublicationStatus.Active,
+    item: [],
+  },
+  item: [],
+}
+
+const QuestionnaireResponse4: QuestionnaireResponse = {
+  id: '435d2aca-7776-43e7-a33f-1ba481bd2897',
+  isEnteredInError: false,
+  metadata: mockMetadata,
+  status: QuestionnaireResponseStatus.Completed,
+  authored: {
+    kind: PartialDateTimeKindCode.DateTime,
+    value: '2021-08-21T13:13:56.9755581+01:00',
+  },
+  author: {
+    typeName: 'EhrUser',
+    identifier: {
+      system: 'http://leedsth.nhs.uk/user/guid',
+      value: 'cfe6a9d7-f23d-4bb9-a28d-8a3895bee48a',
+    },
+    display: 'Jonny Dyson',
+  },
+  questionnaire: {
+    id: '14720227-b1f7-4cc5-a0d0-403938cf710e',
+    isEnteredInError: false,
+    identifier: [
+      {
+        system: 'http://leedsth.nhs.uk/user/guid',
+        value: 'cfe6a9d7-f23d-4bb9-a28d-8a3895bee48a',
+      },
+    ],
+    metadata: mockMetadata,
+    url: 'http://ehr.leedsth.nhs.uk/questionnaire/Right-To-Reside',
+    version: '1',
+    title: 'Clinical Note (Edited)',
+    description: 'Submission 1',
+    status: QuestionnairePublicationStatus.Active,
+    item: [],
+  },
+  item: [],
+}
+
+export const TextTitleResponse: QuestionnaireResponse = {
+  id: '435d2aca-7776-43e7-a33f-1ba481bd2897',
+  isEnteredInError: false,
+  metadata: mockMetadata,
+  status: QuestionnaireResponseStatus.Completed,
+  authored: {
+    kind: PartialDateTimeKindCode.DateTime,
+    value: '2021-08-21T13:13:56.9755581+01:00',
+  },
+  text: {
+    div: '',
+    text: 'Clinical Note (Created)',
+  },
+  author: {
+    typeName: 'EhrUser',
+    identifier: {
+      system: 'http://leedsth.nhs.uk/user/guid',
+      value: 'cfe6a9d7-f23d-4bb9-a28d-8a3895bee48a',
+    },
+    display: 'Jonny Dyson',
+  },
+  questionnaire: {
+    id: '14720227-b1f7-4cc5-a0d0-403938cf710e',
+    isEnteredInError: false,
+    identifier: [
+      {
+        system: 'http://leedsth.nhs.uk/user/guid',
+        value: 'cfe6a9d7-f23d-4bb9-a28d-8a3895bee48a',
+      },
+    ],
+    metadata: mockMetadata,
+    url: 'http://ehr.leedsth.nhs.uk/questionnaire/Right-To-Reside',
+    version: '1',
+    title: 'Clinical Note',
+    description: 'Submission 1',
+    status: QuestionnairePublicationStatus.Active,
+    item: [],
+  },
+  item: [],
+}
+
+export const TitleResponse: QuestionnaireResponse = {
+  id: '435d2aca-7776-43e7-a33f-1ba481bd2897',
+  isEnteredInError: false,
+  metadata: mockMetadata,
+  status: QuestionnaireResponseStatus.Completed,
+  authored: {
+    kind: PartialDateTimeKindCode.DateTime,
+    value: '2021-08-21T13:13:56.9755581+01:00',
+  },
+  author: {
+    typeName: 'EhrUser',
+    identifier: {
+      system: 'http://leedsth.nhs.uk/user/guid',
+      value: 'cfe6a9d7-f23d-4bb9-a28d-8a3895bee48a',
+    },
+    display: 'Jonny Dyson',
+  },
+  questionnaire: {
+    id: '14720227-b1f7-4cc5-a0d0-403938cf710e',
+    isEnteredInError: false,
+    identifier: [
+      {
+        system: 'http://leedsth.nhs.uk/user/guid',
+        value: 'cfe6a9d7-f23d-4bb9-a28d-8a3895bee48a',
+      },
+    ],
+    metadata: mockMetadata,
+    url: 'http://ehr.leedsth.nhs.uk/questionnaire/Right-To-Reside',
+    version: '1',
+    title: 'Clinical Note',
+    description: 'Submission 1',
+    status: QuestionnairePublicationStatus.Active,
+    item: [],
+  },
+  item: [],
+}
+
+const QuestionnaireResponses: QuestionnaireResponseContinuation = {
+  resources: [QuestionnaireResponse1, QuestionnaireResponse2, QuestionnaireResponse3, QuestionnaireResponse4],
+  selfCursorToken: '',
+}
+
+export default QuestionnaireResponses
+
 const DocumentReference6: DocumentReference = {
   id: 'c00dd3a5-e78a-4760-baa4-2f57edef4df8',
   created: {
@@ -1166,7 +1414,7 @@ const DocumentReference1: DocumentReference = {
   content: [],
 }
 
-const DocumentReferences: DocumentReferenceContinuation = {
+export const DocumentReferences: DocumentReferenceContinuation = {
   resources: [
     DocumentReference6,
     DocumentReference5,
@@ -1177,5 +1425,3 @@ const DocumentReferences: DocumentReferenceContinuation = {
   ],
   selfCursorToken: '',
 }
-
-export default DocumentReferences

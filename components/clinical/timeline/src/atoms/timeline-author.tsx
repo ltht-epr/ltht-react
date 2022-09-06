@@ -2,7 +2,13 @@ import { FC, HTMLAttributes } from 'react'
 import { UserIcon } from '@ltht-react/icon'
 import styled from '@emotion/styled'
 
-import { AuditEvent, DocumentReference, Maybe, TimelineDomainResourceType } from '@ltht-react/types'
+import {
+  AuditEvent,
+  DocumentReference,
+  Maybe,
+  QuestionnaireResponse,
+  TimelineDomainResourceType,
+} from '@ltht-react/types'
 import PRIMARY_AUTHOR from '../constants'
 
 const StyledTimelineItemLeft = styled.div`
@@ -13,6 +19,17 @@ const TimelineAuthor: FC<Props> = ({ domainResource, domainResourceType }) => {
   if (!domainResource) return <></>
 
   switch (domainResourceType) {
+    case TimelineDomainResourceType.QuestionnaireResponse: {
+      const qr = domainResource as QuestionnaireResponse
+      if (!qr?.author) {
+        return <></>
+      }
+      return (
+        <StyledTimelineItemLeft>
+          <UserIcon size="medium" /> by {qr?.author?.display}
+        </StyledTimelineItemLeft>
+      )
+    }
     case TimelineDomainResourceType.DocumentReference: {
       const docRef = domainResource as DocumentReference
       const authorList: string[] = []
@@ -64,7 +81,7 @@ const TimelineAuthor: FC<Props> = ({ domainResource, domainResourceType }) => {
 }
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
-  domainResource: Maybe<AuditEvent | DocumentReference>
+  domainResource?: Maybe<AuditEvent | QuestionnaireResponse | DocumentReference>
   domainResourceType: TimelineDomainResourceType
 }
 

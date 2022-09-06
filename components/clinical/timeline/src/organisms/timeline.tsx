@@ -2,7 +2,13 @@ import { FC } from 'react'
 import styled from '@emotion/styled'
 import { CircleIcon } from '@ltht-react/icon'
 import { TEXT_COLOURS, BANNER_COLOURS } from '@ltht-react/styles'
-import { AuditEvent, DocumentReference, Maybe, TimelineDomainResourceType } from '@ltht-react/types'
+import {
+  AuditEvent,
+  DocumentReference,
+  Maybe,
+  QuestionnaireResponse,
+  TimelineDomainResourceType,
+} from '@ltht-react/types'
 import { formatDate, formatDateExplicitMonth, formatTime, isMobileView } from '@ltht-react/utils'
 import { useWindowSize } from '@ltht-react/hooks'
 
@@ -119,6 +125,16 @@ const Timeline: FC<IProps> = ({ timelineItems, domainResourceType }) => {
     let displayDate = ''
 
     switch (domainResourceType) {
+      case TimelineDomainResourceType.QuestionnaireResponse: {
+        const qr = timelineItem?.domainResource as QuestionnaireResponse
+        if (!qr.authored?.value) {
+          return
+        }
+        date = formatDate(new Date(qr.authored?.value))
+        displayDate = formatDateExplicitMonth(new Date(qr.authored?.value))
+        break
+      }
+
       case TimelineDomainResourceType.DocumentReference: {
         const docRef = timelineItem?.domainResource as DocumentReference
         if (!docRef.created?.value) {
@@ -170,6 +186,23 @@ const Timeline: FC<IProps> = ({ timelineItems, domainResourceType }) => {
                 let previousTime = ''
 
                 switch (domainResourceType) {
+                  case TimelineDomainResourceType.QuestionnaireResponse: {
+                    const qr = timelineItem?.domainResource as QuestionnaireResponse
+                    if (!qr.authored?.value) {
+                      return <></>
+                    }
+                    currentTime = formatTime(new Date(qr.authored.value))
+                    previousTime = currentTime
+
+                    if (idx > 0) {
+                      const previousItem = value.item[idx - 1]?.domainResource as QuestionnaireResponse
+                      if (!previousItem?.authored?.value) {
+                        return <></>
+                      }
+                      previousTime = formatTime(new Date(previousItem?.authored.value))
+                    }
+                    break
+                  }
                   case TimelineDomainResourceType.DocumentReference: {
                     const docRef = timelineItem?.domainResource as DocumentReference
                     if (!docRef.created?.value) {

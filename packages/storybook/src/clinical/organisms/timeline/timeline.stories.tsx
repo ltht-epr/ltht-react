@@ -2,10 +2,11 @@ import { Story } from '@storybook/react'
 import Card from '@ltht-react/card'
 import Timeline from '@ltht-react/timeline'
 import { ITimelineItem } from '@ltht-react/timeline/src'
-import { AuditEvent, DocumentReference, TimelineDomainResourceType } from '@ltht-react/types'
-import DocumentReferences, { AuditTrail, RedactedAuditTrail } from './timeline.fixtures'
+import { AuditEvent, DocumentReference, QuestionnaireResponse, TimelineDomainResourceType } from '@ltht-react/types'
+import Questionnaires, { AuditTrail, DocumentReferences, RedactedAuditTrail } from './timeline.fixtures'
 
 const auditType = TimelineDomainResourceType.AuditEvent
+const questionnaireType = TimelineDomainResourceType.QuestionnaireResponse
 const documentType = TimelineDomainResourceType.DocumentReference
 
 export const AuditEventTimeline: Story = () => {
@@ -69,6 +70,72 @@ export const AuditEventRedactedTimeline: Story = () => {
       </Card.Header>
       <Card.Body>
         <Timeline timelineItems={timelineItems} key="Timeline3" domainResourceType={auditType} />
+      </Card.Body>
+    </Card>
+  )
+}
+
+export const QuestionnaireTimeline: Story = () => {
+  const timelineItems: ITimelineItem[] = Questionnaires.resources.map((ti) => ({
+    domainResource: ti as QuestionnaireResponse,
+    isSelected: false,
+  }))
+
+  return (
+    <Card>
+      <Card.Header>
+        <Card.Title style={{ textAlign: 'center' }}>Timeline</Card.Title>
+      </Card.Header>
+      <Card.Body>
+        <Timeline timelineItems={timelineItems} key="Timeline1" domainResourceType={questionnaireType} />
+      </Card.Body>
+    </Card>
+  )
+}
+
+export const QuestionnaireClickableTimeline: Story = () => {
+  const timelineItems: ITimelineItem[] = Questionnaires.resources.map((ti, idx) => ({
+    domainResource: ti as QuestionnaireResponse,
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
+    clickHandler:
+      idx % 2 === 0
+        ? () => {
+            // eslint-disable-next-line no-console
+            console.log('Clicked')
+          }
+        : undefined,
+    clickPrompt: idx % 2 === 0 ? `View Form: ${idx}` : undefined,
+    isSelected: idx === 0,
+    deselectPrompt: idx === 0 ? 'Close me' : undefined,
+  }))
+
+  return (
+    <Card>
+      <Card.Header>
+        <Card.Title style={{ textAlign: 'center' }}>Timeline</Card.Title>
+      </Card.Header>
+      <Card.Body>
+        <Timeline timelineItems={timelineItems} key="Timeline2" domainResourceType={questionnaireType} />
+      </Card.Body>
+    </Card>
+  )
+}
+
+export const QuestionnaireRedactedTimeline: Story = () => {
+  const timelineItems: ITimelineItem[] = Questionnaires.resources.map((ti) => ({
+    domainResource: ti as QuestionnaireResponse,
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
+    clickHandler: () => {},
+    isSelected: false,
+  }))
+
+  return (
+    <Card>
+      <Card.Header>
+        <Card.Title style={{ textAlign: 'center' }}>Timeline</Card.Title>
+      </Card.Header>
+      <Card.Body>
+        <Timeline timelineItems={timelineItems} key="Timeline3" domainResourceType={questionnaireType} />
       </Card.Body>
     </Card>
   )

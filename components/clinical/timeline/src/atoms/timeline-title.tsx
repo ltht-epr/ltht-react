@@ -1,10 +1,23 @@
 import { FC, HTMLAttributes } from 'react'
-import { AuditEvent, DocumentReference, Maybe, TimelineDomainResourceType } from '@ltht-react/types'
+import {
+  AuditEvent,
+  DocumentReference,
+  Maybe,
+  QuestionnaireResponse,
+  TimelineDomainResourceType,
+} from '@ltht-react/types'
 
 const TimelineTitle: FC<Props> = ({ domainResource, domainResourceType }) => {
   if (!domainResource) return <></>
 
   switch (domainResourceType) {
+    case TimelineDomainResourceType.QuestionnaireResponse: {
+      const qr = domainResource as QuestionnaireResponse
+      const questionnaireTitle = qr.metadata.isRedacted
+        ? 'Insufficient privileges'
+        : qr.text?.text ?? qr.questionnaire?.title
+      return <>{questionnaireTitle}</>
+    }
     case TimelineDomainResourceType.DocumentReference: {
       const docRef = domainResource as DocumentReference
       const docTitle = docRef.metadata.isRedacted ? 'Insufficient privileges' : docRef.text?.text
@@ -21,7 +34,7 @@ const TimelineTitle: FC<Props> = ({ domainResource, domainResourceType }) => {
 }
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
-  domainResource: Maybe<AuditEvent | DocumentReference>
+  domainResource?: Maybe<AuditEvent | QuestionnaireResponse | DocumentReference>
   domainResourceType: TimelineDomainResourceType
 }
 
