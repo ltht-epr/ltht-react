@@ -12,6 +12,7 @@ import { useWindowSize } from '@ltht-react/hooks'
 import Category from '../atoms/diagnosis-category'
 import Status from '../atoms/diagnosis-status'
 import Title from '../atoms/diagnosis-title'
+import Estimated from '../atoms/diagnosis-onset-estimated'
 import Redacted from '../molecules/diagnosis-redacted'
 
 const StyledTitle = styled.div`
@@ -27,7 +28,6 @@ const StyledDescription = styled.div`
 const StyledDate = styled.div`
   text-align: right;
 `
-
 const IconButtonWrapper = styled(Button)`
   -webkit-box-align: center;
   align-items: center;
@@ -38,7 +38,6 @@ const IconButtonWrapper = styled(Button)`
   margin-left: 0.5rem;
   width: auto;
 `
-
 const IconWrapper = styled.div`
   margin-left: 0.5rem;
   display: inline-block;
@@ -105,6 +104,7 @@ const DiagnosisSummary: FC<Props> = ({
         <DateSummary enteredInError={enteredInError} datetime={condition?.onset?.dateTime} />
         <Status enteredInError={enteredInError} condition={condition} />
       </StyledDate>
+      <Estimated enteredInError={enteredInError} condition={condition} />
     </StyledSummary>
   )
 }

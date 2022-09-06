@@ -48,6 +48,7 @@ export const Summary: Story = () => {
                 extensionClickHandler={clickHandler}
               />
             )}
+            {idx === 4 && <DiagnosisSummary condition={condition} />}
           </Card.ListItem>
         ))}
       </Card.List>

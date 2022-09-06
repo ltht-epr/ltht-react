@@ -566,9 +566,10 @@ const ConditionOne: Condition = {
   // },
   onset: {
     dateTime: {
-      value: '2016-09-01T00:00:00+00:00',
-      kind: PartialDateTimeKindCode.YearMonth,
+      value: '2019-03-04T00:00:00+00:00',
+      kind: PartialDateTimeKindCode.Date,
     },
+    estimated: true,
   },
   stage: {
     summary: {
@@ -617,6 +618,13 @@ const ConditionTwo: Condition = {
     value: '2020-01-01T00:00:00+00:00',
     kind: PartialDateTimeKindCode.Date,
   },
+  onset: {
+    dateTime: {
+      value: '2016-09-01T03:55:00+00:00',
+      kind: PartialDateTimeKindCode.Time,
+    },
+    estimated: true,
+  },
   verificationStatus: ConditionVerificationStatus.Refuted,
   severity: {
     coding: [{ code: '2448402', display: 'Mild' }],
@@ -634,14 +642,15 @@ const ConditionThree: Condition = {
   },
   verificationStatus: ConditionVerificationStatus.EnteredInError,
   severity: {
-    coding: [{ code: '2448402', display: 'Mild' }],
-    text: 'Mild',
+    coding: [{ code: '2448402', display: 'Severe' }],
+    text: 'Severe',
   },
   onset: {
     dateTime: {
       value: '2016-09-01T00:00:00+00:00',
       kind: PartialDateTimeKindCode.YearMonth,
     },
+    estimated: true,
   },
   asserter: null,
   bodySite: [],
@@ -670,6 +679,14 @@ const ConditionFour: Condition = {
       text: 'Problem',
     },
   ],
+  onset: {
+    dateTime: {
+      value: '2020-09-02T12:30:00+00:00',
+      kind: PartialDateTimeKindCode.YearMonth,
+    },
+    estimated: false,
+  },
+  verificationStatus: ConditionVerificationStatus.EnteredInError,
   code: {
     coding: [
       {
@@ -685,7 +702,6 @@ const ConditionFour: Condition = {
     value: '2020-01-01T00:00:00+00:00',
     kind: PartialDateTimeKindCode.Date,
   },
-  verificationStatus: ConditionVerificationStatus.Confirmed,
   severity: {
     coding: [{ code: '2448402', display: 'Mild' }],
     text: 'Mild',
@@ -693,48 +709,37 @@ const ConditionFour: Condition = {
 }
 
 const ConditionFive: Condition = {
-  id: '333',
   isEnteredInError: false,
+  abatement: null,
   metadata: mockMetadata,
-  category: [
-    {
-      coding: [
-        {
-          code: '55607006',
-          display: 'Problem',
-        },
-      ],
-      text: 'Problem',
-    },
-  ],
-  code: {
-    coding: [
-      {
-        system: 'HEALTHPLUG',
-        code: '44054006',
-        display: 'Hemophilia',
-      },
-    ],
-    text: 'Hemophilia',
-  },
-  clinicalStatus: ConditionClinicalStatus.Resolved,
-  asserter: {
-    display: 'SMITH, John (Dr)',
-    typeName: 'Doctor',
-    asserterName: 'SMITH, John (Dr)',
-    asserterType: 'Practitioner',
-  },
   assertedDate: {
-    value: '2017-12-12T00:00:00+00:00',
     kind: PartialDateTimeKindCode.Date,
+    value: '2022-03-18T00:00:00+00:00',
   },
-  verificationStatus: ConditionVerificationStatus.Confirmed,
+  verificationStatus: ConditionVerificationStatus.Unknown,
   severity: {
     coding: [{ code: '2448402', display: 'Moderate' }],
     text: 'Moderate',
   },
+  onset: {
+    dateTime: {
+      value: '2022-09-06T14:20:00+00:00',
+      kind: PartialDateTimeKindCode.DateTime,
+    },
+    estimated: false,
+  },
+  asserter: null,
+  bodySite: [],
+  category: [],
+  clinicalStatus: ConditionClinicalStatus.Active,
+  code: { coding: [{ code: '3135009', display: 'Transient ischemic attack' }], text: 'Transient ischemic attack' },
+  evidence: [],
+  extension: null,
+  extensionData: null,
+  id: 'R3|cce08927-b95b-4d16-89e7-f92bd7853058',
+  stage: null,
 }
 
-const conditions: Condition[] = [ConditionOne, ConditionTwo, ConditionThree, ConditionFour, ConditionFive]
+const conditions: Condition[] = [ConditionOne, ConditionThree, ConditionFive, ConditionFour, ConditionTwo]
 
 export default conditions
