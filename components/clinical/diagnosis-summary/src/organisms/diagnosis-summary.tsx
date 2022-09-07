@@ -26,7 +26,8 @@ const StyledDescription = styled.div`
   flex-grow: 1;
 `
 const StyledDate = styled.div`
-  text-align: right;
+  text-align: left;
+  width: 15%;
 `
 const IconButtonWrapper = styled(Button)`
   -webkit-box-align: center;
@@ -100,9 +101,10 @@ const DiagnosisSummary: FC<Props> = ({
         )}
         <Category enteredInError={enteredInError} condition={condition} />
       </StyledDescription>
+
       <StyledDate>
-        <Estimated enteredInError={enteredInError} condition={condition} />
         <DateSummary enteredInError={enteredInError} datetime={condition?.onset?.dateTime} />
+        <Estimated enteredInError={enteredInError} condition={condition} />
         <Status enteredInError={enteredInError} condition={condition} />
       </StyledDate>
     </StyledSummary>

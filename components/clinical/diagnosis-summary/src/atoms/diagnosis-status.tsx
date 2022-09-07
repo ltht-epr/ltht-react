@@ -7,7 +7,7 @@ import { titleCase } from '@ltht-react/utils'
 
 const StyledConditionStatus = styled.div<IStyledDescription>`
   color: ${TEXT_COLOURS.SECONDARY.VALUE};
-  text-align: right;
+  text-align: left;
   font-size: smaller;
   padding-top: 0.25rem;
   text-decoration: ${({ enteredInError }) => (enteredInError ? 'line-through' : 'none')};

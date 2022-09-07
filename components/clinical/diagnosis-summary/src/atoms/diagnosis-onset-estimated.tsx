@@ -14,7 +14,7 @@ const StyledOnsetEstimated = styled.div<IStyledDescription>`
 
 const DiagnosisOnsetEstimated: FC<Props> = ({ condition, enteredInError, ...rest }) => (
   <StyledOnsetEstimated enteredInError={enteredInError} {...rest}>
-    {condition.onset?.estimated ? '(estimated) ' : ''}
+    {condition.onset?.estimated ? ' (estimated)' : ''}
   </StyledOnsetEstimated>
 )
 
