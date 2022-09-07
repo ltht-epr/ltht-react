@@ -16,8 +16,8 @@ const StyledDescription = styled.div`
   }
 `
 
-const TimelineDescription: FC<Props> = ({ domainResource, domainResourceType, isRedacted }) => {
-  if (!domainResource || isRedacted) return <></>
+const TimelineDescription: FC<Props> = ({ domainResource, domainResourceType }) => {
+  if (!domainResource) return <></>
 
   switch (domainResourceType) {
     case TimelineDomainResourceType.QuestionnaireResponse: {
@@ -47,7 +47,6 @@ const TimelineDescription: FC<Props> = ({ domainResource, domainResourceType, is
 interface Props extends HTMLAttributes<HTMLDivElement> {
   domainResource?: Maybe<AuditEvent | QuestionnaireResponse | DocumentReference>
   domainResourceType: TimelineDomainResourceType
-  isRedacted: boolean
 }
 
 export default TimelineDescription

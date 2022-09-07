@@ -14,6 +14,7 @@ import { useWindowSize } from '@ltht-react/hooks'
 
 import TimelineTime from '../atoms/timeline-time'
 import TimelineItem, { ITimelineItem } from '../molecules/timeline-item'
+import TimelineItemRedacted from '../molecules/timeline-item-redacted'
 
 const StyledTimeline = styled.div`
   margin: -0.75rem;
@@ -245,10 +246,16 @@ const Timeline: FC<IProps> = ({ timelineItems, domainResourceType }) => {
 
                 const itemKey = `timeline_day_item_${dateKey}_${currentTime}_${idx}`
 
+                const isRedacted = timelineItem.domainResource.metadata.isRedacted ?? false
+
                 if (isMobile) {
                   content = (
                     <StyledTimelineDayContent isMobile>
-                      <TimelineItem timelineItem={timelineItem} domainResourceType={domainResourceType} />
+                      {isRedacted ? (
+                        <TimelineItemRedacted />
+                      ) : (
+                        <TimelineItem timelineItem={timelineItem} domainResourceType={domainResourceType} />
+                      )}
                     </StyledTimelineDayContent>
                   )
                 } else if (position % 2 === 1) {
@@ -256,7 +263,11 @@ const Timeline: FC<IProps> = ({ timelineItems, domainResourceType }) => {
                   content = (
                     <div key={contentKey} data-testid={contentKey}>
                       <StyledTimelineDayContent isMobile={false}>
-                        <TimelineItem timelineItem={timelineItem} domainResourceType={domainResourceType} />
+                        {isRedacted ? (
+                          <TimelineItemRedacted />
+                        ) : (
+                          <TimelineItem timelineItem={timelineItem} domainResourceType={domainResourceType} />
+                        )}
                       </StyledTimelineDayContent>
                       <StyledTimelineDayLine>
                         <StyledOuterCircle>
@@ -293,7 +304,11 @@ const Timeline: FC<IProps> = ({ timelineItems, domainResourceType }) => {
                         </StyledInnerCircle>
                       </StyledTimelineDayLine>
                       <StyledTimelineDayContent isMobile={false}>
-                        <TimelineItem timelineItem={timelineItem} domainResourceType={domainResourceType} />
+                        {isRedacted ? (
+                          <TimelineItemRedacted />
+                        ) : (
+                          <TimelineItem timelineItem={timelineItem} domainResourceType={domainResourceType} />
+                        )}
                       </StyledTimelineDayContent>
                     </div>
                   )
