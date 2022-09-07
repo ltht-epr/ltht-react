@@ -15,8 +15,8 @@ const StyledTimelineItemLeft = styled.div`
   flex-grow: 1;
 `
 
-const TimelineAuthor: FC<Props> = ({ domainResource, domainResourceType }) => {
-  if (!domainResource) return <></>
+const TimelineAuthor: FC<Props> = ({ domainResource, domainResourceType, isRedacted }) => {
+  if (!domainResource || isRedacted) return <></>
 
   switch (domainResourceType) {
     case TimelineDomainResourceType.QuestionnaireResponse: {
@@ -83,6 +83,7 @@ const TimelineAuthor: FC<Props> = ({ domainResource, domainResourceType }) => {
 interface Props extends HTMLAttributes<HTMLDivElement> {
   domainResource?: Maybe<AuditEvent | QuestionnaireResponse | DocumentReference>
   domainResourceType: TimelineDomainResourceType
+  isRedacted: boolean
 }
 
 export default TimelineAuthor

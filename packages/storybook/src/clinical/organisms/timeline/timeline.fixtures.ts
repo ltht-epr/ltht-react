@@ -850,6 +850,16 @@ const mockMetadata: Metadata = {
   requestedWhen: '',
 }
 
+const redactedMockMetadata: Metadata = {
+  dataSources: [
+    {
+      display: 'Mock',
+    },
+  ],
+  isRedacted: true,
+  requestedWhen: '',
+}
+
 const QuestionnaireResponse1: QuestionnaireResponse = {
   id: '435d2aca-7776-43e7-a33f-1ba481bd2892',
   isEnteredInError: false,
@@ -922,6 +932,28 @@ const QuestionnaireResponse2: QuestionnaireResponse = {
     item: [],
   },
   item: [],
+}
+
+const RedactedQuestionnaireResponse1: QuestionnaireResponse = {
+  id: '435d2aca-7776-43e7-a33f-1ba481bd2892',
+  status: QuestionnaireResponseStatus.Completed,
+  authored: {
+    kind: PartialDateTimeKindCode.DateTime,
+    value: '2021-08-17T13:13:56.9755581+01:00',
+  },
+  item: [],
+  metadata: redactedMockMetadata,
+}
+
+const RedactedQuestionnaireResponse2: QuestionnaireResponse = {
+  id: '435d2aca-7776-43e7-a33f-1ba781bd2892',
+  status: QuestionnaireResponseStatus.Completed,
+  authored: {
+    kind: PartialDateTimeKindCode.DateTime,
+    value: '2021-08-15T13:13:56.9755581+01:00',
+  },
+  item: [],
+  metadata: redactedMockMetadata,
 }
 
 const QuestionnaireResponse3: QuestionnaireResponse = {
@@ -1078,6 +1110,11 @@ export const TitleResponse: QuestionnaireResponse = {
 
 const QuestionnaireResponses: QuestionnaireResponseContinuation = {
   resources: [QuestionnaireResponse1, QuestionnaireResponse2, QuestionnaireResponse3, QuestionnaireResponse4],
+  selfCursorToken: '',
+}
+
+export const RedactedQuestionnaireResponses: QuestionnaireResponseContinuation = {
+  resources: [RedactedQuestionnaireResponse1, RedactedQuestionnaireResponse2],
   selfCursorToken: '',
 }
 

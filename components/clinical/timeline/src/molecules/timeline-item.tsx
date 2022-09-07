@@ -84,11 +84,13 @@ const TimelineItem: FC<IProps> = ({ timelineItem, domainResourceType }) => {
 
   const itemKey = `timelineItem_${timelineItem.domainResource.id}`
 
+  const isRedacted = timelineItem.domainResource.metadata.isRedacted ?? false
+
   return (
     <StyledTimelineItem isSelected={timelineItem.isSelected ?? false} key={itemKey}>
       <StyledTimelineItemTop>
         <StyledTitle isMobile={isMobile}>
-          <TimelineTitle domainResource={timelineItem.domainResource} domainResourceType={domainResourceType} />
+          <TimelineTitle domainResource={timelineItem.domainResource} domainResourceType={domainResourceType} isRedacted={isRedacted} />
         </StyledTitle>
         {isMobile && (
           <StyledTimelineTime>
@@ -98,12 +100,12 @@ const TimelineItem: FC<IProps> = ({ timelineItem, domainResourceType }) => {
       </StyledTimelineItemTop>
       <StyledTimelineItemMiddle>
         <StyledDescription>
-          <TimelineDescription domainResource={timelineItem.domainResource} domainResourceType={domainResourceType} />
+          <TimelineDescription domainResource={timelineItem.domainResource} domainResourceType={domainResourceType} isRedacted={isRedacted} />
         </StyledDescription>
       </StyledTimelineItemMiddle>
       <StyledTimelineItemBottom>
         <StyledTimelineItemLeft>
-          <TimelineAuthor domainResource={timelineItem.domainResource} domainResourceType={domainResourceType} />
+          <TimelineAuthor domainResource={timelineItem.domainResource} domainResourceType={domainResourceType} isRedacted={isRedacted}/>
         </StyledTimelineItemLeft>
         <StyledTimelineItemRight>
           <StyledStatus>
@@ -111,12 +113,12 @@ const TimelineItem: FC<IProps> = ({ timelineItem, domainResourceType }) => {
           </StyledStatus>
         </StyledTimelineItemRight>
       </StyledTimelineItemBottom>
-      {timelineItem.clickHandler && !timelineItem.isSelected && (
+      {timelineItem.clickHandler && !timelineItem.isSelected && !isRedacted && (
         <StyledBanner type="info" onClick={timelineItem.clickHandler}>
           {timelineItem.clickPrompt && <StyledBannerContent>{timelineItem.clickPrompt}</StyledBannerContent>}
         </StyledBanner>
       )}
-      {timelineItem.clickHandler && timelineItem.isSelected && (
+      {timelineItem.clickHandler && timelineItem.isSelected && !isRedacted && (
         <StyledBanner
           type="highlight"
           icon={<InfoCircleIcon status="info" size="medium" />}

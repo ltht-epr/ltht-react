@@ -3,7 +3,12 @@ import Card from '@ltht-react/card'
 import Timeline from '@ltht-react/timeline'
 import { ITimelineItem } from '@ltht-react/timeline/src'
 import { AuditEvent, DocumentReference, QuestionnaireResponse, TimelineDomainResourceType } from '@ltht-react/types'
-import Questionnaires, { AuditTrail, DocumentReferences, RedactedAuditTrail } from './timeline.fixtures'
+import Questionnaires, {
+  AuditTrail,
+  DocumentReferences,
+  RedactedAuditTrail,
+  RedactedQuestionnaireResponses,
+} from './timeline.fixtures'
 
 const auditType = TimelineDomainResourceType.AuditEvent
 const questionnaireType = TimelineDomainResourceType.QuestionnaireResponse
@@ -122,7 +127,7 @@ export const QuestionnaireClickableTimeline: Story = () => {
 }
 
 export const QuestionnaireRedactedTimeline: Story = () => {
-  const timelineItems: ITimelineItem[] = Questionnaires.resources.map((ti) => ({
+  const timelineItems: ITimelineItem[] = RedactedQuestionnaireResponses.resources.map((ti) => ({
     domainResource: ti as QuestionnaireResponse,
     // eslint-disable-next-line @typescript-eslint/no-empty-function
     clickHandler: () => {},

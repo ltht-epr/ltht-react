@@ -6,9 +6,17 @@ import {
   QuestionnaireResponse,
   TimelineDomainResourceType,
 } from '@ltht-react/types'
+import { TEXT_COLOURS } from '@ltht-react/styles'
+import styled from '@emotion/styled'
 
-const TimelineTitle: FC<Props> = ({ domainResource, domainResourceType }) => {
+const StyledRedactedMessage = styled.div`
+  color: ${TEXT_COLOURS.SECONDARY.VALUE};
+`
+
+const TimelineTitle: FC<Props> = ({ domainResource, domainResourceType, isRedacted }) => {
   if (!domainResource) return <></>
+
+  if (isRedacted) return <StyledRedactedMessage>Insufficient Privileges</StyledRedactedMessage>
 
   switch (domainResourceType) {
     case TimelineDomainResourceType.QuestionnaireResponse: {
@@ -36,6 +44,7 @@ const TimelineTitle: FC<Props> = ({ domainResource, domainResourceType }) => {
 interface Props extends HTMLAttributes<HTMLDivElement> {
   domainResource?: Maybe<AuditEvent | QuestionnaireResponse | DocumentReference>
   domainResourceType: TimelineDomainResourceType
+  isRedacted: boolean
 }
 
 export default TimelineTitle
