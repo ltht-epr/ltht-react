@@ -6,8 +6,6 @@ const StyledRedactedMessage = styled.div`
   color: ${TEXT_COLOURS.SECONDARY.VALUE};
 `
 
-const TimelineTitleRedacted: FC = () => {
-  return <StyledRedactedMessage>Insufficient Privileges</StyledRedactedMessage>
-}
+const TimelineTitleRedacted: FC = () => <StyledRedactedMessage>Insufficient Privileges</StyledRedactedMessage>
 
 export default TimelineTitleRedacted
