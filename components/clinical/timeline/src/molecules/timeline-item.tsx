@@ -90,7 +90,11 @@ const TimelineItem: FC<IProps> = ({ timelineItem, domainResourceType }) => {
     <StyledTimelineItem isSelected={timelineItem.isSelected ?? false} key={itemKey}>
       <StyledTimelineItemTop>
         <StyledTitle isMobile={isMobile}>
-          <TimelineTitle domainResource={timelineItem.domainResource} domainResourceType={domainResourceType} isRedacted={isRedacted} />
+          <TimelineTitle
+            domainResource={timelineItem.domainResource}
+            domainResourceType={domainResourceType}
+            isRedacted={isRedacted}
+          />
         </StyledTitle>
         {isMobile && (
           <StyledTimelineTime>
@@ -100,12 +104,20 @@ const TimelineItem: FC<IProps> = ({ timelineItem, domainResourceType }) => {
       </StyledTimelineItemTop>
       <StyledTimelineItemMiddle>
         <StyledDescription>
-          <TimelineDescription domainResource={timelineItem.domainResource} domainResourceType={domainResourceType} isRedacted={isRedacted} />
+          <TimelineDescription
+            domainResource={timelineItem.domainResource}
+            domainResourceType={domainResourceType}
+            isRedacted={isRedacted}
+          />
         </StyledDescription>
       </StyledTimelineItemMiddle>
       <StyledTimelineItemBottom>
         <StyledTimelineItemLeft>
-          <TimelineAuthor domainResource={timelineItem.domainResource} domainResourceType={domainResourceType} isRedacted={isRedacted}/>
+          <TimelineAuthor
+            domainResource={timelineItem.domainResource}
+            domainResourceType={domainResourceType}
+            isRedacted={isRedacted}
+          />
         </StyledTimelineItemLeft>
         <StyledTimelineItemRight>
           <StyledStatus>
