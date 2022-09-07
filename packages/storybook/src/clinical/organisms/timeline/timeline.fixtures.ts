@@ -934,7 +934,7 @@ const QuestionnaireResponse2: QuestionnaireResponse = {
   item: [],
 }
 
-const RedactedQuestionnaireResponse1: QuestionnaireResponse = {
+export const RedactedQuestionnaireResponse1: QuestionnaireResponse = {
   id: '435d2aca-7776-43e7-a33f-1ba481bd2892',
   status: QuestionnaireResponseStatus.Completed,
   authored: {
@@ -945,7 +945,7 @@ const RedactedQuestionnaireResponse1: QuestionnaireResponse = {
   metadata: redactedMockMetadata,
 }
 
-const RedactedQuestionnaireResponse2: QuestionnaireResponse = {
+export const RedactedQuestionnaireResponse2: QuestionnaireResponse = {
   id: '435d2aca-7776-43e7-a33f-1ba781bd2892',
   status: QuestionnaireResponseStatus.Completed,
   authored: {
