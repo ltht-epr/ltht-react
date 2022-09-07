@@ -2,7 +2,13 @@ import { render, screen } from '@testing-library/react'
 import Timeline, { ITimelineItem } from '@ltht-react/timeline'
 import { formatTime, formatDate } from '@ltht-react/utils'
 import { TimelineDomainResourceType } from '@ltht-react/types'
-import Questionnaires, { AuditTrail, DocumentReferences, TextTitleResponse, TitleResponse } from './timeline.fixtures'
+import Questionnaires, {
+  AuditTrail,
+  DocumentReferences,
+  RedactedQuestionnaireResponse1,
+  TextTitleResponse,
+  TitleResponse,
+} from './timeline.fixtures'
 
 const auditTimelineItems: ITimelineItem[] = AuditTrail.resources.map((ti) => ({
   domainResource: ti,
@@ -176,6 +182,20 @@ it('Questionnaire uses text as default title, doesnt show questionnaire.title', 
   const backupTitle = TextTitleResponse.questionnaire?.title ?? ''
   expect(screen.queryAllByText(expectedTitle)).toHaveLength(1)
   expect(screen.queryAllByText(backupTitle)).toHaveLength(0)
+})
+
+it('Does not try to display data if it was redacted', () => {
+  const timelineItems: ITimelineItem[] = [
+    {
+      domainResource: RedactedQuestionnaireResponse1,
+      isSelected: false,
+    },
+  ]
+  render(
+    <Timeline timelineItems={timelineItems} domainResourceType={TimelineDomainResourceType.QuestionnaireResponse} />
+  )
+
+  expect(screen.getByText('Insufficient Privileges')).toBeVisible()
 })
 
 it('Questionnaire uses questionnaire.title as backup title', () => {

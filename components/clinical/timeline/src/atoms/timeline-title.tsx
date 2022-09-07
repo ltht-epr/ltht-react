@@ -28,9 +28,9 @@ const TimelineTitle: FC<Props> = ({ domainResource, domainResourceType }) => {
       const auditTitle = audit.metadata.isRedacted ? 'Insufficient privileges' : audit.text?.text
       return <>{auditTitle}</>
     }
+    default:
+      return <></>
   }
-
-  return <></>
 }
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
