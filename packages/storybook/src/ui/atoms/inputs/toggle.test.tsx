@@ -2,10 +2,10 @@
 import { Toggle } from '@ltht-react/input'
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { useState } from 'react'
+import { FC, useState } from 'react'
 
-const TestHarness = ({ disabled }: { disabled: boolean }) => {
-  const [toggle, setToggle] = useState<boolean>(false)
+const TestHarness: FC<ITestHarnessProps> = ({ disabled, checked }) => {
+  const [toggle, setToggle] = useState<boolean>(checked ?? false)
 
   return (
     <>
@@ -20,32 +20,55 @@ const TestHarness = ({ disabled }: { disabled: boolean }) => {
   )
 }
 
-describe('toggle input', () => {
-  it('should start with a default value', () => {
-    const { container } = render(<Toggle checked />)
+interface ITestHarnessProps {
+  disabled?: boolean
+  checked?: boolean
+}
 
-    expect(container.querySelector(':checked')).not.toBeNull()
+describe('toggle input', () => {
+  it('should start with a default value', async () => {
+    render(<TestHarness checked />)
+
+    expect(await screen.findByLabelText('Click me')).toBeChecked()
   })
 
   it('should change when clicked', async () => {
-    const { container } = render(<TestHarness disabled={false} />)
-
-    expect(container.querySelector(':checked')).toBeNull()
+    render(<TestHarness disabled={false} />)
 
     const label = await screen.findByText('Click me')
+    const input = await screen.findByLabelText('Click me')
+
+    expect(input).not.toBeDisabled()
+    expect(input).not.toBeChecked()
+
     userEvent.click(label)
 
-    expect(container.querySelector(':checked')).not.toBeNull()
+    expect(input).toBeChecked()
   })
 
   it('should not let you change value when disabled', async () => {
-    const { container } = render(<TestHarness disabled />)
-
-    expect(container.querySelector(':checked')).toBeNull()
+    render(<TestHarness disabled />)
 
     const label = await screen.findByText('Click me')
+    const input = await screen.findByLabelText('Click me')
+
+    expect(input).toBeDisabled()
+
     userEvent.click(label)
 
-    expect(container.querySelector(':checked')).toBeNull()
+    expect(input).not.toBeChecked()
+  })
+
+  it('should set a title attribute of "On" when it is checked', async () => {
+    render(<TestHarness checked />)
+
+    screen.debug()
+    expect(await screen.findByLabelText('Click me')).toHaveAttribute('title', 'On')
+  })
+
+  it('should set a title attribute of "Off" when it is not checked', async () => {
+    render(<TestHarness checked={false} />)
+
+    expect(await screen.findByLabelText('Click me')).toHaveAttribute('title', 'Off')
   })
 })

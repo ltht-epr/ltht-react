@@ -13,33 +13,38 @@ const StyledInput = styled.input`
   cursor: pointer;
   height: 1rem;
   width: 2rem;
-  background: linear-gradient(to left, rgba(0, 0, 0, 0) 50%, black 50%) right;
-  background-size: 200% 100%;
+  background: white;
   transition: all linear 0.1s;
 
   &::before {
     align-self: baseline;
-    background: white;
-    border: 1px solid black;
-    border-radius: 1rem;
+    background: black;
+    outline: 1px solid black;
+    border-radius: 0.4rem;
     content: '';
     display: block;
-    height: 1rem;
-    left: 0;
+    height: 0.6rem;
+    width: 0.6rem;
+    top: 0.25rem;
+    left: 0.22rem;
     margin-top: -2px;
     margin-left: -1px;
     position: relative;
-    top: 0;
-    width: 1rem;
-    transition: left linear 0.1s;
+    transition: left linear 0.1s, background linear 0.1s;
   }
 
   &:checked {
-    background-position: left;
+    background: black;
+
+    // Style overrides for IE 11 (fallback to normal checkbox)
+    // Only IE 10 & 11 use these media queries
+    @media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {
+      background: none;
+    }
   }
 
   &:checked::before {
-    left: 1rem;
+    left: 1.25rem;
     background: white;
   }
 `
@@ -52,6 +57,7 @@ const ToggleInput: FC<ToggleInputProps> = ({ checked, onChange, disabled, ...res
       disabled={disabled}
       onChange={(e) => !disabled && onChange && onChange(e)}
       {...rest}
+      title={checked ? 'On' : 'Off'}
     />
   </StyledToggleWrapper>
 )
