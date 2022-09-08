@@ -64,7 +64,7 @@ const ToggleInput: FC<ToggleInputProps> = ({ checked, onChange, disabled, ...res
 
 interface ToggleInputProps extends HTMLAttributes<HTMLInputElement> {
   checked: boolean
-  disabled?: boolean | undefined
+  disabled?: boolean
 }
 
 export default ToggleInput

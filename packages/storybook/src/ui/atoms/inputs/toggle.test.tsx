@@ -21,8 +21,8 @@ const TestHarness: FC<ITestHarnessProps> = ({ disabled, checked }) => {
 }
 
 interface ITestHarnessProps {
-  disabled?: boolean | undefined
-  checked?: boolean | undefined
+  disabled?: boolean
+  checked?: boolean
 }
 
 describe('toggle input', () => {
@@ -62,6 +62,7 @@ describe('toggle input', () => {
   it('should set a title attribute of "On" when it is checked', async () => {
     render(<TestHarness checked />)
 
+    screen.debug()
     expect(await screen.findByLabelText('Click me')).toHaveAttribute('title', 'On')
   })
 
