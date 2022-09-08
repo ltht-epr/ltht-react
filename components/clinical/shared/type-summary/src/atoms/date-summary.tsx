@@ -8,6 +8,7 @@ import { partialDateTimeText } from '@ltht-react/utils'
 const StyledDateSummary = styled.div<IStyledDateSummary>`
   color: ${TEXT_COLOURS.PRIMARY};
   text-decoration: ${({ enteredInError }) => (enteredInError ? 'line-through' : 'none')};
+  display: inline-block;
 `
 
 const DateSummary: FC<Props> = ({ datetime, enteredInError, ...rest }) => (

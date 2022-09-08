@@ -1435,6 +1435,7 @@ export type ConditionOnset = {
   range?: Maybe<Range>
   string?: Maybe<Scalars['String']>
   dateTime?: Maybe<PartialDateTime>
+  estimated?: Maybe<Scalars['Boolean']>
 }
 
 export type ConditionStage = {
