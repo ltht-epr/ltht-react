@@ -1,10 +1,6 @@
 import styled from '@emotion/styled'
 import { FC, HTMLAttributes } from 'react'
 
-const StyledToggleWrapper = styled.div`
-  display: flex;
-`
-
 const StyledInput = styled.input`
   appearance: none;
   border: solid 1px black;
@@ -50,16 +46,14 @@ const StyledInput = styled.input`
 `
 
 const ToggleInput: FC<ToggleInputProps> = ({ checked, onChange, disabled, ...rest }) => (
-  <StyledToggleWrapper>
-    <StyledInput
-      type="checkbox"
-      checked={checked}
-      disabled={disabled}
-      onChange={(e) => !disabled && onChange && onChange(e)}
-      {...rest}
-      title={checked ? 'On' : 'Off'}
-    />
-  </StyledToggleWrapper>
+  <StyledInput
+    type="checkbox"
+    checked={checked}
+    disabled={disabled}
+    onChange={(e) => !disabled && onChange && onChange(e)}
+    {...rest}
+    title={checked ? 'On' : 'Off'}
+  />
 )
 
 interface ToggleInputProps extends HTMLAttributes<HTMLInputElement> {
