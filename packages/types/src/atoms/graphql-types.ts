@@ -47,8 +47,9 @@ export type Ehr = {
   medication?: Maybe<MedicationRequest>
   medications?: Maybe<MedicationRequestContinuationType>
   patient?: Maybe<Patient>
-  questionnaire?: Maybe<QuestionnaireResponse>
-  questionnaireLastCompleted?: Maybe<QuestionnaireResponse>
+  questionnaireResponseByInstance?: Maybe<QuestionnaireResponse>
+  questionnaireResponsesBySet?: Maybe<QuestionnaireResponseContinuation>
+  questionnaireResponseLastCompleted?: Maybe<QuestionnaireResponse>
   summaryDefinition?: Maybe<Questionnaire>
   summaryRecords?: Maybe<QuestionnaireResponseContinuation>
   tasks?: Maybe<TaskContinuation>
@@ -67,6 +68,9 @@ export type EhrAllergyIntolerancesArgs = {
   cursorToken?: Maybe<Scalars['String']>
   count?: Maybe<Scalars['Int']>
   clinicalStatus?: Maybe<Array<Maybe<AllergyIntoleranceClinicalStatusCode>>>
+  listType: Scalars['String']
+  listScope?: Maybe<Scalars['String']>
+  fhirVersion: Scalars['String']
 }
 
 /** Queries the LTHT EHR. */
@@ -156,14 +160,23 @@ export type EhrPatientArgs = {
 }
 
 /** Queries the LTHT EHR. */
-export type EhrQuestionnaireArgs = {
+export type EhrQuestionnaireResponseByInstanceArgs = {
   patientGuid: Scalars['String']
   name: Scalars['String']
   instanceGuid: Scalars['String']
 }
 
 /** Queries the LTHT EHR. */
-export type EhrQuestionnaireLastCompletedArgs = {
+export type EhrQuestionnaireResponsesBySetArgs = {
+  patientGuid: Scalars['String']
+  templateName: Scalars['String']
+  setGuid: Scalars['String']
+  cursorToken?: Maybe<Scalars['String']>
+  count?: Maybe<Scalars['Int']>
+}
+
+/** Queries the LTHT EHR. */
+export type EhrQuestionnaireResponseLastCompletedArgs = {
   patientGuid: Scalars['String']
   name: Scalars['String']
   setGuid: Scalars['String']
@@ -1196,6 +1209,7 @@ export type Condition = {
   extensionData?: Maybe<Array<Maybe<QuestionnaireResponse>>>
   identifier?: Maybe<Array<Maybe<Identifier>>>
   onset?: Maybe<ConditionOnset>
+  onsetDateEstimated?: Maybe<Scalars['Boolean']>
   severity?: Maybe<CodeableConcept>
   stage?: Maybe<ConditionStage>
   verificationStatus?: Maybe<ConditionVerificationStatus>
@@ -1435,7 +1449,6 @@ export type ConditionOnset = {
   range?: Maybe<Range>
   string?: Maybe<Scalars['String']>
   dateTime?: Maybe<PartialDateTime>
-  estimated?: Maybe<Scalars['Boolean']>
 }
 
 export type ConditionStage = {
@@ -2932,6 +2945,7 @@ export enum EntityType {
   TeamMembership = 'TEAM_MEMBERSHIP',
   DiagnosisDashboard = 'DIAGNOSIS_DASHBOARD',
   FormTimelinePilot = 'FORM_TIMELINE_PILOT',
+  DocumentTimelinePilot = 'DOCUMENT_TIMELINE_PILOT',
   OnlineForms = 'ONLINE_FORMS',
 }
 

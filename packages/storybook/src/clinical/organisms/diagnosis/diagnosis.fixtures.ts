@@ -569,8 +569,8 @@ const ConditionOne: Condition = {
       value: '2019-03-04T00:00:00+00:00',
       kind: PartialDateTimeKindCode.Date,
     },
-    estimated: true,
   },
+  onsetDateEstimated: true,
   stage: {
     summary: {
       coding: [
@@ -623,8 +623,8 @@ const ConditionTwo: Condition = {
       value: '2016-09-01T03:55:00+00:00',
       kind: PartialDateTimeKindCode.Time,
     },
-    estimated: true,
   },
+  onsetDateEstimated: true,
   verificationStatus: ConditionVerificationStatus.Refuted,
   severity: {
     coding: [{ code: '2448402', display: 'Mild' }],
@@ -650,8 +650,8 @@ const ConditionThree: Condition = {
       value: '2016-09-01T00:00:00+00:00',
       kind: PartialDateTimeKindCode.YearMonth,
     },
-    estimated: true,
   },
+  onsetDateEstimated: true,
   asserter: null,
   bodySite: [],
   category: [],
@@ -684,8 +684,8 @@ const ConditionFour: Condition = {
       value: '2020-09-02T12:30:00+00:00',
       kind: PartialDateTimeKindCode.YearMonth,
     },
-    estimated: false,
   },
+  onsetDateEstimated: false,
   verificationStatus: ConditionVerificationStatus.EnteredInError,
   code: {
     coding: [
@@ -726,8 +726,8 @@ const ConditionFive: Condition = {
       value: '2022-09-06T14:20:00+00:00',
       kind: PartialDateTimeKindCode.DateTime,
     },
-    estimated: true,
   },
+  onsetDateEstimated: true,
   asserter: null,
   bodySite: [],
   category: [],
