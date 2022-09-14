@@ -12,7 +12,7 @@ import { useWindowSize } from '@ltht-react/hooks'
 import Category from '../atoms/diagnosis-category'
 import Status from '../atoms/diagnosis-status'
 import Title from '../atoms/diagnosis-title'
-import Estimated from '../atoms/diagnosis-onset-estimated'
+import OnsetDateEstimated from '../atoms/diagnosis-onset-estimated'
 import Redacted from '../molecules/diagnosis-redacted'
 
 const StyledTitle = styled.div`
@@ -104,7 +104,7 @@ const DiagnosisSummary: FC<Props> = ({
 
       <StyledDate>
         <DateSummary enteredInError={enteredInError} datetime={condition?.onset?.dateTime} />
-        <Estimated enteredInError={enteredInError} condition={condition} />
+        <OnsetDateEstimated enteredInError={enteredInError} condition={condition} />
         <Status enteredInError={enteredInError} condition={condition} />
       </StyledDate>
     </StyledSummary>
