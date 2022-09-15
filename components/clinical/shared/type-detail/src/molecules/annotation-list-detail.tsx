@@ -2,9 +2,9 @@ import styled from '@emotion/styled'
 import { Annotation, Maybe } from '@ltht-react/types'
 import { partialDateTimeText } from '@ltht-react/utils'
 import DescriptionList from '@ltht-react/description-list'
+import ReactHtmlParser from 'react-html-parser'
 import { DetailViewComponent, IDetailViewProps } from '../atoms/detail-view-component'
 import NestedListDetail from './nested-list-detail'
-import ReactHtmlParser from 'react-html-parser'
 
 const StyledAnnotationNoteText = styled(DescriptionList.Description)`
   margin-top: 0.25rem;
