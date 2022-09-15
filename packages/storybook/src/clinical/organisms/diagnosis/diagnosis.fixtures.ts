@@ -557,7 +557,13 @@ const ConditionOne: Condition = {
     ],
     text: 'Heel Pain',
   },
-  note: [{ text: 'Blister of foot without infection' }, { text: 'Nonvenomous insect bite of foot with indection' }],
+  note: [
+    {
+      text:
+        '<ol><li><strong><em>This is a note field example</em></strong></li><li><strong><em>option</em></strong></li><li><strong><em><u>3rd</u></em></strong></li></ol>',
+    },
+    { text: 'Nonvenomous insect bite of foot with indection' },
+  ],
   clinicalStatus: ConditionClinicalStatus.Active,
   verificationStatus: ConditionVerificationStatus.Confirmed,
   // assertedDate: {

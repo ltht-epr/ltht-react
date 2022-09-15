@@ -4,6 +4,7 @@ import { partialDateTimeText } from '@ltht-react/utils'
 import DescriptionList from '@ltht-react/description-list'
 import { DetailViewComponent, IDetailViewProps } from '../atoms/detail-view-component'
 import NestedListDetail from './nested-list-detail'
+import ReactHtmlParser from 'react-html-parser'
 
 const StyledAnnotationNoteText = styled(DescriptionList.Description)`
   margin-top: 0.25rem;
@@ -36,7 +37,7 @@ const AnnotationListDetail: DetailViewComponent<IProps> = ({ term, notes, showIf
           <li key={`allergy-note-${index + 1}`}>
             {note?.author && <StyledAnnotationAuthorInfo>{note.author?.display}</StyledAnnotationAuthorInfo>}
             {note?.time && <StyledAnnotationAuthorInfo>{partialDateTimeText(note.time)}</StyledAnnotationAuthorInfo>}
-            <StyledAnnotationNoteText>{note?.text}</StyledAnnotationNoteText>
+            <StyledAnnotationNoteText>{ReactHtmlParser(note?.text)}</StyledAnnotationNoteText>
           </li>
         ))}
       </StyledList>
