@@ -37,7 +37,7 @@ const AnnotationListDetail: DetailViewComponent<IProps> = ({ term, notes, showIf
           <li key={`allergy-note-${index + 1}`}>
             {note?.author && <StyledAnnotationAuthorInfo>{note.author?.display}</StyledAnnotationAuthorInfo>}
             {note?.time && <StyledAnnotationAuthorInfo>{partialDateTimeText(note.time)}</StyledAnnotationAuthorInfo>}
-            <StyledAnnotationNoteText>{ReactHtmlParser(note?.text!)}</StyledAnnotationNoteText>
+            <StyledAnnotationNoteText>{ReactHtmlParser(note?.text ?? '')}</StyledAnnotationNoteText>
           </li>
         ))}
       </StyledList>
