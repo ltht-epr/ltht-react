@@ -562,7 +562,10 @@ const ConditionOne: Condition = {
       text:
         '<ol><li><strong><em>This is a note field example</em></strong></li><li><strong><em>option</em></strong></li><li><strong><em><u>3rd</u></em></strong></li></ol>',
     },
-    { text: 'Nonvenomous insect bite of foot with indection' },
+    {
+      text:
+        '&lt;ol&gt;&lt;li&gt;&lt;strong&gt;&lt;em&gt;This is a note field example&lt;/em&gt;&lt;/strong&gt;&lt;/li&gt;&lt;li&gt;&lt;strong&gt;&lt;em&gt;option&lt;/em&gt;&lt;/strong&gt;&lt;/li&gt;&lt;li&gt;&lt;strong&gt;&lt;em&gt;&lt;u&gt;3rd&lt;/u&gt;&lt;/em&gt;&lt;/strong&gt;&lt;/li&gt;&lt;/ol&gt;',
+    },
   ],
   clinicalStatus: ConditionClinicalStatus.Active,
   verificationStatus: ConditionVerificationStatus.Confirmed,
