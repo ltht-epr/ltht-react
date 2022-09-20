@@ -2,6 +2,8 @@ import styled from '@emotion/styled'
 import { Annotation, Maybe } from '@ltht-react/types'
 import { partialDateTimeText } from '@ltht-react/utils'
 import DescriptionList from '@ltht-react/description-list'
+import ent from 'ent'
+import ReactHtmlParser from 'react-html-parser'
 import { DetailViewComponent, IDetailViewProps } from '../atoms/detail-view-component'
 import NestedListDetail from './nested-list-detail'
 
@@ -36,7 +38,7 @@ const AnnotationListDetail: DetailViewComponent<IProps> = ({ term, notes, showIf
           <li key={`allergy-note-${index + 1}`}>
             {note?.author && <StyledAnnotationAuthorInfo>{note.author?.display}</StyledAnnotationAuthorInfo>}
             {note?.time && <StyledAnnotationAuthorInfo>{partialDateTimeText(note.time)}</StyledAnnotationAuthorInfo>}
-            <StyledAnnotationNoteText>{note?.text}</StyledAnnotationNoteText>
+            <StyledAnnotationNoteText>{ReactHtmlParser(ent.decode(note?.text ?? ''))}</StyledAnnotationNoteText>
           </li>
         ))}
       </StyledList>

@@ -3744,6 +3744,11 @@
   dependencies:
     domhandler "^2.4.0"
 
+"@types/ent@^2.2.5":
+  version "2.2.5"
+  resolved "https://registry.yarnpkg.com/@types/ent/-/ent-2.2.5.tgz#47fb7f97134c39f8ecc3288c50b5028857905975"
+  integrity sha512-Y4jhbuBfO6P+8Stgdu35D0XZUHBHz8NlbD8pali+DiknVvYeSP3JnFL6nabUQCp/A4d8sJ/nKUZT3vWsCSXc6A==
+
 "@types/glob-base@^0.3.0":
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/@types/glob-base/-/glob-base-0.3.0.tgz#a581d688347e10e50dd7c17d6f2880a10354319d"
@@ -8066,6 +8071,11 @@ enquirer@^2.3.5, enquirer@~2.3.6:
   integrity sha512-yjNnPr315/FjS4zIsUxYguYUPP2e1NK4d7E7ZOLiyYCcbFBiTMyID+2wvm2w6+pZ/odMA7cRkjhsPbltwBOrLg==
   dependencies:
     ansi-colors "^4.1.1"
+
+ent@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/ent/-/ent-2.2.0.tgz#e964219325a21d05f44466a2f686ed6ce5f5dd1d"
+  integrity sha512-GHrMyVZQWvTIdDtpiEXdHZnFQKzeO09apj8Cbl4pKWy4i0Oprcq17usfDt5aO63swf0JOeMWjWQE/LzgSRuWpA==
 
 entities@^1.1.1, entities@^1.1.2:
   version "1.1.2"
