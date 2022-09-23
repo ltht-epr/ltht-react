@@ -8,12 +8,13 @@ import DiagnosisSummary from '@ltht-react/diagnosis-summary'
 import DiagnosisDetail from '@ltht-react/diagnosis-detail'
 import FlagSummary from '@ltht-react/flag-summary'
 import HospitalStaySummary from '@ltht-react/hospital-stay-summary'
+import AdminActions from '@ltht-react/admin-actions'
 import { ChevronIcon } from '@ltht-react/icon'
 import { DESKTOP_MINIMUM_MEDIA_QUERY, ICON_COLOURS } from '@ltht-react/styles'
 import Card from '@ltht-react/card'
 import { DetailViewType } from '@ltht-react/types'
 
-import conditions from './diagnosis.fixtures'
+import conditions, { AdminActionsList } from './diagnosis.fixtures'
 
 import allergies from '../../../clinical/organisms/allergies/allergies.fixtures'
 import appointments from '../../../clinical/organisms/appointments/appointments.fixtures'
@@ -65,6 +66,19 @@ const BackButtonText = styled.span`
   padding-left: 0.5rem;
 `
 
+const StyledCard = styled(Card)`
+  border: 2px solid red;
+  border-style: outset;
+`
+
+const StyledCardListItem = styled(Card.ListItem)`
+  border-color: red;
+`
+
+const StyledCardList = styled(Card.List)`
+  border-color: red;
+`
+
 export const Dashboard: Story = () => {
   const [view, setView] = useState('summary')
   const [selectedCondition, setSelectedCondition] = useState(conditions[0])
@@ -79,11 +93,30 @@ export const Dashboard: Story = () => {
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   const clickHandler = (): void => {}
 
+  const delay = (ms: number | undefined) => new Promise((res) => setTimeout(res, ms))
+
+  const yourFunction = async () => {
+    await delay(1000)
+    return true
+  }
+
   return (
     <Container>
       {view === 'summary' && (
         <>
           <Column>
+            <StyledCard>
+              <Card.Header>
+                <Card.Title>Admin Actions</Card.Title>
+              </Card.Header>
+              <StyledCardList>
+                {AdminActionsList.map((task) => (
+                  <StyledCardListItem>
+                    <AdminActions task={task} actionClickHandler={yourFunction} />
+                  </StyledCardListItem>
+                ))}
+              </StyledCardList>
+            </StyledCard>
             <Card>
               <Card.Header>
                 <Card.Title>Alerts</Card.Title>
