@@ -6,8 +6,8 @@ const StyledDescription = styled.div`
   flex: 1;
 `
 
-const Description: FC<IProps> = ({ description }) => {
-  if (description) return <StyledDescription>{description}</StyledDescription>
+const Description: FC<IProps> = (props) => {
+  if (props.description) return <StyledDescription>{props.description}</StyledDescription>
 
   return null
 }

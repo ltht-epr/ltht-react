@@ -25,6 +25,7 @@ export const TasksStory: Story = () => {
       task: x,
       isSuccess: null,
       isLoading: false,
+      failText: 'Failed - Please report to tech services',
     }))
   )
 
