@@ -1,4 +1,4 @@
-import { FC, useState } from 'react'
+import { FC } from 'react'
 import styled from '@emotion/styled'
 import { Maybe, Task } from '@ltht-react/types'
 import { SpinnerIcon, CheckIcon, CrossIcon } from '@ltht-react/icon'
@@ -33,47 +33,38 @@ const FailButton = styled(Button)`
   }
 `
 
-const AdminAction: FC<IProps> = ({ task, actionClickHandler }) => {
-  const [actionLoading, setActionLoading] = useState(false)
-  const [actionResult, setActionResult] = useState<Maybe<boolean>>(null)
-
-  const clickHandler = () => {
-    setActionLoading(true)
-    actionClickHandler().then((result) => {
-      setActionLoading(false)
-      setActionResult(result)
-    })
-  }
-
-  return (
-    <StyledAdminAction>
-      <Description description={task.description} />
-      <RightSection>
-        {actionResult == null && (
-          <Button
-            type="button"
-            title="Perform Action"
-            value={!actionLoading ? 'Perform Action' : 'Loading'}
-            icon={actionLoading && <SpinnerIcon size="medium" />}
-            onClick={clickHandler}
-          />
-        )}
-        {actionResult === true && <SuccessButton type="button" value="Done" icon={<CheckIcon size="medium" />} />}
-        {actionResult === false && (
-          <FailButton
-            type="button"
-            value="Failed - Please report to tech services"
-            icon={<CrossIcon size="medium" />}
-          />
-        )}
-      </RightSection>
-    </StyledAdminAction>
-  )
-}
+const AdminAction: FC<IProps> = ({ adminAction, actionClickHandler }) => (
+  <StyledAdminAction>
+    <Description description={adminAction.task.description} />
+    <RightSection>
+      {adminAction.isSuccess == null && (
+        <Button
+          type="button"
+          title="Perform Action"
+          value={!adminAction.isLoading ? 'Perform Action' : 'Loading'}
+          icon={adminAction.isLoading && <SpinnerIcon size="medium" />}
+          onClick={() => actionClickHandler(adminAction)}
+        />
+      )}
+      {adminAction.isSuccess === true && (
+        <SuccessButton type="button" value="Done" icon={<CheckIcon size="medium" />} />
+      )}
+      {adminAction.isSuccess === false && (
+        <FailButton type="button" value="Failed - Please report to tech services" icon={<CrossIcon size="medium" />} />
+      )}
+    </RightSection>
+  </StyledAdminAction>
+)
 
 interface IProps {
+  adminAction: IAdminAction
+  actionClickHandler(adminAction: IAdminAction): void
+}
+
+export interface IAdminAction {
   task: Task
-  actionClickHandler(): Promise<boolean>
+  isLoading: boolean
+  isSuccess: Maybe<boolean>
 }
 
 export default AdminAction

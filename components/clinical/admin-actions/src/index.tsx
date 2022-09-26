@@ -1,3 +1,4 @@
-import AdminAction from './organisms/admin-action'
+import AdminAction, { IAdminAction } from './organisms/admin-action'
 
 export default AdminAction
+export { IAdminAction }
