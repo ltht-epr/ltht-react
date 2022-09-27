@@ -13,6 +13,8 @@ import {
   AsserterDetail,
 } from '@ltht-react/type-detail'
 
+import { getBooleanExtension } from '@ltht-react/utils'
+
 import Questionnaire from '@ltht-react/questionnaire'
 
 const TopSection = styled.div`
@@ -30,9 +32,10 @@ const Seperator = styled.div`
 `
 
 const DiagnosisDetail: FC<Props> = ({ condition, links, viewType = DetailViewType.Compact }) => {
-  const onsetDateEstimated = condition?.extension?.find((extension) =>
-    extension?.url.includes('diagnosis-onset-date-estimated-1')
-  )?.valueBoolean
+  const onsetDateEstimated = getBooleanExtension(
+    condition.extension ?? [],
+    'https://fhir.leedsth.nhs.uk/ValueSet/diagnosis-onset-date-estimated-1'
+  )
 
   return (
     <>

@@ -3,6 +3,7 @@ export { default as medicationTitleSeparator } from './medication-title-separato
 export * from './codeable-concept'
 export { default as metadataSourceSummaryText } from './metadata'
 export * from './partial-date-time'
+export * from './extensions'
 export { default as periodSummaryText } from './period'
 export { default as quantityText } from './quantity'
 export { default as rangeText } from './range'

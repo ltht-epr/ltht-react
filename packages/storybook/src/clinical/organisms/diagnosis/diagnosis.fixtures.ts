@@ -764,12 +764,6 @@ const ConditionFive: Condition = {
   extensionData: null,
   id: 'R3|cce08927-b95b-4d16-89e7-f92bd7853058',
   stage: null,
-  extension: [
-    {
-      url: 'https://fhir.leedsth.nhs.uk/ValueSet/diagnosis-onset-date-estimated-1',
-      valueBoolean: true,
-    },
-  ],
 }
 
 const conditions: Condition[] = [ConditionOne, ConditionThree, ConditionFive, ConditionFour, ConditionTwo]

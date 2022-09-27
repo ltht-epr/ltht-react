@@ -4,6 +4,8 @@ import styled from '@emotion/styled'
 import { TEXT_COLOURS } from '@ltht-react/styles'
 import { Condition } from '@ltht-react/types'
 
+import { getBooleanExtension } from '@ltht-react/utils'
+
 const StyledOnsetEstimated = styled.div<IStyledDescription>`
   color: ${TEXT_COLOURS.INFO};
   font-size: x-small;
@@ -13,9 +15,10 @@ const StyledOnsetEstimated = styled.div<IStyledDescription>`
 `
 
 const DiagnosisOnsetEstimated: FC<Props> = ({ condition, enteredInError, ...rest }) => {
-  const onsetDateEstimated = condition?.extension?.find((extension) =>
-    extension?.url.includes('diagnosis-onset-date-estimated-1')
-  )?.valueBoolean
+  const onsetDateEstimated = getBooleanExtension(
+    condition.extension ?? [],
+    'https://fhir.leedsth.nhs.uk/ValueSet/diagnosis-onset-date-estimated-1'
+  )
 
   return (
     <StyledOnsetEstimated enteredInError={enteredInError} {...rest}>
