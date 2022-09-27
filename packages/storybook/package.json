@@ -31,6 +31,7 @@
   "dependencies": {
     "@emotion/react": "^11.0.0",
     "@emotion/styled": "^11.0.0",
+    "@ltht-react/admin-actions": "^1.0.0",
     "@ltht-react/allergy-detail": "^1.3.115",
     "@ltht-react/allergy-summary": "^1.3.115",
     "@ltht-react/appointment-detail": "^1.3.113",
