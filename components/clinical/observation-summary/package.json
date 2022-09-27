@@ -1,6 +1,6 @@
 {
   "name": "@ltht-react/observation-summary",
-  "version": "1.3.115",
+  "version": "1.3.116",
   "description": "ltht-react clinical ObservationSummary component.",
   "author": "LTHT",
   "homepage": "",
@@ -27,11 +27,11 @@
   "dependencies": {
     "@emotion/react": "^11.0.0",
     "@emotion/styled": "^11.0.0",
-    "@ltht-react/list": "^1.3.113",
-    "@ltht-react/styles": "^1.3.107",
-    "@ltht-react/type-summary": "^1.3.115",
-    "@ltht-react/types": "^1.0.111",
-    "@ltht-react/utils": "^1.1.113",
+    "@ltht-react/list": "^1.3.114",
+    "@ltht-react/styles": "^1.3.108",
+    "@ltht-react/type-summary": "^1.3.116",
+    "@ltht-react/types": "^1.0.112",
+    "@ltht-react/utils": "^1.1.114",
     "react": "^17.0.0"
   },
   "gitHead": "4d364556bb11e294d86697c2dac66742f7aabc7f"
