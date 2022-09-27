@@ -579,7 +579,6 @@ const ConditionOne: Condition = {
       kind: PartialDateTimeKindCode.Date,
     },
   },
-  onsetDateEstimated: true,
   stage: {
     summary: {
       coding: [
@@ -595,6 +594,12 @@ const ConditionOne: Condition = {
     coding: [{ code: '2448400', display: 'Moderate' }],
     text: 'Moderate',
   },
+  extension: [
+    {
+      url: 'https://fhir.leedsth.nhs.uk/ValueSet/diagnosis-onset-date-estimated-1',
+      valueBoolean: true,
+    },
+  ],
 }
 
 const ConditionTwo: Condition = {
@@ -633,12 +638,17 @@ const ConditionTwo: Condition = {
       kind: PartialDateTimeKindCode.Time,
     },
   },
-  onsetDateEstimated: true,
   verificationStatus: ConditionVerificationStatus.Refuted,
   severity: {
     coding: [{ code: '2448402', display: 'Mild' }],
     text: 'Mild',
   },
+  extension: [
+    {
+      url: 'https://fhir.leedsth.nhs.uk/ValueSet/diagnosis-onset-date-estimated-1',
+      valueBoolean: true,
+    },
+  ],
 }
 
 const ConditionThree: Condition = {
@@ -660,17 +670,21 @@ const ConditionThree: Condition = {
       kind: PartialDateTimeKindCode.YearMonth,
     },
   },
-  onsetDateEstimated: true,
   asserter: null,
   bodySite: [],
   category: [],
   clinicalStatus: ConditionClinicalStatus.Active,
   code: { coding: [{ code: '3135009', display: 'Otitis externa' }], text: 'Otitis externa' },
   evidence: [],
-  extension: null,
   extensionData: null,
   id: 'R3|cce08927-b95b-4d16-89e7-f92bd7853059',
   stage: null,
+  extension: [
+    {
+      url: 'https://fhir.leedsth.nhs.uk/ValueSet/diagnosis-onset-date-estimated-1',
+      valueBoolean: true,
+    },
+  ],
 }
 
 const ConditionFour: Condition = {
@@ -694,7 +708,6 @@ const ConditionFour: Condition = {
       kind: PartialDateTimeKindCode.YearMonth,
     },
   },
-  onsetDateEstimated: false,
   verificationStatus: ConditionVerificationStatus.EnteredInError,
   code: {
     coding: [
@@ -715,6 +728,12 @@ const ConditionFour: Condition = {
     coding: [{ code: '2448402', display: 'Mild' }],
     text: 'Mild',
   },
+  extension: [
+    {
+      url: 'https://fhir.leedsth.nhs.uk/ValueSet/diagnosis-onset-date-estimated-1',
+      valueBoolean: false,
+    },
+  ],
 }
 
 const ConditionFive: Condition = {
@@ -736,17 +755,21 @@ const ConditionFive: Condition = {
       kind: PartialDateTimeKindCode.DateTime,
     },
   },
-  onsetDateEstimated: true,
   asserter: null,
   bodySite: [],
   category: [],
   clinicalStatus: ConditionClinicalStatus.Active,
   code: { coding: [{ code: '3135009', display: 'Transient ischemic attack' }], text: 'Transient ischemic attack' },
   evidence: [],
-  extension: null,
   extensionData: null,
   id: 'R3|cce08927-b95b-4d16-89e7-f92bd7853058',
   stage: null,
+  extension: [
+    {
+      url: 'https://fhir.leedsth.nhs.uk/ValueSet/diagnosis-onset-date-estimated-1',
+      valueBoolean: true,
+    },
+  ],
 }
 
 const conditions: Condition[] = [ConditionOne, ConditionThree, ConditionFive, ConditionFour, ConditionTwo]

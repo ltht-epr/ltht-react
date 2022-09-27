@@ -29,36 +29,42 @@ const Seperator = styled.div`
   margin: 1rem 0;
 `
 
-const DiagnosisDetail: FC<Props> = ({ condition, links, viewType = DetailViewType.Compact }) => (
-  <>
-    <TopSection>
-      <CodeableConceptDetail term="Diagnosis" concept={condition.code} links={links} />
-      <CodingListDetail term="Data Source(s)" codings={condition.metadata.dataSources} />
-    </TopSection>
-    <Seperator />
-    {condition.extensionData &&
-      condition?.extensionData.map((item, index) => (
-        <div key={`diagnosis-detail-questionnaire-${index}`}>
-          <Questionnaire questionnaire={item} showTitle viewType={viewType} />
-          <Seperator />
-        </div>
-      ))}
+const DiagnosisDetail: FC<Props> = ({ condition, links, viewType = DetailViewType.Compact }) => {
+  const onsetDateEstimated = condition?.extension?.find((extension) =>
+    extension?.url.includes('diagnosis-onset-date-estimated-1')
+  )?.valueBoolean
 
-    <CollapsibleDetailCollection viewType={viewType}>
-      <DatetimeDetail term="Onset Date" datetime={condition.onset?.dateTime} estimated={condition.onsetDateEstimated} />
-      <StringDetail term="Clinical Status" description={condition.clinicalStatus?.toString()} />
-      <StringDetail term="Verification Status" description={condition.verificationStatus?.toString()} />
-      <CodeableConceptListDetail term="Category" concepts={condition.category} />
-      <CodeableConceptDetail term="Severity" concept={condition.severity} />
-      <CodeableConceptListDetail term="Location" concepts={condition.bodySite} links={links} />
-      <AnnotationListDetail term="Note(s)" notes={condition.note} />
-      <CodeableConceptDetail term="Stage" concept={condition.stage?.summary} links={links} />
-      <AsserterDetail asserter={condition.asserter} />
-      <DatetimeDetail term="Asserted Date" datetime={condition.assertedDate} />
-      <DatetimeDetail term="Abatement Date" datetime={condition.abatement?.dateTime} />
-    </CollapsibleDetailCollection>
-  </>
-)
+  return (
+    <>
+      <TopSection>
+        <CodeableConceptDetail term="Diagnosis" concept={condition.code} links={links} />
+        <CodingListDetail term="Data Source(s)" codings={condition.metadata.dataSources} />
+      </TopSection>
+      <Seperator />
+      {condition.extensionData &&
+        condition?.extensionData.map((item, index) => (
+          <div key={`diagnosis-detail-questionnaire-${index}`}>
+            <Questionnaire questionnaire={item} showTitle viewType={viewType} />
+            <Seperator />
+          </div>
+        ))}
+
+      <CollapsibleDetailCollection viewType={viewType}>
+        <DatetimeDetail term="Onset Date" datetime={condition.onset?.dateTime} estimated={onsetDateEstimated} />
+        <StringDetail term="Clinical Status" description={condition.clinicalStatus?.toString()} />
+        <StringDetail term="Verification Status" description={condition.verificationStatus?.toString()} />
+        <CodeableConceptListDetail term="Category" concepts={condition.category} />
+        <CodeableConceptDetail term="Severity" concept={condition.severity} />
+        <CodeableConceptListDetail term="Location" concepts={condition.bodySite} links={links} />
+        <AnnotationListDetail term="Note(s)" notes={condition.note} />
+        <CodeableConceptDetail term="Stage" concept={condition.stage?.summary} links={links} />
+        <AsserterDetail asserter={condition.asserter} />
+        <DatetimeDetail term="Asserted Date" datetime={condition.assertedDate} />
+        <DatetimeDetail term="Abatement Date" datetime={condition.abatement?.dateTime} />
+      </CollapsibleDetailCollection>
+    </>
+  )
+}
 
 interface Props extends CollapsibleDetailCollectionProps {
   condition: Condition
