@@ -1209,7 +1209,6 @@ export type Condition = {
   extensionData?: Maybe<Array<Maybe<QuestionnaireResponse>>>
   identifier?: Maybe<Array<Maybe<Identifier>>>
   onset?: Maybe<ConditionOnset>
-  onsetDateEstimated?: Maybe<Scalars['Boolean']>
   severity?: Maybe<CodeableConcept>
   stage?: Maybe<ConditionStage>
   verificationStatus?: Maybe<ConditionVerificationStatus>
