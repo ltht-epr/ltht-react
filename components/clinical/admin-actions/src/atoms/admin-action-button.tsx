@@ -37,7 +37,7 @@ const ActionButton: FC<IProps> = ({ adminAction, actionClickHandler }) => {
       title="Perform Action"
       value={!adminAction.isLoading ? 'Perform Action' : 'Loading'}
       icon={adminAction.isLoading && <SpinnerIcon size="medium" />}
-      onClick={() => actionClickHandler(adminAction)}
+      onClick={adminAction.isLoading ? () => undefined : () => actionClickHandler(adminAction)}
     />
   )
 }
