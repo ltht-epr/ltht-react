@@ -16,7 +16,7 @@ const StyledOnsetEstimated = styled.div<IStyledDescription>`
 
 const DiagnosisOnsetEstimated: FC<Props> = ({ condition, enteredInError, ...rest }) => {
   const onsetDateEstimated = getBooleanExtension(
-    condition.extension ?? [],
+    condition.extension,
     'https://fhir.leedsth.nhs.uk/ValueSet/diagnosis-onset-date-estimated-1'
   )
 

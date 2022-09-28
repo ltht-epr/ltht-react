@@ -33,7 +33,7 @@ const Seperator = styled.div`
 
 const DiagnosisDetail: FC<Props> = ({ condition, links, viewType = DetailViewType.Compact }) => {
   const onsetDateEstimated = getBooleanExtension(
-    condition.extension ?? [],
+    condition.extension,
     'https://fhir.leedsth.nhs.uk/ValueSet/diagnosis-onset-date-estimated-1'
   )
 

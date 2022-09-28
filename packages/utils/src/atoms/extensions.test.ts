@@ -2,88 +2,78 @@ import { Extension, Maybe } from '@ltht-react/types'
 import getBooleanExtension from './extensions'
 
 describe('getBooleanExtension', () => {
-  it('boolean extension is true', () => {
+  it('should return true when boolean extension is true', () => {
     // arrange
     const extensions = [
       {
-        url: 'https://fhir.leedsth.nhs.uk/ValueSet/diagnosis-onset-date-estimated-1',
+        url: ValueSet.DiagnosisOnsetDateEstimated,
         valueBoolean: true,
       },
     ]
 
     // act
-    const booleanExtension = getBooleanExtension(
-      extensions,
-      'https://fhir.leedsth.nhs.uk/ValueSet/diagnosis-onset-date-estimated-1'
-    )
+    const booleanExtension = getBooleanExtension(extensions, ValueSet.DiagnosisOnsetDateEstimated)
 
     // assert
     expect(booleanExtension).toEqual(true)
   })
 
-  it('boolean extension is false', () => {
+  it('should return false when boolean extension is false', () => {
     // arrange
     const extensions = [
       {
-        url: 'https://fhir.leedsth.nhs.uk/ValueSet/diagnosis-onset-date-estimated-1',
+        url: ValueSet.DiagnosisOnsetDateEstimated,
         valueBoolean: false,
       },
     ]
 
     // act
-    const booleanExtension = getBooleanExtension(
-      extensions,
-      'https://fhir.leedsth.nhs.uk/ValueSet/diagnosis-onset-date-estimated-1'
-    )
+    const booleanExtension = getBooleanExtension(extensions, ValueSet.DiagnosisOnsetDateEstimated)
 
     // assert
     expect(booleanExtension).toEqual(false)
   })
 
-  it('diagnosis onset date estimated extension not found', () => {
+  it('should return null when boolean extension not found', () => {
     // arrange
     const extensions = [
       {
-        url: 'https://fhir.leedsth.nhs.uk/ValueSet/not-diagnosis-onset-date-estimated-1',
+        url: ValueSet.NotDiagnosisOnsetDateEstimated,
         valueBoolean: false,
       },
     ]
 
     // act
-    const booleanExtension = getBooleanExtension(
-      extensions,
-      'https://fhir.leedsth.nhs.uk/ValueSet/diagnosis-onset-date-estimated-1'
-    )
+    const booleanExtension = getBooleanExtension(extensions, ValueSet.DiagnosisOnsetDateEstimated)
 
     // assert
     expect(booleanExtension).toEqual(null)
   })
 
-  it('diagnosis onset date estimated extension when extensions are empty ', () => {
+  it('should return null when extensions are empty ', () => {
     // arrange
     const extensions: Maybe<Extension>[] = []
 
     // act
-    const booleanExtension = getBooleanExtension(
-      extensions,
-      'https://fhir.leedsth.nhs.uk/ValueSet/diagnosis-onset-date-estimated-1'
-    )
+    const booleanExtension = getBooleanExtension(extensions, ValueSet.DiagnosisOnsetDateEstimated)
 
     // assert
     expect(booleanExtension).toEqual(null)
   })
 
-  it('diagnosis onset date estimated extension when extensions is null ', () => {
+  it('should return null when extensions is null ', () => {
     // arrange
     const extensions = null
 
     // act
-    const booleanExtension = getBooleanExtension(
-      extensions,
-      'https://fhir.leedsth.nhs.uk/ValueSet/diagnosis-onset-date-estimated-1'
-    )
+    const booleanExtension = getBooleanExtension(extensions, ValueSet.DiagnosisOnsetDateEstimated)
 
     // assert
     expect(booleanExtension).toEqual(null)
   })
 })
+
+enum ValueSet {
+  DiagnosisOnsetDateEstimated = 'https://fhir.leedsth.nhs.uk/ValueSet/diagnosis-onset-date-estimated-1',
+  NotDiagnosisOnsetDateEstimated = 'https://fhir.leedsth.nhs.uk/ValueSet/not-diagnosis-onset-date-estimated-1',
+}
