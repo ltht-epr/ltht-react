@@ -1,6 +1,11 @@
 import { Extension, Maybe } from '@ltht-react/types'
 import getBooleanExtension from './extensions'
 
+enum ValueSet {
+  DiagnosisOnsetDateEstimated = 'https://fhir.leedsth.nhs.uk/ValueSet/diagnosis-onset-date-estimated-1',
+  NotDiagnosisOnsetDateEstimated = 'https://fhir.leedsth.nhs.uk/ValueSet/not-diagnosis-onset-date-estimated-1',
+}
+
 describe('getBooleanExtension', () => {
   it('should return true when boolean extension is true', () => {
     // arrange
@@ -72,8 +77,3 @@ describe('getBooleanExtension', () => {
     expect(booleanExtension).toEqual(null)
   })
 })
-
-enum ValueSet {
-  DiagnosisOnsetDateEstimated = 'https://fhir.leedsth.nhs.uk/ValueSet/diagnosis-onset-date-estimated-1',
-  NotDiagnosisOnsetDateEstimated = 'https://fhir.leedsth.nhs.uk/ValueSet/not-diagnosis-onset-date-estimated-1',
-}
