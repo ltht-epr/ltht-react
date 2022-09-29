@@ -3053,7 +3053,7 @@ export type ConditionMinimalInput = {
   id: Scalars['String']
   code: CodeableConceptInput
   onset?: Maybe<ConditionOnsetMinimalInput>
-  extension?: Maybe<ExtensionInput>
+  extension?: Maybe<Array<ExtensionInput>>
   clinicalStatus?: Maybe<ConditionClinicalStatus>
   verificationStatus?: Maybe<ConditionVerificationStatus>
 }
