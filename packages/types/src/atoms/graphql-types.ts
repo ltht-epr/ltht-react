@@ -3053,7 +3053,7 @@ export type ConditionMinimalInput = {
   id: Scalars['String']
   code: CodeableConceptInput
   onset?: Maybe<ConditionOnsetMinimalInput>
-  extension?: Maybe<Array<ExtensionInput>>
+  extension?: Maybe<Array<Maybe<ExtensionInput>>>
   clinicalStatus?: Maybe<ConditionClinicalStatus>
   verificationStatus?: Maybe<ConditionVerificationStatus>
 }
@@ -3089,5 +3089,8 @@ export type PartialDateTimeInput = {
 }
 
 export type ExtensionInput = {
+  /** Identifies the meaning of the extension */
+  url: Scalars['String']
+  /** Boolean value of extension */
   valueBoolean?: Maybe<Scalars['Boolean']>
 }
