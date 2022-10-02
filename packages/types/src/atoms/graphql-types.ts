@@ -106,6 +106,8 @@ export type EhrCarePlanDefinitionUseContextsArgs = {
 export type EhrActiveCarePlansArgs = {
   pathwayType: Scalars['String']
   patientGuid: Scalars['String']
+  cursorToken?: Maybe<Scalars['String']>
+  count?: Maybe<Scalars['Int']>
 }
 
 /** Queries the LTHT EHR. */
@@ -821,6 +823,10 @@ export type PlanDefinition = {
   goal?: Maybe<Array<Maybe<PlanDefinitionGoal>>>
   /** Action defined by the plan. */
   action?: Maybe<Array<Maybe<PlanDefinitionAction>>>
+  /** Questionnaires that can be used to record interventions and goal progress. */
+  questionnaire?: Maybe<Array<Maybe<Questionnaire>>>
+  /** Guidance for problems, interventions etc. */
+  guidance?: Maybe<Array<Maybe<Guidance>>>
 }
 
 export enum PlanDefinitionStatus {
@@ -1000,6 +1006,141 @@ export enum PlanDefinitionActionPriority {
   Stat = 'STAT',
 }
 
+/** A structured set of questions intended to guide the collection of answers from end-users. Questionnaires provide detailed control over order, presentation, phraseology and grouping to allow coherent, consistent data collection. */
+export type Questionnaire = {
+  /** Concept that represents the overall questionnaire. */
+  code?: Maybe<Array<Maybe<Coding>>>
+  /** Contact details for the publisher. */
+  contact?: Maybe<Array<Maybe<ContactDetail>>>
+  /** Use and/or publishing restrictions. */
+  copyright?: Maybe<Scalars['String']>
+  /** Date last changed. */
+  date?: Maybe<PartialDateTime>
+  /** Natural language description of the questionnaire. */
+  description?: Maybe<Scalars['String']>
+  /** For testing purposes, not real usage. */
+  experimental?: Maybe<Scalars['Boolean']>
+  /** Additional identifier for the questionnaire. */
+  identifier: Array<Maybe<Identifier>>
+  /** Questions and sections within the Questionnaire. */
+  item?: Maybe<Array<Maybe<QuestionnaireItem>>>
+  /** Intended jurisdiction for questionnaire (if applicable). */
+  jurisdiction?: Maybe<Array<Maybe<CodeableConcept>>>
+  /** Name for this questionnaire (computer friendly). */
+  name?: Maybe<Scalars['String']>
+  /** Name of the publisher (organization or individual). */
+  publisher?: Maybe<Scalars['String']>
+  /** Why this questionnaire is defined. */
+  purpose?: Maybe<Scalars['String']>
+  /** Why this questionnaire is defined. */
+  status: QuestionnairePublicationStatus
+  /** Name for this questionnaire (human friendly). */
+  title?: Maybe<Scalars['String']>
+  /** Canonical identifier for this questionnaire, represented as a URI (globally unique). */
+  url?: Maybe<Scalars['String']>
+  /** The context that the content is intended to support. */
+  useContext?: Maybe<Array<Maybe<UsageContext>>>
+  /** Business version of the questionnaire. */
+  version?: Maybe<Scalars['String']>
+  /** When the questionnaire was approved by publisher. */
+  approvalDate?: Maybe<PartialDateTime>
+  /** Instantiates protocol or definition. */
+  derivedFrom?: Maybe<Array<Maybe<ResourceReference>>>
+  /** When the questionnaire is expected to be used. */
+  effectivePeriod?: Maybe<Period>
+  /** Resource that can be subject of QuestionnaireResponse. */
+  subjectType?: Maybe<Array<Maybe<Scalars['String']>>>
+  /** When the questionnaire was last reviewed. */
+  lastReviewDate?: Maybe<PartialDateTime>
+  /** Logical Id of the resource. */
+  id: Scalars['ID']
+  /** Metadata about the resource. */
+  metadata: Metadata
+  /** Additional content defined by implementations. */
+  extension?: Maybe<Array<Maybe<Extension>>>
+  /** Text summary of the resource, for human interpretation. */
+  text?: Maybe<Narrative>
+  /** Flag to state whether the resource should be displayed as entered in error in user interface */
+  isEnteredInError?: Maybe<Scalars['Boolean']>
+}
+
+/** Questions and sections within the Questionnaire. */
+export type QuestionnaireItem = {
+  /** Unique id for inter-element referencing. */
+  elementId?: Maybe<Scalars['String']>
+  /** Additional content defined by implementations. */
+  extension?: Maybe<Array<Maybe<Extension>>>
+  /** Corresponding concept for this item in a terminology. */
+  code?: Maybe<Array<Maybe<Coding>>>
+  /** ElementDefinition - details for the item. */
+  definition?: Maybe<Scalars['String']>
+  /** Nested questionnaire response items. */
+  item?: Maybe<Array<Maybe<QuestionnaireItem>>>
+  /** E.g. '1(a)', '2.5.3'. */
+  prefix?: Maybe<Scalars['String']>
+  /** Whether the item may repeat. */
+  repeats?: Maybe<Scalars['Boolean']>
+  /** Whether the item must be included in data results. */
+  required?: Maybe<Scalars['Boolean']>
+  /** Primary text for the item. */
+  text?: Maybe<Scalars['String']>
+  /** Data type. */
+  type: QuestionnaireItemTypeCode
+  /** Unique id for item in questionnaire. */
+  linkId?: Maybe<Scalars['String']>
+}
+
+export enum QuestionnaireItemTypeCode {
+  Group = 'GROUP',
+  Display = 'DISPLAY',
+  QuestionBoolean = 'QUESTION_BOOLEAN',
+  QuestionDate = 'QUESTION_DATE',
+  QuestionString = 'QUESTION_STRING',
+  QuestionStringBbCode = 'QUESTION_STRING_BB_CODE',
+  QuestionStringHtml = 'QUESTION_STRING_HTML',
+  QuestionCoding = 'QUESTION_CODING',
+}
+
+export enum QuestionnairePublicationStatus {
+  Draft = 'DRAFT',
+  Active = 'ACTIVE',
+  Retired = 'RETIRED',
+  Unknown = 'UNKNOWN',
+}
+
+/** https://hl7.org/fhir/2018May/guidanceresponse.html */
+export type Guidance = {
+  /** The identifier of the request associated with this response, if any. */
+  requestIdentifier?: Maybe<Identifier>
+  /** The guidance item. */
+  note?: Maybe<Array<Maybe<Annotation>>>
+  /** Describes the reason for the guidance response in coded or textual form. */
+  reasonCode?: Maybe<CodeableConcept>
+  /** http://hl7.org/fhir/ValueSet/guidance-response-status */
+  status: GuidanceStatusCode
+  /** When the guidance response was processed. */
+  occuranceDateTime?: Maybe<PartialDateTime>
+  /** Logical Id of the resource. */
+  id: Scalars['ID']
+  /** Metadata about the resource. */
+  metadata: Metadata
+  /** Additional content defined by implementations. */
+  extension?: Maybe<Array<Maybe<Extension>>>
+  /** Text summary of the resource, for human interpretation. */
+  text?: Maybe<Narrative>
+  /** Flag to state whether the resource should be displayed as entered in error in user interface */
+  isEnteredInError?: Maybe<Scalars['Boolean']>
+}
+
+export enum GuidanceStatusCode {
+  Success = 'SUCCESS',
+  DataRequested = 'DATA_REQUESTED',
+  DataRequired = 'DATA_REQUIRED',
+  InProgress = 'IN_PROGRESS',
+  Failure = 'FAILURE',
+  EnteredInError = 'ENTERED_IN_ERROR',
+}
+
 /** A continuation of Plan Definition resources. */
 export type PlanDefinitionContinuationType = {
   /** The first cursor token. */
@@ -1052,8 +1193,10 @@ export type CarePlan = {
   isEnteredInError?: Maybe<Scalars['Boolean']>
   /** Business identifiers. */
   identifier?: Maybe<Array<Maybe<Identifier>>>
-  /** Protocol or definition. */
-  definition?: Maybe<Array<Maybe<ResourceReference>>>
+  /** Instantiates external protocol or definition. */
+  instantiatesUri?: Maybe<Array<Maybe<Scalars['String']>>>
+  /** Instantiates FHIR protocol or definition. */
+  instantiatesCanonical?: Maybe<Array<Maybe<CarePlanInstantiatesCanonicalUnionType>>>
   /** Fulfills care plan. */
   basedOn?: Maybe<Array<Maybe<ResourceReference>>>
   /** CarePlan replaced by this CarePlan. */
@@ -1070,11 +1213,15 @@ export type CarePlan = {
   title?: Maybe<Scalars['String']>
   /** Summary of nature of plan. */
   description?: Maybe<Scalars['String']>
-  /** Created in context of. */
-  context?: Maybe<ResourceReference>
+  /** Encounter created as part of. */
+  encounter?: Maybe<ResourceReference>
+  /** Who provided the content of the care plan */
+  contributor?: Maybe<Array<Maybe<ResourceReference>>>
   /** Time period plan covers. */
   period?: Maybe<Period>
-  /** Who is responsible for contents of the plan. */
+  /** Date record was first recorded */
+  created?: Maybe<PartialDateTime>
+  /** Who is responsible for contents of the plan. Note: This is a list type to be backwards compatible with FHIR R4 but should only contain one entry if possible */
   author?: Maybe<Array<Maybe<ResourceReference>>>
   /** Who's involved in plan? */
   careTeam?: Maybe<Array<Maybe<ResourceReference>>>
@@ -1090,13 +1237,15 @@ export type CarePlan = {
   note?: Maybe<Array<Maybe<Annotation>>>
 }
 
+export type CarePlanInstantiatesCanonicalUnionType = PlanDefinition | Questionnaire
+
 export enum CarePlanStatusCode {
   Draft = 'DRAFT',
   Active = 'ACTIVE',
-  Suspended = 'SUSPENDED',
+  OnHold = 'ON_HOLD',
   Completed = 'COMPLETED',
   EnteredInError = 'ENTERED_IN_ERROR',
-  Cancelled = 'CANCELLED',
+  Revoked = 'REVOKED',
   Unknown = 'UNKNOWN',
 }
 
@@ -1131,10 +1280,12 @@ export type CarePlanActivityDetail = {
   elementId?: Maybe<Scalars['String']>
   /** Additional content defined by implementations. */
   extension?: Maybe<Array<Maybe<Extension>>>
+  /** Instantiates external protocol or definition. */
+  instantiatesUri?: Maybe<Array<Maybe<Scalars['String']>>>
+  /** Instantiates FHIR protocol or definition. */
+  instantiatesCanonical?: Maybe<Array<Maybe<CarePlanInstantiatesCanonicalUnionType>>>
   /** http://hl7.org/fhir/stu3/valueset-care-plan-activity-category.html */
-  category?: Maybe<CodeableConcept>
-  /** Protocol or definition. */
-  definition?: Maybe<ResourceReference>
+  kind?: Maybe<CarePlanActivityDetailKindCode>
   /** http://hl7.org/fhir/stu3/valueset-care-plan-activity.html */
   code?: Maybe<CodeableConcept>
   /** http://hl7.org/fhir/stu3/valueset-activity-reason.html */
@@ -1146,9 +1297,9 @@ export type CarePlanActivityDetail = {
   /** http://hl7.org/fhir/stu3/valueset-care-plan-activity-status.html */
   status: CarePlanActivityDetailStatusCode
   /** Reason for current status. */
-  statusReason?: Maybe<Scalars['String']>
-  /** Do NOT do. */
-  prohibited?: Maybe<Scalars['Boolean']>
+  statusReason?: Maybe<CodeableConcept>
+  /** If true, activity is prohibiting action. */
+  doNotPerform?: Maybe<Scalars['Boolean']>
   /** Where it should happen. */
   location?: Maybe<ResourceReference>
   /** Who will be responsible? */
@@ -1161,6 +1312,17 @@ export type CarePlanActivityDetail = {
   quantity?: Maybe<Quantity>
   /** Extra info describing activity to perform. */
   description?: Maybe<Scalars['String']>
+}
+
+export enum CarePlanActivityDetailKindCode {
+  Appointment = 'APPOINTMENT',
+  CommunicationRequest = 'COMMUNICATION_REQUEST',
+  DeviceRequest = 'DEVICE_REQUEST',
+  MedicationRequest = 'MEDICATION_REQUEST',
+  NutritionOrder = 'NUTRITION_ORDER',
+  Task = 'TASK',
+  ServiceRequest = 'SERVICE_REQUEST',
+  VisionPrescription = 'VISION_PRESCRIPTION',
 }
 
 export enum CarePlanActivityDetailStatusCode {
@@ -1326,108 +1488,6 @@ export type QuestionnaireResponseItemAnswer = {
   valueString?: Maybe<Scalars['String']>
   /** Coding Value. */
   valueCoding?: Maybe<Coding>
-}
-
-/** A structured set of questions intended to guide the collection of answers from end-users. Questionnaires provide detailed control over order, presentation, phraseology and grouping to allow coherent, consistent data collection. */
-export type Questionnaire = {
-  /** Concept that represents the overall questionnaire. */
-  code?: Maybe<Array<Maybe<Coding>>>
-  /** Contact details for the publisher. */
-  contact?: Maybe<Array<Maybe<ContactDetail>>>
-  /** Use and/or publishing restrictions. */
-  copyright?: Maybe<Scalars['String']>
-  /** Date last changed. */
-  date?: Maybe<PartialDateTime>
-  /** Natural language description of the questionnaire. */
-  description?: Maybe<Scalars['String']>
-  /** For testing purposes, not real usage. */
-  experimental?: Maybe<Scalars['Boolean']>
-  /** Additional identifier for the questionnaire. */
-  identifier: Array<Maybe<Identifier>>
-  /** Questions and sections within the Questionnaire. */
-  item?: Maybe<Array<Maybe<QuestionnaireItem>>>
-  /** Intended jurisdiction for questionnaire (if applicable). */
-  jurisdiction?: Maybe<Array<Maybe<CodeableConcept>>>
-  /** Name for this questionnaire (computer friendly). */
-  name?: Maybe<Scalars['String']>
-  /** Name of the publisher (organization or individual). */
-  publisher?: Maybe<Scalars['String']>
-  /** Why this questionnaire is defined. */
-  purpose?: Maybe<Scalars['String']>
-  /** Why this questionnaire is defined. */
-  status: QuestionnairePublicationStatus
-  /** Name for this questionnaire (human friendly). */
-  title?: Maybe<Scalars['String']>
-  /** Canonical identifier for this questionnaire, represented as a URI (globally unique). */
-  url?: Maybe<Scalars['String']>
-  /** The context that the content is intended to support. */
-  useContext?: Maybe<Array<Maybe<UsageContext>>>
-  /** Business version of the questionnaire. */
-  version?: Maybe<Scalars['String']>
-  /** When the questionnaire was approved by publisher. */
-  approvalDate?: Maybe<PartialDateTime>
-  /** Instantiates protocol or definition. */
-  derivedFrom?: Maybe<Array<Maybe<ResourceReference>>>
-  /** When the questionnaire is expected to be used. */
-  effectivePeriod?: Maybe<Period>
-  /** Resource that can be subject of QuestionnaireResponse. */
-  subjectType?: Maybe<Array<Maybe<Scalars['String']>>>
-  /** When the questionnaire was last reviewed. */
-  lastReviewDate?: Maybe<PartialDateTime>
-  /** Logical Id of the resource. */
-  id: Scalars['ID']
-  /** Metadata about the resource. */
-  metadata: Metadata
-  /** Additional content defined by implementations. */
-  extension?: Maybe<Array<Maybe<Extension>>>
-  /** Text summary of the resource, for human interpretation. */
-  text?: Maybe<Narrative>
-  /** Flag to state whether the resource should be displayed as entered in error in user interface */
-  isEnteredInError?: Maybe<Scalars['Boolean']>
-}
-
-/** Questions and sections within the Questionnaire. */
-export type QuestionnaireItem = {
-  /** Unique id for inter-element referencing. */
-  elementId?: Maybe<Scalars['String']>
-  /** Additional content defined by implementations. */
-  extension?: Maybe<Array<Maybe<Extension>>>
-  /** Corresponding concept for this item in a terminology. */
-  code?: Maybe<Array<Maybe<Coding>>>
-  /** ElementDefinition - details for the item. */
-  definition?: Maybe<Scalars['String']>
-  /** Nested questionnaire response items. */
-  item?: Maybe<Array<Maybe<QuestionnaireItem>>>
-  /** E.g. '1(a)', '2.5.3'. */
-  prefix?: Maybe<Scalars['String']>
-  /** Whether the item may repeat. */
-  repeats?: Maybe<Scalars['Boolean']>
-  /** Whether the item must be included in data results. */
-  required?: Maybe<Scalars['Boolean']>
-  /** Primary text for the item. */
-  text?: Maybe<Scalars['String']>
-  /** Data type. */
-  type: QuestionnaireItemTypeCode
-  /** Unique id for item in questionnaire. */
-  linkId?: Maybe<Scalars['String']>
-}
-
-export enum QuestionnaireItemTypeCode {
-  Group = 'GROUP',
-  Display = 'DISPLAY',
-  QuestionBoolean = 'QUESTION_BOOLEAN',
-  QuestionDate = 'QUESTION_DATE',
-  QuestionString = 'QUESTION_STRING',
-  QuestionStringBbCode = 'QUESTION_STRING_BB_CODE',
-  QuestionStringHtml = 'QUESTION_STRING_HTML',
-  QuestionCoding = 'QUESTION_CODING',
-}
-
-export enum QuestionnairePublicationStatus {
-  Draft = 'DRAFT',
-  Active = 'ACTIVE',
-  Retired = 'RETIRED',
-  Unknown = 'UNKNOWN',
 }
 
 export enum QuestionnaireResponseStatus {
@@ -1651,39 +1711,6 @@ export type DocumentReferenceRelated = {
   identifier?: Maybe<Identifier>
   /** Related Resource. */
   ref?: Maybe<ResourceReference>
-}
-
-/** https://hl7.org/fhir/2018May/guidanceresponse.html */
-export type Guidance = {
-  /** The identifier of the request associated with this response, if any. */
-  requestIdentifier?: Maybe<Identifier>
-  /** The guidance item. */
-  note?: Maybe<Array<Maybe<Annotation>>>
-  /** Describes the reason for the guidance response in coded or textual form. */
-  reasonCode?: Maybe<CodeableConcept>
-  /** http://hl7.org/fhir/ValueSet/guidance-response-status */
-  status: GuidanceStatusCode
-  /** When the guidance response was processed. */
-  occuranceDateTime?: Maybe<PartialDateTime>
-  /** Logical Id of the resource. */
-  id: Scalars['ID']
-  /** Metadata about the resource. */
-  metadata: Metadata
-  /** Additional content defined by implementations. */
-  extension?: Maybe<Array<Maybe<Extension>>>
-  /** Text summary of the resource, for human interpretation. */
-  text?: Maybe<Narrative>
-  /** Flag to state whether the resource should be displayed as entered in error in user interface */
-  isEnteredInError?: Maybe<Scalars['Boolean']>
-}
-
-export enum GuidanceStatusCode {
-  Success = 'SUCCESS',
-  DataRequested = 'DATA_REQUESTED',
-  DataRequired = 'DATA_REQUIRED',
-  InProgress = 'IN_PROGRESS',
-  Failure = 'FAILURE',
-  EnteredInError = 'ENTERED_IN_ERROR',
 }
 
 export type MedicationRequest = {
@@ -2995,6 +3022,8 @@ export type Mutation = {
 export type EhrMutation = {
   addCarePlan?: Maybe<CarePlan>
   updateCarePlan?: Maybe<CarePlan>
+  discontinueCarePlan?: Maybe<CarePlan>
+  pauseCarePlan?: Maybe<CarePlan>
   setConditionStatus?: Maybe<Condition>
   addConditions?: Maybe<Array<Maybe<Condition>>>
 }
@@ -3012,6 +3041,24 @@ export type EhrMutationUpdateCarePlanArgs = {
   model: CarePlanActionsInput
   template: Scalars['String']
   carePlanId: Scalars['Guid']
+}
+
+/** Mutations of the LTHT EHR. */
+export type EhrMutationDiscontinueCarePlanArgs = {
+  carePlanId: Scalars['Guid']
+  patientGuid: Scalars['Guid']
+  reasonText: Scalars['String']
+  reasonCode: Scalars['String']
+  template: Scalars['String']
+}
+
+/** Mutations of the LTHT EHR. */
+export type EhrMutationPauseCarePlanArgs = {
+  carePlanId: Scalars['Guid']
+  patientGuid: Scalars['Guid']
+  reasonText: Scalars['String']
+  reasonCode: Scalars['String']
+  template?: Maybe<Scalars['String']>
 }
 
 /** Mutations of the LTHT EHR. */
@@ -3043,6 +3090,7 @@ export type CarePlanActionInput = {
   label?: Maybe<Scalars['String']>
   reasonCode?: Maybe<Scalars['String']>
   reasonText?: Maybe<Scalars['String']>
+  type?: Maybe<Scalars['String']>
 }
 
 export type ConditionMinimalInputList = {
