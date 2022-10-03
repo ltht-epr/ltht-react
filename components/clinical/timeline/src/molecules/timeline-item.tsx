@@ -1,7 +1,5 @@
 import { FC } from 'react'
 import styled from '@emotion/styled'
-import Banner from '@ltht-react/banner'
-import { InfoCircleIcon } from '@ltht-react/icon'
 import { HIGHLIGHT_GREEN, TRANSLUCENT_DARK_BLUE } from '@ltht-react/styles'
 import {
   AuditEvent,
@@ -17,6 +15,7 @@ import TimelineAuthor from '../atoms/timeline-author'
 import TimelineStatus from '../atoms/timeline-status'
 import TimelineTitle from '../atoms/timeline-title'
 import TimelineTime from '../atoms/timeline-time'
+import TimelineButton from '../atoms/timeline-button'
 
 const StyledTimelineItem = styled.div<IStyledTimelineItem>`
   background-color: ${({ isSelected }) => (isSelected ? HIGHLIGHT_GREEN.VALUE : TRANSLUCENT_DARK_BLUE)};
@@ -67,13 +66,6 @@ const StyledStatus = styled.div`
   text-align: right;
 `
 
-const StyledBanner = styled(Banner)`
-  margin: -0.5rem;
-  margin-top: 0.5rem;
-`
-
-const StyledBannerContent = styled.div``
-
 const TimelineItem: FC<IProps> = ({ timelineItem, domainResourceType }) => {
   const { width } = useWindowSize()
   const isMobile = isMobileView(width)
@@ -111,20 +103,7 @@ const TimelineItem: FC<IProps> = ({ timelineItem, domainResourceType }) => {
           </StyledStatus>
         </StyledTimelineItemRight>
       </StyledTimelineItemBottom>
-      {timelineItem.clickHandler && !timelineItem.isSelected && (
-        <StyledBanner type="info" onClick={timelineItem.clickHandler}>
-          {timelineItem.clickPrompt && <StyledBannerContent>{timelineItem.clickPrompt}</StyledBannerContent>}
-        </StyledBanner>
-      )}
-      {timelineItem.clickHandler && timelineItem.isSelected && (
-        <StyledBanner
-          type="highlight"
-          icon={<InfoCircleIcon status="info" size="medium" />}
-          onClick={timelineItem.clickHandler}
-        >
-          {timelineItem.deselectPrompt && <StyledBannerContent>{timelineItem.deselectPrompt}</StyledBannerContent>}
-        </StyledBanner>
-      )}
+      <TimelineButton timelineItem={timelineItem} />
     </StyledTimelineItem>
   )
 }
@@ -140,6 +119,8 @@ export interface ITimelineItem {
   clickPrompt?: string
   isSelected: boolean | undefined
   deselectPrompt?: string
+  clickPermissionDenied: boolean | undefined
+  clickPermissionDeniedMessage?: string
 }
 
 interface IStyledTimelineItem {
