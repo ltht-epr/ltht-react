@@ -17,7 +17,7 @@ const documentType = TimelineDomainResourceType.DocumentReference
 export const AuditEventTimeline: Story = () => {
   const timelineItems: ITimelineItem[] = AuditTrail.resources.map((ti) => ({
     domainResource: ti as AuditEvent,
-    isSelected: false,
+    buttonState: 'selectable-button',
   }))
 
   return (
@@ -36,6 +36,7 @@ export const AuditEventClickableTimeline: Story = () => {
   const timelineItems: ITimelineItem[] = AuditTrail.resources.map((ti, idx) => ({
     domainResource: ti as AuditEvent,
     // eslint-disable-next-line @typescript-eslint/no-empty-function
+    buttonState: idx % 2 === 0 ? 'selectable-button' : 'no-button',
     clickHandler:
       idx % 2 === 0
         ? () => {
@@ -43,9 +44,7 @@ export const AuditEventClickableTimeline: Story = () => {
             console.log('Clicked')
           }
         : undefined,
-    clickPrompt: idx % 2 === 0 ? `View Form: ${idx}` : undefined,
-    isSelected: idx === 0,
-    deselectPrompt: idx === 0 ? 'Close me' : undefined,
+    buttonText: `View Form: ${idx}`,
   }))
 
   return (
@@ -65,7 +64,7 @@ export const AuditEventRedactedTimeline: Story = () => {
     domainResource: ti as AuditEvent,
     // eslint-disable-next-line @typescript-eslint/no-empty-function
     clickHandler: () => {},
-    isSelected: false,
+    buttonState: 'selectable-button',
   }))
 
   return (
@@ -83,7 +82,7 @@ export const AuditEventRedactedTimeline: Story = () => {
 export const QuestionnaireTimeline: Story = () => {
   const timelineItems: ITimelineItem[] = Questionnaires.resources.map((ti) => ({
     domainResource: ti as QuestionnaireResponse,
-    isSelected: false,
+    buttonState: 'selectable-button',
   }))
 
   return (
@@ -102,6 +101,7 @@ export const QuestionnaireClickableTimeline: Story = () => {
   const timelineItems: ITimelineItem[] = Questionnaires.resources.map((ti, idx) => ({
     domainResource: ti as QuestionnaireResponse,
     // eslint-disable-next-line @typescript-eslint/no-empty-function
+    buttonState: idx % 2 === 0 ? 'selected-button' : 'no-button',
     clickHandler:
       idx % 2 === 0
         ? () => {
@@ -109,9 +109,7 @@ export const QuestionnaireClickableTimeline: Story = () => {
             console.log('Clicked')
           }
         : undefined,
-    clickPrompt: idx % 2 === 0 ? `View Form: ${idx}` : undefined,
-    isSelected: idx === 0,
-    deselectPrompt: idx === 0 ? 'Close me' : undefined,
+    buttonText: `Close me`,
   }))
 
   return (
@@ -131,7 +129,7 @@ export const QuestionnaireRedactedTimeline: Story = () => {
     domainResource: ti as QuestionnaireResponse,
     // eslint-disable-next-line @typescript-eslint/no-empty-function
     clickHandler: () => {},
-    isSelected: false,
+    buttonState: 'selectable-button',
   }))
 
   return (
@@ -149,7 +147,7 @@ export const QuestionnaireRedactedTimeline: Story = () => {
 export const DocumentTimeline: Story = () => {
   const timelineItems: ITimelineItem[] = DocumentReferences.resources.map((ti) => ({
     domainResource: ti as DocumentReference,
-    isSelected: false,
+    buttonState: 'selectable-button',
   }))
 
   return (
@@ -168,6 +166,7 @@ export const DocumentClickableTimeline: Story = () => {
   const timelineItems: ITimelineItem[] = DocumentReferences.resources.map((ti, idx) => ({
     domainResource: ti as DocumentReference,
     // eslint-disable-next-line @typescript-eslint/no-empty-function
+    buttonState: idx % 2 === 0 ? 'selectable-button' : 'no-button',
     clickHandler:
       idx % 2 === 0
         ? () => {
@@ -175,9 +174,7 @@ export const DocumentClickableTimeline: Story = () => {
             console.log('Clicked')
           }
         : undefined,
-    clickPrompt: idx % 2 === 0 ? `View Form: ${idx}` : undefined,
-    isSelected: idx === 0,
-    deselectPrompt: idx === 0 ? 'Close me' : undefined,
+    buttonText: `Close me`,
   }))
 
   return (
@@ -197,7 +194,7 @@ export const DocumentRedactedTimeline: Story = () => {
     domainResource: ti as DocumentReference,
     // eslint-disable-next-line @typescript-eslint/no-empty-function
     clickHandler: () => {},
-    isSelected: false,
+    buttonState: 'selectable-button',
   }))
 
   return (

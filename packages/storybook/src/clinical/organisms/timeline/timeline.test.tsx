@@ -12,21 +12,21 @@ import Questionnaires, {
 
 const auditTimelineItems: ITimelineItem[] = AuditTrail.resources.map((ti) => ({
   domainResource: ti,
-  isSelected: false,
+  buttonState: 'selectable-button',
 }))
 const auditDatetimes = AuditTrail.resources.map((x) => x?.period?.start)
 const auditType = TimelineDomainResourceType.AuditEvent
 
 const questionnaireTimelineItems: ITimelineItem[] = Questionnaires.resources.map((ti) => ({
   domainResource: ti,
-  isSelected: false,
+  buttonState: 'selectable-button',
 }))
 const questionnaireDatetimes = Questionnaires.resources.map((x) => x?.authored)
 const questionnaireType = TimelineDomainResourceType.QuestionnaireResponse
 
 const documentTimelineItems: ITimelineItem[] = DocumentReferences.resources.map((ti) => ({
   domainResource: ti,
-  isSelected: false,
+  buttonState: 'selectable-button',
 }))
 const documentDatetimes = DocumentReferences.resources.map((x) => x?.created)
 const documentType = TimelineDomainResourceType.DocumentReference
@@ -104,9 +104,8 @@ it.each([
         // eslint-disable-next-line no-console
         console.log('Clicked')
       },
-      isSelected: true,
-      clickPrompt: 'Click Here Please',
-      deselectPrompt: 'Click here to close me',
+      buttonState: 'selected-button',
+      buttonText: 'Click here to close me',
     }))
 
     render(<Timeline timelineItems={alteredTimelineItems} domainResourceType={domainResourceType} />)
@@ -125,7 +124,7 @@ it.each([
       // eslint-disable-next-line no-console
       console.log('Clicked')
     },
-    isSelected: false,
+    buttonState: 'selectable-button',
   }))
 
   render(<Timeline timelineItems={alteredTimelineItems} domainResourceType={domainResourceType} />)
@@ -143,8 +142,8 @@ it.each([
       // eslint-disable-next-line no-console
       console.log('Clicked')
     },
-    clickPrompt: 'Click Here Please',
-    isSelected: false,
+    buttonText: 'Click Here Please',
+    buttonState: 'selectable-button',
   }))
 
   render(<Timeline timelineItems={alteredTimelineItems} domainResourceType={domainResourceType} />)
@@ -156,11 +155,11 @@ it.each([
   [auditTimelineItems, auditType],
   [questionnaireTimelineItems, questionnaireType],
   [documentTimelineItems, documentType],
-])('No click handler does not display click Prompt', (timelineItems, domainResourceType) => {
+])('No-Button state does not display a button', (timelineItems, domainResourceType) => {
   const alteredTimelineItems: ITimelineItem[] = timelineItems.map((x) => ({
     domainResource: x.domainResource,
-    clickPrompt: 'Click Here Please',
-    isSelected: false,
+    buttonText: 'Click Here Please',
+    buttonState: 'no-button',
   }))
 
   render(<Timeline timelineItems={alteredTimelineItems} domainResourceType={domainResourceType} />)
@@ -172,7 +171,7 @@ it('Questionnaire uses text as default title, doesnt show questionnaire.title', 
   const timelineItems: ITimelineItem[] = [
     {
       domainResource: TextTitleResponse,
-      isSelected: false,
+      buttonState: 'selectable-button',
     },
   ]
   render(
@@ -188,7 +187,7 @@ it('Does not try to display data if it was redacted', () => {
   const timelineItems: ITimelineItem[] = [
     {
       domainResource: RedactedQuestionnaireResponse1,
-      isSelected: false,
+      buttonState: 'selectable-button',
     },
   ]
   render(
@@ -202,7 +201,7 @@ it('Questionnaire uses questionnaire.title as backup title', () => {
   const timelineItems: ITimelineItem[] = [
     {
       domainResource: TitleResponse,
-      isSelected: false,
+      buttonState: 'selectable-button',
     },
   ]
   render(
