@@ -77,7 +77,7 @@ const TimelineItem: FC<IProps> = ({ timelineItem, domainResourceType }) => {
   const itemKey = `timelineItem_${timelineItem.domainResource.id}`
 
   return (
-    <StyledTimelineItem isSelected={timelineItem.isSelected ?? false} key={itemKey}>
+    <StyledTimelineItem isSelected={timelineItem.buttonState === 'selected-button'} key={itemKey}>
       <StyledTimelineItemTop>
         <StyledTitle isMobile={isMobile}>
           <TimelineTitle domainResource={timelineItem.domainResource} domainResourceType={domainResourceType} />
@@ -115,13 +115,12 @@ interface IProps {
 
 export interface ITimelineItem {
   domainResource?: Maybe<AuditEvent | QuestionnaireResponse | DocumentReference>
+  buttonState: TimeLineItemButtonState
   clickHandler?(): void
-  clickPrompt?: string
-  isSelected: boolean | undefined
-  deselectPrompt?: string
-  clickPermissionDenied: boolean | undefined
-  clickPermissionDeniedMessage?: string
+  buttonText?: string
 }
+
+type TimeLineItemButtonState = 'no-button' | 'selectable-button' | 'selected-button' | 'permission-denied-button'
 
 interface IStyledTimelineItem {
   isSelected: boolean

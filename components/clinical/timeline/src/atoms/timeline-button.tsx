@@ -1,56 +1,43 @@
 import styled from '@emotion/styled'
-import Banner from '@ltht-react/banner'
+import { BannerTwo } from '@ltht-react/banner'
 import { InfoCircleIcon } from '@ltht-react/icon'
 import { FC, HTMLAttributes } from 'react'
 import { ITimelineItem } from '../molecules/timeline-item'
 
-const StyledBanner = styled(Banner)`
-  margin: -0.5rem;
-  margin-top: 0.5rem;
-`
-
 const StyledBannerContent = styled.div``
 
 const TimelineButton: FC<Props> = ({ timelineItem }) => {
-  const {
-    clickHandler,
-    clickPrompt,
-    isSelected,
-    deselectPrompt,
-    clickPermissionDenied,
-    clickPermissionDeniedMessage,
-  } = timelineItem
+  const { clickHandler, buttonState, buttonText } = timelineItem
 
-  if (!clickHandler) {
-    return <></>
-  }
-
-  if (clickPermissionDenied) {
-    return (
-      <StyledBanner type="warning">
-        <StyledBannerContent>{clickPermissionDeniedMessage ?? 'Insufficient privileges to view this item'}</StyledBannerContent>
-      </StyledBanner>
-    )
-  }
-
-  return (
-    <>
-      {!isSelected && (
-        <StyledBanner type="info" onClick={clickHandler}>
-          {clickPrompt && <StyledBannerContent>{clickPrompt}</StyledBannerContent>}
-        </StyledBanner>
-      )}
-      {isSelected && (
-        <StyledBanner
-          type="highlight"
+  switch (buttonState) {
+    case 'no-button':
+      return <></>
+    case 'permission-denied-button':
+      return (
+        <BannerTwo type="primary" buttonStyle="primary" disabled>
+          <StyledBannerContent>{buttonText ?? 'Insufficient privileges to view this item'}</StyledBannerContent>
+        </BannerTwo>
+      )
+    case 'selectable-button':
+      return (
+        <BannerTwo type="primary" buttonStyle="primary" onClick={clickHandler}>
+          {buttonText && <StyledBannerContent>{buttonText}</StyledBannerContent>}
+        </BannerTwo>
+      )
+    case 'selected-button':
+      return (
+        <BannerTwo
+          type="primary"
+          buttonStyle="primary"
           icon={<InfoCircleIcon status="info" size="medium" />}
           onClick={clickHandler}
         >
-          {deselectPrompt && <StyledBannerContent>{deselectPrompt}</StyledBannerContent>}
-        </StyledBanner>
-      )}
-    </>
-  )
+          {buttonText && <StyledBannerContent>{buttonText}</StyledBannerContent>}
+        </BannerTwo>
+      )
+    default:
+      throw new Error('ButtonState must be a valid value.')
+  }
 }
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
