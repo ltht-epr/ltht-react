@@ -108,7 +108,14 @@ const Banner: FC<IBannerProps> = ({ type = 'info', icon, children, ...rest }) =>
   </StyledBanner>
 )
 
-export const ButtonBanner: FC<IButtonBannerProps> = ({ type = 'info', disabled = false, icon, children, ...rest }) => (
+export const ButtonBanner: FC<IButtonBannerProps> = ({
+  type = 'info',
+  disabled = false,
+  icon,
+  children,
+  showChevron,
+  ...rest
+}) => (
   <StyledButtonBanner {...rest} buttonBannerType={type} buttonBannerDisabled={disabled}>
     {icon ? (
       <StyledIcon>{icon}</StyledIcon>
@@ -120,6 +127,7 @@ export const ButtonBanner: FC<IButtonBannerProps> = ({ type = 'info', disabled =
       </StyledIcon>
     )}
     <BannerContent>{children}</BannerContent>
+    {showChevron === true && <ChevronIcon size="medium" direction="right" />}
   </StyledButtonBanner>
 )
 
@@ -144,4 +152,5 @@ interface IButtonBannerProps extends HTMLAttributes<HTMLButtonElement> {
   type?: StatusTypes
   icon?: ReactNode
   disabled?: boolean
+  showChevron?: boolean
 }
