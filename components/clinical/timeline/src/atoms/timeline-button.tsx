@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 import { BannerTwo } from '@ltht-react/banner'
-import { InfoCircleIcon } from '@ltht-react/icon'
+import { ChevronIcon, InfoCircleIcon } from '@ltht-react/icon'
 import { FC, HTMLAttributes } from 'react'
 import { ITimelineItem } from '../molecules/timeline-item'
 
@@ -22,6 +22,7 @@ const TimelineButton: FC<Props> = ({ timelineItem }) => {
       return (
         <BannerTwo type="primary" buttonStyle="primary" onClick={clickHandler}>
           {buttonText && <StyledBannerContent>{buttonText}</StyledBannerContent>}
+          <ChevronIcon size="medium" direction="right" />
         </BannerTwo>
       )
     case 'selected-button':

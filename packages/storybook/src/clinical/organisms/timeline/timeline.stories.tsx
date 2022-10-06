@@ -17,7 +17,8 @@ const documentType = TimelineDomainResourceType.DocumentReference
 export const AuditEventTimeline: Story = () => {
   const timelineItems: ITimelineItem[] = AuditTrail.resources.map((ti) => ({
     domainResource: ti as AuditEvent,
-    buttonState: 'selectable-button',
+    buttonState: 'no-button',
+    buttonText: 'View',
   }))
 
   return (
@@ -44,7 +45,7 @@ export const AuditEventClickableTimeline: Story = () => {
             console.log('Clicked')
           }
         : undefined,
-    buttonText: `View Form: ${idx}`,
+    buttonText: `View Form ${idx / 2 + 1}`,
   }))
 
   return (
@@ -80,9 +81,10 @@ export const AuditEventRedactedTimeline: Story = () => {
 }
 
 export const QuestionnaireTimeline: Story = () => {
-  const timelineItems: ITimelineItem[] = Questionnaires.resources.map((ti) => ({
+  const timelineItems: ITimelineItem[] = Questionnaires.resources.map((ti, idx) => ({
     domainResource: ti as QuestionnaireResponse,
-    buttonState: 'selectable-button',
+    buttonState: idx !== 2 ? 'selectable-button' : 'selected-button',
+    buttonText: idx !== 2 ? 'View Form' : '(Selected) Deselect this',
   }))
 
   return (

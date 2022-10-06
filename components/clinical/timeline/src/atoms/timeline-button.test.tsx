@@ -9,7 +9,7 @@ describe('Timeline Button', () => {
     } as ITimelineItem,
     {
       buttonState: 'no-button',
-      clickHandler: () => {},
+      clickHandler: () => undefined,
     } as ITimelineItem,
     {
       buttonState: 'no-button',
@@ -17,7 +17,7 @@ describe('Timeline Button', () => {
     } as ITimelineItem,
     {
       buttonState: 'no-button',
-      clickHandler: () => {},
+      clickHandler: () => undefined,
       buttonText: 'Click me!',
     } as ITimelineItem,
   ])(
@@ -39,11 +39,11 @@ describe('Timeline Button', () => {
     } as ITimelineItem,
     {
       buttonState: 'selectable-button',
-      clickHandler: () => {},
+      clickHandler: () => undefined,
     } as ITimelineItem,
     {
       buttonState: 'selectable-button',
-      clickHandler: () => {},
+      clickHandler: () => undefined,
     } as ITimelineItem,
   ])(
     'Renders a button if button state is selectable-button, regardless of other properties',
@@ -64,11 +64,11 @@ describe('Timeline Button', () => {
     } as ITimelineItem,
     {
       buttonState: 'selected-button',
-      clickHandler: () => {},
+      clickHandler: () => undefined,
     } as ITimelineItem,
     {
       buttonState: 'selected-button',
-      clickHandler: () => {},
+      clickHandler: () => undefined,
     } as ITimelineItem,
   ])(
     'Renders a button if button state is selected-button, regardless of other properties',
@@ -91,12 +91,12 @@ describe('Timeline Button', () => {
     {
       buttonState: 'permission-denied-button',
       buttonText: 'This is some button text',
-      clickHandler: () => {},
+      clickHandler: () => undefined,
     } as ITimelineItem,
     {
       buttonState: 'permission-denied-button',
       buttonText: 'This is some button text',
-      clickHandler: () => {},
+      clickHandler: () => undefined,
     } as ITimelineItem,
   ])('Renders a disabled button if button state is permission-denied-button', (timelineItem: ITimelineItem) => {
     render(<TimelineButton timelineItem={timelineItem} />)
