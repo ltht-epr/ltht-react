@@ -79,7 +79,7 @@ const StyledChevronCircleIcon = styled.div`
 const PrimaryInformation: FC<Props> = ({ patient, deceased }) => {
   const [collapsed, setCollapsed] = useState(true)
 
-  const handleClick = (): void => setCollapsed(prevState => !prevState)
+  const handleClick = (): void => setCollapsed((prevState) => !prevState)
 
   return (
     <StyledPrimaryInformation deceased={deceased} onClick={handleClick} collapsed={collapsed}>

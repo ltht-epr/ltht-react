@@ -48,7 +48,7 @@ export const Summary: Story = () => (
       <Card.Title>Flags</Card.Title>
     </Card.Header>
     <Card.List>
-      {flags.map(flag => (
+      {flags.map((flag) => (
         <Card.ListItem key={flag.id}>
           <FlagSummary flag={flag} />
         </Card.ListItem>

@@ -14,7 +14,7 @@ const MedicationDosageReason: FC<IProps> = ({ reasons }) => {
 
   return (
     <>
-      {reasons?.map(reason => (
+      {reasons?.map((reason) => (
         <StyleReason>{reason?.text}</StyleReason>
       ))}
     </>

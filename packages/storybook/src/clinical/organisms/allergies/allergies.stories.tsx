@@ -70,7 +70,7 @@ export const Summary: Story = () => {
         <Card.Title>Allergies</Card.Title>
       </Card.Header>
       <Card.List>
-        {allergies.map(allergy => (
+        {allergies.map((allergy) => (
           <Card.ListItem
             key={allergy.id}
             onClick={(e): void => clickHandler(e, allergy)}
@@ -90,7 +90,7 @@ export const SummaryHiddenDates: Story = () => (
       <Card.Title>Hidden Dates Allergies</Card.Title>
     </Card.Header>
     <Card.List>
-      {allergies.map(allergy => (
+      {allergies.map((allergy) => (
         <Card.ListItem key={allergy.id}>
           <AllergySummary allergy={allergy} showDates={false} />
         </Card.ListItem>

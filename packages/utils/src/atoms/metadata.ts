@@ -4,7 +4,7 @@ const metadataSourceSummaryText = (metadata: Metadata): string => {
   if (!metadata || !metadata.dataSources || metadata.dataSources.length === 0) {
     return ''
   }
-  const result = metadata.dataSources.map(dataSource => dataSource?.display).join(', ')
+  const result = metadata.dataSources.map((dataSource) => dataSource?.display).join(', ')
   return result
 }
 

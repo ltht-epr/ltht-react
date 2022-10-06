@@ -28,7 +28,7 @@ const StyledTableHeader = styled.th`
 `
 
 const processColumnItems = (items: Maybe<QuestionnaireItem>[]): Column<KeyValue>[] =>
-  items.map(item => {
+  items.map((item) => {
     if (item?.item?.length && item?.item?.length > 0) {
       return {
         Header: item?.text ?? '',
@@ -43,7 +43,7 @@ const processColumnItems = (items: Maybe<QuestionnaireItem>[]): Column<KeyValue>
 
 const processResponse = (records: Maybe<QuestionnaireResponse>[]): KeyValue[] => {
   const result: KeyValue[] = []
-  records.forEach(record => {
+  records.forEach((record) => {
     if (record?.item) {
       const obj: KeyValue = {
         date: partialDateTimeText(record.authored),
@@ -54,7 +54,7 @@ const processResponse = (records: Maybe<QuestionnaireResponse>[]): KeyValue[] =>
         if (prop && value) {
           if (value[0]?.item) {
             const items = processResponseItems(value[0]?.item)
-            items.forEach(x => {
+            items.forEach((x) => {
               obj[x.key] = x.value
             })
           }
@@ -70,7 +70,7 @@ const processResponse = (records: Maybe<QuestionnaireResponse>[]): KeyValue[] =>
 
 const processResponseItems = (items: Maybe<QuestionnaireResponseItem>[]): Tuple[] => {
   const result: Tuple[] = []
-  items.forEach(item => {
+  items.forEach((item) => {
     const obj: Tuple = {
       key: '',
       value: '',
@@ -81,7 +81,7 @@ const processResponseItems = (items: Maybe<QuestionnaireResponseItem>[]): Tuple[
       if (prop && value) {
         if (value[0]?.item) {
           const items = processResponseItems(value[0]?.item)
-          items.forEach(x => result.push(x))
+          items.forEach((x) => result.push(x))
         }
         obj.key = prop
         obj.value = answerText(value[0]) ?? ''
@@ -115,9 +115,9 @@ const HorizontalTable: FC<IProps> = ({ definitionItems, records }) => {
       <CssBaseline />
       <MaUTable {...getTableProps()}>
         <TableHead>
-          {headerGroups.map(headerGroup => (
+          {headerGroups.map((headerGroup) => (
             <tr {...headerGroup.getHeaderGroupProps()}>
-              {headerGroup.headers.map(column => (
+              {headerGroup.headers.map((column) => (
                 <StyledTableHeader {...column.getHeaderProps()}>{column.render('Header')}</StyledTableHeader>
               ))}
             </tr>
@@ -128,7 +128,7 @@ const HorizontalTable: FC<IProps> = ({ definitionItems, records }) => {
             prepareRow(row)
             return (
               <TableRow {...row.getRowProps()}>
-                {row.cells.map(cell => (
+                {row.cells.map((cell) => (
                   <StyledTableCell rowIndex={rowIdx} {...cell.getCellProps()}>
                     {cell.render('Cell')}
                   </StyledTableCell>

@@ -48,7 +48,7 @@ const CollapsibleDetailCollection: FC<CollapsibleDetailCollectionProps> = ({ chi
 
   return (
     <StyledCollapsibleDetailCollection>
-      {Children.map(children, child => cloneElement(child, { showIfEmpty }))}
+      {Children.map(children, (child) => cloneElement(child, { showIfEmpty }))}
     </StyledCollapsibleDetailCollection>
   )
 }

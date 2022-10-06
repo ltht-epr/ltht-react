@@ -32,23 +32,23 @@ const VerticalTable: FC<IProps> = ({ definitionItems, records }) => {
       Header: '',
       accessor: 'property',
     },
-    ...records.map(record => ({
+    ...records.map((record) => ({
       Header: partialDateTimeText(record.authored) ?? '',
       accessor: record?.id ?? '',
     })),
   ]
 
-  let data: KeyValue[] = definitionItems.map(def => {
+  let data: KeyValue[] = definitionItems.map((def) => {
     const obj: KeyValue = {}
     obj.property = def?.text ?? ''
     obj.linkId = def?.linkId ?? ''
     return obj
   })
 
-  data = data.map(_item => {
+  data = data.map((_item) => {
     const item = { ..._item }
-    records.forEach(record => {
-      const find = record.item?.find(x => x?.linkId === item.linkId)
+    records.forEach((record) => {
+      const find = record.item?.find((x) => x?.linkId === item.linkId)
       if (find && find.answer) {
         const answer = find.answer[0]
         item[record.id] = answerText(answer) ?? ''
@@ -67,16 +67,16 @@ const VerticalTable: FC<IProps> = ({ definitionItems, records }) => {
       <CssBaseline />
       <MaUTable {...getTableProps()}>
         <TableHead>
-          {headerGroups.map(headerGroup => (
+          {headerGroups.map((headerGroup) => (
             <tr {...headerGroup.getHeaderGroupProps()}>
-              {headerGroup.headers.map(column => (
+              {headerGroup.headers.map((column) => (
                 <StyledTableHeader {...column.getHeaderProps()}>{column.render('Header')}</StyledTableHeader>
               ))}
             </tr>
           ))}
         </TableHead>
         <TableBody {...getTableBodyProps()}>
-          {rows.map(row => {
+          {rows.map((row) => {
             prepareRow(row)
             return (
               <TableRow {...row.getRowProps()}>
