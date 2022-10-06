@@ -19,7 +19,7 @@ import TimelineButton from '../atoms/timeline-button'
 
 const StyledTimelineItem = styled.div<IStyledTimelineItem>`
   background-color: ${({ isSelected }) => (isSelected ? HIGHLIGHT_GREEN.VALUE : TRANSLUCENT_DARK_BLUE)};
-  padding: 0.5rem;
+  padding-top: 0.5rem;
 `
 
 const StyledTimelineItemLeft = styled.div`
@@ -38,16 +38,19 @@ const StyledTimelineItemTop = styled.div`
   display: flex;
   color: black;
   padding-bottom: 0.25rem;
+  margin: 0.5rem;
 `
 
 const StyledTimelineItemMiddle = styled.div`
   color: black;
   padding-bottom: 1rem;
+  margin: 0.5rem;
 `
 
 const StyledTimelineItemBottom = styled.div`
   color: grey;
   display: flex;
+  margin: 0.5rem;
 `
 
 const StyledTitle = styled.div<IStyledMobile>`
