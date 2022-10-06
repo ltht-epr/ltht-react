@@ -33,20 +33,34 @@ export const AuditEventTimeline: Story = () => {
   )
 }
 
+const createSomeButtonStates = (index: number) => {
+  if (index === 3) {
+    return 'permission-denied-button'
+  }
+  return index % 2 === 0 ? 'selectable-button' : 'no-button'
+}
+
 export const AuditEventClickableTimeline: Story = () => {
-  const timelineItems: ITimelineItem[] = AuditTrail.resources.map((ti, idx) => ({
-    domainResource: ti as AuditEvent,
-    // eslint-disable-next-line @typescript-eslint/no-empty-function
-    buttonState: idx % 2 === 0 ? 'selectable-button' : 'no-button',
-    clickHandler:
-      idx % 2 === 0
-        ? () => {
-            // eslint-disable-next-line no-console
-            console.log('Clicked')
-          }
-        : undefined,
-    buttonText: `View Form ${idx / 2 + 1}`,
-  }))
+  const timelineItems: ITimelineItem[] = AuditTrail.resources.map((ti, idx) => {
+    let text = `View Form ${idx / 2 + 1}`
+    if (idx === 3) {
+      text = 'Insufficient Privileges to view this form'
+    }
+
+    return {
+      domainResource: ti as AuditEvent,
+      // eslint-disable-next-line @typescript-eslint/no-empty-function
+      buttonState: createSomeButtonStates(idx),
+      clickHandler:
+        idx % 2 === 0
+          ? () => {
+              // eslint-disable-next-line no-console
+              console.log('Clicked')
+            }
+          : undefined,
+      buttonText: text,
+    }
+  })
 
   return (
     <Card>
