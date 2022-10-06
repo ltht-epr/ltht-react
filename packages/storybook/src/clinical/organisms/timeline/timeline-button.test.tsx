@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react'
-import { ITimelineItem } from '../molecules/timeline-item'
-import TimelineButton from './timeline-button'
+import { ITimelineItem } from '@ltht-react/timeline/src/molecules/timeline-item'
+import TimelineButton from '@ltht-react/timeline/src/atoms/timeline-button'
 
 describe('Timeline Button', () => {
   it.each([
