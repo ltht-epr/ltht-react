@@ -1,10 +1,7 @@
-import styled from '@emotion/styled'
 import { ButtonBanner } from '@ltht-react/banner'
 import { InfoCircleIcon } from '@ltht-react/icon'
 import { FC, HTMLAttributes } from 'react'
 import { ITimelineItem } from '../molecules/timeline-item'
-
-const StyledBannerContent = styled.div``
 
 const TimelineButton: FC<Props> = ({ timelineItem }) => {
   const { clickHandler, buttonState, buttonText } = timelineItem
@@ -15,19 +12,19 @@ const TimelineButton: FC<Props> = ({ timelineItem }) => {
     case 'permission-denied-button':
       return (
         <ButtonBanner type="warning" disabled>
-          <StyledBannerContent>{buttonText ?? 'Insufficient privileges to view this item'}</StyledBannerContent>
+          {buttonText ?? 'Insufficient privileges to view this item'}
         </ButtonBanner>
       )
     case 'selectable-button':
       return (
-        <ButtonBanner type="info" onClick={clickHandler} showChevron={true}>
-          {buttonText && <StyledBannerContent>{buttonText}</StyledBannerContent>}
+        <ButtonBanner type="info" onClick={clickHandler}>
+          {buttonText ?? ''}
         </ButtonBanner>
       )
     case 'selected-button':
       return (
         <ButtonBanner type="highlight" icon={<InfoCircleIcon status="info" size="medium" />} onClick={clickHandler}>
-          {buttonText && <StyledBannerContent>{buttonText}</StyledBannerContent>}
+          {buttonText ?? ''}
         </ButtonBanner>
       )
     default:
