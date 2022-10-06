@@ -58,8 +58,6 @@ const StyledBanner = styled.div<IStyledBanner>`
 const StyledButtonBanner = styled.button<IStyledButtonBanner>`
   ${CSS_RESET};
 
-  disabled: ${({ buttonBannerDisabled }) => (buttonBannerDisabled === true ? 'true' : 'false')};
-
   display: flex;
   align-items: center;
   padding: 0.75rem;
@@ -116,7 +114,7 @@ export const ButtonBanner: FC<IButtonBannerProps> = ({
   showChevron,
   ...rest
 }) => (
-  <StyledButtonBanner {...rest} buttonBannerType={type} buttonBannerDisabled={disabled}>
+  <StyledButtonBanner {...rest} buttonBannerType={type} disabled={disabled}>
     {icon ? (
       <StyledIcon>{icon}</StyledIcon>
     ) : (
@@ -145,7 +143,6 @@ interface IBannerProps extends HTMLAttributes<HTMLDivElement> {
 
 interface IStyledButtonBanner {
   buttonBannerType: StatusTypes
-  buttonBannerDisabled: boolean
 }
 
 interface IButtonBannerProps extends HTMLAttributes<HTMLButtonElement> {
