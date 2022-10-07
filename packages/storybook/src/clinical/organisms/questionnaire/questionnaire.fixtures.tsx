@@ -1987,7 +1987,8 @@ export const DischargeDestinationExampleData: QuestionnaireResponse = {
           },
           {
             linkId: '1.2',
-            text: 'Is the patient still residing in hospital because a COVID-19 test or test result is still outstanding?',
+            text:
+              'Is the patient still residing in hospital because a COVID-19 test or test result is still outstanding?',
             type: QuestionnaireItemTypeCode.QuestionBoolean,
             item: null,
           },

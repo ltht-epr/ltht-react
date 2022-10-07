@@ -26,7 +26,8 @@ const guidanceOne: Guidance = {
   metadata: mockMetadata,
   text: {
     div: '',
-    text: 'As the information entered indicates that the patient has cognition and mental capacity issues, please consider the need for:',
+    text:
+      'As the information entered indicates that the patient has cognition and mental capacity issues, please consider the need for:',
   },
   note: [
     { text: 'Advice from MCA / MHA team' },
@@ -67,7 +68,8 @@ const guidanceThree: Guidance = {
   metadata: mockMetadata,
   text: {
     div: '',
-    text: "As you have indicated that the patient has hydration issues, please alert the Medical Team of the patient's AKI status",
+    text:
+      "As you have indicated that the patient has hydration issues, please alert the Medical Team of the patient's AKI status",
   },
   status: GuidanceStatusCode.Success,
   reasonCode: {
