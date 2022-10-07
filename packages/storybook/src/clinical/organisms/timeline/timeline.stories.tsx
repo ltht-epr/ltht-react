@@ -17,7 +17,8 @@ const documentType = TimelineDomainResourceType.DocumentReference
 export const AuditEventTimeline: Story = () => {
   const timelineItems: ITimelineItem[] = AuditTrail.resources.map((ti) => ({
     domainResource: ti as AuditEvent,
-    isSelected: false,
+    buttonState: 'no-button',
+    buttonText: 'View',
   }))
 
   return (
@@ -32,21 +33,34 @@ export const AuditEventTimeline: Story = () => {
   )
 }
 
+const createSomeButtonStates = (index: number) => {
+  if (index === 3) {
+    return 'permission-denied-button'
+  }
+  return index % 2 === 0 ? 'selectable-button' : 'no-button'
+}
+
 export const AuditEventClickableTimeline: Story = () => {
-  const timelineItems: ITimelineItem[] = AuditTrail.resources.map((ti, idx) => ({
-    domainResource: ti as AuditEvent,
-    // eslint-disable-next-line @typescript-eslint/no-empty-function
-    clickHandler:
-      idx % 2 === 0
-        ? () => {
-            // eslint-disable-next-line no-console
-            console.log('Clicked')
-          }
-        : undefined,
-    clickPrompt: idx % 2 === 0 ? `View Form: ${idx}` : undefined,
-    isSelected: idx === 0,
-    deselectPrompt: idx === 0 ? 'Close me' : undefined,
-  }))
+  const timelineItems: ITimelineItem[] = AuditTrail.resources.map((ti, idx) => {
+    let text = `View Form ${idx / 2 + 1}`
+    if (idx === 3) {
+      text = 'Insufficient Privileges to view this form'
+    }
+
+    return {
+      domainResource: ti as AuditEvent,
+      // eslint-disable-next-line @typescript-eslint/no-empty-function
+      buttonState: createSomeButtonStates(idx),
+      clickHandler:
+        idx % 2 === 0
+          ? () => {
+              // eslint-disable-next-line no-console
+              console.log('Clicked')
+            }
+          : undefined,
+      buttonText: text,
+    }
+  })
 
   return (
     <Card>
@@ -65,7 +79,7 @@ export const AuditEventRedactedTimeline: Story = () => {
     domainResource: ti as AuditEvent,
     // eslint-disable-next-line @typescript-eslint/no-empty-function
     clickHandler: () => {},
-    isSelected: false,
+    buttonState: 'selectable-button',
   }))
 
   return (
@@ -81,9 +95,10 @@ export const AuditEventRedactedTimeline: Story = () => {
 }
 
 export const QuestionnaireTimeline: Story = () => {
-  const timelineItems: ITimelineItem[] = Questionnaires.resources.map((ti) => ({
+  const timelineItems: ITimelineItem[] = Questionnaires.resources.map((ti, idx) => ({
     domainResource: ti as QuestionnaireResponse,
-    isSelected: false,
+    buttonState: idx !== 2 ? 'selectable-button' : 'selected-button',
+    buttonText: idx !== 2 ? 'View Form' : '(Selected) Deselect this',
   }))
 
   return (
@@ -102,6 +117,7 @@ export const QuestionnaireClickableTimeline: Story = () => {
   const timelineItems: ITimelineItem[] = Questionnaires.resources.map((ti, idx) => ({
     domainResource: ti as QuestionnaireResponse,
     // eslint-disable-next-line @typescript-eslint/no-empty-function
+    buttonState: idx % 2 === 0 ? 'selected-button' : 'no-button',
     clickHandler:
       idx % 2 === 0
         ? () => {
@@ -109,9 +125,7 @@ export const QuestionnaireClickableTimeline: Story = () => {
             console.log('Clicked')
           }
         : undefined,
-    clickPrompt: idx % 2 === 0 ? `View Form: ${idx}` : undefined,
-    isSelected: idx === 0,
-    deselectPrompt: idx === 0 ? 'Close me' : undefined,
+    buttonText: `Close me`,
   }))
 
   return (
@@ -131,7 +145,7 @@ export const QuestionnaireRedactedTimeline: Story = () => {
     domainResource: ti as QuestionnaireResponse,
     // eslint-disable-next-line @typescript-eslint/no-empty-function
     clickHandler: () => {},
-    isSelected: false,
+    buttonState: 'selectable-button',
   }))
 
   return (
@@ -149,7 +163,7 @@ export const QuestionnaireRedactedTimeline: Story = () => {
 export const DocumentTimeline: Story = () => {
   const timelineItems: ITimelineItem[] = DocumentReferences.resources.map((ti) => ({
     domainResource: ti as DocumentReference,
-    isSelected: false,
+    buttonState: 'selectable-button',
   }))
 
   return (
@@ -168,6 +182,7 @@ export const DocumentClickableTimeline: Story = () => {
   const timelineItems: ITimelineItem[] = DocumentReferences.resources.map((ti, idx) => ({
     domainResource: ti as DocumentReference,
     // eslint-disable-next-line @typescript-eslint/no-empty-function
+    buttonState: idx % 2 === 0 ? 'selectable-button' : 'no-button',
     clickHandler:
       idx % 2 === 0
         ? () => {
@@ -175,9 +190,7 @@ export const DocumentClickableTimeline: Story = () => {
             console.log('Clicked')
           }
         : undefined,
-    clickPrompt: idx % 2 === 0 ? `View Form: ${idx}` : undefined,
-    isSelected: idx === 0,
-    deselectPrompt: idx === 0 ? 'Close me' : undefined,
+    buttonText: `Close me`,
   }))
 
   return (
@@ -197,7 +210,7 @@ export const DocumentRedactedTimeline: Story = () => {
     domainResource: ti as DocumentReference,
     // eslint-disable-next-line @typescript-eslint/no-empty-function
     clickHandler: () => {},
-    isSelected: false,
+    buttonState: 'selectable-button',
   }))
 
   return (

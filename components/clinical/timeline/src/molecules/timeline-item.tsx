@@ -1,7 +1,5 @@
 import { FC } from 'react'
 import styled from '@emotion/styled'
-import Banner from '@ltht-react/banner'
-import { InfoCircleIcon } from '@ltht-react/icon'
 import { HIGHLIGHT_GREEN, TRANSLUCENT_DARK_BLUE } from '@ltht-react/styles'
 import {
   AuditEvent,
@@ -17,10 +15,11 @@ import TimelineAuthor from '../atoms/timeline-author'
 import TimelineStatus from '../atoms/timeline-status'
 import TimelineTitle from '../atoms/timeline-title'
 import TimelineTime from '../atoms/timeline-time'
+import TimelineButton from '../atoms/timeline-button'
 
 const StyledTimelineItem = styled.div<IStyledTimelineItem>`
   background-color: ${({ isSelected }) => (isSelected ? HIGHLIGHT_GREEN.VALUE : TRANSLUCENT_DARK_BLUE)};
-  padding: 0.5rem;
+  padding-top: 0.5rem;
 `
 
 const StyledTimelineItemLeft = styled.div`
@@ -39,16 +38,19 @@ const StyledTimelineItemTop = styled.div`
   display: flex;
   color: black;
   padding-bottom: 0.25rem;
+  margin: 0.5rem;
 `
 
 const StyledTimelineItemMiddle = styled.div`
   color: black;
   padding-bottom: 1rem;
+  margin: 0.5rem;
 `
 
 const StyledTimelineItemBottom = styled.div`
   color: grey;
   display: flex;
+  margin: 0.5rem;
 `
 
 const StyledTitle = styled.div<IStyledMobile>`
@@ -67,13 +69,6 @@ const StyledStatus = styled.div`
   text-align: right;
 `
 
-const StyledBanner = styled(Banner)`
-  margin: -0.5rem;
-  margin-top: 0.5rem;
-`
-
-const StyledBannerContent = styled.div``
-
 const TimelineItem: FC<IProps> = ({ timelineItem, domainResourceType }) => {
   const { width } = useWindowSize()
   const isMobile = isMobileView(width)
@@ -85,7 +80,7 @@ const TimelineItem: FC<IProps> = ({ timelineItem, domainResourceType }) => {
   const itemKey = `timelineItem_${timelineItem.domainResource.id}`
 
   return (
-    <StyledTimelineItem isSelected={timelineItem.isSelected ?? false} key={itemKey}>
+    <StyledTimelineItem isSelected={timelineItem.buttonState === 'selected-button'} key={itemKey}>
       <StyledTimelineItemTop>
         <StyledTitle isMobile={isMobile}>
           <TimelineTitle domainResource={timelineItem.domainResource} domainResourceType={domainResourceType} />
@@ -111,20 +106,7 @@ const TimelineItem: FC<IProps> = ({ timelineItem, domainResourceType }) => {
           </StyledStatus>
         </StyledTimelineItemRight>
       </StyledTimelineItemBottom>
-      {timelineItem.clickHandler && !timelineItem.isSelected && (
-        <StyledBanner type="info" onClick={timelineItem.clickHandler}>
-          {timelineItem.clickPrompt && <StyledBannerContent>{timelineItem.clickPrompt}</StyledBannerContent>}
-        </StyledBanner>
-      )}
-      {timelineItem.clickHandler && timelineItem.isSelected && (
-        <StyledBanner
-          type="highlight"
-          icon={<InfoCircleIcon status="info" size="medium" />}
-          onClick={timelineItem.clickHandler}
-        >
-          {timelineItem.deselectPrompt && <StyledBannerContent>{timelineItem.deselectPrompt}</StyledBannerContent>}
-        </StyledBanner>
-      )}
+      <TimelineButton timelineItem={timelineItem} />
     </StyledTimelineItem>
   )
 }
@@ -136,11 +118,12 @@ interface IProps {
 
 export interface ITimelineItem {
   domainResource?: Maybe<AuditEvent | QuestionnaireResponse | DocumentReference>
+  buttonState: TimeLineItemButtonState
   clickHandler?(): void
-  clickPrompt?: string
-  isSelected: boolean | undefined
-  deselectPrompt?: string
+  buttonText?: string
 }
+
+type TimeLineItemButtonState = 'no-button' | 'selectable-button' | 'selected-button' | 'permission-denied-button'
 
 interface IStyledTimelineItem {
   isSelected: boolean
