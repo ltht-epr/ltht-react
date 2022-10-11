@@ -1196,7 +1196,7 @@ export type CarePlan = {
   /** Instantiates external protocol or definition. */
   instantiatesUri?: Maybe<Array<Maybe<Scalars['String']>>>
   /** Instantiates FHIR protocol or definition. */
-  instantiatesCanonical?: Maybe<Array<Maybe<CarePlanInstantiatesCanonicalUnionType>>>
+  instantiatesCanonical?: Maybe<Array<Maybe<Scalars['String']>>>
   /** Fulfills care plan. */
   basedOn?: Maybe<Array<Maybe<ResourceReference>>>
   /** CarePlan replaced by this CarePlan. */
@@ -1236,8 +1236,6 @@ export type CarePlan = {
   /** Comments about the plan. */
   note?: Maybe<Array<Maybe<Annotation>>>
 }
-
-export type CarePlanInstantiatesCanonicalUnionType = PlanDefinition | Questionnaire
 
 export enum CarePlanStatusCode {
   Draft = 'DRAFT',
@@ -1283,7 +1281,7 @@ export type CarePlanActivityDetail = {
   /** Instantiates external protocol or definition. */
   instantiatesUri?: Maybe<Array<Maybe<Scalars['String']>>>
   /** Instantiates FHIR protocol or definition. */
-  instantiatesCanonical?: Maybe<Array<Maybe<CarePlanInstantiatesCanonicalUnionType>>>
+  instantiatesCanonical?: Maybe<Array<Maybe<Scalars['String']>>>
   /** http://hl7.org/fhir/stu3/valueset-care-plan-activity-category.html */
   kind?: Maybe<CarePlanActivityDetailKindCode>
   /** http://hl7.org/fhir/stu3/valueset-care-plan-activity.html */
@@ -1332,7 +1330,9 @@ export enum CarePlanActivityDetailStatusCode {
   OnHold = 'ON_HOLD',
   Completed = 'COMPLETED',
   Cancelled = 'CANCELLED',
+  Stopped = 'STOPPED',
   Unknown = 'UNKNOWN',
+  EnteredInError = 'ENTERED_IN_ERROR',
 }
 
 /** What is to be administered/supplied. */
