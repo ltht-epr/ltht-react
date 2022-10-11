@@ -44,7 +44,6 @@
     "nx": "14.2.0",
     "prettier": "^2.0.0",
     "prettylint": "^1.0.0",
-    "react-table": "^7.8.0",
     "rimraf": "^3.0.0",
     "ts-jest": "^26.5.1",
     "ts-node": "^9.0.0",
