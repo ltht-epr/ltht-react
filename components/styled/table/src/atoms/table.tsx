@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { useTable, TableCellProps } from 'react-table'
+import { useTable, TableCellProps, Column } from 'react-table'
 
 import CssBaseline from '@material-ui/core/CssBaseline'
 import MaUTable from '@material-ui/core/Table'
@@ -25,12 +25,30 @@ const StyledTableHeader = styled.th`
   border: 1px solid rgba(200, 200, 200, 1);
 `
 
-const VerticalTable: FC<IProps> = ({ tableData }) => {
-  const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = useTable({
-    columns: tableData.headers.map((header) => ({
+const generateColumnsFromHeadersRecursively = (headers?: Header[]): Column<KeyStringValuePair>[] => {
+  if (!headers || headers.length < 1) {
+    return []
+  }
+
+  return headers.map((header) => {
+    if (header.subheaders) {
+      return {
+        Header: header.header,
+        accessor: header.accessor,
+        columns: generateColumnsFromHeadersRecursively(header.subheaders),
+      }
+    }
+
+    return {
       Header: header.header,
       accessor: header.accessor,
-    })),
+    }
+  })
+}
+
+const Table: FC<IProps> = ({ tableData }) => {
+  const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = useTable({
+    columns: generateColumnsFromHeadersRecursively(tableData.headers),
     data: tableData.rows,
   })
 
@@ -77,6 +95,7 @@ interface IProps {
 export interface Header {
   header: string
   accessor: string
+  subheaders?: Header[]
 }
 
 export interface TableData {
@@ -84,4 +103,4 @@ export interface TableData {
   rows: KeyStringValuePair[]
 }
 
-export default VerticalTable
+export default Table
