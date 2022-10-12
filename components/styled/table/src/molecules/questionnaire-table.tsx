@@ -7,10 +7,10 @@ import {
   SummaryTableViewType,
   QuestionnaireResponseItem,
 } from '@ltht-react/types'
-import { answerText, partialDateTimeText } from '@ltht-react/utils'
+import { answerText, EnsureMaybeArray, partialDateTimeText } from '@ltht-react/utils'
 import Table, { Header, TableData } from '../atoms/table'
 
-const MapQuestionnaireObjectsToVerticalTableData = (
+const mapQuestionnaireObjectsToVerticalTableData = (
   definitionItems: Array<Maybe<QuestionnaireItem>>,
   records: QuestionnaireResponse[]
 ): TableData => {
@@ -51,18 +51,14 @@ const MapQuestionnaireObjectsToVerticalTableData = (
   }
 }
 
-const processColumnItems = (items: Maybe<QuestionnaireItem>[]): Header[] =>
-  items.map((item) => {
-    if (item?.item?.length && item?.item?.length > 0) {
-      return {
-        header: item?.text ?? '',
-        accessor: '',
-        subheaders: processColumnItems(item?.item),
-      } as Header
-    }
+const mapQuestionnaireItemsIntoHeaders = (questionnaireItems: QuestionnaireItem[]): Header[] =>
+  questionnaireItems.map((questionnaireItem) => {
+    const recursiveItems = EnsureMaybeArray<QuestionnaireItem>(questionnaireItem.item ?? [])
+
     return {
-      header: item?.text ?? '',
-      accessor: item?.linkId ?? '',
+      header: questionnaireItem?.text ?? '',
+      accessor: recursiveItems.length > 0 ? '' : questionnaireItem?.linkId ?? '',
+      subheaders: recursiveItems.length > 0 ? mapQuestionnaireItemsIntoHeaders(recursiveItems) : undefined,
     }
   })
 
@@ -119,7 +115,7 @@ const processResponseItems = (items: Maybe<QuestionnaireResponseItem>[]): Tuple[
   return result
 }
 
-const MapQuestionnaireObjectsToHorizontalTableData = (
+const mapQuestionnaireObjectsToHorizontalTableData = (
   definitionItems: Array<Maybe<QuestionnaireItem>>,
   records: QuestionnaireResponse[]
 ): TableData => {
@@ -128,7 +124,7 @@ const MapQuestionnaireObjectsToHorizontalTableData = (
       header: 'Record Date',
       accessor: 'date',
     },
-    ...processColumnItems(definitionItems),
+    ...mapQuestionnaireItemsIntoHeaders(EnsureMaybeArray<QuestionnaireItem>(definitionItems)),
   ]
 
   const data: KeyStringValuePair[] = processResponse(records)
