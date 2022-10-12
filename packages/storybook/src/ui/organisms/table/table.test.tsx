@@ -28,6 +28,5 @@ describe('Table', () => {
 
   it('Renders Horizontally', () => {
     render(<Table definition={summaryDefinition} records={summaryRecordsList} orientation="HORIZONTAL" />)
-    
   })
 })
