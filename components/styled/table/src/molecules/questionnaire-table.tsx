@@ -51,14 +51,14 @@ const mapQuestionnaireObjectsToVerticalTableData = (
   }
 }
 
-const mapQuestionnaireItemsIntoHeaders = (questionnaireItems: QuestionnaireItem[]): Header[] =>
+const recursivelyMapQuestionnaireItemsIntoHeaders = (questionnaireItems: QuestionnaireItem[]): Header[] =>
   questionnaireItems.map((questionnaireItem) => {
     const recursiveItems = EnsureMaybeArray<QuestionnaireItem>(questionnaireItem.item ?? [])
 
     return {
       header: questionnaireItem?.text ?? '',
       accessor: recursiveItems.length > 0 ? '' : questionnaireItem?.linkId ?? '',
-      subheaders: recursiveItems.length > 0 ? mapQuestionnaireItemsIntoHeaders(recursiveItems) : undefined,
+      subheaders: recursiveItems.length > 0 ? recursivelyMapQuestionnaireItemsIntoHeaders(recursiveItems) : undefined,
     }
   })
 
@@ -70,11 +70,10 @@ const mapQuestionnaireResponsesIntoKeyValuePairs = (records: QuestionnaireRespon
         date: partialDateTimeText(record.authored),
       }
 
-      const recordItems = EnsureMaybeArray<QuestionnaireResponseItem>(record.item ?? [])
+      EnsureMaybeArray<QuestionnaireResponseItem>(record.item ?? []).map((item) => {
+        const prop = item.linkId
+        const value = item.answer
 
-      for (let index = 0; index < recordItems.length; index++) {
-        const prop = recordItems[index]?.linkId
-        const value = recordItems[index]?.answer
         if (prop && value) {
           if (value[0]?.item) {
             const items = processResponseItems(EnsureMaybeArray<QuestionnaireResponseItem>(value[0]?.item))
@@ -84,7 +83,8 @@ const mapQuestionnaireResponsesIntoKeyValuePairs = (records: QuestionnaireRespon
           }
           obj[prop] = answerText(value[0]) ?? ''
         }
-      }
+      })
+
       return obj
     })
 
@@ -114,7 +114,7 @@ const processResponseItems = (items: QuestionnaireResponseItem[]): Tuple[] => {
 }
 
 const mapQuestionnaireObjectsToHorizontalTableData = (
-  definitionItems: Array<Maybe<QuestionnaireItem>>,
+  definitionItems: Array<QuestionnaireItem>,
   records: QuestionnaireResponse[]
 ): TableData => {
   const columns: Header[] = [
@@ -122,7 +122,7 @@ const mapQuestionnaireObjectsToHorizontalTableData = (
       header: 'Record Date',
       accessor: 'date',
     },
-    ...mapQuestionnaireItemsIntoHeaders(EnsureMaybeArray<QuestionnaireItem>(definitionItems)),
+    ...recursivelyMapQuestionnaireItemsIntoHeaders(definitionItems),
   ]
 
   return {
