@@ -24,8 +24,8 @@ const MapQuestionnaireObjectsToTableData = (
     })),
   ]
 
-  let questionnaireItems: KeyStringValuePair[] = definitionItems.map((def) => {
-    let questionnaireItem: KeyStringValuePair = {
+  const questionnaireItems: KeyStringValuePair[] = definitionItems.map((def) => {
+    const questionnaireItem: KeyStringValuePair = {
       property: def?.text ?? '',
     }
 
@@ -55,10 +55,10 @@ const QuestionnaireTable: FC<IProps> = ({ definitionItems, records, orientation 
 
   if (orientation === 'horizontal') {
     // TODO: Render horizontal table post-refactor
-    return <VerticalTable tableData={tableData}></VerticalTable>
+    return <VerticalTable tableData={tableData} />
   }
 
-  return <VerticalTable tableData={tableData}></VerticalTable>
+  return <VerticalTable tableData={tableData} />
 }
 
 interface IProps {

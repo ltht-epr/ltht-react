@@ -27,12 +27,10 @@ const StyledTableHeader = styled.th`
 
 const VerticalTable: FC<IProps> = ({ tableData }) => {
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = useTable({
-    columns: tableData.headers.map((header) => {
-      return {
-        Header: header.header,
-        accessor: header.accessor,
-      }
-    }),
+    columns: tableData.headers.map((header) => ({
+      Header: header.header,
+      accessor: header.accessor,
+    })),
     data: tableData.rows,
   })
 
