@@ -7,7 +7,7 @@ import TableBody from '@material-ui/core/TableBody'
 import TableCell from '@material-ui/core/TableCell'
 import TableHead from '@material-ui/core/TableHead'
 import TableRow from '@material-ui/core/TableRow'
-import { KeyStringValuePair } from '@ltht-react/types'
+import { KeyStringValuePair, Maybe } from '@ltht-react/types'
 import styled from '@emotion/styled'
 import { TRANSLUCENT_BRIGHT_BLUE_TABLE, TRANSLUCENT_GREY_TABLE } from '@ltht-react/styles'
 
@@ -40,7 +40,20 @@ const generateColumnsFromHeadersRecursively = (headers?: Header[]): Column<KeySt
   })
 }
 
-const Table: FC<IProps> = ({ tableData }) => {
+const Table: FC<IProps<any, any>> = ({ tableData, columnData, rowData, mapToTableData }) => 
+{
+  if(!tableData && columnData && rowData){
+    tableData = mapToTableData(columnData, rowData);
+  }
+
+  if(!tableData)
+  {
+    tableData = {
+      headers: [],
+      rows: []
+    }
+  }
+
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = useTable({
     columns: generateColumnsFromHeadersRecursively(tableData.headers),
     data: tableData.rows,
@@ -84,8 +97,11 @@ const Table: FC<IProps> = ({ tableData }) => {
   )
 }
 
-interface IProps {
-  tableData: TableData
+interface IProps<TColumn = any, TRow = any> {
+  tableData?: TableData,
+  columnData: Array<Maybe<TColumn>>,
+  rowData: Array<Maybe<TRow>>,
+  mapToTableData: (colItems: Array<Maybe<TColumn>>, rowItems: Array<Maybe<TRow>>) => TableData
 }
 
 export interface Header {
