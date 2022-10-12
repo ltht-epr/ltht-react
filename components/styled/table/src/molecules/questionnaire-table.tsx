@@ -74,7 +74,7 @@ const processResponse = (records: Maybe<QuestionnaireResponse>[]): KeyStringValu
         const value = record.item[index]?.answer
         if (prop && value) {
           if (value[0]?.item) {
-            const items = processResponseItems(value[0]?.item)
+            const items = processResponseItems(EnsureMaybeArray<QuestionnaireResponseItem>(value[0]?.item))
             items.forEach((x) => {
               obj[x.key] = x.value
             })
@@ -89,27 +89,22 @@ const processResponse = (records: Maybe<QuestionnaireResponse>[]): KeyStringValu
   return result
 }
 
-const processResponseItems = (items: Maybe<QuestionnaireResponseItem>[]): Tuple[] => {
+const processResponseItems = (items: QuestionnaireResponseItem[]): Tuple[] => {
   const result: Tuple[] = []
-  items.forEach((item) => {
-    const obj: Tuple = {
-      key: '',
-      value: '',
-    }
-    if (item) {
-      const prop = item.linkId
-      const value = item.answer
-      if (prop && value) {
-        if (value[0]?.item) {
-          const items = processResponseItems(value[0]?.item)
-          items.forEach((x) => result.push(x))
-        }
-        obj.key = prop
-        obj.value = answerText(value[0]) ?? ''
-      }
-    }
 
-    result.push(obj)
+  items.forEach((item) => {
+    const prop = item.linkId
+    const value = item.answer
+    if (prop && value) {
+      if (value[0]?.item) {
+        const items = processResponseItems(EnsureMaybeArray<QuestionnaireResponseItem>(value[0]?.item))
+        items.forEach((x) => result.push(x))
+      }
+      result.push({
+        key: prop,
+        value: answerText(value[0]) ?? '',
+      })
+    }
   })
 
   return result
