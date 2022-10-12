@@ -71,24 +71,25 @@ const mapQuestionnaireResponsesIntoKeyValuePairs = (records: QuestionnaireRespon
       }
 
       EnsureMaybeArray<QuestionnaireResponseItem>(record.item ?? []).map((item) => {
-        const prop = item.linkId
-        const value = item.answer
-
-        if (prop && value) {
-          if (value[0]?.item) {
-            const items = processResponseItems(EnsureMaybeArray<QuestionnaireResponseItem>(value[0]?.item))
-            items.forEach((x) => {
-              obj[x.key] = x.value
-            })
-          }
-          obj[prop] = answerText(value[0]) ?? ''
+        if (!item.linkId || !item.answer || !item.answer[0]) {
+          return
         }
+
+        const firstAnswer = item.answer[0]
+
+        const items = recursivelyProcessResponseItems(
+          EnsureMaybeArray<QuestionnaireResponseItem>(firstAnswer.item ?? [])
+        )
+        items.forEach((x) => {
+          obj[x.key] = x.value
+        })
+        obj[item.linkId] = answerText(firstAnswer) ?? ''
       })
 
       return obj
     })
 
-const processResponseItems = (items: QuestionnaireResponseItem[]): Tuple[] => {
+const recursivelyProcessResponseItems = (items: QuestionnaireResponseItem[]): Tuple[] => {
   const result: Tuple[] = []
 
   items.forEach((item) => {
@@ -98,7 +99,7 @@ const processResponseItems = (items: QuestionnaireResponseItem[]): Tuple[] => {
     if (linkId && firstAnswer) {
       // If there are answers of subsections then recurse
       if (firstAnswer.item) {
-        processResponseItems(EnsureMaybeArray<QuestionnaireResponseItem>(firstAnswer.item)).forEach((x) =>
+        recursivelyProcessResponseItems(EnsureMaybeArray<QuestionnaireResponseItem>(firstAnswer.item)).forEach((x) =>
           result.push(x)
         )
       }
