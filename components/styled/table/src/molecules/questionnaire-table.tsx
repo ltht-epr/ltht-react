@@ -5,12 +5,12 @@ import {
   QuestionnaireResponse,
   KeyStringValuePair,
   SummaryTableViewType,
+  QuestionnaireResponseItem,
 } from '@ltht-react/types'
 import { answerText, partialDateTimeText } from '@ltht-react/utils'
-import VerticalTable, { Header, TableData } from '../atoms/vertical'
-import HorizontalTable from '../atoms/horizontal'
+import Table, { Header, TableData } from '../atoms/table'
 
-const MapQuestionnaireObjectsToTableData = (
+const MapQuestionnaireObjectsToVerticalTableData = (
   definitionItems: Array<Maybe<QuestionnaireItem>>,
   records: QuestionnaireResponse[]
 ): TableData => {
@@ -51,15 +51,106 @@ const MapQuestionnaireObjectsToTableData = (
   }
 }
 
-const QuestionnaireTable: FC<IProps> = ({ definitionItems, records, orientation }) => {
-  const tableData = MapQuestionnaireObjectsToTableData(definitionItems, records)
+const processColumnItems = (items: Maybe<QuestionnaireItem>[]): Header[] =>
+  items.map((item) => {
+    if (item?.item?.length && item?.item?.length > 0) {
+      return {
+        header: item?.text ?? '',
+        accessor: '',
+        subheaders: processColumnItems(item?.item),
+      } as Header
+    }
+    return {
+      header: item?.text ?? '',
+      accessor: item?.linkId ?? '',
+    }
+  })
 
-  if (orientation === 'HORIZONTAL') {
-    // TODO: Render horizontal table post-refactor
-    return <HorizontalTable definitionItems={definitionItems} records={records} />
+const processResponse = (records: Maybe<QuestionnaireResponse>[]): KeyStringValuePair[] => {
+  const result: KeyStringValuePair[] = []
+  records.forEach((record) => {
+    if (record?.item) {
+      const obj: KeyStringValuePair = {
+        date: partialDateTimeText(record.authored),
+      }
+      for (let index = 0; index < record.item.length; index++) {
+        const prop = record.item[index]?.linkId
+        const value = record.item[index]?.answer
+        if (prop && value) {
+          if (value[0]?.item) {
+            const items = processResponseItems(value[0]?.item)
+            items.forEach((x) => {
+              obj[x.key] = x.value
+            })
+          }
+          obj[prop] = answerText(value[0]) ?? ''
+        }
+      }
+      result.push(obj)
+    }
+  })
+
+  return result
+}
+
+const processResponseItems = (items: Maybe<QuestionnaireResponseItem>[]): Tuple[] => {
+  const result: Tuple[] = []
+  items.forEach((item) => {
+    const obj: Tuple = {
+      key: '',
+      value: '',
+    }
+    if (item) {
+      const prop = item.linkId
+      const value = item.answer
+      if (prop && value) {
+        if (value[0]?.item) {
+          const items = processResponseItems(value[0]?.item)
+          items.forEach((x) => result.push(x))
+        }
+        obj.key = prop
+        obj.value = answerText(value[0]) ?? ''
+      }
+    }
+
+    result.push(obj)
+  })
+
+  return result
+}
+
+const MapQuestionnaireObjectsToHorizontalTableData = (
+  definitionItems: Array<Maybe<QuestionnaireItem>>,
+  records: QuestionnaireResponse[]
+): TableData => {
+  const columns: Header[] = [
+    {
+      header: 'Record Date',
+      accessor: 'date',
+    },
+    ...processColumnItems(definitionItems),
+  ]
+
+  const data: KeyStringValuePair[] = processResponse(records)
+
+  return {
+    headers: columns,
+    rows: data,
   }
+}
 
-  return <VerticalTable tableData={tableData} />
+const QuestionnaireTable: FC<IProps> = ({ definitionItems, records, orientation }) => {
+  const tableData =
+    orientation === 'VERTICAL'
+      ? MapQuestionnaireObjectsToVerticalTableData(definitionItems, records)
+      : MapQuestionnaireObjectsToHorizontalTableData(definitionItems, records)
+
+  return <Table tableData={tableData} />
+}
+
+interface Tuple {
+  key: string
+  value: string
 }
 
 interface IProps {
