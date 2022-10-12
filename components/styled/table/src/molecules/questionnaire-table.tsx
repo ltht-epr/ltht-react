@@ -50,10 +50,10 @@ const MapQuestionnaireObjectsToTableData = (
   }
 }
 
-const QuestionnaireTable: FC<IProps> = ({ definitionItems, records, orientation = 'Vertical' }) => {
+const QuestionnaireTable: FC<IProps> = ({ definitionItems, records, orientation }) => {
   const tableData = MapQuestionnaireObjectsToTableData(definitionItems, records)
 
-  if (orientation === 'horizontal') {
+  if (orientation === 'HORIZONTAL') {
     // TODO: Render horizontal table post-refactor
     return <VerticalTable tableData={tableData} />
   }
@@ -62,7 +62,7 @@ const QuestionnaireTable: FC<IProps> = ({ definitionItems, records, orientation 
 }
 
 interface IProps {
-  orientation?: SummaryTableViewType
+  orientation: SummaryTableViewType
   definitionItems: Array<Maybe<QuestionnaireItem>>
   records: QuestionnaireResponse[]
 }

@@ -1,6 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import Table from '@ltht-react/table'
 import { mockSummaryDefinition, mockSummaryRecordsList } from './table.mockdata'
+import { summaryDefinition, summaryRecordsList } from './table.fixtures'
 
 describe('Table', () => {
   it('Renders', () => {
@@ -23,5 +24,10 @@ describe('Table', () => {
     render(<Table definition={summaryDefinitionWithoutItems} records={mockSummaryRecordsList} />)
 
     expect(screen.getByText('Could not render table. Definition items array was empty.')).toBeVisible()
+  })
+
+  it('Renders Horizontally', () => {
+    render(<Table definition={summaryDefinition} records={summaryRecordsList} orientation="HORIZONTAL" />)
+    
   })
 })
