@@ -62,16 +62,19 @@ const mapQuestionnaireItemsIntoHeaders = (questionnaireItems: QuestionnaireItem[
     }
   })
 
-const processResponse = (records: Maybe<QuestionnaireResponse>[]): KeyStringValuePair[] => {
-  const result: KeyStringValuePair[] = []
-  records.forEach((record) => {
-    if (record?.item) {
+const mapQuestionnaireResponsesIntoKeyValuePairs = (records: QuestionnaireResponse[]): KeyStringValuePair[] =>
+  records
+    .filter((record) => !!record.item)
+    .map((record) => {
       const obj: KeyStringValuePair = {
         date: partialDateTimeText(record.authored),
       }
-      for (let index = 0; index < record.item.length; index++) {
-        const prop = record.item[index]?.linkId
-        const value = record.item[index]?.answer
+
+      const recordItems = EnsureMaybeArray<QuestionnaireResponseItem>(record.item ?? [])
+
+      for (let index = 0; index < recordItems.length; index++) {
+        const prop = recordItems[index]?.linkId
+        const value = recordItems[index]?.answer
         if (prop && value) {
           if (value[0]?.item) {
             const items = processResponseItems(EnsureMaybeArray<QuestionnaireResponseItem>(value[0]?.item))
@@ -82,12 +85,8 @@ const processResponse = (records: Maybe<QuestionnaireResponse>[]): KeyStringValu
           obj[prop] = answerText(value[0]) ?? ''
         }
       }
-      result.push(obj)
-    }
-  })
-
-  return result
-}
+      return obj
+    })
 
 const processResponseItems = (items: QuestionnaireResponseItem[]): Tuple[] => {
   const result: Tuple[] = []
@@ -126,11 +125,9 @@ const mapQuestionnaireObjectsToHorizontalTableData = (
     ...mapQuestionnaireItemsIntoHeaders(EnsureMaybeArray<QuestionnaireItem>(definitionItems)),
   ]
 
-  const data: KeyStringValuePair[] = processResponse(records)
-
   return {
     headers: columns,
-    rows: data,
+    rows: mapQuestionnaireResponsesIntoKeyValuePairs(records),
   }
 }
 
