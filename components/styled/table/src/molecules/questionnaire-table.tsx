@@ -70,7 +70,7 @@ const mapQuestionnaireResponsesIntoKeyValuePairs = (records: QuestionnaireRespon
         date: partialDateTimeText(record.authored),
       }
 
-      EnsureMaybeArray<QuestionnaireResponseItem>(record.item ?? []).map((item) => {
+      EnsureMaybeArray<QuestionnaireResponseItem>(record.item ?? []).forEach((item) => {
         if (!item.linkId || !item.answer || !item.answer[0]) {
           return
         }
@@ -93,10 +93,9 @@ const recursivelyProcessResponseItems = (items: QuestionnaireResponseItem[]): Tu
   const result: Tuple[] = []
 
   items.forEach((item) => {
-    const linkId = item.linkId
     const firstAnswer = item.answer ? item.answer[0] : undefined
 
-    if (linkId && firstAnswer) {
+    if (item.linkId && firstAnswer) {
       // If there are answers of subsections then recurse
       if (firstAnswer.item) {
         recursivelyProcessResponseItems(EnsureMaybeArray<QuestionnaireResponseItem>(firstAnswer.item)).forEach((x) =>
@@ -105,7 +104,7 @@ const recursivelyProcessResponseItems = (items: QuestionnaireResponseItem[]): Tu
       }
 
       result.push({
-        key: linkId,
+        key: item.linkId,
         value: answerText(firstAnswer) ?? '',
       })
     }
