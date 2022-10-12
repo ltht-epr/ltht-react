@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { Column, useTable, TableCellProps } from 'react-table'
+import { useTable, TableCellProps } from 'react-table'
 
 import CssBaseline from '@material-ui/core/CssBaseline'
 import MaUTable from '@material-ui/core/Table'
@@ -7,9 +7,8 @@ import TableBody from '@material-ui/core/TableBody'
 import TableCell from '@material-ui/core/TableCell'
 import TableHead from '@material-ui/core/TableHead'
 import TableRow from '@material-ui/core/TableRow'
-import { Maybe, QuestionnaireItem, QuestionnaireResponse, KeyStringValuePair } from '@ltht-react/types'
+import { KeyStringValuePair } from '@ltht-react/types'
 import styled from '@emotion/styled'
-import { answerText, partialDateTimeText } from '@ltht-react/utils'
 import { TRANSLUCENT_BRIGHT_BLUE_TABLE, TRANSLUCENT_GREY_TABLE } from '@ltht-react/styles'
 
 const Container = styled.div`
@@ -26,41 +25,15 @@ const StyledTableHeader = styled.th`
   border: 1px solid rgba(200, 200, 200, 1);
 `
 
-const VerticalTable: FC<IProps> = ({ definitionItems, records }) => {
-  const columns: Column<KeyStringValuePair>[] = [
-    {
-      Header: '',
-      accessor: 'property',
-    },
-    ...records.map((record) => ({
-      Header: partialDateTimeText(record.authored) ?? '',
-      accessor: record?.id ?? '',
-    })),
-  ]
-
-  let questionnaireItems: KeyStringValuePair[] = definitionItems.map((def) => {
-    let questionnaireItem: KeyStringValuePair = {
-      property: def?.text ?? '',
-    }
-
-    const recordsWithMatchingItems = records.filter((record) =>
-      record.item?.some((item) => item?.linkId === def?.linkId)
-    )
-
-    recordsWithMatchingItems.forEach((record) => {
-      const matchingItem = record.item?.find((item) => item?.linkId === def?.linkId)
-      const itemValue =
-        matchingItem && matchingItem.answer && matchingItem.answer.length > 0 ? answerText(matchingItem?.answer[0]) : ''
-
-      questionnaireItem[record.id] = itemValue ?? ''
-    })
-
-    return questionnaireItem
-  })
-
+const VerticalTable: FC<IProps> = ({ tableData }) => {
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = useTable({
-    columns,
-    data: questionnaireItems,
+    columns: tableData.headers.map((header) => {
+      return {
+        Header: header.header,
+        accessor: header.accessor,
+      }
+    }),
+    data: tableData.rows,
   })
 
   return (
@@ -100,8 +73,17 @@ interface CellProps extends TableCellProps {
 }
 
 interface IProps {
-  definitionItems: Array<Maybe<QuestionnaireItem>>
-  records: QuestionnaireResponse[]
+  tableData: TableData
+}
+
+export interface Header {
+  header: string
+  accessor: string
+}
+
+export interface TableData {
+  headers: Header[]
+  rows: KeyStringValuePair[]
 }
 
 export default VerticalTable

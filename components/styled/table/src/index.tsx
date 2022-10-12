@@ -2,7 +2,7 @@ import { FC } from 'react'
 
 import { Questionnaire, QuestionnaireResponse, SummaryTableViewType } from '@ltht-react/types'
 import HorizontalTable from './atoms/horizontal'
-import VerticalTable from './atoms/vertical'
+import VerticalQuestionnaireTable from './molecules/questionnaire-table'
 
 const Table: FC<IProps> = ({ definition, records, orientation = 'vertical' }) => {
   if (!definition.item || definition.item.length === 0) {
@@ -13,7 +13,7 @@ const Table: FC<IProps> = ({ definition, records, orientation = 'vertical' }) =>
     return <HorizontalTable definitionItems={definition.item} records={records} />
   }
 
-  return <VerticalTable definitionItems={definition.item} records={records} />
+  return <VerticalQuestionnaireTable definitionItems={definition.item} records={records} />
 }
 
 interface IProps {
