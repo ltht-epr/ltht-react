@@ -6,7 +6,7 @@ import VerticalTable from './atoms/vertical'
 
 const Table: FC<IProps> = ({ definition, records, orientation = 'vertical' }) => {
   if (!definition.item) {
-    return <></>
+    return <div>{`Could not render table. Definition items array was empty.`}</div>
   }
 
   if (orientation === 'horizontal') {
