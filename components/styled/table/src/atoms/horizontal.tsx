@@ -17,6 +17,7 @@ import {
   QuestionnaireResponseItem,
 } from '@ltht-react/types'
 import styled from '@emotion/styled'
+import { Header, TableData } from './vertical'
 
 const Container = styled.div`
   background-color: white;
@@ -33,16 +34,17 @@ const StyledTableHeader = styled.th`
   border: 1px solid rgba(200, 200, 200, 1);
 `
 
-const processColumnItems = (items: Maybe<QuestionnaireItem>[]): Column<KeyStringValuePair>[] =>
+const processColumnItems = (items: Maybe<QuestionnaireItem>[]): Header[] =>
   items.map((item) => {
     if (item?.item?.length && item?.item?.length > 0) {
       return {
-        Header: item?.text ?? '',
-        columns: processColumnItems(item?.item),
-      }
+        header: item?.text ?? '',
+        accessor: '',
+        subheaders: processColumnItems(item?.item),
+      } as Header
     }
     return {
-      Header: item?.text ?? '',
+      header: item?.text ?? '',
       accessor: item?.linkId ?? '',
     }
   })
@@ -100,10 +102,13 @@ const processResponseItems = (items: Maybe<QuestionnaireResponseItem>[]): Tuple[
   return result
 }
 
-const HorizontalTable: FC<IProps> = ({ definitionItems, records }) => {
-  const columns: Column<KeyStringValuePair>[] = [
+const MapQuestionnaireObjectsToTableData = (
+  definitionItems: Array<Maybe<QuestionnaireItem>>,
+  records: QuestionnaireResponse[]
+): TableData => {
+  const columns: Header[] = [
     {
-      Header: 'Record Date',
+      header: 'Record Date',
       accessor: 'date',
     },
     ...processColumnItems(definitionItems),
@@ -111,9 +116,39 @@ const HorizontalTable: FC<IProps> = ({ definitionItems, records }) => {
 
   const data: KeyStringValuePair[] = processResponse(records)
 
+  return {
+    headers: columns,
+    rows: data,
+  }
+}
+
+const generateColumnsFromHeadersRecursively = (headers?: Header[]): Column<KeyStringValuePair>[] => {
+  if (!headers || headers.length < 1) {
+    return []
+  }
+
+  return headers.map((header) => {
+    if (header.subheaders) {
+      return {
+        Header: header.header,
+        accessor: header.accessor,
+        columns: generateColumnsFromHeadersRecursively(header.subheaders),
+      }
+    }
+
+    return {
+      Header: header.header,
+      accessor: header.accessor,
+    }
+  })
+}
+
+const HorizontalTable: FC<IProps> = ({ definitionItems, records }) => {
+  const tableData: TableData = MapQuestionnaireObjectsToTableData(definitionItems, records)
+
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = useTable({
-    columns,
-    data,
+    columns: generateColumnsFromHeadersRecursively(tableData.headers),
+    data: tableData.rows,
   })
 
   return (

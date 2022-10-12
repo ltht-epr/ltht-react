@@ -77,6 +77,7 @@ interface IProps {
 export interface Header {
   header: string
   accessor: string
+  subheaders?: Header[]
 }
 
 export interface TableData {

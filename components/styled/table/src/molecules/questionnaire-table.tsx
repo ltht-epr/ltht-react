@@ -8,6 +8,7 @@ import {
 } from '@ltht-react/types'
 import { answerText, partialDateTimeText } from '@ltht-react/utils'
 import VerticalTable, { Header, TableData } from '../atoms/vertical'
+import HorizontalTable from '../atoms/horizontal'
 
 const MapQuestionnaireObjectsToTableData = (
   definitionItems: Array<Maybe<QuestionnaireItem>>,
@@ -55,7 +56,7 @@ const QuestionnaireTable: FC<IProps> = ({ definitionItems, records, orientation 
 
   if (orientation === 'HORIZONTAL') {
     // TODO: Render horizontal table post-refactor
-    return <VerticalTable tableData={tableData} />
+    return <HorizontalTable definitionItems={definitionItems} records={records} />
   }
 
   return <VerticalTable tableData={tableData} />
