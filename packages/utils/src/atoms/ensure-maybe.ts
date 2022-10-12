@@ -1,7 +1,7 @@
 import { Maybe } from '@ltht-react/types'
 
-export const EnsureMaybeArray = function <Type>(maybeArray: Maybe<Type>[]): Type[] {
-  let definitelyArray: Type[] = []
+export const EnsureMaybeArray = <Type>(maybeArray: Maybe<Type>[]): Type[] => {
+  const definitelyArray: Type[] = []
   if (maybeArray !== undefined) {
     maybeArray.forEach((item) => {
       if (item !== null) {
@@ -13,7 +13,7 @@ export const EnsureMaybeArray = function <Type>(maybeArray: Maybe<Type>[]): Type
   return definitelyArray
 }
 
-export const EnsureMaybe = function <Type>(maybe: Maybe<Type>): Type {
+export const EnsureMaybe = <Type>(maybe: Maybe<Type>): Type => {
   if (maybe !== null) {
     return maybe
   }
