@@ -31,6 +31,6 @@ export enum SummaryTableViewType {
   Horizontal = 'HORIZONTAL',
 }
 
-export interface KeyValue {
+export interface KeyStringValuePair {
   [key: string]: string
 }

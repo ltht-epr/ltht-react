@@ -1,4 +1,4 @@
-import { Questionnaire, QuestionnaireResponse } from '@ltht-react/types'
+import { Questionnaire, QuestionnaireItemTypeCode, QuestionnaireResponse } from '@ltht-react/types'
 import { QuestionnairePublicationStatus } from '@ltht-react/types/src'
 
 export const mockSummaryDefinition: Questionnaire = {
@@ -10,7 +10,13 @@ export const mockSummaryDefinition: Questionnaire = {
     isRedacted: false,
     dataSources: [],
   },
-  item: [],
+  item: [
+    {
+      type: QuestionnaireItemTypeCode.Display,
+      text: 'This is mock definition item text',
+      linkId: 'This is a mock definition item link Id',
+    },
+  ],
 }
 
 export const mockSummaryRecordsList: QuestionnaireResponse[] = []

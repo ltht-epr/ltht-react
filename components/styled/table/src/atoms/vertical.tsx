@@ -7,7 +7,7 @@ import TableBody from '@material-ui/core/TableBody'
 import TableCell from '@material-ui/core/TableCell'
 import TableHead from '@material-ui/core/TableHead'
 import TableRow from '@material-ui/core/TableRow'
-import { Maybe, QuestionnaireItem, QuestionnaireResponse, KeyValue } from '@ltht-react/types'
+import { Maybe, QuestionnaireItem, QuestionnaireResponse, KeyStringValuePair } from '@ltht-react/types'
 import styled from '@emotion/styled'
 import { answerText, partialDateTimeText } from '@ltht-react/utils'
 import { TRANSLUCENT_BRIGHT_BLUE_TABLE, TRANSLUCENT_GREY_TABLE } from '@ltht-react/styles'
@@ -27,7 +27,7 @@ const StyledTableHeader = styled.th`
 `
 
 const VerticalTable: FC<IProps> = ({ definitionItems, records }) => {
-  const columns: Column<KeyValue>[] = [
+  const columns: Column<KeyStringValuePair>[] = [
     {
       Header: '',
       accessor: 'property',
@@ -38,11 +38,11 @@ const VerticalTable: FC<IProps> = ({ definitionItems, records }) => {
     })),
   ]
 
-  let data: KeyValue[] = definitionItems.map((def) => {
-    const obj: KeyValue = {}
-    obj.property = def?.text ?? ''
-    obj.linkId = def?.linkId ?? ''
-    return obj
+  let data: KeyStringValuePair[] = definitionItems.map((def) => {
+    return {
+      property: def?.text ?? '',
+      linkId: def?.linkId ?? '',
+    }
   })
 
   data = data.map((_item) => {

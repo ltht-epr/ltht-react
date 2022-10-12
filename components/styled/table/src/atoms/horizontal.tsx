@@ -9,7 +9,13 @@ import TableBody from '@material-ui/core/TableBody'
 import TableCell from '@material-ui/core/TableCell'
 import TableHead from '@material-ui/core/TableHead'
 import TableRow from '@material-ui/core/TableRow'
-import { Maybe, QuestionnaireItem, QuestionnaireResponse, KeyValue, QuestionnaireResponseItem } from '@ltht-react/types'
+import {
+  Maybe,
+  QuestionnaireItem,
+  QuestionnaireResponse,
+  KeyStringValuePair,
+  QuestionnaireResponseItem,
+} from '@ltht-react/types'
 import styled from '@emotion/styled'
 
 const Container = styled.div`
@@ -27,7 +33,7 @@ const StyledTableHeader = styled.th`
   border: 1px solid rgba(200, 200, 200, 1);
 `
 
-const processColumnItems = (items: Maybe<QuestionnaireItem>[]): Column<KeyValue>[] =>
+const processColumnItems = (items: Maybe<QuestionnaireItem>[]): Column<KeyStringValuePair>[] =>
   items.map((item) => {
     if (item?.item?.length && item?.item?.length > 0) {
       return {
@@ -41,11 +47,11 @@ const processColumnItems = (items: Maybe<QuestionnaireItem>[]): Column<KeyValue>
     }
   })
 
-const processResponse = (records: Maybe<QuestionnaireResponse>[]): KeyValue[] => {
-  const result: KeyValue[] = []
+const processResponse = (records: Maybe<QuestionnaireResponse>[]): KeyStringValuePair[] => {
+  const result: KeyStringValuePair[] = []
   records.forEach((record) => {
     if (record?.item) {
-      const obj: KeyValue = {
+      const obj: KeyStringValuePair = {
         date: partialDateTimeText(record.authored),
       }
       for (let index = 0; index < record.item.length; index++) {
@@ -95,7 +101,7 @@ const processResponseItems = (items: Maybe<QuestionnaireResponseItem>[]): Tuple[
 }
 
 const HorizontalTable: FC<IProps> = ({ definitionItems, records }) => {
-  const columns: Column<KeyValue>[] = [
+  const columns: Column<KeyStringValuePair>[] = [
     {
       Header: 'Record Date',
       accessor: 'date',
@@ -103,7 +109,7 @@ const HorizontalTable: FC<IProps> = ({ definitionItems, records }) => {
     ...processColumnItems(definitionItems),
   ]
 
-  const data: KeyValue[] = processResponse(records)
+  const data: KeyStringValuePair[] = processResponse(records)
 
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = useTable({
     columns,
