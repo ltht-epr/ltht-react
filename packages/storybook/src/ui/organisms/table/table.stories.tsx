@@ -10,5 +10,8 @@ export const HorizontalTable: Story = () => (
 export const MockDataVisualisation: Story = () => (
   <Table definition={mockSummaryDefinition} records={mockSummaryRecordsList}></Table>
 )
+export const MockDataVisualisationHorizontal: Story = () => (
+  <Table definition={mockSummaryDefinition} records={mockSummaryRecordsList} orientation={'HORIZONTAL'}></Table>
+)
 
 export default { title: 'UI/Organisms/Table' }

@@ -41,9 +41,21 @@ export const mockSummaryDefinition: Questionnaire = {
       linkId: 'questionId4',
     },
     {
-      type: QuestionnaireItemTypeCode.QuestionString,
+      type: QuestionnaireItemTypeCode.Group,
       text: `What is the air speed velocity of an unladen swallow?`,
       linkId: 'questionId5',
+      item: [
+        {
+          text: 'African',
+          type: QuestionnaireItemTypeCode.QuestionString,
+          linkId: 'questionId5-SubSection1',
+        },
+        {
+          text: 'European',
+          type: QuestionnaireItemTypeCode.QuestionString,
+          linkId: 'questionId5-SubSection2',
+        },
+      ],
     },
   ],
 }
@@ -73,7 +85,29 @@ export const mockSummaryRecordsList: QuestionnaireResponse[] = [
       } as QuestionnaireResponseItem,
       {
         linkId: 'questionId5',
-        answer: [{ valueString: 'What do you mean, African or European?' } as QuestionnaireResponseItemAnswer],
+        answer: [
+          {
+            valueString: 'What do you mean, African or European?',
+            item: [
+              {
+                linkId: 'questionId5-SubSection1',
+                answer: [
+                  {
+                    valueString: '~20.1 miles per hour',
+                  },
+                ],
+              },
+              {
+                linkId: 'questionId5-SubSection2',
+                answer: [
+                  {
+                    valueString: '~24.9 miles per hour',
+                  },
+                ],
+              },
+            ],
+          } as QuestionnaireResponseItemAnswer,
+        ],
       } as QuestionnaireResponseItem,
     ],
     status: QuestionnaireResponseStatus.Completed,
@@ -108,7 +142,29 @@ export const mockSummaryRecordsList: QuestionnaireResponse[] = [
       } as QuestionnaireResponseItem,
       {
         linkId: 'questionId5',
-        answer: [{ valueString: '' } as QuestionnaireResponseItemAnswer],
+        answer: [
+          {
+            valueString: `I don't know that`,
+            item: [
+              {
+                linkId: 'questionId5-SubSection1',
+                answer: [
+                  {
+                    valueString: 'Faster than the Vicious Chicken of Bristol?',
+                  },
+                ],
+              },
+              {
+                linkId: 'questionId5-SubSection2',
+                answer: [
+                  {
+                    valueString: `I've soiled my armour`,
+                  },
+                ],
+              },
+            ],
+          } as QuestionnaireResponseItemAnswer,
+        ],
       } as QuestionnaireResponseItem,
     ],
     status: QuestionnaireResponseStatus.Completed,
