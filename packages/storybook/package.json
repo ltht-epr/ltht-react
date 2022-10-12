@@ -70,6 +70,7 @@
     "@ltht-react/questionnaire": "^1.0.115",
     "@ltht-react/select": "^1.3.125",
     "@ltht-react/styles": "^1.3.117",
+    "@ltht-react/table": "^1.0.0",
     "@ltht-react/task": "^1.0.123",
     "@ltht-react/timeline": "^1.0.113",
     "@ltht-react/type-detail": "^1.3.125",
