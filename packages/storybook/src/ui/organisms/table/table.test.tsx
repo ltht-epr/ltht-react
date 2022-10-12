@@ -24,12 +24,4 @@ describe('Table', () => {
 
     expect(screen.getByText('Could not render table. Definition items array was empty.')).toBeVisible()
   })
-
-  it('Presents warning text if insufficient data is provided', () => {
-    render(<Table definition={mockSummaryDefinition} records={mockSummaryRecordsList} />)
-
-    screen.debug()
-
-    expect(screen.getByText('Could not render table. Definition items array was empty.')).toBeVisible()
-  })
 })
