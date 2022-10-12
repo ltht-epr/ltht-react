@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { useTable, TableCellProps, Column } from 'react-table'
+import { useTable, Column } from 'react-table'
 
 import CssBaseline from '@material-ui/core/CssBaseline'
 import MaUTable from '@material-ui/core/Table'
@@ -13,12 +13,6 @@ import { TRANSLUCENT_BRIGHT_BLUE_TABLE, TRANSLUCENT_GREY_TABLE } from '@ltht-rea
 
 const Container = styled.div`
   background-color: white;
-`
-
-const StyledTableCell: FC<CellProps> = styled(TableCell)`
-  text-align: center !important;
-  background-color: ${(props: CellProps) =>
-    props.cellIndex % 2 === 1 ? TRANSLUCENT_GREY_TABLE : TRANSLUCENT_BRIGHT_BLUE_TABLE};
 `
 
 const StyledTableHeader = styled.th`
@@ -71,9 +65,15 @@ const Table: FC<IProps> = ({ tableData }) => {
             return (
               <TableRow {...row.getRowProps()}>
                 {row.cells.map((cell, cellIdx) => (
-                  <StyledTableCell cellIndex={cellIdx} {...cell.getCellProps()}>
+                  <TableCell
+                    style={{
+                      background: cellIdx % 2 === 1 ? TRANSLUCENT_GREY_TABLE : TRANSLUCENT_BRIGHT_BLUE_TABLE,
+                      textAlign: 'center',
+                    }}
+                    {...cell.getCellProps()}
+                  >
                     {cell.render('Cell')}
-                  </StyledTableCell>
+                  </TableCell>
                 ))}
               </TableRow>
             )
@@ -82,10 +82,6 @@ const Table: FC<IProps> = ({ tableData }) => {
       </MaUTable>
     </Container>
   )
-}
-
-interface CellProps extends TableCellProps {
-  cellIndex: number
 }
 
 interface IProps {
