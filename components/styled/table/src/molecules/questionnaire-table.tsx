@@ -93,16 +93,20 @@ const processResponseItems = (items: QuestionnaireResponseItem[]): Tuple[] => {
   const result: Tuple[] = []
 
   items.forEach((item) => {
-    const prop = item.linkId
-    const value = item.answer
-    if (prop && value) {
-      if (value[0]?.item) {
-        const items = processResponseItems(EnsureMaybeArray<QuestionnaireResponseItem>(value[0]?.item))
-        items.forEach((x) => result.push(x))
+    const linkId = item.linkId
+    const firstAnswer = item.answer ? item.answer[0] : undefined
+
+    if (linkId && firstAnswer) {
+      // If there are answers of subsections then recurse
+      if (firstAnswer.item) {
+        processResponseItems(EnsureMaybeArray<QuestionnaireResponseItem>(firstAnswer.item)).forEach((x) =>
+          result.push(x)
+        )
       }
+
       result.push({
-        key: prop,
-        value: answerText(value[0]) ?? '',
+        key: linkId,
+        value: answerText(firstAnswer) ?? '',
       })
     }
   })
