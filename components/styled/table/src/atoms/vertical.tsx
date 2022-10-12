@@ -38,28 +38,29 @@ const VerticalTable: FC<IProps> = ({ definitionItems, records }) => {
     })),
   ]
 
-  let data: KeyStringValuePair[] = definitionItems.map((def) => {
-    return {
+  let questionnaireItems: KeyStringValuePair[] = definitionItems.map((def) => {
+    let questionnaireItem: KeyStringValuePair = {
       property: def?.text ?? '',
-      linkId: def?.linkId ?? '',
     }
-  })
 
-  data = data.map((_item) => {
-    const item = { ..._item }
-    records.forEach((record) => {
-      const find = record.item?.find((x) => x?.linkId === item.linkId)
-      if (find && find.answer) {
-        const answer = find.answer[0]
-        item[record.id] = answerText(answer) ?? ''
-      }
+    const recordsWithMatchingItems = records.filter((record) =>
+      record.item?.some((item) => item?.linkId === def?.linkId)
+    )
+
+    recordsWithMatchingItems.forEach((record) => {
+      const matchingItem = record.item?.find((item) => item?.linkId === def?.linkId)
+      const itemValue =
+        matchingItem && matchingItem.answer && matchingItem.answer.length > 0 ? answerText(matchingItem?.answer[0]) : ''
+
+      questionnaireItem[record.id] = itemValue ?? ''
     })
-    return item
+
+    return questionnaireItem
   })
 
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = useTable({
     columns,
-    data,
+    data: questionnaireItems,
   })
 
   return (
