@@ -1,13 +1,12 @@
 import { FC } from 'react'
 import { useTable, Column } from 'react-table'
-
 import CssBaseline from '@material-ui/core/CssBaseline'
 import MaUTable from '@material-ui/core/Table'
 import TableBody from '@material-ui/core/TableBody'
 import TableCell from '@material-ui/core/TableCell'
 import TableHead from '@material-ui/core/TableHead'
 import TableRow from '@material-ui/core/TableRow'
-import { KeyStringValuePair, Maybe } from '@ltht-react/types'
+import { KeyStringValuePair } from '@ltht-react/types'
 import styled from '@emotion/styled'
 import { TRANSLUCENT_BRIGHT_BLUE_TABLE, TRANSLUCENT_GREY_TABLE } from '@ltht-react/styles'
 
@@ -40,23 +39,20 @@ const generateColumnsFromHeadersRecursively = (headers?: Header[]): Column<KeySt
   })
 }
 
-const Table: FC<IProps<any, any>> = ({ tableData, columnData, rowData, mapToTableData }) => 
-{
-  if(!tableData && columnData && rowData){
-    tableData = mapToTableData(columnData, rowData);
+const Table: FC<IProps<any, any>> = ({ tableData, columnData, rowData, mapToTableData }) => {
+  let mappedTabledata: TableData | undefined = tableData
+
+  if (!mappedTabledata && columnData && rowData) {
+    mappedTabledata = mapToTableData(columnData, rowData)
   }
 
-  if(!tableData)
-  {
-    tableData = {
-      headers: [],
-      rows: []
-    }
+  if (!mappedTabledata) {
+    mappedTabledata = { headers: [], rows: [] }
   }
 
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = useTable({
-    columns: generateColumnsFromHeadersRecursively(tableData.headers),
-    data: tableData.rows,
+    columns: generateColumnsFromHeadersRecursively(mappedTabledata.headers),
+    data: mappedTabledata.rows,
   })
 
   return (
@@ -98,10 +94,10 @@ const Table: FC<IProps<any, any>> = ({ tableData, columnData, rowData, mapToTabl
 }
 
 interface IProps<TColumn = any, TRow = any> {
-  tableData?: TableData,
-  columnData: Array<Maybe<TColumn>>,
-  rowData: Array<Maybe<TRow>>,
-  mapToTableData: (colItems: Array<Maybe<TColumn>>, rowItems: Array<Maybe<TRow>>) => TableData
+  tableData?: TableData
+  columnData: TColumn
+  rowData: TRow
+  mapToTableData: (colItems: TColumn, rowItems: TRow) => TableData
 }
 
 export interface Header {
