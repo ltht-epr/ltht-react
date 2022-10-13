@@ -162,10 +162,10 @@ export const HorizontalTable: Story = () => (
   />
 )
 export const MockDataVisualisation: Story = () => (
-  <Table definition={mockSummaryDefinition} records={mockSummaryRecordsList} />
+  <Table columnData={mockSummaryDefinition?.item?.map((x) => x as QuestionnaireItem)} rowData={mockSummaryRecordsList} mapToTableData={MapQuestionnaireObjectsToVerticalTableData}/>
 )
 export const MockDataVisualisationHorizontal: Story = () => (
-  <Table definition={mockSummaryDefinition} records={mockSummaryRecordsList} orientation="HORIZONTAL" />
+  <Table columnData={mockSummaryDefinition?.item?.map((x) => x as QuestionnaireItem)} rowData={mockSummaryRecordsList} mapToTableData={MapQuestionnaireObjectsToHorizontalTableData}/>
 )
 
 export default { title: 'UI/Organisms/Table' }

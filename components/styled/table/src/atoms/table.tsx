@@ -1,4 +1,3 @@
-import { FC } from 'react'
 import { useTable, Column } from 'react-table'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import MaUTable from '@material-ui/core/Table'

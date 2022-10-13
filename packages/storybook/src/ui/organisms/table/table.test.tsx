@@ -22,7 +22,7 @@ describe('Table', () => {
   it('Presents warning text if definition item array is undefined', () => {
     const summaryDefinitionWithoutItems = { ...mockSummaryDefinition, item: undefined }
 
-    render(<Table columnData={summaryDefinitionWithoutItems} rowData={mockSummaryRecordsList} />)
+    render(<Table columnData={summaryDefinitionWithoutItems.item} rowData={mockSummaryRecordsList} />)
 
     expect(screen.getByText('Could not render table. Definition items array was empty.')).toBeVisible()
   })
@@ -30,12 +30,12 @@ describe('Table', () => {
   it('Presents warning text if definition item array is empty', () => {
     const summaryDefinitionWithoutItems = { ...mockSummaryDefinition, item: [] }
 
-    render(<Table columnData={summaryDefinitionWithoutItems} rowData={mockSummaryRecordsList} />)
+    render(<Table columnData={summaryDefinitionWithoutItems.item} rowData={mockSummaryRecordsList} />)
 
     expect(screen.getByText('Could not render table. Definition items array was empty.')).toBeVisible()
   })
 
   it('Renders Horizontally', () => {
-    render(<Table columnData={summaryDefinition} rowData={summaryRecordsList} />)
+    render(<Table columnData={summaryDefinition.item} rowData={summaryRecordsList} />)
   })
 })
