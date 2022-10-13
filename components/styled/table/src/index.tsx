@@ -20,5 +20,5 @@ export default function Table<TColumn, TRow>({ columnData, rowData, mapToTableDa
 interface IProps<TColumn, TRow> {
   columnData: TColumn | undefined
   rowData: TRow | undefined
-  mapToTableData: (colItems: TColumn, rowItems: TRow) => TableData
+  mapToTableData?: (colItems: TColumn, rowItems: TRow) => TableData
 }

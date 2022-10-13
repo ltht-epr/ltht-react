@@ -1,3 +1,4 @@
+import { TableData } from '@ltht-react/table/lib/atoms/table'
 import { Questionnaire, QuestionnaireItemTypeCode, QuestionnaireResponse } from '@ltht-react/types'
 import { QuestionnairePublicationStatus } from '@ltht-react/types/src'
 
@@ -20,3 +21,17 @@ export const mockSummaryDefinition: Questionnaire = {
 }
 
 export const mockSummaryRecordsList: QuestionnaireResponse[] = []
+
+export const mockTableDataSingleColAndRow: TableData = {
+  headers: [
+    {
+      header: 'title',
+      accessor: 'title',
+    },
+  ],
+  rows: [
+    {
+      title: 'title-value',
+    },
+  ],
+}
