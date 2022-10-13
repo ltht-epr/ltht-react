@@ -8,6 +8,7 @@ import {
   QuestionnaireResponseItemAnswer,
   QuestionnaireResponseStatus,
 } from '@ltht-react/types'
+import { TableData } from '@ltht-react/table/lib/atoms/table'
 import { QuestionnairePublicationStatus } from '@ltht-react/types/src'
 
 export const mockSummaryDefinition: Questionnaire = {
@@ -176,3 +177,17 @@ export const mockSummaryRecordsList: QuestionnaireResponse[] = [
     },
   } as QuestionnaireResponse,
 ]
+
+export const mockTableDataSingleColAndRow: TableData = {
+  headers: [
+    {
+      header: 'title',
+      accessor: 'title',
+    },
+  ],
+  rows: [
+    {
+      title: 'title-value',
+    },
+  ],
+}

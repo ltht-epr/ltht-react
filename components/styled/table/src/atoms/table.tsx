@@ -47,7 +47,7 @@ export default function Table<TColumn, TRow>({
 }: IProps<TColumn, TRow>) {
   let mappedTabledata: TableData | undefined = tableData
 
-  if (!mappedTabledata && columnData && rowData) {
+  if (!mappedTabledata && columnData && rowData && typeof mapToTableData === 'function') {
     mappedTabledata = mapToTableData(columnData, rowData)
   }
 
@@ -102,7 +102,7 @@ interface IProps<TColumn, TRow> {
   tableData?: TableData
   columnData: TColumn
   rowData: TRow
-  mapToTableData: (colItems: TColumn, rowItems: TRow) => TableData
+  mapToTableData?: (colItems: TColumn, rowItems: TRow) => TableData
 }
 
 export interface Header {
