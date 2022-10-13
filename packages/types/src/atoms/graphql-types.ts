@@ -51,7 +51,7 @@ export type Ehr = {
   questionnaireResponsesBySet?: Maybe<QuestionnaireResponseContinuation>
   questionnaireResponseLastCompleted?: Maybe<QuestionnaireResponse>
   summaryDefinition?: Maybe<Questionnaire>
-  summaryRecords?: Maybe<QuestionnaireResponseContinuation>
+  summaryView?: Maybe<QuestionnaireResponseContinuation>
   tasks?: Maybe<TaskContinuation>
   terminologyItems?: Maybe<TerminologyItemContinuation>
 }
@@ -92,7 +92,7 @@ export type EhrCarePlanDefinitionArgs = {
 export type EhrCarePlanDefinitionsArgs = {
   pathwayType: Scalars['String']
   filter?: Maybe<Scalars['String']>
-  usageContext?: Maybe<Scalars['String']>
+  useContext?: Maybe<Scalars['String']>
   cursorToken?: Maybe<Scalars['String']>
   count?: Maybe<Scalars['Int']>
 }
@@ -190,7 +190,7 @@ export type EhrSummaryDefinitionArgs = {
 }
 
 /** Queries the LTHT EHR. */
-export type EhrSummaryRecordsArgs = {
+export type EhrSummaryViewArgs = {
   patientGuid: Scalars['String']
   name: Scalars['String']
   cursorToken?: Maybe<Scalars['String']>
@@ -790,7 +790,7 @@ export type PlanDefinition = {
   /** Natural language description of the plan definition. */
   description?: Maybe<Scalars['String']>
   /** Describes the clinical usage of the plan. */
-  usageContext?: Maybe<Array<Maybe<UsageContext>>>
+  useContext?: Maybe<Array<Maybe<UsageContext>>>
   /** Intended jurisdiction for plan definition (if applicable). */
   jurisdiction?: Maybe<Array<Maybe<CodeableConcept>>>
   /** Why this plan definition is defined. */
@@ -3026,6 +3026,7 @@ export type EhrMutation = {
   pauseCarePlan?: Maybe<CarePlan>
   setConditionStatus?: Maybe<Condition>
   addConditions?: Maybe<Array<Maybe<Condition>>>
+  updateTask?: Maybe<Task>
 }
 
 /** Mutations of the LTHT EHR. */
@@ -3075,6 +3076,16 @@ export type EhrMutationAddConditionsArgs = {
   patientGuid: Scalars['String']
   conditions: ConditionMinimalInputList
   template: Scalars['String']
+}
+
+/** Mutations of the LTHT EHR. */
+export type EhrMutationUpdateTaskArgs = {
+  patientGuid: Scalars['String']
+  taskId?: Maybe<Scalars['String']>
+  taskName?: Maybe<Scalars['String']>
+  externalReference?: Maybe<Scalars['String']>
+  processType?: Maybe<Scalars['String']>
+  taskOutcome?: Maybe<Scalars['String']>
 }
 
 export type CarePlanActionsInput = {
