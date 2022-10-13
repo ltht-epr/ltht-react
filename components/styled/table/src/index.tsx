@@ -1,7 +1,6 @@
-import { FC } from 'react'
 import GenericTable, { TableData } from './atoms/table'
 
-const Table: FC<IProps> = ({ columnData, rowData, mapToTableData }) => {
+export default function Table<TColumn, TRow>({ columnData, rowData, mapToTableData }: IProps<TColumn, TRow>) {
   if (
     !columnData ||
     !rowData ||
@@ -18,10 +17,8 @@ const Table: FC<IProps> = ({ columnData, rowData, mapToTableData }) => {
   return <GenericTable columnData={columnData} rowData={rowData} mapToTableData={mapToTableData} />
 }
 
-interface IProps<TColumn = any, TRow = any> {
-  columnData: TColumn
-  rowData: TRow
+interface IProps<TColumn, TRow> {
+  columnData: TColumn | undefined
+  rowData: TRow | undefined
   mapToTableData: (colItems: TColumn, rowItems: TRow) => TableData
 }
-
-export default Table

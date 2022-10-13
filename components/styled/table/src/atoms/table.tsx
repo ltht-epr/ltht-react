@@ -39,7 +39,12 @@ const generateColumnsFromHeadersRecursively = (headers?: Header[]): Column<KeySt
   })
 }
 
-const Table: FC<IProps<any, any>> = ({ tableData, columnData, rowData, mapToTableData }) => {
+export default function Table<TColumn, TRow>({
+  tableData,
+  columnData,
+  rowData,
+  mapToTableData,
+}: IProps<TColumn, TRow>) {
   let mappedTabledata: TableData | undefined = tableData
 
   if (!mappedTabledata && columnData && rowData) {
@@ -93,7 +98,7 @@ const Table: FC<IProps<any, any>> = ({ tableData, columnData, rowData, mapToTabl
   )
 }
 
-interface IProps<TColumn = any, TRow = any> {
+interface IProps<TColumn, TRow> {
   tableData?: TableData
   columnData: TColumn
   rowData: TRow
@@ -110,5 +115,3 @@ export interface TableData {
   headers: Header[]
   rows: KeyStringValuePair[]
 }
-
-export default Table

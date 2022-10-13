@@ -148,7 +148,7 @@ interface Tuple {
 
 export const VerticalTable: Story = () => (
   <Table
-    columnData={summaryDefinition?.item}
+    columnData={summaryDefinition?.item?.map((x) => x as QuestionnaireItem)}
     rowData={summaryRecordsList}
     mapToTableData={MapQuestionnaireObjectsToVerticalTableData}
   />
@@ -156,7 +156,7 @@ export const VerticalTable: Story = () => (
 
 export const HorizontalTable: Story = () => (
   <Table
-    columnData={summaryDefinition?.item}
+    columnData={summaryDefinition?.item?.map((x) => x as QuestionnaireItem)}
     rowData={summaryRecordsList}
     mapToTableData={MapQuestionnaireObjectsToHorizontalTableData}
   />
