@@ -1,8 +1,8 @@
 import { render, screen } from '@testing-library/react'
 import Table from '@ltht-react/table'
+import { QuestionnaireItem } from '@ltht-react/types'
 import { mockSummaryDefinition, mockSummaryRecordsList } from './table.mockdata'
 import { summaryDefinition, summaryRecordsList } from './table.fixtures'
-import { QuestionnaireItem } from '@ltht-react/types'
 
 describe('Table', () => {
   it('Renders', () => {
@@ -49,13 +49,13 @@ describe('Table', () => {
     const columnWithSubheadings = mockSummaryDefinition?.item?.find((x) => x?.item && x?.item.length > 0)
     const column = screen
       .getAllByRole('columnheader')
-      .find((x) => x.textContent == (columnWithSubheadings as QuestionnaireItem).text)
-    const colSpan = parseInt((column as HTMLElement).attributes.getNamedItem('COLSPAN')?.value as string)
+      .find((x) => x.textContent === (columnWithSubheadings as QuestionnaireItem).text)
+    const colSpan = (column as HTMLElement).attributes.getNamedItem('COLSPAN')?.value
     const numberOfHeaderRows = screen.getByRole('table').children[0].childNodes.length
 
     expect(columnWithSubheadings).toBeDefined()
     expect(column).toBeDefined()
-    expect(colSpan).toBe(columnWithSubheadings?.item?.length)
+    expect(colSpan).toBe('2')
     expect(numberOfHeaderRows).toBe(2)
   })
 
