@@ -140,12 +140,12 @@ const MapQuestionnaireObjectsToHorizontalTableData = (
 }
 
 const QuestionnaireTable: FC<IProps> = ({ definitionItems, records, orientation }) => {
-  const tableData =
+  const mappingMethod =
     orientation === 'VERTICAL'
-      ? MapQuestionnaireObjectsToVerticalTableData(definitionItems, records)
-      : MapQuestionnaireObjectsToHorizontalTableData(definitionItems, records)
+      ? MapQuestionnaireObjectsToVerticalTableData
+      : MapQuestionnaireObjectsToHorizontalTableData
 
-  return <Table tableData={tableData} />
+  return <Table columnData={definitionItems} rowData={records} mapToTableData={mappingMethod} />
 }
 
 interface Tuple {

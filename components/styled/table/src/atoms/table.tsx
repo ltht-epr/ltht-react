@@ -1,6 +1,4 @@
-import { FC } from 'react'
 import { useTable, Column } from 'react-table'
-
 import CssBaseline from '@material-ui/core/CssBaseline'
 import MaUTable from '@material-ui/core/Table'
 import TableBody from '@material-ui/core/TableBody'
@@ -40,10 +38,25 @@ const generateColumnsFromHeadersRecursively = (headers?: Header[]): Column<KeySt
   })
 }
 
-const Table: FC<IProps> = ({ tableData }) => {
+export default function Table<TColumn, TRow>({
+  tableData,
+  columnData,
+  rowData,
+  mapToTableData,
+}: IProps<TColumn, TRow>) {
+  let mappedTabledata: TableData | undefined = tableData
+
+  if (!mappedTabledata && columnData && rowData && mapToTableData) {
+    mappedTabledata = mapToTableData(columnData, rowData)
+  }
+
+  if (!mappedTabledata) {
+    mappedTabledata = { headers: [], rows: [] }
+  }
+
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = useTable({
-    columns: generateColumnsFromHeadersRecursively(tableData.headers),
-    data: tableData.rows,
+    columns: generateColumnsFromHeadersRecursively(mappedTabledata.headers),
+    data: mappedTabledata.rows,
   })
 
   return (
@@ -84,8 +97,11 @@ const Table: FC<IProps> = ({ tableData }) => {
   )
 }
 
-interface IProps {
-  tableData: TableData
+interface IProps<TColumn, TRow> {
+  tableData?: TableData
+  columnData: TColumn
+  rowData: TRow
+  mapToTableData?: (colItems: TColumn, rowItems: TRow) => TableData
 }
 
 export interface Header {
@@ -98,5 +114,3 @@ export interface TableData {
   headers: Header[]
   rows: KeyStringValuePair[]
 }
-
-export default Table
