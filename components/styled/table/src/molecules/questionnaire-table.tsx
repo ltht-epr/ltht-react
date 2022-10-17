@@ -147,7 +147,7 @@ interface Tuple {
 
 interface IProps {
   orientation: SummaryTableViewType
-  definitionItems: Array<Maybe<QuestionnaireItem>>
+  definitionItems: Array<QuestionnaireItem>
   records: QuestionnaireResponse[]
 }
 
