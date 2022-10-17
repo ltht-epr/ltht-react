@@ -4,7 +4,7 @@ import {
   SummaryTableViewType,
   QuestionnaireResponseItem,
 } from '@ltht-react/types'
-import { answerText, EnsureMaybeArray, partialDateTimeText } from '@ltht-react/utils'
+import { answerText, EnsureMaybe, EnsureMaybeArray, partialDateTimeText } from '@ltht-react/utils'
 import { FC } from 'react'
 import Table, { Cell, CellRow, Header, TableData } from '../atoms/table'
 
@@ -32,10 +32,7 @@ const mapQuestionnaireObjectsToVerticalTableData = (
         const matchingItem = record.item?.find((item) => item?.linkId === def?.linkId)
         return {
           key: record.id,
-          value:
-            (!!matchingItem && matchingItem.answer && matchingItem.answer.length > 0
-              ? matchingItem?.answer[0]?.valueString
-              : '') ?? '',
+          value: EnsureMaybe<string>(matchingItem?.answer?.find((answer) => !!answer)?.valueString, ''),
         }
       }),
     ],
