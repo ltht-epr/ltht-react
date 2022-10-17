@@ -1,7 +1,13 @@
 import { useTable, Column } from 'react-table'
 import { KeyStringValuePair } from '@ltht-react/types'
 import styled from '@emotion/styled'
-import { CSS_RESET, TRANSLUCENT_BRIGHT_BLUE_TABLE, TRANSLUCENT_GREY_TABLE, TRANSLUCENT_MID_GREY } from '@ltht-react/styles'
+import {
+        CSS_RESET, 
+        TEXT_COLOURS, 
+        TRANSLUCENT_BRIGHT_BLUE_TABLE, 
+        TRANSLUCENT_GREY_TABLE, 
+        TRANSLUCENT_MID_GREY
+} from '@ltht-react/styles'
 
 const Container = styled.div`
   ${CSS_RESET};
@@ -19,6 +25,7 @@ const StyledTable = styled.table`
 const StyledTableHeader = styled.th`
   font-weight: bold
   border-radius: 12px;
+  color: ${TEXT_COLOURS.PRIMARY};
 `
 
 const generateColumnsFromHeadersRecursively = (headers?: Header[]): Column<KeyStringValuePair>[] => {
