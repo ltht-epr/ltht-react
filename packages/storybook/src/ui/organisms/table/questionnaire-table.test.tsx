@@ -27,7 +27,7 @@ describe('Questionnaire Table', () => {
       <QuestionnaireTable
         definitionItems={summaryDefinitionItems}
         records={summaryRecordsList}
-        orientation={'VERTICAL'}
+        orientation="VERTICAL"
       />
     )
 
@@ -45,7 +45,7 @@ describe('Questionnaire Table', () => {
       <QuestionnaireTable
         definitionItems={summaryDefinitionItems}
         records={summaryRecordsList}
-        orientation={'HORIZONTAL'}
+        orientation="HORIZONTAL"
       />
     )
 
