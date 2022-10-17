@@ -6,12 +6,12 @@ import {
 } from '@ltht-react/types'
 import { answerText, EnsureMaybeArray, partialDateTimeText } from '@ltht-react/utils'
 import { FC } from 'react'
-import Table, { Header, TableData } from '../atoms/table'
+import Table, { Cell, CellRow, Header, TableData } from '../atoms/table'
 
 const mapQuestionnaireObjectsToVerticalTableData = (
   definitionItems: Array<QuestionnaireItem>,
   records: QuestionnaireResponse[]
-): TableDataNew => {
+): TableData => {
   return {
     headers: [
       {
@@ -62,7 +62,7 @@ const recursivelyMapQuestionnaireItemsIntoHeaders = (questionnaireItems: Questio
 
 const mapQuestionnaireResponsesIntoCellRow = (records: QuestionnaireResponse[]): CellRow[] => {
   const cellRows: CellRow[] = []
-  
+
   records.forEach((record) => {
     record.item = EnsureMaybeArray<QuestionnaireResponseItem>(record.item ?? [])
 
@@ -134,45 +134,31 @@ const mapQuestionnaireObjectsToHorizontalTableData = (
   definitionItems: Array<QuestionnaireItem>,
   records: QuestionnaireResponse[]
 ): TableData => {
-  const columns: Header[] = [
-    {
-      header: 'Record Date',
-      accessor: 'date',
-    },
-    ...recursivelyMapQuestionnaireItemsIntoHeaders(definitionItems),
-  ]
   return {
-    headers: columns,
+    headers: [
+      {
+        header: 'Record Date',
+        accessor: 'date',
+      },
+      ...recursivelyMapQuestionnaireItemsIntoHeaders(definitionItems),
+    ],
     rows: mapQuestionnaireResponsesIntoCellRow(records),
   }
 }
 
 const QuestionnaireTable: FC<IProps> = ({ definitionItems, records, orientation }) => {
-  const mappingMethod =
-    orientation === 'VERTICAL'
-      ? mapQuestionnaireObjectsToVerticalTableData
-      : mapQuestionnaireObjectsToHorizontalTableData
-  return <Table columnData={EnsureMaybeArray(definitionItems)} rowData={records} mapToTableData={mappingMethod} />
+  const tableData =
+    orientation == 'VERTICAL'
+      ? mapQuestionnaireObjectsToVerticalTableData(definitionItems, records)
+      : mapQuestionnaireObjectsToHorizontalTableData(definitionItems, records)
+
+  return <Table tableData={tableData} />
 }
 
 interface IProps {
   orientation: SummaryTableViewType
   definitionItems: QuestionnaireItem[]
   records: QuestionnaireResponse[]
-}
-
-interface Cell {
-  key: string
-  value: string
-}
-
-interface CellRow {
-  cells: Cell[]
-}
-
-export interface TableDataNew {
-  headers: Header[]
-  rows: CellRow[]
 }
 
 export default QuestionnaireTable

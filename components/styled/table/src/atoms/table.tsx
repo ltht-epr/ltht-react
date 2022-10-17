@@ -38,6 +38,22 @@ const generateColumnsFromHeadersRecursively = (headers?: Header[]): Column<KeySt
   })
 }
 
+const generateRowsFromCellRows = (cellRows: CellRow[]): KeyStringValuePair[] => {
+  let cells: KeyStringValuePair[] = []
+
+  cellRows.forEach((cellRow) => {
+    const dataObject: KeyStringValuePair = {}
+
+    cellRow.cells.forEach((cell) => {
+      dataObject[cell.key] = cell.value
+    })
+
+    cells.push(dataObject)
+  })
+
+  return cells
+}
+
 export default function Table<TColumn, TRow>({
   tableData,
   columnData,
@@ -56,7 +72,7 @@ export default function Table<TColumn, TRow>({
 
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = useTable({
     columns: generateColumnsFromHeadersRecursively(mappedTabledata.headers),
-    data: mappedTabledata.rows,
+    data: generateRowsFromCellRows(mappedTabledata.rows),
   })
 
   return (
@@ -99,8 +115,8 @@ export default function Table<TColumn, TRow>({
 
 interface IProps<TColumn, TRow> {
   tableData?: TableData
-  columnData: TColumn
-  rowData: TRow
+  columnData?: TColumn
+  rowData?: TRow
   mapToTableData?: (colItems: TColumn, rowItems: TRow) => TableData
 }
 
@@ -110,7 +126,16 @@ export interface Header {
   subheaders?: Header[]
 }
 
+export interface Cell {
+  key: string
+  value: string
+}
+
+export interface CellRow {
+  cells: Cell[]
+}
+
 export interface TableData {
   headers: Header[]
-  rows: KeyStringValuePair[]
+  rows: CellRow[]
 }
