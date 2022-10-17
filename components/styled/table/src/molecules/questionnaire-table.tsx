@@ -5,7 +5,7 @@ import {
   QuestionnaireResponseItem,
   QuestionnaireResponseItemAnswer,
 } from '@ltht-react/types'
-import { answerText, EnsureMaybe, EnsureMaybeArray, partialDateTimeText } from '@ltht-react/utils'
+import { EnsureMaybe, EnsureMaybeArray, partialDateTimeText } from '@ltht-react/utils'
 import { FC } from 'react'
 import Table, { Cell, CellRow, Header, TableData } from '../atoms/table'
 
@@ -100,7 +100,7 @@ const recursivelyMapResponseItemsToCells = (items: QuestionnaireResponseItem[]):
       // Always push item's linkId with first answer
       cells.push({
         key: item.linkId,
-        value: answerText(firstAnswer) ?? '',
+        value: EnsureMaybe<string>(firstAnswer.valueString, ''),
       })
 
       // If first answer has subitems, recurse through them and do the same
