@@ -39,19 +39,19 @@ const generateColumnsFromHeadersRecursively = (headers?: Header[]): Column<KeySt
 }
 
 const generateRowsFromCellRows = (cellRows: CellRow[]): KeyStringValuePair[] => {
-  const cells: KeyStringValuePair[] = []
+  const mappedCells: KeyStringValuePair[] = []
 
   cellRows.forEach((cellRow) => {
-    const dataObject: KeyStringValuePair = {}
+    const mappedCell: KeyStringValuePair = {}
 
     cellRow.cells.forEach((cell) => {
-      dataObject[cell.key] = cell.value
+      mappedCell[cell.key] = cell.value
     })
 
-    cells.push(dataObject)
+    mappedCells.push(mappedCell)
   })
 
-  return cells
+  return mappedCells
 }
 
 export default function Table<TColumn, TRow>({
@@ -60,15 +60,10 @@ export default function Table<TColumn, TRow>({
   rowData,
   mapToTableData,
 }: IProps<TColumn, TRow>) {
-  let mappedTabledata: TableData | undefined = tableData
-
-  if (!mappedTabledata && columnData && rowData && mapToTableData) {
-    mappedTabledata = mapToTableData(columnData, rowData)
-  }
-
-  if (!mappedTabledata) {
-    mappedTabledata = { headers: [], rows: [] }
-  }
+  const mappedTabledata =
+    columnData && rowData && mapToTableData
+      ? mapToTableData(columnData, rowData)
+      : tableData ?? { headers: [], rows: [] }
 
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = useTable({
     columns: generateColumnsFromHeadersRecursively(mappedTabledata.headers),
