@@ -2,7 +2,6 @@ import { render, screen } from '@testing-library/react'
 import Table from '@ltht-react/table'
 import { QuestionnaireItem } from '@ltht-react/types'
 import { mockSummaryDefinition, mockSummaryRecordsList } from './table.mockdata'
-import { summaryDefinition, summaryRecordsList } from './table.fixtures'
 
 describe('Table', () => {
   it('Renders', () => {
@@ -28,7 +27,7 @@ describe('Table', () => {
   })
 
   it('Renders Horizontally', () => {
-    render(<Table definition={summaryDefinition} records={summaryRecordsList} orientation="HORIZONTAL" />)
+    render(<Table definition={mockSummaryDefinition} records={mockSummaryRecordsList} orientation="HORIZONTAL" />)
   })
 
   it('Renders horizontal table with multiple row headers. total 13 columns to be visible', () => {

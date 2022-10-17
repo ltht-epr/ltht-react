@@ -9,7 +9,7 @@ import { EnsureMaybe, EnsureMaybeArray, partialDateTimeText } from '@ltht-react/
 import { FC } from 'react'
 import Table, { Cell, CellRow, Header, TableData } from '../atoms/table'
 
-const mapQuestionnaireObjectsToVerticalTableData = (
+export const mapQuestionnaireObjectsToVerticalTableData = (
   definitionItems: Array<QuestionnaireItem>,
   records: QuestionnaireResponse[]
 ): TableData => ({
@@ -115,7 +115,7 @@ const recursivelyMapResponseItemsToCells = (items: QuestionnaireResponseItem[]):
   return cells
 }
 
-const mapQuestionnaireObjectsToHorizontalTableData = (
+export const mapQuestionnaireObjectsToHorizontalTableData = (
   definitionItems: Array<QuestionnaireItem>,
   records: QuestionnaireResponse[]
 ): TableData => ({

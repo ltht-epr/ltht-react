@@ -1,11 +1,107 @@
 import {
   PartialDateTimeKindCode,
   Questionnaire,
+  QuestionnaireItem,
   QuestionnaireItemTypeCode,
   QuestionnairePublicationStatus,
   QuestionnaireResponse,
   QuestionnaireResponseStatus,
 } from '@ltht-react/types'
+
+export const summaryDefinitionItems: QuestionnaireItem[] = [
+  {
+    text: 'Score',
+    type: QuestionnaireItemTypeCode.QuestionString,
+    linkId: '1',
+    item: null,
+  },
+  {
+    text: 'Intervention',
+    type: QuestionnaireItemTypeCode.QuestionString,
+    linkId: '2',
+    item: null,
+  },
+  {
+    text: 'Partial Indication',
+    type: QuestionnaireItemTypeCode.QuestionString,
+    linkId: '3',
+    item: null,
+  },
+  {
+    text: 'Standard Observations',
+    type: QuestionnaireItemTypeCode.Group,
+    linkId: '4',
+    item: [
+      {
+        text: 'RR (breaths/min)',
+        type: QuestionnaireItemTypeCode.Group,
+        linkId: '4a',
+        item: [
+          {
+            text: 'RR Part 1 (breaths/min)',
+            type: QuestionnaireItemTypeCode.QuestionString,
+            linkId: '4aa',
+          },
+          {
+            text: 'RR Part 2 (breaths/min)',
+            type: QuestionnaireItemTypeCode.QuestionString,
+            linkId: '4ab',
+          },
+        ],
+      },
+      {
+        text: 'O2 Sat (%)',
+        type: QuestionnaireItemTypeCode.QuestionString,
+        linkId: '4b',
+      },
+      {
+        text: 'Supp O2',
+        type: QuestionnaireItemTypeCode.QuestionString,
+        linkId: '4c',
+      },
+      {
+        text: 'Blood Pressure',
+        type: QuestionnaireItemTypeCode.QuestionString,
+        linkId: '4d',
+      },
+      {
+        text: 'Standing 1 Minute BP',
+        type: QuestionnaireItemTypeCode.QuestionString,
+        linkId: '4e',
+      },
+      {
+        text: 'Standing 3 Minute BP',
+        type: QuestionnaireItemTypeCode.QuestionString,
+        linkId: '4f',
+      },
+      {
+        text: 'HR (BPM)',
+        type: QuestionnaireItemTypeCode.QuestionString,
+        linkId: '4g',
+      },
+      {
+        text: 'Temp (°C)',
+        type: QuestionnaireItemTypeCode.QuestionString,
+        linkId: '4h',
+      },
+      {
+        text: 'Consciousness',
+        type: QuestionnaireItemTypeCode.QuestionString,
+        linkId: '4i',
+      },
+      {
+        text: 'Pain Score',
+        type: QuestionnaireItemTypeCode.QuestionString,
+        linkId: '4j',
+      },
+      {
+        text: 'Blood Glucose (mmol/L)',
+        type: QuestionnaireItemTypeCode.QuestionString,
+        linkId: '4k',
+      },
+    ],
+  },
+]
 
 export const summaryDefinition: Questionnaire = {
   extension: [
@@ -39,100 +135,7 @@ export const summaryDefinition: Questionnaire = {
   status: QuestionnairePublicationStatus.Active,
   id: '1',
   title: 'Observations',
-  item: [
-    {
-      text: 'Score',
-      type: QuestionnaireItemTypeCode.QuestionString,
-      linkId: '1',
-      item: null,
-    },
-    {
-      text: 'Intervention',
-      type: QuestionnaireItemTypeCode.QuestionString,
-      linkId: '2',
-      item: null,
-    },
-    {
-      text: 'Partial Indication',
-      type: QuestionnaireItemTypeCode.QuestionString,
-      linkId: '3',
-      item: null,
-    },
-    {
-      text: 'Standard Observations',
-      type: QuestionnaireItemTypeCode.Group,
-      linkId: '4',
-      item: [
-        {
-          text: 'RR (breaths/min)',
-          type: QuestionnaireItemTypeCode.Group,
-          linkId: '4a',
-          item: [
-            {
-              text: 'RR Part 1 (breaths/min)',
-              type: QuestionnaireItemTypeCode.QuestionString,
-              linkId: '4aa',
-            },
-            {
-              text: 'RR Part 2 (breaths/min)',
-              type: QuestionnaireItemTypeCode.QuestionString,
-              linkId: '4ab',
-            },
-          ],
-        },
-        {
-          text: 'O2 Sat (%)',
-          type: QuestionnaireItemTypeCode.QuestionString,
-          linkId: '4b',
-        },
-        {
-          text: 'Supp O2',
-          type: QuestionnaireItemTypeCode.QuestionString,
-          linkId: '4c',
-        },
-        {
-          text: 'Blood Pressure',
-          type: QuestionnaireItemTypeCode.QuestionString,
-          linkId: '4d',
-        },
-        {
-          text: 'Standing 1 Minute BP',
-          type: QuestionnaireItemTypeCode.QuestionString,
-          linkId: '4e',
-        },
-        {
-          text: 'Standing 3 Minute BP',
-          type: QuestionnaireItemTypeCode.QuestionString,
-          linkId: '4f',
-        },
-        {
-          text: 'HR (BPM)',
-          type: QuestionnaireItemTypeCode.QuestionString,
-          linkId: '4g',
-        },
-        {
-          text: 'Temp (°C)',
-          type: QuestionnaireItemTypeCode.QuestionString,
-          linkId: '4h',
-        },
-        {
-          text: 'Consciousness',
-          type: QuestionnaireItemTypeCode.QuestionString,
-          linkId: '4i',
-        },
-        {
-          text: 'Pain Score',
-          type: QuestionnaireItemTypeCode.QuestionString,
-          linkId: '4j',
-        },
-        {
-          text: 'Blood Glucose (mmol/L)',
-          type: QuestionnaireItemTypeCode.QuestionString,
-          linkId: '4k',
-        },
-      ],
-    },
-  ],
+  item: summaryDefinitionItems,
 }
 
 const summaryRecordOne: QuestionnaireResponse = {
