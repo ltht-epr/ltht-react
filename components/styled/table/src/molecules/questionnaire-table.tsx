@@ -3,6 +3,7 @@ import {
   QuestionnaireResponse,
   SummaryTableViewType,
   QuestionnaireResponseItem,
+  QuestionnaireResponseItemAnswer,
 } from '@ltht-react/types'
 import { answerText, EnsureMaybe, EnsureMaybeArray, partialDateTimeText } from '@ltht-react/utils'
 import { FC } from 'react'
@@ -28,13 +29,13 @@ const mapQuestionnaireObjectsToVerticalTableData = (
         key: 'property',
         value: def?.text ?? '',
       },
-      ...records.map((record) => {
-        const matchingItem = record.item?.find((item) => item?.linkId === def?.linkId)
-        return {
-          key: record.id,
-          value: EnsureMaybe<string>(matchingItem?.answer?.find((answer) => !!answer)?.valueString, ''),
-        }
-      }),
+      ...records.map((record) => ({
+        key: record.id,
+        value: EnsureMaybe<string>(
+          record.item?.find((item) => item?.linkId === def?.linkId)?.answer?.find((answer) => !!answer)?.valueString,
+          ''
+        ),
+      })),
     ],
   })),
 })
@@ -50,11 +51,10 @@ const recursivelyMapQuestionnaireItemsIntoHeaders = (questionnaireItems: Questio
     }
   })
 
-const mapQuestionnaireResponsesIntoCellRow = (records: QuestionnaireResponse[]): CellRow[] => {
-  const cellRows: CellRow[] = []
-
-  records.forEach((record) => {
-    if (record?.item) {
+const mapQuestionnaireResponsesIntoCellRow = (records: QuestionnaireResponse[]): CellRow[] =>
+  records
+    .filter((record) => !!record.item)
+    .map((record) => {
       const cellArray = [
         {
           key: 'date',
@@ -62,14 +62,15 @@ const mapQuestionnaireResponsesIntoCellRow = (records: QuestionnaireResponse[]):
         },
       ]
 
-      record.item.forEach((item) => {
-        const prop = item?.linkId
-        const value = item?.answer
+      record.item
+        ?.filter((item) => !!item?.linkId && !!item?.answer)
+        .forEach((item) => {
+          const linkId = EnsureMaybe<string>(item?.linkId)
+          const answer = EnsureMaybe<QuestionnaireResponseItemAnswer>(item?.answer?.find((answer) => !!answer))
 
-        if (prop && value) {
-          if (value[0]?.item) {
+          if (answer.item) {
             const items = recursivelyMapResponseItemsToCells(
-              EnsureMaybeArray<QuestionnaireResponseItem>(value[0].item ?? [])
+              EnsureMaybeArray<QuestionnaireResponseItem>(answer.item ?? [])
             )
 
             items.forEach((x) => {
@@ -79,19 +80,15 @@ const mapQuestionnaireResponsesIntoCellRow = (records: QuestionnaireResponse[]):
               })
             })
           }
+
           cellArray.push({
-            key: prop,
-            value: answerText(value[0]) ?? '',
+            key: linkId,
+            value: EnsureMaybe<string>(answer.valueString, ''),
           })
-        }
-      })
+        })
 
-      cellRows.push({ cells: cellArray } as CellRow)
-    }
-  })
-
-  return cellRows
-}
+      return { cells: cellArray } as CellRow
+    })
 
 const recursivelyMapResponseItemsToCells = (items: QuestionnaireResponseItem[]): Cell[] => {
   const cells: Cell[] = []
