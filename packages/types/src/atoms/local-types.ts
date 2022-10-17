@@ -27,7 +27,3 @@ export enum DetailViewType {
 }
 
 export type SummaryTableViewType = 'VERTICAL' | 'HORIZONTAL'
-
-export interface KeyStringValuePair {
-  [key: string]: string
-}

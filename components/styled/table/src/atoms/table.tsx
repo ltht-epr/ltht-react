@@ -5,7 +5,6 @@ import TableBody from '@material-ui/core/TableBody'
 import TableCell from '@material-ui/core/TableCell'
 import TableHead from '@material-ui/core/TableHead'
 import TableRow from '@material-ui/core/TableRow'
-import { KeyStringValuePair } from '@ltht-react/types'
 import styled from '@emotion/styled'
 import { TRANSLUCENT_BRIGHT_BLUE_TABLE, TRANSLUCENT_GREY_TABLE } from '@ltht-react/styles'
 
@@ -17,7 +16,7 @@ const StyledTableHeader = styled.th`
   border: 1px solid rgba(200, 200, 200, 1);
 `
 
-const generateColumnsFromHeadersRecursively = (headers?: Header[]): Column<KeyStringValuePair>[] => {
+const generateColumnsFromHeadersRecursively = (headers?: Header[]): Column<Record<string, string>>[] => {
   if (!headers || headers.length < 1) {
     return []
   }
@@ -38,25 +37,36 @@ const generateColumnsFromHeadersRecursively = (headers?: Header[]): Column<KeySt
   })
 }
 
+const generateRowsFromCellRows = (cellRows: CellRow[]): Record<string, string>[] => {
+  const mappedCells: Record<string, string>[] = []
+
+  cellRows.forEach((cellRow) => {
+    const mappedCell: Record<string, string> = {}
+
+    cellRow.cells.forEach((cell) => {
+      mappedCell[cell.key] = cell.value
+    })
+
+    mappedCells.push(mappedCell)
+  })
+
+  return mappedCells
+}
+
 export default function Table<TColumn, TRow>({
   tableData,
   columnData,
   rowData,
   mapToTableData,
 }: IProps<TColumn, TRow>) {
-  let mappedTabledata: TableData | undefined = tableData
-
-  if (!mappedTabledata && columnData && rowData && mapToTableData) {
-    mappedTabledata = mapToTableData(columnData, rowData)
-  }
-
-  if (!mappedTabledata) {
-    mappedTabledata = { headers: [], rows: [] }
-  }
+  const mappedTabledata =
+    columnData && rowData && mapToTableData
+      ? mapToTableData(columnData, rowData)
+      : tableData ?? { headers: [], rows: [] }
 
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = useTable({
     columns: generateColumnsFromHeadersRecursively(mappedTabledata.headers),
-    data: mappedTabledata.rows,
+    data: generateRowsFromCellRows(mappedTabledata.rows),
   })
 
   return (
@@ -99,8 +109,8 @@ export default function Table<TColumn, TRow>({
 
 interface IProps<TColumn, TRow> {
   tableData?: TableData
-  columnData: TColumn
-  rowData: TRow
+  columnData?: TColumn
+  rowData?: TRow
   mapToTableData?: (colItems: TColumn, rowItems: TRow) => TableData
 }
 
@@ -110,7 +120,16 @@ export interface Header {
   subheaders?: Header[]
 }
 
+export interface Cell {
+  key: string
+  value: string
+}
+
+export interface CellRow {
+  cells: Cell[]
+}
+
 export interface TableData {
   headers: Header[]
-  rows: KeyStringValuePair[]
+  rows: CellRow[]
 }

@@ -1,20 +1,19 @@
-import { FC } from 'react'
 import {
-  Maybe,
   QuestionnaireItem,
   QuestionnaireResponse,
-  KeyStringValuePair,
   SummaryTableViewType,
   QuestionnaireResponseItem,
+  QuestionnaireResponseItemAnswer,
 } from '@ltht-react/types'
-import { answerText, partialDateTimeText } from '@ltht-react/utils'
-import Table, { Header, TableData } from '../atoms/table'
+import { EnsureMaybe, EnsureMaybeArray, partialDateTimeText } from '@ltht-react/utils'
+import { FC } from 'react'
+import Table, { Cell, CellRow, Header, TableData } from '../atoms/table'
 
-const MapQuestionnaireObjectsToVerticalTableData = (
-  definitionItems: Array<Maybe<QuestionnaireItem>>,
+const mapQuestionnaireObjectsToVerticalTableData = (
+  definitionItems: Array<QuestionnaireItem>,
   records: QuestionnaireResponse[]
-): TableData => {
-  const columns: Header[] = [
+): TableData => ({
+  headers: [
     {
       header: '',
       accessor: 'property',
@@ -23,139 +22,125 @@ const MapQuestionnaireObjectsToVerticalTableData = (
       header: partialDateTimeText(record.authored) ?? '',
       accessor: record?.id ?? '',
     })),
-  ]
+  ],
+  rows: definitionItems.map((def) => ({
+    cells: [
+      {
+        key: 'property',
+        value: def?.text ?? '',
+      },
+      ...records.map((record) => ({
+        key: record.id,
+        value: EnsureMaybe<string>(
+          record.item?.find((item) => item?.linkId === def?.linkId)?.answer?.find((answer) => !!answer)?.valueString,
+          ''
+        ),
+      })),
+    ],
+  })),
+})
 
-  const questionnaireItems: KeyStringValuePair[] = definitionItems.map((def) => {
-    const questionnaireItem: KeyStringValuePair = {
-      property: def?.text ?? '',
-    }
+const recursivelyMapQuestionnaireItemsIntoHeaders = (questionnaireItems: QuestionnaireItem[]): Header[] =>
+  questionnaireItems.map((questionnaireItem) => {
+    const recursiveItems = EnsureMaybeArray<QuestionnaireItem>(questionnaireItem.item ?? [])
 
-    const recordsWithMatchingItems = records.filter((record) =>
-      record.item?.some((item) => item?.linkId === def?.linkId)
-    )
-
-    recordsWithMatchingItems.forEach((record) => {
-      const matchingItem = record.item?.find((item) => item?.linkId === def?.linkId)
-      const itemValue =
-        matchingItem && matchingItem.answer && matchingItem.answer.length > 0 ? answerText(matchingItem?.answer[0]) : ''
-
-      questionnaireItem[record.id] = itemValue ?? ''
-    })
-
-    return questionnaireItem
-  })
-
-  return {
-    headers: columns,
-    rows: questionnaireItems,
-  }
-}
-
-const processColumnItems = (items: Maybe<QuestionnaireItem>[]): Header[] =>
-  items.map((item) => {
-    if (item?.item?.length && item?.item?.length > 0) {
-      return {
-        header: item?.text ?? '',
-        accessor: '',
-        subheaders: processColumnItems(item?.item),
-      } as Header
-    }
     return {
-      header: item?.text ?? '',
-      accessor: item?.linkId ?? '',
+      header: questionnaireItem?.text ?? '',
+      accessor: recursiveItems.length > 0 ? '' : questionnaireItem?.linkId ?? '',
+      subheaders: recursiveItems.length > 0 ? recursivelyMapQuestionnaireItemsIntoHeaders(recursiveItems) : undefined,
     }
   })
 
-const processResponse = (records: Maybe<QuestionnaireResponse>[]): KeyStringValuePair[] => {
-  const result: KeyStringValuePair[] = []
-  records.forEach((record) => {
-    if (record?.item) {
-      const obj: KeyStringValuePair = {
-        date: partialDateTimeText(record.authored),
-      }
-      for (let index = 0; index < record.item.length; index++) {
-        const prop = record.item[index]?.linkId
-        const value = record.item[index]?.answer
-        if (prop && value) {
-          if (value[0]?.item) {
-            const items = processResponseItems(value[0]?.item)
+const mapQuestionnaireResponsesIntoCellRow = (records: QuestionnaireResponse[]): CellRow[] =>
+  records
+    .filter((record) => !!record.item)
+    .map((record) => {
+      const cellArray = [
+        {
+          key: 'date',
+          value: partialDateTimeText(record.authored),
+        },
+      ]
+
+      record.item
+        ?.filter((item) => !!item?.linkId && !!item?.answer)
+        .forEach((item) => {
+          const linkId = EnsureMaybe<string>(item?.linkId)
+          const answer = EnsureMaybe<QuestionnaireResponseItemAnswer>(item?.answer?.find((answer) => !!answer))
+
+          if (answer.item) {
+            const items = recursivelyMapResponseItemsToCells(
+              EnsureMaybeArray<QuestionnaireResponseItem>(answer.item ?? [])
+            )
+
             items.forEach((x) => {
-              obj[x.key] = x.value
+              cellArray.push({
+                key: x.key,
+                value: x.value,
+              })
             })
           }
-          obj[prop] = answerText(value[0]) ?? ''
-        }
-      }
-      result.push(obj)
-    }
-  })
 
-  return result
-}
+          cellArray.push({
+            key: linkId,
+            value: EnsureMaybe<string>(answer.valueString, ''),
+          })
+        })
 
-const processResponseItems = (items: Maybe<QuestionnaireResponseItem>[]): Tuple[] => {
-  const result: Tuple[] = []
+      return { cells: cellArray } as CellRow
+    })
+
+const recursivelyMapResponseItemsToCells = (items: QuestionnaireResponseItem[]): Cell[] => {
+  const cells: Cell[] = []
+
   items.forEach((item) => {
-    const obj: Tuple = {
-      key: '',
-      value: '',
-    }
-    if (item) {
-      const prop = item.linkId
-      const value = item.answer
-      if (prop && value) {
-        if (value[0]?.item) {
-          const items = processResponseItems(value[0]?.item)
-          items.forEach((x) => result.push(x))
-        }
-        obj.key = prop
-        obj.value = answerText(value[0]) ?? ''
+    const firstAnswer = item.answer ? item.answer[0] : undefined
+
+    if (item.linkId && firstAnswer) {
+      // Always push item's linkId with first answer
+      cells.push({
+        key: item.linkId,
+        value: EnsureMaybe<string>(firstAnswer.valueString, ''),
+      })
+
+      // If first answer has subitems, recurse through them and do the same
+      if (firstAnswer.item) {
+        recursivelyMapResponseItemsToCells(
+          EnsureMaybeArray<QuestionnaireResponseItem>(firstAnswer.item)
+        ).forEach((cell) => cells.push(cell))
       }
     }
-
-    result.push(obj)
   })
 
-  return result
+  return cells
 }
 
-const MapQuestionnaireObjectsToHorizontalTableData = (
-  definitionItems: Array<Maybe<QuestionnaireItem>>,
+const mapQuestionnaireObjectsToHorizontalTableData = (
+  definitionItems: Array<QuestionnaireItem>,
   records: QuestionnaireResponse[]
-): TableData => {
-  const columns: Header[] = [
+): TableData => ({
+  headers: [
     {
       header: 'Record Date',
       accessor: 'date',
     },
-    ...processColumnItems(definitionItems),
-  ]
-
-  const data: KeyStringValuePair[] = processResponse(records)
-
-  return {
-    headers: columns,
-    rows: data,
-  }
-}
+    ...recursivelyMapQuestionnaireItemsIntoHeaders(definitionItems),
+  ],
+  rows: mapQuestionnaireResponsesIntoCellRow(records),
+})
 
 const QuestionnaireTable: FC<IProps> = ({ definitionItems, records, orientation }) => {
-  const mappingMethod =
+  const tableData =
     orientation === 'VERTICAL'
-      ? MapQuestionnaireObjectsToVerticalTableData
-      : MapQuestionnaireObjectsToHorizontalTableData
+      ? mapQuestionnaireObjectsToVerticalTableData(definitionItems, records)
+      : mapQuestionnaireObjectsToHorizontalTableData(definitionItems, records)
 
-  return <Table columnData={definitionItems} rowData={records} mapToTableData={mappingMethod} />
-}
-
-interface Tuple {
-  key: string
-  value: string
+  return <Table tableData={tableData} />
 }
 
 interface IProps {
   orientation: SummaryTableViewType
-  definitionItems: Array<Maybe<QuestionnaireItem>>
+  definitionItems: QuestionnaireItem[]
   records: QuestionnaireResponse[]
 }
 
