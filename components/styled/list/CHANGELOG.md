@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.3.130 (2022-10-17)
+
+**Note:** Version bump only for package @ltht-react/list
+
+
+
+
+
 ## 1.3.129 (2022-10-14)
 
 **Note:** Version bump only for package @ltht-react/list
