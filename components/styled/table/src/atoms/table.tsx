@@ -2,11 +2,11 @@ import { useTable, Column } from 'react-table'
 import { KeyStringValuePair } from '@ltht-react/types'
 import styled from '@emotion/styled'
 import {
-        CSS_RESET, 
-        TEXT_COLOURS, 
-        TRANSLUCENT_BRIGHT_BLUE_TABLE, 
-        TRANSLUCENT_GREY_TABLE, 
-        TRANSLUCENT_MID_GREY
+  CSS_RESET,
+  TEXT_COLOURS,
+  TRANSLUCENT_BRIGHT_BLUE_TABLE,
+  TRANSLUCENT_GREY_TABLE,
+  TRANSLUCENT_MID_GREY,
 } from '@ltht-react/styles'
 
 const Container = styled.div`
