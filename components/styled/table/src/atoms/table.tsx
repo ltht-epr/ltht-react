@@ -39,7 +39,7 @@ const generateColumnsFromHeadersRecursively = (headers?: Header[]): Column<KeySt
 }
 
 const generateRowsFromCellRows = (cellRows: CellRow[]): KeyStringValuePair[] => {
-  let cells: KeyStringValuePair[] = []
+  const cells: KeyStringValuePair[] = []
 
   cellRows.forEach((cellRow) => {
     const dataObject: KeyStringValuePair = {}

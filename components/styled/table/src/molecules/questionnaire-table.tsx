@@ -11,43 +11,36 @@ import Table, { Cell, CellRow, Header, TableData } from '../atoms/table'
 const mapQuestionnaireObjectsToVerticalTableData = (
   definitionItems: Array<QuestionnaireItem>,
   records: QuestionnaireResponse[]
-): TableData => {
-  return {
-    headers: [
+): TableData => ({
+  headers: [
+    {
+      header: '',
+      accessor: 'property',
+    },
+    ...records.map((record) => ({
+      header: partialDateTimeText(record.authored) ?? '',
+      accessor: record?.id ?? '',
+    })),
+  ],
+  rows: definitionItems.map((def) => ({
+    cells: [
       {
-        header: '',
-        accessor: 'property',
+        key: 'property',
+        value: def?.text ?? '',
       },
-      ...records.map((record) => ({
-        header: partialDateTimeText(record.authored) ?? '',
-        accessor: record?.id ?? '',
-      })),
+      ...records.map((record) => {
+        const matchingItem = record.item?.find((item) => item?.linkId === def?.linkId)
+        return {
+          key: record.id,
+          value:
+            (!!matchingItem && matchingItem.answer && matchingItem.answer.length > 0
+              ? matchingItem?.answer[0]?.valueString
+              : '') ?? '',
+        }
+      }),
     ],
-    rows: definitionItems.map((def) => {
-      return {
-        cells: [
-          {
-            key: 'property',
-            value: def?.text ?? '',
-          },
-          ...records
-            .filter((record) => record.item?.some((item) => item?.linkId === def?.linkId))
-            .map((record) => {
-              const matchingItem = record.item?.find((item) => item?.linkId === def?.linkId)
-              const itemValue =
-                matchingItem && matchingItem.answer && matchingItem.answer.length > 0
-                  ? answerText(matchingItem?.answer[0])
-                  : ''
-              return {
-                key: record.id,
-                value: itemValue ?? '',
-              }
-            }),
-        ],
-      }
-    }),
-  }
-}
+  })),
+})
 
 const recursivelyMapQuestionnaireItemsIntoHeaders = (questionnaireItems: QuestionnaireItem[]): Header[] =>
   questionnaireItems.map((questionnaireItem) => {
@@ -64,8 +57,6 @@ const mapQuestionnaireResponsesIntoCellRow = (records: QuestionnaireResponse[]):
   const cellRows: CellRow[] = []
 
   records.forEach((record) => {
-    record.item = EnsureMaybeArray<QuestionnaireResponseItem>(record.item ?? [])
-
     if (record?.item) {
       const cellArray = [
         {
@@ -133,22 +124,20 @@ const recursivelyMapResponseItemsToCells = (items: QuestionnaireResponseItem[]):
 const mapQuestionnaireObjectsToHorizontalTableData = (
   definitionItems: Array<QuestionnaireItem>,
   records: QuestionnaireResponse[]
-): TableData => {
-  return {
-    headers: [
-      {
-        header: 'Record Date',
-        accessor: 'date',
-      },
-      ...recursivelyMapQuestionnaireItemsIntoHeaders(definitionItems),
-    ],
-    rows: mapQuestionnaireResponsesIntoCellRow(records),
-  }
-}
+): TableData => ({
+  headers: [
+    {
+      header: 'Record Date',
+      accessor: 'date',
+    },
+    ...recursivelyMapQuestionnaireItemsIntoHeaders(definitionItems),
+  ],
+  rows: mapQuestionnaireResponsesIntoCellRow(records),
+})
 
 const QuestionnaireTable: FC<IProps> = ({ definitionItems, records, orientation }) => {
   const tableData =
-    orientation == 'VERTICAL'
+    orientation === 'VERTICAL'
       ? mapQuestionnaireObjectsToVerticalTableData(definitionItems, records)
       : mapQuestionnaireObjectsToHorizontalTableData(definitionItems, records)
 
