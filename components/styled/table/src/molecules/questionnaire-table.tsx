@@ -134,8 +134,8 @@ const mapQuestionnaireObjectsToHorizontalTableData = (
 const QuestionnaireTable: FC<IProps> = ({ definitionItems, records, orientation }) => {
   const mappingMethod =
     orientation === 'VERTICAL'
-      ? MapQuestionnaireObjectsToVerticalTableData
-      : MapQuestionnaireObjectsToHorizontalTableData
+      ? mapQuestionnaireObjectsToVerticalTableData
+      : mapQuestionnaireObjectsToHorizontalTableData
 
   return <Table columnData={definitionItems} rowData={records} mapToTableData={mappingMethod} />
 }
