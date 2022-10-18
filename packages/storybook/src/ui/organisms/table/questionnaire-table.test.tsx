@@ -3,6 +3,7 @@ import QuestionnaireTable, {
   mapQuestionnaireObjectsToVerticalTableData,
 } from '@ltht-react/table/src/molecules/questionnaire-table'
 import { render, screen, within } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 import {
   summaryDefinitionOneHorizontalTableData,
   summaryDefinitionOneVerticalTableData,
@@ -59,5 +60,25 @@ describe('Questionnaire Table', () => {
     expect(
       screen.getAllByRole('columnheader').some((header) => within(header).queryByText('Partial Indication') !== null)
     ).toBe(true)
+  })
+
+  it('Sorts the table when headers are clicked', () => {
+    render(
+      <QuestionnaireTable
+        definitionItems={summaryDefinitionItems}
+        records={summaryRecordsList}
+        orientation="VERTICAL"
+      />
+    )
+
+    const getTopLeftDataCell = () => {
+      return within(screen.getAllByRole('row')[1]).getAllByRole('cell')[0]
+    }
+
+    expect(getTopLeftDataCell()).toHaveTextContent('Score')
+
+    userEvent.click(screen.getByText('17-Feb-2022 17:23'))
+
+    expect(getTopLeftDataCell()).toHaveTextContent('Partial Indication')
   })
 })
