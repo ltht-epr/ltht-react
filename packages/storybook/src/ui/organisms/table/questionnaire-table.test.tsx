@@ -2,7 +2,7 @@ import QuestionnaireTable, {
   mapQuestionnaireObjectsToHorizontalTableData,
   mapQuestionnaireObjectsToVerticalTableData,
 } from '@ltht-react/table/src/molecules/questionnaire-table'
-import { render, screen } from '@testing-library/react'
+import { render, screen, within } from '@testing-library/react'
 import {
   summaryDefinitionOneHorizontalTableData,
   summaryDefinitionOneVerticalTableData,
@@ -34,13 +34,13 @@ describe('Questionnaire Table', () => {
     expect(screen.getByRole('table')).toBeVisible()
 
     // Assert that dates are in the headers
-    expect(screen.getByRole('columnheader', { name: /17-Feb-2022 17:23/ })).toBeVisible()
+    expect(within(screen.getAllByRole('columnheader')[1]).getByText('17-Feb-2022 17:23')).toBeVisible()
 
     // Assert that subheaders are ignored in Vertical Mode
     expect(screen.queryByRole('columnheader', { name: /Partial Indication/ })).toBeNull()
   })
 
-  it('Renders Vertically', () => {
+  it('Renders Horizontally', () => {
     render(
       <QuestionnaireTable
         definitionItems={summaryDefinitionItems}
@@ -52,9 +52,12 @@ describe('Questionnaire Table', () => {
     expect(screen.getByRole('table')).toBeVisible()
 
     // Assert that dates are in the headers
-    expect(screen.getByRole('columnheader', { name: /Record Date/ })).toBeVisible()
+    const headers = screen.getAllByRole('columnheader')
+    expect(headers.some((header) => within(header).queryByText('Record Date') !== null)).toBe(true)
 
     // Assert that subheaders are visible
-    expect(screen.getByRole('columnheader', { name: /Partial Indication/ })).toBeVisible()
+    expect(
+      screen.getAllByRole('columnheader').some((header) => within(header).queryByText('Partial Indication') !== null)
+    ).toBe(true)
   })
 })

@@ -75,7 +75,6 @@ export default function Table<TColumn, TRow>({
               {headerGroup.headers.map((column) => (
                 <StyledTableHeader {...column.getHeaderProps(column.getSortByToggleProps())}>
                   {column.render('Header')}
-                  {/* Add a sort direction indicator */}
                   <span>{column.isSorted ? (column.isSortedDesc ? ' 🔽' : ' 🔼') : ''}</span>
                 </StyledTableHeader>
               ))}
