@@ -2800,6 +2800,8 @@ export type User = {
   organisationIdentifier: Scalars['Guid']
   /** The Data Providers the User has access to. */
   dataProviderPermissions?: Maybe<Array<Maybe<DataProviderPermission>>>
+  /** The User Features the User has access to. */
+  userFeatures?: Maybe<Array<Maybe<FeatureFlags>>>
   /** The Resources and Operations the user has access to. */
   entityPermissions?: Maybe<Array<Maybe<EntityPermission>>>
   /** The available Launch types the user can make. */
@@ -2817,6 +2819,14 @@ export enum DataProviderPermission {
   Yhcr = 'YHCR',
   Lypft = 'LYPFT',
   GpConnect = 'GP_CONNECT',
+}
+
+export enum FeatureFlags {
+  FormsForHealthLaunch = 'FORMS_FOR_HEALTH_LAUNCH',
+  GpConnectDataProvider = 'GP_CONNECT_DATA_PROVIDER',
+  ResourceAuthorization = 'RESOURCE_AUTHORIZATION',
+  YhcrDataProvider = 'YHCR_DATA_PROVIDER',
+  InteractWithDiagnosisDashboard = 'INTERACT_WITH_DIAGNOSIS_DASHBOARD',
 }
 
 /** Permission to perform one or more Operations on a given Entity. */
@@ -3012,6 +3022,7 @@ export enum FeatureInstance {
   GpConnectDataProvider = 'GP_CONNECT_DATA_PROVIDER',
   ResourceAuthorization = 'RESOURCE_AUTHORIZATION',
   YhcrDataProvider = 'YHCR_DATA_PROVIDER',
+  InteractWithDiagnosisDashboard = 'INTERACT_WITH_DIAGNOSIS_DASHBOARD',
 }
 
 export type Mutation = {
