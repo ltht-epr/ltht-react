@@ -8,6 +8,15 @@ import {
 import { EnsureMaybe, EnsureMaybeArray, partialDateTimeText } from '@ltht-react/utils'
 import { FC, useMemo } from 'react'
 import Table, { Cell, CellRow, Header, TableData } from '../atoms/table'
+import CSS from 'csstype'
+
+const colourBox: CSS.Properties = {
+  display: 'inline-block',
+  height: '10px',
+  width: '10px',
+  border: '1px solid black',
+  clear: 'both',
+}
 
 export const mapQuestionnaireObjectsToVerticalTableData = (
   definitionItems: Array<QuestionnaireItem>,
@@ -44,11 +53,24 @@ const recursivelyMapQuestionnaireItemsIntoHeaders = (questionnaireItems: Questio
   questionnaireItems.map((questionnaireItem) => {
     const recursiveItems = EnsureMaybeArray<QuestionnaireItem>(questionnaireItem.item ?? [])
 
-    return {
-      header: questionnaireItem?.text ?? '',
-      accessor: recursiveItems.length > 0 ? '' : questionnaireItem?.linkId ?? '',
-      subheaders: recursiveItems.length > 0 ? recursivelyMapQuestionnaireItemsIntoHeaders(recursiveItems) : undefined,
-    }
+    return questionnaireItem.text === 'What is your favourite colour?'
+      ? {
+          header: questionnaireItem?.text ?? '',
+          accessor: recursiveItems.length > 0 ? '' : questionnaireItem?.linkId ?? '',
+          subheaders:
+            recursiveItems.length > 0 ? recursivelyMapQuestionnaireItemsIntoHeaders(recursiveItems) : undefined,
+          cell: (value) => (
+            <span>
+              <span style={{ ...colourBox, backgroundColor: value }}></span> {value}
+            </span>
+          ),
+        }
+      : {
+          header: questionnaireItem?.text ?? '',
+          accessor: recursiveItems.length > 0 ? '' : questionnaireItem?.linkId ?? '',
+          subheaders:
+            recursiveItems.length > 0 ? recursivelyMapQuestionnaireItemsIntoHeaders(recursiveItems) : undefined,
+        }
   })
 
 const mapQuestionnaireResponsesIntoCellRow = (records: QuestionnaireResponse[]): CellRow[] =>
