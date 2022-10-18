@@ -7,7 +7,7 @@ import TableHead from '@material-ui/core/TableHead'
 import TableRow from '@material-ui/core/TableRow'
 import styled from '@emotion/styled'
 import { TRANSLUCENT_BRIGHT_BLUE_TABLE, TRANSLUCENT_GREY_TABLE } from '@ltht-react/styles'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, FC, PropsWithChildren } from 'react'
 
 const Container = styled.div`
   background-color: white;
@@ -25,6 +25,8 @@ const generateColumnsFromHeadersRecursively = (headers?: Header[]): Column<Recor
     sortType: 'basic',
     // TODO: Figure out why sorting headers with subheaders causes an error and fix
     disableSortBy: !!header.subheaders,
+    Cell: (props: { value: PropsWithChildren<string> }) =>
+      header?.cell ? header?.cell(props.value) ?? '' : props?.value ?? '',
   }))
 
 const generateRowsFromCellRows = (cellRows: CellRow[]): Record<string, string>[] =>
@@ -124,6 +126,7 @@ export interface Header {
   header: string
   accessor: string
   subheaders?: Header[]
+  cell?: FC<string>
 }
 
 export interface Cell {
