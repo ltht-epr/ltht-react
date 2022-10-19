@@ -7,8 +7,8 @@ import {
 } from '@ltht-react/types'
 import { EnsureMaybe, EnsureMaybeArray, partialDateTimeText } from '@ltht-react/utils'
 import { FC, useMemo } from 'react'
-import Table, { Cell, CellRow, Header, TableData } from '../atoms/table'
 import CSS from 'csstype'
+import Table, { Cell, CellRow, Header, TableData } from '../atoms/table'
 
 const colourBox: CSS.Properties = {
   display: 'inline-block',
@@ -61,7 +61,7 @@ const recursivelyMapQuestionnaireItemsIntoHeaders = (questionnaireItems: Questio
             recursiveItems.length > 0 ? recursivelyMapQuestionnaireItemsIntoHeaders(recursiveItems) : undefined,
           cell: (value) => (
             <span>
-              <span style={{ ...colourBox, backgroundColor: value }}></span> {value}
+              <span style={{ ...colourBox, backgroundColor: value }} /> {value}
             </span>
           ),
         }
