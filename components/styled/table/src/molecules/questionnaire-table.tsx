@@ -6,7 +6,7 @@ import {
   QuestionnaireResponseItemAnswer,
 } from '@ltht-react/types'
 import { EnsureMaybe, EnsureMaybeArray, partialDateTimeText } from '@ltht-react/utils'
-import { FC } from 'react'
+import { FC, useMemo } from 'react'
 import Table, { Cell, CellRow, Header, TableData } from '../atoms/table'
 
 export const mapQuestionnaireObjectsToVerticalTableData = (
@@ -130,10 +130,12 @@ export const mapQuestionnaireObjectsToHorizontalTableData = (
 })
 
 const QuestionnaireTable: FC<IProps> = ({ definitionItems, records, orientation }) => {
-  const tableData =
-    orientation === 'VERTICAL'
-      ? mapQuestionnaireObjectsToVerticalTableData(definitionItems, records)
-      : mapQuestionnaireObjectsToHorizontalTableData(definitionItems, records)
+  const tableData = useMemo(() => {
+    if (orientation === 'VERTICAL') {
+      return mapQuestionnaireObjectsToVerticalTableData(definitionItems, records)
+    }
+    return mapQuestionnaireObjectsToHorizontalTableData(definitionItems, records)
+  }, [orientation, definitionItems, records])
 
   return <Table tableData={tableData} />
 }
