@@ -21,9 +21,11 @@ const generateColumnsFromHeadersRecursively = (headers?: Header[]): Column<Recor
   (headers ?? []).map((header) => {
     return {
       Header: header.header,
-      accessor: header.accessor,
+      accessor: !!header.subheaders ? '' : header.accessor,
       columns: !!header.subheaders ? generateColumnsFromHeadersRecursively(header.subheaders) : undefined,
       sortType: 'basic',
+      // TODO: Figure out why sorting headers with subheaders causes an error and fix
+      disableSortBy: !!header.subheaders,
     }
   })
 
