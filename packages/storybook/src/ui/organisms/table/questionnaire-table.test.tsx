@@ -7,6 +7,9 @@ import userEvent from '@testing-library/user-event'
 import {
   summaryDefinitionOneHorizontalTableData,
   summaryDefinitionOneVerticalTableData,
+  // summaryDefinitionOneVerticalTableDataWithCustomCellRendering,
+  // customRenderCellsVertical,
+  customRenderCellsHorizontal,
 } from './questionnaire-table.mockdata'
 import { summaryDefinitionItems, summaryRecordsList } from './table.fixtures'
 
@@ -17,10 +20,35 @@ describe('Questionnaire Table', () => {
     expect(result).toEqual(summaryDefinitionOneVerticalTableData)
   })
 
+  // it('Maps vertically as expected with custom rendering cells', () => {
+  //   const result = mapQuestionnaireObjectsToVerticalTableData(
+  //     summaryDefinitionItems,
+  //     summaryRecordsList,
+  //     customRenderCellsVertical
+  //   )
+  //   expect(result).toEqual(summaryDefinitionOneVerticalTableDataWithCustomCellRendering)
+  // })
+
   it('Maps horizontally as expected', () => {
     const result = mapQuestionnaireObjectsToHorizontalTableData(summaryDefinitionItems, summaryRecordsList)
 
     expect(result).toEqual(summaryDefinitionOneHorizontalTableData)
+  })
+
+  it('Maps horizontally as expected with custom rendering cells', () => {
+    const result = mapQuestionnaireObjectsToHorizontalTableData(
+      summaryDefinitionItems,
+      summaryRecordsList,
+      customRenderCellsHorizontal
+    )
+
+    expect(result.headers.find((x) => x.accessor === '3')?.cell).toBeDefined()
+    expect(
+      result?.headers
+        ?.find((x) => x.header === 'Standard Observations')
+        ?.subheaders?.find((j) => j.header === 'RR (breaths/min)')
+        ?.subheaders?.find((h) => h.accessor === '4ab')?.cell
+    ).toBeDefined()
   })
 
   it('Renders Vertically', () => {
