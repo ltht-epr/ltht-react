@@ -1,4 +1,4 @@
-import { useTable, Column, useSortBy } from 'react-table'
+import { useTable, Column, useSortBy, HeaderGroup } from 'react-table'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import MaUTable from '@material-ui/core/Table'
 import TableBody from '@material-ui/core/TableBody'
@@ -18,16 +18,14 @@ const StyledTableHeader = styled.th`
 `
 
 const generateColumnsFromHeadersRecursively = (headers?: Header[]): Column<Record<string, string>>[] =>
-  (headers ?? []).map((header) => {
-    return {
-      Header: header.header,
-      accessor: !!header.subheaders ? '' : header.accessor,
-      columns: !!header.subheaders ? generateColumnsFromHeadersRecursively(header.subheaders) : undefined,
-      sortType: 'basic',
-      // TODO: Figure out why sorting headers with subheaders causes an error and fix
-      disableSortBy: !!header.subheaders,
-    }
-  })
+  (headers ?? []).map((header) => ({
+    Header: header.header,
+    accessor: header.subheaders ? '' : header.accessor,
+    columns: header.subheaders ? generateColumnsFromHeadersRecursively(header.subheaders) : undefined,
+    sortType: 'basic',
+    // TODO: Figure out why sorting headers with subheaders causes an error and fix
+    disableSortBy: !!header.subheaders,
+  }))
 
 const generateRowsFromCellRows = (cellRows: CellRow[]): Record<string, string>[] =>
   cellRows.map((cellRow) => {
@@ -67,6 +65,13 @@ export default function Table<TColumn, TRow>({
     useSortBy
   )
 
+  const sortIcon = (column: HeaderGroup<Record<string, string>>) => {
+    if (column.isSorted) {
+      return <span>{column.isSortedDesc ? ' 🔽' : ' 🔼'}</span>
+    }
+    return ''
+  }
+
   return (
     <Container>
       <CssBaseline />
@@ -77,7 +82,7 @@ export default function Table<TColumn, TRow>({
               {headerGroup.headers.map((column) => (
                 <StyledTableHeader {...column.getHeaderProps(column.getSortByToggleProps())}>
                   {column.render('Header')}
-                  <span>{column.isSorted ? (column.isSortedDesc ? ' 🔽' : ' 🔼') : ''}</span>
+                  {sortIcon(column)}
                 </StyledTableHeader>
               ))}
             </tr>

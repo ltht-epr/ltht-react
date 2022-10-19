@@ -71,9 +71,7 @@ describe('Questionnaire Table', () => {
       />
     )
 
-    const getTopLeftDataCell = () => {
-      return within(screen.getAllByRole('row')[1]).getAllByRole('cell')[0]
-    }
+    const getTopLeftDataCell = () => within(screen.getAllByRole('row')[1]).getAllByRole('cell')[0]
 
     expect(getTopLeftDataCell()).toHaveTextContent('Score')
 
@@ -91,9 +89,7 @@ describe('Questionnaire Table', () => {
       />
     )
 
-    const getTopLeftDataCell = () => {
-      return within(screen.getAllByRole('row')[3]).getAllByRole('cell')[0]
-    }
+    const getTopLeftDataCell = () => within(screen.getAllByRole('row')[3]).getAllByRole('cell')[0]
 
     expect(getTopLeftDataCell()).toHaveTextContent('17-Feb-2022 17:23')
 
@@ -111,9 +107,7 @@ describe('Questionnaire Table', () => {
       />
     )
 
-    const getTopLeftDataCell = () => {
-      return within(screen.getAllByRole('row')[3]).getAllByRole('cell')[0]
-    }
+    const getTopLeftDataCell = () => within(screen.getAllByRole('row')[3]).getAllByRole('cell')[0]
 
     expect(getTopLeftDataCell()).toHaveTextContent('17-Feb-2022 17:23')
 
