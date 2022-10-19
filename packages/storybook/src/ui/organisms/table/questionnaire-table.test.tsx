@@ -81,4 +81,44 @@ describe('Questionnaire Table', () => {
 
     expect(getTopLeftDataCell()).toHaveTextContent('Partial Indication')
   })
+
+  it('Sorts the table if the lowest level of subheaders are clicked in horizontal mode', () => {
+    render(
+      <QuestionnaireTable
+        definitionItems={summaryDefinitionItems}
+        records={summaryRecordsList}
+        orientation="HORIZONTAL"
+      />
+    )
+
+    const getTopLeftDataCell = () => {
+      return within(screen.getAllByRole('row')[3]).getAllByRole('cell')[0]
+    }
+
+    expect(getTopLeftDataCell()).toHaveTextContent('17-Feb-2022 17:23')
+
+    userEvent.click(screen.getByText('Record Date'))
+
+    expect(getTopLeftDataCell()).toHaveTextContent('01-Jan-2022 16:02')
+  })
+
+  it('Does not try to sort the table when a header grouping is clicked', () => {
+    render(
+      <QuestionnaireTable
+        definitionItems={summaryDefinitionItems}
+        records={summaryRecordsList}
+        orientation="HORIZONTAL"
+      />
+    )
+
+    const getTopLeftDataCell = () => {
+      return within(screen.getAllByRole('row')[3]).getAllByRole('cell')[0]
+    }
+
+    expect(getTopLeftDataCell()).toHaveTextContent('17-Feb-2022 17:23')
+
+    userEvent.click(screen.getByText('RR (breaths/min)'))
+
+    expect(getTopLeftDataCell()).toHaveTextContent('17-Feb-2022 17:23')
+  })
 })
