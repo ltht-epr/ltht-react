@@ -1,11 +1,17 @@
 import { render, screen } from '@testing-library/react'
 import Table from '@ltht-react/table'
 import { QuestionnaireItem } from '@ltht-react/types'
-import { mockSummaryDefinition, mockSummaryRecordsList } from './table.mockdata'
+import { mockCustomRenderCells, mockSummaryDefinition, mockSummaryRecordsList } from './table.mockdata'
 
 describe('Table', () => {
   it('Renders', () => {
-    render(<Table definition={mockSummaryDefinition} records={mockSummaryRecordsList} />)
+    render(
+      <Table
+        definition={mockSummaryDefinition}
+        records={mockSummaryRecordsList}
+        customRenderCells={mockCustomRenderCells}
+      />
+    )
 
     expect(screen.getByRole('table')).toBeVisible()
   })
@@ -28,6 +34,19 @@ describe('Table', () => {
 
   it('Renders Horizontally', () => {
     render(<Table definition={mockSummaryDefinition} records={mockSummaryRecordsList} orientation="HORIZONTAL" />)
+  })
+
+  it('Renders Horizontally With Custom Cell Rendering', () => {
+    render(
+      <Table
+        definition={mockSummaryDefinition}
+        records={mockSummaryRecordsList}
+        customRenderCells={mockCustomRenderCells}
+        orientation="HORIZONTAL"
+      />
+    )
+
+    expect(screen.getAllByRole('color-box').length).toBe(2)
   })
 
   it('Renders horizontal table with multiple row headers. total 13 columns to be visible', () => {
@@ -69,5 +88,17 @@ describe('Table', () => {
 
     expect(screen.getByRole('table').children[1].tagName).toBe('TBODY')
     expect(screen.getByRole('table').children[1].children.length).toBe(5)
+  })
+
+  it('Renders Vertically With Custom Cell Rendering', () => {
+    render(
+      <Table
+        definition={mockSummaryDefinition}
+        records={mockSummaryRecordsList}
+        customRenderCells={mockCustomRenderCells}
+      />
+    )
+
+    expect(screen.getByRole('table')).toBeVisible()
   })
 })
