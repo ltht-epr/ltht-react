@@ -184,14 +184,14 @@ export const mockMappingMethodHorizontalWithCellCustomisation = (
   definitionItems: Array<QuestionnaireItem>,
   records: QuestionnaireResponse[]
 ): TableData => {
-  let tableData = mapQuestionnaireObjectsToHorizontalTableData(definitionItems, records)
+  const tableData = mapQuestionnaireObjectsToHorizontalTableData(definitionItems, records)
 
   const columnToCustomiseIndex = tableData.headers.findIndex((x) => x.accessor === 'questionId3')
   if (columnToCustomiseIndex > -1) {
     tableData.headers[columnToCustomiseIndex].cell = (value) => (
       <>
         <span
-          role="color-box"
+          data-testid={`color-box-${value.toLowerCase()}`}
           style={{ display: 'inline-block', width: '10px', height: '10px', backgroundColor: value }}
         />{' '}
         {value}
