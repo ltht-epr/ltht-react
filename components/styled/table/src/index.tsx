@@ -14,7 +14,7 @@ interface IProps {
 interface IGenericTableProps {
   definition: Questionnaire
   records: QuestionnaireResponse[]
-  mapToTableData?: (colItems: QuestionnaireItem[], rowItems: QuestionnaireResponse[]) => TableData
+  mapToTableData: (colItems: QuestionnaireItem[], rowItems: QuestionnaireResponse[]) => TableData
 }
 
 const Table: FC<IProps> = ({ definition, records, orientation = 'VERTICAL' }) => {

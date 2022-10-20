@@ -3,6 +3,7 @@ import Table, { GenericTable } from '@ltht-react/table'
 import { summaryDefinition, summaryRecordsList } from './table.fixtures'
 import {
   mockMappingMethodHorizontalWithCellCustomisation,
+  mockMappingMethodVerticalWithCellCustomisation,
   mockSummaryDefinition,
   mockSummaryRecordsList,
 } from './table.mockdata'
@@ -16,6 +17,14 @@ export const MockDataVisualisation: Story = () => (
 )
 export const MockDataVisualisationHorizontal: Story = () => (
   <Table definition={mockSummaryDefinition} records={mockSummaryRecordsList} orientation="HORIZONTAL" />
+)
+
+export const MockDataVisualisationVerticalWithCellCustomisation: Story = () => (
+  <GenericTable
+    definition={mockSummaryDefinition}
+    records={mockSummaryRecordsList}
+    mapToTableData={mockMappingMethodVerticalWithCellCustomisation}
+  />
 )
 
 export const MockDataVisualisationHorizontalWithCellCustomisation: Story = () => (

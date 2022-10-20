@@ -3,6 +3,7 @@ import Table, { GenericTable } from '@ltht-react/table'
 import { QuestionnaireItem } from '@ltht-react/types'
 import {
   mockMappingMethodHorizontalWithCellCustomisation,
+  mockMappingMethodVerticalWithCellCustomisation,
   mockSummaryDefinition,
   mockSummaryRecordsList,
 } from './table.mockdata'
@@ -81,6 +82,19 @@ describe('Table', () => {
         definition={mockSummaryDefinition}
         records={mockSummaryRecordsList}
         mapToTableData={mockMappingMethodHorizontalWithCellCustomisation}
+      />
+    )
+
+    expect(screen.getByTestId('color-box-blue')).toBeVisible()
+    expect(screen.getByTestId('color-box-green')).toBeVisible()
+  })
+
+  it('Renders vertically with cell customisation', () => {
+    render(
+      <GenericTable
+        definition={mockSummaryDefinition}
+        records={mockSummaryRecordsList}
+        mapToTableData={mockMappingMethodVerticalWithCellCustomisation}
       />
     )
 

@@ -21,6 +21,7 @@ export const summaryDefinitionOneVerticalTableData: TableData = {
   ],
   rows: [
     {
+      id: '1',
       cells: [
         {
           key: 'property',
@@ -41,6 +42,7 @@ export const summaryDefinitionOneVerticalTableData: TableData = {
       ],
     },
     {
+      id: '2',
       cells: [
         {
           key: 'property',
@@ -61,6 +63,7 @@ export const summaryDefinitionOneVerticalTableData: TableData = {
       ],
     },
     {
+      id: '3',
       cells: [
         {
           key: 'property',
@@ -81,6 +84,7 @@ export const summaryDefinitionOneVerticalTableData: TableData = {
       ],
     },
     {
+      id: '4',
       cells: [
         {
           key: 'property',

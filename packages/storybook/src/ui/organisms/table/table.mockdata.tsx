@@ -1,5 +1,8 @@
-import { TableData } from '@ltht-react/table/src/atoms/table'
-import { mapQuestionnaireObjectsToHorizontalTableData } from '@ltht-react/table/src/molecules/questionnaire-table'
+import { ICellProps, TableData } from '@ltht-react/table/src/atoms/table'
+import {
+  mapQuestionnaireObjectsToHorizontalTableData,
+  mapQuestionnaireObjectsToVerticalTableData,
+} from '@ltht-react/table/src/molecules/questionnaire-table'
 import {
   PartialDateTime,
   PartialDateTimeKindCode,
@@ -12,6 +15,7 @@ import {
   QuestionnaireResponseStatus,
 } from '@ltht-react/types'
 import { QuestionnairePublicationStatus } from '@ltht-react/types/src'
+import { FC } from 'react'
 
 export const mockSummaryDefinition: Questionnaire = {
   identifier: [],
@@ -180,24 +184,45 @@ export const mockSummaryRecordsList: QuestionnaireResponse[] = [
   } as QuestionnaireResponse,
 ]
 
+const customCellWithColorBox = ({ value }: ICellProps) => (
+  <>
+    <span
+      data-testid={`color-box-${value.toLowerCase()}`}
+      style={{ display: 'inline-block', width: '10px', height: '10px', backgroundColor: value }}
+    />{' '}
+    {value}
+  </>
+)
+
 export const mockMappingMethodHorizontalWithCellCustomisation = (
-  definitionItems: Array<QuestionnaireItem>,
+  definitionItems: QuestionnaireItem[],
   records: QuestionnaireResponse[]
 ): TableData => {
   const tableData = mapQuestionnaireObjectsToHorizontalTableData(definitionItems, records)
 
   const columnToCustomiseIndex = tableData.headers.findIndex((x) => x.accessor === 'questionId3')
   if (columnToCustomiseIndex > -1) {
-    tableData.headers[columnToCustomiseIndex].cell = (value) => (
-      <>
-        <span
-          data-testid={`color-box-${value.toLowerCase()}`}
-          style={{ display: 'inline-block', width: '10px', height: '10px', backgroundColor: value }}
-        />{' '}
-        {value}
-      </>
-    )
+    tableData.headers[columnToCustomiseIndex].cell = customCellWithColorBox
   }
+
+  return tableData
+}
+
+export const mockMappingMethodVerticalWithCellCustomisation = (
+  definitionItems: Array<QuestionnaireItem>,
+  records: QuestionnaireResponse[]
+): TableData => {
+  const tableData = mapQuestionnaireObjectsToVerticalTableData(definitionItems, records)
+
+  const columnToCustomiseIndex = tableData.rows.findIndex((x) => x.id === 'questionId3')
+  if (columnToCustomiseIndex > -1) {
+    tableData.rows[columnToCustomiseIndex].render = customCellWithColorBox
+  }
+
+  tableData.headers = tableData.headers.map((header) => ({
+    ...header,
+    cell: (props) => (props.row.render as FC<ICellProps>)(props),
+  }))
 
   return tableData
 }
