@@ -11,8 +11,7 @@ import Table, { Cell, CellRow, Header, TableData } from '../atoms/table'
 
 export const mapQuestionnaireObjectsToVerticalTableData = (
   definitionItems: Array<QuestionnaireItem>,
-  records: QuestionnaireResponse[],
-  customRenderCells: CellRender[] = []
+  records: QuestionnaireResponse[]
 ): TableData => ({
   headers: [
     {
@@ -22,7 +21,6 @@ export const mapQuestionnaireObjectsToVerticalTableData = (
     ...records.map((record) => ({
       header: partialDateTimeText(record.authored) ?? '',
       accessor: record?.id ?? '',
-      cell: customRenderCells?.find((x) => record.item?.map((j) => j?.linkId)?.includes(x.id))?.render ?? undefined,
     })),
   ],
   rows: definitionItems.map((def) => ({
@@ -42,22 +40,14 @@ export const mapQuestionnaireObjectsToVerticalTableData = (
   })),
 })
 
-const recursivelyMapQuestionnaireItemsIntoHeaders = (
-  questionnaireItems: QuestionnaireItem[],
-  customRenderCells: CellRender[] = []
-): Header[] =>
+const recursivelyMapQuestionnaireItemsIntoHeaders = (questionnaireItems: QuestionnaireItem[]): Header[] =>
   questionnaireItems.map((questionnaireItem) => {
     const recursiveItems = EnsureMaybeArray<QuestionnaireItem>(questionnaireItem.item ?? [])
-    const customRender = customRenderCells.find((x) => x.id === questionnaireItem.linkId)
 
     return {
       header: questionnaireItem?.text ?? '',
       accessor: recursiveItems.length > 0 ? '' : questionnaireItem?.linkId ?? '',
-      subheaders:
-        recursiveItems.length > 0
-          ? recursivelyMapQuestionnaireItemsIntoHeaders(recursiveItems, customRenderCells)
-          : undefined,
-      cell: customRender?.render ?? undefined,
+      subheaders: recursiveItems.length > 0 ? recursivelyMapQuestionnaireItemsIntoHeaders(recursiveItems) : undefined,
     }
   })
 
@@ -127,40 +117,33 @@ const recursivelyMapResponseItemsToCells = (items: QuestionnaireResponseItem[]):
 
 export const mapQuestionnaireObjectsToHorizontalTableData = (
   definitionItems: Array<QuestionnaireItem>,
-  records: QuestionnaireResponse[],
-  customRenderCells: CellRender[] = []
+  records: QuestionnaireResponse[]
 ): TableData => ({
   headers: [
     {
       header: 'Record Date',
       accessor: 'date',
     },
-    ...recursivelyMapQuestionnaireItemsIntoHeaders(definitionItems, customRenderCells),
+    ...recursivelyMapQuestionnaireItemsIntoHeaders(definitionItems),
   ],
   rows: mapQuestionnaireResponsesIntoCellRow(records),
 })
 
-const QuestionnaireTable: FC<IProps> = ({ definitionItems, records, orientation, customRenderCells = [] }) => {
+const QuestionnaireTable: FC<IProps> = ({ definitionItems, records, orientation }) => {
   const tableData = useMemo(() => {
     if (orientation === 'VERTICAL') {
-      return mapQuestionnaireObjectsToVerticalTableData(definitionItems, records, customRenderCells)
+      return mapQuestionnaireObjectsToVerticalTableData(definitionItems, records)
     }
-    return mapQuestionnaireObjectsToHorizontalTableData(definitionItems, records, customRenderCells)
+    return mapQuestionnaireObjectsToHorizontalTableData(definitionItems, records)
   }, [orientation, definitionItems, records])
 
   return <Table tableData={tableData} />
-}
-
-export interface CellRender {
-  id: string
-  render: FC<string>
 }
 
 interface IProps {
   orientation: SummaryTableViewType
   definitionItems: QuestionnaireItem[]
   records: QuestionnaireResponse[]
-  customRenderCells?: CellRender[]
 }
 
 export default QuestionnaireTable
