@@ -84,8 +84,7 @@ describe('Table', () => {
       />
     )
 
-    expect(screen.getAllByRole('color-box').length).toBe(2)
-    expect(screen.getAllByRole('color-box')[0]).toBeVisible()
-    expect(screen.getAllByRole('color-box')[1]).toBeVisible()
+    expect(screen.getByTestId('color-box-blue')).toBeVisible()
+    expect(screen.getByTestId('color-box-green')).toBeVisible()
   })
 })
