@@ -1,9 +1,10 @@
-import CSS from 'csstype'
-import { CellRender } from '@ltht-react/table/src/molecules/questionnaire-table'
+import { TableData } from '@ltht-react/table/src/atoms/table'
+import { mapQuestionnaireObjectsToHorizontalTableData } from '@ltht-react/table/src/molecules/questionnaire-table'
 import {
   PartialDateTime,
   PartialDateTimeKindCode,
   Questionnaire,
+  QuestionnaireItem,
   QuestionnaireItemTypeCode,
   QuestionnaireResponse,
   QuestionnaireResponseItem,
@@ -11,14 +12,6 @@ import {
   QuestionnaireResponseStatus,
 } from '@ltht-react/types'
 import { QuestionnairePublicationStatus } from '@ltht-react/types/src'
-
-const colourBox: CSS.Properties = {
-  display: 'inline-block',
-  height: '10px',
-  width: '10px',
-  border: '1px solid black',
-  clear: 'both',
-}
 
 export const mockSummaryDefinition: Questionnaire = {
   identifier: [],
@@ -69,17 +62,6 @@ export const mockSummaryDefinition: Questionnaire = {
     },
   ],
 }
-
-export const mockCustomRenderCells: CellRender[] = [
-  {
-    id: 'questionId3',
-    render: (value) => (
-      <>
-        <span role="color-box" style={{ ...colourBox, backgroundColor: value }} /> {value}
-      </>
-    ),
-  },
-]
 
 export const mockSummaryRecordsList: QuestionnaireResponse[] = [
   {
@@ -197,3 +179,25 @@ export const mockSummaryRecordsList: QuestionnaireResponse[] = [
     },
   } as QuestionnaireResponse,
 ]
+
+export const mockMappingMethodHorizontalWithCellCustomisation = (
+  definitionItems: Array<QuestionnaireItem>,
+  records: QuestionnaireResponse[]
+): TableData => {
+  let tableData = mapQuestionnaireObjectsToHorizontalTableData(definitionItems, records)
+
+  const columnToCustomiseIndex = tableData.headers.findIndex((x) => x.accessor === 'questionId3')
+  if (columnToCustomiseIndex > -1) {
+    tableData.headers[columnToCustomiseIndex].cell = (value) => (
+      <>
+        <span
+          role="color-box"
+          style={{ display: 'inline-block', width: '10px', height: '10px', backgroundColor: value }}
+        />{' '}
+        {value}
+      </>
+    )
+  }
+
+  return tableData
+}

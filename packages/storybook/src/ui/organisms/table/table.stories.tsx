@@ -1,25 +1,28 @@
 import { Story } from '@storybook/react'
-import Table from '@ltht-react/table'
+import Table, { GenericTable } from '@ltht-react/table'
 import { summaryDefinition, summaryRecordsList } from './table.fixtures'
-import { mockSummaryDefinition, mockSummaryRecordsList, mockCustomRenderCells } from './table.mockdata'
+import {
+  mockMappingMethodHorizontalWithCellCustomisation,
+  mockSummaryDefinition,
+  mockSummaryRecordsList,
+} from './table.mockdata'
 
 export const VerticalTable: Story = () => <Table definition={summaryDefinition} records={summaryRecordsList} />
 export const HorizontalTable: Story = () => (
   <Table definition={summaryDefinition} records={summaryRecordsList} orientation="HORIZONTAL" />
 )
 export const MockDataVisualisation: Story = () => (
-  <Table
-    definition={mockSummaryDefinition}
-    records={mockSummaryRecordsList}
-    customRenderCells={mockCustomRenderCells}
-  />
+  <Table definition={mockSummaryDefinition} records={mockSummaryRecordsList} />
 )
 export const MockDataVisualisationHorizontal: Story = () => (
-  <Table
+  <Table definition={mockSummaryDefinition} records={mockSummaryRecordsList} orientation="HORIZONTAL" />
+)
+
+export const MockDataVisualisationHorizontalWithCellCustomisation: Story = () => (
+  <GenericTable
     definition={mockSummaryDefinition}
     records={mockSummaryRecordsList}
-    orientation="HORIZONTAL"
-    customRenderCells={mockCustomRenderCells}
+    mapToTableData={mockMappingMethodHorizontalWithCellCustomisation}
   />
 )
 
