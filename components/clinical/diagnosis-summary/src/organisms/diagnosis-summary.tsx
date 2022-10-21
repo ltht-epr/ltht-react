@@ -49,6 +49,7 @@ const DiagnosisSummary: FC<Props> = ({
   extendedTemplateDisplayName,
   extensionTemplateDisplayName,
   extensionClickHandler,
+  isReadOnly,
   ...rest
 }) => {
   const { width } = useWindowSize()
@@ -70,7 +71,7 @@ const DiagnosisSummary: FC<Props> = ({
         <StyledTitle>
           <Title enteredInError={enteredInError} condition={condition} />
         </StyledTitle>
-        {extensionTemplateDisplayName && !isMobile && (
+        {extensionTemplateDisplayName && !isMobile && !isReadOnly && (
           <IconButtonWrapper
             onClick={extensionClickHandler}
             type="button"
@@ -82,7 +83,7 @@ const DiagnosisSummary: FC<Props> = ({
             title={`This diagnosis can be extended further to form '${extensionTemplateDisplayName}' by clicking here`}
           />
         )}
-        {extensionTemplateDisplayName && isMobile && (
+        {extensionTemplateDisplayName && isMobile && !isReadOnly && (
           <IconWrapper>
             <FolderPlusIcon
               size="medium"
@@ -116,6 +117,7 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
   extendedTemplateDisplayName?: string | undefined
   extensionTemplateDisplayName?: string | undefined
   extensionClickHandler?(): void
+  isReadOnly: boolean
 }
 
 export default DiagnosisSummary
