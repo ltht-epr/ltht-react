@@ -24,6 +24,12 @@ const StyledTable = styled.table`
 const StyledTableHeader = styled.th`
   font-weight: bold
   border-radius: 6px;
+  border: thin solid rgba(200, 200, 200, 0.2);
+`
+
+const StyledTableData = styled.td`
+  border-radius: 6px;
+  border: thin solid rgba(200, 200, 200, 0.2);
 `
 
 const generateColumnsFromHeadersRecursively = (headers?: Header[]): Column<Record<string, string>>[] =>
@@ -102,7 +108,7 @@ export default function Table<TColumn, TRow>({
             return (
               <tr {...row.getRowProps()}>
                 {row.cells.map((cell, cellIdx) => (
-                  <td
+                  <StyledTableData
                     style={{
                       background: cellIdx % 2 === 1 ? TRANSLUCENT_GREY_TABLE : TRANSLUCENT_BRIGHT_BLUE_TABLE,
                       textAlign: 'center',
@@ -110,7 +116,7 @@ export default function Table<TColumn, TRow>({
                     {...cell.getCellProps()}
                   >
                     {cell.render('Cell')}
-                  </td>
+                  </StyledTableData>
                 ))}
               </tr>
             )
