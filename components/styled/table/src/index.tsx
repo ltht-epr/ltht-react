@@ -5,19 +5,6 @@ import QuestionnaireTable from './molecules/questionnaire-table'
 import GenericTableMolecule from './molecules/generic-table'
 import { TableData } from './atoms/table'
 
-interface IProps {
-  orientation?: SummaryTableViewType
-  definition: Questionnaire
-  records: QuestionnaireResponse[]
-}
-
-interface IGenericTableProps<TColumn, TRow> {
-  orientation?: SummaryTableViewType
-  columnData: TColumn
-  rowData: TRow
-  mapToTableData: (colData: TColumn, rowData: TRow) => TableData
-}
-
 const Table: FC<IProps> = ({ definition, records, orientation = 'VERTICAL' }) => {
   if (!definition.item || definition.item.length === 0) {
     return <div>Could not render table. Definition items array was empty.</div>
@@ -54,6 +41,19 @@ export const GenericTable = <TColumn, TRow>({
       orientation={orientation}
     />
   )
+}
+
+interface IProps {
+  orientation?: SummaryTableViewType
+  definition: Questionnaire
+  records: QuestionnaireResponse[]
+}
+
+interface IGenericTableProps<TColumn, TRow> {
+  orientation?: SummaryTableViewType
+  columnData: TColumn
+  rowData: TRow
+  mapToTableData: (colData: TColumn, rowData: TRow) => TableData
 }
 
 export default Table
