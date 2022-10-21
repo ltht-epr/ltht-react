@@ -21,16 +21,17 @@ export const MockDataVisualisationHorizontal: Story = () => (
 
 export const MockDataVisualisationVerticalWithCellCustomisation: Story = () => (
   <GenericTable
-    definition={mockSummaryDefinition}
-    records={mockSummaryRecordsList}
+    columnData={mockSummaryDefinition}
+    rowData={mockSummaryRecordsList}
     mapToTableData={mockMappingMethodVerticalWithCellCustomisation}
   />
 )
 
 export const MockDataVisualisationHorizontalWithCellCustomisation: Story = () => (
   <GenericTable
-    definition={mockSummaryDefinition}
-    records={mockSummaryRecordsList}
+    orientation="HORIZONTAL"
+    columnData={mockSummaryDefinition}
+    rowData={mockSummaryRecordsList}
     mapToTableData={mockMappingMethodHorizontalWithCellCustomisation}
   />
 )

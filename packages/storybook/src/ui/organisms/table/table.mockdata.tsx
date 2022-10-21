@@ -7,7 +7,6 @@ import {
   PartialDateTime,
   PartialDateTimeKindCode,
   Questionnaire,
-  QuestionnaireItem,
   QuestionnaireItemTypeCode,
   QuestionnaireResponse,
   QuestionnaireResponseItem,
@@ -15,7 +14,7 @@ import {
   QuestionnaireResponseStatus,
 } from '@ltht-react/types'
 import { QuestionnairePublicationStatus } from '@ltht-react/types/src'
-import { FC } from 'react'
+import { EnsureMaybe } from '@ltht-react/utils'
 
 export const mockSummaryDefinition: Questionnaire = {
   identifier: [],
@@ -195,10 +194,11 @@ const customCellWithColorBox = ({ value }: ICellProps) => (
 )
 
 export const mockMappingMethodHorizontalWithCellCustomisation = (
-  definitionItems: QuestionnaireItem[],
+  definition: Questionnaire,
   records: QuestionnaireResponse[]
 ): TableData => {
-  const tableData = mapQuestionnaireObjectsToHorizontalTableData(definitionItems, records)
+  const items = EnsureMaybe(definition.item?.map((x) => EnsureMaybe(x)))
+  const tableData = mapQuestionnaireObjectsToHorizontalTableData(items, records)
 
   const columnToCustomiseIndex = tableData.headers.findIndex((x) => x.accessor === 'questionId3')
   if (columnToCustomiseIndex > -1) {
@@ -209,20 +209,22 @@ export const mockMappingMethodHorizontalWithCellCustomisation = (
 }
 
 export const mockMappingMethodVerticalWithCellCustomisation = (
-  definitionItems: Array<QuestionnaireItem>,
+  definition: Questionnaire,
   records: QuestionnaireResponse[]
 ): TableData => {
-  const tableData = mapQuestionnaireObjectsToVerticalTableData(definitionItems, records)
+  const items = EnsureMaybe(definition.item?.map((x) => EnsureMaybe(x)))
+  const tableData = mapQuestionnaireObjectsToVerticalTableData(items, records)
+
+  tableData.rows = tableData.rows.map((row) => {
+    const rowWithCustomisation = row
+    rowWithCustomisation.cells[0].render = (props: ICellProps) => <b data-testid="header-">{props.value}</b>
+    return rowWithCustomisation
+  })
 
   const columnToCustomiseIndex = tableData.rows.findIndex((x) => x.id === 'questionId3')
   if (columnToCustomiseIndex > -1) {
     tableData.rows[columnToCustomiseIndex].render = customCellWithColorBox
   }
-
-  tableData.headers = tableData.headers.map((header) => ({
-    ...header,
-    cell: (props) => (props.row.render as FC<ICellProps>)(props),
-  }))
 
   return tableData
 }

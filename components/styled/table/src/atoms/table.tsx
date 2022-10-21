@@ -16,8 +16,6 @@ const Container = styled.div`
 const StyledTableHeader = styled.th`
   border: 1px solid rgba(200, 200, 200, 1);
 `
-export declare type ReactTableCell = string | FC<ICellProps>
-
 const generateColumnsFromHeadersRecursively = (headers?: Header[]): Column<Record<string, ReactTableCell>>[] =>
   (headers ?? []).map((header) => ({
     Header: header.header,
@@ -26,11 +24,16 @@ const generateColumnsFromHeadersRecursively = (headers?: Header[]): Column<Recor
     sortType: 'basic',
     // TODO: Figure out why sorting headers with subheaders causes an error and fix
     disableSortBy: !!header.subheaders,
-    Cell: (props: { value: PropsWithChildren<string>; row: Record<string, unknown> }) =>
+    Cell: (props: {
+      value: PropsWithChildren<string>
+      row: Record<string, unknown>
+      column: Record<string, unknown>
+    }) =>
       header?.cell
         ? header?.cell({
             value: props?.value,
             row: (props?.row?.original as unknown) as Record<string, ReactTableCell>,
+            columnId: (props?.column?.id as string) ?? '',
           }) ?? ''
         : props?.value ?? '',
   }))
@@ -38,14 +41,19 @@ const generateColumnsFromHeadersRecursively = (headers?: Header[]): Column<Recor
 const generateRowsFromCellRows = (cellRows: CellRow[]): Record<string, ReactTableCell>[] =>
   cellRows.map((cellRow) => {
     const mappedCell: Record<string, ReactTableCell> = {}
+    const mappedCellRender: Record<string, FC<ICellProps>> = {}
 
     cellRow.cells.forEach((cell) => {
       mappedCell[cell.key] = cell.value
+      if (cell.render) {
+        mappedCellRender[cell.key] = cell.render
+      }
     })
 
     // this is to allow custom cell render option for vertical table
     mappedCell.id = cellRow.id ?? ''
     mappedCell.render = cellRow.render ? cellRow.render : (props: ICellProps) => <>{props.value}</>
+    mappedCell.renderCells = mappedCellRender
 
     return mappedCell
   })
@@ -135,6 +143,7 @@ interface IProps<TColumn, TRow> {
 export interface ICellProps {
   value: string
   row: Record<string, ReactTableCell>
+  columnId: string
 }
 
 export interface Header {
@@ -147,6 +156,7 @@ export interface Header {
 export interface Cell {
   key: string
   value: string
+  render?: FC<ICellProps>
 }
 
 export interface CellRow {
@@ -159,3 +169,5 @@ export interface TableData {
   headers: Header[]
   rows: CellRow[]
 }
+
+export declare type ReactTableCell = string | FC<ICellProps> | Record<string, FC<ICellProps>>

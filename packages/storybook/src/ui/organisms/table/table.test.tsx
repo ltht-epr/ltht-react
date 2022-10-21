@@ -79,8 +79,9 @@ describe('Table', () => {
   it('Renders horizontally with cell customisation', () => {
     render(
       <GenericTable
-        definition={mockSummaryDefinition}
-        records={mockSummaryRecordsList}
+        orientation="HORIZONTAL"
+        columnData={mockSummaryDefinition}
+        rowData={mockSummaryRecordsList}
         mapToTableData={mockMappingMethodHorizontalWithCellCustomisation}
       />
     )
@@ -92,8 +93,9 @@ describe('Table', () => {
   it('Renders vertically with cell customisation', () => {
     render(
       <GenericTable
-        definition={mockSummaryDefinition}
-        records={mockSummaryRecordsList}
+        orientation="VERTICAL"
+        columnData={mockSummaryDefinition}
+        rowData={mockSummaryRecordsList}
         mapToTableData={mockMappingMethodVerticalWithCellCustomisation}
       />
     )
