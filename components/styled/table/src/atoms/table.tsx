@@ -50,12 +50,14 @@ const generateRowsFromCellRows = (cellRows: CellRow[]): Record<string, ReactTabl
       }
     })
 
-    // this is to allow custom cell render option for vertical table
-    mappedCell['rowId'] = cellRow.id ?? ''
-    mappedCell['render'] = cellRow.render ? cellRow.render : (props: ICellProps) => <>{props.value}</>
-    mappedCell['renderCells'] = mappedCellRender
-
-    return mappedCell
+    return {
+      ...mappedCell,
+      ...{
+        rowId: cellRow.id ?? '',
+        render: cellRow.render ? cellRow.render : (props: ICellProps) => <>{props.value}</>,
+        renderCells: mappedCellRender,
+      },
+    }
   })
 
 export default function Table<TColumn, TRow>({
