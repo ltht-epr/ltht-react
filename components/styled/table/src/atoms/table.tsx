@@ -1,20 +1,29 @@
 import { useTable, Column, useSortBy, HeaderGroup } from 'react-table'
-import CssBaseline from '@material-ui/core/CssBaseline'
-import MaUTable from '@material-ui/core/Table'
-import TableBody from '@material-ui/core/TableBody'
-import TableCell from '@material-ui/core/TableCell'
-import TableHead from '@material-ui/core/TableHead'
-import TableRow from '@material-ui/core/TableRow'
 import styled from '@emotion/styled'
-import { TRANSLUCENT_BRIGHT_BLUE_TABLE, TRANSLUCENT_GREY_TABLE } from '@ltht-react/styles'
+import {
+  CSS_RESET,
+  TRANSLUCENT_BRIGHT_BLUE_TABLE,
+  TRANSLUCENT_GREY_TABLE,
+  TRANSLUCENT_MID_GREY,
+} from '@ltht-react/styles'
 import { useEffect, useState } from 'react'
 
 const Container = styled.div`
+  ${CSS_RESET};
   background-color: white;
+  border-radius: 6px;
+`
+
+const StyledTable = styled.table`
+  width: 100%;
+  border-radius: 6px;
+  border-collapse: collapse;
+  border: thin solid ${TRANSLUCENT_MID_GREY};
 `
 
 const StyledTableHeader = styled.th`
-  border: 1px solid rgba(200, 200, 200, 1);
+  font-weight: bold
+  border-radius: 6px;
 `
 
 const generateColumnsFromHeadersRecursively = (headers?: Header[]): Column<Record<string, string>>[] =>
@@ -74,9 +83,8 @@ export default function Table<TColumn, TRow>({
 
   return (
     <Container>
-      <CssBaseline />
-      <MaUTable {...getTableProps()}>
-        <TableHead>
+      <StyledTable {...getTableProps()}>
+        <thead>
           {headerGroups.map((headerGroup) => (
             <tr {...headerGroup.getHeaderGroupProps()}>
               {headerGroup.headers.map((column) => (
@@ -87,14 +95,14 @@ export default function Table<TColumn, TRow>({
               ))}
             </tr>
           ))}
-        </TableHead>
-        <TableBody {...getTableBodyProps()}>
+        </thead>
+        <tbody {...getTableBodyProps()}>
           {rows.map((row) => {
             prepareRow(row)
             return (
-              <TableRow {...row.getRowProps()}>
+              <tr {...row.getRowProps()}>
                 {row.cells.map((cell, cellIdx) => (
-                  <TableCell
+                  <td
                     style={{
                       background: cellIdx % 2 === 1 ? TRANSLUCENT_GREY_TABLE : TRANSLUCENT_BRIGHT_BLUE_TABLE,
                       textAlign: 'center',
@@ -102,13 +110,13 @@ export default function Table<TColumn, TRow>({
                     {...cell.getCellProps()}
                   >
                     {cell.render('Cell')}
-                  </TableCell>
+                  </td>
                 ))}
-              </TableRow>
+              </tr>
             )
           })}
-        </TableBody>
-      </MaUTable>
+        </tbody>
+      </StyledTable>
     </Container>
   )
 }
