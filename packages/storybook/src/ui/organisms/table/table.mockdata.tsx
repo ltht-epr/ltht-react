@@ -217,7 +217,7 @@ export const mockMappingMethodVerticalWithCellCustomisation = (
 
   tableData.rows = tableData.rows.map((row) => {
     const rowWithCustomisation = row
-    rowWithCustomisation.cells[0].render = (props: ICellProps) => <b data-testid="header-">{props.value}</b>
+    rowWithCustomisation.cells[0].render = (props: ICellProps) => <b>{props.value}</b>
     return rowWithCustomisation
   })
 
