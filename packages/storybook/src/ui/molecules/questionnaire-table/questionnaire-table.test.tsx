@@ -7,8 +7,9 @@ import userEvent from '@testing-library/user-event'
 import {
   summaryDefinitionOneHorizontalTableData,
   summaryDefinitionOneVerticalTableData,
+  summaryDefinitionItems,
+  summaryRecordsList,
 } from './questionnaire-table.mockdata'
-import { summaryDefinitionItems, summaryRecordsList } from './table.fixtures'
 
 describe('Questionnaire Table', () => {
   it('Maps vertically as expected', () => {
