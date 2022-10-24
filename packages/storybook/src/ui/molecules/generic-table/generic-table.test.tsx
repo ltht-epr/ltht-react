@@ -2,6 +2,7 @@ import { render, screen } from '@testing-library/react'
 import { GenericTable } from '@ltht-react/table'
 import {
   mockMappingMethodHorizontalWithCellCustomisation,
+  mockMappingMethodHorizontalWithHeaderCustomisation,
   mockMappingMethodVerticalWithCellCustomisation,
   mockSummaryDefinition,
   mockSummaryRecordsList,
@@ -34,5 +35,18 @@ describe('Table', () => {
 
     expect(screen.getByTestId('color-box-blue')).toBeVisible()
     expect(screen.getByTestId('color-box-green')).toBeVisible()
+  })
+
+  it('Renders horizontally with header customisation', () => {
+    render(
+      <GenericTable
+        orientation="HORIZONTAL"
+        columnData={mockSummaryDefinition}
+        rowData={mockSummaryRecordsList}
+        mapToTableData={mockMappingMethodHorizontalWithHeaderCustomisation}
+      />
+    )
+
+    expect(screen.getByTestId('record-date-header')).toBeVisible()
   })
 })
