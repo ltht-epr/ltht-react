@@ -18,6 +18,7 @@ const StyledTableHeader = styled.th`
 `
 const generateColumnsFromHeadersRecursively = (headers?: Header[]): Column<Record<string, ReactTableCell>>[] =>
   (headers ?? []).map((header) => ({
+    id: header.id,
     Header: header.header,
     accessor: header.subheaders ? '' : header.accessor,
     columns: header.subheaders ? generateColumnsFromHeadersRecursively(header.subheaders) : undefined,
@@ -149,7 +150,8 @@ export interface ICellProps {
 }
 
 export interface Header {
-  header: string
+  id?: string
+  header: string | JSX.Element
   accessor: string
   subheaders?: Header[]
   cell?: FC<ICellProps>

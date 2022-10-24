@@ -2,6 +2,7 @@ import { Story } from '@storybook/react'
 import { GenericTable } from '@ltht-react/table'
 import {
   mockMappingMethodHorizontalWithCellCustomisation,
+  mockMappingMethodHorizontalWithHeaderCustomisation,
   mockMappingMethodVerticalWithCellCustomisation,
   mockSummaryDefinition,
   mockSummaryRecordsList,
@@ -21,6 +22,15 @@ export const MockDataVisualisationHorizontalWithCellCustomisation: Story = () =>
     columnData={mockSummaryDefinition}
     rowData={mockSummaryRecordsList}
     mapToTableData={mockMappingMethodHorizontalWithCellCustomisation}
+  />
+)
+
+export const MockDataVisualisationHorizontalWithHeaderCustomisation: Story = () => (
+  <GenericTable
+    orientation="HORIZONTAL"
+    columnData={mockSummaryDefinition}
+    rowData={mockSummaryRecordsList}
+    mapToTableData={mockMappingMethodHorizontalWithHeaderCustomisation}
   />
 )
 
