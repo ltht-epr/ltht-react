@@ -7,7 +7,7 @@ import TableHead from '@material-ui/core/TableHead'
 import TableRow from '@material-ui/core/TableRow'
 import styled from '@emotion/styled'
 import { TRANSLUCENT_BRIGHT_BLUE_TABLE, TRANSLUCENT_GREY_TABLE } from '@ltht-react/styles'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, FC, PropsWithChildren } from 'react'
 
 const Container = styled.div`
   background-color: white;
@@ -16,8 +16,7 @@ const Container = styled.div`
 const StyledTableHeader = styled.th`
   border: 1px solid rgba(200, 200, 200, 1);
 `
-
-const generateColumnsFromHeadersRecursively = (headers?: Header[]): Column<Record<string, string>>[] =>
+const generateColumnsFromHeadersRecursively = (headers?: Header[]): Column<Record<string, ReactTableCell>>[] =>
   (headers ?? []).map((header) => ({
     Header: header.header,
     accessor: header.subheaders ? '' : header.accessor,
@@ -25,17 +24,40 @@ const generateColumnsFromHeadersRecursively = (headers?: Header[]): Column<Recor
     sortType: 'basic',
     // TODO: Figure out why sorting headers with subheaders causes an error and fix
     disableSortBy: !!header.subheaders,
+    Cell: (props: {
+      value: PropsWithChildren<string>
+      row: Record<string, unknown>
+      column: Record<string, unknown>
+    }) =>
+      header?.cell
+        ? header?.cell({
+            value: props?.value,
+            row: (props?.row?.original as unknown) as Record<string, ReactTableCell>,
+            columnId: (props?.column?.id as string) ?? '',
+          }) ?? ''
+        : props?.value ?? '',
   }))
 
-const generateRowsFromCellRows = (cellRows: CellRow[]): Record<string, string>[] =>
+const generateRowsFromCellRows = (cellRows: CellRow[]): Record<string, ReactTableCell>[] =>
   cellRows.map((cellRow) => {
-    const mappedCell: Record<string, string> = {}
+    const mappedCell: Record<string, ReactTableCell> = {}
+    const mappedCellRender: Record<string, FC<ICellProps>> = {}
 
     cellRow.cells.forEach((cell) => {
       mappedCell[cell.key] = cell.value
+      if (cell.render) {
+        mappedCellRender[cell.key] = cell.render
+      }
     })
 
-    return mappedCell
+    return {
+      ...mappedCell,
+      ...{
+        rowId: cellRow.id ?? '',
+        render: cellRow.render ? cellRow.render : (props: ICellProps) => <>{props.value}</>,
+        renderCells: mappedCellRender,
+      },
+    }
   })
 
 export default function Table<TColumn, TRow>({
@@ -44,8 +66,8 @@ export default function Table<TColumn, TRow>({
   rowData,
   mapToTableData,
 }: IProps<TColumn, TRow>) {
-  const [columns, setColumns] = useState<Column<Record<string, string>>[]>([])
-  const [data, setData] = useState<Record<string, string>[]>([])
+  const [columns, setColumns] = useState<Column<Record<string, ReactTableCell>>[]>([])
+  const [data, setData] = useState<Record<string, ReactTableCell>[]>([])
 
   useEffect(() => {
     const mappedTableData =
@@ -65,7 +87,7 @@ export default function Table<TColumn, TRow>({
     useSortBy
   )
 
-  const sortIcon = (column: HeaderGroup<Record<string, string>>) => {
+  const sortIcon = (column: HeaderGroup<Record<string, ReactTableCell>>) => {
     if (column.isSorted) {
       return <span>{column.isSortedDesc ? ' 🔽' : ' 🔼'}</span>
     }
@@ -120,22 +142,34 @@ interface IProps<TColumn, TRow> {
   mapToTableData?: (colItems: TColumn, rowItems: TRow) => TableData
 }
 
+export interface ICellProps {
+  value: string
+  row: Record<string, ReactTableCell>
+  columnId: string
+}
+
 export interface Header {
   header: string
   accessor: string
   subheaders?: Header[]
+  cell?: FC<ICellProps>
 }
 
 export interface Cell {
   key: string
   value: string
+  render?: FC<ICellProps>
 }
 
 export interface CellRow {
+  id?: string
   cells: Cell[]
+  render?: FC<ICellProps>
 }
 
 export interface TableData {
   headers: Header[]
   rows: CellRow[]
 }
+
+export declare type ReactTableCell = string | FC<ICellProps> | Record<string, FC<ICellProps>>

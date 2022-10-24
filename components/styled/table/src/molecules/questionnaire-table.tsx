@@ -24,6 +24,7 @@ export const mapQuestionnaireObjectsToVerticalTableData = (
     })),
   ],
   rows: definitionItems.map((def) => ({
+    id: def?.linkId ?? '',
     cells: [
       {
         key: 'property',
