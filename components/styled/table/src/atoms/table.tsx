@@ -1,12 +1,7 @@
 import { useTable, Column, useSortBy, HeaderGroup } from 'react-table'
 import styled from '@emotion/styled'
-import {
-  CSS_RESET,
-  TRANSLUCENT_BRIGHT_BLUE_TABLE,
-  TRANSLUCENT_GREY_TABLE,
-  TRANSLUCENT_MID_GREY,
-} from '@ltht-react/styles'
-import { useEffect, useState } from 'react'
+import { CSS_RESET, TRANSLUCENT_BRIGHT_BLUE_TABLE, TRANSLUCENT_MID_GREY } from '@ltht-react/styles'
+import { useEffect, useState, FC, PropsWithChildren } from 'react'
 
 const Container = styled.div`
   ${CSS_RESET};
