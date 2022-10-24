@@ -1,12 +1,7 @@
 import { render, screen } from '@testing-library/react'
-import Table, { GenericTable } from '@ltht-react/table'
+import Table from '@ltht-react/table'
 import { QuestionnaireItem } from '@ltht-react/types'
-import {
-  mockMappingMethodHorizontalWithCellCustomisation,
-  mockMappingMethodVerticalWithCellCustomisation,
-  mockSummaryDefinition,
-  mockSummaryRecordsList,
-} from './table.mockdata'
+import { mockSummaryDefinition, mockSummaryRecordsList } from './table.mockdata'
 
 describe('Table', () => {
   it('Renders', () => {
@@ -74,33 +69,5 @@ describe('Table', () => {
 
     expect(screen.getByRole('table').children[1].tagName).toBe('TBODY')
     expect(screen.getByRole('table').children[1].children.length).toBe(5)
-  })
-
-  it('Renders horizontally with cell customisation', () => {
-    render(
-      <GenericTable
-        orientation="HORIZONTAL"
-        columnData={mockSummaryDefinition}
-        rowData={mockSummaryRecordsList}
-        mapToTableData={mockMappingMethodHorizontalWithCellCustomisation}
-      />
-    )
-
-    expect(screen.getByTestId('color-box-blue')).toBeVisible()
-    expect(screen.getByTestId('color-box-green')).toBeVisible()
-  })
-
-  it('Renders vertically with cell customisation', () => {
-    render(
-      <GenericTable
-        orientation="VERTICAL"
-        columnData={mockSummaryDefinition}
-        rowData={mockSummaryRecordsList}
-        mapToTableData={mockMappingMethodVerticalWithCellCustomisation}
-      />
-    )
-
-    expect(screen.getByTestId('color-box-blue')).toBeVisible()
-    expect(screen.getByTestId('color-box-green')).toBeVisible()
   })
 })
