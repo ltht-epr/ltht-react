@@ -7,7 +7,7 @@ import conditions from './diagnosis.fixtures'
 describe('Conditions', () => {
   describe('Summary', () => {
     it('Renders', () => {
-      render(<DiagnosisSummary condition={conditions[0]} />)
+      render(<DiagnosisSummary condition={conditions[0]} isReadOnly />)
     })
   })
   describe('Detail', () => {
