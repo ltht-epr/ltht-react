@@ -1,20 +1,37 @@
 import { useTable, Column, useSortBy, HeaderGroup } from 'react-table'
-import CssBaseline from '@material-ui/core/CssBaseline'
-import MaUTable from '@material-ui/core/Table'
-import TableBody from '@material-ui/core/TableBody'
-import TableCell from '@material-ui/core/TableCell'
-import TableHead from '@material-ui/core/TableHead'
-import TableRow from '@material-ui/core/TableRow'
 import styled from '@emotion/styled'
-import { TRANSLUCENT_BRIGHT_BLUE_TABLE, TRANSLUCENT_GREY_TABLE } from '@ltht-react/styles'
+import { CSS_RESET, TRANSLUCENT_BRIGHT_BLUE_TABLE, TRANSLUCENT_MID_GREY } from '@ltht-react/styles'
 import { useEffect, useState, FC, PropsWithChildren } from 'react'
 
 const Container = styled.div`
+  ${CSS_RESET};
   background-color: white;
+  border-radius: 6px;
+  display: inline-block;
+`
+
+const StyledTable = styled.table`
+  background-color: white;
+  border-collapse: collapse;
+  border-radius: 6px;
+  border: thin solid rgba(200, 200, 200, 0.5);
+  padding: 1rem;
 `
 
 const StyledTableHeader = styled.th`
-  border: 1px solid rgba(200, 200, 200, 1);
+  background-color: ${TRANSLUCENT_MID_GREY};
+  border: thin solid rgba(200, 200, 200, 0.5);
+  font-weight: bold;
+  padding: 1rem;
+`
+
+const StyledTableData = styled.td`
+  border: thin solid rgba(200, 200, 200, 0.5);
+  white-space: nowrap;
+
+  &:first-of-type {
+    background-color: ${TRANSLUCENT_MID_GREY} !important;
+  }
 `
 const generateColumnsFromHeadersRecursively = (headers?: Header[]): Column<Record<string, ReactTableCell>>[] =>
   (headers ?? []).map((header) => ({
@@ -97,9 +114,8 @@ export default function Table<TColumn, TRow>({
 
   return (
     <Container>
-      <CssBaseline />
-      <MaUTable {...getTableProps()}>
-        <TableHead>
+      <StyledTable {...getTableProps()}>
+        <thead>
           {headerGroups.map((headerGroup) => (
             <tr {...headerGroup.getHeaderGroupProps()}>
               {headerGroup.headers.map((column) => (
@@ -110,28 +126,28 @@ export default function Table<TColumn, TRow>({
               ))}
             </tr>
           ))}
-        </TableHead>
-        <TableBody {...getTableBodyProps()}>
+        </thead>
+        <tbody {...getTableBodyProps()}>
           {rows.map((row) => {
             prepareRow(row)
             return (
-              <TableRow {...row.getRowProps()}>
+              <tr {...row.getRowProps()}>
                 {row.cells.map((cell, cellIdx) => (
-                  <TableCell
+                  <StyledTableData
                     style={{
-                      background: cellIdx % 2 === 1 ? TRANSLUCENT_GREY_TABLE : TRANSLUCENT_BRIGHT_BLUE_TABLE,
+                      background: cellIdx % 2 === 1 ? 'white' : TRANSLUCENT_BRIGHT_BLUE_TABLE,
                       textAlign: 'center',
                     }}
                     {...cell.getCellProps()}
                   >
                     {cell.render('Cell')}
-                  </TableCell>
+                  </StyledTableData>
                 ))}
-              </TableRow>
+              </tr>
             )
           })}
-        </TableBody>
-      </MaUTable>
+        </tbody>
+      </StyledTable>
     </Container>
   )
 }
