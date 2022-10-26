@@ -1,7 +1,14 @@
-import { useTable, Column, useSortBy, HeaderGroup } from 'react-table'
+import { useTable, Column, useSortBy, HeaderGroup, Row } from 'react-table'
 import styled from '@emotion/styled'
-import { CSS_RESET, TRANSLUCENT_BRIGHT_BLUE_TABLE, TRANSLUCENT_MID_GREY } from '@ltht-react/styles'
+import {
+  CSS_RESET,
+  TRANSLUCENT_BRIGHT_BLUE_TABLE,
+  TRANSLUCENT_GREY_TABLE,
+  TRANSLUCENT_MID_GREY,
+} from '@ltht-react/styles'
 import { useEffect, useState, FC, PropsWithChildren } from 'react'
+import { Checkbox } from '@material-ui/core'
+import { EnsureMaybeArray } from '@ltht-react/utils'
 
 const Container = styled.div`
   ${CSS_RESET};
@@ -60,6 +67,7 @@ const generateRowsFromCellRows = (cellRows: CellRow[]): Record<string, ReactTabl
   cellRows.map((cellRow) => {
     const mappedCell: Record<string, ReactTableCell> = {}
     const mappedCellRender: Record<string, FC<ICellProps>> = {}
+    const subCellRows: Record<string, ReactTableCell>[] = generateRowsFromCellRows(cellRow?.subCellRows ?? [])
 
     cellRow.cells.forEach((cell) => {
       mappedCell[cell.key] = cell.value
@@ -75,8 +83,25 @@ const generateRowsFromCellRows = (cellRows: CellRow[]): Record<string, ReactTabl
         render: cellRow.render ? cellRow.render : (props: ICellProps) => <>{props.value}</>,
         renderCells: mappedCellRender,
       },
+      subCellRows: subCellRows,
     }
   })
+
+const initialiseCollapsedRowStateRecursive = (rows: Record<string, ReactTableCell>[]): Record<string, boolean> => {
+  let collapsedRows: Record<string, boolean> = {}
+
+  rows.forEach((row) => {
+    if (EnsureMaybeArray(row.subCellRows as Record<string, ReactTableCell>[]).length > 0) {
+      collapsedRows[row.rowId as string] = true
+      collapsedRows = {
+        ...collapsedRows,
+        ...initialiseCollapsedRowStateRecursive(row.subCellRows as Record<string, ReactTableCell>[]),
+      }
+    }
+  })
+
+  return collapsedRows
+}
 
 export default function Table<TColumn, TRow>({
   tableData,
@@ -86,6 +111,7 @@ export default function Table<TColumn, TRow>({
 }: IProps<TColumn, TRow>) {
   const [columns, setColumns] = useState<Column<Record<string, ReactTableCell>>[]>([])
   const [data, setData] = useState<Record<string, ReactTableCell>[]>([])
+  const [tableRowCollapsedState, setTableRowCollapsedState] = useState<Record<string, boolean>>({})
 
   useEffect(() => {
     const mappedTableData =
@@ -93,8 +119,11 @@ export default function Table<TColumn, TRow>({
         ? mapToTableData(columnData, rowData)
         : tableData ?? { headers: [], rows: [] }
 
+    const dataState = generateRowsFromCellRows(mappedTableData.rows)
+
     setColumns(generateColumnsFromHeadersRecursively(mappedTableData.headers))
-    setData(generateRowsFromCellRows(mappedTableData.rows))
+    setData(dataState)
+    setTableRowCollapsedState(initialiseCollapsedRowStateRecursive(dataState))
   }, [tableData, columnData, rowData, mapToTableData])
 
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = useTable(
@@ -110,6 +139,153 @@ export default function Table<TColumn, TRow>({
       return <span>{column.isSortedDesc ? ' 🔽' : ' 🔼'}</span>
     }
     return ''
+  }
+
+  const handleCollapsedRowClick = (rowId: string) => {
+    tableRowCollapsedState[rowId] = !tableRowCollapsedState[rowId]
+    setTableRowCollapsedState({ ...tableRowCollapsedState })
+  }
+
+  const collapsibleDiv = (
+    originalRow: Row<Record<string, ReactTableCell>>,
+    subRows: Record<string, ReactTableCell>[]
+  ) => {
+    const rowId: string = originalRow.original.rowId as string
+
+    return (
+      <>
+        {buildCollapsedDivParent(rowId, originalRow, subRows)}
+        {buildCollapsedDivChildrens(rowId, originalRow, subRows)}
+      </>
+    )
+  }
+
+  const buildCollapsedDivParent = (
+    rowId: string,
+    originalRow: Row<Record<string, ReactTableCell>>,
+    subRows: Record<string, ReactTableCell>[]
+  ) => {
+    const header = originalRow.cells[0]
+    const headerCustomRendering = (originalRow.original.renderCells as Record<string, FC<ICellProps>>)[header.column.id]
+    const rowCustomRendering = originalRow.original.render as FC<ICellProps>
+    const renderFunctionProps = {
+      value: header.value,
+      row: originalRow.original,
+      columnId: (header.column?.id as string) ?? '',
+    }
+    const headerFinalRender = headerCustomRendering
+      ? headerCustomRendering(renderFunctionProps)
+      : rowCustomRendering
+      ? rowCustomRendering(renderFunctionProps)
+      : header.value
+
+    return (
+      <tr
+        {...originalRow.getRowProps()}
+        onClick={() => handleCollapsedRowClick(rowId)}
+        key={rowId}
+        style={{ cursor: 'pointer' }}
+      >
+        {originalRow.cells.map((cell, cellIdx) => {
+          return (
+            <StyledTableData
+              style={{
+                background: cellIdx % 2 === 1 ? TRANSLUCENT_GREY_TABLE : TRANSLUCENT_BRIGHT_BLUE_TABLE,
+                textAlign: 'center',
+              }}
+              {...cell.getCellProps()}
+            >
+              {cellIdx === 0 ? (
+                <>
+                  {headerFinalRender}{' '}
+                  <span style={{ float: 'right' }}>{tableRowCollapsedState[rowId] ? '⮟' : '⮝'}</span>
+                </>
+              ) : (
+                <Checkbox color="primary" checked={subRows.some((r) => r[cell.column.id] !== '')} />
+              )}
+            </StyledTableData>
+          )
+        })}
+      </tr>
+    )
+  }
+
+  const buildChildCollapsedDivParent = (
+    parentRowId: string,
+    row: Record<string, ReactTableCell>,
+    subRows: Record<string, ReactTableCell>[],
+    parentRow: Row<Record<string, ReactTableCell>>
+  ) => {
+    const rowId = row.rowId as string
+
+    return (
+      <tr
+        onClick={() => handleCollapsedRowClick(rowId)}
+        key={rowId}
+        style={{ cursor: 'pointer', display: tableRowCollapsedState[parentRowId] === true ? 'none' : '' }}
+      >
+        {parentRow.cells.map((cell, cellIdx) => {
+          return (
+            <StyledTableData
+              style={{
+                background: TRANSLUCENT_MID_GREY,
+                textAlign: 'center',
+              }}
+              {...cell.getCellProps()}
+            >
+              {cellIdx === 0 ? (
+                <>
+                  {row[cell.column.id]}
+                  <span style={{ float: 'right' }}>{tableRowCollapsedState[rowId] ? '⮟' : '⮝'}</span>
+                </>
+              ) : (
+                <Checkbox color="primary" checked={subRows.some((r) => r[cell.column.id] !== '')} />
+              )}
+            </StyledTableData>
+          )
+        })}
+      </tr>
+    )
+  }
+
+  const buildCollapsedDivChildrens = (
+    rowId: string,
+    originalRow: Row<Record<string, ReactTableCell>>,
+    subRows: Record<string, ReactTableCell>[]
+  ): JSX.Element[] => {
+    return subRows.map((row, index) => {
+      const childrens = row.subCellRows as Record<string, ReactTableCell>[]
+      if (childrens && childrens.length > 0) {
+        return (
+          <>
+            {buildChildCollapsedDivParent(rowId, row, childrens, originalRow)}
+            {buildCollapsedDivChildrens(row.rowId as string, originalRow, childrens)}
+          </>
+        )
+      }
+
+      return (
+        <tr
+          {...originalRow.getRowProps()}
+          style={{ display: tableRowCollapsedState[rowId] === true ? 'none' : '' }}
+          key={`${rowId}-${index}`}
+        >
+          {originalRow.cells.map((cell) => {
+            return (
+              <StyledTableData
+                style={{
+                  background: TRANSLUCENT_MID_GREY,
+                  textAlign: 'center',
+                }}
+                {...cell.getCellProps()}
+              >
+                {row[cell.column.id]}
+              </StyledTableData>
+            )
+          })}
+        </tr>
+      )
+    })
   }
 
   return (
@@ -130,6 +306,12 @@ export default function Table<TColumn, TRow>({
         <tbody {...getTableBodyProps()}>
           {rows.map((row) => {
             prepareRow(row)
+
+            const verticalGroups = EnsureMaybeArray(row.original.subCellRows as Record<string, ReactTableCell>[])
+            if (verticalGroups && verticalGroups.length > 0) {
+              return collapsibleDiv(row, verticalGroups)
+            }
+
             return (
               <tr {...row.getRowProps()}>
                 {row.cells.map((cell, cellIdx) => (
@@ -175,7 +357,7 @@ export interface Header {
 
 export interface Cell {
   key: string
-  value: string
+  value: string | JSX.Element
   render?: FC<ICellProps>
 }
 
@@ -183,6 +365,7 @@ export interface CellRow {
   id?: string
   cells: Cell[]
   render?: FC<ICellProps>
+  subCellRows?: CellRow[]
 }
 
 export interface TableData {
@@ -190,4 +373,9 @@ export interface TableData {
   rows: CellRow[]
 }
 
-export declare type ReactTableCell = string | FC<ICellProps> | Record<string, FC<ICellProps>>
+export declare type ReactTableCell =
+  | string
+  | FC<ICellProps>
+  | Record<string, FC<ICellProps>>
+  | Record<string, ReactTableCell>[]
+  | JSX.Element

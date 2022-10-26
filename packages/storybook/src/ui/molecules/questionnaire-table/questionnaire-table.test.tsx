@@ -24,6 +24,16 @@ describe('Questionnaire Table', () => {
     expect(result).toEqual(summaryDefinitionOneHorizontalTableData)
   })
 
+  it('Renders Vertically 2', () => {
+    render(
+      <QuestionnaireTable
+        definitionItems={summaryDefinitionItems}
+        records={summaryRecordsList}
+        orientation="VERTICAL"
+      />
+    )
+  })
+
   it('Renders Vertically', () => {
     render(
       <QuestionnaireTable

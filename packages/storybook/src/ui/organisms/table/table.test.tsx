@@ -68,6 +68,6 @@ describe('Table', () => {
     render(<Table definition={mockSummaryDefinition} records={mockSummaryRecordsList} />)
 
     expect(screen.getByRole('table').children[1].tagName).toBe('TBODY')
-    expect(screen.getByRole('table').children[1].children.length).toBe(5)
+    expect(screen.getByRole('table').children[1].children.length).toBe(10)
   })
 })
