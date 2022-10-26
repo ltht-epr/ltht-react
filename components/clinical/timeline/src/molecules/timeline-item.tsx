@@ -12,7 +12,6 @@ import { useWindowSize } from '@ltht-react/hooks'
 import { isMobileView } from '@ltht-react/utils'
 import TimelineDescription from '../atoms/timeline-description'
 import TimelineAuthor from '../atoms/timeline-author'
-import TimelineStatus from '../atoms/timeline-status'
 import TimelineTitle from '../atoms/timeline-title'
 import TimelineTime from '../atoms/timeline-time'
 import TimelineButton from '../atoms/timeline-button'
@@ -22,15 +21,12 @@ const StyledTimelineItem = styled.div<IStyledTimelineItem>`
   padding-top: 0.5rem;
 `
 
-const StyledTimelineItemLeft = styled.div`
+const StyledTimelineAuthor = styled(TimelineAuthor)`
   flex-grow: 1;
+  margin-bottom: 0.5rem;
 `
 
-const StyledTimelineItemRight = styled.div`
-  text-align: right;
-`
-
-const StyledTimelineTime = styled.div`
+const StyledTimelineTime = styled(TimelineTime)`
   color: black;
 `
 
@@ -53,20 +49,18 @@ const StyledTimelineItemBottom = styled.div`
   margin: 0.5rem;
 `
 
-const StyledTitle = styled.div<IStyledMobile>`
+const StyledTimelineTitle = styled(TimelineTitle, {
+  shouldForwardProp: (prop) => prop !== 'isMobile',
+})<IStyledMobile>`
   flex-grow: 1;
   color: black;
   font-size: ${({ isMobile }) => (isMobile ? 'medium' : 'large')};
   font-weight: bold;
 `
 
-const StyledDescription = styled.div`
+const StyledTimelineDescription = styled(TimelineDescription)`
   color: black;
   font-size: small;
-`
-
-const StyledStatus = styled.div`
-  text-align: right;
 `
 
 const TimelineItem: FC<IProps> = ({ timelineItem, domainResourceType }) => {
@@ -77,35 +71,34 @@ const TimelineItem: FC<IProps> = ({ timelineItem, domainResourceType }) => {
     return <></>
   }
 
-  const itemKey = `timelineItem_${timelineItem.domainResource.id}`
+  const { domainResource, buttonState } = timelineItem
+
+  const itemKey = `timelineItem_${domainResource.id}`
 
   return (
-    <StyledTimelineItem isSelected={timelineItem.buttonState === 'selected-button'} key={itemKey}>
+    <StyledTimelineItem isSelected={buttonState === 'selected-button'} key={itemKey}>
       <StyledTimelineItemTop>
-        <StyledTitle isMobile={isMobile}>
-          <TimelineTitle domainResource={timelineItem.domainResource} domainResourceType={domainResourceType} />
-        </StyledTitle>
+        <StyledTimelineTitle
+          isMobile={isMobile}
+          domainResource={domainResource}
+          domainResourceType={domainResourceType}
+        />
         {isMobile && (
-          <StyledTimelineTime>
-            <TimelineTime domainResource={timelineItem.domainResource} domainResourceType={domainResourceType} />
-          </StyledTimelineTime>
+          <StyledTimelineTime domainResource={timelineItem.domainResource} domainResourceType={domainResourceType} />
         )}
       </StyledTimelineItemTop>
+
       <StyledTimelineItemMiddle>
-        <StyledDescription>
-          <TimelineDescription domainResource={timelineItem.domainResource} domainResourceType={domainResourceType} />
-        </StyledDescription>
+        <StyledTimelineDescription
+          domainResource={timelineItem.domainResource}
+          domainResourceType={domainResourceType}
+        />
       </StyledTimelineItemMiddle>
+
       <StyledTimelineItemBottom>
-        <StyledTimelineItemLeft>
-          <TimelineAuthor domainResource={timelineItem.domainResource} domainResourceType={domainResourceType} />
-        </StyledTimelineItemLeft>
-        <StyledTimelineItemRight>
-          <StyledStatus>
-            <TimelineStatus />
-          </StyledStatus>
-        </StyledTimelineItemRight>
+        <StyledTimelineAuthor domainResource={timelineItem.domainResource} domainResourceType={domainResourceType} />
       </StyledTimelineItemBottom>
+
       <TimelineButton timelineItem={timelineItem} />
     </StyledTimelineItem>
   )

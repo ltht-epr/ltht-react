@@ -3,7 +3,7 @@ import { InfoCircleIcon } from '@ltht-react/icon'
 import { FC, HTMLAttributes } from 'react'
 import { ITimelineItem } from '../molecules/timeline-item'
 
-const TimelineButton: FC<Props> = ({ timelineItem }) => {
+const TimelineButton: FC<Props> = ({ timelineItem, className }) => {
   const { clickHandler, buttonState, buttonText } = timelineItem
 
   switch (buttonState) {
@@ -11,19 +11,24 @@ const TimelineButton: FC<Props> = ({ timelineItem }) => {
       return <></>
     case 'permission-denied-button':
       return (
-        <ButtonBanner type="warning" disabled>
+        <ButtonBanner className={className} type="warning" disabled>
           {buttonText ?? 'Insufficient privileges to view this item'}
         </ButtonBanner>
       )
     case 'selectable-button':
       return (
-        <ButtonBanner type="info" onClick={clickHandler}>
+        <ButtonBanner className={className} type="info" onClick={clickHandler}>
           {buttonText ?? ''}
         </ButtonBanner>
       )
     case 'selected-button':
       return (
-        <ButtonBanner type="highlight" icon={<InfoCircleIcon status="info" size="medium" />} onClick={clickHandler}>
+        <ButtonBanner
+          className={className}
+          type="highlight"
+          icon={<InfoCircleIcon status="info" size="medium" />}
+          onClick={clickHandler}
+        >
           {buttonText ?? ''}
         </ButtonBanner>
       )
