@@ -8,7 +8,7 @@ import {
 } from '@ltht-react/types'
 import { formatTime } from '@ltht-react/utils'
 
-const TimelineTime: FC<Props> = ({ domainResource, domainResourceType, className }) => {
+const TimelineTime: FC<Props> = ({ domainResource, domainResourceType, ...props }) => {
   if (!domainResource) return <></>
 
   switch (domainResourceType) {
@@ -18,13 +18,13 @@ const TimelineTime: FC<Props> = ({ domainResource, domainResourceType, className
         return <></>
       }
       const time = formatTime(new Date(qr?.authored.value))
-      return <div className={className}>{time}</div>
+      return <div {...props}>{time}</div>
     }
     case TimelineDomainResourceType.DocumentReference: {
       const docRef = domainResource as DocumentReference
       if (docRef && docRef?.created?.value) {
         const time = formatTime(new Date(docRef.created.value))
-        return <div className={className}>{time}</div>
+        return <div {...props}>{time}</div>
       }
       return <></>
     }
@@ -32,7 +32,7 @@ const TimelineTime: FC<Props> = ({ domainResource, domainResourceType, className
       const audit = domainResource as AuditEvent
       if (audit && audit?.period?.start?.value) {
         const time = formatTime(new Date(audit.period.start.value))
-        return <div className={className}>{time}</div>
+        return <div {...props}>{time}</div>
       }
       return <></>
     }
