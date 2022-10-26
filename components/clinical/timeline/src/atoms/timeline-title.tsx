@@ -7,7 +7,7 @@ import {
   TimelineDomainResourceType,
 } from '@ltht-react/types'
 
-const TimelineTitle: FC<Props> = ({ domainResource, domainResourceType, className }) => {
+const TimelineTitle: FC<Props> = ({ domainResource, domainResourceType, ...props }) => {
   if (!domainResource) return <></>
 
   switch (domainResourceType) {
@@ -16,17 +16,17 @@ const TimelineTitle: FC<Props> = ({ domainResource, domainResourceType, classNam
       const questionnaireTitle = qr.metadata.isRedacted
         ? 'Insufficient privileges'
         : qr.text?.text ?? qr.questionnaire?.title
-      return <div className={className}>{questionnaireTitle}</div>
+      return <div {...props}>{questionnaireTitle}</div>
     }
     case TimelineDomainResourceType.DocumentReference: {
       const docRef = domainResource as DocumentReference
       const docTitle = docRef.metadata.isRedacted ? 'Insufficient privileges' : docRef.text?.text
-      return <div className={className}>{docTitle}</div>
+      return <div {...props}>{docTitle}</div>
     }
     case TimelineDomainResourceType.AuditEvent: {
       const audit = domainResource as AuditEvent
       const auditTitle = audit.metadata.isRedacted ? 'Insufficient privileges' : audit.text?.text
-      return <div className={className}>{auditTitle}</div>
+      return <div {...props}>{auditTitle}</div>
     }
     default:
       return <></>

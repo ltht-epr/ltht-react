@@ -49,12 +49,14 @@ const StyledTimelineItemBottom = styled.div`
   margin: 0.5rem;
 `
 
-const StyledTimelineTitle = styled.div<IStyledMobile>`
+const StyledTimelineTitle = styled(TimelineTitle, {
+  shouldForwardProp: (prop) => prop !== 'isMobile',
+})<IStyledMobile>`
   flex-grow: 1;
   color: black;
   font-size: ${({ isMobile }) => (isMobile ? 'medium' : 'large')};
   font-weight: bold;
-`.withComponent(TimelineTitle)
+`
 
 const StyledTimelineDescription = styled(TimelineDescription)`
   color: black;
