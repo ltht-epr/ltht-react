@@ -16,7 +16,7 @@ const StyledDescription = styled.div`
   }
 `
 
-const TimelineDescription: FC<Props> = ({ domainResource, domainResourceType, ...props }) => {
+const TimelineDescription: FC<Props> = ({ domainResource, domainResourceType, ...rest }) => {
   if (!domainResource) return <></>
 
   switch (domainResourceType) {
@@ -25,7 +25,7 @@ const TimelineDescription: FC<Props> = ({ domainResource, domainResourceType, ..
       if (!qr.questionnaire?.description) {
         return <></>
       }
-      return <StyledDescription {...props}>{ReactHtmlParser(qr.questionnaire?.description)}</StyledDescription>
+      return <StyledDescription {...rest}>{ReactHtmlParser(qr.questionnaire?.description)}</StyledDescription>
     }
     case TimelineDomainResourceType.DocumentReference: {
       const docRef = domainResource as DocumentReference
@@ -37,7 +37,7 @@ const TimelineDescription: FC<Props> = ({ domainResource, domainResourceType, ..
         return <></>
       }
 
-      return <StyledDescription {...props}>{ReactHtmlParser(audit.outcomeDesc)}</StyledDescription>
+      return <StyledDescription {...rest}>{ReactHtmlParser(audit.outcomeDesc)}</StyledDescription>
     }
     default:
       return <></>

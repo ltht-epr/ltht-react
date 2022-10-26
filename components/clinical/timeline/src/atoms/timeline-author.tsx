@@ -15,7 +15,7 @@ const StyledTimelineItemLeft = styled.div`
   flex-grow: 1;
 `
 
-const TimelineAuthor: FC<Props> = ({ domainResource, domainResourceType, ...props }) => {
+const TimelineAuthor: FC<Props> = ({ domainResource, domainResourceType, ...rest }) => {
   if (!domainResource) return <></>
 
   switch (domainResourceType) {
@@ -25,7 +25,7 @@ const TimelineAuthor: FC<Props> = ({ domainResource, domainResourceType, ...prop
         return <></>
       }
       return (
-        <StyledTimelineItemLeft {...props}>
+        <StyledTimelineItemLeft {...rest}>
           <UserIcon size="medium" /> by {qr?.author?.display}
         </StyledTimelineItemLeft>
       )
@@ -49,7 +49,7 @@ const TimelineAuthor: FC<Props> = ({ domainResource, domainResourceType, ...prop
       }
 
       return (
-        <StyledTimelineItemLeft {...props}>
+        <StyledTimelineItemLeft {...rest}>
           <UserIcon size="medium" /> by {authorList.join(', ')}
         </StyledTimelineItemLeft>
       )
@@ -70,7 +70,7 @@ const TimelineAuthor: FC<Props> = ({ domainResource, domainResourceType, ...prop
       }
 
       return (
-        <StyledTimelineItemLeft {...props}>
+        <StyledTimelineItemLeft {...rest}>
           <UserIcon size="medium" /> by {authorName}
         </StyledTimelineItemLeft>
       )
