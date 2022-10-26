@@ -4,6 +4,7 @@ import {
   SummaryTableViewType,
   QuestionnaireResponseItem,
   QuestionnaireResponseItemAnswer,
+  Maybe,
 } from '@ltht-react/types'
 import { EnsureMaybe, EnsureMaybeArray, partialDateTimeText } from '@ltht-react/utils'
 import { FC, useMemo } from 'react'
@@ -23,23 +24,59 @@ export const mapQuestionnaireObjectsToVerticalTableData = (
       accessor: record?.id ?? '',
     })),
   ],
-  rows: definitionItems.map((def) => ({
-    id: def?.linkId ?? '',
-    cells: [
-      {
-        key: 'property',
-        value: def?.text ?? '',
-      },
-      ...records.map((record) => ({
-        key: record.id,
-        value: EnsureMaybe<string>(
-          record.item?.find((item) => item?.linkId === def?.linkId)?.answer?.find((answer) => !!answer)?.valueString,
-          ''
-        ),
-      })),
-    ],
-  })),
+  rows: buildVerticalCellRows(definitionItems, records),
 })
+
+const buildVerticalCellRows = (definitionItems: QuestionnaireItem[], records: QuestionnaireResponse[]): CellRow[] => {
+  return (
+    definitionItems.map((def) => ({
+      id: def?.linkId ?? '',
+      cells: [
+        {
+          key: 'property',
+          value: def?.text ?? '',
+        },
+        ...records.map((record) => ({
+          key: record.id,
+          value: findQuestionnaireResponseAnswerValue(EnsureMaybe(def?.linkId), record?.item ?? []),
+        })),
+      ],
+      subCellRows: def?.item ? buildVerticalCellRows(EnsureMaybe(def?.item?.map((x) => EnsureMaybe(x))), records) : [],
+    })) ?? []
+  )
+}
+
+const findQuestionnaireResponseAnswerValue = (id: string, items: Maybe<Maybe<QuestionnaireResponseItem>>[]): string => {
+  const answerItem = findAnswerByLinkId(id, items)
+  return answerItem ? EnsureMaybe<string>(answerItem?.answer?.find((x) => !!x)?.valueString, '') : ''
+}
+
+const findAnswerByLinkId = (
+  id: string,
+  items: Maybe<Maybe<QuestionnaireResponseItem>>[]
+): QuestionnaireResponseItem | undefined => {
+  let itemFound: QuestionnaireResponseItem | undefined = undefined
+
+  for (let i = 0; i < items.length; i++) {
+    const item = EnsureMaybe(items[i])
+
+    if (item.linkId === id) {
+      itemFound = item
+      break
+    }
+
+    let defaultAnswer = EnsureMaybe(EnsureMaybe(item.answer).find((x: any) => !!x))
+
+    if (defaultAnswer && defaultAnswer.item && defaultAnswer.item.length > 0) {
+      itemFound = findAnswerByLinkId(id, defaultAnswer.item)
+      if (itemFound) {
+        break
+      }
+    }
+  }
+
+  return itemFound
+}
 
 const recursivelyMapQuestionnaireItemsIntoHeaders = (questionnaireItems: QuestionnaireItem[]): Header[] =>
   questionnaireItems.map((questionnaireItem) => {
@@ -56,7 +93,7 @@ const mapQuestionnaireResponsesIntoCellRow = (records: QuestionnaireResponse[]):
   records
     .filter((record) => !!record.item)
     .map((record) => {
-      const cellArray = [
+      const cellArray: Cell[] = [
         {
           key: 'date',
           value: partialDateTimeText(record.authored),
