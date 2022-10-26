@@ -6,10 +6,8 @@ const StyledRedactedMessage = styled.div`
   color: ${TEXT_COLOURS.SECONDARY.VALUE};
 `
 
-const TimelineTitleRedacted: FC<Props> = (props) => (
+const TimelineTitleRedacted: FC<HTMLAttributes<HTMLDivElement>> = (props) => (
   <StyledRedactedMessage {...props}>Insufficient Privileges</StyledRedactedMessage>
 )
-
-interface Props extends HTMLAttributes<HTMLDivElement> {}
 
 export default TimelineTitleRedacted

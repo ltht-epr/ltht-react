@@ -41,6 +41,8 @@ const TimelineDescription: FC<Props> = ({ domainResource, domainResourceType, cl
 
       return <StyledDescription className={className}>{ReactHtmlParser(audit.outcomeDesc)}</StyledDescription>
     }
+    default:
+      return <></>
   }
 }
 

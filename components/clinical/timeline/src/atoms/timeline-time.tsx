@@ -36,6 +36,8 @@ const TimelineTime: FC<Props> = ({ domainResource, domainResourceType, className
       }
       return <></>
     }
+    default:
+      return <></>
   }
 }
 
