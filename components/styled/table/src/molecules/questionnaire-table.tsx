@@ -27,24 +27,21 @@ export const mapQuestionnaireObjectsToVerticalTableData = (
   rows: buildVerticalCellRows(definitionItems, records),
 })
 
-const buildVerticalCellRows = (definitionItems: QuestionnaireItem[], records: QuestionnaireResponse[]): CellRow[] => {
-  return (
-    definitionItems.map((def) => ({
-      id: def?.linkId ?? '',
-      cells: [
-        {
-          key: 'property',
-          value: def?.text ?? '',
-        },
-        ...records.map((record) => ({
-          key: record.id,
-          value: findQuestionnaireResponseAnswerValue(EnsureMaybe(def?.linkId), record?.item ?? []),
-        })),
-      ],
-      subCellRows: def?.item ? buildVerticalCellRows(EnsureMaybe(def?.item?.map((x) => EnsureMaybe(x))), records) : [],
-    })) ?? []
-  )
-}
+const buildVerticalCellRows = (definitionItems: QuestionnaireItem[], records: QuestionnaireResponse[]): CellRow[] =>
+  definitionItems.map((def) => ({
+    id: def?.linkId ?? '',
+    cells: [
+      {
+        key: 'property',
+        value: def?.text ?? '',
+      },
+      ...records.map((record) => ({
+        key: record.id,
+        value: findQuestionnaireResponseAnswerValue(EnsureMaybe(def?.linkId), record?.item ?? []),
+      })),
+    ],
+    subCellRows: def?.item ? buildVerticalCellRows(EnsureMaybe(def?.item?.map((x) => EnsureMaybe(x))), records) : [],
+  })) ?? []
 
 const findQuestionnaireResponseAnswerValue = (id: string, items: Maybe<Maybe<QuestionnaireResponseItem>>[]): string => {
   const answerItem = findAnswerByLinkId(id, items)
@@ -55,7 +52,7 @@ const findAnswerByLinkId = (
   id: string,
   items: Maybe<Maybe<QuestionnaireResponseItem>>[]
 ): QuestionnaireResponseItem | undefined => {
-  let itemFound: QuestionnaireResponseItem | undefined = undefined
+  let itemFound: QuestionnaireResponseItem | undefined
 
   for (let i = 0; i < items.length; i++) {
     const item = EnsureMaybe(items[i])
@@ -65,7 +62,7 @@ const findAnswerByLinkId = (
       break
     }
 
-    let defaultAnswer = EnsureMaybe(EnsureMaybe(item.answer).find((x: any) => !!x))
+    const defaultAnswer = EnsureMaybe(EnsureMaybe(item.answer).find((x) => !!x))
 
     if (defaultAnswer && defaultAnswer.item && defaultAnswer.item.length > 0) {
       itemFound = findAnswerByLinkId(id, defaultAnswer.item)
