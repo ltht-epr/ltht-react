@@ -199,10 +199,15 @@ export default function Table<TColumn, TRow>({
           >
             {cellIdx === 0 ? (
               <>
-                {headerFinalRender} <span style={{ float: 'right' }}>{tableRowCollapsedState[rowId] ? '⮟' : '⮝'}</span>
+                {headerFinalRender} <span style={{ float: 'right' }}>{tableRowCollapsedState[rowId] ? '▼' : '▲'}</span>
               </>
             ) : (
-              <Checkbox color="primary" checked={subRows.some((r) => r[cell.column.id] !== '')} />
+              <Checkbox
+                size="small"
+                color="primary"
+                checked={subRows.some((r) => r[cell.column.id] !== '')}
+                style={{ padding: 0 }}
+              />
             )}
           </StyledTableData>
         ))}
@@ -235,10 +240,15 @@ export default function Table<TColumn, TRow>({
             {cellIdx === 0 ? (
               <>
                 {row[cell.column.id]}
-                <span style={{ float: 'right' }}>{tableRowCollapsedState[rowId] ? '⮟' : '⮝'}</span>
+                <span style={{ float: 'right' }}>{tableRowCollapsedState[rowId] ? '▼' : '▲'}</span>
               </>
             ) : (
-              <Checkbox color="primary" checked={subRows.some((r) => r[cell.column.id] !== '')} />
+              <Checkbox
+                size="small"
+                color="primary"
+                checked={subRows.some((r) => r[cell.column.id] !== '')}
+                style={{ padding: 0 }}
+              />
             )}
           </StyledTableData>
         ))}
