@@ -64,10 +64,17 @@ describe('Table', () => {
     expect(screen.getByRole('table')).toBeVisible()
   })
 
-  it('Renders Vertical table with 5 rows in tbody', () => {
+  it('Renders Vertical table with 5 rows in tbody and 2 collapsed rows', () => {
     render(<Table definition={mockSummaryDefinition} records={mockSummaryRecordsList} />)
 
     expect(screen.getByRole('table').children[1].tagName).toBe('TBODY')
-    expect(screen.getByRole('table').children[1].children.length).toBe(10)
+    expect(screen.getByRole('table').children[1].children.length).toBe(7)
+  })
+
+  it('Renders Vertical table with collapsed rows not visible', () => {
+    render(<Table definition={mockSummaryDefinition} records={mockSummaryRecordsList} />)
+
+    expect(screen.getByRole('table').children[1].children[5].getAttribute('style')).toBe('display: none;')
+    expect(screen.getByRole('table').children[1].children[6].getAttribute('style')).toBe('display: none;')
   })
 })

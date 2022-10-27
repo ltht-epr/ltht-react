@@ -24,10 +24,13 @@ export const mapQuestionnaireObjectsToVerticalTableData = (
       accessor: record?.id ?? '',
     })),
   ],
-  rows: buildVerticalCellRows(definitionItems, records),
+  rows: buildVerticalCellRowsRecursive(definitionItems, records),
 })
 
-const buildVerticalCellRows = (definitionItems: QuestionnaireItem[], records: QuestionnaireResponse[]): CellRow[] =>
+const buildVerticalCellRowsRecursive = (
+  definitionItems: QuestionnaireItem[],
+  records: QuestionnaireResponse[]
+): CellRow[] =>
   definitionItems.map((def) => ({
     id: def?.linkId ?? '',
     cells: [
@@ -40,15 +43,17 @@ const buildVerticalCellRows = (definitionItems: QuestionnaireItem[], records: Qu
         value: findQuestionnaireResponseAnswerValue(EnsureMaybe(def?.linkId), record?.item ?? []),
       })),
     ],
-    subCellRows: def?.item ? buildVerticalCellRows(EnsureMaybe(def?.item?.map((x) => EnsureMaybe(x))), records) : [],
+    subCellRows: def?.item
+      ? buildVerticalCellRowsRecursive(EnsureMaybe(def?.item?.map((x) => EnsureMaybe(x))), records)
+      : [],
   })) ?? []
 
 const findQuestionnaireResponseAnswerValue = (id: string, items: Maybe<Maybe<QuestionnaireResponseItem>>[]): string => {
-  const answerItem = findAnswerByLinkId(id, items)
+  const answerItem = findAnswerByLinkIdRecursive(id, items)
   return answerItem ? EnsureMaybe<string>(answerItem?.answer?.find((x) => !!x)?.valueString, '') : ''
 }
 
-const findAnswerByLinkId = (
+const findAnswerByLinkIdRecursive = (
   id: string,
   items: Maybe<Maybe<QuestionnaireResponseItem>>[]
 ): QuestionnaireResponseItem | undefined => {
@@ -65,7 +70,7 @@ const findAnswerByLinkId = (
     const defaultAnswer = EnsureMaybe(EnsureMaybe(item.answer).find((x) => !!x))
 
     if (defaultAnswer && defaultAnswer.item && defaultAnswer.item.length > 0) {
-      itemFound = findAnswerByLinkId(id, defaultAnswer.item)
+      itemFound = findAnswerByLinkIdRecursive(id, defaultAnswer.item)
       if (itemFound) {
         break
       }
