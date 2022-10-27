@@ -1,4 +1,4 @@
-import { FC, MouseEvent } from 'react'
+import { FC, HTMLAttributes, MouseEvent } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faChevronCircleDown,
@@ -22,7 +22,7 @@ const calculateIconType = (direction: IconDirection): IconTypes => {
   }
 }
 
-const ChevronCircleIcon: FC<Props> = ({ size, direction, clickHandler }) => {
+const ChevronCircleIcon: FC<Props> = ({ size, direction, clickHandler, ...rest }) => {
   const handleClick = (e: MouseEvent<SVGSVGElement>): void => {
     e.preventDefault()
     e.stopPropagation()
@@ -30,12 +30,14 @@ const ChevronCircleIcon: FC<Props> = ({ size, direction, clickHandler }) => {
   }
 
   return (
-    <FontAwesomeIcon
-      className="icon__chevron-circle"
-      icon={calculateIconType(direction)}
-      size={calculateIconSize(size)}
-      onClick={clickHandler && handleClick}
-    />
+    <div {...rest}>
+      <FontAwesomeIcon
+        className="icon__chevron-circle"
+        icon={calculateIconType(direction)}
+        size={calculateIconSize(size)}
+        onClick={clickHandler && handleClick}
+      />
+    </div>
   )
 }
 
@@ -47,7 +49,7 @@ type IconTypes =
 
 type IconDirection = 'up' | 'down' | 'left' | 'right'
 
-interface Props {
+interface Props extends HTMLAttributes<HTMLDivElement> {
   direction: IconDirection
   size: IconSizes
   clickHandler?(): void

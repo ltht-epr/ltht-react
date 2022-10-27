@@ -1,21 +1,21 @@
 import { render, screen } from '@testing-library/react'
 
-import { ChevronIcon } from '@ltht-react/icon'
+import { ChevronCircleIcon } from '@ltht-react/icon'
 import styled from '@emotion/styled'
 
 describe('Chevron Icon', () => {
   it('Renders', () => {
-    render(<ChevronIcon direction="up" size="medium" />)
+    render(<ChevronCircleIcon direction="up" size="medium" />)
   })
 
   it('Has the right class name', () => {
-    render(<ChevronIcon direction="up" size="small" />)
+    render(<ChevronCircleIcon direction="up" size="small" />)
 
-    expect(screen.getByRole('img', { hidden: true })).toHaveClass('icon__chevron')
+    expect(screen.getByRole('img', { hidden: true })).toHaveClass('icon__chevron-circle')
   })
 
   it('Can be styled', () => {
-    const StyledIcon = styled(ChevronIcon)`
+    const StyledIcon = styled(ChevronCircleIcon)`
       color: pink;
     `
 
@@ -25,7 +25,7 @@ describe('Chevron Icon', () => {
   })
 
   it('Can be given html attributes', () => {
-    render(<ChevronIcon direction="up" size="small" data-testid="123abc" title="some-title" />)
+    render(<ChevronCircleIcon direction="up" size="small" data-testid="123abc" title="some-title" />)
 
     expect(screen.getByTestId('123abc')).toHaveAttribute('title', 'some-title')
   })
