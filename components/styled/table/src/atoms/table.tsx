@@ -92,7 +92,7 @@ const initialiseCollapsedRowStateRecursive = (rows: Record<string, ReactTableCel
 
   rows.forEach((row) => {
     if (EnsureMaybeArray(row.subCellRows as Record<string, ReactTableCell>[]).length > 0) {
-      let children = initialiseCollapsedRowStateRecursive(row.subCellRows as Record<string, ReactTableCell>[])
+      const children = initialiseCollapsedRowStateRecursive(row.subCellRows as Record<string, ReactTableCell>[])
       collapsedRows[row.rowId as string] = true
       collapsedRows = {
         ...collapsedRows,
@@ -109,7 +109,7 @@ const initialiseCollapsedRowChildrenRecursive = (rows: Record<string, ReactTable
 
   rows.forEach((row) => {
     if (EnsureMaybeArray(row.subCellRows as Record<string, ReactTableCell>[]).length > 0) {
-      let children = initialiseCollapsedRowChildrenRecursive(row.subCellRows as Record<string, ReactTableCell>[])
+      const children = initialiseCollapsedRowChildrenRecursive(row.subCellRows as Record<string, ReactTableCell>[])
       collapsedRows[row.rowId as string] = Object.getOwnPropertyNames(children)
       collapsedRows = {
         ...collapsedRows,
@@ -164,10 +164,10 @@ export default function Table<TColumn, TRow>({
   const handleCollapsedRowClick = (rowId: string) => {
     tableRowCollapsedState[rowId] = !tableRowCollapsedState[rowId]
     if (tableRowCollapsedState[rowId] && collapsedRowChildren[rowId] && collapsedRowChildren[rowId].length > 0) {
-      collapsedRowChildren[rowId].forEach((id) => (tableRowCollapsedState[id] = tableRowCollapsedState[rowId]))
+      collapsedRowChildren[rowId].forEach((id) => {
+        tableRowCollapsedState[id] = tableRowCollapsedState[rowId]
+      })
     }
-
-    console.table(tableRowCollapsedState)
     setTableRowCollapsedState({ ...tableRowCollapsedState })
   }
 
