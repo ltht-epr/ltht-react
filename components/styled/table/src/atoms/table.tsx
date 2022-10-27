@@ -92,10 +92,28 @@ const initialiseCollapsedRowStateRecursive = (rows: Record<string, ReactTableCel
 
   rows.forEach((row) => {
     if (EnsureMaybeArray(row.subCellRows as Record<string, ReactTableCell>[]).length > 0) {
+      let children = initialiseCollapsedRowStateRecursive(row.subCellRows as Record<string, ReactTableCell>[])
       collapsedRows[row.rowId as string] = true
       collapsedRows = {
         ...collapsedRows,
-        ...initialiseCollapsedRowStateRecursive(row.subCellRows as Record<string, ReactTableCell>[]),
+        ...children,
+      }
+    }
+  })
+
+  return collapsedRows
+}
+
+const initialiseCollapsedRowChildrenRecursive = (rows: Record<string, ReactTableCell>[]): Record<string, string[]> => {
+  let collapsedRows: Record<string, string[]> = {}
+
+  rows.forEach((row) => {
+    if (EnsureMaybeArray(row.subCellRows as Record<string, ReactTableCell>[]).length > 0) {
+      let children = initialiseCollapsedRowChildrenRecursive(row.subCellRows as Record<string, ReactTableCell>[])
+      collapsedRows[row.rowId as string] = Object.getOwnPropertyNames(children)
+      collapsedRows = {
+        ...collapsedRows,
+        ...children,
       }
     }
   })
@@ -112,6 +130,7 @@ export default function Table<TColumn, TRow>({
   const [columns, setColumns] = useState<Column<Record<string, ReactTableCell>>[]>([])
   const [data, setData] = useState<Record<string, ReactTableCell>[]>([])
   const [tableRowCollapsedState, setTableRowCollapsedState] = useState<Record<string, boolean>>({})
+  const [collapsedRowChildren, setCollapsedRowChildren] = useState<Record<string, string[]>>({})
 
   useEffect(() => {
     const mappedTableData =
@@ -124,6 +143,7 @@ export default function Table<TColumn, TRow>({
     setColumns(generateColumnsFromHeadersRecursively(mappedTableData.headers))
     setData(dataState)
     setTableRowCollapsedState(initialiseCollapsedRowStateRecursive(dataState))
+    setCollapsedRowChildren(initialiseCollapsedRowChildrenRecursive(dataState))
   }, [tableData, columnData, rowData, mapToTableData])
 
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = useTable(
@@ -143,6 +163,11 @@ export default function Table<TColumn, TRow>({
 
   const handleCollapsedRowClick = (rowId: string) => {
     tableRowCollapsedState[rowId] = !tableRowCollapsedState[rowId]
+    if (tableRowCollapsedState[rowId] && collapsedRowChildren[rowId] && collapsedRowChildren[rowId].length > 0) {
+      collapsedRowChildren[rowId].forEach((id) => (tableRowCollapsedState[id] = tableRowCollapsedState[rowId]))
+    }
+
+    console.table(tableRowCollapsedState)
     setTableRowCollapsedState({ ...tableRowCollapsedState })
   }
 
@@ -275,7 +300,7 @@ export default function Table<TColumn, TRow>({
       return (
         <tr
           {...originalRow.getRowProps()}
-          style={{ display: tableRowCollapsedState[rowId] === true ? 'none' : '' }}
+          style={{ display: tableRowCollapsedState[rowId] ? 'none' : '' }}
           key={`${rowId}-${index}`}
         >
           {originalRow.cells.map((cell) => (
