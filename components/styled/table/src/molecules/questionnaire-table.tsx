@@ -4,8 +4,10 @@ import {
   SummaryTableViewType,
   QuestionnaireResponseItem,
   QuestionnaireResponseItemAnswer,
+  Maybe,
 } from '@ltht-react/types'
 import { EnsureMaybe, EnsureMaybeArray, partialDateTimeText } from '@ltht-react/utils'
+import { Checkbox } from '@material-ui/core'
 import { FC, useMemo } from 'react'
 import Table, { Cell, CellRow, Header, TableData } from '../atoms/table'
 
@@ -23,23 +25,75 @@ export const mapQuestionnaireObjectsToVerticalTableData = (
       accessor: record?.id ?? '',
     })),
   ],
-  rows: definitionItems.map((def) => ({
-    id: def?.linkId ?? '',
-    cells: [
-      {
-        key: 'property',
-        value: def?.text ?? '',
-      },
-      ...records.map((record) => ({
-        key: record.id,
-        value: EnsureMaybe<string>(
-          record.item?.find((item) => item?.linkId === def?.linkId)?.answer?.find((answer) => !!answer)?.valueString,
-          ''
-        ),
-      })),
-    ],
-  })),
+  rows: buildVerticalCellRowsRecursive(definitionItems, records),
 })
+
+const buildVerticalCellRowsRecursive = (
+  definitionItems: QuestionnaireItem[],
+  records: QuestionnaireResponse[]
+): CellRow[] =>
+  definitionItems.map((def) => {
+    const containsSubRows: boolean = (def?.item && def.item.length > 0) ?? false
+    const subRows = containsSubRows
+      ? buildVerticalCellRowsRecursive(EnsureMaybe(def?.item?.map((x) => EnsureMaybe(x))), records)
+      : []
+
+    return {
+      id: def?.linkId ?? '',
+      cells: [
+        {
+          key: 'property',
+          value: def?.text ?? '',
+        },
+        ...records.map((record) => ({
+          key: record.id,
+          value: containsSubRows ? (
+            <Checkbox
+              size="small"
+              color="primary"
+              checked={subRows.some((x) => x.cells.find((y) => y.key === record.id)?.value !== '')}
+              style={{ padding: 0 }}
+            />
+          ) : (
+            findQuestionnaireResponseAnswerValue(EnsureMaybe(def?.linkId), record?.item ?? [])
+          ),
+        })),
+      ],
+      subRows,
+    }
+  }) ?? []
+
+const findQuestionnaireResponseAnswerValue = (id: string, items: Maybe<Maybe<QuestionnaireResponseItem>>[]): string => {
+  const answerItem = findAnswerByLinkIdRecursive(id, items)
+  return answerItem ? EnsureMaybe<string>(answerItem?.answer?.find((x) => !!x)?.valueString, '') : ''
+}
+
+const findAnswerByLinkIdRecursive = (
+  id: string,
+  items: Maybe<Maybe<QuestionnaireResponseItem>>[]
+): QuestionnaireResponseItem | undefined => {
+  let itemFound: QuestionnaireResponseItem | undefined
+
+  for (let i = 0; i < items.length; i++) {
+    const item = EnsureMaybe(items[i])
+
+    if (item.linkId === id) {
+      itemFound = item
+      break
+    }
+
+    const defaultAnswer = EnsureMaybe(EnsureMaybe(item.answer).find((x) => !!x))
+
+    if (defaultAnswer && defaultAnswer.item && defaultAnswer.item.length > 0) {
+      itemFound = findAnswerByLinkIdRecursive(id, defaultAnswer.item)
+      if (itemFound) {
+        break
+      }
+    }
+  }
+
+  return itemFound
+}
 
 const recursivelyMapQuestionnaireItemsIntoHeaders = (questionnaireItems: QuestionnaireItem[]): Header[] =>
   questionnaireItems.map((questionnaireItem) => {
@@ -56,7 +110,7 @@ const mapQuestionnaireResponsesIntoCellRow = (records: QuestionnaireResponse[]):
   records
     .filter((record) => !!record.item)
     .map((record) => {
-      const cellArray = [
+      const cellArray: Cell[] = [
         {
           key: 'date',
           value: partialDateTimeText(record.authored),

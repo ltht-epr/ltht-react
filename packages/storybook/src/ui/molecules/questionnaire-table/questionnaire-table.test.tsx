@@ -36,7 +36,7 @@ describe('Questionnaire Table', () => {
     expect(screen.getByRole('table')).toBeVisible()
 
     // Assert that dates are in the headers
-    expect(within(screen.getAllByRole('columnheader')[1]).getByText('17-Feb-2022 17:23')).toBeVisible()
+    expect(within(screen.getAllByRole('columnheader')[2]).getByText('17-Feb-2022 17:23')).toBeVisible()
 
     // Assert that subheaders are ignored in Vertical Mode
     expect(screen.queryByRole('columnheader', { name: /Partial Indication/ })).toBeNull()
@@ -72,7 +72,7 @@ describe('Questionnaire Table', () => {
       />
     )
 
-    const getTopLeftDataCell = () => within(screen.getAllByRole('row')[1]).getAllByRole('cell')[0]
+    const getTopLeftDataCell = () => within(screen.getAllByRole('row')[1]).getAllByRole('cell')[1]
 
     expect(getTopLeftDataCell()).toHaveTextContent('Score')
 
@@ -115,5 +115,50 @@ describe('Questionnaire Table', () => {
     userEvent.click(screen.getByText('RR (breaths/min)'))
 
     expect(getTopLeftDataCell()).toHaveTextContent('17-Feb-2022 17:23')
+  })
+
+  it('Expands collapsed rows when parent row is clicked', () => {
+    render(
+      <QuestionnaireTable
+        definitionItems={summaryDefinitionItems}
+        records={summaryRecordsList}
+        orientation="VERTICAL"
+      />
+    )
+
+    const getChevronCell = () => within(screen.getAllByRole('row')[4]).getAllByRole('cell')[0]
+
+    expect(getChevronCell()).toHaveTextContent('►')
+    expect(screen.getAllByRole('row').length).toBe(5)
+
+    userEvent.click(screen.getAllByText('►')[1])
+
+    expect(getChevronCell()).toHaveTextContent('▲')
+    expect(screen.getAllByRole('row').length).toBeGreaterThan(5)
+    expect(screen.getAllByRole('row')[5]).toBeVisible()
+  })
+
+  it('Toggles all expandable rows when chevron is clicked', () => {
+    render(
+      <QuestionnaireTable
+        definitionItems={summaryDefinitionItems}
+        records={summaryRecordsList}
+        orientation="VERTICAL"
+      />
+    )
+
+    const getChevronCell = () => within(screen.getAllByRole('row')[0]).getAllByRole('columnheader')[0]
+
+    expect(getChevronCell()).toHaveTextContent('►')
+    expect(screen.getAllByRole('row').length).toBe(5)
+
+    userEvent.click(screen.getAllByText('►')[0])
+
+    expect(within(getChevronCell()).getByTitle('Toggle All Rows Expanded')).toHaveTextContent('▲')
+    expect(screen.getAllByRole('row').length).toBeGreaterThan(5)
+    expect(screen.getAllByRole('row')[5]).toBeVisible()
+
+    expect(within(screen.getAllByRole('row')[6]).getAllByRole('cell')[1]).toHaveTextContent('RR Part 1 (breaths/min)')
+    expect(within(screen.getAllByRole('row')[7]).getAllByRole('cell')[1]).toHaveTextContent('RR Part 2 (breaths/min)')
   })
 })
