@@ -1,4 +1,4 @@
-import { useTable, Column, useSortBy, HeaderGroup } from 'react-table'
+import { useTable, Column, useSortBy, HeaderGroup, useExpanded, Cell as ReactCell } from 'react-table'
 import styled from '@emotion/styled'
 import { CSS_RESET, TRANSLUCENT_BRIGHT_BLUE_TABLE, TRANSLUCENT_MID_GREY } from '@ltht-react/styles'
 import { useEffect, useState, FC, PropsWithChildren } from 'react'
@@ -75,8 +75,34 @@ const generateRowsFromCellRows = (cellRows: CellRow[]): Record<string, ReactTabl
         render: cellRow.render ? cellRow.render : (props: ICellProps) => <>{props.value}</>,
         renderCells: mappedCellRender,
       },
+      subRows: generateRowsFromCellRows(cellRow.subRows ?? []),
     }
   })
+
+const getExpanderColumn = (): Column<Record<string, ReactTableCell>> => ({
+  // Build our expander column
+  id: 'expander', // Make sure it has an ID
+  Header: ({ getToggleAllRowsExpandedProps, isAllRowsExpanded }) => (
+    <span {...getToggleAllRowsExpandedProps()}>{isAllRowsExpanded ? '▲' : '►'}</span>
+  ),
+  Cell: ({ row }: ReactCell) =>
+    // Use the row.canExpand and row.getToggleRowExpandedProps prop getter
+    // to build the toggle for expanding a row
+    row.canExpand ? (
+      <span
+        {...row.getToggleRowExpandedProps({
+          style: {
+            // We can even use the row.depth property
+            // and paddingLeft to indicate the depth
+            // of the row
+            paddingLeft: `${row.depth * 2}rem`,
+          },
+        })}
+      >
+        {row.isExpanded ? '▲' : '►'}
+      </span>
+    ) : null,
+})
 
 export default function Table<TColumn, TRow>({
   tableData,
@@ -93,8 +119,15 @@ export default function Table<TColumn, TRow>({
         ? mapToTableData(columnData, rowData)
         : tableData ?? { headers: [], rows: [] }
 
-    setColumns(generateColumnsFromHeadersRecursively(mappedTableData.headers))
-    setData(generateRowsFromCellRows(mappedTableData.rows))
+    const columnArray = generateColumnsFromHeadersRecursively(mappedTableData.headers)
+    const dataArray = generateRowsFromCellRows(mappedTableData.rows)
+
+    setColumns(
+      dataArray.some((x: Record<string, ReactTableCell>) => (x.subRows as Record<string, ReactTableCell>[]).length > 0)
+        ? [getExpanderColumn(), ...columnArray]
+        : columnArray
+    )
+    setData(dataArray)
   }, [tableData, columnData, rowData, mapToTableData])
 
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = useTable(
@@ -102,7 +135,8 @@ export default function Table<TColumn, TRow>({
       columns,
       data,
     },
-    useSortBy
+    useSortBy,
+    useExpanded
   )
 
   const sortIcon = (column: HeaderGroup<Record<string, ReactTableCell>>) => {
@@ -175,7 +209,7 @@ export interface Header {
 
 export interface Cell {
   key: string
-  value: string
+  value: string | JSX.Element
   render?: FC<ICellProps>
 }
 
@@ -183,6 +217,7 @@ export interface CellRow {
   id?: string
   cells: Cell[]
   render?: FC<ICellProps>
+  subRows?: CellRow[]
 }
 
 export interface TableData {
@@ -190,4 +225,9 @@ export interface TableData {
   rows: CellRow[]
 }
 
-export declare type ReactTableCell = string | FC<ICellProps> | Record<string, FC<ICellProps>>
+export declare type ReactTableCell =
+  | string
+  | FC<ICellProps>
+  | Record<string, FC<ICellProps>>
+  | Record<string, ReactTableCell>[]
+  | JSX.Element
