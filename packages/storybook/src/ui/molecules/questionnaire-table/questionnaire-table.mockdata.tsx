@@ -125,8 +125,8 @@ export const summaryDefinitionOneVerticalTableData: TableData = {
           cells: [
             { key: 'property', value: 'RR (breaths/min)' },
             { key: '1', value: <CheckboxIcon size="medium" /> },
-            { key: '2', value: <SquareIcon size="medium" /> },
-            { key: '3', value: <SquareIcon size="medium" /> },
+            { key: '2', value: <SquareIcon size="small" /> },
+            { key: '3', value: <SquareIcon size="small" /> },
           ],
           subRows: [
             {

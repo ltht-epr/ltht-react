@@ -42,7 +42,7 @@ const buildVerticalCellRowsRecursive = (
         rows.some((x) => x.cells.find((y) => y.key === recordId)?.value !== '')
 
       const getCheckboxIcon = (subRowsHaveData: boolean) =>
-        subRowsHaveData ? <CheckboxIcon size="medium" /> : <SquareIcon size="medium" />
+        subRowsHaveData ? <CheckboxIcon size="medium" /> : <SquareIcon size="small" />
 
       return {
         id: definitionLinkId,
