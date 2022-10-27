@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, HTMLAttributes } from 'react'
 import styled from '@emotion/styled'
 import { css, SerializedStyles } from '@emotion/react'
 import { FontAwesomeIcon, FontAwesomeIconProps } from '@fortawesome/react-fontawesome'
@@ -17,14 +17,16 @@ const StyledFontAwesomeIcon = styled(FontAwesomeIcon)<StyledFontAwesomeIconProps
   color: ${({ status }): SerializedStyles => calculateIconColor(status)};
 `
 
-const CircleIcon: FC<IconProps> = ({ status, size }) => (
-  <StyledFontAwesomeIcon
-    className="icon__circle"
-    status={status}
-    icon={faCircle}
-    size={calculateIconSize(size)}
-    transform={{ rotate: 180 }}
-  />
+const CircleIcon: FC<IconProps> = ({ status, size, ...rest }) => (
+  <div {...rest}>
+    <StyledFontAwesomeIcon
+      className="icon__circle"
+      status={status}
+      icon={faCircle}
+      size={calculateIconSize(size)}
+      transform={{ rotate: 180 }}
+    />
+  </div>
 )
 
 type StatusValues = 'red' | 'green' | 'amber' | 'info' | 'default'
@@ -33,7 +35,7 @@ interface StyledFontAwesomeIconProps extends FontAwesomeIconProps {
   status: StatusValues
 }
 
-interface IconProps {
+interface IconProps extends HTMLAttributes<HTMLDivElement> {
   status: StatusValues
   size: IconSizes
 }

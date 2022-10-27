@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react'
 import { ChevronCircleIcon } from '@ltht-react/icon'
 import styled from '@emotion/styled'
 
-describe('Chevron Icon', () => {
+describe('Chevron Circle Icon', () => {
   it('Renders', () => {
     render(<ChevronCircleIcon direction="up" size="medium" />)
   })
