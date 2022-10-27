@@ -83,7 +83,7 @@ const generateRowsFromCellRows = (cellRows: CellRow[]): Record<string, ReactTabl
         render: cellRow.render ? cellRow.render : (props: ICellProps) => <>{props.value}</>,
         renderCells: mappedCellRender,
       },
-      subCellRows: subCellRows,
+      subCellRows,
     }
   })
 
@@ -173,11 +173,14 @@ export default function Table<TColumn, TRow>({
       row: originalRow.original,
       columnId: (header.column?.id as string) ?? '',
     }
-    const headerFinalRender = headerCustomRendering
-      ? headerCustomRendering(renderFunctionProps)
-      : rowCustomRendering
-      ? rowCustomRendering(renderFunctionProps)
-      : header.value
+
+    let headerFinalRender: ReactTableCell = header.value
+
+    if (headerCustomRendering) {
+      headerFinalRender = headerCustomRendering(renderFunctionProps) ?? headerFinalRender
+    } else if (rowCustomRendering) {
+      headerFinalRender = rowCustomRendering(renderFunctionProps) ?? headerFinalRender
+    }
 
     return (
       <tr
@@ -186,26 +189,23 @@ export default function Table<TColumn, TRow>({
         key={rowId}
         style={{ cursor: 'pointer' }}
       >
-        {originalRow.cells.map((cell, cellIdx) => {
-          return (
-            <StyledTableData
-              style={{
-                background: cellIdx % 2 === 1 ? TRANSLUCENT_GREY_TABLE : TRANSLUCENT_BRIGHT_BLUE_TABLE,
-                textAlign: 'center',
-              }}
-              {...cell.getCellProps()}
-            >
-              {cellIdx === 0 ? (
-                <>
-                  {headerFinalRender}{' '}
-                  <span style={{ float: 'right' }}>{tableRowCollapsedState[rowId] ? '⮟' : '⮝'}</span>
-                </>
-              ) : (
-                <Checkbox color="primary" checked={subRows.some((r) => r[cell.column.id] !== '')} />
-              )}
-            </StyledTableData>
-          )
-        })}
+        {originalRow.cells.map((cell, cellIdx) => (
+          <StyledTableData
+            style={{
+              background: cellIdx % 2 === 1 ? TRANSLUCENT_GREY_TABLE : TRANSLUCENT_BRIGHT_BLUE_TABLE,
+              textAlign: 'center',
+            }}
+            {...cell.getCellProps()}
+          >
+            {cellIdx === 0 ? (
+              <>
+                {headerFinalRender} <span style={{ float: 'right' }}>{tableRowCollapsedState[rowId] ? '⮟' : '⮝'}</span>
+              </>
+            ) : (
+              <Checkbox color="primary" checked={subRows.some((r) => r[cell.column.id] !== '')} />
+            )}
+          </StyledTableData>
+        ))}
       </tr>
     )
   }
@@ -224,26 +224,24 @@ export default function Table<TColumn, TRow>({
         key={rowId}
         style={{ cursor: 'pointer', display: tableRowCollapsedState[parentRowId] === true ? 'none' : '' }}
       >
-        {parentRow.cells.map((cell, cellIdx) => {
-          return (
-            <StyledTableData
-              style={{
-                background: TRANSLUCENT_MID_GREY,
-                textAlign: 'center',
-              }}
-              {...cell.getCellProps()}
-            >
-              {cellIdx === 0 ? (
-                <>
-                  {row[cell.column.id]}
-                  <span style={{ float: 'right' }}>{tableRowCollapsedState[rowId] ? '⮟' : '⮝'}</span>
-                </>
-              ) : (
-                <Checkbox color="primary" checked={subRows.some((r) => r[cell.column.id] !== '')} />
-              )}
-            </StyledTableData>
-          )
-        })}
+        {parentRow.cells.map((cell, cellIdx) => (
+          <StyledTableData
+            style={{
+              background: TRANSLUCENT_MID_GREY,
+              textAlign: 'center',
+            }}
+            {...cell.getCellProps()}
+          >
+            {cellIdx === 0 ? (
+              <>
+                {row[cell.column.id]}
+                <span style={{ float: 'right' }}>{tableRowCollapsedState[rowId] ? '⮟' : '⮝'}</span>
+              </>
+            ) : (
+              <Checkbox color="primary" checked={subRows.some((r) => r[cell.column.id] !== '')} />
+            )}
+          </StyledTableData>
+        ))}
       </tr>
     )
   }
@@ -252,8 +250,8 @@ export default function Table<TColumn, TRow>({
     rowId: string,
     originalRow: Row<Record<string, ReactTableCell>>,
     subRows: Record<string, ReactTableCell>[]
-  ): JSX.Element[] => {
-    return subRows.map((row, index) => {
+  ): JSX.Element[] =>
+    subRows.map((row, index) => {
       const childrens = row.subCellRows as Record<string, ReactTableCell>[]
       if (childrens && childrens.length > 0) {
         return (
@@ -270,23 +268,20 @@ export default function Table<TColumn, TRow>({
           style={{ display: tableRowCollapsedState[rowId] === true ? 'none' : '' }}
           key={`${rowId}-${index}`}
         >
-          {originalRow.cells.map((cell) => {
-            return (
-              <StyledTableData
-                style={{
-                  background: TRANSLUCENT_MID_GREY,
-                  textAlign: 'center',
-                }}
-                {...cell.getCellProps()}
-              >
-                {row[cell.column.id]}
-              </StyledTableData>
-            )
-          })}
+          {originalRow.cells.map((cell) => (
+            <StyledTableData
+              style={{
+                background: TRANSLUCENT_MID_GREY,
+                textAlign: 'center',
+              }}
+              {...cell.getCellProps()}
+            >
+              {row[cell.column.id]}
+            </StyledTableData>
+          ))}
         </tr>
       )
     })
-  }
 
   return (
     <Container>
