@@ -1,5 +1,7 @@
 export * from './bullseye-icon.stories'
+export * from './calendar-icon.stories'
 export * from './chevron-icon.stories'
+export * from './chevron-circle-icon.stories'
 export * from './circle-icon.stories'
 export * from './column-icon.stories'
 export * from './comment-icon.stories'

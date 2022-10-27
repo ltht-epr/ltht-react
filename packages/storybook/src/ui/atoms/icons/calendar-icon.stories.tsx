@@ -2,7 +2,7 @@ import { Story } from '@storybook/react'
 import { CalendarIcon } from '@ltht-react/icon'
 
 // eslint-disable-next-line import/prefer-default-export
-export const Bullseye: Story = () => (
+export const Calendar: Story = () => (
   <>
     <CalendarIcon size="small" />
     <br />
