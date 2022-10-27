@@ -12,9 +12,8 @@ import {
 } from './questionnaire-table.mockdata'
 
 describe('Questionnaire Table', () => {
-  it('Maps vertically as expected', () => {
+  it('Maps vertically as expected with vertical grouping', () => {
     const result = mapQuestionnaireObjectsToVerticalTableData(summaryDefinitionItems, summaryRecordsList)
-
     expect(result).toEqual(summaryDefinitionOneVerticalTableData)
   })
 
@@ -22,16 +21,6 @@ describe('Questionnaire Table', () => {
     const result = mapQuestionnaireObjectsToHorizontalTableData(summaryDefinitionItems, summaryRecordsList)
 
     expect(result).toEqual(summaryDefinitionOneHorizontalTableData)
-  })
-
-  it('Renders Vertically 2', () => {
-    render(
-      <QuestionnaireTable
-        definitionItems={summaryDefinitionItems}
-        records={summaryRecordsList}
-        orientation="VERTICAL"
-      />
-    )
   })
 
   it('Renders Vertically', () => {
