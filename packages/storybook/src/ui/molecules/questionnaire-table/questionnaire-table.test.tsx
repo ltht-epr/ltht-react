@@ -14,7 +14,6 @@ import {
 describe('Questionnaire Table', () => {
   it('Maps vertically as expected', () => {
     const result = mapQuestionnaireObjectsToVerticalTableData(summaryDefinitionItems, summaryRecordsList)
-
     expect(result).toEqual(summaryDefinitionOneVerticalTableData)
   })
 

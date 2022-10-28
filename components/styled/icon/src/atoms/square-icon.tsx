@@ -1,30 +1,18 @@
-import { FC } from 'react'
-import { IconSizes } from '@ltht-react/styles'
+import { FC, HTMLAttributes } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSquareFull } from '@fortawesome/free-solid-svg-icons'
+import { calculateIconSize, IconSizes } from '@ltht-react/styles'
 
-const SquareIcon: FC<CheckIconProps> = ({ size, ...rest }) => {
-  const sizeInPixels = calculateIconSize(size)
-  return (
-    <span
-      style={{ border: '1px solid black', width: sizeInPixels, height: sizeInPixels, display: 'inline-block' }}
-      {...rest}
-    />
-  )
-}
+const SquareIcon: FC<CheckIconProps> = ({ size, className, ...rest }) => (
+  <FontAwesomeIcon
+    className={`${className ?? ''} icon__square`.trimStart()}
+    icon={faSquareFull}
+    size={calculateIconSize(size)}
+    {...rest}
+  />
+)
 
-const calculateIconSize = (input: IconSizes): string => {
-  switch (input) {
-    case 'small':
-      return '8px'
-    case 'medium':
-      return '10px'
-    case 'large':
-      return '15px'
-    default:
-      return '10px'
-  }
-}
-
-interface CheckIconProps {
+interface CheckIconProps extends HTMLAttributes<SVGElement> {
   size: IconSizes
 }
 
