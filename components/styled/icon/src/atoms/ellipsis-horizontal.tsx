@@ -1,13 +1,18 @@
-import { FC } from 'react'
+import { FC, HTMLAttributes } from 'react'
 import { calculateIconSize, IconSizes } from '@ltht-react/styles'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEllipsisH } from '@fortawesome/free-solid-svg-icons'
 
-const EllipsisHorizontalIcon: FC<EllipsisHorizontalIconProps> = ({ size }) => (
-  <FontAwesomeIcon className="icon__ellipsis__horizontal" icon={faEllipsisH} size={calculateIconSize(size)} />
+const EllipsisHorizontalIcon: FC<EllipsisHorizontalIconProps> = ({ size, className, ...rest }) => (
+  <FontAwesomeIcon
+    className={`${className ?? ''} icon__ellipsis__horizontal`.trimStart()}
+    icon={faEllipsisH}
+    size={calculateIconSize(size)}
+    {...rest}
+  />
 )
 
-interface EllipsisHorizontalIconProps {
+interface EllipsisHorizontalIconProps extends HTMLAttributes<SVGElement> {
   size: IconSizes
 }
 

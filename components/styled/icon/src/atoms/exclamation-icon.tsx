@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, HTMLAttributes } from 'react'
 import styled from '@emotion/styled'
 import { css, SerializedStyles } from '@emotion/react'
 import { FontAwesomeIcon, FontAwesomeIconProps } from '@fortawesome/react-fontawesome'
@@ -17,12 +17,13 @@ const StyledFontAwesomeIcon = styled(FontAwesomeIcon)<StyledFontAwesomeIconProps
   color: ${({ status }): SerializedStyles => calculateIconColor(status)};
 `
 
-const ExclamationIcon: FC<ExclamationIconProps> = ({ status, size }) => (
+const ExclamationIcon: FC<ExclamationIconProps> = ({ status, size, className, ...rest }) => (
   <StyledFontAwesomeIcon
-    className="icon__exclamation"
+    className={`${className ?? ''} icon__exclamation`.trimStart()}
     status={status}
     icon={faExclamationTriangle}
     size={calculateIconSize(size)}
+    {...rest}
   />
 )
 
@@ -32,7 +33,7 @@ interface StyledFontAwesomeIconProps extends FontAwesomeIconProps {
   status: StatusValues
 }
 
-interface ExclamationIconProps {
+interface ExclamationIconProps extends HTMLAttributes<SVGElement> {
   status: StatusValues
   size: IconSizes
 }

@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, HTMLAttributes } from 'react'
 import styled from '@emotion/styled'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
@@ -8,11 +8,16 @@ const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
   color: ${ICON_COLOURS.PRIMARY};
 `
 
-const PlusIcon: FC<Props> = ({ size }) => (
-  <StyledFontAwesomeIcon className="icon__plus" icon={faPlus} size={calculateIconSize(size)} />
+const PlusIcon: FC<Props> = ({ size, className, ...rest }) => (
+  <StyledFontAwesomeIcon
+    className={`${className ?? ''} icon__plus`.trimStart()}
+    icon={faPlus}
+    size={calculateIconSize(size)}
+    {...rest}
+  />
 )
 
-interface Props {
+interface Props extends HTMLAttributes<SVGElement> {
   size: IconSizes
 }
 

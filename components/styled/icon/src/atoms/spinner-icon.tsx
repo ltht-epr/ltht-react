@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, HTMLAttributes } from 'react'
 import styled from '@emotion/styled'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSync } from '@fortawesome/free-solid-svg-icons'
@@ -8,15 +8,16 @@ const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
   color: ${ICON_COLOURS.PRIMARY};
 `
 
-const SpinnerIcon: FC<Props> = ({ size, animate = true }) => (
+const SpinnerIcon: FC<Props> = ({ size, animate = true, className, ...rest }) => (
   <StyledFontAwesomeIcon
-    className={`icon__spinner${animate && ' fa-spin'}`}
+    className={`${className ?? ''} icon__spinner${animate && ' fa-spin'}`.trimStart()}
     icon={faSync}
     size={calculateIconSize(size)}
+    {...rest}
   />
 )
 
-interface Props {
+interface Props extends HTMLAttributes<SVGElement> {
   size: IconSizes
   animate?: boolean
 }
