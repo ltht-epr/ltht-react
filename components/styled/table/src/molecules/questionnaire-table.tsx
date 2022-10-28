@@ -7,8 +7,8 @@ import {
   Maybe,
 } from '@ltht-react/types'
 import { EnsureMaybe, EnsureMaybeArray, partialDateTimeText } from '@ltht-react/utils'
-import { Checkbox } from '@material-ui/core'
 import { FC, useMemo } from 'react'
+import { SquareIcon, CheckboxIcon } from '@ltht-react/icon'
 import Table, { Cell, CellRow, Header, TableData } from '../atoms/table'
 
 export const mapQuestionnaireObjectsToVerticalTableData = (
@@ -41,6 +41,9 @@ const buildVerticalCellRowsRecursive = (
       const checkIfSubRowsHaveAnyData = (recordId: string, rows: CellRow[]) =>
         rows.some((x) => x.cells.find((y) => y.key === recordId)?.value !== '')
 
+      const getCheckboxIcon = (subRowsHaveData: boolean) =>
+        subRowsHaveData ? <CheckboxIcon size="medium" /> : <SquareIcon size="medium" />
+
       return {
         id: definitionLinkId,
         cells: [
@@ -50,16 +53,9 @@ const buildVerticalCellRowsRecursive = (
           },
           ...records.map((record) => ({
             key: record.id,
-            value: containsSubRows ? (
-              <Checkbox
-                size="small"
-                color="primary"
-                checked={checkIfSubRowsHaveAnyData(record.id, subRows)}
-                style={{ padding: 0 }}
-              />
-            ) : (
-              findQuestionnaireResponseAnswerValue(definitionLinkId, record?.item ?? [])
-            ),
+            value: containsSubRows
+              ? getCheckboxIcon(checkIfSubRowsHaveAnyData(record.id, subRows))
+              : findQuestionnaireResponseAnswerValue(definitionLinkId, record?.item ?? []),
           })),
         ],
         subRows,
