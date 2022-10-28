@@ -28,7 +28,7 @@ const StyledTextInput = styled.input`
   }
 `
 
-const StyledSearchIcon = styled.div`
+const StyledSearchIcon = styled(SearchIcon)`
   position: absolute;
   left: 8px;
   top: 50%;
@@ -45,9 +45,7 @@ const StyledSearchIcon = styled.div`
 
 const TextInput: FC<InputHTMLAttributes<HTMLInputElement>> = ({ placeholder, ...rest }) => (
   <TextInputContainer>
-    <StyledSearchIcon>
-      <SearchIcon size="medium" />
-    </StyledSearchIcon>
+    <StyledSearchIcon size="medium" />
     <StyledTextInput type="text" placeholder={placeholder} {...rest} />
   </TextInputContainer>
 )

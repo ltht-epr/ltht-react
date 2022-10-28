@@ -63,7 +63,7 @@ const StyledInfo = styled.div`
   }
 `
 
-const StyledChevronCircleIcon = styled.div`
+const StyledChevronCircleIcon = styled(ChevronCircleIcon)`
   position: absolute;
   right: 0.5rem;
   top: 0.5rem;
@@ -86,9 +86,7 @@ const PrimaryInformation: FC<Props> = ({ patient, deceased }) => {
       <StyledName>
         <Name patient={patient} />
       </StyledName>
-      <StyledChevronCircleIcon>
-        <ChevronCircleIcon direction={collapsed ? 'up' : 'down'} size="medium" />
-      </StyledChevronCircleIcon>
+      <StyledChevronCircleIcon direction={collapsed ? 'up' : 'down'} size="medium" />
       <StyledInfo>
         <DateOfBirth patient={patient} deceased={deceased} />
         {deceased && patient?.deceased?.deceasedDateTime && <DateOfDeath patient={patient} />}
