@@ -86,31 +86,27 @@ const StyledTimelineDayTimeRight = styled.div`
   font-weight: bold;
 `
 
-const StyledOuterCircle = styled.div`
-  .icon__circle {
-    position: absolute;
-    z-index: 1;
-    transform: translate(-50%);
-    -webkit-transform: translate(-50%);
-    -ms-transform: translate(-50%);
-    left: 50%;
-    color: ${TEXT_COLOURS.INFO};
-    font-size: 0.75rem;
-  }
+const StyledOuterCircle = styled(CircleIcon)`
+  position: absolute;
+  z-index: 1;
+  transform: translate(-50%);
+  -webkit-transform: translate(-50%);
+  -ms-transform: translate(-50%);
+  left: 50%;
+  color: ${TEXT_COLOURS.INFO};
+  font-size: 0.75rem;
 `
 
-const StyledInnerCircle = styled.div`
-  .icon__circle {
-    position: absolute;
-    z-index: 2;
-    top: 0.125rem;
-    transform: translate(-50%);
-    -webkit-transform: translate(-50%);
-    -ms-transform: translate(-50%);
-    left: 50%;
-    color: white;
-    font-size: 0.5rem;
-  }
+const StyledInnerCircle = styled(CircleIcon)`
+  position: absolute;
+  z-index: 2;
+  top: 0.125rem;
+  transform: translate(-50%);
+  -webkit-transform: translate(-50%);
+  -ms-transform: translate(-50%);
+  left: 50%;
+  color: white;
+  font-size: 0.5rem;
 `
 
 const Timeline: FC<IProps> = ({ timelineItems, domainResourceType }) => {
@@ -270,12 +266,8 @@ const Timeline: FC<IProps> = ({ timelineItems, domainResourceType }) => {
                         )}
                       </StyledTimelineDayContent>
                       <StyledTimelineDayLine>
-                        <StyledOuterCircle>
-                          <CircleIcon status="info" size="medium" />
-                        </StyledOuterCircle>
-                        <StyledInnerCircle>
-                          <CircleIcon status="info" size="medium" />
-                        </StyledInnerCircle>
+                        <StyledOuterCircle status="info" size="medium" />
+                        <StyledInnerCircle status="info" size="medium" />
                       </StyledTimelineDayLine>
                       <StyledTimelineDayTimeRight>
                         <TimelineTime
@@ -296,12 +288,8 @@ const Timeline: FC<IProps> = ({ timelineItems, domainResourceType }) => {
                         />
                       </StyledTimelineDayTimeLeft>
                       <StyledTimelineDayLine>
-                        <StyledOuterCircle>
-                          <CircleIcon status="info" size="medium" />
-                        </StyledOuterCircle>
-                        <StyledInnerCircle>
-                          <CircleIcon status="info" size="medium" />
-                        </StyledInnerCircle>
+                        <StyledOuterCircle status="info" size="medium" />
+                        <StyledInnerCircle status="info" size="medium" />
                       </StyledTimelineDayLine>
                       <StyledTimelineDayContent isMobile={false}>
                         {isRedacted ? (

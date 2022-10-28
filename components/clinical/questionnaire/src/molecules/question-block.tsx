@@ -8,7 +8,7 @@ import { partialDateTimeText, stripBBTags, stripHtmlTags } from '@ltht-react/uti
 import { NestedListDetail } from '@ltht-react/type-detail'
 import { DESKTOP_MINIMUM_MEDIA_QUERY, MOBILE_MAXIMUM_MEDIA_QUERY, TABLET_ONLY_MEDIA_QUERY } from '@ltht-react/styles'
 
-const StyledInfoIcon = styled.div`
+const StyledInfoCircleIcon = styled(InfoCircleIcon)`
   padding-right: 0.25rem;
 `
 
@@ -50,9 +50,7 @@ const generateAnswer = (
       return {
         Answer: (
           <DisplayBlock>
-            <StyledInfoIcon>
-              <InfoCircleIcon status="info" size="medium" />
-            </StyledInfoIcon>
+            <StyledInfoCircleIcon status="info" size="medium" />
             {responseItem?.text}
           </DisplayBlock>
         ),
