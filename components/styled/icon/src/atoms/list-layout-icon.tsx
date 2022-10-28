@@ -5,7 +5,7 @@ import { faListUl } from '@fortawesome/free-solid-svg-icons'
 
 const ListLayoutIcon: FC<ListLayoutIconProps> = ({ size, className, ...rest }) => (
   <FontAwesomeIcon
-    className={`${className ?? ''} icon__grid-layout`.trimStart()}
+    className={`${className ?? ''} icon__list-layout`.trimStart()}
     icon={faListUl}
     size={calculateIconSize(size)}
     {...rest}

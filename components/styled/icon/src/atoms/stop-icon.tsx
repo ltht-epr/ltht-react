@@ -5,7 +5,7 @@ import { calculateIconSize, IconSizes } from '@ltht-react/styles'
 
 const StopIcon: FC<StopIconProps> = ({ size, className, ...rest }) => (
   <FontAwesomeIcon
-    className={`${className ?? ''} icon__Stop`.trimStart()}
+    className={`${className ?? ''} icon__stop`.trimStart()}
     icon={faStop}
     size={calculateIconSize(size)}
     {...rest}

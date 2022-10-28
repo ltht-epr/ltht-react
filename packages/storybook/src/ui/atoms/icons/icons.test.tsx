@@ -95,16 +95,16 @@ describe('All icons', () => {
     [<ExternalLinkIcon size="small" />, 'icon__external-link'],
     [<FilterIcon size="small" />, 'icon__filter'],
     [<FolderPlusIcon size="small" />, 'icon__folder__plus'],
-    [<GridLayoutIcon size="small" />, 'icon__grid-layout'], // TODO: This is also inconsistent!
+    [<GridLayoutIcon size="small" />, 'icon__grid-layout'],
     [<HamburgerIcon size="small" />, 'icon__hamburger'],
     [<InfoCircleIcon size="small" status="green" />, 'icon__info-circle'],
     [<LayerGroupIcon size="small" />, 'icon__layer__group'],
-    [<ListLayoutIcon size="small" />, 'icon__grid-layout'], // TODO: Surely this is wrong?
+    [<ListLayoutIcon size="small" />, 'icon__list-layout'],
     [<PauseIcon size="small" />, 'icon__pause'],
     [<PlayIcon size="small" />, 'icon__play'],
     [<PlusIcon size="small" />, 'icon__plus'],
     [<SpinnerIcon size="small" />, 'icon__spinner'],
-    [<StopIcon size="small" />, 'icon__Stop'], // TODO: This is inconsistent
+    [<StopIcon size="small" />, 'icon__stop'],
     [<TableIcon size="small" status="default" />, 'icon__table'],
     [<ToggleOffIcon size="small" />, 'icon__toggle--off'],
     [<ToggleOnIcon size="small" />, 'icon__toggle--on'],
@@ -136,16 +136,16 @@ describe('All icons', () => {
     [<ExternalLinkIcon size="small" className="further-maths" />, 'icon__external-link'],
     [<FilterIcon size="small" className="further-maths" />, 'icon__filter'],
     [<FolderPlusIcon size="small" className="further-maths" />, 'icon__folder__plus'],
-    [<GridLayoutIcon size="small" className="further-maths" />, 'icon__grid-layout'], // TODO: This is also inconsistent!
+    [<GridLayoutIcon size="small" className="further-maths" />, 'icon__grid-layout'],
     [<HamburgerIcon size="small" className="further-maths" />, 'icon__hamburger'],
     [<InfoCircleIcon size="small" status="green" className="further-maths" />, 'icon__info-circle'],
     [<LayerGroupIcon size="small" className="further-maths" />, 'icon__layer__group'],
-    [<ListLayoutIcon size="small" className="further-maths" />, 'icon__grid-layout'], // TODO: Surely this is wrong?
+    [<ListLayoutIcon size="small" className="further-maths" />, 'icon__list-layout'],
     [<PauseIcon size="small" className="further-maths" />, 'icon__pause'],
     [<PlayIcon size="small" className="further-maths" />, 'icon__play'],
     [<PlusIcon size="small" className="further-maths" />, 'icon__plus'],
     [<SpinnerIcon size="small" className="further-maths" />, 'icon__spinner'],
-    [<StopIcon size="small" className="further-maths" />, 'icon__Stop'], // TODO: This is inconsistent
+    [<StopIcon size="small" className="further-maths" />, 'icon__stop'],
     [<TableIcon size="small" status="default" className="further-maths" />, 'icon__table'],
     [<ToggleOffIcon size="small" className="further-maths" />, 'icon__toggle--off'],
     [<ToggleOnIcon size="small" className="further-maths" />, 'icon__toggle--on'],
