@@ -33,6 +33,7 @@ import {
   TrashIcon,
   UserIcon,
   DotCircleIcon,
+  SearchIcon,
 } from '@ltht-react/icon'
 import { render, screen } from '@testing-library/react'
 
@@ -71,6 +72,7 @@ describe('All icons', () => {
     [<TrashIcon size="small" />],
     [<UserIcon size="small" />],
     [<DotCircleIcon size="small" status="default" />],
+    [<SearchIcon size="small" />],
   ])('Renders', (icon: JSX.Element) => {
     render(icon)
   })
@@ -109,6 +111,7 @@ describe('All icons', () => {
     [<TrashIcon size="small" />, 'icon__trash'],
     [<UserIcon size="small" />, 'icon__user'],
     [<DotCircleIcon size="small" status="default" />, 'icon__dot__circle'],
+    [<SearchIcon size="small" />, 'icon__search'],
   ])('Has the right class name', (icon: JSX.Element, expectedClass: string) => {
     render(icon)
 
@@ -149,6 +152,7 @@ describe('All icons', () => {
     [<TrashIcon size="small" className="further-maths" />, 'icon__trash'],
     [<UserIcon size="small" className="further-maths" />, 'icon__user'],
     [<DotCircleIcon size="small" status="default" className="further-maths" />, 'icon__dot__circle'],
+    [<SearchIcon size="small" className="further-maths" />, 'icon__search'],
   ])('Still has the right class name when given custom class names', (icon: JSX.Element, expectedClass: string) => {
     render(icon)
 
@@ -167,7 +171,7 @@ describe('All icons', () => {
     [<CommentIcon size="small" id="123abc" />],
     [<CounterIcon size="small" status="secondary" value={1} id="123abc" />],
     [<CrossIcon size="small" id="123abc" />],
-    [<EditIcon size="small" id="123abc" />, 'icon__edit'],
+    [<EditIcon size="small" id="123abc" />],
     [<EllipsisHorizontalIcon size="small" id="123abc" />],
     [<EllipsisVerticalIcon size="small" id="123abc" />],
     [<ExclamationIcon size="small" status="amber" id="123abc" />],
@@ -190,6 +194,7 @@ describe('All icons', () => {
     [<TrashIcon size="small" id="123abc" />],
     [<UserIcon size="small" id="123abc" />],
     [<DotCircleIcon size="small" status="default" id="123abc" />],
+    [<SearchIcon size="small" id="123abc" />],
   ])('Spreads html attributes down', (icon: JSX.Element) => {
     render(icon)
 
@@ -230,6 +235,7 @@ describe('All icons', () => {
     ['trash'],
     ['user'],
     ['dot-circle'],
+    ['search'],
   ])('Can be styled', (iconName) => {
     render(makeStyledIcon(iconName))
 
@@ -467,6 +473,13 @@ describe('All icons', () => {
           color: pink;
         `
         return <Icon size="small" status="default" />
+      }
+
+      case 'search': {
+        const Icon = styled(SearchIcon)`
+          color: pink;
+        `
+        return <Icon size="small" />
       }
     }
     throw Error()
