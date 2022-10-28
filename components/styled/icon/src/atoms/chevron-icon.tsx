@@ -17,7 +17,7 @@ const calculateIconType = (direction: IconDirection): IconTypes => {
   }
 }
 
-const ChevronIcon: FC<Props> = ({ size, direction, clickHandler, ...rest }) => {
+const ChevronIcon: FC<Props> = ({ size, direction, clickHandler, className, ...rest }) => {
   const handleClick = (e: MouseEvent<SVGSVGElement>): void => {
     e.preventDefault()
     e.stopPropagation()
@@ -25,14 +25,13 @@ const ChevronIcon: FC<Props> = ({ size, direction, clickHandler, ...rest }) => {
   }
 
   return (
-    <div {...rest}>
-      <FontAwesomeIcon
-        className="icon__chevron"
-        icon={calculateIconType(direction)}
-        size={calculateIconSize(size)}
-        onClick={clickHandler && handleClick}
-      />
-    </div>
+    <FontAwesomeIcon
+      className={`${className ?? ''} icon__chevron`.trimStart()}
+      icon={calculateIconType(direction)}
+      size={calculateIconSize(size)}
+      onClick={clickHandler && handleClick}
+      {...rest}
+    />
   )
 }
 
@@ -40,7 +39,7 @@ type IconTypes = typeof faChevronUp | typeof faChevronDown | typeof faChevronLef
 
 type IconDirection = 'up' | 'down' | 'left' | 'right'
 
-interface Props extends HTMLAttributes<HTMLDivElement> {
+interface Props extends HTMLAttributes<SVGElement> {
   direction: IconDirection
   size: IconSizes
   clickHandler?(): void

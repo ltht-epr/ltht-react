@@ -3,13 +3,16 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBullseye } from '@fortawesome/free-solid-svg-icons'
 import { calculateIconSize, IconSizes } from '@ltht-react/styles'
 
-const BullseyeIcon: FC<BullseyeIconProps> = ({ size, ...rest }) => (
-  <div {...rest}>
-    <FontAwesomeIcon className="icon__bullseye" icon={faBullseye} size={calculateIconSize(size)} />
-  </div>
+const BullseyeIcon: FC<BullseyeIconProps> = ({ size, className, ...rest }) => (
+  <FontAwesomeIcon
+    className={`${className ?? ''} icon__bullseye`.trimStart()}
+    icon={faBullseye}
+    size={calculateIconSize(size)}
+    {...rest}
+  />
 )
 
-interface BullseyeIconProps extends HTMLAttributes<HTMLDivElement> {
+interface BullseyeIconProps extends HTMLAttributes<SVGElement> {
   size: IconSizes
 }
 

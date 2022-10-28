@@ -17,16 +17,15 @@ const StyledFontAwesomeIcon = styled(FontAwesomeIcon)<StyledFontAwesomeIconProps
   color: ${({ status }): SerializedStyles => calculateIconColor(status)};
 `
 
-const CircleIcon: FC<IconProps> = ({ status, size, ...rest }) => (
-  <div {...rest}>
-    <StyledFontAwesomeIcon
-      className="icon__circle"
-      status={status}
-      icon={faCircle}
-      size={calculateIconSize(size)}
-      transform={{ rotate: 180 }}
-    />
-  </div>
+const CircleIcon: FC<IconProps> = ({ status, size, className, ...rest }) => (
+  <StyledFontAwesomeIcon
+    className={`${className ?? ''} icon__circle`.trimStart()}
+    status={status}
+    icon={faCircle}
+    size={calculateIconSize(size)}
+    transform={{ rotate: 180 }}
+    {...rest}
+  />
 )
 
 type StatusValues = 'red' | 'green' | 'amber' | 'info' | 'default'
@@ -35,7 +34,7 @@ interface StyledFontAwesomeIconProps extends FontAwesomeIconProps {
   status: StatusValues
 }
 
-interface IconProps extends HTMLAttributes<HTMLDivElement> {
+interface IconProps extends HTMLAttributes<SVGElement> {
   status: StatusValues
   size: IconSizes
 }
