@@ -81,6 +81,31 @@ describe('All icons', () => {
     [<ChevronIcon size="small" direction="up" />, 'icon__chevron'],
     [<CircleIcon size="small" status="default" />, 'icon__circle'],
     [<ColumnIcon size="small" status="default" />, 'icon__column'],
+    [<CommentIcon size="small" />, 'icon__comment'],
+    [<CounterIcon size="small" status="secondary" value={1} />, 'icon__counter'],
+    [<CrossIcon size="small" />, 'icon__cross'],
+    [<EditIcon size="small" />, 'icon__edit'],
+    [<EllipsisHorizontalIcon size="small" />, 'icon__ellipsis__horizontal'],
+    [<EllipsisVerticalIcon size="small" />, 'icon__ellipsis__vertical'],
+    [<ExclamationIcon size="small" status="amber" />, 'icon__exclamation'],
+    [<ExternalLinkIcon size="small" />, 'icon__external-link'],
+    [<FilterIcon size="small" />, 'icon__filter'],
+    [<FolderPlusIcon size="small" />, 'icon__folder__plus'],
+    [<GridLayoutIcon size="small" />, 'icon__grid-layout'], // TODO: This is also inconsistent!
+    [<HamburgerIcon size="small" />, 'icon__hamburger'],
+    [<InfoCircleIcon size="small" status="green" />, 'icon__info-circle'],
+    [<LayerGroupIcon size="small" />, 'icon__layer__group'],
+    [<ListLayoutIcon size="small" />, 'icon__grid-layout'], // TODO: Surely this is wrong?
+    [<PauseIcon size="small" />, 'icon__pause'],
+    [<PlayIcon size="small" />, 'icon__play'],
+    [<PlusIcon size="small" />, 'icon__plus'],
+    [<SpinnerIcon size="small" />, 'icon__spinner'],
+    [<StopIcon size="small" />, 'icon__Stop'], // TODO: This is inconsistent
+    [<TableIcon size="small" status="default" />, 'icon__table'],
+    [<ToggleOffIcon size="small" />, 'icon__toggle--off'],
+    [<ToggleOnIcon size="small" />, 'icon__toggle--on'],
+    [<TrashIcon size="small" />, 'icon__trash'],
+    [<UserIcon size="small" />, 'icon__user'],
   ])('Has the right class name', (icon: JSX.Element, expectedClass: string) => {
     render(icon)
 
