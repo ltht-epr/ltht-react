@@ -1,22 +1,22 @@
 import { Story } from '@storybook/react'
-import { ChevronCircleIcon } from '@ltht-react/icon'
+import { ChevronIcon } from '@ltht-react/icon'
 
 // eslint-disable-next-line import/prefer-default-export
-export const ChevronCircle: Story = () => (
+export const Chevron: Story = () => (
   <>
-    <ChevronCircleIcon direction="up" size="small" />
-    <ChevronCircleIcon direction="down" size="small" />
-    <ChevronCircleIcon direction="left" size="small" />
-    <ChevronCircleIcon direction="right" size="small" />
+    <ChevronIcon direction="up" size="small" />
+    <ChevronIcon direction="down" size="small" />
+    <ChevronIcon direction="left" size="small" />
+    <ChevronIcon direction="right" size="small" />
     <br />
-    <ChevronCircleIcon direction="up" size="medium" />
-    <ChevronCircleIcon direction="down" size="medium" />
-    <ChevronCircleIcon direction="left" size="medium" />
-    <ChevronCircleIcon direction="right" size="medium" />
+    <ChevronIcon direction="up" size="medium" />
+    <ChevronIcon direction="down" size="medium" />
+    <ChevronIcon direction="left" size="medium" />
+    <ChevronIcon direction="right" size="medium" />
     <br />
-    <ChevronCircleIcon direction="up" size="large" />
-    <ChevronCircleIcon direction="down" size="large" />
-    <ChevronCircleIcon direction="left" size="large" />
-    <ChevronCircleIcon direction="right" size="large" />
+    <ChevronIcon direction="up" size="large" />
+    <ChevronIcon direction="down" size="large" />
+    <ChevronIcon direction="left" size="large" />
+    <ChevronIcon direction="right" size="large" />
   </>
 )

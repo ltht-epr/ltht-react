@@ -1,13 +1,18 @@
-import { FC } from 'react'
+import { FC, HTMLAttributes } from 'react'
 import { calculateIconSize, IconSizes } from '@ltht-react/styles'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 
-const HamburgerIcon: FC<ExternalLinkIconProps> = ({ size }) => (
-  <FontAwesomeIcon className="icon__hamburger" icon={faBars} size={calculateIconSize(size)} />
+const HamburgerIcon: FC<ExternalLinkIconProps> = ({ size, className, ...rest }) => (
+  <FontAwesomeIcon
+    className={`${className ?? ''} icon__hamburger`.trimStart()}
+    icon={faBars}
+    size={calculateIconSize(size)}
+    {...rest}
+  />
 )
 
-interface ExternalLinkIconProps {
+interface ExternalLinkIconProps extends HTMLAttributes<SVGElement> {
   size: IconSizes
 }
 

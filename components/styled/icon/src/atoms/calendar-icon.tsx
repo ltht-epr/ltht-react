@@ -1,13 +1,18 @@
-import { FC } from 'react'
+import { FC, HTMLAttributes } from 'react'
 import { calculateIconSize, IconSizes } from '@ltht-react/styles'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCalendar } from '@fortawesome/free-solid-svg-icons'
 
-const CalendarIcon: FC<CalendarIconProps> = ({ size }) => (
-  <FontAwesomeIcon className="icon__calendar" icon={faCalendar} size={calculateIconSize(size)} />
+const CalendarIcon: FC<CalendarIconProps> = ({ size, className, ...rest }) => (
+  <FontAwesomeIcon
+    className={`${className ?? ''} icon__calendar`.trimStart()}
+    icon={faCalendar}
+    size={calculateIconSize(size)}
+    {...rest}
+  />
 )
 
-interface CalendarIconProps {
+interface CalendarIconProps extends HTMLAttributes<SVGElement> {
   size: IconSizes
 }
 

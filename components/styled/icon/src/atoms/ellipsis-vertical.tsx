@@ -1,13 +1,18 @@
-import { FC } from 'react'
+import { FC, HTMLAttributes } from 'react'
 import { calculateIconSize, IconSizes } from '@ltht-react/styles'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEllipsisV } from '@fortawesome/free-solid-svg-icons'
 
-const EllipsisVerticalIcon: FC<EllipsisVerticalIconProps> = ({ size }) => (
-  <FontAwesomeIcon className="icon__ellipsis__vertical" icon={faEllipsisV} size={calculateIconSize(size)} />
+const EllipsisVerticalIcon: FC<EllipsisVerticalIconProps> = ({ size, className, ...rest }) => (
+  <FontAwesomeIcon
+    className={`${className ?? ''} icon__ellipsis__vertical`.trimStart()}
+    icon={faEllipsisV}
+    size={calculateIconSize(size)}
+    {...rest}
+  />
 )
 
-interface EllipsisVerticalIconProps {
+interface EllipsisVerticalIconProps extends HTMLAttributes<SVGElement> {
   size: IconSizes
 }
 

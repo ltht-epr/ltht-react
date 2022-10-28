@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, HTMLAttributes } from 'react'
 import styled from '@emotion/styled'
 import { css, SerializedStyles } from '@emotion/react'
 import { FontAwesomeIcon, FontAwesomeIconProps } from '@fortawesome/react-fontawesome'
@@ -17,13 +17,14 @@ const StyledFontAwesomeIcon = styled(FontAwesomeIcon)<StyledFontAwesomeIconProps
   color: ${({ status }): SerializedStyles => calculateIconColor(status)};
 `
 
-const TableIcon: FC<IconProps> = ({ status, size }) => (
+const TableIcon: FC<IconProps> = ({ status, size, className, ...rest }) => (
   <StyledFontAwesomeIcon
-    className="icon__table"
+    className={`${className ?? ''} icon__table`.trimStart()}
     status={status}
     icon={faTable}
     size={calculateIconSize(size)}
     transform={{ rotate: 180 }}
+    {...rest}
   />
 )
 
@@ -32,7 +33,7 @@ type StatusValues = 'red' | 'green' | 'amber' | 'info' | 'default'
 interface StyledFontAwesomeIconProps extends FontAwesomeIconProps {
   status: StatusValues
 }
-interface IconProps {
+interface IconProps extends HTMLAttributes<SVGElement> {
   status: StatusValues
   size: IconSizes
 }

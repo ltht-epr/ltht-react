@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, HTMLAttributes } from 'react'
 import styled from '@emotion/styled'
 import { css, SerializedStyles } from '@emotion/react'
 import { FontAwesomeIcon, FontAwesomeIconProps } from '@fortawesome/react-fontawesome'
@@ -17,13 +17,14 @@ const StyledFontAwesomeIcon = styled(FontAwesomeIcon)<StyledFontAwesomeIconProps
   color: ${({ status }): SerializedStyles => calculateIconColor(status)};
 `
 
-const DotCircleIcon: FC<IconProps> = ({ status, size }) => (
+const DotCircleIcon: FC<IconProps> = ({ status, size, className, ...rest }) => (
   <StyledFontAwesomeIcon
-    className="icon__dot__circle"
+    className={`${className ?? ''} icon__dot__circle`.trimStart()}
     status={status}
     icon={faDotCircle}
     size={calculateIconSize(size)}
     transform={{ rotate: 180 }}
+    {...rest}
   />
 )
 
@@ -33,7 +34,7 @@ interface StyledFontAwesomeIconProps extends FontAwesomeIconProps {
   status: StatusValues
 }
 
-interface IconProps {
+interface IconProps extends HTMLAttributes<SVGElement> {
   status: StatusValues
   size: IconSizes
 }
