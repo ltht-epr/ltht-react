@@ -19,7 +19,7 @@ const StyledFontAwesomeIcon = styled(FontAwesomeIcon)<StyledFontAwesomeIconProps
 
 const InfoCircleIcon: FC<IconProps> = ({ status, size, className, ...rest }) => (
   <StyledFontAwesomeIcon
-    className={`${className ?? ''} icon__info`.trimStart()}
+    className={`${className ?? ''} icon__info-circle`.trimStart()}
     status={status}
     icon={faInfoCircle}
     size={calculateIconSize(size)}

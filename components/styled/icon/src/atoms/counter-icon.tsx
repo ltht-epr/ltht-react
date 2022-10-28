@@ -25,9 +25,15 @@ const StyledCounterValue = styled.span`
   font-weight: bold;
 `
 
-const CounterIcon: FC<CounterIconProps> = ({ status, size, value }) => (
+const CounterIcon: FC<CounterIconProps> = ({ status, size, value, className, ...rest }) => (
   <StyledCounterIcon className="fa-layers fa-fw">
-    <StyledFontAwesomeIcon className="icon__counter" status={status} icon={faCircle} size={calculateIconSize(size)} />
+    <StyledFontAwesomeIcon
+      className={`${className ?? ''} icon__counter`.trimStart()}
+      status={status}
+      icon={faCircle}
+      size={calculateIconSize(size)}
+      {...rest}
+    />
     <StyledCounterValue className="fa-layers-text fa-inverse fa-xs">{value}</StyledCounterValue>
   </StyledCounterIcon>
 )
@@ -37,7 +43,7 @@ type StatusValues = 'red' | 'green' | 'amber' | 'primary' | 'secondary' | 'defau
 interface StyledFontAwesomeIconProps extends FontAwesomeIconProps {
   status: StatusValues
 }
-interface CounterIconProps extends HTMLAttributes<HTMLSpanElement> {
+interface CounterIconProps extends HTMLAttributes<SVGElement> {
   status: StatusValues
   size: IconSizes
   value: number

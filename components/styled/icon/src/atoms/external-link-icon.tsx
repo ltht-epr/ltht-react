@@ -10,7 +10,7 @@ const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
 
 const ExternalLinkIcon: FC<ExternalLinkIconProps> = ({ size, className, ...rest }) => (
   <StyledFontAwesomeIcon
-    className={`${className ?? ''} icon__external`.trimStart()}
+    className={`${className ?? ''} icon__external-link`.trimStart()}
     icon={faExternalLinkAlt}
     size={calculateIconSize(size)}
     {...rest}
