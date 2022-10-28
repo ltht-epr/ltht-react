@@ -32,40 +32,47 @@ const buildVerticalCellRowsRecursive = (
   definitionItems: QuestionnaireItem[],
   records: QuestionnaireResponse[]
 ): CellRow[] =>
-  definitionItems.map((def) => {
-    const containsSubRows: boolean = (def?.item && def.item.length > 0) ?? false
-    const subRows = containsSubRows
-      ? buildVerticalCellRowsRecursive(EnsureMaybe(def?.item?.map((x) => EnsureMaybe(x))), records)
-      : []
+  definitionItems.map((definitionItem) => {
+    const buildRow = (definitionLinkId: string, def: QuestionnaireItem) => {
+      const containsSubRows: boolean = (def?.item && def.item.length > 0) ?? false
+      const subRows = containsSubRows
+        ? buildVerticalCellRowsRecursive(EnsureMaybe(def?.item?.map((x) => EnsureMaybe(x))), records)
+        : []
+      const checkIfSubRowsHaveAnyData = (recordId: string, rows: CellRow[]) =>
+        rows.some((x) => x.cells.find((y) => y.key === recordId)?.value !== '')
 
-    return {
-      id: def?.linkId ?? '',
-      cells: [
-        {
-          key: 'property',
-          value: def?.text ?? '',
-        },
-        ...records.map((record) => ({
-          key: record.id,
-          value: containsSubRows ? (
-            <Checkbox
-              size="small"
-              color="primary"
-              checked={subRows.some((x) => x.cells.find((y) => y.key === record.id)?.value !== '')}
-              style={{ padding: 0 }}
-            />
-          ) : (
-            findQuestionnaireResponseAnswerValue(EnsureMaybe(def?.linkId), record?.item ?? [])
-          ),
-        })),
-      ],
-      subRows,
+      return {
+        id: definitionLinkId,
+        cells: [
+          {
+            key: 'property',
+            value: def?.text ?? '',
+          },
+          ...records.map((record) => ({
+            key: record.id,
+            value: containsSubRows ? (
+              <Checkbox
+                size="small"
+                color="primary"
+                checked={checkIfSubRowsHaveAnyData(record.id, subRows)}
+                style={{ padding: 0 }}
+              />
+            ) : (
+              findQuestionnaireResponseAnswerValue(definitionLinkId, record?.item ?? [])
+            ),
+          })),
+        ],
+        subRows,
+      }
     }
+
+    const id: string = definitionItem?.linkId ?? ''
+    return buildRow(id, definitionItem)
   }) ?? []
 
 const findQuestionnaireResponseAnswerValue = (id: string, items: Maybe<Maybe<QuestionnaireResponseItem>>[]): string => {
   const answerItem = findAnswerByLinkIdRecursive(id, items)
-  return answerItem ? EnsureMaybe<string>(answerItem?.answer?.find((x) => !!x)?.valueString, '') : ''
+  return EnsureMaybe<string>(answerItem?.answer?.find((x) => !!x)?.valueString, '')
 }
 
 const findAnswerByLinkIdRecursive = (
@@ -73,6 +80,10 @@ const findAnswerByLinkIdRecursive = (
   items: Maybe<Maybe<QuestionnaireResponseItem>>[]
 ): QuestionnaireResponseItem | undefined => {
   let itemFound: QuestionnaireResponseItem | undefined
+
+  if (id === '') {
+    return undefined
+  }
 
   for (let i = 0; i < items.length; i++) {
     const item = EnsureMaybe(items[i])
