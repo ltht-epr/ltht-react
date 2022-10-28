@@ -86,19 +86,20 @@ const findAnswerByLinkIdRecursive = (
   }
 
   for (let i = 0; i < items.length; i++) {
-    const item = EnsureMaybe(items[i])
+    const item = items[i] as QuestionnaireResponseItem
 
     if (item.linkId === id) {
       itemFound = item
       break
     }
 
-    const defaultAnswer = EnsureMaybe(EnsureMaybe(item.answer).find((x) => !!x))
-
-    if (defaultAnswer && defaultAnswer.item && defaultAnswer.item.length > 0) {
-      itemFound = findAnswerByLinkIdRecursive(id, defaultAnswer.item)
-      if (itemFound) {
-        break
+    if (item.answer) {
+      const defaultAnswer = item.answer.find((x) => !!x)
+      if (defaultAnswer?.item && defaultAnswer?.item.length > 0) {
+        itemFound = findAnswerByLinkIdRecursive(id, defaultAnswer.item)
+        if (itemFound) {
+          break
+        }
       }
     }
   }
