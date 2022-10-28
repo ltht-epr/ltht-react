@@ -1,3 +1,4 @@
+import { CheckboxIcon, SquareIcon } from '@ltht-react/icon'
 import { TableData } from '@ltht-react/table/src/atoms/table'
 import {
   PartialDateTime,
@@ -11,7 +12,6 @@ import {
   QuestionnaireResponseStatus,
 } from '@ltht-react/types'
 import { QuestionnairePublicationStatus } from '@ltht-react/types/src'
-import { Checkbox } from '@material-ui/core'
 
 export const summaryDefinitionOneVerticalTableData: TableData = {
   headers: [
@@ -108,15 +108,15 @@ export const summaryDefinitionOneVerticalTableData: TableData = {
         },
         {
           key: '1',
-          value: <Checkbox size="small" color="primary" checked style={{ padding: 0 }} />,
+          value: <CheckboxIcon size="medium" />,
         },
         {
           key: '2',
-          value: <Checkbox size="small" color="primary" checked style={{ padding: 0 }} />,
+          value: <CheckboxIcon size="medium" />,
         },
         {
           key: '3',
-          value: <Checkbox size="small" color="primary" checked style={{ padding: 0 }} />,
+          value: <CheckboxIcon size="medium" />,
         },
       ],
       subRows: [
@@ -124,9 +124,9 @@ export const summaryDefinitionOneVerticalTableData: TableData = {
           id: '4a',
           cells: [
             { key: 'property', value: 'RR (breaths/min)' },
-            { key: '1', value: <Checkbox size="small" color="primary" checked style={{ padding: 0 }} /> },
-            { key: '2', value: <Checkbox size="small" color="primary" checked={false} style={{ padding: 0 }} /> },
-            { key: '3', value: <Checkbox size="small" color="primary" checked={false} style={{ padding: 0 }} /> },
+            { key: '1', value: <CheckboxIcon size="medium" /> },
+            { key: '2', value: <SquareIcon size="medium" /> },
+            { key: '3', value: <SquareIcon size="medium" /> },
           ],
           subRows: [
             {
