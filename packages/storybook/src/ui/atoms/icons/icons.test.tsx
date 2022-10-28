@@ -32,6 +32,7 @@ import {
   ToggleOnIcon,
   TrashIcon,
   UserIcon,
+  DotCircleIcon,
 } from '@ltht-react/icon'
 import { render, screen } from '@testing-library/react'
 
@@ -69,6 +70,7 @@ describe('All icons', () => {
     [<ToggleOnIcon size="small" />],
     [<TrashIcon size="small" />],
     [<UserIcon size="small" />],
+    [<DotCircleIcon size="small" status="default" />],
   ])('Renders', (icon: JSX.Element) => {
     render(icon)
   })
@@ -106,6 +108,7 @@ describe('All icons', () => {
     [<ToggleOnIcon size="small" />, 'icon__toggle--on'],
     [<TrashIcon size="small" />, 'icon__trash'],
     [<UserIcon size="small" />, 'icon__user'],
+    [<DotCircleIcon size="small" status="default" />, 'icon__dot__circle'],
   ])('Has the right class name', (icon: JSX.Element, expectedClass: string) => {
     render(icon)
 
@@ -145,6 +148,7 @@ describe('All icons', () => {
     [<ToggleOnIcon size="small" className="further-maths" />, 'icon__toggle--on'],
     [<TrashIcon size="small" className="further-maths" />, 'icon__trash'],
     [<UserIcon size="small" className="further-maths" />, 'icon__user'],
+    [<DotCircleIcon size="small" status="default" className="further-maths" />, 'icon__dot__circle'],
   ])('Still has the right class name when given custom class names', (icon: JSX.Element, expectedClass: string) => {
     render(icon)
 
@@ -185,6 +189,7 @@ describe('All icons', () => {
     [<ToggleOnIcon size="small" id="123abc" />],
     [<TrashIcon size="small" id="123abc" />],
     [<UserIcon size="small" id="123abc" />],
+    [<DotCircleIcon size="small" status="default" id="123abc" />],
   ])('Spreads html attributes down', (icon: JSX.Element) => {
     render(icon)
 
@@ -224,6 +229,7 @@ describe('All icons', () => {
     ['toggle-on'],
     ['trash'],
     ['user'],
+    ['dot-circle'],
   ])('Can be styled', (iconName) => {
     render(makeStyledIcon(iconName))
 
@@ -454,6 +460,13 @@ describe('All icons', () => {
           color: pink;
         `
         return <Icon size="small" />
+      }
+
+      case 'dot-circle': {
+        const Icon = styled(DotCircleIcon)`
+          color: pink;
+        `
+        return <Icon size="small" status="default" />
       }
     }
     throw Error()
