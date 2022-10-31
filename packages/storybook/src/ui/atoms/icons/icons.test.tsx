@@ -34,6 +34,8 @@ import {
   UserIcon,
   DotCircleIcon,
   SearchIcon,
+  CheckboxIcon,
+  SquareIcon,
 } from '@ltht-react/icon'
 import { render, screen } from '@testing-library/react'
 
@@ -73,6 +75,8 @@ describe('All icons', () => {
     [<UserIcon size="small" />],
     [<DotCircleIcon size="small" status="default" />],
     [<SearchIcon size="small" />],
+    [<CheckboxIcon size="small" />],
+    [<SquareIcon size="small" />],
   ])('Renders', (icon: JSX.Element) => {
     render(icon)
   })
@@ -112,6 +116,8 @@ describe('All icons', () => {
     [<UserIcon size="small" />, 'icon__user'],
     [<DotCircleIcon size="small" status="default" />, 'icon__dot__circle'],
     [<SearchIcon size="small" />, 'icon__search'],
+    [<CheckboxIcon size="small" />, 'icon__checkbox'],
+    [<SquareIcon size="small" />, 'icon__square'],
   ])('Has the right class name', (icon: JSX.Element, expectedClass: string) => {
     render(icon)
 
@@ -153,6 +159,8 @@ describe('All icons', () => {
     [<UserIcon size="small" className="further-maths" />, 'icon__user'],
     [<DotCircleIcon size="small" status="default" className="further-maths" />, 'icon__dot__circle'],
     [<SearchIcon size="small" className="further-maths" />, 'icon__search'],
+    [<CheckboxIcon size="small" className="further-maths" />, 'icon__checkbox'],
+    [<SquareIcon size="small" className="further-maths" />, 'icon__square'],
   ])('Still has the right class name when given custom class names', (icon: JSX.Element, expectedClass: string) => {
     render(icon)
 
@@ -195,6 +203,8 @@ describe('All icons', () => {
     [<UserIcon size="small" id="123abc" />],
     [<DotCircleIcon size="small" status="default" id="123abc" />],
     [<SearchIcon size="small" id="123abc" />],
+    [<CheckboxIcon size="small" id="123abc" />],
+    [<SquareIcon size="small" id="123abc" />],
   ])('Spreads html attributes down', (icon: JSX.Element) => {
     render(icon)
 
@@ -236,6 +246,8 @@ describe('All icons', () => {
     ['user'],
     ['dot-circle'],
     ['search'],
+    ['checkbox'],
+    ['square'],
   ])('Can be styled', (iconName) => {
     render(makeStyledIcon(iconName))
 
@@ -477,6 +489,20 @@ describe('All icons', () => {
 
       case 'search': {
         const Icon = styled(SearchIcon)`
+          color: pink;
+        `
+        return <Icon size="small" />
+      }
+
+      case 'checkbox': {
+        const Icon = styled(CheckboxIcon)`
+          color: pink;
+        `
+        return <Icon size="small" />
+      }
+
+      case 'square': {
+        const Icon = styled(SquareIcon)`
           color: pink;
         `
         return <Icon size="small" />

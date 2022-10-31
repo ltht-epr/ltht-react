@@ -1,3 +1,4 @@
+import { CheckboxIcon, SquareIcon } from '@ltht-react/icon'
 import { TableData } from '@ltht-react/table/src/atoms/table'
 import {
   PartialDateTime,
@@ -52,6 +53,7 @@ export const summaryDefinitionOneVerticalTableData: TableData = {
           value: '15 NEWS',
         },
       ],
+      subRows: [],
     },
     {
       id: '2',
@@ -73,6 +75,7 @@ export const summaryDefinitionOneVerticalTableData: TableData = {
           value: '',
         },
       ],
+      subRows: [],
     },
     {
       id: '3',
@@ -94,6 +97,7 @@ export const summaryDefinitionOneVerticalTableData: TableData = {
           value: '',
         },
       ],
+      subRows: [],
     },
     {
       id: '4',
@@ -104,15 +108,148 @@ export const summaryDefinitionOneVerticalTableData: TableData = {
         },
         {
           key: '1',
-          value: 'CHECKBOX',
+          value: <CheckboxIcon size="medium" />,
         },
         {
           key: '2',
-          value: 'CHECKBOX',
+          value: <CheckboxIcon size="medium" />,
         },
         {
           key: '3',
-          value: 'CHECKBOX',
+          value: <CheckboxIcon size="medium" />,
+        },
+      ],
+      subRows: [
+        {
+          id: '4a',
+          cells: [
+            { key: 'property', value: 'RR (breaths/min)' },
+            { key: '1', value: <CheckboxIcon size="medium" /> },
+            { key: '2', value: <SquareIcon size="small" /> },
+            { key: '3', value: <SquareIcon size="small" /> },
+          ],
+          subRows: [
+            {
+              id: '4aa',
+              cells: [
+                { key: 'property', value: 'RR Part 1 (breaths/min)' },
+                { key: '1', value: '25(1)' },
+                { key: '2', value: '' },
+                { key: '3', value: '' },
+              ],
+              subRows: [],
+            },
+            {
+              id: '4ab',
+              cells: [
+                { key: 'property', value: 'RR Part 2 (breaths/min)' },
+                { key: '1', value: '25(2)' },
+                { key: '2', value: '' },
+                { key: '3', value: '' },
+              ],
+              subRows: [],
+            },
+          ],
+        },
+        {
+          id: '4b',
+          cells: [
+            { key: 'property', value: 'O2 Sat (%)' },
+            { key: '1', value: '92 (Target 94-98 %)' },
+            { key: '2', value: '' },
+            { key: '3', value: '' },
+          ],
+          subRows: [],
+        },
+        {
+          id: '4c',
+          cells: [
+            { key: 'property', value: 'Supp O2' },
+            { key: '1', value: '' },
+            { key: '2', value: '' },
+            { key: '3', value: '' },
+          ],
+          subRows: [],
+        },
+        {
+          id: '4d',
+          cells: [
+            { key: 'property', value: 'Blood Pressure' },
+            { key: '1', value: '144 / 122' },
+            { key: '2', value: '' },
+            { key: '3', value: '' },
+          ],
+          subRows: [],
+        },
+        {
+          id: '4e',
+          cells: [
+            { key: 'property', value: 'Standing 1 Minute BP' },
+            { key: '1', value: '' },
+            { key: '2', value: '' },
+            { key: '3', value: '' },
+          ],
+          subRows: [],
+        },
+        {
+          id: '4f',
+          cells: [
+            { key: 'property', value: 'Standing 3 Minute BP' },
+            { key: '1', value: '' },
+            { key: '2', value: '' },
+            { key: '3', value: '' },
+          ],
+          subRows: [],
+        },
+        {
+          id: '4g',
+          cells: [
+            { key: 'property', value: 'HR (BPM)' },
+            { key: '1', value: '88' },
+            { key: '2', value: '' },
+            { key: '3', value: '' },
+          ],
+          subRows: [],
+        },
+        {
+          id: '4h',
+          cells: [
+            { key: 'property', value: 'Temp (°C)' },
+            { key: '1', value: '37' },
+            { key: '2', value: '' },
+            { key: '3', value: '' },
+          ],
+          subRows: [],
+        },
+        {
+          id: '4i',
+          cells: [
+            { key: 'property', value: 'Consciousness' },
+            { key: '1', value: 'Alert' },
+            { key: '2', value: '' },
+            { key: '3', value: '' },
+          ],
+          subRows: [],
+        },
+        {
+          id: '4j',
+          cells: [
+            { key: 'property', value: 'Pain Score' },
+            { key: '1', value: '' },
+            { key: '2', value: '' },
+            { key: '3', value: '' },
+          ],
+          subRows: [],
+        },
+        {
+          id: '4k',
+          cells: [
+            { key: 'property', value: 'Blood Glucose (mmol/L)' },
+            { key: '1', value: '' },
+            { key: '2', value: '' },
+            { key: '3', value: '' },
+          ],
+          subRows: [],
         },
       ],
     },

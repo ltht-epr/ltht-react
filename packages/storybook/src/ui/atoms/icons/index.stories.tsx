@@ -1,5 +1,6 @@
 export * from './bullseye-icon.stories'
 export * from './calendar-icon.stories'
+export * from './checkbox-icon.stories'
 export * from './chevron-icon.stories'
 export * from './chevron-circle-icon.stories'
 export * from './circle-icon.stories'
@@ -31,5 +32,6 @@ export * from './toggle-on-icon.stories'
 export * from './trash-icon.stories'
 export * from './user-icon.stories'
 export * from './dot-circle-icon.stories'
+export * from './square-icon.stories'
 
 export default { title: 'UI/Atoms/Icons' }
