@@ -8,6 +8,18 @@ const Container = styled.div`
   background-color: white;
   border-radius: 6px;
   display: inline-block;
+  max-width: calc(100%);
+  max-height: calc(100%);
+  overflow: scroll;
+  &::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+    border: 0;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: rgb(190, 190, 190);
+    border-radius: 10px;
+  }
 `
 
 const StyledTable = styled.table`

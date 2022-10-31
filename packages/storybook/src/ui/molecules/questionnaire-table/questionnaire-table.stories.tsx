@@ -18,4 +18,10 @@ export const MockDataVisualisationVerticalWithGrouping: Story = () => (
   <Table definition={summaryDefinition} records={summaryRecordsList} />
 )
 
+export const MockDataVisualisationVerticalTableWithScroll: Story = () => (
+  <div style={{ maxWidth: '600px', height: '100px' }}>
+    <Table definition={mockSummaryDefinition} records={mockSummaryRecordsList} />
+  </div>
+)
+
 export default { title: 'UI/Molecules/QuestionnaireTable' }
