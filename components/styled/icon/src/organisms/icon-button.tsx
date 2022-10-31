@@ -11,14 +11,14 @@ const StyledInvisibleButton = styled.button`
   }
 `
 
-const StyledFoo = styled.span`
+const StyledText = styled.span`
   margin-left: 0.4rem;
 `
 
 const IconButton: FC<Props> = ({ iconProps, text, ...rest }) => (
   <StyledInvisibleButton {...rest}>
     <Icon {...iconProps} />
-    {text && <StyledFoo>{text}</StyledFoo>}
+    {text && <StyledText>{text}</StyledText>}
   </StyledInvisibleButton>
 )
 
