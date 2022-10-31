@@ -1,7 +1,7 @@
 import { FC, HTMLAttributes } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCheck } from '@fortawesome/free-solid-svg-icons'
-import { calculateIconSize, IconSizes } from '@ltht-react/styles'
+import { calculateIconSize, IconSize } from '@ltht-react/styles'
 
 const CheckIcon: FC<CheckIconProps> = ({ size, className, ...rest }) => (
   <FontAwesomeIcon
@@ -13,7 +13,7 @@ const CheckIcon: FC<CheckIconProps> = ({ size, className, ...rest }) => (
 )
 
 interface CheckIconProps extends HTMLAttributes<SVGElement> {
-  size: IconSizes
+  size: IconSize
 }
 
 export default CheckIcon

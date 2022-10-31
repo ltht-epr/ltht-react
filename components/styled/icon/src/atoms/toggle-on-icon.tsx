@@ -1,5 +1,5 @@
 import { FC, HTMLAttributes } from 'react'
-import { calculateIconSize, IconSizes } from '@ltht-react/styles'
+import { calculateIconSize, IconSize } from '@ltht-react/styles'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faToggleOn } from '@fortawesome/free-solid-svg-icons'
 
@@ -13,7 +13,7 @@ const ToggleOnIcon: FC<ToggleOnIconProps> = ({ size, className, ...rest }) => (
 )
 
 interface ToggleOnIconProps extends HTMLAttributes<SVGElement> {
-  size: IconSizes
+  size: IconSize
 }
 
 export default ToggleOnIcon

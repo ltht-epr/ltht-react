@@ -3,7 +3,7 @@ import styled from '@emotion/styled'
 import { css, SerializedStyles } from '@emotion/react'
 import { FontAwesomeIcon, FontAwesomeIconProps } from '@fortawesome/react-fontawesome'
 import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons'
-import { ICON_COLOURS, IconSizes, calculateIconSize } from '@ltht-react/styles'
+import { ICON_COLOURS, IconSize, calculateIconSize, IconStatus } from '@ltht-react/styles'
 
 const calculateIconColor = (status: string): SerializedStyles => css`
   ${status === 'green' && `${ICON_COLOURS.SUCCESS.VALUE};`}
@@ -27,15 +27,13 @@ const ExclamationIcon: FC<ExclamationIconProps> = ({ status, size, className, ..
   />
 )
 
-type StatusValues = 'red' | 'green' | 'amber' | 'info' | 'default'
-
 interface StyledFontAwesomeIconProps extends FontAwesomeIconProps {
-  status: StatusValues
+  status: IconStatus
 }
 
 interface ExclamationIconProps extends HTMLAttributes<SVGElement> {
-  status: StatusValues
-  size: IconSizes
+  status: IconStatus
+  size: IconSize
 }
 
 export default ExclamationIcon

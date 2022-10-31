@@ -1,7 +1,7 @@
 import { FC, HTMLAttributes, MouseEvent } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronDown, faChevronUp, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
-import { IconSizes, calculateIconSize } from '@ltht-react/styles'
+import { IconSize, calculateIconSize, IconDirection } from '@ltht-react/styles'
 
 const calculateIconType = (direction: IconDirection): IconTypes => {
   switch (direction) {
@@ -37,11 +37,9 @@ const ChevronIcon: FC<Props> = ({ size, direction, clickHandler, className, ...r
 
 type IconTypes = typeof faChevronUp | typeof faChevronDown | typeof faChevronLeft | typeof faChevronRight
 
-type IconDirection = 'up' | 'down' | 'left' | 'right'
-
 interface Props extends HTMLAttributes<SVGElement> {
   direction: IconDirection
-  size: IconSizes
+  size: IconSize
   clickHandler?(): void
 }
 

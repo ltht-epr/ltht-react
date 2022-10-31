@@ -1,6 +1,6 @@
 import { FC, HTMLAttributes } from 'react'
 import styled from '@emotion/styled'
-import { calculateIconSize, IconSizes, LINK_COLOURS } from '@ltht-react/styles'
+import { calculateIconSize, IconSize, LINK_COLOURS } from '@ltht-react/styles'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons'
 
@@ -18,7 +18,7 @@ const ExternalLinkIcon: FC<ExternalLinkIconProps> = ({ size, className, ...rest 
 )
 
 interface ExternalLinkIconProps extends HTMLAttributes<SVGElement> {
-  size: IconSizes
+  size: IconSize
 }
 
 export default ExternalLinkIcon
