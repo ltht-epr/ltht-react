@@ -24,16 +24,14 @@ export const GenericTable = <TColumn, TRow>({
   rowData,
   orientation = 'VERTICAL',
   mapToTableData,
-}: IGenericTableProps<TColumn, TRow>) => {
-  return (
-    <GenericTableMolecule
-      columnData={EnsureMaybe<TColumn>(columnData)}
-      rowData={EnsureMaybe<TRow>(rowData)}
-      mapToTableData={mapToTableData}
-      orientation={orientation}
-    />
-  )
-}
+}: IGenericTableProps<TColumn, TRow>) => (
+  <GenericTableMolecule
+    columnData={EnsureMaybe<TColumn>(columnData)}
+    rowData={EnsureMaybe<TRow>(rowData)}
+    mapToTableData={mapToTableData}
+    orientation={orientation}
+  />
+)
 
 interface IProps {
   orientation?: SummaryTableViewType
