@@ -25,14 +25,6 @@ export const GenericTable = <TColumn, TRow>({
   orientation = 'VERTICAL',
   mapToTableData,
 }: IGenericTableProps<TColumn, TRow>) => {
-  if (!columnData || !rowData) {
-    return <div>Could not render table. Table columns or rows were empty.</div>
-  }
-
-  if (!mapToTableData) {
-    return <div>Could not render table. Mapping method not supplied.</div>
-  }
-
   return (
     <GenericTableMolecule
       columnData={EnsureMaybe<TColumn>(columnData)}
