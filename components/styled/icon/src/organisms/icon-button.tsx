@@ -15,14 +15,12 @@ const StyledFoo = styled.span`
   margin-left: 0.4rem;
 `
 
-const IconButton: FC<Props> = ({ iconProps, text, ...rest }) => {
-  return (
-    <StyledInvisibleButton {...rest}>
-      <Icon {...iconProps} />
-      {text && <StyledFoo>{text}</StyledFoo>}
-    </StyledInvisibleButton>
-  )
-}
+const IconButton: FC<Props> = ({ iconProps, text, ...rest }) => (
+  <StyledInvisibleButton {...rest}>
+    <Icon {...iconProps} />
+    {text && <StyledFoo>{text}</StyledFoo>}
+  </StyledInvisibleButton>
+)
 
 interface Props extends HTMLAttributes<HTMLButtonElement> {
   iconProps: IconProps

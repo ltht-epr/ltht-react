@@ -6,7 +6,6 @@ export const IconButtons: Story = () => {
   const [timesClicked, setTimesClicked] = useState<number>(0)
 
   const clickHandler = () => {
-    console.log('I got clicked!')
     setTimesClicked(timesClicked + 1)
   }
 
@@ -15,7 +14,7 @@ export const IconButtons: Story = () => {
       <div style={{ marginBottom: '1rem' }}>These buttons have been clicked {timesClicked} times</div>
 
       <div style={{ marginBottom: '1rem' }}>
-        <IconButton iconProps={{ type: 'square', size: 'large' }} onClick={clickHandler}></IconButton>
+        <IconButton iconProps={{ type: 'square', size: 'large' }} onClick={clickHandler} />
       </div>
 
       <div style={{ marginBottom: '1rem' }}>
@@ -23,15 +22,11 @@ export const IconButtons: Story = () => {
           iconProps={{ type: 'info-circle', status: 'red', size: 'large' }}
           onClick={clickHandler}
           text="Click me!"
-        ></IconButton>
+        />
       </div>
 
       <div style={{ marginBottom: '1rem' }}>
-        <IconButton
-          iconProps={{ type: 'calendar', size: 'large' }}
-          text="Some button text"
-          onClick={clickHandler}
-        ></IconButton>
+        <IconButton iconProps={{ type: 'calendar', size: 'large' }} text="Some button text" onClick={clickHandler} />
       </div>
     </>
   )
