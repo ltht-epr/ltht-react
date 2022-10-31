@@ -39,7 +39,7 @@ import {
   UserIcon,
 } from '../atoms'
 
-const Icon: FC<Props> = ({ type, size, status, direction, counterValue, ...rest }) => {
+const Icon: FC<IconProps> = ({ type, size, status, direction, counterValue, ...rest }) => {
   switch (type) {
     case 'bullseye': {
       return <BullseyeIcon size={size} {...rest} />
@@ -183,10 +183,14 @@ const Icon: FC<Props> = ({ type, size, status, direction, counterValue, ...rest 
     case 'square': {
       return <SquareIcon size={size} {...rest} />
     }
+
+    default: {
+      return <SquareIcon size={size} {...rest} />
+    }
   }
 }
 
-interface Props extends HTMLAttributes<SVGElement> {
+export interface IconProps extends HTMLAttributes<SVGElement> {
   type: IconType
   size: IconSize
   status?: IconStatus
