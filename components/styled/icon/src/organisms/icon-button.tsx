@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 import { FC, HTMLAttributes } from 'react'
-import Icon, { IconProps } from '../../lib/molecules/icon'
+import Icon, { IconProps } from '../molecules/icon'
 
 const StyledInvisibleButton = styled.button`
   border-width: 0;

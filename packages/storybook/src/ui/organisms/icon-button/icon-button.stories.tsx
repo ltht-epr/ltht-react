@@ -37,4 +37,4 @@ export const IconButtons: Story = () => {
   )
 }
 
-export default { title: 'UI/Atoms/Buttons' }
+export default { title: 'UI/Organisms/IconButton' }
