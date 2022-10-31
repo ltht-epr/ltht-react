@@ -1,37 +1,51 @@
 import { useTable, Column, useSortBy, HeaderGroup, useExpanded, Cell as ReactCell } from 'react-table'
 import styled from '@emotion/styled'
-import { CSS_RESET, TRANSLUCENT_BRIGHT_BLUE_TABLE, TRANSLUCENT_MID_GREY } from '@ltht-react/styles'
+import { CSS_RESET, TRANSLUCENT_BRIGHT_BLUE, TRANSLUCENT_MID_GREY } from '@ltht-react/styles'
 import { useEffect, useState, FC, PropsWithChildren } from 'react'
 
 const Container = styled.div`
   ${CSS_RESET};
   background-color: white;
-  border-radius: 6px;
+  border-radius: 8px;
   display: inline-block;
 `
 
 const StyledTable = styled.table`
   background-color: white;
   border-collapse: collapse;
-  border-radius: 6px;
-  border: thin solid rgba(200, 200, 200, 0.5);
+  border-radius: 8px;
   padding: 1rem;
 `
 
 const StyledTableHeader = styled.th`
-  background-color: ${TRANSLUCENT_MID_GREY};
   border: thin solid rgba(200, 200, 200, 0.5);
   font-weight: bold;
   padding: 1rem;
 `
 
+const StyledTableBody = styled.tbody`
+  text-align: center;
+`
+
+const StyledTableRow = styled.tr`
+  &:nth-of-type(odd) {
+    background-color: ${TRANSLUCENT_MID_GREY};
+  }
+  &:hover {
+    background-color: ${TRANSLUCENT_BRIGHT_BLUE};
+    cursor: pointer;
+  }
+`
+
 const StyledTableData = styled.td`
   border: thin solid rgba(200, 200, 200, 0.5);
   white-space: nowrap;
+
   &:first-of-type {
-    background-color: ${TRANSLUCENT_MID_GREY} !important;
+    font-weight: bold;
   }
 `
+
 const generateColumnsFromHeadersRecursively = (headers?: Header[]): Column<Record<string, ReactTableCell>>[] =>
   (headers ?? []).map((header) => ({
     id: header.id,
@@ -160,26 +174,18 @@ export default function Table<TColumn, TRow>({
             </tr>
           ))}
         </thead>
-        <tbody {...getTableBodyProps()}>
+        <StyledTableBody {...getTableBodyProps()}>
           {rows.map((row) => {
             prepareRow(row)
             return (
-              <tr {...row.getRowProps()}>
-                {row.cells.map((cell, cellIdx) => (
-                  <StyledTableData
-                    style={{
-                      background: cellIdx % 2 === 1 ? 'white' : TRANSLUCENT_BRIGHT_BLUE_TABLE,
-                      textAlign: 'center',
-                    }}
-                    {...cell.getCellProps()}
-                  >
-                    {cell.render('Cell')}
-                  </StyledTableData>
+              <StyledTableRow {...row.getRowProps()}>
+                {row.cells.map((cell) => (
+                  <StyledTableData>{cell.render('Cell')}</StyledTableData>
                 ))}
-              </tr>
+              </StyledTableRow>
             )
           })}
-        </tbody>
+        </StyledTableBody>
       </StyledTable>
     </Container>
   )
