@@ -4,7 +4,10 @@ import { QuestionnaireItem } from '@ltht-react/types'
 import { render, screen, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { summaryDefinition, summaryRecordsList } from './questionnaire-table.fixtures'
-import { expectedOutputOfVerticalMapping } from './questionnaire-table.mockdata'
+import {
+  expectedResultOfFixtureDataHorizontalMapping,
+  expectedResultOfFixtureDataVerticalMapping,
+} from './questionnaire-table.mockdata'
 
 describe('Questionnaire Table', () => {
   it('Renders', () => {
@@ -185,15 +188,15 @@ describe('Questionnaire Table', () => {
 })
 
 describe('Questionnaire Table Methods', () => {
-  it('Maps vertically as expected', () => {
+  it('Maps questionnaire data to vertical TableData', () => {
     const result = mapQuestionnaireDefinitionAndResponsesToTableData(summaryDefinition, summaryRecordsList, 'y')
 
-    expect(result).toEqual(expectedOutputOfVerticalMapping)
+    expect(result).toEqual(expectedResultOfFixtureDataVerticalMapping)
   })
 
-  it('Maps horizontally as expected', () => {
+  it('Maps questionnaire data to horizontal TableData', () => {
     const result = mapQuestionnaireDefinitionAndResponsesToTableData(summaryDefinition, summaryRecordsList, 'x')
 
-    expect(result).toEqual(expectedOutputOfVerticalMapping)
+    expect(result).toEqual(expectedResultOfFixtureDataHorizontalMapping)
   })
 })

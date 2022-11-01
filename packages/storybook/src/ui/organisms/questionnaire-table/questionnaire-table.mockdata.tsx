@@ -1,7 +1,7 @@
 import { CheckboxIcon, SquareIcon } from '@ltht-react/icon'
 import { TableData } from '@ltht-react/table'
 
-export const expectedOutputOfVerticalMapping: TableData = {
+export const expectedResultOfFixtureDataVerticalMapping: TableData = {
   headers: [
     {
       accessor: 'property',
@@ -244,7 +244,7 @@ export const expectedOutputOfVerticalMapping: TableData = {
   ],
 }
 
-export const expectedOutputOfHorizontalMapping: TableData = {
+export const expectedResultOfFixtureDataHorizontalMapping: TableData = {
   headers: [
     {
       accessor: 'date',

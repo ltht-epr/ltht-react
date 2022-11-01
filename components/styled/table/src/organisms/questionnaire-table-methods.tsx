@@ -93,7 +93,7 @@ const buildVerticalCellRowsRecursive = (
         cells: [
           {
             key: 'property',
-            value: <div>{def?.text ?? ''}</div>,
+            value: def?.text ?? '',
           },
           ...records.map((record) => ({
             key: record.id,
