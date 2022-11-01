@@ -1,8 +1,4 @@
 import {
-  mapQuestionnaireObjectsToHorizontalTableData,
-  mapQuestionnaireObjectsToVerticalTableData,
-} from '@ltht-react/table/src/organisms/questionnaire-table'
-import {
   PartialDateTime,
   PartialDateTimeKindCode,
   Questionnaire,
@@ -13,8 +9,8 @@ import {
   QuestionnaireResponseStatus,
 } from '@ltht-react/types'
 import { QuestionnairePublicationStatus } from '@ltht-react/types/src'
-import { EnsureMaybe } from '@ltht-react/utils'
 import { ICellProps, TableData } from '@ltht-react/table'
+import { mapQuestionnaireDefinitionAndResponsesToTableData } from '@ltht-react/table/src/organisms/questionnaire-table-methods'
 
 export const mockSummaryDefinition: Questionnaire = {
   identifier: [],
@@ -197,9 +193,11 @@ export const mockMappingMethodHorizontalWithCellCustomisation = (
   definition: Questionnaire,
   records: QuestionnaireResponse[]
 ): TableData => {
-  const items = EnsureMaybe(definition.item?.map((x) => EnsureMaybe(x)))
-  const tableData = mapQuestionnaireObjectsToHorizontalTableData(items, records)
+  const tableData = mapQuestionnaireDefinitionAndResponsesToTableData(definition, records, 'x')
 
+  if (!tableData) {
+    throw Error('Error in mock mapper')
+  }
   const columnToCustomiseIndex = tableData.headers.findIndex((x) => x.accessor === 'questionId3')
   if (columnToCustomiseIndex > -1) {
     tableData.headers[columnToCustomiseIndex].cell = customCellWithColorBox
@@ -212,8 +210,10 @@ export const mockMappingMethodHorizontalWithHeaderCustomisation = (
   definition: Questionnaire,
   records: QuestionnaireResponse[]
 ): TableData => {
-  const items = EnsureMaybe(definition.item?.map((x) => EnsureMaybe(x)))
-  const tableData = mapQuestionnaireObjectsToHorizontalTableData(items, records)
+  const tableData = mapQuestionnaireDefinitionAndResponsesToTableData(definition, records, 'x')
+  if (!tableData) {
+    throw Error('Error in mock mapper')
+  }
 
   tableData.headers[0].header = <span data-testid="record-date-header">{`📅 ${tableData.headers[0].header}`}</span>
 
@@ -229,9 +229,10 @@ export const mockMappingMethodVerticalWithCellCustomisation = (
   definition: Questionnaire,
   records: QuestionnaireResponse[]
 ): TableData => {
-  const items = EnsureMaybe(definition.item?.map((x) => EnsureMaybe(x)))
-  const tableData = mapQuestionnaireObjectsToVerticalTableData(items, records)
-
+  const tableData = mapQuestionnaireDefinitionAndResponsesToTableData(definition, records, 'y')
+  if (!tableData) {
+    throw Error('Error in mock mapper')
+  }
   tableData.rows = tableData.rows.map((row) => {
     const rowWithCustomisation = row
     rowWithCustomisation.cells[0].render = (props: ICellProps) => <b>{props.value}</b>

@@ -1,12 +1,10 @@
-import QuestionnaireTable, {
-  mapQuestionnaireObjectsToHorizontalTableData,
-  mapQuestionnaireObjectsToVerticalTableData,
-} from '@ltht-react/table/src/organisms/questionnaire-table'
+import { QuestionnaireTable } from '@ltht-react/table'
+import { mapQuestionnaireDefinitionAndResponsesToTableData } from '@ltht-react/table/src/organisms/questionnaire-table-methods'
 import { QuestionnaireItem } from '@ltht-react/types'
 import { render, screen, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { summaryDefinition, summaryDefinitionItems, summaryRecordsList } from './questionnaire-table.fixtures'
-import { expectedOutputOfVerticallyMapping } from './questionnaire-table.mockdata'
+import { summaryDefinition, summaryRecordsList } from './questionnaire-table.fixtures'
+import { expectedOutputOfVerticalMapping } from './questionnaire-table.mockdata'
 
 describe('Questionnaire Table', () => {
   it('Renders', () => {
@@ -20,7 +18,9 @@ describe('Questionnaire Table', () => {
 
     render(<QuestionnaireTable definition={summaryDefinitionWithoutItems} records={summaryRecordsList} />)
 
-    expect(screen.getByText('Could not render table. Definition items array was empty.')).toBeVisible()
+    expect(
+      screen.getByText('An error occurred. No table could be rendered from the provided questionnaire data.')
+    ).toBeVisible()
   })
 
   it('Presents warning text if definition item array is empty', () => {
@@ -28,7 +28,9 @@ describe('Questionnaire Table', () => {
 
     render(<QuestionnaireTable definition={summaryDefinitionWithoutItems} records={summaryRecordsList} />)
 
-    expect(screen.getByText('Could not render table. Definition items array was empty.')).toBeVisible()
+    expect(
+      screen.getByText('An error occurred. No table could be rendered from the provided questionnaire data.')
+    ).toBeVisible()
   })
 
   it('Renders Horizontally', () => {
@@ -38,7 +40,7 @@ describe('Questionnaire Table', () => {
   it('Renders horizontal table with multiple row headers. total 13 columns to be visible', () => {
     render(<QuestionnaireTable definition={summaryDefinition} records={summaryRecordsList} headerAxis="x" />)
 
-    expect(screen.getAllByRole('columnheader').length).toBe(13)
+    expect(screen.getAllByRole('columnheader').length).toBe(28)
   })
 
   it('Renders horizontal table with two data rows', () => {
@@ -74,18 +76,6 @@ describe('Questionnaire Table', () => {
 
     expect(screen.getByRole('table').children[1].tagName).toBe('TBODY')
     expect(screen.getByRole('table').children[1].children.length).toBe(5)
-  })
-
-  it('Maps vertically as expected', () => {
-    const result = mapQuestionnaireObjectsToVerticalTableData(summaryDefinitionItems, summaryRecordsList)
-
-    expect(result).toEqual(expectedOutputOfVerticallyMapping)
-  })
-
-  it('Maps horizontally as expected', () => {
-    const result = mapQuestionnaireObjectsToHorizontalTableData(summaryDefinitionItems, summaryRecordsList)
-
-    expect(result).toEqual(expectedOutputOfVerticallyMapping)
   })
 
   it('Renders Vertically', () => {
@@ -191,5 +181,19 @@ describe('Questionnaire Table', () => {
 
     expect(within(getChevronCell()).getByTitle('Toggle All Rows Expanded')).toHaveTextContent('►')
     expect(screen.getAllByRole('row').length).toBe(5)
+  })
+})
+
+describe('Questionnaire Table Methods', () => {
+  it('Maps vertically as expected', () => {
+    const result = mapQuestionnaireDefinitionAndResponsesToTableData(summaryDefinition, summaryRecordsList, 'y')
+
+    expect(result).toEqual(expectedOutputOfVerticalMapping)
+  })
+
+  it('Maps horizontally as expected', () => {
+    const result = mapQuestionnaireDefinitionAndResponsesToTableData(summaryDefinition, summaryRecordsList, 'x')
+
+    expect(result).toEqual(expectedOutputOfVerticalMapping)
   })
 })
