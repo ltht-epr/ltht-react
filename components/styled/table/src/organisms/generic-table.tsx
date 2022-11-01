@@ -18,7 +18,12 @@ const prepareTableDataForCellCustomisation = (tableData: TableData) => {
   return data
 }
 
-const GenericTable = <TColumn, TRow>({ columnData, rowData, headerAxis, mapToTableData }: IProps<TColumn, TRow>) => {
+const GenericTable = <TColumn, TRow>({
+  columnData,
+  rowData,
+  headerAxis = 'x',
+  mapToTableData,
+}: IProps<TColumn, TRow>) => {
   const tableData = mapToTableData(columnData, rowData)
 
   return headerAxis === 'y' ? (
@@ -29,7 +34,7 @@ const GenericTable = <TColumn, TRow>({ columnData, rowData, headerAxis, mapToTab
 }
 
 interface IProps<TColumn, TRow> {
-  headerAxis: Axis
+  headerAxis?: Axis
   columnData: TColumn
   rowData: TRow
   mapToTableData: (colData: TColumn, rowData: TRow) => TableData
