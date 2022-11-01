@@ -1,15 +1,16 @@
 import {
   QuestionnaireItem,
   QuestionnaireResponse,
-  SummaryTableViewType,
   QuestionnaireResponseItem,
   QuestionnaireResponseItemAnswer,
   Maybe,
+  Axis,
+  Questionnaire,
 } from '@ltht-react/types'
 import { EnsureMaybe, EnsureMaybeArray, partialDateTimeText } from '@ltht-react/utils'
 import { FC, useMemo } from 'react'
 import { SquareIcon, CheckboxIcon } from '@ltht-react/icon'
-import Table, { Cell, CellRow, Header, TableData } from '../atoms/table'
+import Table, { Cell, CellRow, Header, TableData } from '../molecules/table'
 
 export const mapQuestionnaireObjectsToVerticalTableData = (
   definitionItems: Array<QuestionnaireItem>,
@@ -34,7 +35,7 @@ const buildVerticalCellRowsRecursive = (
 ): CellRow[] =>
   definitionItems.map((definitionItem) => {
     const buildRow = (definitionLinkId: string, def: QuestionnaireItem) => {
-      const containsSubRows: boolean = (def?.item && def.item.length > 0) ?? false
+      const containsSubRows = def?.item && def?.item.length > 0
       const subRows = containsSubRows
         ? buildVerticalCellRowsRecursive(EnsureMaybe(def?.item?.map((x) => EnsureMaybe(x))), records)
         : []
@@ -49,7 +50,7 @@ const buildVerticalCellRowsRecursive = (
         cells: [
           {
             key: 'property',
-            value: def?.text ?? '',
+            value: <div>{def?.text ?? ''}</div>,
           },
           ...records.map((record) => ({
             key: record.id,
@@ -192,21 +193,27 @@ export const mapQuestionnaireObjectsToHorizontalTableData = (
   rows: mapQuestionnaireResponsesIntoCellRow(records),
 })
 
-const QuestionnaireTable: FC<IProps> = ({ definitionItems, records, orientation }) => {
+const QuestionnaireTable: FC<IProps> = ({ definition, records, headerAxis = 'y' }) => {
+  if (!definition.item || definition.item.length === 0) {
+    return <div>Could not render table. Definition items array was empty.</div>
+  }
+
+  const definitionItems: QuestionnaireItem[] = EnsureMaybeArray<QuestionnaireItem>(definition.item)
+
   const tableData = useMemo(() => {
-    if (orientation === 'VERTICAL') {
+    if (headerAxis === 'y') {
       return mapQuestionnaireObjectsToVerticalTableData(definitionItems, records)
     }
     return mapQuestionnaireObjectsToHorizontalTableData(definitionItems, records)
-  }, [orientation, definitionItems, records])
+  }, [headerAxis, definition, records])
 
   return <Table tableData={tableData} />
 }
 
 interface IProps {
-  orientation: SummaryTableViewType
-  definitionItems: QuestionnaireItem[]
+  definition: Questionnaire
   records: QuestionnaireResponse[]
+  headerAxis?: Axis
 }
 
 export default QuestionnaireTable

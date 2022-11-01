@@ -26,4 +26,4 @@ export enum DetailViewType {
   Expanded = 'EXPANDED',
 }
 
-export type SummaryTableViewType = 'VERTICAL' | 'HORIZONTAL'
+export type Axis = 'x' | 'y'
