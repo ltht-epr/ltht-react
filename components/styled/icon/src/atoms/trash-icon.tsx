@@ -1,6 +1,6 @@
 import { FC, HTMLAttributes } from 'react'
 import styled from '@emotion/styled'
-import { calculateIconSize, IconSizes, LINK_COLOURS } from '@ltht-react/styles'
+import { calculateIconSize, IconSize, LINK_COLOURS } from '@ltht-react/styles'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 
@@ -8,7 +8,7 @@ const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
   color: ${LINK_COLOURS.TEXT.DEFAULT};
 `
 
-const ExternalLinkIcon: FC<ExternalLinkIconProps> = ({ size, className, ...rest }) => (
+const TrashIcon: FC<TrashIconProps> = ({ size, className, ...rest }) => (
   <StyledFontAwesomeIcon
     className={`${className ?? ''} icon__trash`.trimStart()}
     icon={faTrashAlt}
@@ -17,8 +17,8 @@ const ExternalLinkIcon: FC<ExternalLinkIconProps> = ({ size, className, ...rest 
   />
 )
 
-interface ExternalLinkIconProps extends HTMLAttributes<SVGElement> {
-  size: IconSizes
+interface TrashIconProps extends HTMLAttributes<SVGElement> {
+  size: IconSize
 }
 
-export default ExternalLinkIcon
+export default TrashIcon

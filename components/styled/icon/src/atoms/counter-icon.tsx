@@ -3,7 +3,7 @@ import styled from '@emotion/styled'
 import { css, SerializedStyles } from '@emotion/react'
 import { FontAwesomeIcon, FontAwesomeIconProps } from '@fortawesome/react-fontawesome'
 import { faCircle } from '@fortawesome/free-solid-svg-icons'
-import { ICON_COLOURS, IconSizes, calculateIconSize } from '@ltht-react/styles'
+import { ICON_COLOURS, IconSize, calculateIconSize, IconStatus } from '@ltht-react/styles'
 
 const calculateIconColor = (status: string): SerializedStyles => css`
   ${status === 'green' && `${ICON_COLOURS.SUCCESS.VALUE};`}
@@ -38,14 +38,12 @@ const CounterIcon: FC<CounterIconProps> = ({ status, size, value, className, ...
   </StyledCounterIcon>
 )
 
-type StatusValues = 'red' | 'green' | 'amber' | 'primary' | 'secondary' | 'default' | 'info'
-
 interface StyledFontAwesomeIconProps extends FontAwesomeIconProps {
-  status: StatusValues
+  status: IconStatus
 }
 interface CounterIconProps extends HTMLAttributes<SVGElement> {
-  status: StatusValues
-  size: IconSizes
+  status: IconStatus
+  size: IconSize
   value: number
 }
 

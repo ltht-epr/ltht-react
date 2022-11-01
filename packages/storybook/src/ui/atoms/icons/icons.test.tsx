@@ -453,10 +453,10 @@ describe('All icons', () => {
       }
 
       case 'toggle-off': {
-        const Icon = styled(ColumnIcon)`
+        const Icon = styled(ToggleOffIcon)`
           color: pink;
         `
-        return <Icon size="small" status="default" />
+        return <Icon size="small" />
       }
 
       case 'toggle-on': {

@@ -4,9 +4,51 @@ export const ICON_SIZE_LARGE = '1rem'
 
 type FontAwesomeIconSize = 'xs' | 'lg' | 'sm' | '1x' | '2x' | '3x' | '4x' | '5x' | '6x' | '7x' | '8x' | '9x' | '10x'
 
-export type IconSizes = 'small' | 'medium' | 'large'
+export type IconSize = 'small' | 'medium' | 'large'
 
-export const calculateIconSize = (input: IconSizes): FontAwesomeIconSize => {
+export type IconStatus = 'red' | 'green' | 'amber' | 'info' | 'default' | 'primary' | 'secondary'
+
+export type IconDirection = 'up' | 'down' | 'left' | 'right'
+
+export type IconType =
+  | 'bullseye'
+  | 'calendar'
+  | 'check'
+  | 'chevron-circle'
+  | 'chevron'
+  | 'circle'
+  | 'column'
+  | 'comment'
+  | 'counter'
+  | 'cross'
+  | 'edit'
+  | 'ellipsis-horizontal'
+  | 'ellipsis-vertical'
+  | 'exclamation'
+  | 'external-link'
+  | 'filter'
+  | 'folder-plus'
+  | 'grid-layout'
+  | 'hamburger'
+  | 'info-circle'
+  | 'layer-group'
+  | 'list-layout'
+  | 'pause'
+  | 'play'
+  | 'plus'
+  | 'spinner'
+  | 'stop'
+  | 'table'
+  | 'toggle-off'
+  | 'toggle-on'
+  | 'trash'
+  | 'user'
+  | 'dot-circle'
+  | 'search'
+  | 'checkbox'
+  | 'square'
+
+export const calculateIconSize = (input: IconSize): FontAwesomeIconSize => {
   switch (input) {
     case 'large':
       return 'lg'

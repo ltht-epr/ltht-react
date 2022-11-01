@@ -6,7 +6,7 @@ import {
   faChevronCircleLeft,
   faChevronCircleRight,
 } from '@fortawesome/free-solid-svg-icons'
-import { IconSizes, calculateIconSize } from '@ltht-react/styles'
+import { IconSize, calculateIconSize, IconDirection } from '@ltht-react/styles'
 
 const calculateIconType = (direction: IconDirection): IconTypes => {
   switch (direction) {
@@ -46,11 +46,9 @@ type IconTypes =
   | typeof faChevronCircleLeft
   | typeof faChevronCircleRight
 
-type IconDirection = 'up' | 'down' | 'left' | 'right'
-
 interface Props extends HTMLAttributes<SVGElement> {
   direction: IconDirection
-  size: IconSizes
+  size: IconSize
   clickHandler?(): void
 }
 

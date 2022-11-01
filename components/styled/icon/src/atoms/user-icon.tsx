@@ -1,6 +1,6 @@
 import { FC, HTMLAttributes } from 'react'
 import styled from '@emotion/styled'
-import { calculateIconSize, IconSizes, ICON_COLOURS } from '@ltht-react/styles'
+import { calculateIconSize, IconSize, ICON_COLOURS } from '@ltht-react/styles'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser } from '@fortawesome/free-solid-svg-icons'
 
@@ -18,7 +18,7 @@ const UserIcon: FC<UserIconProps> = ({ size, className, ...rest }) => (
 )
 
 interface UserIconProps extends HTMLAttributes<SVGElement> {
-  size: IconSizes
+  size: IconSize
 }
 
 export default UserIcon
