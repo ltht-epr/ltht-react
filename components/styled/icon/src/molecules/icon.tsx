@@ -1,43 +1,41 @@
 import { IconType, IconSize, IconStatus, IconDirection } from '@ltht-react/styles'
 import { FC, HTMLAttributes } from 'react'
-import {
-  BullseyeIcon,
-  CalendarIcon,
-  CheckboxIcon,
-  CheckIcon,
-  ChevronCircleIcon,
-  ChevronIcon,
-  CircleIcon,
-  ColumnIcon,
-  CommentIcon,
-  CounterIcon,
-  CrossIcon,
-  DotCircleIcon,
-  EditIcon,
-  EllipsisHorizontalIcon,
-  EllipsisVerticalIcon,
-  ExclamationIcon,
-  ExternalLinkIcon,
-  FilterIcon,
-  FolderPlusIcon,
-  GridLayoutIcon,
-  HamburgerIcon,
-  InfoCircleIcon,
-  LayerGroupIcon,
-  ListLayoutIcon,
-  PauseIcon,
-  PlayIcon,
-  PlusIcon,
-  SearchIcon,
-  SpinnerIcon,
-  SquareIcon,
-  StopIcon,
-  TableIcon,
-  ToggleOffIcon,
-  ToggleOnIcon,
-  TrashIcon,
-  UserIcon,
-} from '../atoms'
+import BullseyeIcon from '../atoms/bullseye-icon'
+import CalendarIcon from '../atoms/calendar-icon'
+import CheckIcon from '../atoms/check-icon'
+import CheckboxIcon from '../atoms/checkbox-icon'
+import ChevronCircleIcon from '../atoms/chevron-circle-icon'
+import ChevronIcon from '../atoms/chevron-icon'
+import CircleIcon from '../atoms/circle-icon'
+import ColumnIcon from '../atoms/column-icon'
+import CommentIcon from '../atoms/comment-icon'
+import CounterIcon from '../atoms/counter-icon'
+import CrossIcon from '../atoms/cross-icon'
+import DotCircleIcon from '../atoms/dot-circle-icon'
+import EditIcon from '../atoms/edit-icon'
+import EllipsisHorizontalIcon from '../atoms/ellipsis-horizontal'
+import EllipsisVerticalIcon from '../atoms/ellipsis-vertical'
+import ExclamationIcon from '../atoms/exclamation-icon'
+import ExternalLinkIcon from '../atoms/external-link-icon'
+import FilterIcon from '../atoms/filter-icon'
+import FolderPlusIcon from '../atoms/folder-plus'
+import GridLayoutIcon from '../atoms/grid-layout-icon'
+import HamburgerIcon from '../atoms/hamburger-icon'
+import InfoCircleIcon from '../atoms/info-circle-icon'
+import LayerGroupIcon from '../atoms/layer-group'
+import ListLayoutIcon from '../atoms/list-layout-icon'
+import PauseIcon from '../atoms/pause-icon'
+import PlayIcon from '../atoms/play-icon'
+import PlusIcon from '../atoms/plus-icon'
+import SearchIcon from '../atoms/search-icon'
+import SpinnerIcon from '../atoms/spinner-icon'
+import SquareIcon from '../atoms/square-icon'
+import StopIcon from '../atoms/stop-icon'
+import TableIcon from '../atoms/table-icon'
+import ToggleOffIcon from '../atoms/toggle-off-icon'
+import ToggleOnIcon from '../atoms/toggle-on-icon'
+import TrashIcon from '../atoms/trash-icon'
+import UserIcon from '../atoms/user-icon'
 
 const Icon: FC<IconProps> = ({ type, size, status, direction, counterValue, ...rest }) => {
   switch (type) {

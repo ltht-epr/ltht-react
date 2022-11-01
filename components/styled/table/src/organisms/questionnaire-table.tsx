@@ -194,18 +194,20 @@ export const mapQuestionnaireObjectsToHorizontalTableData = (
 })
 
 const QuestionnaireTable: FC<IProps> = ({ definition, records, headerAxis = 'y' }) => {
-  if (!definition.item || definition.item.length === 0) {
-    return <div>Could not render table. Definition items array was empty.</div>
-  }
-
-  const definitionItems: QuestionnaireItem[] = EnsureMaybeArray<QuestionnaireItem>(definition.item)
-
   const tableData = useMemo(() => {
+    const definitionItems = EnsureMaybeArray<QuestionnaireItem>(
+      EnsureMaybe<Maybe<QuestionnaireItem>[]>(definition.item, [])
+    )
+
     if (headerAxis === 'y') {
       return mapQuestionnaireObjectsToVerticalTableData(definitionItems, records)
     }
     return mapQuestionnaireObjectsToHorizontalTableData(definitionItems, records)
   }, [headerAxis, definition, records])
+
+  if (!tableData) {
+    return <div>Could not render table. Definition items array was empty.</div>
+  }
 
   return <Table tableData={tableData} />
 }

@@ -1,8 +1,7 @@
-import Icon, { IconProps } from '@ltht-react/icon/lib/molecules/icon'
-import Button from '@ltht-react/button/src/atoms/button'
-import { FC, HTMLAttributes } from 'react'
-import IconButton from '@ltht-react/icon/lib/organisms/icon-button'
+import { FC } from 'react'
+import { Button } from '@ltht-react/button'
 import styled from '@emotion/styled'
+import { Icon, IconButton, IconProps } from '@ltht-react/icon'
 
 const StyledText = styled.span`
   margin-left: 0.4rem;
@@ -10,11 +9,11 @@ const StyledText = styled.span`
 
 const TableCell: FC<Props> = ({ isButton = false, text, iconProps, clickHandler }) => {
   if (isButton) {
-    return <Button type="button" value={text} icon={iconProps && <Icon {...iconProps} />} onClick={clickHandler}/>
+    return <Button type="button" value={text} icon={iconProps && <Icon {...iconProps} />} onClick={clickHandler} />
   }
 
   if (clickHandler && iconProps) {
-    return <IconButton iconProps={iconProps} text={text} onClick={clickHandler}></IconButton>
+    return <IconButton iconProps={iconProps} text={text} onClick={clickHandler} />
   }
 
   if (iconProps) {
@@ -33,7 +32,7 @@ const TableCell: FC<Props> = ({ isButton = false, text, iconProps, clickHandler 
   return <></>
 }
 
-interface Props extends HTMLAttributes<HTMLDivElement> {
+interface Props {
   isButton?: boolean
   text?: string
   iconProps?: IconProps

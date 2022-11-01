@@ -7,6 +7,7 @@ import { render, screen, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { summaryDefinition, summaryDefinitionItems, summaryRecordsList } from './questionnaire-table.fixtures'
 import { expectedOutputOfVerticallyMapping } from './questionnaire-table.mockdata'
+
 describe('Questionnaire Table', () => {
   it('Renders', () => {
     render(<QuestionnaireTable definition={summaryDefinition} records={summaryRecordsList} />)
