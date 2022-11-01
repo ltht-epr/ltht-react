@@ -8,11 +8,11 @@ import {
   mockSummaryRecordsList,
 } from './generic-table.mockdata'
 
-describe('Table', () => {
+describe('Generic Table', () => {
   it('Renders horizontally with cell customisation', () => {
     render(
       <GenericTable
-        orientation="HORIZONTAL"
+        headerAxis="x"
         columnData={mockSummaryDefinition}
         rowData={mockSummaryRecordsList}
         mapToTableData={mockMappingMethodHorizontalWithCellCustomisation}
@@ -26,7 +26,7 @@ describe('Table', () => {
   it('Renders vertically with cell customisation', () => {
     render(
       <GenericTable
-        orientation="VERTICAL"
+        headerAxis="y"
         columnData={mockSummaryDefinition}
         rowData={mockSummaryRecordsList}
         mapToTableData={mockMappingMethodVerticalWithCellCustomisation}
@@ -40,7 +40,7 @@ describe('Table', () => {
   it('Renders horizontally with header customisation', () => {
     render(
       <GenericTable
-        orientation="HORIZONTAL"
+        headerAxis="x"
         columnData={mockSummaryDefinition}
         rowData={mockSummaryRecordsList}
         mapToTableData={mockMappingMethodHorizontalWithHeaderCustomisation}

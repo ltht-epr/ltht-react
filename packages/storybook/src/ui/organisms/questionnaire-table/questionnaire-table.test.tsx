@@ -1,37 +1,94 @@
 import QuestionnaireTable, {
   mapQuestionnaireObjectsToHorizontalTableData,
   mapQuestionnaireObjectsToVerticalTableData,
-} from '@ltht-react/table/src/molecules/questionnaire-table'
+} from '@ltht-react/table/src/organisms/questionnaire-table'
+import { QuestionnaireItem } from '@ltht-react/types'
 import { render, screen, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import {
-  summaryDefinitionOneHorizontalTableData,
-  summaryDefinitionOneVerticalTableData,
-  summaryDefinitionItems,
-  summaryRecordsList,
-} from './questionnaire-table.mockdata'
-
+import { summaryDefinition, summaryDefinitionItems, summaryRecordsList } from './questionnaire-table.fixtures'
+import { expectedOutputOfVerticallyMapping } from './questionnaire-table.mockdata'
 describe('Questionnaire Table', () => {
+  it('Renders', () => {
+    render(<QuestionnaireTable definition={summaryDefinition} records={summaryRecordsList} />)
+
+    expect(screen.getByRole('table')).toBeVisible()
+  })
+
+  it('Presents warning text if definition item array is undefined', () => {
+    const summaryDefinitionWithoutItems = { ...summaryDefinition, item: undefined }
+
+    render(<QuestionnaireTable definition={summaryDefinitionWithoutItems} records={summaryRecordsList} />)
+
+    expect(screen.getByText('Could not render table. Definition items array was empty.')).toBeVisible()
+  })
+
+  it('Presents warning text if definition item array is empty', () => {
+    const summaryDefinitionWithoutItems = { ...summaryDefinition, item: [] }
+
+    render(<QuestionnaireTable definition={summaryDefinitionWithoutItems} records={summaryRecordsList} />)
+
+    expect(screen.getByText('Could not render table. Definition items array was empty.')).toBeVisible()
+  })
+
+  it('Renders Horizontally', () => {
+    render(<QuestionnaireTable definition={summaryDefinition} records={summaryRecordsList} headerAxis="x" />)
+  })
+
+  it('Renders horizontal table with multiple row headers. total 13 columns to be visible', () => {
+    render(<QuestionnaireTable definition={summaryDefinition} records={summaryRecordsList} headerAxis="x" />)
+
+    expect(screen.getAllByRole('columnheader').length).toBe(13)
+  })
+
+  it('Renders horizontal table with two data rows', () => {
+    render(<QuestionnaireTable definition={summaryDefinition} records={summaryRecordsList} headerAxis="x" />)
+
+    expect(screen.getAllByRole('rowgroup')[0].children.length).toBe(2)
+  })
+
+  it('Renders horizontal table containing subheaders', () => {
+    render(<QuestionnaireTable definition={summaryDefinition} records={summaryRecordsList} headerAxis="x" />)
+
+    const columnWithSubheadings = summaryDefinition?.item?.find((x) => x?.item && x?.item.length > 0)
+    const column = screen
+      .getAllByRole('columnheader')
+      .find((x) => x.textContent === (columnWithSubheadings as QuestionnaireItem).text)
+    const colSpan = (column as HTMLElement).attributes.getNamedItem('COLSPAN')?.value
+    const numberOfHeaderRows = screen.getByRole('table').children[0].childNodes.length
+
+    expect(columnWithSubheadings).toBeDefined()
+    expect(column).toBeDefined()
+    expect(colSpan).toBe('2')
+    expect(numberOfHeaderRows).toBe(2)
+  })
+
+  it('Renders Vertically', () => {
+    render(<QuestionnaireTable definition={summaryDefinition} records={summaryRecordsList} headerAxis="y" />)
+
+    expect(screen.getByRole('table')).toBeVisible()
+  })
+
+  it('Renders Vertical table with 5 rows in tbody', () => {
+    render(<QuestionnaireTable definition={summaryDefinition} records={summaryRecordsList} headerAxis="y" />)
+
+    expect(screen.getByRole('table').children[1].tagName).toBe('TBODY')
+    expect(screen.getByRole('table').children[1].children.length).toBe(5)
+  })
+
   it('Maps vertically as expected', () => {
     const result = mapQuestionnaireObjectsToVerticalTableData(summaryDefinitionItems, summaryRecordsList)
 
-    expect(result).toEqual(summaryDefinitionOneVerticalTableData)
+    expect(result).toEqual(expectedOutputOfVerticallyMapping)
   })
 
   it('Maps horizontally as expected', () => {
     const result = mapQuestionnaireObjectsToHorizontalTableData(summaryDefinitionItems, summaryRecordsList)
 
-    expect(result).toEqual(summaryDefinitionOneHorizontalTableData)
+    expect(result).toEqual(expectedOutputOfVerticallyMapping)
   })
 
   it('Renders Vertically', () => {
-    render(
-      <QuestionnaireTable
-        definitionItems={summaryDefinitionItems}
-        records={summaryRecordsList}
-        orientation="VERTICAL"
-      />
-    )
+    render(<QuestionnaireTable definition={summaryDefinition} records={summaryRecordsList} headerAxis="y" />)
 
     expect(screen.getByRole('table')).toBeVisible()
 
@@ -43,13 +100,7 @@ describe('Questionnaire Table', () => {
   })
 
   it('Renders Horizontally', () => {
-    render(
-      <QuestionnaireTable
-        definitionItems={summaryDefinitionItems}
-        records={summaryRecordsList}
-        orientation="HORIZONTAL"
-      />
-    )
+    render(<QuestionnaireTable definition={summaryDefinition} records={summaryRecordsList} headerAxis="x" />)
 
     expect(screen.getByRole('table')).toBeVisible()
 
@@ -64,13 +115,7 @@ describe('Questionnaire Table', () => {
   })
 
   it('Sorts the table when headers are clicked', () => {
-    render(
-      <QuestionnaireTable
-        definitionItems={summaryDefinitionItems}
-        records={summaryRecordsList}
-        orientation="VERTICAL"
-      />
-    )
+    render(<QuestionnaireTable definition={summaryDefinition} records={summaryRecordsList} headerAxis="y" />)
 
     const getTopLeftDataCell = () => within(screen.getAllByRole('row')[1]).getAllByRole('cell')[1]
 
@@ -82,13 +127,7 @@ describe('Questionnaire Table', () => {
   })
 
   it('Sorts the table if the lowest level of subheaders are clicked in horizontal mode', () => {
-    render(
-      <QuestionnaireTable
-        definitionItems={summaryDefinitionItems}
-        records={summaryRecordsList}
-        orientation="HORIZONTAL"
-      />
-    )
+    render(<QuestionnaireTable definition={summaryDefinition} records={summaryRecordsList} headerAxis="x" />)
 
     const getTopLeftDataCell = () => within(screen.getAllByRole('row')[3]).getAllByRole('cell')[0]
 
@@ -100,13 +139,7 @@ describe('Questionnaire Table', () => {
   })
 
   it('Does not try to sort the table when a header grouping is clicked', () => {
-    render(
-      <QuestionnaireTable
-        definitionItems={summaryDefinitionItems}
-        records={summaryRecordsList}
-        orientation="HORIZONTAL"
-      />
-    )
+    render(<QuestionnaireTable definition={summaryDefinition} records={summaryRecordsList} headerAxis="x" />)
 
     const getTopLeftDataCell = () => within(screen.getAllByRole('row')[3]).getAllByRole('cell')[0]
 
@@ -118,13 +151,7 @@ describe('Questionnaire Table', () => {
   })
 
   it('Expands collapsed rows when parent row is clicked', () => {
-    render(
-      <QuestionnaireTable
-        definitionItems={summaryDefinitionItems}
-        records={summaryRecordsList}
-        orientation="VERTICAL"
-      />
-    )
+    render(<QuestionnaireTable definition={summaryDefinition} records={summaryRecordsList} headerAxis="y" />)
 
     const getChevronCell = () => within(screen.getAllByRole('row')[4]).getAllByRole('cell')[0]
 
@@ -143,13 +170,7 @@ describe('Questionnaire Table', () => {
   })
 
   it('Toggles all expandable rows when chevron is clicked', () => {
-    render(
-      <QuestionnaireTable
-        definitionItems={summaryDefinitionItems}
-        records={summaryRecordsList}
-        orientation="VERTICAL"
-      />
-    )
+    render(<QuestionnaireTable definition={summaryDefinition} records={summaryRecordsList} headerAxis="y" />)
 
     const getChevronCell = () => within(screen.getAllByRole('row')[0]).getAllByRole('columnheader')[0]
 

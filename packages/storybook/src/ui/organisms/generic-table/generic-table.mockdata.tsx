@@ -1,8 +1,7 @@
-import { ICellProps, TableData } from '@ltht-react/table/src/atoms/table'
 import {
   mapQuestionnaireObjectsToHorizontalTableData,
   mapQuestionnaireObjectsToVerticalTableData,
-} from '@ltht-react/table/src/molecules/questionnaire-table'
+} from '@ltht-react/table/src/organisms/questionnaire-table'
 import {
   PartialDateTime,
   PartialDateTimeKindCode,
@@ -15,6 +14,7 @@ import {
 } from '@ltht-react/types'
 import { QuestionnairePublicationStatus } from '@ltht-react/types/src'
 import { EnsureMaybe } from '@ltht-react/utils'
+import { ICellProps, TableData } from '@ltht-react/table'
 
 export const mockSummaryDefinition: Questionnaire = {
   identifier: [],
