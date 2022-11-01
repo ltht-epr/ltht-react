@@ -1,86 +1,16 @@
 import { QuestionnaireTable } from '@ltht-react/table'
-import { mapQuestionnaireDefinitionAndResponsesToTableData } from '@ltht-react/table/src/organisms/questionnaire-table-methods'
+import mapQuestionnaireDefinitionAndResponsesToTableData from '@ltht-react/table/src/organisms/questionnaire-table-methods'
 import { QuestionnaireItem } from '@ltht-react/types'
 import { render, screen, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
+import { mockSummaryDefinition, mockSummaryRecordsList } from '../generic-table/generic-table.mockdata'
 import { summaryDefinition, summaryRecordsList } from './questionnaire-table.fixtures'
 import {
   expectedResultOfFixtureDataHorizontalMapping,
   expectedResultOfFixtureDataVerticalMapping,
 } from './questionnaire-table.mockdata'
 
-describe('Questionnaire Table', () => {
-  it('Renders', () => {
-    render(<QuestionnaireTable definition={summaryDefinition} records={summaryRecordsList} />)
-
-    expect(screen.getByRole('table')).toBeVisible()
-  })
-
-  it('Presents warning text if definition item array is undefined', () => {
-    const summaryDefinitionWithoutItems = { ...summaryDefinition, item: undefined }
-
-    render(<QuestionnaireTable definition={summaryDefinitionWithoutItems} records={summaryRecordsList} />)
-
-    expect(
-      screen.getByText('An error occurred. No table could be rendered from the provided questionnaire data.')
-    ).toBeVisible()
-  })
-
-  it('Presents warning text if definition item array is empty', () => {
-    const summaryDefinitionWithoutItems = { ...summaryDefinition, item: [] }
-
-    render(<QuestionnaireTable definition={summaryDefinitionWithoutItems} records={summaryRecordsList} />)
-
-    expect(
-      screen.getByText('An error occurred. No table could be rendered from the provided questionnaire data.')
-    ).toBeVisible()
-  })
-
-  it('Renders Horizontally', () => {
-    render(<QuestionnaireTable definition={summaryDefinition} records={summaryRecordsList} headerAxis="x" />)
-  })
-
-  it('Renders horizontal table with multiple row headers. total 13 columns to be visible', () => {
-    render(<QuestionnaireTable definition={summaryDefinition} records={summaryRecordsList} headerAxis="x" />)
-
-    expect(screen.getAllByRole('columnheader').length).toBe(28)
-  })
-
-  it('Renders horizontal table with two data rows', () => {
-    render(<QuestionnaireTable definition={summaryDefinition} records={summaryRecordsList} headerAxis="x" />)
-
-    expect(screen.getAllByRole('rowgroup')[0].children.length).toBe(2)
-  })
-
-  it('Renders horizontal table containing subheaders', () => {
-    render(<QuestionnaireTable definition={summaryDefinition} records={summaryRecordsList} headerAxis="x" />)
-
-    const columnWithSubheadings = summaryDefinition?.item?.find((x) => x?.item && x?.item.length > 0)
-    const column = screen
-      .getAllByRole('columnheader')
-      .find((x) => x.textContent === (columnWithSubheadings as QuestionnaireItem).text)
-    const colSpan = (column as HTMLElement).attributes.getNamedItem('COLSPAN')?.value
-    const numberOfHeaderRows = screen.getByRole('table').children[0].childNodes.length
-
-    expect(columnWithSubheadings).toBeDefined()
-    expect(column).toBeDefined()
-    expect(colSpan).toBe('2')
-    expect(numberOfHeaderRows).toBe(2)
-  })
-
-  it('Renders Vertically', () => {
-    render(<QuestionnaireTable definition={summaryDefinition} records={summaryRecordsList} headerAxis="y" />)
-
-    expect(screen.getByRole('table')).toBeVisible()
-  })
-
-  it('Renders Vertical table with 5 rows in tbody', () => {
-    render(<QuestionnaireTable definition={summaryDefinition} records={summaryRecordsList} headerAxis="y" />)
-
-    expect(screen.getByRole('table').children[1].tagName).toBe('TBODY')
-    expect(screen.getByRole('table').children[1].children.length).toBe(5)
-  })
-
+describe('Questionnaire Table (using Fixture data)', () => {
   it('Renders Vertically', () => {
     render(<QuestionnaireTable definition={summaryDefinition} records={summaryRecordsList} headerAxis="y" />)
 
@@ -184,6 +114,79 @@ describe('Questionnaire Table', () => {
 
     expect(within(getChevronCell()).getByTitle('Toggle All Rows Expanded')).toHaveTextContent('►')
     expect(screen.getAllByRole('row').length).toBe(5)
+  })
+})
+
+describe('Questionnaire Table (using mock Monty Python data)', () => {
+  it('Renders', () => {
+    render(<QuestionnaireTable definition={mockSummaryDefinition} records={mockSummaryRecordsList} headerAxis="x" />)
+
+    expect(screen.getByRole('table')).toBeVisible()
+  })
+
+  it('Presents warning text if definition item array is undefined', () => {
+    const summaryDefinitionWithoutItems = { ...mockSummaryDefinition, item: undefined }
+
+    render(<QuestionnaireTable definition={summaryDefinitionWithoutItems} records={mockSummaryRecordsList} />)
+
+    expect(
+      screen.getByText('An error occurred. No table could be rendered from the provided questionnaire data.')
+    ).toBeVisible()
+  })
+
+  it('Presents warning text if definition item array is empty', () => {
+    const summaryDefinitionWithoutItems = { ...mockSummaryDefinition, item: [] }
+
+    render(<QuestionnaireTable definition={summaryDefinitionWithoutItems} records={mockSummaryRecordsList} />)
+
+    expect(
+      screen.getByText('An error occurred. No table could be rendered from the provided questionnaire data.')
+    ).toBeVisible()
+  })
+
+  it('Renders Horizontally', () => {
+    render(<QuestionnaireTable definition={mockSummaryDefinition} records={mockSummaryRecordsList} headerAxis="x" />)
+  })
+
+  it('Renders horizontal table with multiple row headers. total 13 columns to be visible', () => {
+    render(<QuestionnaireTable definition={mockSummaryDefinition} records={mockSummaryRecordsList} headerAxis="x" />)
+
+    expect(screen.getAllByRole('columnheader').length).toBe(13)
+  })
+
+  it('Renders horizontal table with two data rows', () => {
+    render(<QuestionnaireTable definition={mockSummaryDefinition} records={mockSummaryRecordsList} headerAxis="x" />)
+
+    expect(screen.getAllByRole('rowgroup')[0].children.length).toBe(2)
+  })
+
+  it('Renders horizontal table containing subheaders', () => {
+    render(<QuestionnaireTable definition={mockSummaryDefinition} records={mockSummaryRecordsList} headerAxis="x" />)
+
+    const columnWithSubheadings = mockSummaryDefinition?.item?.find((x) => x?.item && x?.item.length > 0)
+    const column = screen
+      .getAllByRole('columnheader')
+      .find((x) => x.textContent === (columnWithSubheadings as QuestionnaireItem).text)
+    const colSpan = (column as HTMLElement).attributes.getNamedItem('COLSPAN')?.value
+    const numberOfHeaderRows = screen.getByRole('table').children[0].childNodes.length
+
+    expect(columnWithSubheadings).toBeDefined()
+    expect(column).toBeDefined()
+    expect(colSpan).toBe('2')
+    expect(numberOfHeaderRows).toBe(2)
+  })
+
+  it('Renders Vertically', () => {
+    render(<QuestionnaireTable definition={mockSummaryDefinition} records={mockSummaryRecordsList} />)
+
+    expect(screen.getByRole('table')).toBeVisible()
+  })
+
+  it('Renders Vertical table with 5 rows in tbody', () => {
+    render(<QuestionnaireTable definition={mockSummaryDefinition} records={mockSummaryRecordsList} />)
+
+    expect(screen.getByRole('table').children[1].tagName).toBe('TBODY')
+    expect(screen.getByRole('table').children[1].children.length).toBe(5)
   })
 })
 

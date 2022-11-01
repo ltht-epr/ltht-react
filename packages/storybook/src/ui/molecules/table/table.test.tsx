@@ -2,21 +2,10 @@ import { render, screen, within } from '@testing-library/react'
 import Table from '@ltht-react/table'
 import { mockTableData, mockTableDataWithSubheaders } from './table.mockdata'
 
-const getHeaders = () => {
-  return within(screen.getAllByRole('rowgroup')[0])
-}
-
-const getDataCells = () => {
-  return within(screen.getAllByRole('rowgroup')[1])
-}
-
-const getFirstHeaderRow = () => {
-  return within(getHeaders().getAllByRole('row')[0])
-}
-
-const getSecondHeaderRow = () => {
-  return within(getHeaders().getAllByRole('row')[1])
-}
+const getHeaders = () => within(screen.getAllByRole('rowgroup')[0])
+const getDataCells = () => within(screen.getAllByRole('rowgroup')[1])
+const getFirstHeaderRow = () => within(getHeaders().getAllByRole('row')[0])
+const getSecondHeaderRow = () => within(getHeaders().getAllByRole('row')[1])
 
 describe('Simple Table', () => {
   beforeEach(() => {

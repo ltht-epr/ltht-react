@@ -11,7 +11,7 @@ import {
 import { EnsureMaybe, EnsureMaybeArray, partialDateTimeText } from '@ltht-react/utils'
 import { Cell, CellRow, Header, TableData } from '../molecules/table'
 
-export const mapQuestionnaireDefinitionAndResponsesToTableData = (
+const mapQuestionnaireDefinitionAndResponsesToTableData = (
   definition: Questionnaire,
   questionnaireResponses: QuestionnaireResponse[],
   axis: Axis
@@ -210,3 +210,5 @@ const recursivelyMapResponseItemsToCells = (items: QuestionnaireResponseItem[]):
 
   return cells
 }
+
+export default mapQuestionnaireDefinitionAndResponsesToTableData

@@ -10,7 +10,7 @@ import {
 } from '@ltht-react/types'
 import { QuestionnairePublicationStatus } from '@ltht-react/types/src'
 import { ICellProps, TableData } from '@ltht-react/table'
-import { mapQuestionnaireDefinitionAndResponsesToTableData } from '@ltht-react/table/src/organisms/questionnaire-table-methods'
+import mapQuestionnaireDefinitionAndResponsesToTableData from '@ltht-react/table/src/organisms/questionnaire-table-methods'
 
 export const mockSummaryDefinition: Questionnaire = {
   identifier: [],
