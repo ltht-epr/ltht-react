@@ -70,7 +70,7 @@ export const HIGHLIGHT_GREEN = colours.NHS_HIGHLIGHT_GREEN
 export const TRANSLUCENT_BRIGHT_BLUE_TABLE = colours.NHS_TRANSLUCENT_BRIGHT_BLUE_TABLE
 export const TRANSLUCENT_GREY_TABLE = colours.NHS_TRANSLUCENT_MID_GREY_TABLE
 
-export const GREY = 'rgb(190, 190, 190)'
+export const SCROLLBAR = colours.NHS_GREY_3
 
 export const BTN_COLOURS = {
   PRIMARY: {
