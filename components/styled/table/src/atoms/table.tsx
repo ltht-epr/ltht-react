@@ -8,8 +8,8 @@ const Container = styled.div`
   background-color: white;
   border-radius: 6px;
   display: inline-block;
-  max-width: calc(100%);
-  max-height: calc(100%);
+  max-width: 100%;
+  max-height: 100%;
   overflow: scroll;
   &::-webkit-scrollbar {
     width: 7px;
