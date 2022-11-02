@@ -1,6 +1,6 @@
 import { useTable, Column, useSortBy, HeaderGroup, useExpanded, Cell as ReactCell } from 'react-table'
 import styled from '@emotion/styled'
-import { CSS_RESET, TRANSLUCENT_BRIGHT_BLUE_TABLE, TRANSLUCENT_MID_GREY } from '@ltht-react/styles'
+import { CSS_RESET, TRANSLUCENT_BRIGHT_BLUE_TABLE, TRANSLUCENT_MID_GREY, GREY } from '@ltht-react/styles'
 import { useEffect, useState, FC, PropsWithChildren } from 'react'
 
 const Container = styled.div`
@@ -17,7 +17,7 @@ const Container = styled.div`
     border: 0;
   }
   &::-webkit-scrollbar-thumb {
-    background: rgb(190, 190, 190);
+    background: ${GREY};
     border-radius: 10px;
   }
 `
