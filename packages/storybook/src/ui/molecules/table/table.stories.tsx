@@ -9,7 +9,7 @@ export const TableWithSubheaders: Story = () => <Table tableData={mockTableDataW
 export const TableWithSubrows: Story = () => <Table tableData={mockTableDataWithSubrows} />
 
 export const TableWithScrollbar: Story = () => (
-  <div style={{ maxWidth: '600px', height: '100px' }}>
+  <div style={{ maxWidth: '200px', height: '100px' }}>
     <Table tableData={mockTableData} />
   </div>
 )
