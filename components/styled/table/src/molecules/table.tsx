@@ -2,6 +2,7 @@ import { useTable, Column, useSortBy, HeaderGroup, useExpanded, Cell as ReactCel
 import styled from '@emotion/styled'
 import { CSS_RESET, TRANSLUCENT_BRIGHT_BLUE_TABLE, TRANSLUCENT_MID_GREY, SCROLLBAR } from '@ltht-react/styles'
 import { useEffect, useState, FC, PropsWithChildren } from 'react'
+import TableV8 from './table-v8'
 
 const Container = styled.div`
   ${CSS_RESET};
@@ -183,6 +184,8 @@ export default function Table({ tableData }: IProps) {
           })}
         </tbody>
       </StyledTable>
+
+      <TableV8 />
     </Container>
   )
 }
