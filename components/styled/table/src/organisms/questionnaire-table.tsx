@@ -11,11 +11,13 @@ const QuestionnaireTable: FC<IProps> = ({ definition, records, headerAxis = 'y' 
     records,
   ])
 
+  // TODO: Replace this fragment with a properly styled error component.
+  // Maybe this could be a re-usable atom?
   if (!tableData) {
     return (
       <>
         <Icon type="exclamation" size="large" status="red" />
-        <div>An error occurred. No table could be rendered from the provided questionnaire data.</div>
+        <div>An error occurred whilst loading this table.</div>
       </>
     )
   }

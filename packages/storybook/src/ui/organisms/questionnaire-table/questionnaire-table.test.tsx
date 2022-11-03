@@ -129,9 +129,7 @@ describe('Questionnaire Table (using mock Monty Python data)', () => {
 
     render(<QuestionnaireTable definition={summaryDefinitionWithoutItems} records={mockSummaryRecordsList} />)
 
-    expect(
-      screen.getByText('An error occurred. No table could be rendered from the provided questionnaire data.')
-    ).toBeVisible()
+    expect(screen.getByText('An error occurred whilst loading this table.')).toBeVisible()
   })
 
   it('Presents warning text if definition item array is empty', () => {
@@ -139,9 +137,7 @@ describe('Questionnaire Table (using mock Monty Python data)', () => {
 
     render(<QuestionnaireTable definition={summaryDefinitionWithoutItems} records={mockSummaryRecordsList} />)
 
-    expect(
-      screen.getByText('An error occurred. No table could be rendered from the provided questionnaire data.')
-    ).toBeVisible()
+    expect(screen.getByText('An error occurred whilst loading this table.')).toBeVisible()
   })
 
   it('Renders Horizontally', () => {
