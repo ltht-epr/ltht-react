@@ -1,6 +1,6 @@
-import { SummaryTableViewType } from '@ltht-react/types'
+import { Axis } from '@ltht-react/types'
 import { FC } from 'react'
-import Table, { ICellProps, TableData } from '../atoms/table'
+import Table, { ICellProps, TableData } from '../molecules/table'
 
 const prepareTableDataForCellCustomisation = (tableData: TableData) => {
   const data = tableData
@@ -11,7 +11,6 @@ const prepareTableDataForCellCustomisation = (tableData: TableData) => {
         const columnCellRender = (props.row.renderCells as Record<string, FC<ICellProps>>)[props.columnId]
         return columnCellRender ? columnCellRender(props) : (props.row.render as FC<ICellProps>)(props)
       }
-
       return (props.row.render as FC<ICellProps>)(props)
     },
   }))
@@ -19,17 +18,23 @@ const prepareTableDataForCellCustomisation = (tableData: TableData) => {
   return data
 }
 
-const GenericTable = <TColumn, TRow>({ columnData, rowData, orientation, mapToTableData }: IProps<TColumn, TRow>) => {
+const GenericTable = <TColumn, TRow>({
+  columnData,
+  rowData,
+  headerAxis = 'x',
+  mapToTableData,
+}: IProps<TColumn, TRow>) => {
   const tableData = mapToTableData(columnData, rowData)
 
-  return orientation === 'VERTICAL' ? (
+  return headerAxis === 'y' ? (
     <Table tableData={prepareTableDataForCellCustomisation(tableData)} />
   ) : (
     <Table tableData={tableData} />
   )
 }
+
 interface IProps<TColumn, TRow> {
-  orientation: SummaryTableViewType
+  headerAxis?: Axis
   columnData: TColumn
   rowData: TRow
   mapToTableData: (colData: TColumn, rowData: TRow) => TableData

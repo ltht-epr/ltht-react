@@ -115,23 +115,13 @@ const getExpanderColumn = (): Column<Record<string, ReactTableCell>> => ({
     ) : null,
 })
 
-export default function Table<TColumn, TRow>({
-  tableData,
-  columnData,
-  rowData,
-  mapToTableData,
-}: IProps<TColumn, TRow>) {
+export default function Table({ tableData }: IProps) {
   const [columns, setColumns] = useState<Column<Record<string, ReactTableCell>>[]>([])
   const [data, setData] = useState<Record<string, ReactTableCell>[]>([])
 
   useEffect(() => {
-    const mappedTableData =
-      columnData && rowData && mapToTableData
-        ? mapToTableData(columnData, rowData)
-        : tableData ?? { headers: [], rows: [] }
-
-    const columnArray = generateColumnsFromHeadersRecursively(mappedTableData.headers)
-    const dataArray = generateRowsFromCellRows(mappedTableData.rows)
+    const columnArray = generateColumnsFromHeadersRecursively(tableData.headers)
+    const dataArray = generateRowsFromCellRows(tableData.rows)
 
     setColumns(
       dataArray.some((x: Record<string, ReactTableCell>) => (x.subRows as Record<string, ReactTableCell>[]).length > 0)
@@ -139,7 +129,7 @@ export default function Table<TColumn, TRow>({
         : columnArray
     )
     setData(dataArray)
-  }, [tableData, columnData, rowData, mapToTableData])
+  }, [tableData])
 
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = useTable(
     {
@@ -197,11 +187,8 @@ export default function Table<TColumn, TRow>({
   )
 }
 
-interface IProps<TColumn, TRow> {
-  tableData?: TableData
-  columnData?: TColumn
-  rowData?: TRow
-  mapToTableData?: (colItems: TColumn, rowItems: TRow) => TableData
+interface IProps {
+  tableData: TableData
 }
 
 export interface ICellProps {

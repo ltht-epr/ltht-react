@@ -1,17 +1,50 @@
+import { CheckboxIcon, SquareIcon } from '@ltht-react/icon'
 import {
+  Axis,
+  Maybe,
+  Questionnaire,
   QuestionnaireItem,
   QuestionnaireResponse,
-  SummaryTableViewType,
   QuestionnaireResponseItem,
   QuestionnaireResponseItemAnswer,
-  Maybe,
 } from '@ltht-react/types'
 import { EnsureMaybe, EnsureMaybeArray, partialDateTimeText } from '@ltht-react/utils'
-import { FC, useMemo } from 'react'
-import { SquareIcon, CheckboxIcon } from '@ltht-react/icon'
-import Table, { Cell, CellRow, Header, TableData } from '../atoms/table'
+import { Cell, CellRow, Header, TableData } from '../molecules/table'
 
-export const mapQuestionnaireObjectsToVerticalTableData = (
+const mapQuestionnaireDefinitionAndResponsesToTableData = (
+  definition: Questionnaire,
+  questionnaireResponses: QuestionnaireResponse[],
+  axis: Axis
+): TableData | undefined => {
+  const definitionItems = EnsureMaybeArray<QuestionnaireItem>(
+    EnsureMaybe<Maybe<QuestionnaireItem>[]>(definition.item, [])
+  )
+
+  if (definitionItems.length === 0) {
+    return undefined
+  }
+
+  if (axis === 'y') {
+    return mapQuestionnaireObjectsToVerticalTableData(definitionItems, questionnaireResponses)
+  }
+  return mapQuestionnaireObjectsToHorizontalTableData(definitionItems, questionnaireResponses)
+}
+
+const mapQuestionnaireObjectsToHorizontalTableData = (
+  definitionItems: Array<QuestionnaireItem>,
+  records: QuestionnaireResponse[]
+): TableData => ({
+  headers: [
+    {
+      header: 'Record Date',
+      accessor: 'date',
+    },
+    ...recursivelyMapQuestionnaireItemsIntoHeaders(definitionItems),
+  ],
+  rows: mapQuestionnaireResponsesIntoCellRow(records),
+})
+
+const mapQuestionnaireObjectsToVerticalTableData = (
   definitionItems: Array<QuestionnaireItem>,
   records: QuestionnaireResponse[]
 ): TableData => ({
@@ -28,13 +61,24 @@ export const mapQuestionnaireObjectsToVerticalTableData = (
   rows: buildVerticalCellRowsRecursive(definitionItems, records),
 })
 
+const recursivelyMapQuestionnaireItemsIntoHeaders = (questionnaireItems: QuestionnaireItem[]): Header[] =>
+  questionnaireItems.map((questionnaireItem) => {
+    const recursiveItems = EnsureMaybeArray<QuestionnaireItem>(questionnaireItem.item ?? [])
+
+    return {
+      header: questionnaireItem?.text ?? '',
+      accessor: recursiveItems.length > 0 ? '' : questionnaireItem?.linkId ?? '',
+      subheaders: recursiveItems.length > 0 ? recursivelyMapQuestionnaireItemsIntoHeaders(recursiveItems) : undefined,
+    }
+  })
+
 const buildVerticalCellRowsRecursive = (
   definitionItems: QuestionnaireItem[],
   records: QuestionnaireResponse[]
 ): CellRow[] =>
   definitionItems.map((definitionItem) => {
     const buildRow = (definitionLinkId: string, def: QuestionnaireItem) => {
-      const containsSubRows: boolean = (def?.item && def.item.length > 0) ?? false
+      const containsSubRows = def?.item && def?.item.length > 0
       const subRows = containsSubRows
         ? buildVerticalCellRowsRecursive(EnsureMaybe(def?.item?.map((x) => EnsureMaybe(x))), records)
         : []
@@ -103,17 +147,6 @@ const findAnswerByLinkIdRecursive = (
   return itemFound
 }
 
-const recursivelyMapQuestionnaireItemsIntoHeaders = (questionnaireItems: QuestionnaireItem[]): Header[] =>
-  questionnaireItems.map((questionnaireItem) => {
-    const recursiveItems = EnsureMaybeArray<QuestionnaireItem>(questionnaireItem.item ?? [])
-
-    return {
-      header: questionnaireItem?.text ?? '',
-      accessor: recursiveItems.length > 0 ? '' : questionnaireItem?.linkId ?? '',
-      subheaders: recursiveItems.length > 0 ? recursivelyMapQuestionnaireItemsIntoHeaders(recursiveItems) : undefined,
-    }
-  })
-
 const mapQuestionnaireResponsesIntoCellRow = (records: QuestionnaireResponse[]): CellRow[] =>
   records
     .filter((record) => !!record.item)
@@ -178,35 +211,4 @@ const recursivelyMapResponseItemsToCells = (items: QuestionnaireResponseItem[]):
   return cells
 }
 
-export const mapQuestionnaireObjectsToHorizontalTableData = (
-  definitionItems: Array<QuestionnaireItem>,
-  records: QuestionnaireResponse[]
-): TableData => ({
-  headers: [
-    {
-      header: 'Record Date',
-      accessor: 'date',
-    },
-    ...recursivelyMapQuestionnaireItemsIntoHeaders(definitionItems),
-  ],
-  rows: mapQuestionnaireResponsesIntoCellRow(records),
-})
-
-const QuestionnaireTable: FC<IProps> = ({ definitionItems, records, orientation }) => {
-  const tableData = useMemo(() => {
-    if (orientation === 'VERTICAL') {
-      return mapQuestionnaireObjectsToVerticalTableData(definitionItems, records)
-    }
-    return mapQuestionnaireObjectsToHorizontalTableData(definitionItems, records)
-  }, [orientation, definitionItems, records])
-
-  return <Table tableData={tableData} />
-}
-
-interface IProps {
-  orientation: SummaryTableViewType
-  definitionItems: QuestionnaireItem[]
-  records: QuestionnaireResponse[]
-}
-
-export default QuestionnaireTable
+export default mapQuestionnaireDefinitionAndResponsesToTableData

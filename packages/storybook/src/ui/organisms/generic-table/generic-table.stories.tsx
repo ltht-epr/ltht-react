@@ -10,6 +10,7 @@ import {
 
 export const MockDataVisualisationVerticalWithCellCustomisation: Story = () => (
   <GenericTable
+    headerAxis="y"
     columnData={mockSummaryDefinition}
     rowData={mockSummaryRecordsList}
     mapToTableData={mockMappingMethodVerticalWithCellCustomisation}
@@ -18,7 +19,7 @@ export const MockDataVisualisationVerticalWithCellCustomisation: Story = () => (
 
 export const MockDataVisualisationHorizontalWithCellCustomisation: Story = () => (
   <GenericTable
-    orientation="HORIZONTAL"
+    headerAxis="x"
     columnData={mockSummaryDefinition}
     rowData={mockSummaryRecordsList}
     mapToTableData={mockMappingMethodHorizontalWithCellCustomisation}
@@ -27,11 +28,11 @@ export const MockDataVisualisationHorizontalWithCellCustomisation: Story = () =>
 
 export const MockDataVisualisationHorizontalWithHeaderCustomisation: Story = () => (
   <GenericTable
-    orientation="HORIZONTAL"
+    headerAxis="x"
     columnData={mockSummaryDefinition}
     rowData={mockSummaryRecordsList}
     mapToTableData={mockMappingMethodHorizontalWithHeaderCustomisation}
   />
 )
 
-export default { title: 'UI/Molecules/GenericTable' }
+export default { title: 'UI/Organisms/GenericTable' }
