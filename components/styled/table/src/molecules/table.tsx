@@ -155,7 +155,6 @@ export default function Table({ tableData }: IProps): JSX.Element {
     getCoreRowModel: getCoreRowModel(),
     getExpandedRowModel: getExpandedRowModel(),
     getSortedRowModel: getSortedRowModel(),
-    debugTable: true,
   })
 
   const getSortIcon = (sortDirection: SortDirection): string | null =>
