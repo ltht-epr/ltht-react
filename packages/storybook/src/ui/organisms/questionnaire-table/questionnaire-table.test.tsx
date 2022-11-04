@@ -103,7 +103,7 @@ describe('Questionnaire Table (using Fixture data)', () => {
 
     userEvent.click(screen.getAllByText('►')[0])
 
-    expect(within(getChevronCell()).getByTitle('Toggle All Rows Expanded')).toHaveTextContent('▲')
+    expect(getChevronCell()).toHaveTextContent('▲')
     expect(screen.getAllByRole('row').length).toBeGreaterThan(5)
     expect(screen.getAllByRole('row')[5]).toBeVisible()
 
@@ -112,7 +112,7 @@ describe('Questionnaire Table (using Fixture data)', () => {
 
     userEvent.click(screen.getAllByText('▲')[0])
 
-    expect(within(getChevronCell()).getByTitle('Toggle All Rows Expanded')).toHaveTextContent('►')
+    expect(getChevronCell()).toHaveTextContent('►')
     expect(screen.getAllByRole('row').length).toBe(5)
   })
 })
