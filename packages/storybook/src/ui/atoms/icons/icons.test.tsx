@@ -2,6 +2,7 @@ import styled from '@emotion/styled'
 import {
   BullseyeIcon,
   CalendarIcon,
+  CaretSquareDownIcon,
   CheckIcon,
   ChevronCircleIcon,
   ChevronIcon,
@@ -20,6 +21,7 @@ import {
   GridLayoutIcon,
   HamburgerIcon,
   InfoCircleIcon,
+  KeyboardIcon,
   LayerGroupIcon,
   ListLayoutIcon,
   PauseIcon,
@@ -43,6 +45,7 @@ describe('All icons', () => {
   it.each([
     [<BullseyeIcon size="small" />],
     [<CalendarIcon size="small" />],
+    [<CaretSquareDownIcon size="small" />],
     [<CheckIcon size="small" />],
     [<ChevronCircleIcon size="small" direction="up" />],
     [<ChevronIcon size="small" direction="up" />],
@@ -61,6 +64,7 @@ describe('All icons', () => {
     [<GridLayoutIcon size="small" />],
     [<HamburgerIcon size="small" />],
     [<InfoCircleIcon size="small" status="green" />],
+    [<KeyboardIcon size="small" />],
     [<LayerGroupIcon size="small" />],
     [<ListLayoutIcon size="small" />],
     [<PauseIcon size="small" />],
@@ -84,6 +88,7 @@ describe('All icons', () => {
   it.each([
     [<BullseyeIcon size="small" />, 'icon__bullseye'],
     [<CalendarIcon size="small" />, 'icon__calendar'],
+    [<CaretSquareDownIcon size="small" />, 'icon__caret-square-down'],
     [<CheckIcon size="small" />, 'icon__check'],
     [<ChevronCircleIcon size="small" direction="up" />, 'icon__chevron-circle'],
     [<ChevronIcon size="small" direction="up" />, 'icon__chevron'],
@@ -102,6 +107,7 @@ describe('All icons', () => {
     [<GridLayoutIcon size="small" />, 'icon__grid-layout'],
     [<HamburgerIcon size="small" />, 'icon__hamburger'],
     [<InfoCircleIcon size="small" status="green" />, 'icon__info-circle'],
+    [<KeyboardIcon size="small" />, 'icon__keyboard'],
     [<LayerGroupIcon size="small" />, 'icon__layer__group'],
     [<ListLayoutIcon size="small" />, 'icon__list-layout'],
     [<PauseIcon size="small" />, 'icon__pause'],
@@ -127,6 +133,7 @@ describe('All icons', () => {
   it.each([
     [<BullseyeIcon size="small" className="further-maths" />, 'icon__bullseye'],
     [<CalendarIcon size="small" className="further-maths" />, 'icon__calendar'],
+    [<CaretSquareDownIcon size="small" className="further-maths" />, 'icon__caret-square-down'],
     [<CheckIcon size="small" className="further-maths" />, 'icon__check'],
     [<ChevronCircleIcon size="small" direction="up" className="further-maths" />, 'icon__chevron-circle'],
     [<ChevronIcon size="small" direction="up" className="further-maths" />, 'icon__chevron'],
@@ -145,6 +152,7 @@ describe('All icons', () => {
     [<GridLayoutIcon size="small" className="further-maths" />, 'icon__grid-layout'],
     [<HamburgerIcon size="small" className="further-maths" />, 'icon__hamburger'],
     [<InfoCircleIcon size="small" status="green" className="further-maths" />, 'icon__info-circle'],
+    [<KeyboardIcon size="small" className="further-maths" />, 'icon__keyboard'],
     [<LayerGroupIcon size="small" className="further-maths" />, 'icon__layer__group'],
     [<ListLayoutIcon size="small" className="further-maths" />, 'icon__list-layout'],
     [<PauseIcon size="small" className="further-maths" />, 'icon__pause'],
@@ -171,6 +179,7 @@ describe('All icons', () => {
   it.each([
     [<BullseyeIcon size="small" id="123abc" />],
     [<CalendarIcon size="small" id="123abc" />],
+    [<CaretSquareDownIcon size="small" id="123abc" />],
     [<CheckIcon size="small" id="123abc" />],
     [<ChevronCircleIcon size="small" direction="up" id="123abc" />],
     [<ChevronIcon size="small" direction="up" id="123abc" />],
@@ -189,6 +198,7 @@ describe('All icons', () => {
     [<GridLayoutIcon size="small" id="123abc" />], // TODO: This is also inconsistent!
     [<HamburgerIcon size="small" id="123abc" />],
     [<InfoCircleIcon size="small" status="green" id="123abc" />],
+    [<KeyboardIcon size="small" id="123abc" />],
     [<LayerGroupIcon size="small" id="123abc" />],
     [<ListLayoutIcon size="small" id="123abc" />], // TODO: Surely this is wrong?
     [<PauseIcon size="small" id="123abc" />],
@@ -214,6 +224,7 @@ describe('All icons', () => {
   it.each([
     ['bullseye'],
     ['calendar'],
+    ['caret-square-down'],
     ['check'],
     ['chevron-circle'],
     ['chevron'],
@@ -232,6 +243,7 @@ describe('All icons', () => {
     ['grid-layout'],
     ['hamburger'],
     ['info-circle'],
+    ['keyboard'],
     ['layer-group'],
     ['list-layout'],
     ['pause'],
@@ -265,6 +277,13 @@ describe('All icons', () => {
 
       case 'calendar': {
         const Icon = styled(CalendarIcon)`
+          color: pink;
+        `
+        return <Icon size="small" />
+      }
+
+      case 'caret-square-down': {
+        const Icon = styled(CaretSquareDownIcon)`
           color: pink;
         `
         return <Icon size="small" />
@@ -394,6 +413,13 @@ describe('All icons', () => {
           color: pink;
         `
         return <Icon size="small" status="default" />
+      }
+
+      case 'keyboard': {
+        const Icon = styled(KeyboardIcon)`
+          color: pink;
+        `
+        return <Icon size="small" />
       }
 
       case 'layer-group': {
