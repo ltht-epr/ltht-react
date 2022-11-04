@@ -40,7 +40,6 @@ import {
   SquareIcon,
 } from '@ltht-react/icon'
 import { render, screen } from '@testing-library/react'
-import keyboardIcon from "@ltht-react/icon/lib/atoms/keyboard-icon";
 
 describe('All icons', () => {
   it.each([
@@ -417,7 +416,7 @@ describe('All icons', () => {
       }
 
       case 'keyboard': {
-        const Icon = styled(keyboardIcon)`
+        const Icon = styled(KeyboardIcon)`
           color: pink;
         `
         return <Icon size="small" />
