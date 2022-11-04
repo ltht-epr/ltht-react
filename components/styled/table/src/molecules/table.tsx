@@ -1,7 +1,19 @@
-import { useTable, Column, useSortBy, HeaderGroup, useExpanded, Cell as ReactCell } from 'react-table'
+import { FC, useState, useEffect } from 'react'
+import {
+  ColumnDef,
+  createColumnHelper,
+  flexRender,
+  getCoreRowModel,
+  useReactTable,
+  ExpandedState,
+  getExpandedRowModel,
+  getSortedRowModel,
+  SortingState,
+  SortDirection,
+} from '@tanstack/react-table'
+import uuid from 'react-uuid'
 import styled from '@emotion/styled'
 import { CSS_RESET, TRANSLUCENT_BRIGHT_BLUE_TABLE, TRANSLUCENT_MID_GREY, SCROLLBAR } from '@ltht-react/styles'
-import { useEffect, useState, FC, PropsWithChildren } from 'react'
 
 const Container = styled.div`
   ${CSS_RESET};
@@ -44,32 +56,32 @@ const StyledTableData = styled.td`
     background-color: ${TRANSLUCENT_MID_GREY} !important;
   }
 `
-const generateColumnsFromHeadersRecursively = (headers?: Header[]): Column<Record<string, ReactTableCell>>[] =>
-  (headers ?? []).map((header) => ({
-    id: header.id,
-    Header: header.header,
-    accessor: header.subheaders ? '' : header.accessor,
-    columns: header.subheaders ? generateColumnsFromHeadersRecursively(header.subheaders) : undefined,
-    sortType: 'basic',
-    // TODO: Figure out why sorting headers with subheaders causes an error and fix
-    disableSortBy: !!header.subheaders,
-    Cell: (props: {
-      value: PropsWithChildren<string>
-      row: Record<string, unknown>
-      column: Record<string, unknown>
-    }) =>
-      header?.cell
-        ? header?.cell({
-            value: props?.value,
-            row: (props?.row?.original as unknown) as Record<string, ReactTableCell>,
-            columnId: (props?.column?.id as string) ?? '',
-          }) ?? ''
-        : props?.value ?? '',
-  }))
 
-const generateRowsFromCellRows = (cellRows: CellRow[]): Record<string, ReactTableCell>[] =>
+const columnHelper = createColumnHelper<DataRow>()
+
+const generateColumnsFromHeadersRecursively = (headers?: Header[]): ColumnDef<DataRow, CellData | unknown>[] =>
+  headers?.map((header) =>
+    header.subheaders
+      ? columnHelper.group({
+          id: header.id ?? uuid(),
+          header: () => header.header,
+          columns: generateColumnsFromHeadersRecursively(header.subheaders),
+        })
+      : (columnHelper.accessor(header.accessor, {
+          id: header.accessor,
+          cell: (info) => {
+            const stringValue = (info?.getValue() as string) ?? ''
+            return header.cell
+              ? header.cell({ value: stringValue, columnId: info.column.id, row: info.row.original })
+              : stringValue
+          },
+          header: () => header.header,
+        }) as ColumnDef<DataRow, CellData | unknown>)
+  ) ?? []
+
+const generateRowsFromCellRows = (cellRows: CellRow[]): DataRow[] =>
   cellRows.map((cellRow) => {
-    const mappedCell: Record<string, ReactTableCell> = {}
+    const mappedCell: DataRow = { subRows: [] }
     const mappedCellRender: Record<string, FC<ICellProps>> = {}
 
     cellRow.cells.forEach((cell) => {
@@ -90,97 +102,113 @@ const generateRowsFromCellRows = (cellRows: CellRow[]): Record<string, ReactTabl
     }
   })
 
-const getExpanderColumn = (): Column<Record<string, ReactTableCell>> => ({
-  // Build our expander column
-  id: 'expander', // Make sure it has an ID
-  Header: ({ getToggleAllRowsExpandedProps, isAllRowsExpanded }) => (
-    <span {...getToggleAllRowsExpandedProps()}>{isAllRowsExpanded ? '▲' : '►'}</span>
-  ),
-  Cell: ({ row }: ReactCell) =>
-    // Use the row.canExpand and row.getToggleRowExpandedProps prop getter
-    // to build the toggle for expanding a row
-    row.canExpand ? (
+const getExpanderColumn = (): ColumnDef<DataRow, CellData | unknown> =>
+  columnHelper.accessor('expander', {
+    header: ({ table }) => (
       <span
-        {...row.getToggleRowExpandedProps({
-          style: {
-            // We can even use the row.depth property
-            // and paddingLeft to indicate the depth
-            // of the row
-            paddingLeft: `${row.depth * 2}rem`,
-          },
-        })}
+        title="Toggle All Rows Expanded"
+        onClick={table.getToggleAllRowsExpandedHandler()}
+        style={{ cursor: 'pointer' }}
       >
-        {row.isExpanded ? '▲' : '►'}
+        {table.getIsAllRowsExpanded() ? '▲' : '►'}
       </span>
-    ) : null,
-})
+    ),
+    cell: ({ row }) =>
+      row.getCanExpand() ? (
+        <span
+          {...{
+            onClick: row.getToggleExpandedHandler(),
+            style: { cursor: 'pointer', paddingLeft: `${row.depth * 2}rem` },
+          }}
+        >
+          {row.getIsExpanded() ? '▲' : '►'}
+        </span>
+      ) : null,
+  }) as ColumnDef<DataRow, CellData | unknown>
 
-export default function Table({ tableData }: IProps) {
-  const [columns, setColumns] = useState<Column<Record<string, ReactTableCell>>[]>([])
-  const [data, setData] = useState<Record<string, ReactTableCell>[]>([])
+export default function Table({ tableData }: IProps): JSX.Element {
+  const [columns, setColumns] = useState<ColumnDef<DataRow, CellData | unknown>[]>([])
+  const [data, setData] = useState<DataRow[]>([])
+  const [expanded, setExpanded] = useState<ExpandedState>({})
+  const [sorting, setSorting] = useState<SortingState>([])
 
   useEffect(() => {
     const columnArray = generateColumnsFromHeadersRecursively(tableData.headers)
     const dataArray = generateRowsFromCellRows(tableData.rows)
 
     setColumns(
-      dataArray.some((x: Record<string, ReactTableCell>) => (x.subRows as Record<string, ReactTableCell>[]).length > 0)
-        ? [getExpanderColumn(), ...columnArray]
-        : columnArray
+      dataArray.some((x: DataRow) => x.subRows.length > 0) ? [getExpanderColumn(), ...columnArray] : columnArray
     )
     setData(dataArray)
   }, [tableData])
 
-  const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = useTable(
-    {
-      columns,
-      data,
+  const table = useReactTable({
+    data,
+    columns,
+    state: {
+      expanded,
+      sorting,
     },
-    useSortBy,
-    useExpanded
-  )
+    onExpandedChange: setExpanded,
+    onSortingChange: setSorting,
+    getSubRows: (row) => row.subRows,
+    getCoreRowModel: getCoreRowModel(),
+    getExpandedRowModel: getExpandedRowModel(),
+    getSortedRowModel: getSortedRowModel(),
+  })
 
-  const sortIcon = (column: HeaderGroup<Record<string, ReactTableCell>>) => {
-    if (column.isSorted) {
-      return <span>{column.isSortedDesc ? ' 🔽' : ' 🔼'}</span>
-    }
-    return ''
-  }
+  const getSortIcon = (sortDirection: SortDirection): string | null =>
+    ({
+      asc: ' 🔼',
+      desc: ' 🔽',
+    }[sortDirection] ?? null)
 
   return (
     <Container>
-      <StyledTable {...getTableProps()}>
+      <StyledTable>
         <thead>
-          {headerGroups.map((headerGroup) => (
-            <tr {...headerGroup.getHeaderGroupProps()}>
-              {headerGroup.headers.map((column) => (
-                <StyledTableHeader {...column.getHeaderProps(column.getSortByToggleProps())}>
-                  {column.render('Header')}
-                  {sortIcon(column)}
-                </StyledTableHeader>
-              ))}
+          {table.getHeaderGroups().map((headerGroup) => (
+            <tr key={headerGroup.id}>
+              {headerGroup.headers.map((header) =>
+                header.column.id === 'expander' ? (
+                  <StyledTableHeader key={header.id} colSpan={header.colSpan}>
+                    {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
+                  </StyledTableHeader>
+                ) : (
+                  <StyledTableHeader
+                    key={header.id}
+                    colSpan={header.colSpan}
+                    {...{
+                      style: {
+                        cursor: header.column.getCanSort() ? 'pointer' : '',
+                      },
+                      onClick: header.column.getToggleSortingHandler(),
+                    }}
+                  >
+                    {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
+                    {getSortIcon(header.column.getIsSorted() as SortDirection)}
+                  </StyledTableHeader>
+                )
+              )}
             </tr>
           ))}
         </thead>
-        <tbody {...getTableBodyProps()}>
-          {rows.map((row) => {
-            prepareRow(row)
-            return (
-              <tr {...row.getRowProps()}>
-                {row.cells.map((cell, cellIdx) => (
-                  <StyledTableData
-                    style={{
-                      background: cellIdx % 2 === 1 ? 'white' : TRANSLUCENT_BRIGHT_BLUE_TABLE,
-                      textAlign: 'center',
-                    }}
-                    {...cell.getCellProps()}
-                  >
-                    {cell.render('Cell')}
-                  </StyledTableData>
-                ))}
-              </tr>
-            )
-          })}
+        <tbody>
+          {table.getRowModel().rows.map((row) => (
+            <tr key={row.id}>
+              {row.getVisibleCells().map((cell, cellIdx) => (
+                <StyledTableData
+                  key={cell.id}
+                  style={{
+                    background: cellIdx % 2 === 1 ? 'white' : TRANSLUCENT_BRIGHT_BLUE_TABLE,
+                    textAlign: 'center',
+                  }}
+                >
+                  {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                </StyledTableData>
+              ))}
+            </tr>
+          ))}
         </tbody>
       </StyledTable>
     </Container>
@@ -193,7 +221,7 @@ interface IProps {
 
 export interface ICellProps {
   value: string
-  row: Record<string, ReactTableCell>
+  row: DataRow
   columnId: string
 }
 
@@ -223,9 +251,8 @@ export interface TableData {
   rows: CellRow[]
 }
 
-export declare type ReactTableCell =
-  | string
-  | FC<ICellProps>
-  | Record<string, FC<ICellProps>>
-  | Record<string, ReactTableCell>[]
-  | JSX.Element
+export declare type CellData = string | FC<ICellProps> | Record<string, FC<ICellProps>> | DataRow[] | JSX.Element
+export declare type DataRow = {
+  [key: string]: CellData
+  subRows: DataRow[]
+}
