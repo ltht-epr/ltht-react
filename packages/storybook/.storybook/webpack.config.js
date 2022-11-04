@@ -1,4 +1,9 @@
 const path = require('path')
+const es6NodeModules = require('./es6-node-modules.json')
+
+const buildPathsForAllModulesToInclude = (modules) => {
+  return modules.map((moduleName) => path.resolve(__dirname, '../../../node_modules', moduleName))
+}
 
 // Export a function. Accept the base config as the only param.
 module.exports = async ({ config, mode }) => {
@@ -9,7 +14,7 @@ module.exports = async ({ config, mode }) => {
   // Make whatever fine-grained changes you need
   config.module.rules.push({
     test: /\.(js|ts)$/,
-    include: [path.resolve(__dirname, '../../../node_modules', '@tanstack/react-table')],
+    include: buildPathsForAllModulesToInclude(es6NodeModules),
     exclude: [],
     loader: 'babel-loader',
     options: {
