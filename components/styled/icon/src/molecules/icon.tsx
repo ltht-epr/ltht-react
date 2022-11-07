@@ -2,6 +2,7 @@ import { IconType, IconSize, IconStatus, IconDirection } from '@ltht-react/style
 import { FC, HTMLAttributes } from 'react'
 import BullseyeIcon from '../atoms/bullseye-icon'
 import CalendarIcon from '../atoms/calendar-icon'
+import CaretSquareDownIcon from '../atoms/caret-square-down-icon'
 import CheckIcon from '../atoms/check-icon'
 import CheckboxIcon from '../atoms/checkbox-icon'
 import ChevronCircleIcon from '../atoms/chevron-circle-icon'
@@ -22,6 +23,7 @@ import FolderPlusIcon from '../atoms/folder-plus'
 import GridLayoutIcon from '../atoms/grid-layout-icon'
 import HamburgerIcon from '../atoms/hamburger-icon'
 import InfoCircleIcon from '../atoms/info-circle-icon'
+import KeyboardIcon from '../atoms/keyboard-icon'
 import LayerGroupIcon from '../atoms/layer-group'
 import ListLayoutIcon from '../atoms/list-layout-icon'
 import PauseIcon from '../atoms/pause-icon'
@@ -42,8 +44,13 @@ const Icon: FC<IconProps> = ({ type, size, status, direction, counterValue, ...r
     case 'bullseye': {
       return <BullseyeIcon size={size} {...rest} />
     }
+
     case 'calendar': {
       return <CalendarIcon size={size} {...rest} />
+    }
+
+    case 'caret-square-down': {
+      return <CaretSquareDownIcon size={size} {...rest} />
     }
 
     case 'check': {
@@ -116,6 +123,10 @@ const Icon: FC<IconProps> = ({ type, size, status, direction, counterValue, ...r
 
     case 'info-circle': {
       return <InfoCircleIcon size={size} status={status ?? 'default'} {...rest} />
+    }
+
+    case 'keyboard': {
+      return <KeyboardIcon size={size} {...rest} />
     }
 
     case 'layer-group': {

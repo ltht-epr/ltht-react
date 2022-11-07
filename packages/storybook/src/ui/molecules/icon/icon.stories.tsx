@@ -9,6 +9,9 @@ export const AllPurposeIcon: Story = () => (
     <div>calendar</div>
     <Icon type="calendar" size="small" />
     <br />
+    <div>caret-square-down</div>
+    <Icon type="caret-square-down" size="small" />
+    <br />
     <div>check</div>
     <Icon type="check" size="small" />
     <br />
@@ -57,6 +60,9 @@ export const AllPurposeIcon: Story = () => (
     <br />
     <div>info-circle</div>
     <Icon type="info-circle" size="small" />
+    <div>keyboard-icon</div>
+    <Icon type="keyboard" size="small" />
+    <br />
     <div>layer-group</div>
     <Icon type="layer-group" size="small" />
     <br />
