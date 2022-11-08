@@ -56,10 +56,10 @@ const DiagnosisDetail: FC<Props> = ({ condition, links, viewType = DetailViewTyp
         <StringDetail term="Clinical Status" description={condition.clinicalStatus?.toString()} />
         <StringDetail term="Verification Status" description={condition.verificationStatus?.toString()} />
         <CodeableConceptDetail term="Severity" concept={condition.severity} />
-        <AnnotationListDetail term="Note(s)" notes={condition.note} />
         <AsserterDetail asserter={condition.asserter} />
         <DatetimeDetail term="Asserted Date" datetime={condition.assertedDate} />
         <DatetimeDetail term="Abatement Date" datetime={condition.abatement?.dateTime} />
+        <AnnotationListDetail term="Note(s)" notes={condition.note} />
       </CollapsibleDetailCollection>
     </>
   )
