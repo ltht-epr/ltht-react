@@ -1,4 +1,4 @@
-import { FC, useState, useEffect } from 'react'
+import { FC, useState, useEffect, useMemo } from 'react'
 import {
   ColumnDef,
   createColumnHelper,
@@ -10,11 +10,12 @@ import {
   getSortedRowModel,
   SortingState,
   SortDirection,
+  PaginationState,
 } from '@tanstack/react-table'
 import uuid from 'react-uuid'
 import styled from '@emotion/styled'
 import { CSS_RESET, TRANSLUCENT_BRIGHT_BLUE_TABLE, TRANSLUCENT_MID_GREY, SCROLLBAR } from '@ltht-react/styles'
-import TablePaginated from './table-paginated'
+import { QueryClient, QueryClientProvider, useQuery } from 'react-query'
 
 const Container = styled.div`
   ${CSS_RESET};
@@ -47,7 +48,7 @@ const StyledTableHeader = styled.th`
   background-color: ${TRANSLUCENT_MID_GREY};
   border: thin solid rgba(200, 200, 200, 0.5);
   font-weight: bold;
-  padding: 1rem;
+  padding: 0.5rem 1rem;
 `
 
 const StyledTableData = styled.td`
@@ -59,26 +60,44 @@ const StyledTableData = styled.td`
 `
 
 const columnHelper = createColumnHelper<DataRow>()
+const queryClient = new QueryClient()
 
-const generateColumnsFromHeadersRecursively = (headers?: Header[]): ColumnDef<DataRow, CellData | unknown>[] =>
-  headers?.map((header) =>
-    header.subheaders
-      ? columnHelper.group({
-          id: header.id ?? uuid(),
-          header: () => header.header,
-          columns: generateColumnsFromHeadersRecursively(header.subheaders),
-        })
-      : (columnHelper.accessor(header.accessor, {
-          id: header.accessor,
-          cell: (info) => {
-            const stringValue = (info?.getValue() as string) ?? ''
-            return header.cell
-              ? header.cell({ value: stringValue, columnId: info.column.id, row: info.row.original })
-              : stringValue
-          },
-          header: () => header.header,
-        }) as ColumnDef<DataRow, CellData | unknown>)
-  ) ?? []
+const generateColumnsFromHeadersRecursively = (
+  headers: Header[],
+  showExpanderColumn: boolean
+): ColumnDef<DataRow, CellData | unknown>[] => {
+  const createColumns = (headers: Header[]): ColumnDef<DataRow, CellData | unknown>[] =>
+    headers?.map((header) =>
+      header.subheaders
+        ? columnHelper.group({
+            id: header.id ?? uuid(),
+            header: () => header.header,
+            columns: createColumns(header.subheaders ?? []),
+          })
+        : (columnHelper.accessor(header.accessor, {
+            id: header.accessor,
+            cell: ({ row, ...info }) => {
+              const stringValue = (info?.getValue() as string) ?? ''
+              const cellContent = header.cell
+                ? header.cell({ value: stringValue, columnId: info.column.id, row: row.original })
+                : stringValue
+
+              return row.getCanExpand() ? (
+                <span onClick={row.getToggleExpandedHandler()} style={{ cursor: 'pointer' }}>
+                  {cellContent}
+                </span>
+              ) : (
+                cellContent
+              )
+            },
+            header: () => header.header,
+          }) as ColumnDef<DataRow, CellData | unknown>)
+    ) ?? []
+
+  const tableColumns = createColumns(headers ?? [])
+
+  return showExpanderColumn ? [getExpanderColumn(), ...tableColumns] : tableColumns
+}
 
 const generateRowsFromCellRows = (cellRows: CellRow[]): DataRow[] =>
   cellRows.map((cellRow) => {
@@ -127,29 +146,64 @@ const getExpanderColumn = (): ColumnDef<DataRow, CellData | unknown> =>
       ) : null,
   }) as ColumnDef<DataRow, CellData | unknown>
 
-export default function Table({ tableData }: IProps): JSX.Element {
+function PaginatedTable({ tableData, tableOptions, fetchData }: IProps): JSX.Element {
   const [columns, setColumns] = useState<ColumnDef<DataRow, CellData | unknown>[]>([])
   const [data, setData] = useState<DataRow[]>([])
   const [expanded, setExpanded] = useState<ExpandedState>({})
   const [sorting, setSorting] = useState<SortingState>([])
+  const [pageCount, setPageCount] = useState<number>(-1)
+  const [{ pageIndex, pageSize }, setPagination] = useState<PaginationState>({
+    pageIndex: 0,
+    pageSize: tableOptions?.pageSize ?? 10,
+  })
+
+  const fetchDataOptions = {
+    pageIndex,
+    pageSize,
+  }
+
+  const dataQuery = useQuery(['data', fetchDataOptions], () => fetchData(fetchDataOptions), {
+    keepPreviousData: true,
+  })
+
+  const pagination = useMemo(
+    () => ({
+      pageIndex,
+      pageSize,
+    }),
+    [pageIndex, pageSize]
+  )
 
   useEffect(() => {
-    const columnArray = generateColumnsFromHeadersRecursively(tableData.headers)
-    const dataArray = generateRowsFromCellRows(tableData.rows)
+    let dataRows = dataQuery.data?.tableData?.rows ?? []
+    let dataColumns = dataQuery.data?.tableData.headers ?? []
 
-    setColumns(
-      dataArray.some((x: DataRow) => x.subRows.length > 0) ? [getExpanderColumn(), ...columnArray] : columnArray
-    )
-    setData(dataArray)
+    if (dataColumns.length > 0) {
+      setColumns(generateColumnsFromHeadersRecursively(dataColumns, tableOptions?.showExpanderColumn ?? true))
+    }
+
+    if (dataRows.length > 0) {
+      setPageCount(Math.ceil((dataQuery.data?.totalCount ?? 0) / pageSize))
+      setData(generateRowsFromCellRows(dataRows))
+    }
+  }, [dataQuery.data, dataQuery.dataUpdatedAt])
+
+  useEffect(() => {
+    setColumns(generateColumnsFromHeadersRecursively(tableData.headers ?? [], tableOptions?.showExpanderColumn ?? true))
+    setData(generateRowsFromCellRows(tableData.rows))
   }, [tableData])
 
   const table = useReactTable({
     data,
     columns,
+    pageCount: pageCount,
     state: {
       expanded,
       sorting,
+      pagination,
     },
+    manualPagination: true,
+    onPaginationChange: setPagination,
     onExpandedChange: setExpanded,
     onSortingChange: setSorting,
     getSubRows: (row) => row.subRows,
@@ -212,28 +266,102 @@ export default function Table({ tableData }: IProps): JSX.Element {
           ))}
         </tbody>
       </StyledTable>
-      <div style={{ marginTop: 20 }}>
-        <TablePaginated
-          tableData={{ headers: tableData.headers, rows: tableData.rows.slice(0, 1) }}
-          tableOptions={{ pageSize: 1, showExpanderColumn: false }}
-          fetchData={(options) => ({
-            tableData: {
-              headers: tableData.headers,
-              rows: tableData.rows.slice(
-                options.pageIndex * options.pageSize,
-                (options.pageIndex + 1) * options.pageSize
-              ),
-            },
-            totalCount: tableData.rows.length,
-          })}
-        />
+      <div className="h-2" />
+      <div className="flex items-center gap-2">
+        <button
+          className="border rounded p-1"
+          onClick={() => table.setPageIndex(0)}
+          disabled={!table.getCanPreviousPage()}
+        >
+          {'<<'}
+        </button>
+        <button
+          className="border rounded p-1"
+          onClick={() => table.previousPage()}
+          disabled={!table.getCanPreviousPage()}
+        >
+          {'<'}
+        </button>
+        <button
+          data-testid="next-page-chevron"
+          className="border rounded p-1"
+          onClick={() => table.nextPage()}
+          disabled={!table.getCanNextPage()}
+        >
+          {'>'}
+        </button>
+        <button
+          className="border rounded p-1"
+          onClick={() => table.setPageIndex(table.getPageCount() - 1)}
+          disabled={!table.getCanNextPage()}
+        >
+          {'>>'}
+        </button>
+        <span className="flex items-center gap-1">
+          <div>Page</div>
+          <strong>
+            {table.getState().pagination.pageIndex + 1} of {table.getPageCount()}
+          </strong>
+        </span>
+        <span className="flex items-center gap-1">
+          | Go to page:
+          <input
+            type="number"
+            defaultValue={table.getState().pagination.pageIndex + 1}
+            onChange={(e) => {
+              const page = e.target.value ? Number(e.target.value) - 1 : 0
+              table.setPageIndex(page)
+            }}
+            className="border p-1 rounded w-16"
+          />
+        </span>
+        <select
+          value={table.getState().pagination.pageSize}
+          onChange={(e) => {
+            table.setPageSize(Number(e.target.value))
+          }}
+        >
+          {[10, 20, 30, 40, 50].map((pageSize) => (
+            <option key={pageSize} value={pageSize}>
+              Show {pageSize}
+            </option>
+          ))}
+        </select>
+        {dataQuery.isFetching ? 'Loading...' : null}
       </div>
+      <div>{table.getRowModel().rows.length} Rows</div>
+      <pre>{JSON.stringify(pagination, null, 2)}</pre>
     </Container>
+  )
+}
+
+export default function TablePaginated(props: IProps): JSX.Element {
+  return (
+    <QueryClientProvider client={queryClient}>
+      <PaginatedTable {...props} />
+    </QueryClientProvider>
   )
 }
 
 interface IProps {
   tableData: TableData
+  fetchData: (options: IFetchDataOptions) => IPaginatedResult
+  tableOptions?: ITableOptions
+}
+
+interface ITableOptions {
+  showExpanderColumn?: boolean
+  pageSize?: number
+}
+
+export interface IFetchDataOptions {
+  pageIndex: number
+  pageSize: number
+}
+
+export interface IPaginatedResult {
+  tableData: TableData
+  totalCount: number
 }
 
 export interface ICellProps {
