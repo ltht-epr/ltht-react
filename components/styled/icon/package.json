@@ -34,6 +34,7 @@
     "@ltht-react/styles": "^1.3.147",
     "@ltht-react/types": "^1.0.151",
     "@ltht-react/utils": "^1.1.153",
+    "emotion-icons": "^3.27.0",
     "react": "^17.0.0"
   },
   "gitHead": "4d364556bb11e294d86697c2dac66742f7aabc7f"
