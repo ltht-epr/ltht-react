@@ -1946,13 +1946,6 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
-"@babel/runtime@^7.6.2":
-  version "7.20.1"
-  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.20.1.tgz#1148bb33ab252b165a06698fde7576092a78b4a9"
-  integrity sha512-mrzLkl6U9YLF8qpqI7TB82PESyEGjm/0Ly91jG575eVxMMlb8fYfOXFZIJ8XfLrJZQbm7dlKry2bJmXBUEkdFg==
-  dependencies:
-    regenerator-runtime "^0.13.10"
-
 "@babel/template@^7.12.13", "@babel/template@^7.12.7", "@babel/template@^7.3.3":
   version "7.12.13"
   resolved "https://registry.yarnpkg.com/@babel/template/-/template-7.12.13.tgz#530265be8a2589dbb37523844c5bcb55947fb327"
@@ -2089,7 +2082,7 @@
     "@babel/runtime" "^7.15.3"
     "@emotion-icons/emotion-icon" "4.1.0"
 
-"@emotion-icons/boxicons-solid@3.19.0", "@emotion-icons/boxicons-solid@^3.19.0":
+"@emotion-icons/boxicons-solid@3.19.0":
   version "3.19.0"
   resolved "https://registry.yarnpkg.com/@emotion-icons/boxicons-solid/-/boxicons-solid-3.19.0.tgz#bfb83624e516c4472d827a09b9838de77009492e"
   integrity sha512-sJfOhIKf92rqhn/dpHTTWkmW8mn16GJHnXVXGyTNNFNJyBzV6fmu1WXBd/fhNyWnTZ5s5Hox9JBSin/P5qpt+g==
@@ -2216,7 +2209,7 @@
     "@babel/runtime" "^7.14.8"
     "@emotion-icons/emotion-icon" "4.1.0"
 
-"@emotion-icons/heroicons-solid@3.18.0", "@emotion-icons/heroicons-solid@^3.18.0":
+"@emotion-icons/heroicons-solid@3.18.0":
   version "3.18.0"
   resolved "https://registry.yarnpkg.com/@emotion-icons/heroicons-solid/-/heroicons-solid-3.18.0.tgz#d4203641b603f5705381159c2a9d1041eefe01f1"
   integrity sha512-fIuLEBt/S9v4yaIzlJPepkkpCihiv7Ru/8WEsMz0eIr1mZWq2uxfk/B43l6p7FUdrF1dDUG7ONCbGo/z2RncQg==

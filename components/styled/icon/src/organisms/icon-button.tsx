@@ -25,6 +25,7 @@ const IconButton: FC<Props> = ({ iconProps, text, ...rest }) => (
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   iconProps: IconProps
   text?: string
+  disabled?: boolean
 }
 
 export default IconButton
