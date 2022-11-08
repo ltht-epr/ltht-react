@@ -50,6 +50,8 @@ export type IconType =
   | 'checkbox'
   | 'square'
 
+export type EmotionIconType = 'chevron-double'
+
 export const calculateIconSize = (input: IconSize): FontAwesomeIconSize => {
   switch (input) {
     case 'large':

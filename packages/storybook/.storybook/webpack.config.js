@@ -1,8 +1,10 @@
 const path = require('path')
 const es6NodeModules = require('./es6-node-modules.json')
 
+const resolveModulePath = (moduleName) => path.resolve(__dirname, '../../../node_modules', moduleName)
+
 const buildPathsForAllModulesToInclude = (modules) => {
-  return modules.map((moduleName) => path.resolve(__dirname, '../../../node_modules', moduleName))
+  return modules.map((moduleName) => resolveModulePath(moduleName))
 }
 
 // Export a function. Accept the base config as the only param.
@@ -22,6 +24,16 @@ module.exports = async ({ config, mode }) => {
       presets: ['@babel/preset-env'],
     },
   })
+
+  config.resolve = {
+    ...config.resolve,
+    alias: {
+      ...config.resolve.alias,
+      '@emotion/core': resolveModulePath('@emotion/react'),
+      '@emotion/styled': resolveModulePath('@emotion/styled'),
+      'emotion-theming': resolveModulePath('@emotion/react'),
+    },
+  }
 
   // Return the altered config
   return config

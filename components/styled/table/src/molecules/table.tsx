@@ -164,59 +164,16 @@ export default function Table({ tableData }: IProps): JSX.Element {
       desc: ' 🔽',
     }[sortDirection] ?? null)
 
+  const sleep = (milliseconds: number) => {
+    return new Promise((resolve) => setTimeout(resolve, milliseconds))
+  }
+
   return (
-    <Container>
-      <StyledTable>
-        <thead>
-          {table.getHeaderGroups().map((headerGroup) => (
-            <tr key={headerGroup.id}>
-              {headerGroup.headers.map((header) =>
-                header.column.id === 'expander' ? (
-                  <StyledTableHeader key={header.id} colSpan={header.colSpan}>
-                    {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
-                  </StyledTableHeader>
-                ) : (
-                  <StyledTableHeader
-                    key={header.id}
-                    colSpan={header.colSpan}
-                    {...{
-                      style: {
-                        cursor: header.column.getCanSort() ? 'pointer' : '',
-                      },
-                      onClick: header.column.getToggleSortingHandler(),
-                    }}
-                  >
-                    {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
-                    {getSortIcon(header.column.getIsSorted() as SortDirection)}
-                  </StyledTableHeader>
-                )
-              )}
-            </tr>
-          ))}
-        </thead>
-        <tbody>
-          {table.getRowModel().rows.map((row) => (
-            <tr key={row.id}>
-              {row.getVisibleCells().map((cell, cellIdx) => (
-                <StyledTableData
-                  key={cell.id}
-                  style={{
-                    background: cellIdx % 2 === 1 ? 'white' : TRANSLUCENT_BRIGHT_BLUE_TABLE,
-                    textAlign: 'center',
-                  }}
-                >
-                  {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                </StyledTableData>
-              ))}
-            </tr>
-          ))}
-        </tbody>
-      </StyledTable>
-      <div style={{ marginTop: 20 }}>
-        <TablePaginated
-          tableData={{ headers: tableData.headers, rows: tableData.rows.slice(0, 1) }}
-          tableOptions={{ pageSize: 1, showExpanderColumn: false }}
-          fetchData={(options) => ({
+    <TablePaginated
+      tableOptions={{ pageSize: 1, perPageOptions: [1, 3, 5, 10, 15, 20] }}
+      fetchData={async (options) => {
+        return await sleep(2500).then(() => {
+          return {
             tableData: {
               headers: tableData.headers,
               rows: tableData.rows.slice(
@@ -225,10 +182,61 @@ export default function Table({ tableData }: IProps): JSX.Element {
               ),
             },
             totalCount: tableData.rows.length,
-          })}
-        />
-      </div>
-    </Container>
+          }
+        })
+      }}
+    />
+    // <Container>
+    //   <StyledTable>
+    //     <thead>
+    //       {table.getHeaderGroups().map((headerGroup) => (
+    //         <tr key={headerGroup.id}>
+    //           {headerGroup.headers.map((header) =>
+    //             header.column.id === 'expander' ? (
+    //               <StyledTableHeader key={header.id} colSpan={header.colSpan}>
+    //                 {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
+    //               </StyledTableHeader>
+    //             ) : (
+    //               <StyledTableHeader
+    //                 key={header.id}
+    //                 colSpan={header.colSpan}
+    //                 {...{
+    //                   style: {
+    //                     cursor: header.column.getCanSort() ? 'pointer' : '',
+    //                   },
+    //                   onClick: header.column.getToggleSortingHandler(),
+    //                 }}
+    //               >
+    //                 {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
+    //                 {getSortIcon(header.column.getIsSorted() as SortDirection)}
+    //               </StyledTableHeader>
+    //             )
+    //           )}
+    //         </tr>
+    //       ))}
+    //     </thead>
+    //     <tbody>
+    //       {table.getRowModel().rows.map((row) => (
+    //         <tr key={row.id}>
+    //           {row.getVisibleCells().map((cell, cellIdx) => (
+    //             <StyledTableData
+    //               key={cell.id}
+    //               style={{
+    //                 background: cellIdx % 2 === 1 ? 'white' : TRANSLUCENT_BRIGHT_BLUE_TABLE,
+    //                 textAlign: 'center',
+    //               }}
+    //             >
+    //               {flexRender(cell.column.columnDef.cell, cell.getContext())}
+    //             </StyledTableData>
+    //           ))}
+    //         </tr>
+    //       ))}
+    //     </tbody>
+    //   </StyledTable>
+    //   <div style={{ marginTop: 20 }}>
+
+    //   </div>
+    // </Container>
   )
 }
 

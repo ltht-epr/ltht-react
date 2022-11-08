@@ -11,11 +11,19 @@ import {
   SortingState,
   SortDirection,
   PaginationState,
+  Table as ReactTable,
 } from '@tanstack/react-table'
 import uuid from 'react-uuid'
 import styled from '@emotion/styled'
-import { CSS_RESET, TRANSLUCENT_BRIGHT_BLUE_TABLE, TRANSLUCENT_MID_GREY, SCROLLBAR } from '@ltht-react/styles'
+import {
+  CSS_RESET,
+  TRANSLUCENT_BRIGHT_BLUE_TABLE,
+  TRANSLUCENT_MID_GREY,
+  SCROLLBAR,
+  TRANSLUCENT_BRIGHT_BLUE,
+} from '@ltht-react/styles'
 import { QueryClient, QueryClientProvider, useQuery } from 'react-query'
+import { EmotionIconButton, Icon, IconButton } from '@ltht-react/icon'
 
 const Container = styled.div`
   ${CSS_RESET};
@@ -56,6 +64,54 @@ const StyledTableData = styled.td`
   white-space: nowrap;
   &:first-of-type {
     background-color: ${TRANSLUCENT_MID_GREY} !important;
+  }
+`
+
+const PaginationContainer = styled.div`
+  ${CSS_RESET};
+  margin-top: 5px;
+`
+
+const paginationButtonStyle = `
+padding: 2px 5px;
+background-color: ${TRANSLUCENT_BRIGHT_BLUE};
+color: black;
+border: 1px solid ${TRANSLUCENT_MID_GREY};
+margin: 0 2.5px;
+border-radius: 3px;
+
+&:disabled {
+  background-color: inherit;
+  color: gray;
+  border-color: ${TRANSLUCENT_MID_GREY};
+  pointer-events: none;
+}
+`
+
+const StyledEmotionIconButton = styled(EmotionIconButton)`
+  ${paginationButtonStyle}
+`
+
+const StyledIconButton = styled(IconButton)`
+  ${paginationButtonStyle}
+`
+
+const StyledPaginationPageInput = styled.input`
+  ${CSS_RESET};
+  width: 50px;
+  border: 1px solid gray;
+`
+const StyledPaginationPageSelect = styled.select`
+  ${CSS_RESET};
+  width: 50px;
+  display: inline-block;
+  font-size: 0.9rem;
+  border: 1px solid gray;
+`
+
+const StyledHideOnMobile = styled.span`
+  @media (max-width: 320px) {
+    display: none;
   }
 `
 
@@ -164,6 +220,7 @@ function PaginatedTable({ tableData, tableOptions, fetchData }: IProps): JSX.Ele
 
   const dataQuery = useQuery(['data', fetchDataOptions], () => fetchData(fetchDataOptions), {
     keepPreviousData: true,
+    refetchOnMount: 'always',
   })
 
   const pagination = useMemo(
@@ -188,10 +245,14 @@ function PaginatedTable({ tableData, tableOptions, fetchData }: IProps): JSX.Ele
     }
   }, [dataQuery.data, dataQuery.dataUpdatedAt])
 
-  useEffect(() => {
-    setColumns(generateColumnsFromHeadersRecursively(tableData.headers ?? [], tableOptions?.showExpanderColumn ?? true))
-    setData(generateRowsFromCellRows(tableData.rows))
-  }, [tableData])
+  if (tableData) {
+    useEffect(() => {
+      setColumns(
+        generateColumnsFromHeadersRecursively(tableData.headers ?? [], tableOptions?.showExpanderColumn ?? true)
+      )
+      setData(generateRowsFromCellRows(tableData.rows))
+    }, [tableData])
+  }
 
   const table = useReactTable({
     data,
@@ -219,119 +280,110 @@ function PaginatedTable({ tableData, tableOptions, fetchData }: IProps): JSX.Ele
     }[sortDirection] ?? null)
 
   return (
-    <Container>
-      <StyledTable>
-        <thead>
-          {table.getHeaderGroups().map((headerGroup) => (
-            <tr key={headerGroup.id}>
-              {headerGroup.headers.map((header) =>
-                header.column.id === 'expander' ? (
-                  <StyledTableHeader key={header.id} colSpan={header.colSpan}>
-                    {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
-                  </StyledTableHeader>
-                ) : (
-                  <StyledTableHeader
-                    key={header.id}
-                    colSpan={header.colSpan}
-                    {...{
-                      style: {
-                        cursor: header.column.getCanSort() ? 'pointer' : '',
-                      },
-                      onClick: header.column.getToggleSortingHandler(),
+    <>
+      <Container>
+        <StyledTable>
+          <thead>
+            {table.getHeaderGroups().map((headerGroup) => (
+              <tr key={headerGroup.id}>
+                {headerGroup.headers.map((header) =>
+                  header.column.id === 'expander' ? (
+                    <StyledTableHeader key={header.id} colSpan={header.colSpan}>
+                      {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
+                    </StyledTableHeader>
+                  ) : (
+                    <StyledTableHeader
+                      key={header.id}
+                      colSpan={header.colSpan}
+                      {...{
+                        style: {
+                          cursor: header.column.getCanSort() ? 'pointer' : '',
+                        },
+                        onClick: header.column.getToggleSortingHandler(),
+                      }}
+                    >
+                      {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
+                      {getSortIcon(header.column.getIsSorted() as SortDirection)}
+                    </StyledTableHeader>
+                  )
+                )}
+              </tr>
+            ))}
+          </thead>
+          <tbody>
+            {table.getRowModel().rows.map((row) => (
+              <tr key={row.id}>
+                {row.getVisibleCells().map((cell, cellIdx) => (
+                  <StyledTableData
+                    key={cell.id}
+                    style={{
+                      background: cellIdx % 2 === 1 ? 'white' : TRANSLUCENT_BRIGHT_BLUE_TABLE,
+                      textAlign: 'center',
                     }}
                   >
-                    {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
-                    {getSortIcon(header.column.getIsSorted() as SortDirection)}
-                  </StyledTableHeader>
-                )
-              )}
-            </tr>
-          ))}
-        </thead>
-        <tbody>
-          {table.getRowModel().rows.map((row) => (
-            <tr key={row.id}>
-              {row.getVisibleCells().map((cell, cellIdx) => (
-                <StyledTableData
-                  key={cell.id}
-                  style={{
-                    background: cellIdx % 2 === 1 ? 'white' : TRANSLUCENT_BRIGHT_BLUE_TABLE,
-                    textAlign: 'center',
-                  }}
-                >
-                  {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                </StyledTableData>
-              ))}
-            </tr>
-          ))}
-        </tbody>
-      </StyledTable>
-      <div className="h-2" />
-      <div className="flex items-center gap-2">
-        <button
-          className="border rounded p-1"
-          onClick={() => table.setPageIndex(0)}
-          disabled={!table.getCanPreviousPage()}
-        >
-          {'<<'}
-        </button>
-        <button
-          className="border rounded p-1"
-          onClick={() => table.previousPage()}
-          disabled={!table.getCanPreviousPage()}
-        >
-          {'<'}
-        </button>
-        <button
-          data-testid="next-page-chevron"
-          className="border rounded p-1"
-          onClick={() => table.nextPage()}
-          disabled={!table.getCanNextPage()}
-        >
-          {'>'}
-        </button>
-        <button
-          className="border rounded p-1"
-          onClick={() => table.setPageIndex(table.getPageCount() - 1)}
-          disabled={!table.getCanNextPage()}
-        >
-          {'>>'}
-        </button>
-        <span className="flex items-center gap-1">
-          <div>Page</div>
-          <strong>
-            {table.getState().pagination.pageIndex + 1} of {table.getPageCount()}
-          </strong>
-        </span>
-        <span className="flex items-center gap-1">
-          | Go to page:
-          <input
+                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                  </StyledTableData>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </StyledTable>
+      </Container>
+      <PaginationContainer>
+        <div style={{ float: 'left' }}>
+          <StyledPaginationPageSelect
+            value={table.getState().pagination.pageSize}
+            onChange={(e) => {
+              table.setPageSize(Number(e.target.value))
+            }}
+          >
+            {(tableOptions?.perPageOptions ?? [10, 20, 30, 40, 50]).map((pageSize) => (
+              <option key={pageSize} value={pageSize}>
+                {pageSize}
+              </option>
+            ))}
+          </StyledPaginationPageSelect>{' '}
+          <StyledHideOnMobile>Per Page</StyledHideOnMobile>
+        </div>
+        <div style={{ float: 'right' }}>
+          {dataQuery.isFetching ? (
+            <>
+              <Icon type="spinner" size="medium" /> <StyledHideOnMobile>Loading</StyledHideOnMobile>
+            </>
+          ) : null}
+          <StyledEmotionIconButton
+            iconProps={{ type: 'chevron-double', direction: 'left', size: '0.8rem' }}
+            onClick={() => table.setPageIndex(0)}
+            disabled={!table.getCanPreviousPage()}
+          />
+          <StyledIconButton
+            iconProps={{ type: 'chevron', direction: 'left', size: 'small' }}
+            onClick={() => table.previousPage()}
+            disabled={!table.getCanPreviousPage()}
+          />
+          <StyledPaginationPageInput
             type="number"
             defaultValue={table.getState().pagination.pageIndex + 1}
+            value={table.getState().pagination.pageIndex + 1}
             onChange={(e) => {
               const page = e.target.value ? Number(e.target.value) - 1 : 0
               table.setPageIndex(page)
             }}
-            className="border p-1 rounded w-16"
+          />{' '}
+          of <span style={{ marginRight: 5 }}>{table.getPageCount()}</span>
+          <StyledIconButton
+            iconProps={{ type: 'chevron', direction: 'right', size: 'small' }}
+            onClick={() => table.nextPage()}
+            disabled={!table.getCanNextPage()}
           />
-        </span>
-        <select
-          value={table.getState().pagination.pageSize}
-          onChange={(e) => {
-            table.setPageSize(Number(e.target.value))
-          }}
-        >
-          {[10, 20, 30, 40, 50].map((pageSize) => (
-            <option key={pageSize} value={pageSize}>
-              Show {pageSize}
-            </option>
-          ))}
-        </select>
-        {dataQuery.isFetching ? 'Loading...' : null}
-      </div>
-      <div>{table.getRowModel().rows.length} Rows</div>
-      <pre>{JSON.stringify(pagination, null, 2)}</pre>
-    </Container>
+          <StyledEmotionIconButton
+            iconProps={{ type: 'chevron-double', direction: 'right', size: '0.8rem' }}
+            onClick={() => table.setPageIndex(table.getPageCount() - 1)}
+            disabled={!table.getCanNextPage()}
+          />
+        </div>
+      </PaginationContainer>
+    </>
   )
 }
 
@@ -344,14 +396,15 @@ export default function TablePaginated(props: IProps): JSX.Element {
 }
 
 interface IProps {
-  tableData: TableData
-  fetchData: (options: IFetchDataOptions) => IPaginatedResult
+  tableData?: TableData
+  fetchData: (options: IFetchDataOptions) => Promise<IPaginatedResult>
   tableOptions?: ITableOptions
 }
 
 interface ITableOptions {
   showExpanderColumn?: boolean
   pageSize?: number
+  perPageOptions?: number[]
 }
 
 export interface IFetchDataOptions {
