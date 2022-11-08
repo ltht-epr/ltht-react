@@ -34,6 +34,7 @@
     "@ltht-react/utils": "^1.1.154",
     "@tanstack/react-table": "^8.5.22",
     "react": "^17.0.0",
+    "react-query": "^3.39.2",
     "react-uuid": "^2.0.0"
   },
   "gitHead": "4d364556bb11e294d86697c2dac66742f7aabc7f",
