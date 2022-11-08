@@ -5,7 +5,6 @@ import {
   StringDetail,
   AnnotationListDetail,
   CodeableConceptDetail,
-  CodeableConceptListDetail,
   DatetimeDetail,
   CodingListDetail,
   CollapsibleDetailCollection,
@@ -47,7 +46,7 @@ const DiagnosisDetail: FC<Props> = ({ condition, links, viewType = DetailViewTyp
       {condition.extensionData &&
         condition?.extensionData.map((item, index) => (
           <div key={`diagnosis-detail-questionnaire-${index}`}>
-            <Questionnaire questionnaire={item} showTitle viewType={viewType} />
+            <Questionnaire questionnaire={item} showTitle={false} viewType={viewType} />
             <Seperator />
           </div>
         ))}
@@ -56,11 +55,8 @@ const DiagnosisDetail: FC<Props> = ({ condition, links, viewType = DetailViewTyp
         <DatetimeDetail term="Onset Date" datetime={condition.onset?.dateTime} estimated={onsetDateEstimated} />
         <StringDetail term="Clinical Status" description={condition.clinicalStatus?.toString()} />
         <StringDetail term="Verification Status" description={condition.verificationStatus?.toString()} />
-        <CodeableConceptListDetail term="Category" concepts={condition.category} />
         <CodeableConceptDetail term="Severity" concept={condition.severity} />
-        <CodeableConceptListDetail term="Location" concepts={condition.bodySite} links={links} />
         <AnnotationListDetail term="Note(s)" notes={condition.note} />
-        <CodeableConceptDetail term="Stage" concept={condition.stage?.summary} links={links} />
         <AsserterDetail asserter={condition.asserter} />
         <DatetimeDetail term="Asserted Date" datetime={condition.assertedDate} />
         <DatetimeDetail term="Abatement Date" datetime={condition.abatement?.dateTime} />
