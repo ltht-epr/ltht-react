@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 import { FC, HTMLAttributes } from 'react'
-import Icon, { IconProps } from '../molecules/icon'
+import EmotionIcon, { EmotionIconProps } from '../molecules/emotion-icon'
 
 const StyledInvisibleButton = styled.button`
   border-width: 0;
@@ -15,17 +15,17 @@ const StyledText = styled.span`
   margin-left: 0.4rem;
 `
 
-const IconButton: FC<Props> = ({ iconProps, text, disabled, ...rest }) => (
+const EmotionIconButton: FC<Props> = ({ iconProps, text, disabled, ...rest }) => (
   <StyledInvisibleButton {...rest} disabled={disabled}>
-    <Icon {...iconProps} />
+    <EmotionIcon {...iconProps} />
     {text && <StyledText>{text}</StyledText>}
   </StyledInvisibleButton>
 )
 
 interface Props extends HTMLAttributes<HTMLButtonElement> {
-  iconProps: IconProps
+  iconProps: EmotionIconProps
   text?: string
   disabled?: boolean
 }
 
-export default IconButton
+export default EmotionIconButton

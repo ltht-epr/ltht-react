@@ -111,5 +111,3 @@ export const AllPurposeIcon: Story = () => (
     <br />
   </>
 )
-
-export default { title: 'UI/Molecules/Icon' }
