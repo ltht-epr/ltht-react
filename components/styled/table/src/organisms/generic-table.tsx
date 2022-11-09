@@ -28,23 +28,21 @@ const GenericTable = <TColumn, TRow>({
 }: IProps<TColumn, TRow>) => {
   const tableData = mapToTableData(columnData, rowData)
 
-  const fetchGenericData = async (options: IFetchDataOptions): Promise<IPaginatedResult> =>
-    new Promise(async (resolve, reject) => {
-      if (fetchData) {
-        const data = await fetchData(options)
-        return data
-          ? resolve({
-              tableData: mapToTableData(data.columnData, data.rowData) ?? {
-                headers: [],
-                rows: [],
-              },
-              totalCount: data.totalCount,
-            })
-          : reject('returned generic data was null or undefined!')
-      }
-
-      reject('fetchData funtion not defined for generic table!')
-    })
+  const fetchGenericData = async (options: IFetchDataOptions): Promise<IPaginatedResult> => {
+    if (!fetchData) {
+      throw new Error('`fetchData` funtion not defined for generic table!')
+    }
+    const data = await fetchData(options)
+    return {
+      tableData: data
+        ? mapToTableData(data.columnData, data.rowData)
+        : {
+            headers: [],
+            rows: [],
+          },
+      totalCount: data?.totalCount ?? 0,
+    }
+  }
 
   return headerAxis === 'y' ? (
     <Table tableData={prepareTableDataForCellCustomisation(tableData)} fetchData={fetchGenericData} {...props} />

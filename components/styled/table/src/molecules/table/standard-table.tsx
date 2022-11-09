@@ -42,13 +42,13 @@ const StandardTable = ({ tableData, tableOptions }: IStandardTableProps): JSX.El
     }),
     [pageIndex, pageSize]
   )
-  const tData = !tableData ? { headers: [], rows: [] } : tableData
+  const tData = useMemo(() => (!tableData ? { headers: [], rows: [] } : tableData), [tableData])
   const showExpanderColumn = tableOptions.showExpanderColumn ?? false
 
   useEffect(() => {
     setColumns(generateColumnsFromHeadersRecursively(tData.headers, showExpanderColumn))
     setData(generateRowsFromCellRows(tData.rows))
-  }, [tData])
+  }, [tData, showExpanderColumn])
 
   const table = useReactTable({
     data,
