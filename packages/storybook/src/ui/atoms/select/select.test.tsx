@@ -6,15 +6,15 @@ import { FC, useState } from 'react'
 const mockOptions = [
   {
     value: 'option-1',
-    display: 'Option 1',
+    label: 'Option 1',
   },
   {
     value: 'option-2',
-    display: 'Option 2',
+    label: 'Option 2',
   },
   {
     value: 'option-3',
-    display: 'Option 3',
+    label: 'Option 3',
   },
 ]
 
@@ -25,8 +25,8 @@ const TestWrapper: FC<ITestWrapperProps> = ({ initialValue, onSelect }) => {
     <Select
       options={mockOptions}
       value={value}
-      onSelect={(e) => {
-        setValue(e)
+      onChange={(e) => {
+        setValue(e.target.value)
         onSelect && onSelect(e)
       }}
     />
@@ -39,7 +39,7 @@ interface ITestWrapperProps {
 
 describe('<Select />', () => {
   it('Renders', () => {
-    render(<Select options={mockOptions} value="option-1" onSelect={jest.fn()} />)
+    render(<Select options={mockOptions} value="option-1" required={false} />)
   })
 
   it('Displays the active option when that option is clicked', async () => {
@@ -57,6 +57,8 @@ describe('<Select />', () => {
 
     userEvent.selectOptions(await screen.findByDisplayValue('Option 1'), 'Option 3')
 
-    expect(callbackMock).toHaveBeenCalledWith('option-3')
+    expect(callbackMock).toHaveBeenCalledWith(
+      expect.objectContaining({ target: expect.objectContaining({ value: 'option-3' }) })
+    )
   })
 })
