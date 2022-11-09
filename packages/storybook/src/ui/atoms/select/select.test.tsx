@@ -1,108 +1,62 @@
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import Select from '@ltht-react/select'
-
-const mockOnClick1 = jest.fn()
-const mockOnClick2 = jest.fn()
-const mockOnClick3 = jest.fn()
+import { FC, useState } from 'react'
 
 const mockOptions = [
   {
-    id: 'option-1',
-    displayName: 'Option 1',
-    onClick: () => mockOnClick1,
+    value: 'option-1',
+    display: 'Option 1',
   },
   {
-    id: 'option-2',
-    displayName: 'Option 2',
-    onClick: () => mockOnClick2,
+    value: 'option-2',
+    display: 'Option 2',
   },
   {
-    id: 'option-3',
-    displayName: 'Option 3',
-    onClick: () => mockOnClick3,
+    value: 'option-3',
+    display: 'Option 3',
   },
 ]
 
+const TestWrapper: FC<ITestWrapperProps> = ({ initialValue, onSelect }) => {
+  const [value, setValue] = useState<string | undefined>(initialValue)
+
+  return (
+    <Select
+      options={mockOptions}
+      value={value}
+      onSelect={(e) => {
+        setValue(e)
+        onSelect && onSelect(e)
+      }}
+    />
+  )
+}
+interface ITestWrapperProps {
+  initialValue?: string
+  onSelect?: (e: any) => void
+}
+
 describe('<Select />', () => {
   it('Renders', () => {
-    render(
-      <Select>
-        {mockOptions.map(({ id, displayName, onClick }) => (
-          <Select.Option key={`select-option-${id}`} id={id} onClick={onClick} active={false}>
-            {displayName}
-          </Select.Option>
-        ))}
-      </Select>
-    )
+    render(<Select options={mockOptions} value="option-1" onSelect={jest.fn()} />)
   })
 
-  it('Displays the active option when that option is clicked', () => {
-    render(
-      <Select>
-        {mockOptions.map(({ id, displayName, onClick }) => (
-          <Select.Option key={`select-option-${id}`} id={id} onClick={onClick} active={false}>
-            {displayName}
-          </Select.Option>
-        ))}
-      </Select>
-    )
+  it('Displays the active option when that option is clicked', async () => {
+    render(<TestWrapper initialValue={mockOptions[0].value} />)
+
+    userEvent.selectOptions(await screen.findByDisplayValue('Option 1'), 'Option 2')
+
+    await screen.findByDisplayValue('Option 2')
   })
 
-  describe('Open/Close', () => {
-    beforeEach(() => {
-      render(
-        <Select>
-          {mockOptions.map(({ id, displayName, onClick }) => (
-            <Select.Option key={`select-option-${id}`} id={id} onClick={onClick} active={false}>
-              {displayName}
-            </Select.Option>
-          ))}
-        </Select>
-      )
-    })
+  it('Should call back when an option is clicked', async () => {
+    const callbackMock = jest.fn()
 
-    it('Should open and close when the dropdown is clicked', () => {
-      expect(screen.getByTestId('select-options')).not.toBeVisible()
+    render(<TestWrapper initialValue={mockOptions[0].value} onSelect={callbackMock} />)
 
-      // Open dropdown
-      userEvent.click(screen.getByTestId('select-trigger'))
-      expect(screen.getByTestId('select-options')).toBeVisible()
+    userEvent.selectOptions(await screen.findByDisplayValue('Option 1'), 'Option 3')
 
-      mockOptions.forEach(({ displayName }) => expect(screen.getByText(displayName)).toBeInTheDocument())
-
-      // Close dropdown
-      userEvent.click(screen.getByTestId('select-trigger'))
-      expect(screen.getByTestId('select-options')).not.toBeVisible()
-    })
-
-    it('Should close the dropdown when an option is clicked', () => {
-      // Open dropdown
-      userEvent.click(screen.getByTestId('select-trigger'))
-      expect(screen.getByTestId('select-options')).toBeVisible()
-
-      userEvent.click(screen.getByText('Option 1'))
-      expect(screen.getByTestId('select-options')).not.toBeVisible()
-    })
-
-    it('Should close the dropdown when the "Enter" key is pressed', () => {
-      // Open dropdown
-      userEvent.click(screen.getByTestId('select-trigger'))
-      expect(screen.getByTestId('select-options')).toBeVisible()
-
-      userEvent.type(screen.getByTestId('select-trigger'), '{esc}', { skipClick: true })
-
-      expect(screen.getByTestId('select-options')).not.toBeVisible()
-    })
-
-    it('Should close the dropdown when the user clicks outside of the element', () => {
-      // Open dropdown
-      userEvent.click(screen.getByTestId('select-trigger'))
-      expect(screen.getByTestId('select-options')).toBeVisible()
-
-      userEvent.click(document.body)
-
-      expect(screen.getByTestId('select-options')).not.toBeVisible()
-    })
+    expect(callbackMock).toHaveBeenCalledWith('option-3')
   })
 })
