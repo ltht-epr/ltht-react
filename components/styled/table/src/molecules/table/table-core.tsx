@@ -1,8 +1,8 @@
 import { FC } from 'react'
 import { ColumnDef, createColumnHelper, flexRender, SortDirection, Table } from '@tanstack/react-table'
 import uuid from 'react-uuid'
-import { StyledTableHeader, StyledTableData } from './table-styles'
 import { TRANSLUCENT_BRIGHT_BLUE_TABLE } from '@ltht-react/styles'
+import { StyledTableHeader, StyledTableData } from './table-styles'
 
 const columnHelper = createColumnHelper<DataRow>()
 
@@ -12,6 +12,8 @@ export const DefaultTableOptions = {
   enablePagination: false,
   serverSidePagination: false,
 }
+
+export const DefaultPerPageOptions = [10, 20, 30, 40, 50]
 
 export const generateColumnsFromHeadersRecursively = (
   headers: Header[],

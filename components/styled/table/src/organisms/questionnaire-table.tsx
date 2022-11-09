@@ -4,7 +4,7 @@ import { Icon } from '@ltht-react/icon'
 import Table, { IFetchDataOptions, IPaginatedResult, ITableOptions } from '../molecules/table'
 import mapQuestionnaireDefinitionAndResponsesToTableData from './questionnaire-table-methods'
 
-const QuestionnaireTable: FC<IProps> = ({ definition, records, headerAxis = 'y', ...props }) => {
+const QuestionnaireTable: FC<IProps> = ({ definition, records, headerAxis = 'y', fetchData, ...props }) => {
   const tableData = useMemo(() => mapQuestionnaireDefinitionAndResponsesToTableData(definition, records, headerAxis), [
     headerAxis,
     definition,
@@ -22,7 +22,29 @@ const QuestionnaireTable: FC<IProps> = ({ definition, records, headerAxis = 'y',
     )
   }
 
-  return <Table tableData={tableData} {...props} />
+  const fetchQuestionnaireData = async (options: IFetchDataOptions): Promise<IPaginatedResult> =>
+    new Promise(async (resolve, reject) => {
+      if (fetchData) {
+        const data = await fetchData(options)
+        return data
+          ? resolve({
+              tableData: mapQuestionnaireDefinitionAndResponsesToTableData(
+                data.definition,
+                data.records,
+                headerAxis
+              ) ?? {
+                headers: [],
+                rows: [],
+              },
+              totalCount: data.totalCount,
+            })
+          : reject('returned questionnaire data was null or undefined!')
+      }
+
+      reject('fetchData funtion not defined for questionnaire table!')
+    })
+
+  return <Table tableData={tableData} fetchData={fetchQuestionnaireData} {...props} />
 }
 
 interface IProps {
@@ -30,7 +52,9 @@ interface IProps {
   records: QuestionnaireResponse[]
   headerAxis?: Axis
   tableOptions?: ITableOptions
-  fetchData?: (options: IFetchDataOptions) => Promise<IPaginatedResult>
+  fetchData?: (
+    options: IFetchDataOptions
+  ) => Promise<{ definition: Questionnaire; records: QuestionnaireResponse[]; totalCount: number }>
 }
 
 export default QuestionnaireTable
