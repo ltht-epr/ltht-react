@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { ChangeEvent, useState } from 'react'
 import styled from '@emotion/styled'
 import { Story } from '@storybook/react'
 import Select from '@ltht-react/select'
@@ -15,8 +15,8 @@ const StyledSelectContainer = styled.div`
 
 export const DropdownSelect: Story = () => {
   const [value, setValue] = useState('all')
-  const handleOptionClick = (value: any) => {
-    setValue(value)
+  const handleOptionClick = (value: ChangeEvent<HTMLSelectElement>) => {
+    setValue(value.target.value)
     // eslint-disable-next-line no-console
     console.log(`${value} clicked!`)
   }
@@ -24,15 +24,15 @@ export const DropdownSelect: Story = () => {
   const options = [
     {
       value: 'active',
-      display: 'Active',
+      label: 'Active',
     },
     {
       value: 'all',
-      display: 'All',
+      label: 'All',
     },
     {
       value: 'custom',
-      display: 'Custom',
+      label: 'Custom',
     },
   ]
 
@@ -41,7 +41,7 @@ export const DropdownSelect: Story = () => {
       <Card.Header>Select input</Card.Header>
       <Card.Body>
         <StyledSelectContainer>
-          <Select options={options} onSelect={handleOptionClick} value={value}></Select>
+          <Select options={options} onChange={handleOptionClick} value={value}></Select>
         </StyledSelectContainer>
       </Card.Body>
     </Card>
