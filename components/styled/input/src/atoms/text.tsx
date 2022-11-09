@@ -1,7 +1,6 @@
-import { FC, InputHTMLAttributes } from 'react'
-import { SearchIcon } from '@ltht-react/icon'
+import { FC, InputHTMLAttributes, ReactElement } from 'react'
 import styled from '@emotion/styled'
-import { DESKTOP_MINIMUM_MEDIA_QUERY } from '@ltht-react/styles'
+import { DESKTOP_MINIMUM_MEDIA_QUERY, inputBaseStyles } from '@ltht-react/styles'
 
 const TextInputContainer = styled.div`
   width: 100%;
@@ -13,12 +12,11 @@ const TextInputContainer = styled.div`
   }
 `
 
-const StyledTextInput = styled.input`
+const StyledTextInput: FC<IStyledTextInputProps> = styled.input`
   width: 100%;
-  box-sizing: border-box;
-  border: 1px solid black;
+  ${inputBaseStyles}
   padding: 0.5rem 1rem 0.5rem 1.75rem;
-
+  padding-left: ${({ hasIcon }: IStyledTextInputProps) => (hasIcon ? '1.75rem' : '0.5rem')};
   &::placeholder {
     color: #98a4ad;
   }
@@ -28,7 +26,7 @@ const StyledTextInput = styled.input`
   }
 `
 
-const StyledSearchIcon = styled(SearchIcon)`
+const StyledIconWrapper = styled.div`
   position: absolute;
   left: 8px;
   top: 50%;
@@ -43,11 +41,19 @@ const StyledSearchIcon = styled(SearchIcon)`
   }
 `
 
-const TextInput: FC<InputHTMLAttributes<HTMLInputElement>> = ({ placeholder, ...rest }) => (
+const TextInput: FC<ITextInputProps> = ({ placeholder, icon, ...rest }) => (
   <TextInputContainer>
-    <StyledSearchIcon size="medium" />
-    <StyledTextInput type="text" placeholder={placeholder} {...rest} />
+    {icon && <StyledIconWrapper>{icon}</StyledIconWrapper>}
+    <StyledTextInput type="text" placeholder={placeholder} {...rest} hasIcon={icon !== undefined} />
   </TextInputContainer>
 )
+
+interface ITextInputProps extends InputHTMLAttributes<HTMLInputElement> {
+  icon?: ReactElement
+}
+
+interface IStyledTextInputProps extends ITextInputProps {
+  hasIcon: boolean
+}
 
 export default TextInput
