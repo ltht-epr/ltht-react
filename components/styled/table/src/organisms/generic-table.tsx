@@ -1,6 +1,6 @@
 import { Axis } from '@ltht-react/types'
 import { FC } from 'react'
-import Table, { ICellProps, TableData } from '../molecules/table'
+import Table, { ICellProps, TableData, ITableOptions, IFetchDataOptions, IPaginatedResult } from '../molecules/table'
 
 const prepareTableDataForCellCustomisation = (tableData: TableData) => {
   const data = tableData
@@ -23,13 +23,14 @@ const GenericTable = <TColumn, TRow>({
   rowData,
   headerAxis = 'x',
   mapToTableData,
+  ...props
 }: IProps<TColumn, TRow>) => {
   const tableData = mapToTableData(columnData, rowData)
 
   return headerAxis === 'y' ? (
-    <Table tableData={prepareTableDataForCellCustomisation(tableData)} />
+    <Table tableData={prepareTableDataForCellCustomisation(tableData)} {...props} />
   ) : (
-    <Table tableData={tableData} />
+    <Table tableData={tableData} {...props} />
   )
 }
 
@@ -38,6 +39,8 @@ interface IProps<TColumn, TRow> {
   columnData: TColumn
   rowData: TRow
   mapToTableData: (colData: TColumn, rowData: TRow) => TableData
+  tableOptions?: ITableOptions
+  fetchData?: (options: IFetchDataOptions) => Promise<IPaginatedResult>
 }
 
 export default GenericTable
