@@ -6,7 +6,9 @@ export const SimpleTable: Story = () => <Table tableData={mockTableData} />
 
 export const TableWithSubheaders: Story = () => <Table tableData={mockTableDataWithSubheaders} />
 
-export const TableWithSubrows: Story = () => <Table tableData={mockTableDataWithSubrows} />
+export const TableWithSubrows: Story = () => (
+  <Table tableData={mockTableDataWithSubrows} tableOptions={{ showExpanderColumn: true }} />
+)
 
 export const TableWithScrollbar: Story = () => (
   <div style={{ maxWidth: '200px', height: '100px' }}>

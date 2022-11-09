@@ -10,7 +10,7 @@ import {
   SortingState,
   PaginationState,
 } from '@tanstack/react-table'
-import { Container, StyledTable } from './table-styles'
+import { Container, StyledTable, ScrollableContainer } from './table-styles'
 import PaginationControls from './pagination-controls'
 import {
   buildTableBody,
@@ -74,7 +74,7 @@ const ServerSidePaginatedTable = ({ tableOptions, fetchData }: IServerSidePagina
   const table = useReactTable({
     data,
     columns,
-    pageCount: pageCount,
+    pageCount,
     state: {
       expanded,
       sorting,
@@ -91,20 +91,20 @@ const ServerSidePaginatedTable = ({ tableOptions, fetchData }: IServerSidePagina
   })
 
   return (
-    <>
-      <Container>
+    <Container>
+      <ScrollableContainer>
         <StyledTable>
           {buildTableHead(table)}
           {buildTableBody(table)}
         </StyledTable>
-      </Container>
+      </ScrollableContainer>
       <PaginationControls
         table={table}
         isFetching={dataQuery.isFetching}
-        serverSidePagination={true}
+        serverSidePagination
         perPageOptions={tableOptions?.perPageOptions}
       />
-    </>
+    </Container>
   )
 }
 

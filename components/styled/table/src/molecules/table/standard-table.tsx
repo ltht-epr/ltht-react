@@ -10,7 +10,7 @@ import {
   PaginationState,
   getPaginationRowModel,
 } from '@tanstack/react-table'
-import { Container, StyledTable } from './table-styles'
+import { Container, StyledTable, ScrollableContainer } from './table-styles'
 import PaginationControls from './pagination-controls'
 import {
   buildTableBody,
@@ -73,13 +73,13 @@ const StandardTable = ({ tableData, tableOptions }: IStandardTableProps): JSX.El
   })
 
   return (
-    <>
-      <Container>
+    <Container>
+      <ScrollableContainer>
         <StyledTable>
           {buildTableHead(table)}
           {buildTableBody(table)}
         </StyledTable>
-      </Container>
+      </ScrollableContainer>
       {tableOptions.enablePagination ? (
         <PaginationControls
           table={table}
@@ -88,7 +88,7 @@ const StandardTable = ({ tableData, tableOptions }: IStandardTableProps): JSX.El
           serverSidePagination={false}
         />
       ) : null}
-    </>
+    </Container>
   )
 }
 

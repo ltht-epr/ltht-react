@@ -3,11 +3,18 @@ import styled from '@emotion/styled'
 
 const Container = styled.div`
   ${CSS_RESET};
-  background-color: white;
-  border-radius: 6px;
   display: inline-block;
   max-width: 100%;
   max-height: 100%;
+  border-radius: 6px;
+`
+const ScrollableContainer = styled.div`
+  ${CSS_RESET};
+  background-color: white;
+  display: inline-block;
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 6px;
   overflow: scroll;
   &::-webkit-scrollbar {
     width: 7px;
@@ -42,6 +49,8 @@ const StyledTableData = styled.td`
 const PaginationContainer = styled.div`
   ${CSS_RESET};
   margin-top: 5px;
+  display: flex;
+  justify-content: space-between;
 `
 const paginationButtonStyle = `
 padding: 2px 5px;
@@ -86,4 +95,5 @@ export {
   StyledPaginationPageSelect,
   StyledHideOnMobile,
   paginationButtonStyle,
+  ScrollableContainer,
 }
