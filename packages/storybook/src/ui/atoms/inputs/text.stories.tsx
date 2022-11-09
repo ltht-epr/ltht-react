@@ -1,6 +1,5 @@
 import { Story } from '@storybook/react'
 import { TextInput as Input } from '@ltht-react/input'
-import { SearchIcon } from '@ltht-react/icon'
 import Card from '@ltht-react/card'
 
 // eslint-disable-next-line import/prefer-default-export
@@ -9,7 +8,7 @@ export const TextInput: Story = () => (
     <Card>
       <Card.Header>Search input</Card.Header>
       <Card.Body>
-        <Input placeholder="Search" type="search" icon={<SearchIcon size="medium" />} />
+        <Input placeholder="Search" type="search" icon={{ size: 'medium', type: 'search' }} />
       </Card.Body>
     </Card>
     <Card>

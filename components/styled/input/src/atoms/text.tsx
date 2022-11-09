@@ -1,6 +1,7 @@
-import { FC, InputHTMLAttributes, ReactElement } from 'react'
+import { FC, InputHTMLAttributes } from 'react'
 import styled from '@emotion/styled'
 import { DESKTOP_MINIMUM_MEDIA_QUERY, inputBaseStyles } from '@ltht-react/styles'
+import { Icon, IconProps } from '@ltht-react/icon'
 
 const TextInputContainer = styled.div`
   width: 100%;
@@ -26,15 +27,12 @@ const StyledTextInput: FC<IStyledTextInputProps> = styled.input`
   }
 `
 
-const StyledIconWrapper = styled.div`
+const StyledIcon = styled(Icon)`
   position: absolute;
   left: 8px;
   top: 50%;
   transform: translateY(-50%);
-
-  svg {
-    color: #98a4ad;
-  }
+  color: #98a4ad;
 
   ${DESKTOP_MINIMUM_MEDIA_QUERY} {
     width: auto;
@@ -43,13 +41,13 @@ const StyledIconWrapper = styled.div`
 
 const TextInput: FC<ITextInputProps> = ({ placeholder, icon, ...rest }) => (
   <TextInputContainer>
-    {icon && <StyledIconWrapper>{icon}</StyledIconWrapper>}
+    {icon && <StyledIcon {...icon} />}
     <StyledTextInput type="text" placeholder={placeholder} {...rest} hasIcon={icon !== undefined} />
   </TextInputContainer>
 )
 
 interface ITextInputProps extends InputHTMLAttributes<HTMLInputElement> {
-  icon?: ReactElement
+  icon?: IconProps
 }
 
 interface IStyledTextInputProps extends ITextInputProps {
