@@ -20,7 +20,8 @@ import {
 const queryClient = new QueryClient()
 
 const Table = (props: IProps): JSX.Element => {
-  let { tableOptions, fetchData, tableData } = props
+  let { tableOptions } = props
+  const { fetchData, tableData } = props
 
   if (!tableOptions) {
     tableOptions = DefaultTableOptions

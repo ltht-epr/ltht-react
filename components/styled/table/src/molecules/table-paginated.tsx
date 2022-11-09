@@ -8,7 +8,8 @@ import { DefaultTableOptions, IFetchDataOptions, IPaginatedResult, ITableOptions
 const queryClient = new QueryClient()
 
 export default function TablePaginated(props: IProps): JSX.Element {
-  let { tableOptions, fetchData, tableData } = props
+  let { tableOptions } = props
+  const { fetchData, tableData } = props
 
   if (!tableOptions) {
     tableOptions = DefaultTableOptions

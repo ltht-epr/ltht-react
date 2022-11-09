@@ -37,6 +37,8 @@ const ServerSidePaginatedTable = ({ tableOptions, fetchData }: IServerSidePagina
     pageSize: tableOptions?.pageSize ?? 10,
   })
 
+  const showExpanderColumn = tableOptions?.showExpanderColumn ?? false
+
   const fetchDataOptions = {
     pageIndex,
     pageSize,
@@ -62,14 +64,12 @@ const ServerSidePaginatedTable = ({ tableOptions, fetchData }: IServerSidePagina
   useEffect(() => {
     setTableDataState(dataQuery.data?.tableData ?? { headers: [], rows: [] })
     setPageCount(Math.ceil((dataQuery.data?.totalCount ?? 0) / pageSize))
-  }, [dataQuery.data, dataQuery.dataUpdatedAt])
+  }, [dataQuery.data, dataQuery.dataUpdatedAt, pageSize])
 
   useEffect(() => {
-    setColumns(
-      generateColumnsFromHeadersRecursively(tableData.headers ?? [], tableOptions?.showExpanderColumn ?? false)
-    )
+    setColumns(generateColumnsFromHeadersRecursively(tableData.headers ?? [], showExpanderColumn))
     setData(generateRowsFromCellRows(tableData.rows ?? []))
-  }, [tableData])
+  }, [tableData, showExpanderColumn])
 
   const table = useReactTable({
     data,
