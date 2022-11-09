@@ -1,15 +1,9 @@
-import { css } from '@emotion/react'
-import styled from '@emotion/styled'
 import { FC } from 'react'
-
-export const filterInputBase = css`
-  border-color: darkgrey;
-  border-radius: 5px;
-  border-width: 2px !important;
-`
+import styled from '@emotion/styled'
+import { inputBaseStyles } from '@ltht-react/styles'
 
 const StyledSelect = styled.select`
-  ${filterInputBase}
+  ${inputBaseStyles}
   height:100%;
   width: 100%;
   color: black;
