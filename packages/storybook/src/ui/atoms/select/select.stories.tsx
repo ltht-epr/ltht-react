@@ -1,8 +1,9 @@
-import { useState } from 'react'
+import { ChangeEvent, useState } from 'react'
 import styled from '@emotion/styled'
 import { Story } from '@storybook/react'
 import Select from '@ltht-react/select'
 import { DESKTOP_MINIMUM_MEDIA_QUERY } from '@ltht-react/styles'
+import Card from '@ltht-react/card'
 
 const StyledSelectContainer = styled.div`
   width: 100%;
@@ -13,42 +14,37 @@ const StyledSelectContainer = styled.div`
 `
 
 export const DropdownSelect: Story = () => {
-  const [activeOption, setActiveOption] = useState('')
-
-  const handleOptionClick = (id: string, displayName: string) => {
+  const [value, setValue] = useState('all')
+  const handleOptionClick = (value: ChangeEvent<HTMLSelectElement>) => {
+    setValue(value.target.value)
     // eslint-disable-next-line no-console
-    console.log(`${id} clicked!`)
-    setActiveOption(displayName)
+    console.log(`${value} clicked!`)
   }
 
   const options = [
     {
-      id: 'active',
-      displayName: 'Active',
-      onClick: () => handleOptionClick('active', 'Active'),
+      value: 'active',
+      label: 'Active',
     },
     {
-      id: 'all',
-      displayName: 'All',
-      onClick: () => handleOptionClick('all', 'All'),
+      value: 'all',
+      label: 'All',
     },
     {
-      id: 'custom',
-      displayName: 'Custom',
-      onClick: () => handleOptionClick('custom', 'Custom'),
+      value: 'custom',
+      label: 'Custom',
     },
   ]
 
   return (
-    <StyledSelectContainer>
-      <Select activeOption={activeOption}>
-        {options.map(({ id, displayName, onClick }) => (
-          <Select.Option key={`select-option-${id}`} id={id} onClick={onClick} active={displayName === activeOption}>
-            {displayName}
-          </Select.Option>
-        ))}
-      </Select>
-    </StyledSelectContainer>
+    <Card>
+      <Card.Header>Select input</Card.Header>
+      <Card.Body>
+        <StyledSelectContainer>
+          <Select options={options} onChange={handleOptionClick} value={value} />
+        </StyledSelectContainer>
+      </Card.Body>
+    </Card>
   )
 }
 
