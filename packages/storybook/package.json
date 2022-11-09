@@ -86,7 +86,8 @@
     "date-fns": "^2.22.1",
     "react": "^17.0.0",
     "react-day-picker": "^8.0.7",
-    "react-dom": "^17.0.0"
+    "react-dom": "^17.0.0",
+    "react-uuid": "^2.0.0"
   },
   "gitHead": "4d364556bb11e294d86697c2dac66742f7aabc7f"
 }

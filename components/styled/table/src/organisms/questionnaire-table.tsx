@@ -22,27 +22,25 @@ const QuestionnaireTable: FC<IProps> = ({ definition, records, headerAxis = 'y',
     )
   }
 
-  const fetchQuestionnaireData = async (options: IFetchDataOptions): Promise<IPaginatedResult> =>
-    new Promise(async (resolve, reject) => {
-      if (fetchData) {
-        const data = await fetchData(options)
-        return data
-          ? resolve({
-              tableData: mapQuestionnaireDefinitionAndResponsesToTableData(
-                data.definition,
-                data.records,
-                headerAxis
-              ) ?? {
-                headers: [],
-                rows: [],
-              },
-              totalCount: data.totalCount,
-            })
-          : reject('returned questionnaire data was null or undefined!')
-      }
+  const fetchQuestionnaireData = async (options: IFetchDataOptions): Promise<IPaginatedResult> => {
+    if (!fetchData) {
+      throw new Error('`fetchData` funtion not defined for questionnaire table!')
+    }
 
-      reject('fetchData funtion not defined for questionnaire table!')
-    })
+    const data = await fetchData(options)
+    const emptyTableData = {
+      headers: [],
+      rows: [],
+    }
+
+    return {
+      tableData:
+        (data
+          ? mapQuestionnaireDefinitionAndResponsesToTableData(data.definition, data.records, headerAxis)
+          : emptyTableData) ?? emptyTableData,
+      totalCount: data?.totalCount ?? 0,
+    }
+  }
 
   return <Table tableData={tableData} fetchData={fetchQuestionnaireData} {...props} />
 }
