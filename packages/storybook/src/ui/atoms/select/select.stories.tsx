@@ -41,7 +41,7 @@ export const DropdownSelect: Story = () => {
       <Card.Header>Select input</Card.Header>
       <Card.Body>
         <StyledSelectContainer>
-          <Select options={options} onChange={handleOptionClick} value={value}></Select>
+          <Select options={options} onChange={handleOptionClick} value={value} />
         </StyledSelectContainer>
       </Card.Body>
     </Card>

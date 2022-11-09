@@ -34,6 +34,7 @@ const TestWrapper: FC<ITestWrapperProps> = ({ initialValue, onSelect }) => {
 }
 interface ITestWrapperProps {
   initialValue?: string
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onSelect?: (e: any) => void
 }
 
