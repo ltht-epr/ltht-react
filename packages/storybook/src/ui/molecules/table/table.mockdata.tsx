@@ -1,4 +1,5 @@
-import { TableData } from '@ltht-react/table'
+import { CellRow, TableData } from '@ltht-react/table'
+import { faker } from '@faker-js/faker'
 
 export const mockTableData: TableData = {
   headers: [
@@ -117,4 +118,47 @@ export const mockTableDataWithSubrows: TableData = {
       ],
     },
   ],
+}
+
+const makeData = (x: number): CellRow[] => {
+  const array: CellRow[] = []
+  for (let i = 0; i < x; i++) {
+    array.push({
+      cells: [
+        { key: 'name', value: `${faker.name.fullName()}` },
+        { key: 'question1', value: faker.address.cityName() },
+        { key: 'question2', value: faker.date.birthdate().toDateString() },
+        { key: 'question3', value: faker.color.human() },
+        { key: 'question4', value: faker.phone.number() },
+      ],
+    })
+  }
+
+  return array
+}
+
+export const mockTableDataForPagination: TableData = {
+  headers: [
+    {
+      accessor: 'name',
+      header: 'Name',
+    },
+    {
+      header: 'Home Town',
+      accessor: 'question1',
+    },
+    {
+      header: 'Date of Birth',
+      accessor: 'question2',
+    },
+    {
+      header: 'Favourite Color',
+      accessor: 'question3',
+    },
+    {
+      header: 'Phone',
+      accessor: 'question4',
+    },
+  ],
+  rows: [...makeData(50)],
 }
