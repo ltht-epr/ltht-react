@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, SelectHTMLAttributes } from 'react'
 import styled from '@emotion/styled'
 import { inputBaseStyles } from '@ltht-react/styles'
 
@@ -13,8 +13,8 @@ const StyledSelect = styled.select`
   }
 `
 
-const Select: FC<ISelectProps> = ({ onSelect, options, value }) => (
-  <StyledSelect required onChange={(e) => onSelect(e.target.value)} value={value}>
+const Select: FC<ISelectProps> = ({ onChange, options, value, ...rest }) => (
+  <StyledSelect required onChange={(e) => onChange(e.target.value)} value={value} {...rest}>
     {options.map((item, key) => (
       <option key={key} value={item.value}>
         {item.display}
@@ -23,8 +23,8 @@ const Select: FC<ISelectProps> = ({ onSelect, options, value }) => (
   </StyledSelect>
 )
 
-interface ISelectProps {
-  onSelect: (value: any) => void
+interface ISelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
+  onChange: (value: any) => void
   options: { display: string; value?: string | number }[]
   value: any
 }
