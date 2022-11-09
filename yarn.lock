@@ -2209,7 +2209,7 @@
     "@babel/runtime" "^7.14.8"
     "@emotion-icons/emotion-icon" "4.1.0"
 
-"@emotion-icons/heroicons-solid@3.18.0":
+"@emotion-icons/heroicons-solid@3.18.0", "@emotion-icons/heroicons-solid@^3.18.0":
   version "3.18.0"
   resolved "https://registry.yarnpkg.com/@emotion-icons/heroicons-solid/-/heroicons-solid-3.18.0.tgz#d4203641b603f5705381159c2a9d1041eefe01f1"
   integrity sha512-fIuLEBt/S9v4yaIzlJPepkkpCihiv7Ru/8WEsMz0eIr1mZWq2uxfk/B43l6p7FUdrF1dDUG7ONCbGo/z2RncQg==
