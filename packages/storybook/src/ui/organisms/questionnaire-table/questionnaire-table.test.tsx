@@ -12,7 +12,14 @@ import {
 
 describe('Questionnaire Table (using Fixture data)', () => {
   it('Renders Vertically', () => {
-    render(<QuestionnaireTable definition={summaryDefinition} records={summaryRecordsList} headerAxis="y" />)
+    render(
+      <QuestionnaireTable
+        definition={summaryDefinition}
+        records={summaryRecordsList}
+        headerAxis="y"
+        tableOptions={{ showExpanderColumn: true }}
+      />
+    )
 
     expect(screen.getByRole('table')).toBeVisible()
 
@@ -199,14 +206,7 @@ describe('Questionnaire Table (using mock Monty Python data)', () => {
   })
 
   it('Renders horizontal table with multiple row headers. total 13 columns to be visible', () => {
-    render(
-      <QuestionnaireTable
-        definition={mockSummaryDefinition}
-        records={mockSummaryRecordsList}
-        headerAxis="x"
-        tableOptions={{ showExpanderColumn: true }}
-      />
-    )
+    render(<QuestionnaireTable definition={mockSummaryDefinition} records={mockSummaryRecordsList} headerAxis="x" />)
 
     expect(screen.getAllByRole('columnheader').length).toBe(13)
   })
