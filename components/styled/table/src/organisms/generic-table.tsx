@@ -23,14 +23,33 @@ const GenericTable = <TColumn, TRow>({
   rowData,
   headerAxis = 'x',
   mapToTableData,
+  fetchData,
   ...props
 }: IProps<TColumn, TRow>) => {
   const tableData = mapToTableData(columnData, rowData)
 
+  const fetchGenericData = async (options: IFetchDataOptions): Promise<IPaginatedResult> =>
+    new Promise(async (resolve, reject) => {
+      if (fetchData) {
+        const data = await fetchData(options)
+        return data
+          ? resolve({
+              tableData: mapToTableData(data.columnData, data.rowData) ?? {
+                headers: [],
+                rows: [],
+              },
+              totalCount: data.totalCount,
+            })
+          : reject('returned generic data was null or undefined!')
+      }
+
+      reject('fetchData funtion not defined for generic table!')
+    })
+
   return headerAxis === 'y' ? (
-    <Table tableData={prepareTableDataForCellCustomisation(tableData)} {...props} />
+    <Table tableData={prepareTableDataForCellCustomisation(tableData)} fetchData={fetchGenericData} {...props} />
   ) : (
-    <Table tableData={tableData} {...props} />
+    <Table tableData={tableData} fetchData={fetchGenericData} {...props} />
   )
 }
 
@@ -40,7 +59,7 @@ interface IProps<TColumn, TRow> {
   rowData: TRow
   mapToTableData: (colData: TColumn, rowData: TRow) => TableData
   tableOptions?: ITableOptions
-  fetchData?: (options: IFetchDataOptions) => Promise<IPaginatedResult>
+  fetchData?: (options: IFetchDataOptions) => Promise<{ columnData: TColumn; rowData: TRow; totalCount: number }>
 }
 
 export default GenericTable

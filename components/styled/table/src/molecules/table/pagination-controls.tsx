@@ -1,3 +1,6 @@
+import { Table } from '@tanstack/react-table'
+import { EmotionIconButton, Icon, IconButton } from '@ltht-react/icon'
+import styled from '@emotion/styled'
 import {
   PaginationContainer,
   StyledPaginationPageInput,
@@ -5,9 +8,7 @@ import {
   StyledHideOnMobile,
   paginationButtonStyle,
 } from './table-styles'
-import { Table } from '@tanstack/react-table'
-import { EmotionIconButton, Icon, IconButton } from '@ltht-react/icon'
-import styled from '@emotion/styled'
+import { DefaultPerPageOptions } from './table-core'
 
 const StyledEmotionIconButton = styled(EmotionIconButton)`
   ${paginationButtonStyle}
@@ -17,14 +18,12 @@ const StyledIconButton = styled(IconButton)`
   ${paginationButtonStyle}
 `
 
-const defaultPerPageOptions = [10, 20, 30, 40, 50]
-
 function PaginationControls<T>({ table, perPageOptions, isFetching, serverSidePagination }: IProps<T>) {
-  const perPageOptionsValidated = perPageOptions ?? defaultPerPageOptions
+  const perPageOptionsValidated = perPageOptions ?? DefaultPerPageOptions
 
   return (
     <PaginationContainer>
-      <div style={{ float: 'left' }}>
+      <div>
         <StyledPaginationPageSelect
           value={table.getState().pagination.pageSize}
           onChange={(e) => {
@@ -39,7 +38,7 @@ function PaginationControls<T>({ table, perPageOptions, isFetching, serverSidePa
         </StyledPaginationPageSelect>{' '}
         <StyledHideOnMobile>Per Page</StyledHideOnMobile>
       </div>
-      <div style={{ float: 'right' }}>
+      <div>
         {isFetching && serverSidePagination ? (
           <>
             <Icon type="spinner" size="medium" /> <StyledHideOnMobile>Loading</StyledHideOnMobile>
@@ -57,7 +56,6 @@ function PaginationControls<T>({ table, perPageOptions, isFetching, serverSidePa
         />
         <StyledPaginationPageInput
           type="number"
-          defaultValue={table.getState().pagination.pageIndex + 1}
           value={table.getState().pagination.pageIndex + 1}
           onChange={(e) => {
             const page = e.target.value ? Number(e.target.value) - 1 : 0

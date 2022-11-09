@@ -2209,7 +2209,7 @@
     "@babel/runtime" "^7.14.8"
     "@emotion-icons/emotion-icon" "4.1.0"
 
-"@emotion-icons/heroicons-solid@3.18.0":
+"@emotion-icons/heroicons-solid@3.18.0", "@emotion-icons/heroicons-solid@^3.18.0":
   version "3.18.0"
   resolved "https://registry.yarnpkg.com/@emotion-icons/heroicons-solid/-/heroicons-solid-3.18.0.tgz#d4203641b603f5705381159c2a9d1041eefe01f1"
   integrity sha512-fIuLEBt/S9v4yaIzlJPepkkpCihiv7Ru/8WEsMz0eIr1mZWq2uxfk/B43l6p7FUdrF1dDUG7ONCbGo/z2RncQg==
@@ -2552,6 +2552,11 @@
     js-yaml "^4.1.0"
     minimatch "^3.1.2"
     strip-json-comments "^3.1.1"
+
+"@faker-js/faker@^7.6.0":
+  version "7.6.0"
+  resolved "https://registry.yarnpkg.com/@faker-js/faker/-/faker-7.6.0.tgz#9ea331766084288634a9247fcd8b84f16ff4ba07"
+  integrity sha512-XK6BTq1NDMo9Xqw/YkYyGjSsg44fbNwYRx7QK2CuoQgyy+f1rrTDHoExVM5PsyXCtfl2vs2vVJ0MN0yN6LppRw==
 
 "@fortawesome/fontawesome-common-types@^0.2.34":
   version "0.2.34"

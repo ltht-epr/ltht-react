@@ -11,6 +11,8 @@ import {
 import { QuestionnairePublicationStatus } from '@ltht-react/types/src'
 import { ICellProps, TableData } from '@ltht-react/table'
 import mapQuestionnaireDefinitionAndResponsesToTableData from '@ltht-react/table/src/organisms/questionnaire-table-methods'
+import uuid from 'react-uuid'
+import { faker } from '@faker-js/faker'
 
 export const mockSummaryDefinition: Questionnaire = {
   identifier: [],
@@ -178,6 +180,73 @@ export const mockSummaryRecordsList: QuestionnaireResponse[] = [
     },
   } as QuestionnaireResponse,
 ]
+
+const makeData = (x: number): QuestionnaireResponse[] => {
+  const array: QuestionnaireResponse[] = []
+  for (let i = 0; i < x; i++) {
+    array.push({
+      authored: {
+        value: faker.datatype.datetime().toDateString(),
+        kind: PartialDateTimeKindCode.Date,
+      } as PartialDateTime,
+      item: [
+        {
+          linkId: 'questionId1',
+          answer: [{ valueString: faker.name.fullName() } as QuestionnaireResponseItemAnswer],
+        } as QuestionnaireResponseItem,
+        {
+          linkId: 'questionId2',
+          answer: [{ valueString: faker.lorem.sentence(5) } as QuestionnaireResponseItemAnswer],
+        } as QuestionnaireResponseItem,
+        {
+          linkId: 'questionId3',
+          answer: [{ valueString: faker.color.human() } as QuestionnaireResponseItemAnswer],
+        } as QuestionnaireResponseItem,
+        {
+          linkId: 'questionId4',
+          answer: [{ valueString: faker.address.cityName() } as QuestionnaireResponseItemAnswer],
+        } as QuestionnaireResponseItem,
+        {
+          linkId: 'questionId5',
+          answer: [
+            {
+              valueString: 'What do you mean, African or European?',
+              item: [
+                {
+                  linkId: 'questionId5-SubSection1',
+                  answer: [
+                    {
+                      valueString: `~${faker.random.numeric()} miles per hour`,
+                    },
+                  ],
+                },
+                {
+                  linkId: 'questionId5-SubSection2',
+                  answer: [
+                    {
+                      valueString: `~${faker.random.numeric()} miles per hour`,
+                    },
+                  ],
+                },
+              ],
+            } as QuestionnaireResponseItemAnswer,
+          ],
+        } as QuestionnaireResponseItem,
+      ],
+      status: QuestionnaireResponseStatus.Completed,
+      id: uuid(),
+      metadata: {
+        requestedWhen: faker.datatype.datetime().toDateString(),
+        isRedacted: false,
+        dataSources: [],
+      },
+    } as QuestionnaireResponse)
+  }
+
+  return array
+}
+
+export const mockSummaryRecordsListForPagination: QuestionnaireResponse[] = [...makeData(20)]
 
 const customCellWithColorBox = ({ value }: ICellProps) => (
   <>
