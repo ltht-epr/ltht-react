@@ -210,14 +210,7 @@ describe('Questionnaire Table (using mock Monty Python data)', () => {
   })
 
   it('Renders horizontal table with multiple row headers. total 13 columns to be visible', () => {
-    render(
-      <QuestionnaireTable
-        definition={mockSummaryDefinition}
-        records={mockSummaryRecordsList}
-        headerAxis="x"
-        tableOptions={{ showExpanderColumn: true }}
-      />
-    )
+    render(<QuestionnaireTable definition={mockSummaryDefinition} records={mockSummaryRecordsList} headerAxis="x" />)
 
     expect(screen.getAllByRole('columnheader').length).toBe(13)
   })
