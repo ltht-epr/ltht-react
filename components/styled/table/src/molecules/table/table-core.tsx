@@ -11,6 +11,8 @@ export const DefaultTableOptions = {
   pageSize: 10,
   enablePagination: false,
   serverSidePagination: false,
+  hidePaginationControls: false,
+  hidePerPageOptions: false,
 }
 
 export const DefaultPerPageOptions = [10, 20, 30, 40, 50]
@@ -100,16 +102,17 @@ export const getExpanderColumn = (): ColumnDef<DataRow, CellData | unknown> =>
   }) as ColumnDef<DataRow, CellData | unknown>
 
 export const buildTableHead = (table: Table<DataRow>) => (
-  <thead>
+  <thead role="rowgroup">
     {table.getHeaderGroups().map((headerGroup) => (
-      <tr key={headerGroup.id}>
+      <tr key={headerGroup.id} role="row">
         {headerGroup.headers.map((header) =>
           header.column.id === 'expander' ? (
-            <StyledTableHeader key={header.id} colSpan={header.colSpan}>
+            <StyledTableHeader key={header.id} colSpan={header.colSpan} role="columnheader">
               {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
             </StyledTableHeader>
           ) : (
             <StyledTableHeader
+              role="columnheader"
               key={header.id}
               colSpan={header.colSpan}
               {...{
@@ -130,11 +133,12 @@ export const buildTableHead = (table: Table<DataRow>) => (
 )
 
 export const buildTableBody = (table: Table<DataRow>) => (
-  <tbody>
+  <tbody role="rowgroup">
     {table.getRowModel().rows.map((row) => (
-      <tr key={row.id}>
+      <tr key={row.id} role="row">
         {row.getVisibleCells().map((cell, cellIdx) => (
           <StyledTableData
+            role="cell"
             key={cell.id}
             style={{
               background: cellIdx % 2 === 1 ? 'white' : TRANSLUCENT_BRIGHT_BLUE_TABLE,
@@ -161,6 +165,8 @@ export interface ITableOptions {
   perPageOptions?: number[]
   enablePagination?: boolean
   serverSidePagination?: boolean
+  hidePaginationControls?: boolean
+  hidePerPageOptions?: boolean
 }
 
 export interface IFetchDataOptions {
