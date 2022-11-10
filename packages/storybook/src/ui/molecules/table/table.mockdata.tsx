@@ -1,4 +1,4 @@
-import { CellRow, TableData } from '@ltht-react/table'
+import { Cell, CellRow, TableData } from '@ltht-react/table'
 import { faker } from '@faker-js/faker'
 
 export const mockTableData: TableData = {
@@ -161,4 +161,48 @@ export const mockTableDataForPagination: TableData = {
     },
   ],
   rows: [...makeData(50)],
+}
+
+const numberArray = (x: number) => Array.from(Array(x).keys())
+
+const verticalHeaders = [
+  'Favourite Colour?',
+  'Favourite Car Brand?',
+  'Favourite Animal?',
+  'Favourite Country Visited?',
+  'Favourite City?',
+]
+
+const getValue = (x: number) => {
+  const value = [
+    faker.color.human(),
+    faker.vehicle.manufacturer(),
+    faker.animal.type(),
+    faker.address.country(),
+    faker.address.cityName(),
+  ][x]
+
+  //just to make it look pretty
+  return value.length > 13 ? value.substring(0, 13) + '...' : value
+}
+
+export const mockTableDataForVerticalPagination: TableData = {
+  headers: [
+    { accessor: 'property', header: '' },
+    ...numberArray(20).map((x) => ({ accessor: `${x + 1}`, header: faker.name.firstName() })),
+  ],
+  rows: [
+    ...numberArray(5).map((i) => ({
+      id: `${i}`,
+      cells: [
+        { key: 'property', value: <b>{verticalHeaders[i]}</b> },
+        ...numberArray(20).map(
+          (x: number): Cell => ({
+            key: `${x + 1}`,
+            value: getValue(i),
+          })
+        ),
+      ],
+    })),
+  ],
 }

@@ -98,12 +98,14 @@ const ServerSidePaginatedTable = ({ tableOptions, fetchData }: IServerSidePagina
           {buildTableBody(table)}
         </StyledTable>
       </ScrollableContainer>
-      <PaginationControls
-        table={table}
-        isFetching={dataQuery.isFetching}
-        serverSidePagination
-        perPageOptions={tableOptions?.perPageOptions}
-      />
+      {!(tableOptions.hidePaginationControls ?? false) ? (
+        <PaginationControls
+          table={table}
+          isFetching={dataQuery.isFetching}
+          serverSidePagination
+          tableOptions={tableOptions}
+        />
+      ) : null}
     </Container>
   )
 }
