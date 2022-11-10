@@ -1,5 +1,5 @@
-import { FC, HTMLAttributes, MouseEvent } from 'react'
-import { IconDirection } from '@ltht-react/styles'
+import { FC, HTMLAttributes } from 'react'
+import { calculateEmotionIconSize, IconDirection, IconSize } from '@ltht-react/styles'
 import {
   ChevronDoubleRight,
   ChevronDoubleLeft,
@@ -21,20 +21,13 @@ const calculateIconType = (direction: IconDirection): IconTypes => {
   }
 }
 
-const ChevronDoubleIcon: FC<Props> = ({ size, direction, clickHandler, className, ...rest }) => {
-  const handleClick = (e: MouseEvent<SVGSVGElement>): void => {
-    e.preventDefault()
-    e.stopPropagation()
-    clickHandler && clickHandler()
-  }
-
+const ChevronDoubleIcon: FC<Props> = ({ size, direction, className, ...rest }) => {
   const Icon = calculateIconType(direction)
   return (
     <>
       <Icon
-        className={`${className ?? ''} icon__chevron`.trimStart()}
-        size={size}
-        onClick={clickHandler && handleClick}
+        className={`${className ?? ''} icon__chevron-double`.trimStart()}
+        size={calculateEmotionIconSize(size)}
         {...rest}
       />
     </>
@@ -48,9 +41,8 @@ type IconTypes =
   | typeof ChevronDoubleRight
 
 interface Props extends HTMLAttributes<SVGElement> {
+  size: IconSize
   direction: IconDirection
-  size: string | number
-  clickHandler?(): void
 }
 
 export default ChevronDoubleIcon

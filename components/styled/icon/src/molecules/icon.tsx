@@ -16,6 +16,7 @@ import DotCircleIcon from '../atoms/dot-circle-icon'
 import EditIcon from '../atoms/edit-icon'
 import EllipsisHorizontalIcon from '../atoms/ellipsis-horizontal'
 import EllipsisVerticalIcon from '../atoms/ellipsis-vertical'
+import ChevronDoubleIcon from '../atoms/emotion-icons/chevron-double-icon'
 import ExclamationIcon from '../atoms/exclamation-icon'
 import ExternalLinkIcon from '../atoms/external-link-icon'
 import FilterIcon from '../atoms/filter-icon'
@@ -191,6 +192,10 @@ const Icon: FC<IconProps> = ({ type, size, status, direction, counterValue, ...r
 
     case 'square': {
       return <SquareIcon size={size} {...rest} />
+    }
+
+    case 'chevron-double': {
+      return <ChevronDoubleIcon size={size} direction={direction ?? 'up'} {...rest} />
     }
 
     default: {

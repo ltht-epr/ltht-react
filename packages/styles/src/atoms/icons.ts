@@ -3,6 +3,7 @@ export const ICON_SIZE_MEDIUM = '1rem'
 export const ICON_SIZE_LARGE = '1rem'
 
 type FontAwesomeIconSize = 'xs' | 'lg' | 'sm' | '1x' | '2x' | '3x' | '4x' | '5x' | '6x' | '7x' | '8x' | '9x' | '10x'
+type EmotionIconSize = '1em' | '1.2em' | '1.35em'
 
 export type IconSize = 'small' | 'medium' | 'large'
 
@@ -49,6 +50,7 @@ export type IconType =
   | 'search'
   | 'checkbox'
   | 'square'
+  | 'chevron-double'
 
 export type EmotionIconType = 'chevron-double'
 
@@ -62,5 +64,18 @@ export const calculateIconSize = (input: IconSize): FontAwesomeIconSize => {
       return 'xs'
     default:
       return '1x'
+  }
+}
+
+export const calculateEmotionIconSize = (input: IconSize): EmotionIconSize => {
+  switch (input) {
+    case 'large':
+      return '1.35em'
+    case 'medium':
+      return '1.2em'
+    case 'small':
+      return '1em'
+    default:
+      return '1em'
   }
 }
