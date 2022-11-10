@@ -1,5 +1,5 @@
-import Table from '@ltht-react/table'
-import { IFetchDataOptions } from '@ltht-react/table'
+import Table, { IFetchDataOptions } from '@ltht-react/table'
+
 import { Story } from '@storybook/react'
 import {
   mockTableData,
@@ -53,9 +53,9 @@ export const SimpleServerSidePaginatedTable: Story = () => (
 export const SimpleVerticalPaginatedTable: Story = () => (
   <Table
     tableOptions={{ enablePagination: true, serverSidePagination: true }}
-    fetchData={async (options: IFetchDataOptions) => {
+    fetchData={async (options: IFetchDataOptions) =>
       // Simulate some network latency
-      return new Promise((res) =>
+      new Promise((res) =>
         res({
           tableData: {
             headers: [
@@ -69,7 +69,7 @@ export const SimpleVerticalPaginatedTable: Story = () => (
           totalCount: mockTableDataForVerticalPagination.headers.length - 1, // -1 to remove the header column from the total
         })
       )
-    }}
+    }
   />
 )
 

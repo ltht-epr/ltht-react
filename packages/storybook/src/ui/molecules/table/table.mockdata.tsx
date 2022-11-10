@@ -182,8 +182,8 @@ const getValue = (x: number) => {
     faker.address.cityName(),
   ][x]
 
-  //just to make it look pretty
-  return value.length > 13 ? value.substring(0, 13) + '...' : value
+  // just to make it look pretty
+  return value.length > 13 ? `${value.substring(0, 13)}...` : value
 }
 
 export const mockTableDataForVerticalPagination: TableData = {
