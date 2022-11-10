@@ -6,13 +6,11 @@ export const EnsureMaybeArray = <Type>(maybeArray: Maybe<Type>[] | undefined): T
   }
 
   const definitelyArray: Type[] = []
-  if (maybeArray !== undefined) {
-    maybeArray.forEach((item) => {
-      if (item !== null) {
-        definitelyArray.push(item)
-      }
-    })
-  }
+  maybeArray.forEach((item) => {
+    if (item !== null) {
+      definitelyArray.push(item)
+    }
+  })
 
   return definitelyArray
 }
