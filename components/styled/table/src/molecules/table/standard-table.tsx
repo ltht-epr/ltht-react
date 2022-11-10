@@ -72,22 +72,19 @@ const StandardTable = ({ tableData, tableOptions }: IStandardTableProps): JSX.El
       : {}),
   })
 
+  const paginationControls = tableOptions.enablePagination ? (
+    <PaginationControls table={table} tableOptions={tableOptions} isFetching={false} serverSidePagination={false} />
+  ) : null
+
   return (
     <Container>
       <ScrollableContainer>
-        <StyledTable>
+        <StyledTable role="table">
           {buildTableHead(table)}
           {buildTableBody(table)}
         </StyledTable>
       </ScrollableContainer>
-      {tableOptions.enablePagination ? (
-        <PaginationControls
-          table={table}
-          perPageOptions={tableOptions.perPageOptions}
-          isFetching={false}
-          serverSidePagination={false}
-        />
-      ) : null}
+      {!(tableOptions.hidePaginationControls ?? false) ? paginationControls : null}
     </Container>
   )
 }

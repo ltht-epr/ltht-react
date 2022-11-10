@@ -49,8 +49,7 @@ const StyledTableData = styled.td`
 const PaginationContainer = styled.div`
   ${CSS_RESET};
   margin-top: 5px;
-  display: flex;
-  justify-content: space-between;
+  display: block;
 `
 const paginationButtonStyle = `
 padding: 2px 5px;
