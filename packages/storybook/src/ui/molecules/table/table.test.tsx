@@ -1,7 +1,7 @@
 import { render, screen, within, fireEvent } from '@testing-library/react'
 import Table from '@ltht-react/table'
-import { mockTableData, mockTableDataForPagination, mockTableDataWithSubheaders } from './table.mockdata'
 import userEvent from '@testing-library/user-event'
+import { mockTableData, mockTableDataForPagination, mockTableDataWithSubheaders } from './table.mockdata'
 
 const getHeaders = () => within(screen.getAllByRole('rowgroup')[0])
 const getDataCells = () => within(screen.getAllByRole('rowgroup')[1])
