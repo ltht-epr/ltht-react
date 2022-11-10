@@ -1,7 +1,7 @@
 import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 import { PlanDefinition } from '@ltht-react/types'
-import { WIDESCREEN_MINIMUM_MEDIA_QUERY } from '@ltht-react/styles'
+import { BANNER_COLOURS, WIDESCREEN_MINIMUM_MEDIA_QUERY } from '@ltht-react/styles'
 import { BullseyeIcon } from '@ltht-react/icon'
 import { Toggle as ToggleInput } from '@ltht-react/input'
 import { ChangeEvent, FC, useMemo } from 'react'
@@ -43,7 +43,6 @@ const StyledEducationToggleRow = styled.div`
 `
 
 const StyledTargetRow = styled.div`
-  margin-bottom: 1rem;
   align-items: baseline;
 
   > svg {
@@ -52,7 +51,7 @@ const StyledTargetRow = styled.div`
 
   > span:first-of-type {
     display: inline-block;
-    width: 2rem;
+    width: 2.25rem;
     text-align: right;
   }
 
@@ -91,7 +90,9 @@ const StyledSectionToggle = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-start;
-
+  background: ${BANNER_COLOURS.DEFAULT.BACKGROUND};
+  text: ${BANNER_COLOURS.DEFAULT.TEXT};
+  padding: 0.5rem 0.25rem;
   > input[type='checkbox'] {
     margin-right: 1rem;
   }
@@ -105,7 +106,10 @@ const StyledBullseyeIcon = styled(BullseyeIcon)`
   margin-right: 0.5rem;
 `
 
-const StyledProblemSection = styled.ul``
+const StyledProblemSection = styled.ul`
+  list-style: none;
+  padding: 0.5rem 0.25rem;
+`
 
 export const SelectedPlanDetail: FC<ISelectedPlanDetailProps> = ({
   planDefinition,
@@ -246,7 +250,12 @@ export const SelectedPlanDetail: FC<ISelectedPlanDetailProps> = ({
   )
 }
 
-export type OnProblemChange = (e: { problemId: string; state: boolean }[]) => void
+export interface ProblemState {
+  problemId: string
+  state: boolean
+}
+
+export type OnProblemChange = (e: ProblemState[]) => void
 
 export interface ISelectedPlanDetailProps {
   planDefinition: PlanDefinition

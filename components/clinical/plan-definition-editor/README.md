@@ -1,15 +1,15 @@
-# PatientBanner
+# PlanDefinitionEditor
 
 <!-- STORY -->
 
 ### Import
 
 ```js
-import PatientBanner from '@ltht-react/plan-detail-editor'
+import PlanDefinitionEditor from '@ltht-react/plan-detail-editor'
 ```
 
 ### Usage
 
 ```jsx
-<PatientBanner />
+<PlanDefinitionEditor planDefinition={planDefinition} selectedProblemIds={[]} onChange={(newProblemIds) => {}} />
 ```
