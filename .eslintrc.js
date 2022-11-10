@@ -21,6 +21,12 @@ module.exports = {
     'eslint(react-hooks/exhaustive-deps)': 'off',
     'jsx-a11y/click-events-have-key-events': 'off',
     'jsx-a11y/interactive-supports-focus': 'off',
+    'jsx-a11y/label-has-associated-control': [
+      2,
+      {
+        controlComponent: ['ToggleInput'],
+      },
+    ],
     'no-shadow': 'off',
     'prettier/prettier': ['error'],
     'react/require-default-props': 'off',
