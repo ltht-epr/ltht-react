@@ -122,7 +122,7 @@ describe('Table With Pagination Enabled (Client-Side)', () => {
     expect(options[2].selected).toBeFalsy()
 
     // assert 10 rows loaded to document before page size is changed
-    expect(within(table).getAllByRole('rowgroup')[1].children.length).toBe(10)
+    expect(table.children[1].children.length).toBe(10)
 
     fireEvent.change(pageSizeSelect, { target: { value: 20 } })
 
@@ -133,7 +133,7 @@ describe('Table With Pagination Enabled (Client-Side)', () => {
     // assert total pages to be 3 as total result set is 50 (50/20 = 3 (rounded))
     expect(screen.getByTestId('paged-table-page-count')).toHaveTextContent('3')
     // assert 20 rows loaded to document after page size is changed
-    expect(within(table).getAllByRole('rowgroup')[1].children.length).toBe(20)
+    expect(table.children[1].children.length).toBe(20)
   })
 })
 
