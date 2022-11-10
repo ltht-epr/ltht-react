@@ -1,5 +1,4 @@
 import Icon from '@ltht-react/icon/src/molecules/icon'
-import EmotionIcon from '@ltht-react/icon/src/molecules/emotion-icon'
 import { Story } from '@storybook/react'
 
 export const AllPurposeIcon: Story = () => (
@@ -110,22 +109,17 @@ export const AllPurposeIcon: Story = () => (
     <div>square</div>
     <Icon type="square" size="small" />
     <br />
-  </>
-)
-
-export const AllPurposeEmotionIcon: Story = () => (
-  <>
     <div>chevron double - up</div>
-    <EmotionIcon type="chevron-double" size="1em" />
+    <Icon type="chevron-double" size="small" />
     <br />
     <div>chevron double - down</div>
-    <EmotionIcon type="chevron-double" size="1em" direction="down" />
+    <Icon type="chevron-double" size="small" direction="down" />
     <br />
     <div>chevron double - left</div>
-    <EmotionIcon type="chevron-double" size="1em" direction="left" />
+    <Icon type="chevron-double" size="small" direction="left" />
     <br />
     <div>chevron double - right</div>
-    <EmotionIcon type="chevron-double" size="1em" direction="right" />
+    <Icon type="chevron-double" size="small" direction="right" />
     <br />
   </>
 )

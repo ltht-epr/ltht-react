@@ -51,7 +51,7 @@ const PaginationContainer = styled.div`
   margin-top: 5px;
   display: block;
 `
-const paginationButtonStyle = `
+const PaginationButtonStyle = `
 padding: 2px 5px;
 background-color: ${TRANSLUCENT_BRIGHT_BLUE};
 color: black;
@@ -84,6 +84,20 @@ const StyledHideOnMobile = styled.span`
   }
 `
 
+const StyledPaginationButtonDiv = styled.div`
+  float: right;
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+`
+const StyledPageCountDiv = styled.div`
+  margin-right: 5px;
+  margin-left: 5px;
+  display: flex;
+  font-size: 1.1em;
+  padding: 1px;
+`
+
 export {
   Container,
   StyledTable,
@@ -93,6 +107,8 @@ export {
   StyledPaginationPageInput,
   StyledPaginationPageSelect,
   StyledHideOnMobile,
-  paginationButtonStyle,
+  PaginationButtonStyle,
   ScrollableContainer,
+  StyledPaginationButtonDiv,
+  StyledPageCountDiv,
 }
