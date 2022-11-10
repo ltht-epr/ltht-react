@@ -8,8 +8,21 @@ export const Editor: Story = () => {
   const [selectedProblemIds, setSelectedProblemIds] = useState<string[]>([])
 
   const handleProblemChange: OnProblemChange = (e) => {
-    console.log('problem change', e)
-    setSelectedProblemIds(e.filter((x) => x.state === true).map((x) => x.problemId))
+    console.log('onProblemChange', e)
+    let newProblemIds = [...selectedProblemIds]
+
+    for (const problemChange of e) {
+      if (problemChange.state === true) {
+        newProblemIds = Array.from(new Set([...newProblemIds, problemChange.problemId]))
+      } else {
+        const existingItemIndex = newProblemIds.findIndex((x) => x === problemChange.problemId)
+        if (existingItemIndex > -1) {
+          newProblemIds = [...newProblemIds.slice(0, existingItemIndex), ...newProblemIds.slice(existingItemIndex + 1)]
+        }
+      }
+    }
+
+    setSelectedProblemIds(newProblemIds)
   }
 
   return (

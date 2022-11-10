@@ -6,109 +6,80 @@ import { BullseyeIcon } from '@ltht-react/icon'
 import { Toggle as ToggleInput } from '@ltht-react/input'
 import { ChangeEvent, FC, useMemo } from 'react'
 
-const styledToggleRowBase = css`
-  margin: 0.5rem 0 0.75rem 0;
+const toggleRowWidth = '3.5rem'
 
-  > input[type='checkbox'] {
-    margin-right: 1rem;
-  }
-
-  > label {
-    font-weight: bold;
-  }
-
-  > svg {
-    float: right;
+const toggleInputMixin = css`
+  > div:first-of-type {
+    text-align: right;
+    width: ${toggleRowWidth};
+    padding-right: 1rem;
   }
 `
 
 const StyledProblemToggleRow = styled.div`
-  ${styledToggleRowBase};
   display: flex;
+  font-weight: bold;
+  align-items: center;
+  ${toggleInputMixin}
+  margin-bottom: 0.25rem;
 `
 
 const StyledEducationToggleRow = styled.div`
-  ${styledToggleRowBase}
   display: flex;
   align-items: center;
+  ${toggleInputMixin}
+  margin-bottom: 0.25rem;
 
-  > div:first-of-type {
-    display: flex;
-    align-items: center;
-  }
-
-  > label {
-    font-weight: normal;
+  > label svg {
+    margin-right: 0.5rem;
   }
 `
 
 const StyledTargetRow = styled.div`
-  align-items: baseline;
+  display: flex;
+  align-items: center;
+  ${toggleInputMixin}
 
-  > svg {
-    float: right;
+  svg {
+    align: right;
+    margin-right: 1rem;
   }
 
   > span:first-of-type {
-    display: inline-block;
-    width: 2.25rem;
     text-align: right;
+    display: block;
+    width: ${toggleRowWidth};
   }
 
-  > span:nth-of-type(2) {
-    margin-left: 1rem;
-  }
-
-  > div {
-    display: inline-block;
-    margin-left: 1rem;
-  }
-
-  ul {
-    margin-top: 0.5rem;
-    margin-left: 1.5rem;
-    list-style: disc;
+  > div:first-of-type {
+    flex: 1;
+    text-align: left;
   }
 `
 
-const StyledListItem = styled.div`
+const StyledListItem = styled.li`
+  margin-bottom: 1rem;
+
   ${WIDESCREEN_MINIMUM_MEDIA_QUERY} {
-    display: flex;
-
-    > div {
-      flex: 1;
-    }
-
-    > div:last-of-type {
-      margin-top: 0.5rem;
-    }
   }
 `
 
 const StyledSectionToggle = styled.div`
-  font-size: 1.25em;
+  background-color: ${BANNER_COLOURS.INFO.BACKGROUND};
+  font-weight: bold;
+  color: black;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  background: ${BANNER_COLOURS.DEFAULT.BACKGROUND};
-  text: ${BANNER_COLOURS.DEFAULT.TEXT};
   padding: 0.5rem 0.25rem;
-  > input[type='checkbox'] {
-    margin-right: 1rem;
-  }
-
-  label {
-    font-weight: bold;
-  }
+  ${toggleInputMixin}
 `
 
-const StyledBullseyeIcon = styled(BullseyeIcon)`
-  margin-right: 0.5rem;
-`
+const StyledBullseyeIcon = styled(BullseyeIcon)``
 
 const StyledProblemSection = styled.ul`
   list-style: none;
-  padding: 0.5rem 0.25rem;
+  padding: 0.25rem 0.25rem;
+  margin-bottom: 1rem;
 `
 
 export const SelectedPlanDetail: FC<ISelectedPlanDetailProps> = ({
@@ -150,7 +121,6 @@ export const SelectedPlanDetail: FC<ISelectedPlanDetailProps> = ({
 
   const handleToggleAllProblemsClick = (e: ChangeEvent<HTMLInputElement>) => {
     const newState = problemActions?.map((p) => ({ problemId: p?.elementId as string, state: e.target.checked }))
-
     newState && onProblemChange(newState)
   }
 
@@ -163,11 +133,13 @@ export const SelectedPlanDetail: FC<ISelectedPlanDetailProps> = ({
   return (
     <>
       <StyledSectionToggle>
-        <ToggleInput
-          checked={allProblemsOn}
-          onChange={(e: ChangeEvent<HTMLInputElement>) => handleToggleAllProblemsClick(e)}
-          id="problem-toggle-all"
-        />
+        <div>
+          <ToggleInput
+            checked={allProblemsOn}
+            onChange={(e: ChangeEvent<HTMLInputElement>) => handleToggleAllProblemsClick(e)}
+            id="problem-toggle-all"
+          />
+        </div>
         <label htmlFor="problem-toggle-all">Patient Problems</label>
       </StyledSectionToggle>
       <StyledProblemSection>
@@ -176,9 +148,9 @@ export const SelectedPlanDetail: FC<ISelectedPlanDetailProps> = ({
             (g) => problem?.goalId && g?.elementId?.includes(problem.goalId[0] as string)
           )
           return (
-            <li key={`problem-${pidx}`}>
-              <StyledListItem>
-                <StyledProblemToggleRow>
+            <StyledListItem key={`problem-${pidx}`}>
+              <StyledProblemToggleRow>
+                <div>
                   <ToggleInput
                     checked={selectedProblemIds.includes(problem?.elementId as string)}
                     onChange={(e: ChangeEvent<HTMLInputElement>) =>
@@ -186,49 +158,51 @@ export const SelectedPlanDetail: FC<ISelectedPlanDetailProps> = ({
                     }
                     id={`problem-${pidx}`}
                   />
-                  <label htmlFor={`problem-${pidx}`}>{problem?.description}</label>
-                </StyledProblemToggleRow>
-                <div>
-                  <StyledTargetRow>
-                    <span>
-                      <BullseyeIcon size="large" />
-                    </span>
-                    <span>{goal?.description?.text}</span>
-                  </StyledTargetRow>
-
-                  {problem?.action?.map((interventionPlan, ipidx) => (
-                    <StyledTargetRow key={`intervention-plan-${ipidx}`}>
-                      <span />
-                      <div>
-                        <p>{interventionPlan?.description}</p>
-                        <ul>
-                          {interventionPlan?.action?.map((intervention, idx) => (
-                            <li key={`intervention-${idx}`}>{intervention?.description}</li>
-                          ))}
-                        </ul>
-                      </div>
-                    </StyledTargetRow>
-                  ))}
                 </div>
-              </StyledListItem>
-            </li>
+                <label htmlFor={`problem-${pidx}`}>{problem?.description}</label>
+              </StyledProblemToggleRow>
+              <div>
+                <StyledTargetRow>
+                  <span>
+                    <BullseyeIcon size="large" />
+                  </span>
+                  <div>{goal?.description?.text}</div>
+                </StyledTargetRow>
+
+                {problem?.action?.map((interventionPlan, ipidx) => (
+                  <StyledTargetRow key={`intervention-plan-${ipidx}`}>
+                    <span />
+                    <div>
+                      <p>{interventionPlan?.description}</p>
+                      <ul>
+                        {interventionPlan?.action?.map((intervention, idx) => (
+                          <li key={`intervention-${idx}`}>{intervention?.description}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  </StyledTargetRow>
+                ))}
+              </div>
+            </StyledListItem>
           )
         })}
       </StyledProblemSection>
       <StyledSectionToggle>
-        <ToggleInput
-          checked={allEducationOn}
-          onChange={(e: ChangeEvent<HTMLInputElement>) => handleToggleAllEducationClick(e)}
-          id="education-toggle-all"
-        />
+        <div>
+          <ToggleInput
+            checked={allEducationOn}
+            onChange={(e: ChangeEvent<HTMLInputElement>) => handleToggleAllEducationClick(e)}
+            id="education-toggle-all"
+          />
+        </div>
         <label htmlFor="education-toggle-all">Patient Education</label>
       </StyledSectionToggle>
       <StyledProblemSection>
-        <li>
-          <StyledListItem>
-            <div>
-              {educationActions?.map((g, eaidx) => (
-                <StyledEducationToggleRow key={`education-${eaidx}`}>
+        <StyledListItem>
+          <div>
+            {educationActions?.map((g, eaidx) => (
+              <StyledEducationToggleRow key={`education-${eaidx}`}>
+                <div>
                   <ToggleInput
                     checked={selectedProblemIds.includes(g?.elementId as string)}
                     onChange={(e: ChangeEvent<HTMLInputElement>) =>
@@ -236,15 +210,15 @@ export const SelectedPlanDetail: FC<ISelectedPlanDetailProps> = ({
                     }
                     id={`education-${eaidx}`}
                   />
-                  <label htmlFor={`education-${eaidx}`}>
-                    <StyledBullseyeIcon size="large" />
-                    {g?.description}
-                  </label>
-                </StyledEducationToggleRow>
-              ))}
-            </div>
-          </StyledListItem>
-        </li>
+                </div>
+                <label htmlFor={`education-${eaidx}`}>
+                  <StyledBullseyeIcon size="large" />
+                  {g?.description}
+                </label>
+              </StyledEducationToggleRow>
+            ))}
+          </div>
+        </StyledListItem>
       </StyledProblemSection>
     </>
   )
