@@ -1,5 +1,5 @@
 {
-  "name": "@ltht-react/plan-detail-editor",
+  "name": "@ltht-react/plan-definition-editor",
   "version": "1.0.0",
   "description": "ltht-react component for selecting problems from a PlanDefinition.",
   "author": "LTHT",
