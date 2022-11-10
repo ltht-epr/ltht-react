@@ -1,13 +1,15 @@
-import Card from '@ltht-react/card'
-import { Story } from '@storybook/react'
-import PlanDefinitionEditor, { OnProblemChange } from '@ltht-react/plan-definition-editor'
-import { planDefinition } from './plan-definition-editor.fixtures'
 import { useState } from 'react'
+import { Story } from '@storybook/react'
+import Card from '@ltht-react/card'
+import PlanDefinitionEditor, { OnProblemChange } from '@ltht-react/plan-definition-editor'
+
+import { planDefinition } from './plan-definition-editor.fixtures'
 
 export const Editor: Story = () => {
   const [selectedProblemIds, setSelectedProblemIds] = useState<string[]>([])
 
   const handleProblemChange: OnProblemChange = (e) => {
+    // eslint-disable-next-line no-console
     console.log('onProblemChange', e)
     let newProblemIds = [...selectedProblemIds]
 

@@ -1,5 +1,5 @@
 import { PlanDefinition, PlanDefinitionStatus } from '@ltht-react/types'
-
+// eslint-disable-next-line import/prefer-default-export
 export const planDefinition: PlanDefinition = {
   id: 'cd44e626-267c-46b1-8f77-60f24c645061',
   metadata: {

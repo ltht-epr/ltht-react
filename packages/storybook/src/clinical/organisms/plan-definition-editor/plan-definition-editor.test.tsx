@@ -11,6 +11,7 @@ describe('selected plan detail', () => {
   }
 
   afterEach(() => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     ;(defaultProps.onProblemChange as jest.MockedFunction<any>).mockClear()
   })
 
