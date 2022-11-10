@@ -102,4 +102,27 @@ export const SimpleVerticalPaginatedTable: Story = () => (
   </>
 )
 
+export const SimpleVerticalPaginatedTable: Story = () => (
+  <Table
+    tableOptions={{ enablePagination: true, serverSidePagination: true }}
+    fetchData={async (options: IFetchDataOptions) => {
+      // Simulate some network latency
+      return new Promise((res) =>
+        res({
+          tableData: {
+            headers: [
+              mockTableDataForVerticalPagination.headers[0],
+              ...mockTableDataForVerticalPagination.headers
+                .slice(1, mockTableDataForVerticalPagination.headers.length)
+                .slice(options.pageIndex * options.pageSize, (options.pageIndex + 1) * options.pageSize),
+            ],
+            rows: mockTableDataForVerticalPagination.rows,
+          },
+          totalCount: mockTableDataForVerticalPagination.headers.length - 1, // -1 to remove the header column from the total
+        })
+      )
+    }}
+  />
+)
+
 export default { title: 'UI/Molecules/Table' }
