@@ -8,8 +8,7 @@ import {
   StyledHideOnMobile,
   paginationButtonStyle,
 } from './table-styles'
-import { DefaultPerPageOptions, DefaultTableOptions } from './table-core'
-import { ITableOptions } from './table-core'
+import { DefaultPerPageOptions, DefaultTableOptions, ITableOptions } from './table-core'
 
 const StyledEmotionIconButton = styled(EmotionIconButton)`
   ${paginationButtonStyle}
