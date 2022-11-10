@@ -99,7 +99,7 @@ export const getExpanderColumn = (): ColumnDef<DataRow, CellData | unknown> =>
   }) as ColumnDef<DataRow, CellData | unknown>
 
 export const buildTableHead = (table: Table<DataRow>) => (
-  <thead role="rowgroup">
+  <thead>
     {table.getHeaderGroups().map((headerGroup) => (
       <tr key={headerGroup.id} role="row">
         {headerGroup.headers.map((header) =>
@@ -130,7 +130,7 @@ export const buildTableHead = (table: Table<DataRow>) => (
 )
 
 export const buildTableBody = (table: Table<DataRow>) => (
-  <tbody role="rowgroup">
+  <tbody>
     {table.getRowModel().rows.map((row) => (
       <tr key={row.id} role="row">
         {row.getVisibleCells().map((cell, cellIdx) => (
