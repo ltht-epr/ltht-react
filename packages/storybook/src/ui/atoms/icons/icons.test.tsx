@@ -40,6 +40,7 @@ import {
   SquareIcon,
   ChevronDoubleIcon,
 } from '@ltht-react/icon'
+import ArrowIcon from '@ltht-react/icon/src/atoms/emotion-icons/arrow-icon'
 import { render, screen } from '@testing-library/react'
 
 describe('All icons', () => {
@@ -83,6 +84,7 @@ describe('All icons', () => {
     [<CheckboxIcon size="small" data-testid="icon" />],
     [<SquareIcon size="small" data-testid="icon" />],
     [<ChevronDoubleIcon size="small" data-testid="icon" direction="up" />],
+    [<ArrowIcon size="small" data-testid="icon" direction="up" />],
   ])('Renders', (icon: JSX.Element) => {
     render(icon)
   })
@@ -126,7 +128,14 @@ describe('All icons', () => {
     [<SearchIcon size="small" data-testid="icon" />, 'icon__search'],
     [<CheckboxIcon size="small" data-testid="icon" />, 'icon__checkbox'],
     [<SquareIcon size="small" data-testid="icon" />, 'icon__square'],
-    [<ChevronDoubleIcon size="small" direction="up" data-testid="icon" />, 'icon__chevron-double'],
+    [<ChevronDoubleIcon size="small" direction="up" data-testid="icon" />, 'icon__chevron-double--up'],
+    [<ChevronDoubleIcon size="small" direction="down" data-testid="icon" />, 'icon__chevron-double--down'],
+    [<ChevronDoubleIcon size="small" direction="left" data-testid="icon" />, 'icon__chevron-double--left'],
+    [<ChevronDoubleIcon size="small" direction="right" data-testid="icon" />, 'icon__chevron-double--right'],
+    [<ArrowIcon size="small" direction="up" data-testid="icon" />, 'icon__arrow--up'],
+    [<ArrowIcon size="small" direction="down" data-testid="icon" />, 'icon__arrow--down'],
+    [<ArrowIcon size="small" direction="left" data-testid="icon" />, 'icon__arrow--left'],
+    [<ArrowIcon size="small" direction="right" data-testid="icon" />, 'icon__arrow--right'],
   ])('Has the right class name', (icon: JSX.Element, expectedClass: string) => {
     render(icon)
 
@@ -183,8 +192,9 @@ describe('All icons', () => {
     [<SquareIcon size="small" data-testid="icon" className="further-maths" />, 'icon__square'],
     [
       <ChevronDoubleIcon size="small" data-testid="icon" direction="up" className="further-maths" />,
-      'icon__chevron-double',
+      'icon__chevron-double--up',
     ],
+    [<ArrowIcon size="small" data-testid="icon" direction="up" className="further-maths" />, 'icon__arrow--up'],
   ])('Still has the right class name when given custom class names', (icon: JSX.Element, expectedClass: string) => {
     render(icon)
 
@@ -231,6 +241,8 @@ describe('All icons', () => {
     [<SearchIcon size="small" data-testid="icon" id="123abc" />],
     [<CheckboxIcon size="small" data-testid="icon" id="123abc" />],
     [<SquareIcon size="small" data-testid="icon" id="123abc" />],
+    [<ChevronDoubleIcon size="small" direction="up" data-testid="icon" id="123abc" />],
+    [<ArrowIcon size="small" direction="up" data-testid="icon" id="123abc" />],
   ])('Spreads html attributes down', (icon: JSX.Element) => {
     render(icon)
 
@@ -277,6 +289,7 @@ describe('All icons', () => {
     ['checkbox'],
     ['square'],
     ['chevron-double'],
+    ['arrow'],
   ])('Can be styled', (iconName) => {
     render(makeStyledIcon(iconName))
 
@@ -553,6 +566,13 @@ describe('All icons', () => {
 
       case 'chevron-double': {
         const Icon = styled(ChevronDoubleIcon)`
+          color: pink;
+        `
+        return <Icon size="small" direction="up" data-testid="icon" />
+      }
+
+      case 'arrow': {
+        const Icon = styled(ArrowIcon)`
           color: pink;
         `
         return <Icon size="small" direction="up" data-testid="icon" />

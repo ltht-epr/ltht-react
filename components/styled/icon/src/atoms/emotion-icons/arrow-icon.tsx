@@ -16,11 +16,12 @@ const calculateIconType = (direction: IconDirection): IconTypes => {
   }
 }
 
+const buildClassesForIcon = (className: string | undefined, direction: IconDirection): string =>
+  `${className ?? ''} icon__arrow--${direction}`.trimStart()
+
 const ArrowIcon: FC<Props> = ({ size, direction, className, ...rest }) => {
   const Icon = calculateIconType(direction)
-  return (
-    <Icon className={`${className ?? ''} icon__arrow`.trimStart()} size={calculateEmotionIconSize(size)} {...rest} />
-  )
+  return <Icon className={buildClassesForIcon(className, direction)} size={calculateEmotionIconSize(size)} {...rest} />
 }
 
 type IconTypes = typeof DownArrow | typeof UpArrow | typeof LeftArrow | typeof RightArrow
