@@ -55,6 +55,7 @@ export const ServerSidePaginatedTable: Story = () => (
       fetchData={async (options: IFetchDataOptions) => {
         // Simulate some network latency
         await new Promise((r) => setTimeout(r, 500))
+        throw new Error('Hello World!')
         return new Promise((res) =>
           res({
             tableData: {
