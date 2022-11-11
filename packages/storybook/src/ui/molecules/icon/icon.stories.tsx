@@ -121,6 +121,18 @@ export const AllPurposeIcon: Story = () => (
     <div>chevron double - right</div>
     <Icon type="chevron-double" size="small" direction="right" />
     <br />
+    <div>Arrow - up</div>
+    <Icon type="arrow" size="small" />
+    <br />
+    <div>Arrow - down</div>
+    <Icon type="arrow" size="small" direction="down" />
+    <br />
+    <div>Arrow - left</div>
+    <Icon type="arrow" size="small" direction="left" />
+    <br />
+    <div>Arrow - right</div>
+    <Icon type="arrow" size="small" direction="right" />
+    <br />
   </>
 )
 
