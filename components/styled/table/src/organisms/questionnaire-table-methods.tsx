@@ -165,9 +165,7 @@ const mapQuestionnaireResponsesIntoCellRow = (records: QuestionnaireResponse[]):
           const answer = EnsureMaybe<QuestionnaireResponseItemAnswer>(item?.answer?.find((answer) => !!answer))
 
           if (answer.item) {
-            const items = recursivelyMapResponseItemsToCells(
-              EnsureMaybeArray<QuestionnaireResponseItem>(answer.item ?? [])
-            )
+            const items = recursivelyMapResponseItemsToCells(EnsureMaybeArray<QuestionnaireResponseItem>(answer.item))
 
             items.forEach((x) => {
               cellArray.push({

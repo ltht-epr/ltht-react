@@ -1,14 +1,16 @@
 import { Maybe } from '@ltht-react/types'
 
-export const EnsureMaybeArray = <Type>(maybeArray: Maybe<Type>[]): Type[] => {
-  const definitelyArray: Type[] = []
-  if (maybeArray !== undefined) {
-    maybeArray.forEach((item) => {
-      if (item !== null) {
-        definitelyArray.push(item)
-      }
-    })
+export const EnsureMaybeArray = <Type>(maybeArray: Maybe<Type>[] | undefined): Type[] => {
+  if (!maybeArray) {
+    return []
   }
+
+  const definitelyArray: Type[] = []
+  maybeArray.forEach((item) => {
+    if (item !== null) {
+      definitelyArray.push(item)
+    }
+  })
 
   return definitelyArray
 }
