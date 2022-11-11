@@ -2082,7 +2082,7 @@
     "@babel/runtime" "^7.15.3"
     "@emotion-icons/emotion-icon" "4.1.0"
 
-"@emotion-icons/boxicons-solid@3.19.0":
+"@emotion-icons/boxicons-solid@3.19.0", "@emotion-icons/boxicons-solid@^3.19.0":
   version "3.19.0"
   resolved "https://registry.yarnpkg.com/@emotion-icons/boxicons-solid/-/boxicons-solid-3.19.0.tgz#bfb83624e516c4472d827a09b9838de77009492e"
   integrity sha512-sJfOhIKf92rqhn/dpHTTWkmW8mn16GJHnXVXGyTNNFNJyBzV6fmu1WXBd/fhNyWnTZ5s5Hox9JBSin/P5qpt+g==
