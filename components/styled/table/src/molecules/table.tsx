@@ -17,11 +17,8 @@ import {
   DataRow,
 } from './table/table-core'
 
-const queryClient = new QueryClient()
-
-const Table = (props: IProps): JSX.Element => {
+const Table = ({ fetchData, tableData, ...props }: IProps): JSX.Element => {
   let { tableOptions } = props
-  const { fetchData, tableData } = props
 
   if (!tableOptions) {
     tableOptions = DefaultTableOptions
@@ -46,7 +43,7 @@ const Table = (props: IProps): JSX.Element => {
   }
 
   return tableOptions.enablePagination && tableOptions.serverSidePagination ? (
-    <QueryClientProvider client={queryClient}>
+    <QueryClientProvider client={new QueryClient()}>
       <ServerSidePaginatedTable fetchData={fetchData} tableOptions={tableOptions} />
     </QueryClientProvider>
   ) : (

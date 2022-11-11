@@ -39,6 +39,7 @@ import ToggleOffIcon from '../atoms/toggle-off-icon'
 import ToggleOnIcon from '../atoms/toggle-on-icon'
 import TrashIcon from '../atoms/trash-icon'
 import UserIcon from '../atoms/user-icon'
+import ArrowIcon from '../atoms/emotion-icons/arrow-icon'
 
 const Icon: FC<IconProps> = ({ type, size, status, direction, counterValue, ...rest }) => {
   switch (type) {
@@ -196,6 +197,10 @@ const Icon: FC<IconProps> = ({ type, size, status, direction, counterValue, ...r
 
     case 'chevron-double': {
       return <ChevronDoubleIcon size={size} direction={direction ?? 'up'} {...rest} />
+    }
+
+    case 'arrow': {
+      return <ArrowIcon size={size} direction={direction ?? 'up'} {...rest} />
     }
 
     default: {

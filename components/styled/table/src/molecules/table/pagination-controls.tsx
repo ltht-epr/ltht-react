@@ -37,8 +37,8 @@ function PaginationControls<T>({ table, tableOptions, isFetching, serverSidePagi
                 {pageSize}
               </option>
             ))}
-          </StyledPaginationPageSelect>{' '}
-          <StyledHideOnMobile>Per Page</StyledHideOnMobile>
+          </StyledPaginationPageSelect>
+          <StyledHideOnMobile style={{ marginLeft: 5 }}>Per Page</StyledHideOnMobile>
         </div>
       ) : null}
       <StyledPaginationButtonDiv>

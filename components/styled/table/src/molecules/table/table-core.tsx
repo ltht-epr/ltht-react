@@ -2,6 +2,7 @@ import { FC } from 'react'
 import { ColumnDef, createColumnHelper, flexRender, SortDirection, Table } from '@tanstack/react-table'
 import uuid from 'react-uuid'
 import { TRANSLUCENT_BRIGHT_BLUE_TABLE } from '@ltht-react/styles'
+import { IconButton } from '@ltht-react/icon'
 import { StyledTableHeader, StyledTableData } from './table-styles'
 
 const columnHelper = createColumnHelper<DataRow>()
@@ -80,24 +81,20 @@ export const generateRowsFromCellRows = (cellRows: CellRow[]): DataRow[] =>
 export const getExpanderColumn = (): ColumnDef<DataRow, CellData | unknown> =>
   columnHelper.accessor('expander', {
     header: ({ table }) => (
-      <span
+      <IconButton
+        iconProps={{ type: 'arrow', direction: table.getIsAllRowsExpanded() ? 'up' : 'right', size: 'small' }}
         title="Toggle All Rows Expanded"
         onClick={table.getToggleAllRowsExpandedHandler()}
         style={{ cursor: 'pointer' }}
-      >
-        {table.getIsAllRowsExpanded() ? '▲' : '►'}
-      </span>
+      />
     ),
     cell: ({ row }) =>
       row.getCanExpand() ? (
-        <span
-          {...{
-            onClick: row.getToggleExpandedHandler(),
-            style: { cursor: 'pointer', paddingLeft: `${row.depth * 2}rem` },
-          }}
-        >
-          {row.getIsExpanded() ? '▲' : '►'}
-        </span>
+        <IconButton
+          iconProps={{ type: 'arrow', direction: row.getIsExpanded() ? 'up' : 'right', size: 'small' }}
+          onClick={row.getToggleExpandedHandler()}
+          style={{ cursor: 'pointer', paddingLeft: `${row.depth * 2}rem` }}
+        />
       ) : null,
   }) as ColumnDef<DataRow, CellData | unknown>
 
