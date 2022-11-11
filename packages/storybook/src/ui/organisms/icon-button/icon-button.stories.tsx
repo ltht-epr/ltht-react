@@ -28,6 +28,15 @@ export const IconButtons: Story = () => {
       <div style={{ marginBottom: '1rem' }}>
         <IconButton iconProps={{ type: 'calendar', size: 'large' }} text="Some button text" onClick={clickHandler} />
       </div>
+
+      <div style={{ marginBottom: '1rem' }}>
+        <IconButton
+          iconProps={{ type: 'chevron', direction: 'left', size: 'large' }}
+          text="This button is disabled"
+          onClick={clickHandler}
+          disabled
+        />
+      </div>
     </>
   )
 }

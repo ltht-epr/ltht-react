@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import { FC, HTMLAttributes } from 'react'
+import { FC, ButtonHTMLAttributes } from 'react'
 import Icon, { IconProps } from '../molecules/icon'
 
 const StyledInvisibleButton = styled.button`
@@ -15,17 +15,16 @@ const StyledText = styled.span`
   margin-left: 0.4rem;
 `
 
-const IconButton: FC<Props> = ({ iconProps, text, disabled, ...rest }) => (
-  <StyledInvisibleButton {...rest} disabled={disabled}>
+const IconButton: FC<Props> = ({ iconProps, text, ...rest }) => (
+  <StyledInvisibleButton {...rest}>
     <Icon {...iconProps} />
     {text && <StyledText>{text}</StyledText>}
   </StyledInvisibleButton>
 )
 
-interface Props extends HTMLAttributes<HTMLButtonElement> {
+interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   iconProps: IconProps
   text?: string
-  disabled?: boolean
 }
 
 export default IconButton
