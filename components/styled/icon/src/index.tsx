@@ -37,6 +37,7 @@ export { default as CheckIcon } from './atoms/check-icon'
 export { default as CheckboxIcon } from './atoms/checkbox-icon'
 export { default as SquareIcon } from './atoms/square-icon'
 export { default as ChevronDoubleIcon } from './atoms/emotion-icons/chevron-double-icon'
+export { default as ArrowIcon } from './atoms/emotion-icons/arrow-icon'
 
 export { default as Icon, IconProps } from './molecules/icon'
 
