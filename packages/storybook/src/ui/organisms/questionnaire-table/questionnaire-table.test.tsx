@@ -105,19 +105,21 @@ describe('Questionnaire Table (using Fixture data)', () => {
       />
     )
 
-    const getChevronCell = () => within(screen.getAllByRole('row')[4]).getAllByRole('cell')[0]
+    const getArrowCell = () => within(screen.getAllByRole('row')[4]).getAllByRole('cell')[0]
+    const getArrowButton = () => within(getArrowCell()).getByRole('button')
+    const getArrowElement = () => within(getArrowButton()).getByText((_, elem) => elem?.tagName.toLowerCase() === 'svg')
 
-    expect(getChevronCell()).toHaveTextContent('►')
+    expect(getArrowElement()).toHaveClass('icon__arrow--right')
     expect(screen.getAllByRole('row').length).toBe(5)
 
-    userEvent.click(screen.getAllByText('►')[1])
+    userEvent.click(getArrowButton())
 
-    expect(getChevronCell()).toHaveTextContent('▲')
+    expect(getArrowElement()).toHaveClass('icon__arrow--up')
     expect(screen.getAllByRole('row').length).toBeGreaterThan(5)
     expect(screen.getAllByRole('row')[5]).toBeVisible()
 
-    userEvent.click(screen.getAllByText('▲')[0])
-    expect(getChevronCell()).toHaveTextContent('►')
+    userEvent.click(getArrowButton())
+    expect(getArrowElement()).toHaveClass('icon__arrow--right')
     expect(screen.getAllByRole('row').length).toBe(5)
   })
 
@@ -131,23 +133,25 @@ describe('Questionnaire Table (using Fixture data)', () => {
       />
     )
 
-    const getChevronCell = () => within(screen.getAllByRole('row')[0]).getAllByRole('columnheader')[0]
+    const getArrowCell = () => within(screen.getAllByRole('row')[0]).getAllByRole('columnheader')[0]
+    const getArrowButton = () => within(getArrowCell()).getByRole('button')
+    const getArrowElement = () => within(getArrowButton()).getByText((_, elem) => elem?.tagName.toLowerCase() === 'svg')
 
-    expect(getChevronCell()).toHaveTextContent('►')
+    expect(getArrowElement()).toHaveClass('icon__arrow--right')
     expect(screen.getAllByRole('row').length).toBe(5)
 
-    userEvent.click(screen.getAllByText('►')[0])
+    userEvent.click(getArrowButton())
 
-    expect(getChevronCell()).toHaveTextContent('▲')
+    expect(getArrowElement()).toHaveClass('icon__arrow--up')
     expect(screen.getAllByRole('row').length).toBeGreaterThan(5)
     expect(screen.getAllByRole('row')[5]).toBeVisible()
 
     expect(within(screen.getAllByRole('row')[6]).getAllByRole('cell')[1]).toHaveTextContent('RR Part 1 (breaths/min)')
     expect(within(screen.getAllByRole('row')[7]).getAllByRole('cell')[1]).toHaveTextContent('RR Part 2 (breaths/min)')
 
-    userEvent.click(screen.getAllByText('▲')[0])
+    userEvent.click(getArrowButton())
 
-    expect(getChevronCell()).toHaveTextContent('►')
+    expect(getArrowElement()).toHaveClass('icon__arrow--right')
     expect(screen.getAllByRole('row').length).toBe(5)
   })
 })

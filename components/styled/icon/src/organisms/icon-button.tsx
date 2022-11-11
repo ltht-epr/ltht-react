@@ -16,7 +16,7 @@ const StyledText = styled.span`
 `
 
 const IconButton: FC<Props> = ({ iconProps, text, ...rest }) => (
-  <StyledInvisibleButton {...rest}>
+  <StyledInvisibleButton {...rest} role="button">
     <Icon {...iconProps} />
     {text && <StyledText>{text}</StyledText>}
   </StyledInvisibleButton>

@@ -21,15 +21,12 @@ const calculateIconType = (direction: IconDirection): IconTypes => {
   }
 }
 
+const buildClassesForIcon = (className: string | undefined, direction: IconDirection): string =>
+  `${className ?? ''} icon__chevron-double--${direction}`.trimStart()
+
 const ChevronDoubleIcon: FC<Props> = ({ size, direction, className, ...rest }) => {
   const Icon = calculateIconType(direction)
-  return (
-    <Icon
-      className={`${className ?? ''} icon__chevron-double`.trimStart()}
-      size={calculateEmotionIconSize(size)}
-      {...rest}
-    />
-  )
+  return <Icon className={buildClassesForIcon(className, direction)} size={calculateEmotionIconSize(size)} {...rest} />
 }
 
 type IconTypes =
