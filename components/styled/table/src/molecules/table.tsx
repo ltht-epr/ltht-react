@@ -1,4 +1,3 @@
-import { QueryClient, QueryClientProvider } from 'react-query'
 import { Icon } from '@ltht-react/icon'
 
 import StandardTable from './table/standard-table'
@@ -43,9 +42,7 @@ const Table = ({ fetchData, tableData, ...props }: IProps): JSX.Element => {
   }
 
   return tableOptions.enablePagination && tableOptions.serverSidePagination ? (
-    <QueryClientProvider client={new QueryClient()}>
-      <ServerSidePaginatedTable fetchData={fetchData} tableOptions={tableOptions} />
-    </QueryClientProvider>
+    <ServerSidePaginatedTable fetchData={fetchData} tableOptions={tableOptions} />
   ) : (
     <StandardTable tableData={tableData ?? { headers: [], rows: [] }} tableOptions={tableOptions} />
   )
