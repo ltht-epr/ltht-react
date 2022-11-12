@@ -1,7 +1,11 @@
 import Table, { ReFactoredTable } from '@ltht-react/table'
 import { Story } from '@storybook/react'
 import { mockTableData, mockTableDataWithSubheaders, mockTableDataWithSubrows } from './table.mockdata'
-import { mockTableDataRefactored, mockTableDataWithSubheadersRefactored } from './table.mockdata.refactored'
+import {
+  mockTableDataRefactored,
+  mockTableDataWithSubheadersRefactored,
+  mockTableDataWithSubrowsRefactored,
+} from './table.mockdata.refactored'
 
 export const SimpleTable: Story = () => <Table tableData={mockTableData} />
 
@@ -19,6 +23,10 @@ export const RefactoredSimpleTable: Story = () => <ReFactoredTable tableData={mo
 
 export const RefactoredTableWithSubheaders: Story = () => (
   <ReFactoredTable tableData={mockTableDataWithSubheadersRefactored} />
+)
+
+export const RefactoredTableWithSubrows: Story = () => (
+  <ReFactoredTable tableData={mockTableDataWithSubrowsRefactored} />
 )
 
 export default { title: 'UI/Molecules/Table' }

@@ -1,10 +1,12 @@
-import { FC } from 'react'
+import { FC, useState } from 'react'
 import {
   flexRender,
   getCoreRowModel,
   useReactTable,
   getExpandedRowModel,
   getSortedRowModel,
+  ExpandedState,
+  SortingState,
 } from '@tanstack/react-table'
 import styled from '@emotion/styled'
 import { CSS_RESET, TRANSLUCENT_BRIGHT_BLUE_TABLE, TRANSLUCENT_MID_GREY, SCROLLBAR } from '@ltht-react/styles'
@@ -54,9 +56,19 @@ const StyledTableData = styled.td`
 `
 
 const ReFactoredTable: FC<IProps> = ({ tableData }) => {
+  const [expanded, setExpanded] = useState<ExpandedState>({})
+  const [sorting, setSorting] = useState<SortingState>([])
+
   const table = useReactTable({
     data: tableData.rows,
     columns: createColumns(tableData),
+    state: {
+      expanded,
+      sorting,
+    },
+    onExpandedChange: setExpanded,
+    onSortingChange: setSorting,
+    getSubRows: (row) => row.subRows,
     getCoreRowModel: getCoreRowModel(),
     getExpandedRowModel: getExpandedRowModel(),
     getSortedRowModel: getSortedRowModel(),
@@ -81,7 +93,7 @@ const ReFactoredTable: FC<IProps> = ({ tableData }) => {
                       style: {
                         cursor: header.column.getCanSort() ? 'pointer' : '',
                       },
-                      onClick: header.column.getToggleSortingHandler(),
+                      onClick: header.column.getToggleSortingHandler(), // TODO: Try removing this
                     }}
                   >
                     {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}

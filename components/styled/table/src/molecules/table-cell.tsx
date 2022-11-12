@@ -36,7 +36,7 @@ export interface CellProps {
   isButton?: boolean
   text?: string
   iconProps?: IconProps
-  clickHandler?: () => undefined
+  clickHandler?: React.MouseEventHandler<HTMLButtonElement>
 }
 
 export default TableCell

@@ -6,7 +6,11 @@ import { IconProps } from '@ltht-react/icon'
 const createColumns = (tableData: TableData): ColumnDef<UnknownDataType>[] => {
   const columnHelper = createColumnHelper<UnknownDataType>()
 
-  const columns = createColumnsRecursively(tableData.headers, columnHelper)
+  let columns = createColumnsRecursively(tableData.headers, columnHelper)
+
+  if (tableData.rows.some((row) => row.subRows)) {
+    columns = prependColumnWithExpansionControls(columns, columnHelper)
+  }
 
   return columns
 }
@@ -65,6 +69,42 @@ const deriveHeaderIconProps = (
     }
   }
   return undefined
+}
+
+const prependColumnWithExpansionControls = (
+  columns: ColumnDef<UnknownDataType, unknown>[],
+  columnHelper: ColumnHelper<UnknownDataType>
+) => {
+  const expanderColumn = columnHelper.display({
+    id: 'expander',
+    header: ({ table }) => {
+      const headerCellProps: CellProps = {
+        iconProps: {
+          type: 'chevron',
+          direction: table.getIsAllRowsExpanded() ? 'down' : 'right',
+          size: 'medium',
+        },
+        clickHandler: table.getToggleAllRowsExpandedHandler(),
+      }
+      return <TableCell {...headerCellProps} />
+    },
+    cell: (props) => {
+      const cellProps: CellProps = props.row.getCanExpand()
+        ? {
+            iconProps: {
+              type: 'chevron',
+              direction: props.row.getIsExpanded() ? 'down' : 'right',
+              size: 'medium',
+            },
+            clickHandler: props.row.getToggleExpandedHandler(),
+          }
+        : {}
+      return <TableCell {...cellProps} />
+    },
+  })
+
+  console.dir([expanderColumn].concat(columns))
+  return [expanderColumn].concat(columns)
 }
 
 export default createColumns
