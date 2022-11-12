@@ -2,7 +2,7 @@ import Table, { ICellProps, Header, Cell, CellRow, TableData, CellData } from '.
 import GenericTable from './organisms/generic-table'
 import QuestionnaireTable from './organisms/questionnaire-table'
 import ReFactoredTable, {
-  UnknownDataType,
+  DataEntity,
   Header as HeaderRefactored,
   TableData as TableDataRefactored,
 } from './molecules/table-rewrite'
@@ -12,4 +12,4 @@ export { ICellProps, Header, Cell, CellRow, TableData, CellData }
 export { GenericTable }
 export { QuestionnaireTable }
 
-export { ReFactoredTable, UnknownDataType, HeaderRefactored, TableDataRefactored }
+export { ReFactoredTable, DataEntity, HeaderRefactored, TableDataRefactored }

@@ -125,8 +125,10 @@ const ReFactoredTable: FC<IProps> = ({ tableData }) => {
   )
 }
 
-export type UnknownDataType = Record<string, string | CellProps | UnknownDataType[]> & {
-  subRows?: UnknownDataType[]
+// Each "row" is represented by an object of unknown shape.
+// We don't know what the properties will be named, but we enforce their value
+export type DataEntity = Record<string, CellProps | DataEntity[]> & {
+  subRows?: DataEntity[]
 }
 
 export interface Header {
@@ -138,7 +140,7 @@ export interface Header {
 
 export interface TableData {
   headers: Header[]
-  rows: UnknownDataType[]
+  rows: DataEntity[]
 }
 
 interface IProps {

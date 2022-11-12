@@ -1,10 +1,10 @@
 import { ColumnDef, ColumnHelper, createColumnHelper, HeaderContext } from '@tanstack/react-table'
 import { IconProps } from '@ltht-react/icon'
-import { Header, TableData, UnknownDataType } from './table-rewrite'
+import { Header, TableData, DataEntity } from './table-rewrite'
 import TableCell, { CellProps } from './table-cell'
 
-const createColumns = (tableData: TableData): ColumnDef<UnknownDataType>[] => {
-  const columnHelper = createColumnHelper<UnknownDataType>()
+const createColumns = (tableData: TableData): ColumnDef<DataEntity>[] => {
+  const columnHelper = createColumnHelper<DataEntity>()
 
   let columns = createColumnsRecursively(tableData.headers, columnHelper)
 
@@ -17,9 +17,9 @@ const createColumns = (tableData: TableData): ColumnDef<UnknownDataType>[] => {
 
 const createColumnsRecursively = (
   headers: Header[],
-  columnHelper: ColumnHelper<UnknownDataType>
-): ColumnDef<UnknownDataType>[] => {
-  const result: ColumnDef<UnknownDataType>[] = headers.map((header) => {
+  columnHelper: ColumnHelper<DataEntity>
+): ColumnDef<DataEntity>[] => {
+  const result: ColumnDef<DataEntity>[] = headers.map((header) => {
     if (header.type === 'display') {
       return columnHelper.display({
         id: header.id,
@@ -35,7 +35,7 @@ const createColumnsRecursively = (
           return <TableCell {...cellProps} />
         },
         cell: (props) => <TableCell {...(props.getValue() as CellProps)} />,
-      }) as ColumnDef<UnknownDataType, unknown>
+      }) as ColumnDef<DataEntity, unknown>
     }
 
     return columnHelper.group({
@@ -47,9 +47,7 @@ const createColumnsRecursively = (
   return result
 }
 
-const deriveHeaderIconProps = (
-  props: HeaderContext<UnknownDataType, string | CellProps | UnknownDataType[]>
-): IconProps | undefined => {
+const deriveHeaderIconProps = (props: HeaderContext<DataEntity, CellProps | DataEntity[]>): IconProps | undefined => {
   if (props.column.getIsSorted() === 'asc') {
     return {
       type: 'chevron',
@@ -68,8 +66,8 @@ const deriveHeaderIconProps = (
 }
 
 const prependColumnWithExpansionControls = (
-  columns: ColumnDef<UnknownDataType, unknown>[],
-  columnHelper: ColumnHelper<UnknownDataType>
+  columns: ColumnDef<DataEntity, unknown>[],
+  columnHelper: ColumnHelper<DataEntity>
 ) => {
   const expanderColumn = columnHelper.display({
     id: 'expander',
