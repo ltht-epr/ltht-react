@@ -93,7 +93,7 @@ const ReFactoredTable: FC<IProps> = ({ tableData }) => {
                       style: {
                         cursor: header.column.getCanSort() ? 'pointer' : '',
                       },
-                      onClick: header.column.getToggleSortingHandler(), // TODO: Try removing this
+                      onClick: header.column.getToggleSortingHandler(),
                     }}
                   >
                     {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}

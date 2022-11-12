@@ -1,7 +1,7 @@
 import { ColumnDef, ColumnHelper, createColumnHelper, HeaderContext } from '@tanstack/react-table'
+import { IconProps } from '@ltht-react/icon'
 import { Header, TableData, UnknownDataType } from './table-rewrite'
 import TableCell, { CellProps } from './table-cell'
-import { IconProps } from '@ltht-react/icon'
 
 const createColumns = (tableData: TableData): ColumnDef<UnknownDataType>[] => {
   const columnHelper = createColumnHelper<UnknownDataType>()
@@ -24,9 +24,7 @@ const createColumnsRecursively = (
       return columnHelper.display({
         id: header.id,
         header: () => <TableCell {...header.cellProps} />,
-        cell: (props) => {
-          return <TableCell {...(props.getValue() as CellProps)} />
-        },
+        cell: (props) => <TableCell {...(props.getValue() as CellProps)} />,
       })
     }
 
@@ -36,9 +34,7 @@ const createColumnsRecursively = (
           const cellProps: CellProps = { ...header.cellProps, iconProps: deriveHeaderIconProps(props) }
           return <TableCell {...cellProps} />
         },
-        cell: (props) => {
-          return <TableCell {...(props.getValue() as CellProps)} />
-        },
+        cell: (props) => <TableCell {...(props.getValue() as CellProps)} />,
       }) as ColumnDef<UnknownDataType, unknown>
     }
 
@@ -103,7 +99,6 @@ const prependColumnWithExpansionControls = (
     },
   })
 
-  console.dir([expanderColumn].concat(columns))
   return [expanderColumn].concat(columns)
 }
 
