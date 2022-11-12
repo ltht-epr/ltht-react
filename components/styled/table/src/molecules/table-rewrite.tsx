@@ -126,7 +126,6 @@ const ReFactoredTable: FC<IProps> = ({ tableData }) => {
 }
 
 export type UnknownDataType = Record<string, string | CellProps | UnknownDataType[]> & {
-  key: string
   subRows?: UnknownDataType[]
 }
 

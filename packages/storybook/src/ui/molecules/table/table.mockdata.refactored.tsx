@@ -20,13 +20,11 @@ export const mockTableDataRefactored: TableDataRefactored = {
   ],
   rows: [
     {
-      key: 'answerset1',
       answerset: { text: 'First Answer Set' },
       question1: { text: 'Answer 1 (set1)' },
       question2: { text: 'Answer 2 (set1)' },
     },
     {
-      key: 'answerset2',
       answerset: { text: 'Second Answer Set' },
       question1: { text: 'Answer 1 (set2)' },
       question2: { text: 'Answer 2 (set2)' },
@@ -50,7 +48,7 @@ export const mockTableDataWithSubheadersRefactored: TableDataRefactored = {
       type: 'group',
       id: 'questiongroup1',
       cellProps: { text: 'Question Group' },
-      subheaders: [
+      subHeaders: [
         {
           type: 'accessor',
           id: 'question2',
@@ -66,14 +64,12 @@ export const mockTableDataWithSubheadersRefactored: TableDataRefactored = {
   ],
   rows: [
     {
-      key: 'answerset1',
       answerset: { text: 'First Answer Set' },
       question1: { text: 'Answer 1 (set1)' },
       question2: { text: 'Answer 2 (set1)' },
       question3: { text: 'Answer 3 (set1)' },
     },
     {
-      key: 'answerset2',
       answerset: { text: 'Second Answer Set' },
       question1: { text: 'Answer 1 (set2)' },
       question2: { text: 'Answer 2 (set2)' },
@@ -102,19 +98,16 @@ export const mockTableDataWithSubrowsRefactored: TableDataRefactored = {
   ],
   rows: [
     {
-      key: 'answerset1',
       answerset: { text: 'First Answer Set' },
       question1: { text: 'Answer 1 (set1)' },
       question2: { text: 'Answer 2 (set1)' },
     },
     {
-      key: 'answerset2',
       answerset: { text: 'Second Answer Set' },
       question1: { text: 'Answer 1 (set2)' },
       question2: { text: 'Answer 2 (set2)' },
       subRows: [
         {
-          key: 'answerset2-sub',
           question1: { text: 'Sub answer 1 (set2)' },
           question2: { text: 'Sub answer 2 (set2)' },
         },
