@@ -5,7 +5,6 @@ import {
   useReactTable,
   getExpandedRowModel,
   getSortedRowModel,
-  SortDirection,
 } from '@tanstack/react-table'
 import styled from '@emotion/styled'
 import { CSS_RESET, TRANSLUCENT_BRIGHT_BLUE_TABLE, TRANSLUCENT_MID_GREY, SCROLLBAR } from '@ltht-react/styles'
@@ -63,12 +62,6 @@ const ReFactoredTable: FC<IProps> = ({ tableData }) => {
     getSortedRowModel: getSortedRowModel(),
   })
 
-  const getSortIcon = (sortDirection: SortDirection): string | null =>
-    ({
-      asc: ' 🔼',
-      desc: ' 🔽',
-    }[sortDirection] ?? null)
-
   return (
     <Container>
       <StyledTable>
@@ -92,7 +85,6 @@ const ReFactoredTable: FC<IProps> = ({ tableData }) => {
                     }}
                   >
                     {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
-                    {getSortIcon(header.column.getIsSorted() as SortDirection)}
                   </StyledTableHeader>
                 )
               )}
