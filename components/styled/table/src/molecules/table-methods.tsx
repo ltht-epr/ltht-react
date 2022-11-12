@@ -1,6 +1,6 @@
 import { ColumnDef, ColumnHelper, createColumnHelper } from '@tanstack/react-table'
 import { Header, TableData, UnknownDataType } from './table-rewrite'
-import TableCell from './table-cell'
+import TableCell, { CellProps } from './table-cell'
 
 const createColumns = (tableData: TableData): ColumnDef<UnknownDataType>[] => {
   const columnHelper = createColumnHelper<UnknownDataType>()
@@ -19,12 +19,18 @@ const createColumnsRecursively = (
       return columnHelper.display({
         id: header.id,
         header: () => <TableCell {...header.cellProps} />,
+        cell: (props) => {
+          return <TableCell {...(props.getValue() as CellProps)} />
+        },
       })
     }
 
     if (header.type === 'accessor') {
       return columnHelper.accessor(header.id, {
         header: () => <TableCell {...header.cellProps} />,
+        cell: (props) => {
+          return <TableCell {...(props.getValue() as CellProps)} />
+        },
       }) as ColumnDef<UnknownDataType, unknown>
     }
 
