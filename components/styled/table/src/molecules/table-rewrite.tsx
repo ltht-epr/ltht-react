@@ -134,7 +134,7 @@ export interface Header {
   type: 'accessor' | 'group' | 'display'
   id: string
   cellProps: CellProps
-  subheaders?: Header[]
+  subHeaders?: Header[]
 }
 
 export interface TableData {

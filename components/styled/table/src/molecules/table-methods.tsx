@@ -40,7 +40,7 @@ const createColumnsRecursively = (
 
     return columnHelper.group({
       header: header.cellProps.text ?? '',
-      columns: createColumnsRecursively(header.subheaders ?? [], columnHelper),
+      columns: createColumnsRecursively(header.subHeaders ?? [], columnHelper),
     })
   })
 
