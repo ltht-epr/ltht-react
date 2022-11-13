@@ -1,15 +1,6 @@
-import Table, { ICellProps, Header, Cell, CellRow, TableData, CellData } from './molecules/table'
+import Table, { Header, DataEntity, TableData } from './molecules/table'
 import GenericTable from './organisms/generic-table'
 import QuestionnaireTable from './organisms/questionnaire-table'
-import ReFactoredTable, {
-  DataEntity,
-  Header as HeaderRefactored,
-  TableData as TableDataRefactored,
-} from './molecules/table-rewrite'
 
 export default Table
-export { ICellProps, Header, Cell, CellRow, TableData, CellData }
-export { GenericTable }
-export { QuestionnaireTable }
-
-export { ReFactoredTable, DataEntity, HeaderRefactored, TableDataRefactored }
+export { Header, TableData, DataEntity, GenericTable, QuestionnaireTable }

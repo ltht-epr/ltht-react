@@ -1,6 +1,6 @@
 import { ColumnDef, ColumnHelper, createColumnHelper, HeaderContext } from '@tanstack/react-table'
 import { IconProps } from '@ltht-react/icon'
-import { Header, TableData, DataEntity } from './table-rewrite'
+import { Header, TableData, DataEntity } from './table'
 import TableCell, { CellProps } from './table-cell'
 
 const createColumns = (tableData: TableData): ColumnDef<DataEntity>[] => {
