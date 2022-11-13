@@ -3,32 +3,31 @@ import { TableData } from '@ltht-react/table'
 export const mockTableData: TableData = {
   headers: [
     {
-      accessor: 'answerset',
-      header: '',
+      type: 'accessor',
+      id: 'answerset',
+      cellProps: { text: '' },
     },
     {
-      header: 'First Question',
-      accessor: 'question1',
+      type: 'accessor',
+      id: 'question1',
+      cellProps: { text: 'First Question' },
     },
     {
-      header: 'Second Question',
-      accessor: 'question2',
+      type: 'accessor',
+      id: 'question2',
+      cellProps: { text: 'Second Question' },
     },
   ],
   rows: [
     {
-      cells: [
-        { key: 'answerset', value: 'First Answer Set' },
-        { key: 'question1', value: 'Answer 1 (set1)' },
-        { key: 'question2', value: 'Answer 2 (set1)' },
-      ],
+      answerset: { text: 'First Answer Set' },
+      question1: { text: 'Answer 1 (set1)' },
+      question2: { text: 'Answer 2 (set1)' },
     },
     {
-      cells: [
-        { key: 'answerset', value: 'Second Answer Set' },
-        { key: 'question1', value: 'Answer 1 (set2)' },
-        { key: 'question2', value: 'Answer 2 (set2)' },
-      ],
+      answerset: { text: 'Second Answer Set' },
+      question1: { text: 'Answer 1 (set2)' },
+      question2: { text: 'Answer 2 (set2)' },
     },
   ],
 }
@@ -36,44 +35,45 @@ export const mockTableData: TableData = {
 export const mockTableDataWithSubheaders: TableData = {
   headers: [
     {
-      accessor: 'answerset',
-      header: '',
+      type: 'accessor',
+      id: 'answerset',
+      cellProps: { text: '' },
     },
     {
-      header: 'First Question',
-      accessor: 'question1',
+      type: 'accessor',
+      id: 'question1',
+      cellProps: { text: 'First Question' },
     },
     {
-      header: 'Question Group',
-      accessor: 'questiongroup1',
-      subheaders: [
+      type: 'group',
+      id: 'questiongroup1',
+      cellProps: { text: 'Question Group' },
+      subHeaders: [
         {
-          header: 'Second Question',
-          accessor: 'question2',
+          type: 'accessor',
+          id: 'question2',
+          cellProps: { text: 'Second Question' },
         },
         {
-          header: 'Third Question',
-          accessor: 'question3',
+          type: 'accessor',
+          id: 'question3',
+          cellProps: { text: 'Third Question' },
         },
       ],
     },
   ],
   rows: [
     {
-      cells: [
-        { key: 'answerset', value: 'First Answer Set' },
-        { key: 'question1', value: 'Answer 1 (set1)' },
-        { key: 'question2', value: 'Answer 2 (set1)' },
-        { key: 'question3', value: 'Answer 3 (set1)' },
-      ],
+      answerset: { text: 'First Answer Set' },
+      question1: { text: 'Answer 1 (set1)' },
+      question2: { text: 'Answer 2 (set1)' },
+      question3: { text: 'Answer 3 (set1)' },
     },
     {
-      cells: [
-        { key: 'answerset', value: 'Second Answer Set' },
-        { key: 'question1', value: 'Answer 1 (set2)' },
-        { key: 'question2', value: 'Answer 2 (set2)' },
-        { key: 'question3', value: 'Answer 3 (set1)' },
-      ],
+      answerset: { text: 'Second Answer Set' },
+      question1: { text: 'Answer 1 (set2)' },
+      question2: { text: 'Answer 2 (set2)' },
+      question3: { text: 'Answer 3 (set2)' },
     },
   ],
 }
@@ -81,38 +81,35 @@ export const mockTableDataWithSubheaders: TableData = {
 export const mockTableDataWithSubrows: TableData = {
   headers: [
     {
-      accessor: 'answerset',
-      header: '',
+      type: 'accessor',
+      id: 'answerset',
+      cellProps: { text: '' },
     },
     {
-      header: 'First Question',
-      accessor: 'question1',
+      type: 'accessor',
+      id: 'question1',
+      cellProps: { text: 'First Question' },
     },
     {
-      header: 'Second Question',
-      accessor: 'question2',
+      type: 'accessor',
+      id: 'question2',
+      cellProps: { text: 'Second Question' },
     },
   ],
   rows: [
     {
-      cells: [
-        { key: 'answerset', value: 'First Answer Set' },
-        { key: 'question1', value: 'Answer 1 (set1)' },
-        { key: 'question2', value: 'Answer 2 (set1)' },
-      ],
+      answerset: { text: 'First Answer Set' },
+      question1: { text: 'Answer 1 (set1)' },
+      question2: { text: 'Answer 2 (set1)' },
     },
     {
-      cells: [
-        { key: 'answerset', value: 'Second Answer Set' },
-        { key: 'question1', value: 'Answer 1 (set2)' },
-        { key: 'question2', value: 'Answer 2 (set2)' },
-      ],
+      answerset: { text: 'Second Answer Set' },
+      question1: { text: 'Answer 1 (set2)' },
+      question2: { text: 'Answer 2 (set2)' },
       subRows: [
         {
-          cells: [
-            { key: 'question1', value: 'Sub answer 1 (set2)' },
-            { key: 'question2', value: 'Sub answer 2 (set2)' },
-          ],
+          question1: { text: 'Sub answer 1 (set2)' },
+          question2: { text: 'Sub answer 2 (set2)' },
         },
       ],
     },
