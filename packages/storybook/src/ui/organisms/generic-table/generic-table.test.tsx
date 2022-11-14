@@ -5,12 +5,7 @@ import { mockMapper, mockSummaryDefinition, mockSummaryRecordsList } from './gen
 describe('Generic Table', () => {
   it('Renders', () => {
     render(
-      <GenericTable
-        headerAxis="x"
-        columnData={mockSummaryDefinition}
-        rowData={mockSummaryRecordsList}
-        mapToTableData={mockMapper}
-      />
+      <GenericTable columnData={mockSummaryDefinition} rowData={mockSummaryRecordsList} mapToTableData={mockMapper} />
     )
   })
 
@@ -19,7 +14,6 @@ describe('Generic Table', () => {
 
     render(
       <GenericTable
-        headerAxis="x"
         columnData={mockSummaryDefinition}
         rowData={mockSummaryRecordsList}
         mapToTableData={mockMappingMethod}
@@ -32,12 +26,7 @@ describe('Generic Table', () => {
 
   it('Renders the same HTML as it would if given the TableData directly', () => {
     const tableRenderedWithMapper = render(
-      <GenericTable
-        headerAxis="x"
-        columnData={mockSummaryDefinition}
-        rowData={mockSummaryRecordsList}
-        mapToTableData={mockMapper}
-      />
+      <GenericTable columnData={mockSummaryDefinition} rowData={mockSummaryRecordsList} mapToTableData={mockMapper} />
     ).asFragment()
 
     const tableRenderedWithTableData = render(
