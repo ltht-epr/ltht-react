@@ -92,12 +92,10 @@ const recursivelyMapResponseItemsOntoData = (
     const firstAnswer = item.answer ? item.answer[0] : undefined
 
     if (item.linkId && firstAnswer) {
-      // Always push item's linkId with first answer
       updatedDataEntity[item.linkId] = {
         text: EnsureMaybe<string>(firstAnswer.valueString, ''),
       }
 
-      // If first answer has subitems, recurse through them and do the same
       if (firstAnswer.item) {
         updatedDataEntity = recursivelyMapResponseItemsOntoData(
           EnsureMaybeArray<QuestionnaireResponseItem>(firstAnswer.item),
