@@ -1,4 +1,4 @@
-import { ChangeEvent, FC, HTMLAttributes, InputHTMLAttributes } from 'react'
+import { FC, InputHTMLAttributes } from 'react'
 import styled from '@emotion/styled'
 import { BADGE_COLOURS } from '@ltht-react/styles'
 
@@ -54,11 +54,8 @@ const Checkbox: FC<Props> = ({ id, checked = false, onChange, children, ...rest 
   </StyledCheckbox>
 )
 
-interface Props extends HTMLAttributes<HTMLDivElement> {
-  id: string
-  checked: boolean
+interface Props extends InputHTMLAttributes<HTMLInputElement> {
   children: React.ReactNode
-  onChange(e: ChangeEvent<HTMLInputElement>): void
 }
 
 export default Checkbox
