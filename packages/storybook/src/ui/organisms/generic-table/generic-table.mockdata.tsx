@@ -1,3 +1,5 @@
+import { TableData } from '@ltht-react/table'
+import mapQuestionnaireDefinitionAndResponsesToTableData from '@ltht-react/table/src/organisms/questionnaire-table-methods'
 import {
   PartialDateTime,
   PartialDateTimeKindCode,
@@ -9,8 +11,6 @@ import {
   QuestionnaireResponseStatus,
 } from '@ltht-react/types'
 import { QuestionnairePublicationStatus } from '@ltht-react/types/src'
-import { ICellProps, TableData } from '@ltht-react/table'
-import mapQuestionnaireDefinitionAndResponsesToTableData from '@ltht-react/table/src/organisms/questionnaire-table-methods'
 
 export const mockSummaryDefinition: Questionnaire = {
   identifier: [],
@@ -179,70 +179,10 @@ export const mockSummaryRecordsList: QuestionnaireResponse[] = [
   } as QuestionnaireResponse,
 ]
 
-const customCellWithColorBox = ({ value }: ICellProps) => (
-  <>
-    <span
-      data-testid={`color-box-${value.toLowerCase()}`}
-      style={{ display: 'inline-block', width: '10px', height: '10px', backgroundColor: value }}
-    />{' '}
-    {value}
-  </>
-)
-
-export const mockMappingMethodHorizontalWithCellCustomisation = (
-  definition: Questionnaire,
-  records: QuestionnaireResponse[]
-): TableData => {
-  const tableData = mapQuestionnaireDefinitionAndResponsesToTableData(definition, records, 'x')
-
-  if (!tableData) {
-    throw Error('Error in mock mapper')
+export const mockMapper = (colData: Questionnaire, rowData: QuestionnaireResponse[]): TableData => {
+  const mappedData = mapQuestionnaireDefinitionAndResponsesToTableData(colData, rowData, 'x')
+  if (!mappedData) {
+    throw Error('Something went wrong')
   }
-  const columnToCustomiseIndex = tableData.headers.findIndex((x) => x.accessor === 'questionId3')
-  if (columnToCustomiseIndex > -1) {
-    tableData.headers[columnToCustomiseIndex].cell = customCellWithColorBox
-  }
-
-  return tableData
-}
-
-export const mockMappingMethodHorizontalWithHeaderCustomisation = (
-  definition: Questionnaire,
-  records: QuestionnaireResponse[]
-): TableData => {
-  const tableData = mapQuestionnaireDefinitionAndResponsesToTableData(definition, records, 'x')
-  if (!tableData) {
-    throw Error('Error in mock mapper')
-  }
-
-  tableData.headers[0].header = <span data-testid="record-date-header">{`📅 ${tableData.headers[0].header}`}</span>
-
-  const columnToCustomiseIndex = tableData.headers.findIndex((x) => x.accessor === 'questionId3')
-  if (columnToCustomiseIndex > -1) {
-    tableData.headers[columnToCustomiseIndex].cell = customCellWithColorBox
-  }
-
-  return tableData
-}
-
-export const mockMappingMethodVerticalWithCellCustomisation = (
-  definition: Questionnaire,
-  records: QuestionnaireResponse[]
-): TableData => {
-  const tableData = mapQuestionnaireDefinitionAndResponsesToTableData(definition, records, 'y')
-  if (!tableData) {
-    throw Error('Error in mock mapper')
-  }
-  tableData.rows = tableData.rows.map((row) => {
-    const rowWithCustomisation = row
-    rowWithCustomisation.cells[0].render = (props: ICellProps) => <b>{props.value}</b>
-    return rowWithCustomisation
-  })
-
-  const columnToCustomiseIndex = tableData.rows.findIndex((x) => x.id === 'questionId3')
-  if (columnToCustomiseIndex > -1) {
-    tableData.rows[columnToCustomiseIndex].render = customCellWithColorBox
-  }
-
-  return tableData
+  return mappedData
 }

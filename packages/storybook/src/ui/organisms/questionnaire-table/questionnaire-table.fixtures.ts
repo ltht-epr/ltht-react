@@ -195,7 +195,7 @@ const summaryRecordOne: QuestionnaireResponse = {
         {
           valueDateTime: null,
           valueBoolean: null,
-          valueString: '',
+          valueString: 'No',
           item: null,
         },
       ],
@@ -257,7 +257,7 @@ const summaryRecordOne: QuestionnaireResponse = {
                 {
                   valueDateTime: null,
                   valueBoolean: null,
-                  valueString: '',
+                  valueString: '93',
                 },
               ],
             },
@@ -277,7 +277,7 @@ const summaryRecordOne: QuestionnaireResponse = {
                 {
                   valueDateTime: null,
                   valueBoolean: null,
-                  valueString: '',
+                  valueString: '120',
                 },
               ],
             },
@@ -287,7 +287,7 @@ const summaryRecordOne: QuestionnaireResponse = {
                 {
                   valueDateTime: null,
                   valueBoolean: null,
-                  valueString: '',
+                  valueString: '143',
                 },
               ],
             },
@@ -327,7 +327,7 @@ const summaryRecordOne: QuestionnaireResponse = {
                 {
                   valueDateTime: null,
                   valueBoolean: null,
-                  valueString: '',
+                  valueString: '8',
                 },
               ],
             },
@@ -337,7 +337,7 @@ const summaryRecordOne: QuestionnaireResponse = {
                 {
                   valueDateTime: null,
                   valueBoolean: null,
-                  valueString: '',
+                  valueString: '75',
                 },
               ],
             },
@@ -364,6 +364,7 @@ const summaryRecordTwo = {
     {
       linkId: '1',
       extension: [
+        // perhaps need to run the types script?
         {
           valueCodeableConcept: {
             coding: [
@@ -380,7 +381,7 @@ const summaryRecordTwo = {
         {
           valueDateTime: null,
           valueBoolean: null,
-          valueString: '4 NEWS',
+          valueString: '40 NEWS',
           item: null,
         },
       ],
@@ -392,7 +393,7 @@ const summaryRecordTwo = {
         {
           valueDateTime: null,
           valueBoolean: null,
-          valueString: '',
+          valueString: 'ICON',
           item: null,
         },
       ],
@@ -404,7 +405,7 @@ const summaryRecordTwo = {
         {
           valueDateTime: null,
           valueBoolean: null,
-          valueString: '',
+          valueString: 'Yes',
           item: null,
         },
       ],
@@ -419,87 +420,109 @@ const summaryRecordTwo = {
           valueString: 'CHECKBOX',
           item: [
             {
-              linkId: '4.1',
+              linkId: '4a',
               answer: [
                 {
                   valueDateTime: null,
                   valueBoolean: null,
-                  valueString: '12',
+                  valueString: '31',
+                  item: [
+                    {
+                      linkId: '4aa',
+                      answer: [
+                        {
+                          valueDateTime: null,
+                          valueBoolean: null,
+                          valueString: '31(1)',
+                        },
+                      ],
+                    },
+                    {
+                      linkId: '4ab',
+                      answer: [
+                        {
+                          valueDateTime: null,
+                          valueBoolean: null,
+                          valueString: '31(2)',
+                        },
+                      ],
+                    },
+                  ],
                 },
               ],
             },
             {
-              linkId: '4.2',
+              linkId: '4b',
               answer: [
                 {
                   valueDateTime: null,
                   valueBoolean: null,
-                  valueString: '94 (Target 94-98 %)',
+                  valueString: '81 (Target 94-98 %)',
                 },
               ],
             },
             {
-              linkId: '4.3',
+              linkId: '4c',
               answer: [
                 {
                   valueDateTime: null,
                   valueBoolean: null,
-                  valueString: '',
+                  valueString: '95',
                 },
               ],
             },
             {
-              linkId: '4.4',
+              linkId: '4d',
               answer: [
                 {
                   valueDateTime: null,
                   valueBoolean: null,
-                  valueString: '122 / 88',
+                  valueString: '160 / 140',
                 },
               ],
             },
             {
-              linkId: '4.5',
+              linkId: '4e',
               answer: [
                 {
                   valueDateTime: null,
                   valueBoolean: null,
-                  valueString: '',
+                  valueString: '140',
                 },
               ],
             },
             {
-              linkId: '4.6',
+              linkId: '4f',
               answer: [
                 {
                   valueDateTime: null,
                   valueBoolean: null,
-                  valueString: '',
+                  valueString: '132',
                 },
               ],
             },
             {
-              linkId: '4.7',
+              linkId: '4g',
               answer: [
                 {
                   valueDateTime: null,
                   valueBoolean: null,
-                  valueString: '188',
+                  valueString: '74',
                 },
               ],
             },
             {
-              linkId: '4.8',
+              linkId: '4h',
               answer: [
                 {
                   valueDateTime: null,
                   valueBoolean: null,
-                  valueString: '37',
+                  valueString: '64',
                 },
               ],
             },
             {
-              linkId: '4.9',
+              linkId: '4i',
               answer: [
                 {
                   valueDateTime: null,
@@ -509,22 +532,22 @@ const summaryRecordTwo = {
               ],
             },
             {
-              linkId: '4.10',
+              linkId: '4j',
               answer: [
                 {
                   valueDateTime: null,
                   valueBoolean: null,
-                  valueString: '',
+                  valueString: '3',
                 },
               ],
             },
             {
-              linkId: '4.11',
+              linkId: '4k',
               answer: [
                 {
                   valueDateTime: null,
                   valueBoolean: null,
-                  valueString: '',
+                  valueString: '65',
                 },
               ],
             },
@@ -551,6 +574,7 @@ const summaryRecordThree = {
     {
       linkId: '1',
       extension: [
+        // perhaps need to run the types script?
         {
           valueCodeableConcept: {
             coding: [
@@ -567,7 +591,7 @@ const summaryRecordThree = {
         {
           valueDateTime: null,
           valueBoolean: null,
-          valueString: '15 NEWS',
+          valueString: '17 NEWS',
           item: null,
         },
       ],
@@ -579,7 +603,7 @@ const summaryRecordThree = {
         {
           valueDateTime: null,
           valueBoolean: null,
-          valueString: '',
+          valueString: 'ICON',
           item: null,
         },
       ],
@@ -591,7 +615,7 @@ const summaryRecordThree = {
         {
           valueDateTime: null,
           valueBoolean: null,
-          valueString: '',
+          valueString: 'No',
           item: null,
         },
       ],
@@ -606,112 +630,134 @@ const summaryRecordThree = {
           valueString: 'CHECKBOX',
           item: [
             {
-              linkId: '4.1',
+              linkId: '4a',
               answer: [
                 {
                   valueDateTime: null,
                   valueBoolean: null,
-                  valueString: '65',
+                  valueString: '17',
+                  item: [
+                    {
+                      linkId: '4aa',
+                      answer: [
+                        {
+                          valueDateTime: null,
+                          valueBoolean: null,
+                          valueString: '17(1)',
+                        },
+                      ],
+                    },
+                    {
+                      linkId: '4ab',
+                      answer: [
+                        {
+                          valueDateTime: null,
+                          valueBoolean: null,
+                          valueString: '17(2)',
+                        },
+                      ],
+                    },
+                  ],
                 },
               ],
             },
             {
-              linkId: '4.2',
+              linkId: '4b',
               answer: [
                 {
                   valueDateTime: null,
                   valueBoolean: null,
-                  valueString: '65 (Target 94-98 %)',
+                  valueString: '95 (Target 94-98 %)',
                 },
               ],
             },
             {
-              linkId: '4.3',
+              linkId: '4c',
               answer: [
                 {
                   valueDateTime: null,
                   valueBoolean: null,
-                  valueString: '',
+                  valueString: '103',
                 },
               ],
             },
             {
-              linkId: '4.4',
+              linkId: '4d',
               answer: [
                 {
                   valueDateTime: null,
                   valueBoolean: null,
-                  valueString: '65 / 6',
+                  valueString: '125 / 115',
                 },
               ],
             },
             {
-              linkId: '4.5',
+              linkId: '4e',
               answer: [
                 {
                   valueDateTime: null,
                   valueBoolean: null,
-                  valueString: '',
+                  valueString: '129',
                 },
               ],
             },
             {
-              linkId: '4.6',
+              linkId: '4f',
               answer: [
                 {
                   valueDateTime: null,
                   valueBoolean: null,
-                  valueString: '',
+                  valueString: '123',
                 },
               ],
             },
             {
-              linkId: '4.7',
+              linkId: '4g',
               answer: [
                 {
                   valueDateTime: null,
                   valueBoolean: null,
-                  valueString: '64',
+                  valueString: '120',
                 },
               ],
             },
             {
-              linkId: '4.8',
+              linkId: '4h',
               answer: [
                 {
                   valueDateTime: null,
                   valueBoolean: null,
-                  valueString: '35',
+                  valueString: '23',
                 },
               ],
             },
             {
-              linkId: '4.9',
+              linkId: '4i',
               answer: [
                 {
                   valueDateTime: null,
                   valueBoolean: null,
-                  valueString: 'New Confusion',
+                  valueString: 'Confusion',
                 },
               ],
             },
             {
-              linkId: '4.10',
+              linkId: '4j',
               answer: [
                 {
                   valueDateTime: null,
                   valueBoolean: null,
-                  valueString: '1 - Mild Pain',
+                  valueString: '5',
                 },
               ],
             },
             {
-              linkId: '4.11',
+              linkId: '4k',
               answer: [
                 {
                   valueDateTime: null,
                   valueBoolean: null,
-                  valueString: '',
+                  valueString: '102',
                 },
               ],
             },

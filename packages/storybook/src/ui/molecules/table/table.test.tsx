@@ -1,6 +1,6 @@
 import { render, screen, within } from '@testing-library/react'
 import Table from '@ltht-react/table'
-import { mockTableData, mockTableDataWithSubheaders } from './table.mockdata'
+import { mockTableData, mockTableDataWithCustomComponent, mockTableDataWithSubheaders } from './table.mockdata'
 
 const getHeaders = () => within(screen.getAllByRole('rowgroup')[0])
 const getDataCells = () => within(screen.getAllByRole('rowgroup')[1])
@@ -50,5 +50,13 @@ describe('Table With Subheaders', () => {
 
     // assert that second row of headers has 4 headers
     expect(getSecondHeaderRow().getAllByRole('columnheader')).toHaveLength(4)
+  })
+})
+
+describe('Component overrride', () => {
+  it('Allows for custom rendering', () => {
+    render(<Table tableData={mockTableDataWithCustomComponent} />)
+
+    expect(screen.getByRole('button', { name: 'This cell is customised' })).toBeVisible()
   })
 })

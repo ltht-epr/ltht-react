@@ -6,8 +6,8 @@ import userEvent from '@testing-library/user-event'
 import { mockSummaryDefinition, mockSummaryRecordsList } from '../generic-table/generic-table.mockdata'
 import { summaryDefinition, summaryRecordsList } from './questionnaire-table.fixtures'
 import {
-  expectedResultOfFixtureDataHorizontalMapping,
-  expectedResultOfFixtureDataVerticalMapping,
+  expectedResultOfMappingWithHeadersOnXAxis,
+  expectedResultOfMappingWithHeadersOnYAxis,
 } from './questionnaire-table.mockdata'
 
 describe('Questionnaire Table (using Fixture data)', () => {
@@ -187,15 +187,15 @@ describe('Questionnaire Table (using mock Monty Python data)', () => {
 })
 
 describe('Questionnaire Table Methods', () => {
-  it('Maps questionnaire data to vertical TableData', () => {
-    const result = mapQuestionnaireDefinitionAndResponsesToTableData(summaryDefinition, summaryRecordsList, 'y')
-
-    expect(result).toEqual(expectedResultOfFixtureDataVerticalMapping)
-  })
-
-  it('Maps questionnaire data to horizontal TableData', () => {
+  it('Maps questionnaires data with headers along the X axis', () => {
     const result = mapQuestionnaireDefinitionAndResponsesToTableData(summaryDefinition, summaryRecordsList, 'x')
 
-    expect(result).toEqual(expectedResultOfFixtureDataHorizontalMapping)
+    expect(result).toEqual(expectedResultOfMappingWithHeadersOnXAxis)
+  })
+
+  it.only('Maps questionnaires data with headers along the Y axis', () => {
+    const result = mapQuestionnaireDefinitionAndResponsesToTableData(summaryDefinition, summaryRecordsList, 'y')
+
+    expect(result).toEqual(expectedResultOfMappingWithHeadersOnYAxis)
   })
 })
