@@ -4,15 +4,15 @@ import SelectedPlanDetail, { ISelectedPlanDetailProps } from '@ltht-react/plan-d
 import { planDefinition } from './plan-definition-editor.fixtures'
 
 describe('selected plan detail', () => {
+  const onProblemChangeMock = jest.fn()
   const defaultProps: ISelectedPlanDetailProps = {
-    onProblemChange: jest.fn(),
+    onProblemChange: onProblemChangeMock,
     planDefinition,
     selectedProblemIds: [],
   }
 
   afterEach(() => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    ;(defaultProps.onProblemChange as jest.MockedFunction<any>).mockClear()
+    onProblemChangeMock.mockClear()
   })
 
   it('should show problems', async () => {

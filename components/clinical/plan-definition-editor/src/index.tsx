@@ -89,18 +89,18 @@ export const SelectedPlanDetail: FC<ISelectedPlanDetailProps> = ({
 }) => {
   // Split actions from plan definition into clinical problem based and education based
   const { problemActions, educationActions } = useMemo(() => {
-    const pa = planDefinition.action?.filter(
+    const problemActions = planDefinition.action?.filter(
       (action) =>
         action?.code && action?.code[0] && action?.code[0].coding && action?.code[0].coding[0]?.code === 'problem'
     )
-    const ea = planDefinition.action?.filter(
+    const educationActions = planDefinition.action?.filter(
       (action) =>
         action?.code && action?.code[0] && action?.code[0].coding && action?.code[0].coding[0]?.code === 'education'
     )
 
     return {
-      problemActions: pa,
-      educationActions: ea,
+      problemActions,
+      educationActions,
     }
   }, [planDefinition.action])
 
@@ -145,7 +145,7 @@ export const SelectedPlanDetail: FC<ISelectedPlanDetailProps> = ({
       <StyledProblemSection>
         {problemActions?.map((problem, pidx) => {
           const goal = planDefinition.goal?.find(
-            (g) => problem?.goalId && g?.elementId?.includes(problem.goalId[0] as string)
+            (g) => problem?.goalId && problem.goalId.length > 0 && g?.elementId?.includes(problem.goalId[0] as string)
           )
           return (
             <StyledListItem key={`problem-${pidx}`}>
@@ -171,7 +171,6 @@ export const SelectedPlanDetail: FC<ISelectedPlanDetailProps> = ({
 
                 {problem?.action?.map((interventionPlan, ipidx) => (
                   <StyledTargetRow key={`intervention-plan-${ipidx}`}>
-                    <span />
                     <div>
                       <p>{interventionPlan?.description}</p>
                       <ul>
