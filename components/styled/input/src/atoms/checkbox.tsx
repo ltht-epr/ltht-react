@@ -49,7 +49,7 @@ const StyledLabel = styled.label`
 
 const Checkbox: FC<Props> = ({ id, checked = false, onChange, children, ...rest }) => (
   <StyledCheckbox {...rest}>
-    <StyledInput id={id} onChange={onChange} type="checkbox" checked={checked} />
+    <StyledInput id={id} onChange={onChange} type="checkbox" checked={checked} aria-checked={checked} />
     <StyledLabel htmlFor={id}>{children}</StyledLabel>
   </StyledCheckbox>
 )

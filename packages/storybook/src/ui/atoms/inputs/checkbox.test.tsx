@@ -46,4 +46,16 @@ describe('checkbox', () => {
       expect.objectContaining({ target: expect.objectContaining({ checked: expect.anything() }) })
     )
   })
+
+  it('should expose the checked state for assistive technology', async () => {
+    render(
+      <Checkbox onChange={jest.fn()} checked={false} id="checkbox-id">
+        Checkbox label
+      </Checkbox>
+    )
+
+    const input = await screen.findByLabelText('Checkbox label')
+
+    expect(input).toHaveAttribute('aria-checked', 'false')
+  })
 })
