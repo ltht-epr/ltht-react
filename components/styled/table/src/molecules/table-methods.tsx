@@ -1,14 +1,14 @@
 import { ColumnDef, ColumnHelper, createColumnHelper, HeaderContext } from '@tanstack/react-table'
 import { IconProps } from '@ltht-react/icon'
-import { Header, TableData, DataEntity } from './table'
 import TableCell, { CellProps } from './table-cell'
+import { DataEntity, Header, TableData } from './table-core'
 
-const createColumns = (tableData: TableData): ColumnDef<DataEntity>[] => {
+const createColumns = (tableData: TableData, showExpanderColumn: boolean): ColumnDef<DataEntity>[] => {
   const columnHelper = createColumnHelper<DataEntity>()
 
   let columns = createColumnsRecursively(tableData.headers, columnHelper)
 
-  if (tableData.rows.some((row) => row.subRows)) {
+  if (showExpanderColumn) {
     columns = prependColumnWithExpansionControls(columns, columnHelper)
   }
 

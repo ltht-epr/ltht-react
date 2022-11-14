@@ -1,4 +1,5 @@
-import Table, { TableData } from '../molecules/table'
+import Table from '../molecules/table'
+import { TableData } from '../molecules/table-core'
 
 const GenericTable = <TColumn, TRow>({ columnData, rowData, mapToTableData }: IProps<TColumn, TRow>) => {
   const tableData = mapToTableData(columnData, rowData)

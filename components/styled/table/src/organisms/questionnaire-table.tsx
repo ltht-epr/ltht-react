@@ -1,10 +1,10 @@
 import { QuestionnaireResponse, Axis, Questionnaire } from '@ltht-react/types'
 import { FC, useMemo } from 'react'
 import { Icon } from '@ltht-react/icon'
-import Table from '../molecules/table'
 import mapQuestionnaireDefinitionAndResponsesToTableData, {
   AdminActionsForQuestionnaire,
 } from './questionnaire-table-methods'
+import Table from '../molecules/table'
 
 const QuestionnaireTable: FC<IProps> = ({ definition, records, headerAxis = 'y', staticColumns = 0, adminActions }) => {
   const tableData = useMemo(

@@ -8,69 +8,11 @@ import {
   ExpandedState,
   SortingState,
 } from '@tanstack/react-table'
-import styled from '@emotion/styled'
-import { CSS_RESET, SCROLLBAR, TABLE_COLOURS } from '@ltht-react/styles'
-import { CellProps } from './table-cell'
+import { TABLE_COLOURS } from '@ltht-react/styles'
 import createColumns from './table-methods'
 import useDimensionsRef from './useDimensionRef'
-
-const Container = styled.div`
-  ${CSS_RESET};
-  background-color: white;
-  border-radius: 6px;
-  display: inline-block;
-  max-width: 100%;
-  max-height: 100%;
-  overflow: scroll;
-  &::-webkit-scrollbar {
-    width: 7px;
-    height: 7px;
-    border: 0;
-  }
-  &::-webkit-scrollbar-thumb {
-    background: ${SCROLLBAR};
-    border-radius: 10px;
-  }
-`
-
-const StyledTable = styled.table`
-  background-color: white;
-  border-collapse: separate;
-  border-spacing: 0px;
-  border-radius: 6px;
-`
-
-const StyledTableHeader = styled.th<IStyledTableCell>`
-  background-color: ${TABLE_COLOURS.HEADER};
-  border: thin solid ${TABLE_COLOURS.BORDER};
-  font-weight: bold;
-  padding: 1rem;
-
-  ${({ stickyWidth }) =>
-    stickyWidth !== undefined &&
-    `
-    position: sticky !important;
-    left: ${stickyWidth}px;
-    top: 0;
-    z-index: 1;`}
-`
-
-const StyledTableData = styled.td<IStyledTableCell>`
-  border: thin solid ${TABLE_COLOURS.BORDER};
-  white-space: nowrap;
-
-  ${({ stickyWidth }) =>
-    stickyWidth !== undefined &&
-    `
-    position: sticky !important;
-    left: ${stickyWidth}px;
-    top: 0;
-    z-index: 1;`}
-
-  &:first-of-type {
-    background-color: ${TABLE_COLOURS.HEADER} !important;
-  }
-`
+import { TableData } from './table-core'
+import { Container, StyledTable, StyledTableData, StyledTableHeader } from './table-styles'
 
 const Table: FC<IProps> = ({ tableData, staticColumns = 0 }) => {
   const firstColumn = useRef(null)
@@ -81,7 +23,10 @@ const Table: FC<IProps> = ({ tableData, staticColumns = 0 }) => {
 
   const table = useReactTable({
     data: tableData.rows,
-    columns: createColumns(tableData),
+    columns: createColumns(
+      tableData,
+      tableData.rows.some((row) => row.subRows)
+    ),
     state: {
       expanded,
       sorting,
@@ -162,26 +107,6 @@ const Table: FC<IProps> = ({ tableData, staticColumns = 0 }) => {
       </StyledTable>
     </Container>
   )
-}
-
-interface IStyledTableCell {
-  stickyWidth?: number
-}
-
-export type DataEntity = Record<string, CellProps | DataEntity[]> & {
-  subRows?: DataEntity[]
-}
-
-export interface Header {
-  type: 'accessor' | 'group' | 'display'
-  id: string
-  cellProps: CellProps
-  subHeaders?: Header[]
-}
-
-export interface TableData {
-  headers: Header[]
-  rows: DataEntity[]
 }
 
 interface IProps {
