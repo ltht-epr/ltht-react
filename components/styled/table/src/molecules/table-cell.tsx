@@ -7,7 +7,11 @@ const StyledText = styled.span`
   margin-left: 0.4rem;
 `
 
-const TableCell: FC<CellProps> = ({ isButton = false, text, iconProps, clickHandler }) => {
+const TableCell: FC<CellProps> = ({ isButton = false, text, iconProps, clickHandler, customComponentOverride }) => {
+  if (customComponentOverride) {
+    return customComponentOverride
+  }
+
   if (isButton) {
     return <Button type="button" value={text} icon={iconProps && <Icon {...iconProps} />} onClick={clickHandler} />
   }
@@ -37,6 +41,7 @@ export interface CellProps {
   text?: string
   iconProps?: IconProps
   clickHandler?: React.MouseEventHandler<HTMLButtonElement>
+  customComponentOverride?: JSX.Element
 }
 
 export default TableCell

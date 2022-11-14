@@ -115,3 +115,37 @@ export const mockTableDataWithSubrows: TableData = {
     },
   ],
 }
+
+const customComponent = <button role="button">{"Click me I'm custom"}</button>
+
+export const mockTableDataWithCustomComponent: TableData = {
+  headers: [
+    {
+      type: 'accessor',
+      id: 'answerset',
+      cellProps: { text: '' },
+    },
+    {
+      type: 'accessor',
+      id: 'question1',
+      cellProps: { text: 'First Question' },
+    },
+    {
+      type: 'accessor',
+      id: 'question2',
+      cellProps: { text: 'Second Question' },
+    },
+  ],
+  rows: [
+    {
+      answerset: { text: 'First Answer Set' },
+      question1: { customComponentOverride: customComponent },
+      question2: { text: 'Answer 2 (set1)' },
+    },
+    {
+      answerset: { text: 'Second Answer Set' },
+      question1: { text: 'Answer 1 (set2)' },
+      question2: { text: 'Answer 2 (set2)' },
+    },
+  ],
+}
