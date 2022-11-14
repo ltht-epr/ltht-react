@@ -67,6 +67,7 @@
     "@ltht-react/observation-detail": "^1.3.153",
     "@ltht-react/observation-summary": "^1.3.155",
     "@ltht-react/patient-banner": "^1.3.155",
+    "@ltht-react/plan-definition-editor": "^1.0.0",
     "@ltht-react/questionnaire": "^1.0.145",
     "@ltht-react/select": "^1.3.155",
     "@ltht-react/styles": "^1.3.147",
