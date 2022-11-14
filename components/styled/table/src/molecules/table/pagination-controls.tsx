@@ -68,8 +68,11 @@ function PaginationControls<T>({ table, tableOptions, isFetching, serverSidePagi
             table.setPageIndex(page)
           }}
         />
-        <StyledPageCountDiv data-testid="paged-table-page-count">
-          <span style={{ padding: '2px' }}>of {table.getPageCount()}</span>
+        <StyledPageCountDiv>
+          <span style={{ padding: '2px' }}>of </span>
+          <span style={{ padding: '2px' }} data-testid="paged-table-page-count">
+            {table.getPageCount()}
+          </span>
         </StyledPageCountDiv>
         <StyledIconButton
           data-testid="paged-table-next-page-btn"

@@ -1,9 +1,14 @@
-import { FC } from 'react'
+import { FC, Dispatch, SetStateAction } from 'react'
 import { ColumnDef, createColumnHelper, flexRender, SortDirection, Table } from '@tanstack/react-table'
 import uuid from 'react-uuid'
-import { TRANSLUCENT_BRIGHT_BLUE_TABLE } from '@ltht-react/styles'
-import { IconButton } from '@ltht-react/icon'
-import { StyledTableHeader, StyledTableData } from './table-styles'
+import { TEXT_COLOURS, TRANSLUCENT_BRIGHT_BLUE_TABLE } from '@ltht-react/styles'
+import { Icon, IconButton } from '@ltht-react/icon'
+import styled from '@emotion/styled'
+import { StyledTableHeader, StyledTableData, StandardButtonStyle } from './table-styles'
+
+const StyledStandardButton = styled(IconButton)`
+  ${StandardButtonStyle}
+`
 
 const columnHelper = createColumnHelper<DataRow>()
 
@@ -148,6 +153,22 @@ export const buildTableBody = (table: Table<DataRow>) => (
       </tr>
     ))}
   </tbody>
+)
+
+export const displayErrorMessage = (message: string, setState: Dispatch<SetStateAction<boolean>>) => (
+  <>
+    <div style={{ padding: 10, borderRadius: 10 }}>
+      <Icon type="exclamation" size="medium" style={{ color: TEXT_COLOURS.DANGER, marginRight: 5 }} />
+      {message}
+    </div>
+    <div style={{ display: 'flex', justifyContent: 'center' }}>
+      <StyledStandardButton
+        iconProps={{ type: 'spinner', size: 'small', animate: false }}
+        text="Reload"
+        onClick={() => setState(true)}
+      />
+    </div>
+  </>
 )
 
 export const getSortIcon = (sortDirection: SortDirection): string | null =>

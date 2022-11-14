@@ -16,6 +16,7 @@ import {
   buildTableHead,
   CellData,
   DataRow,
+  displayErrorMessage,
   generateColumnsFromHeadersRecursively,
   generateRowsFromCellRows,
   IFetchDataOptions,
@@ -23,7 +24,6 @@ import {
   ITableOptions,
   TableData,
 } from './table-core'
-import { Icon, IconButton } from '@ltht-react/icon'
 
 const ServerSidePaginatedTable = ({ tableOptions, fetchData }: IServerSidePaginatedTableProps) => {
   const [columns, setColumns] = useState<ColumnDef<DataRow, CellData | unknown>[]>([])
@@ -70,9 +70,8 @@ const ServerSidePaginatedTable = ({ tableOptions, fetchData }: IServerSidePagina
     fetch(pagination).catch((e: Error) => {
       setFetchState({ isFetching: false, isError: true, error: e.message })
       setRefetch(false)
-      console.error(e)
     })
-  }, [pagination, pageSize, refetch])
+  }, [pagination, pageSize, refetch, fetchData])
 
   useEffect(() => {
     setColumns(generateColumnsFromHeadersRecursively(tableData.headers ?? [], showExpanderColumn))
@@ -101,20 +100,11 @@ const ServerSidePaginatedTable = ({ tableOptions, fetchData }: IServerSidePagina
   return (
     <Container>
       {fetchState.isError ? (
-        <div style={{ padding: 10, borderRadius: 10 }}>
-          <Icon type="exclamation" size="medium" style={{ color: '#DA291C', marginRight: 5 }} />
-          {fetchState.error}
-          <IconButton
-            iconProps={{ type: 'spinner', size: 'small', animate: false }}
-            text="reload"
-            onClick={() => setRefetch(true)}
-            style={{ border: '1px solid black', marginLeft: 5 }}
-          />
-        </div>
+        displayErrorMessage(fetchState.error, setRefetch)
       ) : (
         <>
           <ScrollableContainer>
-            <StyledTable>
+            <StyledTable role="table">
               {buildTableHead(table)}
               {buildTableBody(table)}
             </StyledTable>
