@@ -1,4 +1,4 @@
-import { CSS_RESET, TRANSLUCENT_MID_GREY, SCROLLBAR, TRANSLUCENT_BRIGHT_BLUE } from '@ltht-react/styles'
+import { CSS_RESET, TRANSLUCENT_MID_GREY, SCROLLBAR, TRANSLUCENT_BRIGHT_BLUE, BTN_COLOURS } from '@ltht-react/styles'
 import styled from '@emotion/styled'
 
 const Container = styled.div`
@@ -98,6 +98,20 @@ const StyledPageCountDiv = styled.div`
   padding: 1px;
 `
 
+const StandardButtonStyle = `
+  color: ${BTN_COLOURS.STANDARD.TEXT};
+  background-color: ${BTN_COLOURS.STANDARD.VALUE};
+  padding: 2px 5px;
+  border-radius: 5px;
+  &:hover {
+    background-color: ${BTN_COLOURS.STANDARD.HOVER};
+  }
+
+  &:disabled {
+    background-color: ${BTN_COLOURS.STANDARD.DISABLED};
+  }
+`
+
 export {
   Container,
   StyledTable,
@@ -111,4 +125,5 @@ export {
   ScrollableContainer,
   StyledPaginationButtonDiv,
   StyledPageCountDiv,
+  StandardButtonStyle,
 }
