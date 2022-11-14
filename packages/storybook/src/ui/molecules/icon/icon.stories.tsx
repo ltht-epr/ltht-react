@@ -136,21 +136,4 @@ export const AllPurposeIcon: Story = () => (
   </>
 )
 
-export const AllPurposeEmotionIcon: Story = () => (
-  <>
-    <div>chevron double - up</div>
-    <Icon type="chevron-double" size="small" />
-    <br />
-    <div>chevron double - down</div>
-    <Icon type="chevron-double" size="small" direction="down" />
-    <br />
-    <div>chevron double - left</div>
-    <Icon type="chevron-double" size="small" direction="left" />
-    <br />
-    <div>chevron double - right</div>
-    <Icon type="chevron-double" size="small" direction="right" />
-    <br />
-  </>
-)
-
 export default { title: 'UI/Molecules/Icon' }

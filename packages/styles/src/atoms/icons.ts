@@ -53,8 +53,6 @@ export type IconType =
   | 'chevron-double'
   | 'arrow'
 
-export type EmotionIconType = 'chevron-double'
-
 export const calculateIconSize = (input: IconSize): FontAwesomeIconSize => {
   switch (input) {
     case 'large':
