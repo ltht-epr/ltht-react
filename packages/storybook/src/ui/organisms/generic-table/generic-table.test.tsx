@@ -1,12 +1,6 @@
-import { render, screen } from '@testing-library/react'
+import { render } from '@testing-library/react'
 import Table, { GenericTable } from '@ltht-react/table'
-import {
-  mockMappingMethodHorizontalWithCellCustomisation,
-  mockMappingMethodHorizontalWithHeaderCustomisation,
-  mockMappingMethodVerticalWithCellCustomisation,
-  mockSummaryDefinition,
-  mockSummaryRecordsList,
-} from './generic-table.mockdata'
+import { mockMapper, mockSummaryDefinition, mockSummaryRecordsList } from './generic-table.mockdata'
 
 describe('Generic Table', () => {
   it('Renders', () => {
@@ -15,13 +9,13 @@ describe('Generic Table', () => {
         headerAxis="x"
         columnData={mockSummaryDefinition}
         rowData={mockSummaryRecordsList}
-        mapToTableData={mockMappingMethodHorizontalWithCellCustomisation}
+        mapToTableData={mockMapper}
       />
     )
   })
 
   it('Calls the mapping method with the data given', () => {
-    const mockMappingMethod = jest.fn().mockImplementation(mockMappingMethodHorizontalWithCellCustomisation)
+    const mockMappingMethod = jest.fn().mockImplementation(mockMapper)
 
     render(
       <GenericTable
@@ -42,57 +36,14 @@ describe('Generic Table', () => {
         headerAxis="x"
         columnData={mockSummaryDefinition}
         rowData={mockSummaryRecordsList}
-        mapToTableData={mockMappingMethodHorizontalWithCellCustomisation}
+        mapToTableData={mockMapper}
       />
     ).asFragment()
 
     const tableRenderedWithTableData = render(
-      <Table
-        tableData={mockMappingMethodHorizontalWithCellCustomisation(mockSummaryDefinition, mockSummaryRecordsList)}
-      />
+      <Table tableData={mockMapper(mockSummaryDefinition, mockSummaryRecordsList)} />
     ).asFragment()
 
     expect(tableRenderedWithMapper).toEqual(tableRenderedWithTableData)
-  })
-
-  it('Renders horizontally with cell customisation', () => {
-    render(
-      <GenericTable
-        headerAxis="x"
-        columnData={mockSummaryDefinition}
-        rowData={mockSummaryRecordsList}
-        mapToTableData={mockMappingMethodHorizontalWithCellCustomisation}
-      />
-    )
-
-    expect(screen.getByTestId('color-box-blue')).toBeVisible()
-    expect(screen.getByTestId('color-box-green')).toBeVisible()
-  })
-
-  it('Renders vertically with cell customisation', () => {
-    render(
-      <GenericTable
-        headerAxis="y"
-        columnData={mockSummaryDefinition}
-        rowData={mockSummaryRecordsList}
-        mapToTableData={mockMappingMethodVerticalWithCellCustomisation}
-      />
-    )
-
-    expect(screen.getByTestId('color-box-blue')).toBeVisible()
-    expect(screen.getByTestId('color-box-green')).toBeVisible()
-  })
-
-  it('Renders horizontally with header customisation', () => {
-    render(
-      <GenericTable
-        headerAxis="x"
-        columnData={mockSummaryDefinition}
-        rowData={mockSummaryRecordsList}
-        mapToTableData={mockMappingMethodHorizontalWithHeaderCustomisation}
-      />
-    )
-
-    expect(screen.getByTestId('record-date-header')).toBeVisible()
   })
 })
