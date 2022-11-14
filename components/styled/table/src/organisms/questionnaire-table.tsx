@@ -1,10 +1,10 @@
 import { QuestionnaireResponse, Axis, Questionnaire } from '@ltht-react/types'
 import { FC, useMemo } from 'react'
 import { Icon } from '@ltht-react/icon'
-import Table from '../molecules/table'
+import Table, { IFetchDataOptions, IPaginatedResult, ITableOptions } from '../molecules/table'
 import mapQuestionnaireDefinitionAndResponsesToTableData from './questionnaire-table-methods'
 
-const QuestionnaireTable: FC<IProps> = ({ definition, records, headerAxis = 'y' }) => {
+const QuestionnaireTable: FC<IProps> = ({ definition, records, headerAxis = 'y', fetchData, ...props }) => {
   const tableData = useMemo(() => mapQuestionnaireDefinitionAndResponsesToTableData(definition, records, headerAxis), [
     headerAxis,
     definition,
@@ -22,13 +22,37 @@ const QuestionnaireTable: FC<IProps> = ({ definition, records, headerAxis = 'y' 
     )
   }
 
-  return <Table tableData={tableData} />
+  const fetchQuestionnaireData = async (options: IFetchDataOptions): Promise<IPaginatedResult> => {
+    if (!fetchData) {
+      throw new Error('`fetchData` funtion not defined for questionnaire table!')
+    }
+
+    const data = await fetchData(options)
+    const emptyTableData = {
+      headers: [],
+      rows: [],
+    }
+
+    return {
+      tableData:
+        (data
+          ? mapQuestionnaireDefinitionAndResponsesToTableData(data.definition, data.records, headerAxis)
+          : emptyTableData) ?? emptyTableData,
+      totalCount: data?.totalCount ?? 0,
+    }
+  }
+
+  return <Table tableData={tableData} fetchData={fetchQuestionnaireData} {...props} />
 }
 
 interface IProps {
   definition: Questionnaire
   records: QuestionnaireResponse[]
   headerAxis?: Axis
+  tableOptions?: ITableOptions
+  fetchData?: (
+    options: IFetchDataOptions
+  ) => Promise<{ definition: Questionnaire; records: QuestionnaireResponse[]; totalCount: number }>
 }
 
 export default QuestionnaireTable

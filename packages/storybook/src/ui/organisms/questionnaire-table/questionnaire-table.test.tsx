@@ -12,7 +12,14 @@ import {
 
 describe('Questionnaire Table (using Fixture data)', () => {
   it('Renders Vertically', () => {
-    render(<QuestionnaireTable definition={summaryDefinition} records={summaryRecordsList} headerAxis="y" />)
+    render(
+      <QuestionnaireTable
+        definition={summaryDefinition}
+        records={summaryRecordsList}
+        headerAxis="y"
+        tableOptions={{ showExpanderColumn: true }}
+      />
+    )
 
     expect(screen.getByRole('table')).toBeVisible()
 
@@ -24,7 +31,14 @@ describe('Questionnaire Table (using Fixture data)', () => {
   })
 
   it('Renders Horizontally', () => {
-    render(<QuestionnaireTable definition={summaryDefinition} records={summaryRecordsList} headerAxis="x" />)
+    render(
+      <QuestionnaireTable
+        definition={summaryDefinition}
+        records={summaryRecordsList}
+        headerAxis="x"
+        tableOptions={{ showExpanderColumn: true }}
+      />
+    )
 
     expect(screen.getByRole('table')).toBeVisible()
 
@@ -39,7 +53,14 @@ describe('Questionnaire Table (using Fixture data)', () => {
   })
 
   it('Sorts the table when headers are clicked', () => {
-    render(<QuestionnaireTable definition={summaryDefinition} records={summaryRecordsList} headerAxis="y" />)
+    render(
+      <QuestionnaireTable
+        definition={summaryDefinition}
+        records={summaryRecordsList}
+        headerAxis="y"
+        tableOptions={{ showExpanderColumn: true }}
+      />
+    )
 
     const getTopLeftDataCell = () => within(screen.getAllByRole('row')[1]).getAllByRole('cell')[1]
 
@@ -75,51 +96,76 @@ describe('Questionnaire Table (using Fixture data)', () => {
   })
 
   it('Expands collapsed rows when parent row is clicked', () => {
-    render(<QuestionnaireTable definition={summaryDefinition} records={summaryRecordsList} headerAxis="y" />)
+    render(
+      <QuestionnaireTable
+        definition={summaryDefinition}
+        records={summaryRecordsList}
+        headerAxis="y"
+        tableOptions={{ showExpanderColumn: true }}
+      />
+    )
 
-    const getChevronCell = () => within(screen.getAllByRole('row')[4]).getAllByRole('cell')[0]
+    const getArrowCell = () => within(screen.getAllByRole('row')[4]).getAllByRole('cell')[0]
+    const getArrowButton = () => within(getArrowCell()).getByRole('button')
+    const getArrowElement = () => within(getArrowButton()).getByText((_, elem) => elem?.tagName.toLowerCase() === 'svg')
 
-    expect(getChevronCell()).toHaveTextContent('►')
+    expect(getArrowElement()).toHaveClass('icon__arrow--right')
     expect(screen.getAllByRole('row').length).toBe(5)
 
-    userEvent.click(screen.getAllByText('►')[1])
+    userEvent.click(getArrowButton())
 
-    expect(getChevronCell()).toHaveTextContent('▲')
+    expect(getArrowElement()).toHaveClass('icon__arrow--up')
     expect(screen.getAllByRole('row').length).toBeGreaterThan(5)
     expect(screen.getAllByRole('row')[5]).toBeVisible()
 
-    userEvent.click(screen.getAllByText('▲')[0])
-    expect(getChevronCell()).toHaveTextContent('►')
+    userEvent.click(getArrowButton())
+    expect(getArrowElement()).toHaveClass('icon__arrow--right')
     expect(screen.getAllByRole('row').length).toBe(5)
   })
 
   it('Toggles all expandable rows when chevron is clicked', () => {
-    render(<QuestionnaireTable definition={summaryDefinition} records={summaryRecordsList} headerAxis="y" />)
+    render(
+      <QuestionnaireTable
+        definition={summaryDefinition}
+        records={summaryRecordsList}
+        headerAxis="y"
+        tableOptions={{ showExpanderColumn: true }}
+      />
+    )
 
-    const getChevronCell = () => within(screen.getAllByRole('row')[0]).getAllByRole('columnheader')[0]
+    const getArrowCell = () => within(screen.getAllByRole('row')[0]).getAllByRole('columnheader')[0]
+    const getArrowButton = () => within(getArrowCell()).getByRole('button')
+    const getArrowElement = () => within(getArrowButton()).getByText((_, elem) => elem?.tagName.toLowerCase() === 'svg')
 
-    expect(getChevronCell()).toHaveTextContent('►')
+    expect(getArrowElement()).toHaveClass('icon__arrow--right')
     expect(screen.getAllByRole('row').length).toBe(5)
 
-    userEvent.click(screen.getAllByText('►')[0])
+    userEvent.click(getArrowButton())
 
-    expect(getChevronCell()).toHaveTextContent('▲')
+    expect(getArrowElement()).toHaveClass('icon__arrow--up')
     expect(screen.getAllByRole('row').length).toBeGreaterThan(5)
     expect(screen.getAllByRole('row')[5]).toBeVisible()
 
     expect(within(screen.getAllByRole('row')[6]).getAllByRole('cell')[1]).toHaveTextContent('RR Part 1 (breaths/min)')
     expect(within(screen.getAllByRole('row')[7]).getAllByRole('cell')[1]).toHaveTextContent('RR Part 2 (breaths/min)')
 
-    userEvent.click(screen.getAllByText('▲')[0])
+    userEvent.click(getArrowButton())
 
-    expect(getChevronCell()).toHaveTextContent('►')
+    expect(getArrowElement()).toHaveClass('icon__arrow--right')
     expect(screen.getAllByRole('row').length).toBe(5)
   })
 })
 
 describe('Questionnaire Table (using mock Monty Python data)', () => {
   it('Renders', () => {
-    render(<QuestionnaireTable definition={mockSummaryDefinition} records={mockSummaryRecordsList} headerAxis="x" />)
+    render(
+      <QuestionnaireTable
+        definition={mockSummaryDefinition}
+        records={mockSummaryRecordsList}
+        headerAxis="x"
+        tableOptions={{ showExpanderColumn: true }}
+      />
+    )
 
     expect(screen.getByRole('table')).toBeVisible()
   })
@@ -127,7 +173,13 @@ describe('Questionnaire Table (using mock Monty Python data)', () => {
   it('Presents warning text if definition item array is undefined', () => {
     const summaryDefinitionWithoutItems = { ...mockSummaryDefinition, item: undefined }
 
-    render(<QuestionnaireTable definition={summaryDefinitionWithoutItems} records={mockSummaryRecordsList} />)
+    render(
+      <QuestionnaireTable
+        definition={summaryDefinitionWithoutItems}
+        records={mockSummaryRecordsList}
+        tableOptions={{ showExpanderColumn: true }}
+      />
+    )
 
     expect(screen.getByText('An error occurred whilst loading this table.')).toBeVisible()
   })
@@ -135,13 +187,26 @@ describe('Questionnaire Table (using mock Monty Python data)', () => {
   it('Presents warning text if definition item array is empty', () => {
     const summaryDefinitionWithoutItems = { ...mockSummaryDefinition, item: [] }
 
-    render(<QuestionnaireTable definition={summaryDefinitionWithoutItems} records={mockSummaryRecordsList} />)
+    render(
+      <QuestionnaireTable
+        definition={summaryDefinitionWithoutItems}
+        records={mockSummaryRecordsList}
+        tableOptions={{ showExpanderColumn: true }}
+      />
+    )
 
     expect(screen.getByText('An error occurred whilst loading this table.')).toBeVisible()
   })
 
   it('Renders Horizontally', () => {
-    render(<QuestionnaireTable definition={mockSummaryDefinition} records={mockSummaryRecordsList} headerAxis="x" />)
+    render(
+      <QuestionnaireTable
+        definition={mockSummaryDefinition}
+        records={mockSummaryRecordsList}
+        headerAxis="x"
+        tableOptions={{ showExpanderColumn: true }}
+      />
+    )
   })
 
   it('Renders horizontal table with multiple row headers. total 13 columns to be visible', () => {
@@ -151,13 +216,27 @@ describe('Questionnaire Table (using mock Monty Python data)', () => {
   })
 
   it('Renders horizontal table with two data rows', () => {
-    render(<QuestionnaireTable definition={mockSummaryDefinition} records={mockSummaryRecordsList} headerAxis="x" />)
+    render(
+      <QuestionnaireTable
+        definition={mockSummaryDefinition}
+        records={mockSummaryRecordsList}
+        headerAxis="x"
+        tableOptions={{ showExpanderColumn: true }}
+      />
+    )
 
     expect(screen.getAllByRole('rowgroup')[0].children.length).toBe(2)
   })
 
   it('Renders horizontal table containing subheaders', () => {
-    render(<QuestionnaireTable definition={mockSummaryDefinition} records={mockSummaryRecordsList} headerAxis="x" />)
+    render(
+      <QuestionnaireTable
+        definition={mockSummaryDefinition}
+        records={mockSummaryRecordsList}
+        headerAxis="x"
+        tableOptions={{ showExpanderColumn: true }}
+      />
+    )
 
     const columnWithSubheadings = mockSummaryDefinition?.item?.find((x) => x?.item && x?.item.length > 0)
     const column = screen
@@ -173,13 +252,25 @@ describe('Questionnaire Table (using mock Monty Python data)', () => {
   })
 
   it('Renders Vertically', () => {
-    render(<QuestionnaireTable definition={mockSummaryDefinition} records={mockSummaryRecordsList} />)
+    render(
+      <QuestionnaireTable
+        definition={mockSummaryDefinition}
+        records={mockSummaryRecordsList}
+        tableOptions={{ showExpanderColumn: true }}
+      />
+    )
 
     expect(screen.getByRole('table')).toBeVisible()
   })
 
   it('Renders Vertical table with 5 rows in tbody', () => {
-    render(<QuestionnaireTable definition={mockSummaryDefinition} records={mockSummaryRecordsList} />)
+    render(
+      <QuestionnaireTable
+        definition={mockSummaryDefinition}
+        records={mockSummaryRecordsList}
+        tableOptions={{ showExpanderColumn: true }}
+      />
+    )
 
     expect(screen.getByRole('table').children[1].tagName).toBe('TBODY')
     expect(screen.getByRole('table').children[1].children.length).toBe(5)

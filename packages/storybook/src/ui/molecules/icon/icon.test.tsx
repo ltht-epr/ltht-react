@@ -39,6 +39,8 @@ it.each([
   ['search' as IconType],
   ['checkbox' as IconType],
   ['square' as IconType],
+  ['chevron-double' as IconType],
+  ['arrow' as IconType],
 ])('Renders', (iconName: IconType) => {
   render(<Icon type={iconName} size="small" />)
 })

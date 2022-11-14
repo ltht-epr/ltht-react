@@ -1,6 +1,6 @@
 import { Axis } from '@ltht-react/types'
 import { FC } from 'react'
-import Table, { ICellProps, TableData } from '../molecules/table'
+import Table, { ICellProps, TableData, ITableOptions, IFetchDataOptions, IPaginatedResult } from '../molecules/table'
 
 const prepareTableDataForCellCustomisation = (tableData: TableData) => {
   const data = tableData
@@ -23,13 +23,31 @@ const GenericTable = <TColumn, TRow>({
   rowData,
   headerAxis = 'x',
   mapToTableData,
+  fetchData,
+  ...props
 }: IProps<TColumn, TRow>) => {
   const tableData = mapToTableData(columnData, rowData)
 
+  const fetchGenericData = async (options: IFetchDataOptions): Promise<IPaginatedResult> => {
+    if (!fetchData) {
+      throw new Error('`fetchData` funtion not defined for generic table!')
+    }
+    const data = await fetchData(options)
+    return {
+      tableData: data
+        ? mapToTableData(data.columnData, data.rowData)
+        : {
+            headers: [],
+            rows: [],
+          },
+      totalCount: data?.totalCount ?? 0,
+    }
+  }
+
   return headerAxis === 'y' ? (
-    <Table tableData={prepareTableDataForCellCustomisation(tableData)} />
+    <Table tableData={prepareTableDataForCellCustomisation(tableData)} fetchData={fetchGenericData} {...props} />
   ) : (
-    <Table tableData={tableData} />
+    <Table tableData={tableData} fetchData={fetchGenericData} {...props} />
   )
 }
 
@@ -38,6 +56,8 @@ interface IProps<TColumn, TRow> {
   columnData: TColumn
   rowData: TRow
   mapToTableData: (colData: TColumn, rowData: TRow) => TableData
+  tableOptions?: ITableOptions
+  fetchData?: (options: IFetchDataOptions) => Promise<{ columnData: TColumn; rowData: TRow; totalCount: number }>
 }
 
 export default GenericTable
