@@ -128,11 +128,8 @@ const mapQuestionnaireObjectsToVerticalTableData = (
   rows: buildVerticalCellRows(definitionItems, records),
 })
 
-const buildVerticalCellRows = (
-  definitionItems: QuestionnaireItem[],
-  records: QuestionnaireResponse[]
-): DataEntity[] => {
-  const foo = definitionItems.map((item) => {
+const buildVerticalCellRows = (definitionItems: QuestionnaireItem[], records: QuestionnaireResponse[]): DataEntity[] =>
+  definitionItems.map((item) => {
     let dataEntity: DataEntity = {}
 
     dataEntity = buildVerticalCellRowsRecursive(
@@ -143,9 +140,6 @@ const buildVerticalCellRows = (
 
     return dataEntity
   })
-
-  return foo
-}
 
 const buildVerticalCellRowsRecursive = (
   definitionItems: QuestionnaireItem[],
