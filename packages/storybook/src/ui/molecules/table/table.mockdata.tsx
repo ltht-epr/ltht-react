@@ -116,7 +116,7 @@ export const mockTableDataWithSubrows: TableData = {
   ],
 }
 
-const customComponent = <button role="button">{"Click me I'm custom"}</button>
+const customComponent = <button type="button">This cell is customised</button>
 
 export const mockTableDataWithCustomComponent: TableData = {
   headers: [

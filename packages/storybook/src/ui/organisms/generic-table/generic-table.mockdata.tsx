@@ -11,6 +11,7 @@ import {
   QuestionnaireResponseStatus,
 } from '@ltht-react/types'
 import { QuestionnairePublicationStatus } from '@ltht-react/types/src'
+
 export const mockSummaryDefinition: Questionnaire = {
   identifier: [],
   status: QuestionnairePublicationStatus.Draft,

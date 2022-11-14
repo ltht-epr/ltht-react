@@ -57,6 +57,6 @@ describe('Component overrride', () => {
   it('Allows for custom rendering', () => {
     render(<Table tableData={mockTableDataWithCustomComponent} />)
 
-    expect(screen.getByRole('button', { name: "Click me I'm custom" })).toBeVisible()
+    expect(screen.getByRole('button', { name: 'This cell is customised' })).toBeVisible()
   })
 })

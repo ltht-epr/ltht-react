@@ -1,4 +1,3 @@
-import { Axis } from '@ltht-react/types'
 import Table, { TableData } from '../molecules/table'
 
 const GenericTable = <TColumn, TRow>({ columnData, rowData, mapToTableData }: IProps<TColumn, TRow>) => {
@@ -8,7 +7,6 @@ const GenericTable = <TColumn, TRow>({ columnData, rowData, mapToTableData }: IP
 }
 
 interface IProps<TColumn, TRow> {
-  headerAxis?: Axis
   columnData: TColumn
   rowData: TRow
   mapToTableData: (colData: TColumn, rowData: TRow) => TableData
