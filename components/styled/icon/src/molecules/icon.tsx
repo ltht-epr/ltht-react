@@ -1,5 +1,6 @@
 import { IconType, IconSize, IconStatus, IconDirection } from '@ltht-react/styles'
 import { FC, HTMLAttributes } from 'react'
+import ArrowIcon from '../atoms/emotion-icons/arrow-icon'
 import BullseyeIcon from '../atoms/bullseye-icon'
 import CalendarIcon from '../atoms/calendar-icon'
 import CaretSquareDownIcon from '../atoms/caret-square-down-icon'
@@ -7,6 +8,7 @@ import CheckIcon from '../atoms/check-icon'
 import CheckboxIcon from '../atoms/checkbox-icon'
 import ChevronCircleIcon from '../atoms/chevron-circle-icon'
 import ChevronIcon from '../atoms/chevron-icon'
+import ChevronDoubleIcon from '../atoms/emotion-icons/chevron-double-icon'
 import CircleIcon from '../atoms/circle-icon'
 import ColumnIcon from '../atoms/column-icon'
 import CommentIcon from '../atoms/comment-icon'
@@ -39,7 +41,7 @@ import ToggleOnIcon from '../atoms/toggle-on-icon'
 import TrashIcon from '../atoms/trash-icon'
 import UserIcon from '../atoms/user-icon'
 
-const Icon: FC<IconProps> = ({ type, size, status, direction, counterValue, ...rest }) => {
+const Icon: FC<IconProps> = ({ type, size, status, direction, counterValue, animate, ...rest }) => {
   switch (type) {
     case 'bullseye': {
       return <BullseyeIcon size={size} {...rest} />
@@ -150,7 +152,7 @@ const Icon: FC<IconProps> = ({ type, size, status, direction, counterValue, ...r
     }
 
     case 'spinner': {
-      return <SpinnerIcon size={size} {...rest} />
+      return <SpinnerIcon size={size} animate={animate} {...rest} />
     }
 
     case 'stop': {
@@ -193,6 +195,14 @@ const Icon: FC<IconProps> = ({ type, size, status, direction, counterValue, ...r
       return <SquareIcon size={size} {...rest} />
     }
 
+    case 'chevron-double': {
+      return <ChevronDoubleIcon size={size} direction={direction ?? 'up'} {...rest} />
+    }
+
+    case 'arrow': {
+      return <ArrowIcon size={size} direction={direction ?? 'up'} {...rest} />
+    }
+
     default: {
       return <SquareIcon size={size} {...rest} />
     }
@@ -205,6 +215,7 @@ export interface IconProps extends HTMLAttributes<SVGElement> {
   status?: IconStatus
   direction?: IconDirection
   counterValue?: number
+  animate?: boolean
 }
 
 export default Icon
