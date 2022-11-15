@@ -45,7 +45,7 @@ const ActionMenu: FC<IProps> = ({
         </Button>
       )}
       {showMenu && (
-        <ul role="menu" aria-labelledby={id} aria-haspopup={true}>
+        <ul role="menu" aria-labelledby={id}>
           {actions.map((action, idx) => (
             <li
               role="menuitem"
@@ -55,9 +55,9 @@ const ActionMenu: FC<IProps> = ({
                 action.clickHandler()
               }}
             >
-              {action.leftIcon && <Icon {...action.leftIcon}></Icon>}
+              {action.leftIcon && <Icon {...action.leftIcon} />}
               {action.text}
-              {action.rightIcon && <Icon {...action.rightIcon}></Icon>}
+              {action.rightIcon && <Icon {...action.rightIcon} />}
             </li>
           ))}
         </ul>
