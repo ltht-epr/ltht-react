@@ -1,5 +1,7 @@
+import styled from '@emotion/styled'
 import Button, { ButtonProps } from '@ltht-react/button/lib/atoms/button'
 import { Icon, IconButton, IconProps } from '@ltht-react/icon'
+import { BTN_COLOURS, CSS_RESET } from '@ltht-react/styles'
 import { FC, HTMLAttributes, useState } from 'react'
 
 const defaultMenuButtonProps: IconButtonMenuProps = {
@@ -9,6 +11,56 @@ const defaultMenuButtonProps: IconButtonMenuProps = {
     size: 'large',
   },
 }
+
+const StyledUnorderedList = styled.ul`
+  ${CSS_RESET}
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+`
+
+const StyledListItem = styled.li`
+  ${CSS_RESET}
+  background-color: 'white';
+  padding: 0.5rem;
+  display: flex;
+
+  &:hover {
+    background: ${BTN_COLOURS.PRIMARY.VALUE};
+    cursor: pointer;
+    color: white;
+  }
+`
+
+const StyledCard = styled.div`
+  ${CSS_RESET}
+  display: inline-block;
+  min-width: 10rem;
+  z-index: 1;
+  background: white;
+  border-radius: 4px;
+  box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.04), 0px 4px 5px rgba(0, 0, 0, 0.06), 0px 2px 4px -1px rgba(0, 0, 0, 0.09);
+`
+
+const StyledRightIcon = styled(Icon)`
+  margin-right: 0.5rem;
+  margin-left: auto;
+  color: ${BTN_COLOURS.STANDARD.VALUE};
+
+  &:hover {
+    color: white;
+  }
+`
+
+const StyledLeftIcon = styled(Icon)`
+  margin-right: 0.5rem;
+  margin-left: 0.5rem;
+  color: ${BTN_COLOURS.STANDARD.VALUE};
+
+  &:hover {
+    color: white;
+  }
+`
 
 const ActionMenu: FC<IProps> = ({
   actions,
@@ -45,22 +97,24 @@ const ActionMenu: FC<IProps> = ({
         </Button>
       )}
       {showMenu && (
-        <ul role="menu" aria-labelledby={id}>
-          {actions.map((action, idx) => (
-            <li
-              role="menuitem"
-              key={`menu-action-${idx}`}
-              onClick={() => {
-                menuButtonClickHandler()
-                action.clickHandler()
-              }}
-            >
-              {action.leftIcon && <Icon {...action.leftIcon} />}
-              {action.text}
-              {action.rightIcon && <Icon {...action.rightIcon} />}
-            </li>
-          ))}
-        </ul>
+        <StyledCard>
+          <StyledUnorderedList role="menu" aria-labelledby={id}>
+            {actions.map((action, idx) => (
+              <StyledListItem
+                role="menuitem"
+                key={`menu-action-${idx}`}
+                onClick={() => {
+                  menuButtonClickHandler()
+                  action.clickHandler()
+                }}
+              >
+                {action.leftIcon && <StyledLeftIcon {...action.leftIcon} />}
+                {action.text}
+                {action.rightIcon && <StyledRightIcon {...action.rightIcon} />}
+              </StyledListItem>
+            ))}
+          </StyledUnorderedList>
+        </StyledCard>
       )}
     </>
   )
