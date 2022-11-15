@@ -27,7 +27,7 @@ const mapQuestionnaireDefinitionAndResponsesToTableData = (
   }
 
   if (axis === 'y') {
-    return mapQuestionnaireObjectsToVerticalTableData(definitionItems, questionnaireResponses)
+    return mapQuestionnaireObjectsToVerticalTableData(definitionItems, questionnaireResponses, adminActions)
   }
   return mapQuestionnaireObjectsToHorizontalTableData(definitionItems, questionnaireResponses, adminActions)
 }
@@ -134,7 +134,8 @@ const recursivelyMapResponseItemsOntoData = (
 
 const mapQuestionnaireObjectsToVerticalTableData = (
   definitionItems: Array<QuestionnaireItem>,
-  records: QuestionnaireResponse[]
+  records: QuestionnaireResponse[],
+  adminActions?: AdminActionsForQuestionnaire[]
 ): TableData => ({
   headers: [
     {
@@ -150,11 +151,15 @@ const mapQuestionnaireObjectsToVerticalTableData = (
       })
     ),
   ],
-  rows: buildVerticalCellRows(definitionItems, records),
+  rows: buildVerticalCellRows(definitionItems, records, adminActions),
 })
 
-const buildVerticalCellRows = (definitionItems: QuestionnaireItem[], records: QuestionnaireResponse[]): DataEntity[] =>
-  definitionItems.map((item) => {
+const buildVerticalCellRows = (
+  definitionItems: QuestionnaireItem[],
+  records: QuestionnaireResponse[],
+  adminActions?: AdminActionsForQuestionnaire[]
+): DataEntity[] => {
+  const dataEntities = definitionItems.map((item) => {
     let dataEntity: DataEntity = {}
 
     dataEntity = buildVerticalCellRowsRecursive(
@@ -165,6 +170,25 @@ const buildVerticalCellRows = (definitionItems: QuestionnaireItem[], records: Qu
 
     return dataEntity
   })
+
+  if (adminActions) {
+    const actionsDataEntity: DataEntity = {}
+    actionsDataEntity.property = { text: 'Actions' }
+
+    records.forEach((record, recordIndex) => {
+      const adminActionsForThisDataEntity = adminActions.find(
+        (actionForForm) => actionForForm.questionnaire === record.id
+      )
+
+      if (adminActionsForThisDataEntity) {
+        actionsDataEntity[recordIndex + 1] = { adminActions: adminActionsForThisDataEntity.adminActions }
+      }
+    })
+
+    return [actionsDataEntity].concat(dataEntities)
+  }
+  return dataEntities
+}
 
 const buildVerticalCellRowsRecursive = (
   definitionItems: QuestionnaireItem[],
