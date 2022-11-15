@@ -3032,11 +3032,12 @@ export type Mutation = {
 /** Mutations of the LTHT EHR. */
 export type EhrMutation = {
   addCarePlan?: Maybe<CarePlan>
-  updateCarePlan?: Maybe<CarePlan>
+  addConditions?: Maybe<Array<Maybe<Condition>>>
   discontinueCarePlan?: Maybe<CarePlan>
   pauseCarePlan?: Maybe<CarePlan>
+  resumeCarePlan?: Maybe<CarePlan>
   setConditionStatus?: Maybe<Condition>
-  addConditions?: Maybe<Array<Maybe<Condition>>>
+  updateCarePlan?: Maybe<CarePlan>
   updateTask?: Maybe<Task>
 }
 
@@ -3070,6 +3071,13 @@ export type EhrMutationPauseCarePlanArgs = {
   patientGuid: Scalars['Guid']
   reasonText: Scalars['String']
   reasonCode: Scalars['String']
+  template?: Maybe<Scalars['String']>
+}
+
+/** Mutations of the LTHT EHR. */
+export type EhrMutationResumeCarePlanArgs = {
+  carePlanId: Scalars['Guid']
+  patientGuid: Scalars['Guid']
   template?: Maybe<Scalars['String']>
 }
 
