@@ -9,14 +9,14 @@ import {
   SortingState,
 } from '@tanstack/react-table'
 import styled from '@emotion/styled'
-import { CSS_RESET, TRANSLUCENT_BRIGHT_BLUE_TABLE, TRANSLUCENT_MID_GREY, SCROLLBAR } from '@ltht-react/styles'
+import { CSS_RESET, TRANSLUCENT_MID_GREY, SCROLLBAR, TRANSLUCENT_BRIGHT_BLUE } from '@ltht-react/styles'
 import { CellProps } from './table-cell'
 import createColumns from './table-methods'
 
 const Container = styled.div`
   ${CSS_RESET};
   background-color: white;
-  border-radius: 6px;
+  border-radius: 8px;
   display: inline-block;
   max-width: 100%;
   max-height: 100%;
@@ -35,23 +35,35 @@ const Container = styled.div`
 const StyledTable = styled.table`
   background-color: white;
   border-collapse: collapse;
-  border-radius: 6px;
-  border: thin solid rgba(200, 200, 200, 0.5);
+  border-radius: 8px;
   padding: 1rem;
 `
 
 const StyledTableHeader = styled.th`
-  background-color: ${TRANSLUCENT_MID_GREY};
   border: thin solid rgba(200, 200, 200, 0.5);
   font-weight: bold;
   padding: 1rem;
+`
+
+const StyledTableBody = styled.tbody`
+  text-align: center;
+`
+
+const StyledTableRow = styled.tr`
+  &:nth-of-type(odd) {
+    background-color: ${TRANSLUCENT_MID_GREY};
+  }
+  &:hover {
+    background-color: ${TRANSLUCENT_BRIGHT_BLUE};
+    cursor: pointer;
+  }
 `
 
 const StyledTableData = styled.td`
   border: thin solid rgba(200, 200, 200, 0.5);
   white-space: nowrap;
   &:first-of-type {
-    background-color: ${TRANSLUCENT_MID_GREY} !important;
+    font-weight: bold;
   }
 `
 
@@ -103,23 +115,15 @@ const Table: FC<IProps> = ({ tableData }) => {
             </tr>
           ))}
         </thead>
-        <tbody>
+        <StyledTableBody>
           {table.getRowModel().rows.map((row) => (
-            <tr key={row.id}>
-              {row.getVisibleCells().map((cell, cellIdx) => (
-                <StyledTableData
-                  key={cell.id}
-                  style={{
-                    background: cellIdx % 2 === 1 ? 'white' : TRANSLUCENT_BRIGHT_BLUE_TABLE,
-                    textAlign: 'center',
-                  }}
-                >
-                  {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                </StyledTableData>
+            <StyledTableRow key={row.id}>
+              {row.getVisibleCells().map((cell) => (
+                <StyledTableData>{flexRender(cell.column.columnDef.cell, cell.getContext())}</StyledTableData>
               ))}
-            </tr>
+            </StyledTableRow>
           ))}
-        </tbody>
+        </StyledTableBody>
       </StyledTable>
     </Container>
   )
