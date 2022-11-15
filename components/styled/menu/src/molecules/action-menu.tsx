@@ -2,7 +2,9 @@ import styled from '@emotion/styled'
 import Button, { ButtonProps } from '@ltht-react/button/lib/atoms/button'
 import { Icon, IconButton, IconProps } from '@ltht-react/icon'
 import { BTN_COLOURS, CSS_RESET } from '@ltht-react/styles'
-import { FC, HTMLAttributes, useState } from 'react'
+import FocusTrap from 'focus-trap-react'
+import { FC, HTMLAttributes, useRef, useState } from 'react'
+import { usePopper } from 'react-popper'
 
 const defaultMenuButtonProps: IconButtonMenuProps = {
   type: 'icon',
@@ -68,6 +70,17 @@ const ActionMenu: FC<IProps> = ({
   id = 'action-menu-button',
   ...rest
 }) => {
+  const popperRef = useRef<HTMLDivElement>(null)
+  const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(null)
+
+  const popper = usePopper(popperRef.current, popperElement, {
+    placement: 'bottom-end',
+  })
+
+  const closePopper = () => {
+    setShowMenu(false)
+  }
+
   const [showMenu, setShowMenu] = useState(false)
 
   const menuButtonClickHandler = () => {
@@ -76,46 +89,61 @@ const ActionMenu: FC<IProps> = ({
 
   return (
     <>
-      {menuButtonOptions.type === 'icon' && (
-        <IconButton
-          iconProps={menuButtonOptions.iconProps}
-          text={menuButtonOptions.text}
-          {...rest}
-          onClick={menuButtonClickHandler}
-          id={id}
-        />
-      )}
-      {menuButtonOptions.type === 'button' && (
-        <Button
-          {...menuButtonOptions.buttonProps}
-          {...rest}
-          value={menuButtonOptions.text}
-          onClick={menuButtonClickHandler}
-          id={id}
-        >
-          {menuButtonOptions.text}
-        </Button>
-      )}
-      {showMenu && (
-        <StyledCard>
-          <StyledUnorderedList role="menu" aria-labelledby={id}>
-            {actions.map((action, idx) => (
-              <StyledListItem
-                role="menuitem"
-                key={`menu-action-${idx}`}
-                onClick={() => {
-                  menuButtonClickHandler()
-                  action.clickHandler()
-                }}
-              >
-                {action.leftIcon && <StyledLeftIcon {...action.leftIcon} />}
-                {action.text}
-                {action.rightIcon && <StyledRightIcon {...action.rightIcon} />}
-              </StyledListItem>
-            ))}
-          </StyledUnorderedList>
-        </StyledCard>
-      )}
+      <FocusTrap
+        active={showMenu}
+        focusTrapOptions={{
+          tabbableOptions: {
+            displayCheck: 'none',
+          },
+          initialFocus: false,
+          allowOutsideClick: false,
+          clickOutsideDeactivates: true,
+          onDeactivate: closePopper,
+        }}
+      >
+        <div>
+          {menuButtonOptions.type === 'icon' && (
+            <IconButton
+              iconProps={menuButtonOptions.iconProps}
+              text={menuButtonOptions.text}
+              {...rest}
+              onClick={menuButtonClickHandler}
+              id={id}
+            />
+          )}
+          {menuButtonOptions.type === 'button' && (
+            <Button
+              {...menuButtonOptions.buttonProps}
+              {...rest}
+              value={menuButtonOptions.text}
+              onClick={menuButtonClickHandler}
+              id={id}
+            >
+              {menuButtonOptions.text}
+            </Button>
+          )}
+          {showMenu && (
+            <StyledCard tabIndex={-1} ref={setPopperElement} style={popper.styles.popper} {...popper.attributes.popper}>
+              <StyledUnorderedList role="menu" aria-labelledby={id}>
+                {actions.map((action, idx) => (
+                  <StyledListItem
+                    role="menuitem"
+                    key={`menu-action-${idx}`}
+                    onClick={() => {
+                      menuButtonClickHandler()
+                      action.clickHandler()
+                    }}
+                  >
+                    {action.leftIcon && <StyledLeftIcon {...action.leftIcon} />}
+                    {action.text}
+                    {action.rightIcon && <StyledRightIcon {...action.rightIcon} />}
+                  </StyledListItem>
+                ))}
+              </StyledUnorderedList>
+            </StyledCard>
+          )}
+        </div>
+      </FocusTrap>
     </>
   )
 }

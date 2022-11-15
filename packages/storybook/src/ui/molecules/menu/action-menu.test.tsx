@@ -78,8 +78,7 @@ describe('Action menu', () => {
     expect(screen.queryByText('View')).toBeNull()
   })
 
-  // TODO: Implement this then unskip test
-  it.skip('Closes the menu when another item is clicked', () => {
+  it('Closes the menu when another item is clicked', () => {
     render(
       <>
         <div>This is a different element</div>
