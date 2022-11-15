@@ -2,14 +2,15 @@ import { QuestionnaireResponse, Axis, Questionnaire } from '@ltht-react/types'
 import { FC, useMemo } from 'react'
 import { Icon } from '@ltht-react/icon'
 import Table from '../molecules/table'
-import mapQuestionnaireDefinitionAndResponsesToTableData from './questionnaire-table-methods'
+import mapQuestionnaireDefinitionAndResponsesToTableData, {
+  AdminActionsForQuestionnaire,
+} from './questionnaire-table-methods'
 
-const QuestionnaireTable: FC<IProps> = ({ definition, records, headerAxis = 'y' }) => {
-  const tableData = useMemo(() => mapQuestionnaireDefinitionAndResponsesToTableData(definition, records, headerAxis), [
-    headerAxis,
-    definition,
-    records,
-  ])
+const QuestionnaireTable: FC<IProps> = ({ definition, records, headerAxis = 'y', adminActions }) => {
+  const tableData = useMemo(
+    () => mapQuestionnaireDefinitionAndResponsesToTableData(definition, records, headerAxis, adminActions),
+    [headerAxis, definition, records]
+  )
 
   // TODO: Replace this fragment with a properly styled error component.
   // Maybe this could be a re-usable atom?
@@ -29,6 +30,7 @@ interface IProps {
   definition: Questionnaire
   records: QuestionnaireResponse[]
   headerAxis?: Axis
+  adminActions?: AdminActionsForQuestionnaire[]
 }
 
 export default QuestionnaireTable
