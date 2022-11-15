@@ -50,9 +50,9 @@ const mapQuestionnaireObjectsToHorizontalTableData = (
   }
 
   if (adminActions) {
-    tableData.headers = tableData.headers.splice(1, 0, {
+    tableData.headers.splice(1, 0, {
       id: 'adminactions',
-      type: 'display',
+      type: 'accessor',
       cellProps: { text: 'Actions' },
     })
   }

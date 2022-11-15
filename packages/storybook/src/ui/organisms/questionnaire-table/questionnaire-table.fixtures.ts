@@ -1,3 +1,4 @@
+import { AdminActionsForQuestionnaire } from '@ltht-react/table/src/organisms/questionnaire-table-methods'
 import {
   PartialDateTimeKindCode,
   Questionnaire,
@@ -768,5 +769,91 @@ const summaryRecordThree = {
   ],
 }
 
-// this should be the actual data we pass in, but I've commented it out for simplicity
+export const adminActionsForForms: AdminActionsForQuestionnaire[] = [
+  {
+    questionnaire: '1',
+    adminActions: [
+      {
+        text: 'View',
+        clickHandler: () => {
+          console.log('Viewing submission 1')
+        },
+        leftIcon: { type: 'info-circle', size: 'medium' },
+        rightIcon: { type: 'external-link', size: 'medium' },
+      },
+      {
+        text: 'Edit',
+        clickHandler: () => {
+          console.log('Editing submission 1')
+        },
+        leftIcon: { type: 'edit', size: 'medium' },
+        rightIcon: { type: 'external-link', size: 'medium' },
+      },
+      {
+        text: 'Delete',
+        clickHandler: () => {
+          console.log('Deleting submission 1')
+        },
+        leftIcon: { type: 'exclamation', size: 'medium' },
+      },
+    ],
+  },
+  {
+    questionnaire: '2',
+    adminActions: [
+      {
+        text: 'View',
+        clickHandler: () => {
+          console.log('Viewing submission 2')
+        },
+        leftIcon: { type: 'info-circle', size: 'medium' },
+        rightIcon: { type: 'external-link', size: 'medium' },
+      },
+      {
+        text: 'Edit',
+        clickHandler: () => {
+          console.log('Editing submission 2')
+        },
+        leftIcon: { type: 'edit', size: 'medium' },
+        rightIcon: { type: 'external-link', size: 'medium' },
+      },
+      {
+        text: 'Delete',
+        clickHandler: () => {
+          console.log('Deleting submission 2')
+        },
+        leftIcon: { type: 'exclamation', size: 'medium' },
+      },
+    ],
+  },
+  {
+    questionnaire: '3',
+    adminActions: [
+      {
+        text: 'View',
+        clickHandler: () => {
+          console.log('Viewing submission 3')
+        },
+        leftIcon: { type: 'info-circle', size: 'medium' },
+        rightIcon: { type: 'external-link', size: 'medium' },
+      },
+      {
+        text: 'Edit',
+        clickHandler: () => {
+          console.log('Editing submission 3')
+        },
+        leftIcon: { type: 'edit', size: 'medium' },
+        rightIcon: { type: 'external-link', size: 'medium' },
+      },
+      {
+        text: 'Delete',
+        clickHandler: () => {
+          console.log('Deleting submission 3')
+        },
+        leftIcon: { type: 'exclamation', size: 'medium' },
+      },
+    ],
+  },
+]
+
 export const summaryRecordsList: QuestionnaireResponse[] = [summaryRecordOne, summaryRecordTwo, summaryRecordThree]
