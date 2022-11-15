@@ -1,3 +1,4 @@
+/* eslint no-console: 0 */
 import { AdminActionsForQuestionnaire } from '@ltht-react/table/src/organisms/questionnaire-table-methods'
 import {
   PartialDateTimeKindCode,

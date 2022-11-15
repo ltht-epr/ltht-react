@@ -9,7 +9,7 @@ import mapQuestionnaireDefinitionAndResponsesToTableData, {
 const QuestionnaireTable: FC<IProps> = ({ definition, records, headerAxis = 'y', adminActions }) => {
   const tableData = useMemo(
     () => mapQuestionnaireDefinitionAndResponsesToTableData(definition, records, headerAxis, adminActions),
-    [headerAxis, definition, records]
+    [headerAxis, definition, records, adminActions]
   )
 
   // TODO: Replace this fragment with a properly styled error component.
