@@ -26,6 +26,7 @@ const StyledListItem = styled.li`
   background-color: 'white';
   padding: 0.5rem;
   display: flex;
+  border-radius: 4px;
 
   &:hover {
     background: ${BTN_COLOURS.PRIMARY.VALUE};
@@ -48,20 +49,16 @@ const StyledRightIcon = styled(Icon)`
   margin-right: 0.5rem;
   margin-left: auto;
   color: ${BTN_COLOURS.STANDARD.VALUE};
-
-  &:hover {
-    color: white;
-  }
 `
 
 const StyledLeftIcon = styled(Icon)`
   margin-right: 0.5rem;
   margin-left: 0.5rem;
   color: ${BTN_COLOURS.STANDARD.VALUE};
+`
 
-  &:hover {
-    color: white;
-  }
+const StyledMenuButtonWrapper = styled.div`
+  display: inline-block;
 `
 
 const ActionMenu: FC<IProps> = ({
@@ -74,7 +71,7 @@ const ActionMenu: FC<IProps> = ({
   const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(null)
 
   const popper = usePopper(popperRef.current, popperElement, {
-    placement: 'bottom-end',
+    placement: 'bottom-start',
   })
 
   const closePopper = () => {
@@ -101,7 +98,7 @@ const ActionMenu: FC<IProps> = ({
           onDeactivate: closePopper,
         }}
       >
-        <div>
+        <StyledMenuButtonWrapper ref={popperRef}>
           {menuButtonOptions.type === 'icon' && (
             <IconButton
               iconProps={menuButtonOptions.iconProps}
@@ -142,7 +139,7 @@ const ActionMenu: FC<IProps> = ({
               </StyledUnorderedList>
             </StyledCard>
           )}
-        </div>
+        </StyledMenuButtonWrapper>
       </FocusTrap>
     </>
   )
