@@ -100,4 +100,16 @@ const prependColumnWithExpansionControls = (
   return [expanderColumn].concat(columns)
 }
 
-export default createColumns
+const calculateStaticColumnOffset = (cellIdx: number, staticColumns: number, firstColumnWidth: number) => {
+  if (cellIdx === 0) {
+    return 0
+  }
+
+  if (cellIdx < staticColumns) {
+    return firstColumnWidth
+  }
+
+  return undefined
+}
+
+export { createColumns, calculateStaticColumnOffset }

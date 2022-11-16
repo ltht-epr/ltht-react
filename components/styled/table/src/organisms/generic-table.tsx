@@ -33,6 +33,7 @@ interface IProps<TColumn, TRow> {
   rowData: TRow
   mapToTableData: (colData: TColumn, rowData: TRow) => TableData
   tableOptions?: TableOptions
+  staticColumns?: 0 | 1 | 2
   fetchData?: (options: PaginationOptions) => Promise<{ columnData: TColumn; rowData: TRow; totalCount: number }>
 }
 

@@ -1,9 +1,10 @@
 import styled from '@emotion/styled'
 import { Icon, IconButton } from '@ltht-react/icon'
-import { TEXT_COLOURS, TRANSLUCENT_BRIGHT_BLUE_TABLE } from '@ltht-react/styles'
+import { TABLE_COLOURS, TEXT_COLOURS } from '@ltht-react/styles'
 import { flexRender, Table } from '@tanstack/react-table'
 import { Dispatch, SetStateAction } from 'react'
 import { CellProps } from './table-cell'
+import { calculateStaticColumnOffset } from './table-methods'
 import { StandardButtonStyle, StyledTableData, StyledTableHeader } from './table-styles'
 
 const DefaultTableOptions = {
@@ -17,18 +18,28 @@ const DefaultTableOptions = {
 
 const DefaultPerPageOptions = [10, 20, 30, 40, 50]
 
-const buildTableHead = (table: Table<DataEntity>) => (
+const buildTableHead = (
+  table: Table<DataEntity>,
+  staticColumns: 0 | 1 | 2,
+  firstColumn: React.MutableRefObject<null>,
+  width: number
+) => (
   <thead>
     {table.getHeaderGroups().map((headerGroup) => (
-      <tr key={headerGroup.id} role="row">
-        {headerGroup.headers.map((header) =>
+      <tr key={headerGroup.id}>
+        {headerGroup.headers.map((header, headerIndex) =>
           header.column.id === 'expander' ? (
-            <StyledTableHeader key={header.id} colSpan={header.colSpan} role="columnheader">
+            <StyledTableHeader
+              stickyWidth={calculateStaticColumnOffset(headerIndex, staticColumns, width)}
+              key={header.id}
+              colSpan={header.colSpan}
+              ref={firstColumn}
+            >
               {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
             </StyledTableHeader>
           ) : (
             <StyledTableHeader
-              role="columnheader"
+              stickyWidth={calculateStaticColumnOffset(headerIndex, staticColumns, width)}
               key={header.id}
               colSpan={header.colSpan}
               {...{
@@ -47,16 +58,16 @@ const buildTableHead = (table: Table<DataEntity>) => (
   </thead>
 )
 
-const buildTableBody = (table: Table<DataEntity>) => (
+const buildTableBody = (table: Table<DataEntity>, staticColumns: 0 | 1 | 2, width: number) => (
   <tbody>
     {table.getRowModel().rows.map((row) => (
-      <tr key={row.id} role="row">
+      <tr key={row.id}>
         {row.getVisibleCells().map((cell, cellIdx) => (
           <StyledTableData
-            role="cell"
+            stickyWidth={calculateStaticColumnOffset(cellIdx, staticColumns, width)}
             key={cell.id}
             style={{
-              background: cellIdx % 2 === 1 ? 'white' : TRANSLUCENT_BRIGHT_BLUE_TABLE,
+              background: cellIdx % 2 === 1 ? TABLE_COLOURS.STRIPE_LIGHT : TABLE_COLOURS.STRIPE_DARK,
               textAlign: 'center',
             }}
           >

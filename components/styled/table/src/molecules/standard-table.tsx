@@ -8,11 +8,10 @@ import {
   SortingState,
   PaginationState,
   getPaginationRowModel,
-  flexRender,
 } from '@tanstack/react-table'
-import createColumns from './table-methods'
-import { Container, ScrollableContainer, StyledTable, StyledTableData, StyledTableHeader } from './table-styles'
-import { TableData, TableOptions } from './table-core'
+import { createColumns } from './table-methods'
+import { Container, ScrollableContainer, StyledTable } from './table-styles'
+import { buildTableBody, buildTableHead, TableData, TableOptions } from './table-core'
 import TablePaginationControls from './table-pagination-controls'
 import useDimensionsRef from './useDimensionRef'
 
@@ -52,18 +51,6 @@ const StandardTable: FC<IProps> = ({ tableData, tableOptions, staticColumns }) =
       : {}),
   })
 
-  const calculateStaticColumnOffset = (cellIdx: number, staticColumns: number, firstColumnWidth: number) => {
-    if (cellIdx === 0) {
-      return 0
-    }
-
-    if (cellIdx < staticColumns) {
-      return firstColumnWidth
-    }
-
-    return undefined
-  }
-
   const paginationControls = tableOptions.enablePagination ? (
     <TablePaginationControls
       table={table}
@@ -77,56 +64,8 @@ const StandardTable: FC<IProps> = ({ tableData, tableOptions, staticColumns }) =
     <Container>
       <ScrollableContainer>
         <StyledTable role="table">
-          <thead>
-            {table.getHeaderGroups().map((headerGroup) => (
-              <tr key={headerGroup.id}>
-                {headerGroup.headers.map((header, headerIndex) =>
-                  headerIndex === 0 ? (
-                    <StyledTableHeader
-                      stickyWidth={calculateStaticColumnOffset(headerIndex, staticColumns, width)}
-                      key={header.id}
-                      colSpan={header.colSpan}
-                      ref={firstColumn}
-                    >
-                      {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
-                    </StyledTableHeader>
-                  ) : (
-                    <StyledTableHeader
-                      stickyWidth={calculateStaticColumnOffset(headerIndex, staticColumns, width)}
-                      key={header.id}
-                      colSpan={header.colSpan}
-                      {...{
-                        style: {
-                          cursor: header.column.getCanSort() ? 'pointer' : '',
-                        },
-                        onClick: header.column.getToggleSortingHandler(),
-                      }}
-                    >
-                      {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
-                    </StyledTableHeader>
-                  )
-                )}
-              </tr>
-            ))}
-          </thead>
-          <tbody>
-            {table.getRowModel().rows.map((row) => (
-              <tr key={row.id}>
-                {row.getVisibleCells().map((cell, cellIdx) => (
-                  <StyledTableData
-                    stickyWidth={calculateStaticColumnOffset(cellIdx, staticColumns, width)}
-                    key={cell.id}
-                    style={{
-                      background: cellIdx % 2 === 1 ? TABLE_COLOURS.STRIPE_LIGHT : TABLE_COLOURS.STRIPE_DARK,
-                      textAlign: 'center',
-                    }}
-                  >
-                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                  </StyledTableData>
-                ))}
-              </tr>
-            ))}
-          </tbody>
+          {buildTableHead(table, staticColumns, firstColumn, width)}
+          {buildTableBody(table, staticColumns, width)}
         </StyledTable>
       </ScrollableContainer>
       {!(tableOptions.hidePaginationControls ?? false) ? paginationControls : null}
