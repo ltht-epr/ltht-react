@@ -47,7 +47,7 @@ const StyledTableHeader = styled.th<IStyledTableCell>`
   padding: 1rem;
 
   ${({ stickyWidth }) =>
-    stickyWidth != undefined &&
+    stickyWidth !== undefined &&
     `
     position: sticky !important;
     left: ${stickyWidth}px;
@@ -60,7 +60,7 @@ const StyledTableData = styled.td<IStyledTableCell>`
   white-space: nowrap;
 
   ${({ stickyWidth }) =>
-    stickyWidth != undefined &&
+    stickyWidth !== undefined &&
     `
     position: sticky !important;
     left: ${stickyWidth}px;

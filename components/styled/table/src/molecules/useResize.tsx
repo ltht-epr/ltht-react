@@ -1,19 +1,19 @@
 import { useEffect, useState } from 'react'
 
-const useDimensionsRef = (myRef: React.RefObject<HTMLElement>) => {
+const useDimensionsRef = (elementRef: React.RefObject<HTMLElement>) => {
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 })
 
   useEffect(() => {
     const getDimensions = () => ({
-      width: (myRef && myRef.current && myRef.current.offsetWidth) || 0,
-      height: (myRef && myRef.current && myRef.current.offsetHeight) || 0,
+      width: (elementRef && elementRef.current && elementRef.current.offsetWidth) || 0,
+      height: (elementRef && elementRef.current && elementRef.current.offsetHeight) || 0,
     })
 
     const handleResize = () => {
       setDimensions(getDimensions())
     }
 
-    if (myRef.current) {
+    if (elementRef.current) {
       setDimensions(getDimensions())
     }
 
@@ -22,7 +22,7 @@ const useDimensionsRef = (myRef: React.RefObject<HTMLElement>) => {
     return () => {
       window.removeEventListener('resize', handleResize)
     }
-  }, [myRef])
+  }, [elementRef])
 
   return dimensions
 }
