@@ -1,12 +1,12 @@
 import { QuestionnaireResponse, Axis, Questionnaire } from '@ltht-react/types'
 import { FC, useMemo } from 'react'
 import { Icon } from '@ltht-react/icon'
+import { EnsureMaybe, EnsureMaybeArray } from '@ltht-react/utils'
 import Table from '../molecules/table'
 import mapQuestionnaireDefinitionAndResponsesToTableData, {
   AdminActionsForQuestionnaire,
 } from './questionnaire-table-methods'
 import { PaginationOptions, PaginationResult, TableOptions } from '../molecules/table-core'
-import { EnsureMaybe, EnsureMaybeArray } from '@ltht-react/utils'
 
 const QuestionnaireTable: FC<IProps> = ({
   definition,

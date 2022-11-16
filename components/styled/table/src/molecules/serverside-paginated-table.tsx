@@ -65,8 +65,8 @@ const ServerSidePaginatedTable: FC<IProps> = ({ tableOptions, fetchData, staticC
   }, [pagination, pageIndex, pageSize, refetch, fetchData])
 
   const table = useReactTable({
-    data: data,
-    columns: columns,
+    data,
+    columns,
     pageCount,
     state: {
       expanded,

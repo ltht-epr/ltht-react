@@ -164,7 +164,7 @@ const buildVerticalCellRows = (
     const subRows = containsSubRows
       ? buildVerticalCellRows(EnsureMaybe(definitionItem?.item?.map((x) => EnsureMaybe(x))), records)
       : []
-    let dataEntity: DataEntity = {}
+    const dataEntity: DataEntity = {}
 
     dataEntity.property = { text: definitionItem.text ?? '' }
 

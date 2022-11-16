@@ -1,5 +1,6 @@
 import { fireEvent, render, screen, waitFor, within } from '@testing-library/react'
 import Table, { PaginationOptions } from '@ltht-react/table'
+import userEvent from '@testing-library/user-event'
 import {
   mockTableData,
   mockTableDataForPagination,
@@ -7,7 +8,6 @@ import {
   mockTableDataWithCustomComponent,
   mockTableDataWithSubheaders,
 } from './table.mockdata'
-import userEvent from '@testing-library/user-event'
 
 const getHeaders = () => within(screen.getAllByRole('rowgroup')[0])
 const getDataCells = () => within(screen.getAllByRole('rowgroup')[1])
@@ -107,7 +107,7 @@ describe('Table With Pagination Enabled (Client-Side)', () => {
     // assert current page input box to have first page number
     expect(screen.getByTestId('paged-table-current-page-input')).toHaveValue(1)
 
-    //assert first row on first page
+    // assert first row on first page
     expect(within(screen.getAllByRole('row')[1]).getAllByRole('cell')[0]).toHaveTextContent('Kim Barton')
     expect(within(screen.getAllByRole('row')[1]).getAllByRole('cell')[1]).toHaveTextContent('Euclid')
     expect(within(screen.getAllByRole('row')[1]).getAllByRole('cell')[2]).toHaveTextContent('Sun Mar 05 1989')
@@ -119,7 +119,7 @@ describe('Table With Pagination Enabled (Client-Side)', () => {
     // assert current page input box to have updated to value of 2
     expect(screen.getByTestId('paged-table-current-page-input')).toHaveValue(2)
 
-    //assert first row on first page
+    // assert first row on first page
     expect(within(screen.getAllByRole('row')[1]).getAllByRole('cell')[0]).toHaveTextContent('Brett Grady')
     expect(within(screen.getAllByRole('row')[1]).getAllByRole('cell')[1]).toHaveTextContent('Amarillo')
     expect(within(screen.getAllByRole('row')[1]).getAllByRole('cell')[2]).toHaveTextContent('Sun Mar 30 1997')
@@ -161,7 +161,7 @@ describe('Table With Pagination Enabled (Client-Side)', () => {
     // assert total pages to be 3 as total result set is 50 (50/20 = 3 (rounded))
     expect(screen.getByTestId('paged-table-page-count')).toHaveTextContent('3')
 
-    //assert 11th row
+    // assert 11th row
     expect(within(screen.getAllByRole('row')[11]).getAllByRole('cell')[0]).toHaveTextContent('Brett Grady')
     expect(within(screen.getAllByRole('row')[11]).getAllByRole('cell')[1]).toHaveTextContent('Amarillo')
     expect(within(screen.getAllByRole('row')[11]).getAllByRole('cell')[2]).toHaveTextContent('Sun Mar 30 1997')
