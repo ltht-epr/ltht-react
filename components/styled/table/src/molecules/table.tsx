@@ -1,4 +1,3 @@
-/* eslint no-nested-ternary: 0 */
 import { FC, useRef, useState } from 'react'
 import {
   flexRender,
@@ -48,7 +47,7 @@ const StyledTableHeader = styled.th<IStyledTableCell>`
   padding: 1rem;
 
   ${({ stickyWidth }) =>
-    stickyWidth &&
+    stickyWidth != undefined &&
     `
     position: sticky !important;
     left: ${stickyWidth}px;
@@ -61,7 +60,7 @@ const StyledTableData = styled.td<IStyledTableCell>`
   white-space: nowrap;
 
   ${({ stickyWidth }) =>
-    stickyWidth &&
+    stickyWidth != undefined &&
     `
     position: sticky !important;
     left: ${stickyWidth}px;
@@ -95,6 +94,18 @@ const Table: FC<IProps> = ({ tableData, staticColumns = 0 }) => {
     getSortedRowModel: getSortedRowModel(),
   })
 
+  const calculateStaticColumnOffset = (cellIdx: number, staticColumns: number, firstColumnWidth: number) => {
+    if (cellIdx === 0) {
+      return 0
+    }
+
+    if (cellIdx < staticColumns) {
+      return firstColumnWidth
+    }
+
+    return undefined
+  }
+
   return (
     <Container>
       <StyledTable>
@@ -104,7 +115,7 @@ const Table: FC<IProps> = ({ tableData, staticColumns = 0 }) => {
               {headerGroup.headers.map((header, headerIndex) =>
                 headerIndex === 0 ? (
                   <StyledTableHeader
-                    stickyWidth={staticColumns ? 0 : undefined}
+                    stickyWidth={calculateStaticColumnOffset(headerIndex, staticColumns, width)}
                     key={header.id}
                     colSpan={header.colSpan}
                     ref={firstColumn}
@@ -113,7 +124,7 @@ const Table: FC<IProps> = ({ tableData, staticColumns = 0 }) => {
                   </StyledTableHeader>
                 ) : (
                   <StyledTableHeader
-                    stickyWidth={headerIndex < staticColumns ? width : undefined}
+                    stickyWidth={calculateStaticColumnOffset(headerIndex, staticColumns, width)}
                     key={header.id}
                     colSpan={header.colSpan}
                     {...{
@@ -135,7 +146,7 @@ const Table: FC<IProps> = ({ tableData, staticColumns = 0 }) => {
             <tr key={row.id}>
               {row.getVisibleCells().map((cell, cellIdx) => (
                 <StyledTableData
-                  stickyWidth={cellIdx < staticColumns ? (cellIdx === 0 ? 0 : width) : undefined}
+                  stickyWidth={calculateStaticColumnOffset(cellIdx, staticColumns, width)}
                   key={cell.id}
                   style={{
                     background: cellIdx % 2 === 1 ? TABLE_COLOURS.STRIPE_LIGHT : TABLE_COLOURS.STRIPE_DARK,
