@@ -8,6 +8,7 @@ import { summaryDefinition, summaryRecordsList } from './questionnaire-table.fix
 import {
   expectedResultOfMappingWithHeadersOnXAxis,
   expectedResultOfMappingWithHeadersOnYAxis,
+  mockAdminActionsForForms,
 } from './questionnaire-table.mockdata'
 
 describe('Questionnaire Table (using Fixture data)', () => {
@@ -189,14 +190,24 @@ describe('Questionnaire Table (using mock Monty Python data)', () => {
 
 describe('Questionnaire Table Methods', () => {
   it('Maps questionnaires data with headers along the X axis', () => {
-    const result = mapQuestionnaireDefinitionAndResponsesToTableData(summaryDefinition, summaryRecordsList, 'x')
+    const result = mapQuestionnaireDefinitionAndResponsesToTableData(
+      summaryDefinition,
+      summaryRecordsList,
+      'x',
+      mockAdminActionsForForms
+    )
 
-    expect(result).toEqual(expectedResultOfMappingWithHeadersOnXAxis)
+    expect(JSON.stringify(result)).toEqual(JSON.stringify(expectedResultOfMappingWithHeadersOnXAxis))
   })
 
   it('Maps questionnaires data with headers along the Y axis', () => {
-    const result = mapQuestionnaireDefinitionAndResponsesToTableData(summaryDefinition, summaryRecordsList, 'y')
+    const result = mapQuestionnaireDefinitionAndResponsesToTableData(
+      summaryDefinition,
+      summaryRecordsList,
+      'y',
+      mockAdminActionsForForms
+    )
 
-    expect(result).toEqual(expectedResultOfMappingWithHeadersOnYAxis)
+    expect(JSON.stringify(result)).toEqual(JSON.stringify(expectedResultOfMappingWithHeadersOnYAxis))
   })
 })
