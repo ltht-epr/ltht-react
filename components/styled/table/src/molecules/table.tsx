@@ -12,7 +12,7 @@ import styled from '@emotion/styled'
 import { CSS_RESET, SCROLLBAR, TABLE_COLOURS } from '@ltht-react/styles'
 import { CellProps } from './table-cell'
 import createColumns from './table-methods'
-import useDimensionsRef from './useResize'
+import useDimensionsRef from './useDimensionRef'
 
 const Container = styled.div`
   ${CSS_RESET};
