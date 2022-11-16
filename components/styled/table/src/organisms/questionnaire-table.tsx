@@ -82,7 +82,7 @@ interface IProps {
 interface QuestionnairePaginationResult {
   definition: Questionnaire
   records: QuestionnaireResponse[]
-  adminActions: AdminActionsForQuestionnaire[]
+  adminActions?: AdminActionsForQuestionnaire[]
   totalCount: number
 }
 

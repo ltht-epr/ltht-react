@@ -197,7 +197,7 @@ describe('Questionnaire Table (using mock Monty Python data)', () => {
 })
 
 describe('Questionnaire Table Methods', () => {
-  it('Maps questionnaires data with headers along the X axis', () => {
+  it.only('Maps questionnaires data with headers along the X axis', () => {
     const result = mapQuestionnaireDefinitionAndResponsesToTableData(
       summaryDefinition,
       summaryRecordsList,
@@ -208,7 +208,7 @@ describe('Questionnaire Table Methods', () => {
     expect(JSON.stringify(result)).toEqual(JSON.stringify(expectedResultOfMappingWithHeadersOnXAxis))
   })
 
-  it('Maps questionnaires data with headers along the Y axis', () => {
+  it.only('Maps questionnaires data with headers along the Y axis', () => {
     const result = mapQuestionnaireDefinitionAndResponsesToTableData(
       summaryDefinition,
       summaryRecordsList,

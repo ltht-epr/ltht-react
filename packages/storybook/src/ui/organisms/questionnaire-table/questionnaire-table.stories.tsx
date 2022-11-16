@@ -1,6 +1,7 @@
 import { Story } from '@storybook/react'
 import { QuestionnaireTable } from '@ltht-react/table'
 import { summaryDefinition, summaryRecordsList, adminActionsForForms } from './questionnaire-table.fixtures'
+import { mockAdminActionsForForms } from './questionnaire-table.mockdata'
 
 export const VerticalTable: Story = () => (
   <QuestionnaireTable definition={summaryDefinition} records={summaryRecordsList} staticColumns={2} />
@@ -41,6 +42,7 @@ export const VerticalTableWithPagination: Story = () => (
             (options.pageIndex + 1) * options.pageSize
           ),
           totalCount: summaryRecordsList.length ?? 0,
+          adminActions: mockAdminActionsForForms,
         })
       )
     }
