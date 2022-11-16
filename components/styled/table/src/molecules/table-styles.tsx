@@ -99,7 +99,7 @@ const StyledPaginationPageInput = styled.input`
 `
 const StyledPaginationPageSelect = styled.select`
   ${CSS_RESET};
-  width: 50px;
+  width: 45px;
   display: inline-block;
   font-size: 0.9rem;
   border: 1px solid gray;

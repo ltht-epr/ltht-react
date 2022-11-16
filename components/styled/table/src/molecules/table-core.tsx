@@ -20,14 +20,15 @@ const DefaultPerPageOptions = [10, 20, 30, 40, 50]
 const buildTableHead = (table: Table<DataEntity>) => (
   <thead>
     {table.getHeaderGroups().map((headerGroup) => (
-      <tr key={headerGroup.id}>
+      <tr key={headerGroup.id} role="row">
         {headerGroup.headers.map((header) =>
           header.column.id === 'expander' ? (
-            <StyledTableHeader key={header.id} colSpan={header.colSpan}>
+            <StyledTableHeader key={header.id} colSpan={header.colSpan} role="columnheader">
               {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
             </StyledTableHeader>
           ) : (
             <StyledTableHeader
+              role="columnheader"
               key={header.id}
               colSpan={header.colSpan}
               {...{
@@ -49,9 +50,10 @@ const buildTableHead = (table: Table<DataEntity>) => (
 const buildTableBody = (table: Table<DataEntity>) => (
   <tbody>
     {table.getRowModel().rows.map((row) => (
-      <tr key={row.id}>
+      <tr key={row.id} role="row">
         {row.getVisibleCells().map((cell, cellIdx) => (
           <StyledTableData
+            role="cell"
             key={cell.id}
             style={{
               background: cellIdx % 2 === 1 ? 'white' : TRANSLUCENT_BRIGHT_BLUE_TABLE,

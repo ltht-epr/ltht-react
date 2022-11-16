@@ -12,7 +12,7 @@ import {
 } from './questionnaire-table.mockdata'
 
 describe('Questionnaire Table (using Fixture data)', () => {
-  it('Renders Vertically', () => {
+  it.only('Renders Vertically', () => {
     render(<QuestionnaireTable definition={summaryDefinition} records={summaryRecordsList} headerAxis="y" />)
 
     expect(screen.getByRole('table')).toBeVisible()
@@ -24,7 +24,7 @@ describe('Questionnaire Table (using Fixture data)', () => {
     expect(screen.queryByRole('columnheader', { name: /Partial Indication/ })).toBeNull()
   })
 
-  it('Renders Horizontally', () => {
+  it.only('Renders Horizontally', () => {
     render(<QuestionnaireTable definition={summaryDefinition} records={summaryRecordsList} headerAxis="x" />)
 
     expect(screen.getByRole('table')).toBeVisible()
@@ -39,7 +39,7 @@ describe('Questionnaire Table (using Fixture data)', () => {
     ).toBe(true)
   })
 
-  it('Sorts the table when headers are clicked', () => {
+  it.only('Sorts the table when headers are clicked', () => {
     render(<QuestionnaireTable definition={summaryDefinition} records={summaryRecordsList} headerAxis="y" />)
 
     const getTopLeftDataCell = () => within(screen.getAllByRole('row')[1]).getAllByRole('cell')[1]
@@ -52,7 +52,7 @@ describe('Questionnaire Table (using Fixture data)', () => {
     expect(getTopLeftDataCell()).toHaveTextContent('Standard Observations')
   })
 
-  it('Sorts the table if the lowest level of subheaders are clicked in horizontal mode', () => {
+  it.only('Sorts the table if the lowest level of subheaders are clicked in horizontal mode', () => {
     render(<QuestionnaireTable definition={summaryDefinition} records={summaryRecordsList} headerAxis="x" />)
 
     const getTopLeftDataCell = () => within(screen.getAllByRole('row')[3]).getAllByRole('cell')[0]
@@ -62,9 +62,13 @@ describe('Questionnaire Table (using Fixture data)', () => {
     userEvent.click(screen.getByText('Record Date'))
 
     expect(getTopLeftDataCell()).toHaveTextContent('17-Feb-2022 17:23')
+
+    userEvent.click(screen.getByText('Record Date'))
+
+    expect(getTopLeftDataCell()).toHaveTextContent('01-Jan-2022 16:02')
   })
 
-  it('Does not try to sort the table when a header grouping is clicked', () => {
+  it.only('Does not try to sort the table when a header grouping is clicked', () => {
     render(<QuestionnaireTable definition={summaryDefinition} records={summaryRecordsList} headerAxis="x" />)
 
     const getTopLeftDataCell = () => within(screen.getAllByRole('row')[3]).getAllByRole('cell')[0]
@@ -76,57 +80,61 @@ describe('Questionnaire Table (using Fixture data)', () => {
     expect(getTopLeftDataCell()).toHaveTextContent('17-Feb-2022 17:23')
   })
 
-  it('Expands collapsed rows when parent row is clicked', () => {
+  it.only('Expands collapsed rows when parent row is clicked', () => {
     render(<QuestionnaireTable definition={summaryDefinition} records={summaryRecordsList} headerAxis="y" />)
 
-    const getChevronCell = () => within(screen.getAllByRole('row')[4]).getAllByRole('cell')[0]
+    const getArrowCell = () => within(screen.getAllByRole('row')[4]).getAllByRole('cell')[0]
+    const getArrowButton = () => within(getArrowCell()).getByRole('button')
+    const getArrowElement = () => within(getArrowButton()).getByText((_, elem) => elem?.tagName.toLowerCase() === 'svg')
 
-    expect(within(getChevronCell()).getByRole('img', { hidden: true })).toHaveClass('fa-chevron-right')
+    expect(getArrowElement()).toHaveClass('icon__chevron--right')
     expect(screen.getAllByRole('row').length).toBe(5)
 
-    userEvent.click(screen.getAllByRole('img', { hidden: true })[1])
+    userEvent.click(getArrowButton())
 
-    expect(within(getChevronCell()).getByRole('img', { hidden: true })).toHaveClass('fa-chevron-down')
-    expect(screen.getAllByRole('row').length).toBeGreaterThan(5)
+    expect(getArrowElement()).toHaveClass('icon__chevron--down')
+    expect(screen.getAllByRole('row').length).toBe(16)
     expect(screen.getAllByRole('row')[5]).toBeVisible()
 
-    userEvent.click(screen.getAllByRole('img', { hidden: true })[1])
-    expect(within(getChevronCell()).getByRole('img', { hidden: true })).toHaveClass('fa-chevron-right')
+    userEvent.click(getArrowButton())
+    expect(getArrowElement()).toHaveClass('icon__chevron--right')
     expect(screen.getAllByRole('row').length).toBe(5)
   })
 
-  it('Toggles all expandable rows when chevron is clicked', () => {
+  it.only('Toggles all expandable rows when chevron is clicked', () => {
     render(<QuestionnaireTable definition={summaryDefinition} records={summaryRecordsList} headerAxis="y" />)
 
-    const getChevronCell = () => within(screen.getAllByRole('row')[0]).getAllByRole('columnheader')[0]
+    const getArrowCell = () => within(screen.getAllByRole('row')[0]).getAllByRole('columnheader')[0]
+    const getArrowButton = () => within(getArrowCell()).getByRole('button')
+    const getArrowElement = () => within(getArrowButton()).getByText((_, elem) => elem?.tagName.toLowerCase() === 'svg')
 
-    expect(within(getChevronCell()).getByRole('img', { hidden: true })).toHaveClass('fa-chevron-right')
+    expect(getArrowElement()).toHaveClass('icon__chevron--right')
     expect(screen.getAllByRole('row').length).toBe(5)
 
-    userEvent.click(screen.getAllByRole('img', { hidden: true })[0])
+    userEvent.click(getArrowButton())
 
-    expect(within(getChevronCell()).getByRole('img', { hidden: true })).toHaveClass('fa-chevron-down')
-    expect(screen.getAllByRole('row').length).toBeGreaterThan(5)
+    expect(getArrowElement()).toHaveClass('icon__chevron--down')
+    expect(screen.getAllByRole('row').length).toBe(18)
     expect(screen.getAllByRole('row')[5]).toBeVisible()
 
     expect(within(screen.getAllByRole('row')[6]).getAllByRole('cell')[1]).toHaveTextContent('RR Part 1 (breaths/min)')
     expect(within(screen.getAllByRole('row')[7]).getAllByRole('cell')[1]).toHaveTextContent('RR Part 2 (breaths/min)')
 
-    userEvent.click(within(getChevronCell()).getByRole('img', { hidden: true }))
-    expect(within(getChevronCell()).getByRole('img', { hidden: true })).toHaveClass('fa-chevron-right')
+    userEvent.click(getArrowButton())
 
+    expect(getArrowElement()).toHaveClass('icon__chevron--right')
     expect(screen.getAllByRole('row').length).toBe(5)
   })
 })
 
 describe('Questionnaire Table (using mock Monty Python data)', () => {
-  it('Renders', () => {
+  it.only('Renders', () => {
     render(<QuestionnaireTable definition={mockSummaryDefinition} records={mockSummaryRecordsList} headerAxis="x" />)
 
     expect(screen.getByRole('table')).toBeVisible()
   })
 
-  it('Presents warning text if definition item array is undefined', () => {
+  it.only('Presents warning text if definition item array is undefined', () => {
     const summaryDefinitionWithoutItems = { ...mockSummaryDefinition, item: undefined }
 
     render(<QuestionnaireTable definition={summaryDefinitionWithoutItems} records={mockSummaryRecordsList} />)
@@ -134,7 +142,7 @@ describe('Questionnaire Table (using mock Monty Python data)', () => {
     expect(screen.getByText('An error occurred whilst loading this table.')).toBeVisible()
   })
 
-  it('Presents warning text if definition item array is empty', () => {
+  it.only('Presents warning text if definition item array is empty', () => {
     const summaryDefinitionWithoutItems = { ...mockSummaryDefinition, item: [] }
 
     render(<QuestionnaireTable definition={summaryDefinitionWithoutItems} records={mockSummaryRecordsList} />)
@@ -142,23 +150,23 @@ describe('Questionnaire Table (using mock Monty Python data)', () => {
     expect(screen.getByText('An error occurred whilst loading this table.')).toBeVisible()
   })
 
-  it('Renders Horizontally', () => {
+  it.only('Renders Horizontally', () => {
     render(<QuestionnaireTable definition={mockSummaryDefinition} records={mockSummaryRecordsList} headerAxis="x" />)
   })
 
-  it('Renders horizontal table with multiple row headers. total 13 columns to be visible', () => {
+  it.only('Renders horizontal table with multiple row headers. total 13 columns to be visible', () => {
     render(<QuestionnaireTable definition={mockSummaryDefinition} records={mockSummaryRecordsList} headerAxis="x" />)
 
     expect(screen.getAllByRole('columnheader').length).toBe(13)
   })
 
-  it('Renders horizontal table with two data rows', () => {
+  it.only('Renders horizontal table with two data rows', () => {
     render(<QuestionnaireTable definition={mockSummaryDefinition} records={mockSummaryRecordsList} headerAxis="x" />)
 
     expect(screen.getAllByRole('rowgroup')[0].children.length).toBe(2)
   })
 
-  it('Renders horizontal table containing subheaders', () => {
+  it.only('Renders horizontal table containing subheaders', () => {
     render(<QuestionnaireTable definition={mockSummaryDefinition} records={mockSummaryRecordsList} headerAxis="x" />)
 
     const columnWithSubheadings = mockSummaryDefinition?.item?.find((x) => x?.item && x?.item.length > 0)
@@ -174,13 +182,13 @@ describe('Questionnaire Table (using mock Monty Python data)', () => {
     expect(numberOfHeaderRows).toBe(2)
   })
 
-  it('Renders Vertically', () => {
+  it.only('Renders Vertically', () => {
     render(<QuestionnaireTable definition={mockSummaryDefinition} records={mockSummaryRecordsList} />)
 
     expect(screen.getByRole('table')).toBeVisible()
   })
 
-  it('Renders Vertical table with 5 rows in tbody', () => {
+  it.only('Renders Vertical table with 5 rows in tbody', () => {
     render(<QuestionnaireTable definition={mockSummaryDefinition} records={mockSummaryRecordsList} />)
 
     expect(screen.getByRole('table').children[1].tagName).toBe('TBODY')

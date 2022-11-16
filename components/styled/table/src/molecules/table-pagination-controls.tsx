@@ -43,9 +43,9 @@ const TablePaginationControls = <T,>({ table, tableOptions, isFetching, serverSi
       ) : null}
       <StyledPaginationButtonDiv>
         {isFetching && serverSidePagination ? (
-          <>
+          <div style={{ marginLeft: 5, fontSize: '1.1em', padding: 2 }}>
             <Icon type="spinner" size="medium" /> <StyledHideOnMobile>Loading</StyledHideOnMobile>
-          </>
+          </div>
         ) : null}
         <StyledIconButton
           data-testid="paged-table-first-page-btn"
