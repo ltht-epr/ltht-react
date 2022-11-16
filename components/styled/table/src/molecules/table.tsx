@@ -13,7 +13,7 @@ import styled from '@emotion/styled'
 import { CSS_RESET, SCROLLBAR, TABLE_COLOURS } from '@ltht-react/styles'
 import { CellProps } from './table-cell'
 import createColumns from './table-methods'
-import useResize from './useResize'
+import useDimensionsRef from './useResize'
 
 const Container = styled.div`
   ${CSS_RESET};
@@ -48,13 +48,12 @@ const StyledTableHeader = styled.th<IStyledTableCell>`
   padding: 1rem;
 
   ${({ stickyWidth }) =>
-    stickyWidth !== undefined
-      ? `
-      position: sticky !important;
-      left: ${stickyWidth}px;
-      top: 0;
-      z-index: 1;`
-      : ``}
+    stickyWidth &&
+    `
+    position: sticky !important;
+    left: ${stickyWidth}px;
+    top: 0;
+    z-index: 1;`}
 `
 
 const StyledTableData = styled.td<IStyledTableCell>`
@@ -62,22 +61,21 @@ const StyledTableData = styled.td<IStyledTableCell>`
   white-space: nowrap;
 
   ${({ stickyWidth }) =>
-    stickyWidth !== undefined
-      ? `
+    stickyWidth &&
+    `
     position: sticky !important;
     left: ${stickyWidth}px;
     top: 0;
-    z-index: 1;`
-      : ``}
+    z-index: 1;`}
 
   &:first-of-type {
     background-color: ${TABLE_COLOURS.HEADER} !important;
   }
 `
 
-const Table: FC<IProps> = ({ tableData, staticColumns = 1 }) => {
+const Table: FC<IProps> = ({ tableData, staticColumns = 0 }) => {
   const firstColumn = useRef(null)
-  const { width } = useResize(firstColumn)
+  const { width } = useDimensionsRef(firstColumn)
 
   const [expanded, setExpanded] = useState<ExpandedState>({})
   const [sorting, setSorting] = useState<SortingState>([])

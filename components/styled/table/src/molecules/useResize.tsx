@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-const useResize = (myRef: React.RefObject<HTMLElement>) => {
+const useDimensionsRef = (myRef: React.RefObject<HTMLElement>) => {
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 })
 
   useEffect(() => {
@@ -27,4 +27,4 @@ const useResize = (myRef: React.RefObject<HTMLElement>) => {
   return dimensions
 }
 
-export default useResize
+export default useDimensionsRef

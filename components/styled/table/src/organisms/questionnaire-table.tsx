@@ -6,7 +6,7 @@ import mapQuestionnaireDefinitionAndResponsesToTableData, {
   AdminActionsForQuestionnaire,
 } from './questionnaire-table-methods'
 
-const QuestionnaireTable: FC<IProps> = ({ definition, records, headerAxis = 'y', staticColumns = 1, adminActions }) => {
+const QuestionnaireTable: FC<IProps> = ({ definition, records, headerAxis = 'y', staticColumns = 0, adminActions }) => {
   const tableData = useMemo(
     () => mapQuestionnaireDefinitionAndResponsesToTableData(definition, records, headerAxis, adminActions),
     [headerAxis, definition, records, adminActions]
