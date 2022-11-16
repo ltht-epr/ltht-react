@@ -1,117 +1,51 @@
-import { FC, useRef, useState } from 'react'
-import {
-  flexRender,
-  getCoreRowModel,
-  useReactTable,
-  getExpandedRowModel,
-  getSortedRowModel,
-  ExpandedState,
-  SortingState,
-} from '@tanstack/react-table'
-import { TABLE_COLOURS } from '@ltht-react/styles'
-import createColumns from './table-methods'
-import useDimensionsRef from './useDimensionRef'
-import { TableData } from './table-core'
-import { Container, StyledTable, StyledTableData, StyledTableHeader } from './table-styles'
+import { Icon } from '@ltht-react/icon'
+import { FC } from 'react'
+import ServerSidePaginatedTable from './serverside-paginated-table'
+import StandardTable from './standard-table'
 
-const Table: FC<IProps> = ({ tableData, staticColumns = 0 }) => {
-  const firstColumn = useRef(null)
-  const { width } = useDimensionsRef(firstColumn)
+import { DefaultTableOptions, PaginationOptions, PaginationResult, TableData, TableOptions } from './table-core'
 
-  const [expanded, setExpanded] = useState<ExpandedState>({})
-  const [sorting, setSorting] = useState<SortingState>([])
+const Table: FC<IProps> = ({ fetchData, tableData, staticColumns = 0, ...props }: IProps) => {
+  let { tableOptions } = props
 
-  const table = useReactTable({
-    data: tableData.rows,
-    columns: createColumns(
-      tableData,
-      tableData.rows.some((row) => row.subRows)
-    ),
-    state: {
-      expanded,
-      sorting,
-    },
-    onExpandedChange: setExpanded,
-    onSortingChange: setSorting,
-    getSubRows: (row) => row.subRows,
-    getCoreRowModel: getCoreRowModel(),
-    getExpandedRowModel: getExpandedRowModel(),
-    getSortedRowModel: getSortedRowModel(),
-  })
-
-  const calculateStaticColumnOffset = (cellIdx: number, staticColumns: number, firstColumnWidth: number) => {
-    if (cellIdx === 0) {
-      return 0
-    }
-
-    if (cellIdx < staticColumns) {
-      return firstColumnWidth
-    }
-
-    return undefined
+  if (!tableOptions) {
+    tableOptions = DefaultTableOptions
   }
 
-  return (
-    <Container>
-      <StyledTable>
-        <thead>
-          {table.getHeaderGroups().map((headerGroup) => (
-            <tr key={headerGroup.id}>
-              {headerGroup.headers.map((header, headerIndex) =>
-                headerIndex === 0 ? (
-                  <StyledTableHeader
-                    stickyWidth={calculateStaticColumnOffset(headerIndex, staticColumns, width)}
-                    key={header.id}
-                    colSpan={header.colSpan}
-                    ref={firstColumn}
-                  >
-                    {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
-                  </StyledTableHeader>
-                ) : (
-                  <StyledTableHeader
-                    stickyWidth={calculateStaticColumnOffset(headerIndex, staticColumns, width)}
-                    key={header.id}
-                    colSpan={header.colSpan}
-                    {...{
-                      style: {
-                        cursor: header.column.getCanSort() ? 'pointer' : '',
-                      },
-                      onClick: header.column.getToggleSortingHandler(),
-                    }}
-                  >
-                    {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
-                  </StyledTableHeader>
-                )
-              )}
-            </tr>
-          ))}
-        </thead>
-        <tbody>
-          {table.getRowModel().rows.map((row) => (
-            <tr key={row.id}>
-              {row.getVisibleCells().map((cell, cellIdx) => (
-                <StyledTableData
-                  stickyWidth={calculateStaticColumnOffset(cellIdx, staticColumns, width)}
-                  key={cell.id}
-                  style={{
-                    background: cellIdx % 2 === 1 ? TABLE_COLOURS.STRIPE_LIGHT : TABLE_COLOURS.STRIPE_DARK,
-                    textAlign: 'center',
-                  }}
-                >
-                  {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                </StyledTableData>
-              ))}
-            </tr>
-          ))}
-        </tbody>
-      </StyledTable>
-    </Container>
+  if (tableOptions.enablePagination && tableOptions.serverSidePagination && !fetchData) {
+    return (
+      <>
+        <Icon type="exclamation" size="large" status="red" />
+        <div>Server-side pagination enabled however `fetchData` function property is not provided.</div>
+      </>
+    )
+  }
+
+  if (!tableOptions.serverSidePagination && !tableData) {
+    return (
+      <>
+        <Icon type="exclamation" size="large" status="red" />
+        <div>No table data provided.</div>
+      </>
+    )
+  }
+
+  return tableOptions.enablePagination && tableOptions.serverSidePagination ? (
+    <ServerSidePaginatedTable fetchData={fetchData} tableOptions={tableOptions} staticColumns={staticColumns} />
+  ) : (
+    <StandardTable
+      tableData={tableData ?? { headers: [], rows: [] }}
+      tableOptions={tableOptions}
+      staticColumns={staticColumns}
+    />
   )
 }
 
 interface IProps {
-  tableData: TableData
   staticColumns?: 0 | 1 | 2
+  tableData?: TableData
+  fetchData?: (options: PaginationOptions) => Promise<PaginationResult>
+  tableOptions?: TableOptions
 }
 
 export default Table

@@ -1,6 +1,5 @@
-import { FC, useState, useMemo } from 'react'
+import { FC, useState, useMemo, useRef } from 'react'
 import {
-  flexRender,
   getCoreRowModel,
   useReactTable,
   getExpandedRowModel,
@@ -9,14 +8,18 @@ import {
   SortingState,
   PaginationState,
   getPaginationRowModel,
+  flexRender,
 } from '@tanstack/react-table'
-import { TRANSLUCENT_BRIGHT_BLUE_TABLE } from '@ltht-react/styles'
 import createColumns from './table-methods'
 import { Container, ScrollableContainer, StyledTable, StyledTableData, StyledTableHeader } from './table-styles'
 import { TableData, TableOptions } from './table-core'
 import TablePaginationControls from './table-pagination-controls'
+import useDimensionsRef from './useDimensionRef'
 
-const StandardTable: FC<IProps> = ({ tableData, tableOptions }) => {
+const StandardTable: FC<IProps> = ({ tableData, tableOptions, staticColumns }) => {
+  const firstColumn = useRef(null)
+  const { width } = useDimensionsRef(firstColumn)
+
   const [expanded, setExpanded] = useState<ExpandedState>({})
   const [sorting, setSorting] = useState<SortingState>([])
   const [{ pageIndex, pageSize }, setPagination] = useState<PaginationState>({
@@ -26,11 +29,10 @@ const StandardTable: FC<IProps> = ({ tableData, tableOptions }) => {
   const pagination = useMemo(() => ({ pageIndex, pageSize }), [pageIndex, pageSize])
 
   const paginationEnabled = tableOptions.enablePagination ?? false
-  const showExpanderColumn = tableOptions.showExpanderColumn ?? false
 
   const table = useReactTable({
     data: tableData.rows,
-    columns: createColumns(tableData, showExpanderColumn),
+    columns: createColumns(tableData),
     state: {
       expanded,
       sorting,
@@ -50,6 +52,18 @@ const StandardTable: FC<IProps> = ({ tableData, tableOptions }) => {
       : {}),
   })
 
+  const calculateStaticColumnOffset = (cellIdx: number, staticColumns: number, firstColumnWidth: number) => {
+    if (cellIdx === 0) {
+      return 0
+    }
+
+    if (cellIdx < staticColumns) {
+      return firstColumnWidth
+    }
+
+    return undefined
+  }
+
   const paginationControls = tableOptions.enablePagination ? (
     <TablePaginationControls
       table={table}
@@ -66,13 +80,19 @@ const StandardTable: FC<IProps> = ({ tableData, tableOptions }) => {
           <thead>
             {table.getHeaderGroups().map((headerGroup) => (
               <tr key={headerGroup.id}>
-                {headerGroup.headers.map((header) =>
-                  header.column.id === 'expander' ? (
-                    <StyledTableHeader key={header.id} colSpan={header.colSpan}>
+                {headerGroup.headers.map((header, headerIndex) =>
+                  headerIndex === 0 ? (
+                    <StyledTableHeader
+                      stickyWidth={calculateStaticColumnOffset(headerIndex, staticColumns, width)}
+                      key={header.id}
+                      colSpan={header.colSpan}
+                      ref={firstColumn}
+                    >
                       {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
                     </StyledTableHeader>
                   ) : (
                     <StyledTableHeader
+                      stickyWidth={calculateStaticColumnOffset(headerIndex, staticColumns, width)}
                       key={header.id}
                       colSpan={header.colSpan}
                       {...{
@@ -94,9 +114,10 @@ const StandardTable: FC<IProps> = ({ tableData, tableOptions }) => {
               <tr key={row.id}>
                 {row.getVisibleCells().map((cell, cellIdx) => (
                   <StyledTableData
+                    stickyWidth={calculateStaticColumnOffset(cellIdx, staticColumns, width)}
                     key={cell.id}
                     style={{
-                      background: cellIdx % 2 === 1 ? 'white' : TRANSLUCENT_BRIGHT_BLUE_TABLE,
+                      background: cellIdx % 2 === 1 ? TABLE_COLOURS.STRIPE_LIGHT : TABLE_COLOURS.STRIPE_DARK,
                       textAlign: 'center',
                     }}
                   >
@@ -116,6 +137,7 @@ const StandardTable: FC<IProps> = ({ tableData, tableOptions }) => {
 interface IProps {
   tableData: TableData
   tableOptions: TableOptions
+  staticColumns: 0 | 1 | 2
 }
 
 export default StandardTable

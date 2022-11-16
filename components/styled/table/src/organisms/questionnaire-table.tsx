@@ -1,16 +1,34 @@
 import { QuestionnaireResponse, Axis, Questionnaire } from '@ltht-react/types'
 import { FC, useMemo } from 'react'
 import { Icon } from '@ltht-react/icon'
+import Table from '../molecules/table'
 import mapQuestionnaireDefinitionAndResponsesToTableData, {
   AdminActionsForQuestionnaire,
 } from './questionnaire-table-methods'
-import Table from '../molecules/table'
+import { PaginationOptions, PaginationResult, TableOptions } from '../molecules/table-core'
+import { EnsureMaybe, EnsureMaybeArray } from '@ltht-react/utils'
 
-const QuestionnaireTable: FC<IProps> = ({ definition, records, headerAxis = 'y', staticColumns = 0, adminActions }) => {
-  const tableData = useMemo(
-    () => mapQuestionnaireDefinitionAndResponsesToTableData(definition, records, headerAxis, adminActions),
-    [headerAxis, definition, records, adminActions]
-  )
+const QuestionnaireTable: FC<IProps> = ({
+  definition,
+  records,
+  headerAxis = 'y',
+  staticColumns = 0,
+  adminActions,
+  fetchData,
+  ...props
+}) => {
+  const tableData = useMemo(() => {
+    if (!fetchData) {
+      return mapQuestionnaireDefinitionAndResponsesToTableData(
+        EnsureMaybe(definition),
+        EnsureMaybeArray(records),
+        headerAxis,
+        adminActions
+      )
+    }
+
+    return { headers: [], rows: [] }
+  }, [headerAxis, definition, records, adminActions, fetchData])
 
   // TODO: Replace this fragment with a properly styled error component.
   // Maybe this could be a re-usable atom?
@@ -23,15 +41,49 @@ const QuestionnaireTable: FC<IProps> = ({ definition, records, headerAxis = 'y',
     )
   }
 
-  return <Table tableData={tableData} staticColumns={staticColumns} />
+  const fetchQuestionnaireData = async (options: PaginationOptions): Promise<PaginationResult> => {
+    if (!fetchData) {
+      throw new Error('`fetchData` funtion not defined for questionnaire table!')
+    }
+
+    const data = await fetchData(options)
+    const emptyTableData = {
+      headers: [],
+      rows: [],
+    }
+
+    return {
+      tableData:
+        (data
+          ? mapQuestionnaireDefinitionAndResponsesToTableData(
+              data.definition,
+              data.records,
+              headerAxis,
+              data.adminActions
+            )
+          : emptyTableData) ?? emptyTableData,
+      totalCount: data?.totalCount ?? 0,
+    }
+  }
+
+  return <Table tableData={tableData} fetchData={fetchQuestionnaireData} staticColumns={staticColumns} {...props} />
 }
 
 interface IProps {
+  definition?: Questionnaire
+  records?: QuestionnaireResponse[]
+  headerAxis?: Axis
+  staticColumns?: 0 | 1 | 2
+  adminActions?: AdminActionsForQuestionnaire[]
+  tableOptions?: TableOptions
+  fetchData?: (options: PaginationOptions) => Promise<QuestionnairePaginationResult>
+}
+
+interface QuestionnairePaginationResult {
   definition: Questionnaire
   records: QuestionnaireResponse[]
-  headerAxis?: Axis
-  adminActions?: AdminActionsForQuestionnaire[]
-  staticColumns?: 0 | 1 | 2
+  adminActions: AdminActionsForQuestionnaire[]
+  totalCount: number
 }
 
 export default QuestionnaireTable

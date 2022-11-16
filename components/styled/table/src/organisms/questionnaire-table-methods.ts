@@ -159,14 +159,32 @@ const buildVerticalCellRows = (
   records: QuestionnaireResponse[],
   adminActions?: AdminActionsForQuestionnaire[]
 ): DataEntity[] => {
-  const dataEntities = definitionItems.map((item) => {
+  const dataEntities = definitionItems.map((definitionItem) => {
+    const containsSubRows = definitionItem?.item && definitionItem?.item.length > 0
+    const subRows = containsSubRows
+      ? buildVerticalCellRows(EnsureMaybe(definitionItem?.item?.map((x) => EnsureMaybe(x))), records)
+      : []
     let dataEntity: DataEntity = {}
 
-    dataEntity = buildVerticalCellRowsRecursive(
-      EnsureMaybeArray<QuestionnaireItem>([item]),
-      records,
-      dataEntity
-    )
+    dataEntity.property = { text: definitionItem.text ?? '' }
+
+    records.forEach((record) => {
+      const questionnaireResponseItem = findAnswerByLinkIdRecursive(
+        EnsureMaybe<string>(definitionItem.linkId),
+        EnsureMaybeArray<QuestionnaireResponseItem>(record.item ?? [])
+      )
+
+      const recordItemAnswer =
+        questionnaireResponseItem && questionnaireResponseItem.answer && questionnaireResponseItem.answer.length > 0
+          ? EnsureMaybe(questionnaireResponseItem.answer.find((x) => !!x))
+          : undefined
+
+      if (recordItemAnswer) {
+        dataEntity[record.id] = createCellPropsForAnswer(recordItemAnswer)
+      }
+    })
+
+    dataEntity.subRows = containsSubRows ? subRows : undefined
 
     return dataEntity
   })
@@ -175,80 +193,132 @@ const buildVerticalCellRows = (
     const actionsDataEntity: DataEntity = {}
     actionsDataEntity.property = { text: 'Actions' }
 
-    records.forEach((record, recordIndex) => {
+    records.forEach((record) => {
       const adminActionsForThisDataEntity = adminActions.find(
         (actionForForm) => actionForForm.questionnaire === record.id
       )
 
       if (adminActionsForThisDataEntity) {
-        actionsDataEntity[recordIndex + 1] = { adminActions: adminActionsForThisDataEntity.adminActions }
+        actionsDataEntity[record.id] = { adminActions: adminActionsForThisDataEntity.adminActions }
       }
     })
 
     return [actionsDataEntity].concat(dataEntities)
   }
+
   return dataEntities
 }
 
-const buildVerticalCellRowsRecursive = (
-  definitionItems: QuestionnaireItem[],
-  records: QuestionnaireResponse[],
-  dataEntity: DataEntity
-): DataEntity => {
-  let updatedDataEntity = { ...dataEntity }
-  definitionItems.forEach((definitionItem) => {
-    updatedDataEntity.property = { text: definitionItem.text ?? '' }
+const findAnswerByLinkIdRecursive = (
+  id: string,
+  items: QuestionnaireResponseItem[]
+): QuestionnaireResponseItem | undefined => {
+  let itemFound: QuestionnaireResponseItem | undefined
 
-    if (definitionItem.linkId) {
-      records.forEach((record, recordIndex) => {
-        updatedDataEntity = getRecordItemByLinkId(
-          EnsureMaybeArray<QuestionnaireResponseItem>(record.item ?? []),
-          EnsureMaybe<string>(definitionItem.linkId),
-          updatedDataEntity,
-          recordIndex
-        )
-      })
+  if (id === '') {
+    return undefined
+  }
+
+  for (let i = 0; i < items.length; i++) {
+    const item = items[i] as QuestionnaireResponseItem
+
+    if (item.linkId === id) {
+      itemFound = item
+      break
     }
 
-    if (definitionItem.item && definitionItem.item.length > 0) {
-      updatedDataEntity.subRows = buildVerticalCellRows(
-        EnsureMaybeArray<QuestionnaireItem>(definitionItem.item),
-        records
-      )
-    }
-  })
-
-  return updatedDataEntity
-}
-
-const getRecordItemByLinkId = (
-  recordItems: QuestionnaireResponseItem[],
-  linkId: string,
-  dataEntity: DataEntity,
-  recordIndex: number
-) => {
-  let updatedDataEntity = { ...dataEntity }
-  recordItems.forEach((recordItem) => {
-    const recordItemAnswer =
-      recordItem.answer && recordItem.answer.length > 0 ? EnsureMaybe(recordItem.answer[0]) : undefined
-
-    if (recordItemAnswer) {
-      if (recordItem?.linkId && recordItem?.linkId === linkId) {
-        updatedDataEntity[recordIndex + 1] = createCellPropsForAnswer(recordItemAnswer)
-      }
-      if (recordItemAnswer.item && recordItemAnswer.item.length > 0) {
-        updatedDataEntity = getRecordItemByLinkId(
-          EnsureMaybeArray<QuestionnaireResponseItem>(recordItemAnswer.item),
-          linkId,
-          updatedDataEntity,
-          recordIndex
+    if (item.answer) {
+      const defaultAnswer = item.answer.find((x) => !!x)
+      if (defaultAnswer?.item && defaultAnswer?.item.length > 0) {
+        itemFound = findAnswerByLinkIdRecursive(
+          id,
+          EnsureMaybeArray<QuestionnaireResponseItem>(defaultAnswer.item ?? [])
         )
+        if (itemFound) {
+          break
+        }
       }
     }
-  })
+  }
 
-  return updatedDataEntity
+  return itemFound
 }
+
+// const buildVerticalCellRows = (definitionItems: QuestionnaireItem[], records: QuestionnaireResponse[]): DataEntity[] =>
+//   definitionItems.map((item) => {
+//     let dataEntity: DataEntity = {}
+
+//     dataEntity = buildVerticalCellRowsRecursive(
+//       EnsureMaybeArray<QuestionnaireItem>([item]),
+//       records,
+//       dataEntity
+//     )
+
+//     return dataEntity
+//   })
+
+// const buildVerticalCellRowsRecursive = (
+//   definitionItems: QuestionnaireItem[],
+//   records: QuestionnaireResponse[],
+//   dataEntity: DataEntity
+// ): DataEntity => {
+//   let updatedDataEntity = { ...dataEntity }
+//   definitionItems.forEach((definitionItem) => {
+//     updatedDataEntity.property = { text: definitionItem.text ?? '' }
+
+//     if (definitionItem.linkId) {
+//       records.forEach((record, recordIndex) => {
+//         updatedDataEntity = getRecordItemByLinkId(
+//           EnsureMaybeArray<QuestionnaireResponseItem>(record.item ?? []),
+//           EnsureMaybe<string>(definitionItem.linkId),
+//           updatedDataEntity,
+//           recordIndex
+//         )
+//       })
+//     }
+
+//     if (definitionItem.item && definitionItem.item.length > 0) {
+//       updatedDataEntity.subRows = buildVerticalCellRows(
+//         EnsureMaybeArray<QuestionnaireItem>(definitionItem.item),
+//         records
+//       )
+//     }
+//   })
+
+//   return updatedDataEntity
+// }
+
+// const getRecordItemByLinkId = (
+//   recordItems: QuestionnaireResponseItem[],
+//   linkId: string,
+//   dataEntity: DataEntity,
+//   recordIndex: number
+// ) => {
+//   let updatedDataEntity = { ...dataEntity }
+//   recordItems.forEach((recordItem) => {
+//     const recordItemAnswer =
+//       recordItem.answer && recordItem.answer.length > 0 ? EnsureMaybe(recordItem.answer[0]) : undefined
+
+//     if (recordItemAnswer) {
+//       if (recordItem?.linkId && recordItem?.linkId === linkId) {
+//         updatedDataEntity[recordIndex + 1] = createCellPropsForAnswer(recordItemAnswer)
+//         updatedDataEntity[recordIndex + 2] = createCellPropsForAnswer(recordItemAnswer)
+//         updatedDataEntity[recordIndex + 3] = createCellPropsForAnswer(recordItemAnswer)
+//         updatedDataEntity[recordIndex + 4] = createCellPropsForAnswer(recordItemAnswer)
+//       }
+//       if (recordItemAnswer.item && recordItemAnswer.item.length > 0) {
+//         updatedDataEntity = getRecordItemByLinkId(
+//           EnsureMaybeArray<QuestionnaireResponseItem>(recordItemAnswer.item),
+//           linkId,
+//           updatedDataEntity,
+//           recordIndex
+//         )
+//       }
+//     }
+//   })
+
+//   return updatedDataEntity
+// }
 
 const createCellPropsForAnswer = (answer: QuestionnaireResponseItemAnswer): CellProps => {
   if (answer.valueString) {

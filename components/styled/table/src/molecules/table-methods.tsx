@@ -3,12 +3,12 @@ import { IconProps } from '@ltht-react/icon'
 import TableCell, { CellProps } from './table-cell'
 import { DataEntity, Header, TableData } from './table-core'
 
-const createColumns = (tableData: TableData, showExpanderColumn: boolean): ColumnDef<DataEntity>[] => {
+const createColumns = (tableData: TableData): ColumnDef<DataEntity>[] => {
   const columnHelper = createColumnHelper<DataEntity>()
 
   let columns = createColumnsRecursively(tableData.headers, columnHelper)
 
-  if (showExpanderColumn) {
+  if (tableData.rows.some((row) => row.subRows)) {
     columns = prependColumnWithExpansionControls(columns, columnHelper)
   }
 

@@ -29,4 +29,22 @@ export const HorizontalTableAdminActions: Story = () => (
   />
 )
 
+export const VerticalTableWithPagination: Story = () => (
+  <QuestionnaireTable
+    tableOptions={{ enablePagination: true, serverSidePagination: true, pageSize: 1, perPageOptions: [1, 10, 20] }}
+    fetchData={(options) =>
+      new Promise((res) =>
+        res({
+          definition: summaryDefinition,
+          records: summaryRecordsList.slice(
+            options.pageIndex * options.pageSize,
+            (options.pageIndex + 1) * options.pageSize
+          ),
+          totalCount: summaryRecordsList.length ?? 0,
+        })
+      )
+    }
+  />
+)
+
 export default { title: 'UI/Organisms/QuestionnaireTable' }
