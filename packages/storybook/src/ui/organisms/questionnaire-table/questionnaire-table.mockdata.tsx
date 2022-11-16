@@ -1,8 +1,11 @@
+/* eslint no-console: 0 */
 import { TableData } from '@ltht-react/table'
+import { AdminActionsForQuestionnaire } from '@ltht-react/table/lib/organisms/questionnaire-table-methods'
 
 export const expectedResultOfMappingWithHeadersOnXAxis: TableData = {
   headers: [
     { id: 'date', type: 'accessor', cellProps: { text: 'Record Date' } },
+    { id: 'adminactions', type: 'accessor', cellProps: { text: 'Actions' } },
     { id: '1', type: 'accessor', cellProps: { text: 'Score' }, subHeaders: [] },
     { id: '2', type: 'accessor', cellProps: { text: 'Intervention' }, subHeaders: [] },
     { id: '3', type: 'accessor', cellProps: { text: 'Partial Indication' }, subHeaders: [] },
@@ -36,6 +39,18 @@ export const expectedResultOfMappingWithHeadersOnXAxis: TableData = {
   rows: [
     {
       date: { text: '17-Feb-2022 17:23' },
+      adminactions: {
+        adminActions: [
+          {
+            text: 'View',
+            clickHandler: () => {
+              console.log('Viewing submission 1')
+            },
+            leftIcon: { type: 'info-circle', size: 'medium' },
+            rightIcon: { type: 'external-link', size: 'medium' },
+          },
+        ],
+      },
       '1': { text: '5 NEWS' },
       '2': { text: 'ICON' },
       '3': { text: 'No' },
@@ -56,6 +71,18 @@ export const expectedResultOfMappingWithHeadersOnXAxis: TableData = {
     },
     {
       date: { text: '12-Feb-2022 12:33' },
+      adminactions: {
+        adminActions: [
+          {
+            text: 'View',
+            clickHandler: () => {
+              console.log('Viewing submission 2')
+            },
+            leftIcon: { type: 'info-circle', size: 'medium' },
+            rightIcon: { type: 'external-link', size: 'medium' },
+          },
+        ],
+      },
       '1': { text: '40 NEWS' },
       '2': { text: 'ICON' },
       '3': { text: 'Yes' },
@@ -76,6 +103,18 @@ export const expectedResultOfMappingWithHeadersOnXAxis: TableData = {
     },
     {
       date: { text: '01-Jan-2022 16:02' },
+      adminactions: {
+        adminActions: [
+          {
+            text: 'View',
+            clickHandler: () => {
+              console.log('Viewing submission 3')
+            },
+            leftIcon: { type: 'info-circle', size: 'medium' },
+            rightIcon: { type: 'external-link', size: 'medium' },
+          },
+        ],
+      },
       '1': { text: '17 NEWS' },
       '2': { text: 'ICON' },
       '3': { text: 'No' },
@@ -105,6 +144,45 @@ export const expectedResultOfMappingWithHeadersOnYAxis: TableData = {
     { id: '3', type: 'accessor', cellProps: { text: '01-Jan-2022 16:02' } },
   ],
   rows: [
+    {
+      property: { text: 'Actions' },
+      '1': {
+        adminActions: [
+          {
+            text: 'View',
+            clickHandler: () => {
+              console.log('Viewing submission 1')
+            },
+            leftIcon: { type: 'info-circle', size: 'medium' },
+            rightIcon: { type: 'external-link', size: 'medium' },
+          },
+        ],
+      },
+      '2': {
+        adminActions: [
+          {
+            text: 'View',
+            clickHandler: () => {
+              console.log('Viewing submission 2')
+            },
+            leftIcon: { type: 'info-circle', size: 'medium' },
+            rightIcon: { type: 'external-link', size: 'medium' },
+          },
+        ],
+      },
+      '3': {
+        adminActions: [
+          {
+            text: 'View',
+            clickHandler: () => {
+              console.log('Viewing submission 3')
+            },
+            leftIcon: { type: 'info-circle', size: 'medium' },
+            rightIcon: { type: 'external-link', size: 'medium' },
+          },
+        ],
+      },
+    },
     {
       property: { text: 'Score' },
       '1': { text: '5 NEWS' },
@@ -213,3 +291,45 @@ export const expectedResultOfMappingWithHeadersOnYAxis: TableData = {
     },
   ],
 }
+
+export const mockAdminActionsForForms: AdminActionsForQuestionnaire[] = [
+  {
+    questionnaire: '1',
+    adminActions: [
+      {
+        text: 'View',
+        clickHandler: () => {
+          console.log('Viewing submission 1')
+        },
+        leftIcon: { type: 'info-circle', size: 'medium' },
+        rightIcon: { type: 'external-link', size: 'medium' },
+      },
+    ],
+  },
+  {
+    questionnaire: '2',
+    adminActions: [
+      {
+        text: 'View',
+        clickHandler: () => {
+          console.log('Viewing submission 2')
+        },
+        leftIcon: { type: 'info-circle', size: 'medium' },
+        rightIcon: { type: 'external-link', size: 'medium' },
+      },
+    ],
+  },
+  {
+    questionnaire: '3',
+    adminActions: [
+      {
+        text: 'View',
+        clickHandler: () => {
+          console.log('Viewing submission 3')
+        },
+        leftIcon: { type: 'info-circle', size: 'medium' },
+        rightIcon: { type: 'external-link', size: 'medium' },
+      },
+    ],
+  },
+]

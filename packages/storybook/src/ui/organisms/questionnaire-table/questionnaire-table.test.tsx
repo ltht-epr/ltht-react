@@ -8,6 +8,7 @@ import { summaryDefinition, summaryRecordsList } from './questionnaire-table.fix
 import {
   expectedResultOfMappingWithHeadersOnXAxis,
   expectedResultOfMappingWithHeadersOnYAxis,
+  mockAdminActionsForForms,
 } from './questionnaire-table.mockdata'
 
 describe('Questionnaire Table (using Fixture data)', () => {
@@ -46,8 +47,9 @@ describe('Questionnaire Table (using Fixture data)', () => {
     expect(getTopLeftDataCell()).toHaveTextContent('Score')
 
     userEvent.click(screen.getByText('17-Feb-2022 17:23'))
+    userEvent.click(screen.getByText('17-Feb-2022 17:23'))
 
-    expect(getTopLeftDataCell()).toHaveTextContent('Partial Indication')
+    expect(getTopLeftDataCell()).toHaveTextContent('Standard Observations')
   })
 
   it('Sorts the table if the lowest level of subheaders are clicked in horizontal mode', () => {
@@ -59,7 +61,7 @@ describe('Questionnaire Table (using Fixture data)', () => {
 
     userEvent.click(screen.getByText('Record Date'))
 
-    expect(getTopLeftDataCell()).toHaveTextContent('01-Jan-2022 16:02')
+    expect(getTopLeftDataCell()).toHaveTextContent('17-Feb-2022 17:23')
   })
 
   it('Does not try to sort the table when a header grouping is clicked', () => {
@@ -79,17 +81,17 @@ describe('Questionnaire Table (using Fixture data)', () => {
 
     const getChevronCell = () => within(screen.getAllByRole('row')[4]).getAllByRole('cell')[0]
 
-    expect(getChevronCell()).toHaveTextContent('►')
+    expect(within(getChevronCell()).getByRole('img', { hidden: true })).toHaveClass('fa-chevron-right')
     expect(screen.getAllByRole('row').length).toBe(5)
 
-    userEvent.click(screen.getAllByText('►')[1])
+    userEvent.click(screen.getAllByRole('img', { hidden: true })[1])
 
-    expect(getChevronCell()).toHaveTextContent('▲')
+    expect(within(getChevronCell()).getByRole('img', { hidden: true })).toHaveClass('fa-chevron-down')
     expect(screen.getAllByRole('row').length).toBeGreaterThan(5)
     expect(screen.getAllByRole('row')[5]).toBeVisible()
 
-    userEvent.click(screen.getAllByText('▲')[0])
-    expect(getChevronCell()).toHaveTextContent('►')
+    userEvent.click(screen.getAllByRole('img', { hidden: true })[1])
+    expect(within(getChevronCell()).getByRole('img', { hidden: true })).toHaveClass('fa-chevron-right')
     expect(screen.getAllByRole('row').length).toBe(5)
   })
 
@@ -98,21 +100,21 @@ describe('Questionnaire Table (using Fixture data)', () => {
 
     const getChevronCell = () => within(screen.getAllByRole('row')[0]).getAllByRole('columnheader')[0]
 
-    expect(getChevronCell()).toHaveTextContent('►')
+    expect(within(getChevronCell()).getByRole('img', { hidden: true })).toHaveClass('fa-chevron-right')
     expect(screen.getAllByRole('row').length).toBe(5)
 
-    userEvent.click(screen.getAllByText('►')[0])
+    userEvent.click(screen.getAllByRole('img', { hidden: true })[0])
 
-    expect(getChevronCell()).toHaveTextContent('▲')
+    expect(within(getChevronCell()).getByRole('img', { hidden: true })).toHaveClass('fa-chevron-down')
     expect(screen.getAllByRole('row').length).toBeGreaterThan(5)
     expect(screen.getAllByRole('row')[5]).toBeVisible()
 
     expect(within(screen.getAllByRole('row')[6]).getAllByRole('cell')[1]).toHaveTextContent('RR Part 1 (breaths/min)')
     expect(within(screen.getAllByRole('row')[7]).getAllByRole('cell')[1]).toHaveTextContent('RR Part 2 (breaths/min)')
 
-    userEvent.click(screen.getAllByText('▲')[0])
+    userEvent.click(within(getChevronCell()).getByRole('img', { hidden: true }))
+    expect(within(getChevronCell()).getByRole('img', { hidden: true })).toHaveClass('fa-chevron-right')
 
-    expect(getChevronCell()).toHaveTextContent('►')
     expect(screen.getAllByRole('row').length).toBe(5)
   })
 })
@@ -188,14 +190,24 @@ describe('Questionnaire Table (using mock Monty Python data)', () => {
 
 describe('Questionnaire Table Methods', () => {
   it('Maps questionnaires data with headers along the X axis', () => {
-    const result = mapQuestionnaireDefinitionAndResponsesToTableData(summaryDefinition, summaryRecordsList, 'x')
+    const result = mapQuestionnaireDefinitionAndResponsesToTableData(
+      summaryDefinition,
+      summaryRecordsList,
+      'x',
+      mockAdminActionsForForms
+    )
 
-    expect(result).toEqual(expectedResultOfMappingWithHeadersOnXAxis)
+    expect(JSON.stringify(result)).toEqual(JSON.stringify(expectedResultOfMappingWithHeadersOnXAxis))
   })
 
-  it.only('Maps questionnaires data with headers along the Y axis', () => {
-    const result = mapQuestionnaireDefinitionAndResponsesToTableData(summaryDefinition, summaryRecordsList, 'y')
+  it('Maps questionnaires data with headers along the Y axis', () => {
+    const result = mapQuestionnaireDefinitionAndResponsesToTableData(
+      summaryDefinition,
+      summaryRecordsList,
+      'y',
+      mockAdminActionsForForms
+    )
 
-    expect(result).toEqual(expectedResultOfMappingWithHeadersOnYAxis)
+    expect(JSON.stringify(result)).toEqual(JSON.stringify(expectedResultOfMappingWithHeadersOnYAxis))
   })
 })

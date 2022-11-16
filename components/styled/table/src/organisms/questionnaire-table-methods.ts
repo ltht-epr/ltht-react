@@ -1,3 +1,4 @@
+import { ActionMenuOption } from '@ltht-react/menu'
 import {
   Axis,
   Maybe,
@@ -14,7 +15,8 @@ import { CellProps } from '../molecules/table-cell'
 const mapQuestionnaireDefinitionAndResponsesToTableData = (
   definition: Questionnaire,
   questionnaireResponses: QuestionnaireResponse[],
-  axis: Axis
+  axis: Axis,
+  adminActions?: AdminActionsForQuestionnaire[]
 ): TableData | undefined => {
   const definitionItems = EnsureMaybeArray<QuestionnaireItem>(
     EnsureMaybe<Maybe<QuestionnaireItem>[]>(definition.item, [])
@@ -25,25 +27,37 @@ const mapQuestionnaireDefinitionAndResponsesToTableData = (
   }
 
   if (axis === 'y') {
-    return mapQuestionnaireObjectsToVerticalTableData(definitionItems, questionnaireResponses)
+    return mapQuestionnaireObjectsToVerticalTableData(definitionItems, questionnaireResponses, adminActions)
   }
-  return mapQuestionnaireObjectsToHorizontalTableData(definitionItems, questionnaireResponses)
+  return mapQuestionnaireObjectsToHorizontalTableData(definitionItems, questionnaireResponses, adminActions)
 }
 
 const mapQuestionnaireObjectsToHorizontalTableData = (
   definitionItems: Array<QuestionnaireItem>,
-  records: QuestionnaireResponse[]
-): TableData => ({
-  headers: [
-    {
-      id: 'date',
+  records: QuestionnaireResponse[],
+  adminActions?: AdminActionsForQuestionnaire[]
+): TableData => {
+  const tableData: TableData = {
+    headers: [
+      {
+        id: 'date',
+        type: 'accessor',
+        cellProps: { text: 'Record Date' },
+      },
+      ...recursivelyMapQuestionnaireItemsIntoHeaders(definitionItems),
+    ],
+    rows: mapQuestionnaireResponsesIntoDataEntities(records, adminActions),
+  }
+
+  if (adminActions) {
+    tableData.headers.splice(1, 0, {
+      id: 'adminactions',
       type: 'accessor',
-      cellProps: { text: 'Record Date' },
-    },
-    ...recursivelyMapQuestionnaireItemsIntoHeaders(definitionItems),
-  ],
-  rows: mapQuestionnaireResponsesIntoDataEntities(records),
-})
+      cellProps: { text: 'Actions' },
+    })
+  }
+  return tableData
+}
 
 const recursivelyMapQuestionnaireItemsIntoHeaders = (questionnaireItems: QuestionnaireItem[]): Header[] =>
   questionnaireItems.map((questionnaireItem) => {
@@ -57,13 +71,24 @@ const recursivelyMapQuestionnaireItemsIntoHeaders = (questionnaireItems: Questio
     }
   })
 
-const mapQuestionnaireResponsesIntoDataEntities = (records: QuestionnaireResponse[]): DataEntity[] =>
+const mapQuestionnaireResponsesIntoDataEntities = (
+  records: QuestionnaireResponse[],
+  adminActions?: AdminActionsForQuestionnaire[]
+): DataEntity[] =>
   records
     .filter((record) => !!record.item)
     .map((record) => {
       let dataEntity: DataEntity = {}
       dataEntity.date = { text: partialDateTimeText(record.authored) }
 
+      if (adminActions) {
+        const adminActionsForThisDataEntity = adminActions.find(
+          (actionForForm) => actionForForm.questionnaire === record.id
+        )
+        if (adminActionsForThisDataEntity) {
+          dataEntity.adminactions = { adminActions: adminActionsForThisDataEntity.adminActions }
+        }
+      }
       record.item
         ?.filter((item) => item?.linkId && item?.answer)
         .forEach((item) => {
@@ -109,7 +134,8 @@ const recursivelyMapResponseItemsOntoData = (
 
 const mapQuestionnaireObjectsToVerticalTableData = (
   definitionItems: Array<QuestionnaireItem>,
-  records: QuestionnaireResponse[]
+  records: QuestionnaireResponse[],
+  adminActions?: AdminActionsForQuestionnaire[]
 ): TableData => ({
   headers: [
     {
@@ -125,11 +151,15 @@ const mapQuestionnaireObjectsToVerticalTableData = (
       })
     ),
   ],
-  rows: buildVerticalCellRows(definitionItems, records),
+  rows: buildVerticalCellRows(definitionItems, records, adminActions),
 })
 
-const buildVerticalCellRows = (definitionItems: QuestionnaireItem[], records: QuestionnaireResponse[]): DataEntity[] =>
-  definitionItems.map((item) => {
+const buildVerticalCellRows = (
+  definitionItems: QuestionnaireItem[],
+  records: QuestionnaireResponse[],
+  adminActions?: AdminActionsForQuestionnaire[]
+): DataEntity[] => {
+  const dataEntities = definitionItems.map((item) => {
     let dataEntity: DataEntity = {}
 
     dataEntity = buildVerticalCellRowsRecursive(
@@ -140,6 +170,25 @@ const buildVerticalCellRows = (definitionItems: QuestionnaireItem[], records: Qu
 
     return dataEntity
   })
+
+  if (adminActions) {
+    const actionsDataEntity: DataEntity = {}
+    actionsDataEntity.property = { text: 'Actions' }
+
+    records.forEach((record, recordIndex) => {
+      const adminActionsForThisDataEntity = adminActions.find(
+        (actionForForm) => actionForForm.questionnaire === record.id
+      )
+
+      if (adminActionsForThisDataEntity) {
+        actionsDataEntity[recordIndex + 1] = { adminActions: adminActionsForThisDataEntity.adminActions }
+      }
+    })
+
+    return [actionsDataEntity].concat(dataEntities)
+  }
+  return dataEntities
+}
 
 const buildVerticalCellRowsRecursive = (
   definitionItems: QuestionnaireItem[],
@@ -215,6 +264,11 @@ const createCellPropsForAnswer = (answer: QuestionnaireResponseItemAnswer): Cell
   return {
     text: '',
   }
+}
+
+export interface AdminActionsForQuestionnaire {
+  questionnaire: string
+  adminActions: ActionMenuOption[]
 }
 
 export default mapQuestionnaireDefinitionAndResponsesToTableData

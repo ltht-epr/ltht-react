@@ -2,6 +2,7 @@ import { FC } from 'react'
 import { Button } from '@ltht-react/button'
 import styled from '@emotion/styled'
 import { Icon, IconButton, IconProps } from '@ltht-react/icon'
+import ActionMenu, { ActionMenuOption } from '@ltht-react/menu'
 
 const StyledText = styled.span`
   margin-left: 0.4rem;
@@ -11,9 +12,20 @@ const StyledText = styled.span`
 // May be best to split it out into different components, the important part is unifying Type used by React-Table so the mapping can be simplified
 // It will need to facilitate the Actions list capability Jonny Dyson has requested
 // Betters ways of handling the customComponentOverride will be considered too
-const TableCell: FC<CellProps> = ({ isButton = false, text, iconProps, clickHandler, customComponentOverride }) => {
+const TableCell: FC<CellProps> = ({
+  adminActions,
+  isButton = false,
+  text,
+  iconProps,
+  clickHandler,
+  customComponentOverride,
+}) => {
   if (customComponentOverride) {
     return customComponentOverride
+  }
+
+  if (adminActions) {
+    return <ActionMenu actions={adminActions} />
   }
 
   if (isButton) {
@@ -41,6 +53,7 @@ const TableCell: FC<CellProps> = ({ isButton = false, text, iconProps, clickHand
 }
 
 export interface CellProps {
+  adminActions?: ActionMenuOption[]
   isButton?: boolean
   text?: string
   iconProps?: IconProps
