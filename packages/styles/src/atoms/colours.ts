@@ -44,6 +44,13 @@ export const BADGE_COLOURS = {
   DANGER: colours.NHS_EMERGENCY_SERVICES_RED.VALUE,
 }
 
+export const TABLE_COLOURS = {
+  STRIPE_LIGHT: '#FFFFFF',
+  STRIPE_DARK: '#F4FAFF',
+  HEADER: '#F3F6F6',
+  BORDER: '#EEEEEE',
+}
+
 export const EFORM_BACKGROUND_COLOUR = colours.NHS_WHITE
 
 export const CARD_BACKGROUND_COLOUR = colours.NHS_WHITE

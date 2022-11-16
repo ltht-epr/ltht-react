@@ -1,4 +1,4 @@
-import { FC, useState } from 'react'
+import { FC, useRef, useState } from 'react'
 import {
   flexRender,
   getCoreRowModel,
@@ -9,9 +9,10 @@ import {
   SortingState,
 } from '@tanstack/react-table'
 import styled from '@emotion/styled'
-import { CSS_RESET, TRANSLUCENT_BRIGHT_BLUE_TABLE, TRANSLUCENT_MID_GREY, SCROLLBAR } from '@ltht-react/styles'
+import { CSS_RESET, SCROLLBAR, TABLE_COLOURS } from '@ltht-react/styles'
 import { CellProps } from './table-cell'
 import createColumns from './table-methods'
+import useDimensionsRef from './useDimensionRef'
 
 const Container = styled.div`
   ${CSS_RESET};
@@ -34,28 +35,47 @@ const Container = styled.div`
 
 const StyledTable = styled.table`
   background-color: white;
-  border-collapse: collapse;
+  border-collapse: separate;
+  border-spacing: 0px;
   border-radius: 6px;
-  border: thin solid rgba(200, 200, 200, 0.5);
-  padding: 1rem;
 `
 
-const StyledTableHeader = styled.th`
-  background-color: ${TRANSLUCENT_MID_GREY};
-  border: thin solid rgba(200, 200, 200, 0.5);
+const StyledTableHeader = styled.th<IStyledTableCell>`
+  background-color: ${TABLE_COLOURS.HEADER};
+  border: thin solid ${TABLE_COLOURS.BORDER};
   font-weight: bold;
   padding: 1rem;
+
+  ${({ stickyWidth }) =>
+    stickyWidth !== undefined &&
+    `
+    position: sticky !important;
+    left: ${stickyWidth}px;
+    top: 0;
+    z-index: 1;`}
 `
 
-const StyledTableData = styled.td`
-  border: thin solid rgba(200, 200, 200, 0.5);
+const StyledTableData = styled.td<IStyledTableCell>`
+  border: thin solid ${TABLE_COLOURS.BORDER};
   white-space: nowrap;
+
+  ${({ stickyWidth }) =>
+    stickyWidth !== undefined &&
+    `
+    position: sticky !important;
+    left: ${stickyWidth}px;
+    top: 0;
+    z-index: 1;`}
+
   &:first-of-type {
-    background-color: ${TRANSLUCENT_MID_GREY} !important;
+    background-color: ${TABLE_COLOURS.HEADER} !important;
   }
 `
 
-const Table: FC<IProps> = ({ tableData }) => {
+const Table: FC<IProps> = ({ tableData, staticColumns = 0 }) => {
+  const firstColumn = useRef(null)
+  const { width } = useDimensionsRef(firstColumn)
+
   const [expanded, setExpanded] = useState<ExpandedState>({})
   const [sorting, setSorting] = useState<SortingState>([])
 
@@ -74,19 +94,37 @@ const Table: FC<IProps> = ({ tableData }) => {
     getSortedRowModel: getSortedRowModel(),
   })
 
+  const calculateStaticColumnOffset = (cellIdx: number, staticColumns: number, firstColumnWidth: number) => {
+    if (cellIdx === 0) {
+      return 0
+    }
+
+    if (cellIdx < staticColumns) {
+      return firstColumnWidth
+    }
+
+    return undefined
+  }
+
   return (
     <Container>
       <StyledTable>
         <thead>
           {table.getHeaderGroups().map((headerGroup) => (
             <tr key={headerGroup.id}>
-              {headerGroup.headers.map((header) =>
-                header.column.id === 'expander' ? (
-                  <StyledTableHeader key={header.id} colSpan={header.colSpan}>
+              {headerGroup.headers.map((header, headerIndex) =>
+                headerIndex === 0 ? (
+                  <StyledTableHeader
+                    stickyWidth={calculateStaticColumnOffset(headerIndex, staticColumns, width)}
+                    key={header.id}
+                    colSpan={header.colSpan}
+                    ref={firstColumn}
+                  >
                     {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
                   </StyledTableHeader>
                 ) : (
                   <StyledTableHeader
+                    stickyWidth={calculateStaticColumnOffset(headerIndex, staticColumns, width)}
                     key={header.id}
                     colSpan={header.colSpan}
                     {...{
@@ -108,9 +146,10 @@ const Table: FC<IProps> = ({ tableData }) => {
             <tr key={row.id}>
               {row.getVisibleCells().map((cell, cellIdx) => (
                 <StyledTableData
+                  stickyWidth={calculateStaticColumnOffset(cellIdx, staticColumns, width)}
                   key={cell.id}
                   style={{
-                    background: cellIdx % 2 === 1 ? 'white' : TRANSLUCENT_BRIGHT_BLUE_TABLE,
+                    background: cellIdx % 2 === 1 ? TABLE_COLOURS.STRIPE_LIGHT : TABLE_COLOURS.STRIPE_DARK,
                     textAlign: 'center',
                   }}
                 >
@@ -123,6 +162,10 @@ const Table: FC<IProps> = ({ tableData }) => {
       </StyledTable>
     </Container>
   )
+}
+
+interface IStyledTableCell {
+  stickyWidth?: number
 }
 
 export type DataEntity = Record<string, CellProps | DataEntity[]> & {
@@ -143,6 +186,7 @@ export interface TableData {
 
 interface IProps {
   tableData: TableData
+  staticColumns?: 0 | 1 | 2
 }
 
 export default Table

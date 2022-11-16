@@ -6,7 +6,7 @@ import mapQuestionnaireDefinitionAndResponsesToTableData, {
   AdminActionsForQuestionnaire,
 } from './questionnaire-table-methods'
 
-const QuestionnaireTable: FC<IProps> = ({ definition, records, headerAxis = 'y', adminActions }) => {
+const QuestionnaireTable: FC<IProps> = ({ definition, records, headerAxis = 'y', staticColumns = 0, adminActions }) => {
   const tableData = useMemo(
     () => mapQuestionnaireDefinitionAndResponsesToTableData(definition, records, headerAxis, adminActions),
     [headerAxis, definition, records, adminActions]
@@ -23,7 +23,7 @@ const QuestionnaireTable: FC<IProps> = ({ definition, records, headerAxis = 'y',
     )
   }
 
-  return <Table tableData={tableData} />
+  return <Table tableData={tableData} staticColumns={staticColumns} />
 }
 
 interface IProps {
@@ -31,6 +31,7 @@ interface IProps {
   records: QuestionnaireResponse[]
   headerAxis?: Axis
   adminActions?: AdminActionsForQuestionnaire[]
+  staticColumns?: 0 | 1 | 2
 }
 
 export default QuestionnaireTable
