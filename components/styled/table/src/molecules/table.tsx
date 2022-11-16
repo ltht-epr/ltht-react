@@ -1,4 +1,4 @@
-import { FC, useState } from 'react'
+import { FC, useRef, useState } from 'react'
 import {
   flexRender,
   getCoreRowModel,
@@ -9,9 +9,10 @@ import {
   SortingState,
 } from '@tanstack/react-table'
 import styled from '@emotion/styled'
-import { CSS_RESET, TRANSLUCENT_BRIGHT_BLUE_TABLE, TRANSLUCENT_MID_GREY, SCROLLBAR } from '@ltht-react/styles'
+import { CSS_RESET, SCROLLBAR, TABLE_COLOURS } from '@ltht-react/styles'
 import { CellProps } from './table-cell'
 import createColumns from './table-methods'
+import useResize from './useResize'
 
 const Container = styled.div`
   ${CSS_RESET};
@@ -34,28 +35,60 @@ const Container = styled.div`
 
 const StyledTable = styled.table`
   background-color: white;
-  border-collapse: collapse;
+  border-collapse: separate;
+  border-spacing: 0px;
   border-radius: 6px;
-  border: thin solid rgba(200, 200, 200, 0.5);
-  padding: 1rem;
 `
 
-const StyledTableHeader = styled.th`
-  background-color: ${TRANSLUCENT_MID_GREY};
-  border: thin solid rgba(200, 200, 200, 0.5);
-  font-weight: bold;
-  padding: 1rem;
-`
+const Table: FC<IProps> = ({ tableData, stickColumns = 1 }) => {
+  const firstColumn = useRef(null)
+  const { width } = useResize(firstColumn)
 
-const StyledTableData = styled.td`
-  border: thin solid rgba(200, 200, 200, 0.5);
-  white-space: nowrap;
-  &:first-of-type {
-    background-color: ${TRANSLUCENT_MID_GREY} !important;
-  }
-`
+  const StyledTableHeader = styled.th`
+    background-color: ${TABLE_COLOURS.HEADER};
+    border: thin solid ${TABLE_COLOURS.BORDER};
+    font-weight: bold;
+    padding: 1rem;
 
-const Table: FC<IProps> = ({ tableData }) => {
+    &.sticky {
+      position: sticky !important;
+      left: 0;
+      top: 0;
+      z-index: 1;
+    }
+
+    &.stickySecond {
+      position: sticky !important;
+      left: ${width}px;
+      top: 0;
+      z-index: 1;
+    }
+  `
+
+  const StyledTableData = styled.td`
+    border: thin solid ${TABLE_COLOURS.BORDER};
+    white-space: nowrap;
+    &:first-of-type {
+      background-color: ${TABLE_COLOURS.HEADER} !important;
+    }
+
+    &.sticky {
+      position: sticky !important;
+      left: 0;
+      top: 0;
+      z-index: 1;
+      background-color: white;
+    }
+
+    &.stickySecond {
+      position: sticky !important;
+      left: ${width}px;
+      top: 0;
+      z-index: 1;
+      background-color: white;
+    }
+  `
+
   const [expanded, setExpanded] = useState<ExpandedState>({})
   const [sorting, setSorting] = useState<SortingState>([])
 
@@ -80,9 +113,9 @@ const Table: FC<IProps> = ({ tableData }) => {
         <thead>
           {table.getHeaderGroups().map((headerGroup) => (
             <tr key={headerGroup.id}>
-              {headerGroup.headers.map((header) =>
-                header.column.id === 'expander' ? (
-                  <StyledTableHeader key={header.id} colSpan={header.colSpan}>
+              {headerGroup.headers.map((header, headerIndex) =>
+                headerIndex === 0 ? (
+                  <StyledTableHeader key={header.id} colSpan={header.colSpan} ref={firstColumn} className="sticky">
                     {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
                   </StyledTableHeader>
                 ) : (
@@ -95,6 +128,7 @@ const Table: FC<IProps> = ({ tableData }) => {
                       },
                       onClick: header.column.getToggleSortingHandler(),
                     }}
+                    className={headerIndex < stickColumns ? 'stickySecond' : ''}
                   >
                     {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
                   </StyledTableHeader>
@@ -110,9 +144,10 @@ const Table: FC<IProps> = ({ tableData }) => {
                 <StyledTableData
                   key={cell.id}
                   style={{
-                    background: cellIdx % 2 === 1 ? 'white' : TRANSLUCENT_BRIGHT_BLUE_TABLE,
+                    background: cellIdx % 2 === 1 ? TABLE_COLOURS.STRIPE_LIGHT : TABLE_COLOURS.STRIPE_DARK,
                     textAlign: 'center',
                   }}
+                  className={cellIdx < stickColumns ? (cellIdx === 0 ? 'sticky' : 'stickySecond') : ''}
                 >
                   {flexRender(cell.column.columnDef.cell, cell.getContext())}
                 </StyledTableData>
@@ -143,6 +178,7 @@ export interface TableData {
 
 interface IProps {
   tableData: TableData
+  stickColumns?: 0 | 1 | 2
 }
 
 export default Table
