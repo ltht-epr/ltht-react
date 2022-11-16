@@ -5,13 +5,7 @@ import StandardTable from './standard-table'
 
 import { DefaultTableOptions, PaginationOptions, PaginationResult, TableData, TableOptions } from './table-core'
 
-const Table: FC<IProps> = ({ fetchData, tableData, staticColumns = 0, ...props }: IProps) => {
-  let { tableOptions } = props
-
-  if (!tableOptions) {
-    tableOptions = DefaultTableOptions
-  }
-
+const Table: FC<IProps> = ({ fetchData, tableData, staticColumns = 0, tableOptions = DefaultTableOptions }: IProps) => {
   if (tableOptions.enablePagination && tableOptions.serverSidePagination && !fetchData) {
     return (
       <>
