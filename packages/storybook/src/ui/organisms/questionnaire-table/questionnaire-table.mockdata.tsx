@@ -1,3 +1,4 @@
+/* eslint no-console: 0 */
 import { TableData } from '@ltht-react/table'
 import { AdminActionsForQuestionnaire } from '@ltht-react/table/lib/organisms/questionnaire-table-methods'
 
