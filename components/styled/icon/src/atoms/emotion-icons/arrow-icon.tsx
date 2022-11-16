@@ -20,6 +20,7 @@ const ArrowIcon: FC<Props> = ({ size, direction, className, ...rest }) => {
   const Icon = calculateIconType(direction)
   return (
     <Icon
+      role="img"
       className={`${className ?? ''} icon__arrow--${direction}`.trimStart()}
       size={calculateEmotionIconSize(size)}
       {...rest}

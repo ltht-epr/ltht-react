@@ -25,6 +25,7 @@ const ChevronDoubleIcon: FC<Props> = ({ size, direction, className, ...rest }) =
   const Icon = calculateIconType(direction)
   return (
     <Icon
+      role="img"
       className={`${className ?? ''} icon__chevron-double--${direction}`.trimStart()}
       size={calculateEmotionIconSize(size)}
       {...rest}
