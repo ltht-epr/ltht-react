@@ -56,6 +56,7 @@ export const NHS_ORANGE = '#ED8B00'
 export const NHS_WARM_YELLOW = '#FFB81C'
 export const NHS_YELLOW = '#FAE100'
 export const NHS_GREY_3 = '#AEB7BD'
+export const NHS_GREY_4 = '#d8dde0'
 
 // nhs colours with low opacity
 export const NHS_TRANSLUCENT_WARM_YELLOW = 'rgba(255, 184, 28, 0.2)'
@@ -64,3 +65,4 @@ export const NHS_TRANSLUCENT_DARK_BLUE = 'rgba(0, 48, 135, 0.1)'
 export const NHS_TRANSLUCENT_MID_GREY = 'rgba(118, 134, 146, 0.1)'
 export const NHS_TRANSLUCENT_BRIGHT_BLUE_TABLE = 'rgba(0, 114, 206, 0.05)'
 export const NHS_TRANSLUCENT_MID_GREY_TABLE = 'rgba(118, 134, 146, 0.05)'
+export const NHS_TRANSLUCENT_LIGHT_GREY_TABLE = 'rgba(216, 221, 224, 0.6)'
