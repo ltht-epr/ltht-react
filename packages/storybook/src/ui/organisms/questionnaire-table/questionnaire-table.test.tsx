@@ -12,7 +12,7 @@ import {
 } from './questionnaire-table.mockdata'
 
 describe('Questionnaire Table (using Fixture data)', () => {
-  it.only('Renders Vertically', () => {
+  it('Renders Vertically', () => {
     render(<QuestionnaireTable definition={summaryDefinition} records={summaryRecordsList} headerAxis="y" />)
 
     expect(screen.getByRole('table')).toBeVisible()
@@ -24,7 +24,7 @@ describe('Questionnaire Table (using Fixture data)', () => {
     expect(screen.queryByRole('columnheader', { name: /Partial Indication/ })).toBeNull()
   })
 
-  it.only('Renders Horizontally', () => {
+  it('Renders Horizontally', () => {
     render(<QuestionnaireTable definition={summaryDefinition} records={summaryRecordsList} headerAxis="x" />)
 
     expect(screen.getByRole('table')).toBeVisible()
@@ -39,7 +39,7 @@ describe('Questionnaire Table (using Fixture data)', () => {
     ).toBe(true)
   })
 
-  it.only('Sorts the table when headers are clicked', () => {
+  it('Sorts the table when headers are clicked', () => {
     render(<QuestionnaireTable definition={summaryDefinition} records={summaryRecordsList} headerAxis="y" />)
 
     const getTopLeftDataCell = () => within(screen.getAllByRole('row')[1]).getAllByRole('cell')[1]
@@ -52,7 +52,7 @@ describe('Questionnaire Table (using Fixture data)', () => {
     expect(getTopLeftDataCell()).toHaveTextContent('Standard Observations')
   })
 
-  it.only('Sorts the table if the lowest level of subheaders are clicked in horizontal mode', () => {
+  it('Sorts the table if the lowest level of subheaders are clicked in horizontal mode', () => {
     render(<QuestionnaireTable definition={summaryDefinition} records={summaryRecordsList} headerAxis="x" />)
 
     const getTopLeftDataCell = () => within(screen.getAllByRole('row')[3]).getAllByRole('cell')[0]
@@ -68,7 +68,7 @@ describe('Questionnaire Table (using Fixture data)', () => {
     expect(getTopLeftDataCell()).toHaveTextContent('01-Jan-2022 16:02')
   })
 
-  it.only('Does not try to sort the table when a header grouping is clicked', () => {
+  it('Does not try to sort the table when a header grouping is clicked', () => {
     render(<QuestionnaireTable definition={summaryDefinition} records={summaryRecordsList} headerAxis="x" />)
 
     const getTopLeftDataCell = () => within(screen.getAllByRole('row')[3]).getAllByRole('cell')[0]
@@ -80,7 +80,7 @@ describe('Questionnaire Table (using Fixture data)', () => {
     expect(getTopLeftDataCell()).toHaveTextContent('17-Feb-2022 17:23')
   })
 
-  it.only('Expands collapsed rows when parent row is clicked', () => {
+  it('Expands collapsed rows when parent row is clicked', () => {
     render(<QuestionnaireTable definition={summaryDefinition} records={summaryRecordsList} headerAxis="y" />)
 
     const getArrowCell = () => within(screen.getAllByRole('row')[4]).getAllByRole('cell')[0]
@@ -101,7 +101,7 @@ describe('Questionnaire Table (using Fixture data)', () => {
     expect(screen.getAllByRole('row').length).toBe(5)
   })
 
-  it.only('Toggles all expandable rows when chevron is clicked', () => {
+  it('Toggles all expandable rows when chevron is clicked', () => {
     render(<QuestionnaireTable definition={summaryDefinition} records={summaryRecordsList} headerAxis="y" />)
 
     const getArrowCell = () => within(screen.getAllByRole('row')[0]).getAllByRole('columnheader')[0]
@@ -128,13 +128,13 @@ describe('Questionnaire Table (using Fixture data)', () => {
 })
 
 describe('Questionnaire Table (using mock Monty Python data)', () => {
-  it.only('Renders', () => {
+  it('Renders', () => {
     render(<QuestionnaireTable definition={mockSummaryDefinition} records={mockSummaryRecordsList} headerAxis="x" />)
 
     expect(screen.getByRole('table')).toBeVisible()
   })
 
-  it.only('Presents warning text if definition item array is undefined', () => {
+  it('Presents warning text if definition item array is undefined', () => {
     const summaryDefinitionWithoutItems = { ...mockSummaryDefinition, item: undefined }
 
     render(<QuestionnaireTable definition={summaryDefinitionWithoutItems} records={mockSummaryRecordsList} />)
@@ -142,7 +142,7 @@ describe('Questionnaire Table (using mock Monty Python data)', () => {
     expect(screen.getByText('An error occurred whilst loading this table.')).toBeVisible()
   })
 
-  it.only('Presents warning text if definition item array is empty', () => {
+  it('Presents warning text if definition item array is empty', () => {
     const summaryDefinitionWithoutItems = { ...mockSummaryDefinition, item: [] }
 
     render(<QuestionnaireTable definition={summaryDefinitionWithoutItems} records={mockSummaryRecordsList} />)
@@ -150,23 +150,23 @@ describe('Questionnaire Table (using mock Monty Python data)', () => {
     expect(screen.getByText('An error occurred whilst loading this table.')).toBeVisible()
   })
 
-  it.only('Renders Horizontally', () => {
+  it('Renders Horizontally', () => {
     render(<QuestionnaireTable definition={mockSummaryDefinition} records={mockSummaryRecordsList} headerAxis="x" />)
   })
 
-  it.only('Renders horizontal table with multiple row headers. total 13 columns to be visible', () => {
+  it('Renders horizontal table with multiple row headers. total 13 columns to be visible', () => {
     render(<QuestionnaireTable definition={mockSummaryDefinition} records={mockSummaryRecordsList} headerAxis="x" />)
 
     expect(screen.getAllByRole('columnheader').length).toBe(13)
   })
 
-  it.only('Renders horizontal table with two data rows', () => {
+  it('Renders horizontal table with two data rows', () => {
     render(<QuestionnaireTable definition={mockSummaryDefinition} records={mockSummaryRecordsList} headerAxis="x" />)
 
     expect(screen.getAllByRole('rowgroup')[0].children.length).toBe(2)
   })
 
-  it.only('Renders horizontal table containing subheaders', () => {
+  it('Renders horizontal table containing subheaders', () => {
     render(<QuestionnaireTable definition={mockSummaryDefinition} records={mockSummaryRecordsList} headerAxis="x" />)
 
     const columnWithSubheadings = mockSummaryDefinition?.item?.find((x) => x?.item && x?.item.length > 0)
@@ -182,13 +182,13 @@ describe('Questionnaire Table (using mock Monty Python data)', () => {
     expect(numberOfHeaderRows).toBe(2)
   })
 
-  it.only('Renders Vertically', () => {
+  it('Renders Vertically', () => {
     render(<QuestionnaireTable definition={mockSummaryDefinition} records={mockSummaryRecordsList} />)
 
     expect(screen.getByRole('table')).toBeVisible()
   })
 
-  it.only('Renders Vertical table with 5 rows in tbody', () => {
+  it('Renders Vertical table with 5 rows in tbody', () => {
     render(<QuestionnaireTable definition={mockSummaryDefinition} records={mockSummaryRecordsList} />)
 
     expect(screen.getByRole('table').children[1].tagName).toBe('TBODY')
@@ -197,7 +197,7 @@ describe('Questionnaire Table (using mock Monty Python data)', () => {
 })
 
 describe('Questionnaire Table Methods', () => {
-  it.only('Maps questionnaires data with headers along the X axis', () => {
+  it('Maps questionnaires data with headers along the X axis', () => {
     const result = mapQuestionnaireDefinitionAndResponsesToTableData(
       summaryDefinition,
       summaryRecordsList,
@@ -208,7 +208,7 @@ describe('Questionnaire Table Methods', () => {
     expect(JSON.stringify(result)).toEqual(JSON.stringify(expectedResultOfMappingWithHeadersOnXAxis))
   })
 
-  it.only('Maps questionnaires data with headers along the Y axis', () => {
+  it('Maps questionnaires data with headers along the Y axis', () => {
     const result = mapQuestionnaireDefinitionAndResponsesToTableData(
       summaryDefinition,
       summaryRecordsList,
