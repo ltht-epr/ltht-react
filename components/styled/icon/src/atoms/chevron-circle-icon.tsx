@@ -22,9 +22,6 @@ const calculateIconType = (direction: IconDirection): IconTypes => {
   }
 }
 
-const buildClassesForIcon = (className: string | undefined, direction: IconDirection): string =>
-  `${className ?? ''} icon__chevron-circle--${direction}`.trimStart()
-
 const ChevronCircleIcon: FC<Props> = ({ size, direction, clickHandler, className, ...rest }) => {
   const handleClick = (e: MouseEvent<SVGSVGElement>): void => {
     e.preventDefault()
@@ -34,7 +31,7 @@ const ChevronCircleIcon: FC<Props> = ({ size, direction, clickHandler, className
 
   return (
     <FontAwesomeIcon
-      className={buildClassesForIcon(className, direction)}
+      className={`${className ?? ''} icon__chevron-circle--${direction}`.trimStart()}
       icon={calculateIconType(direction)}
       size={calculateIconSize(size)}
       onClick={clickHandler && handleClick}
