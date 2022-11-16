@@ -75,7 +75,7 @@ const StyledTableData = styled.td<IStyledTableCell>`
   }
 `
 
-const Table: FC<IProps> = ({ tableData, stickColumns = 1 }) => {
+const Table: FC<IProps> = ({ tableData, staticColumns = 1 }) => {
   const firstColumn = useRef(null)
   const { width } = useResize(firstColumn)
 
@@ -106,7 +106,7 @@ const Table: FC<IProps> = ({ tableData, stickColumns = 1 }) => {
               {headerGroup.headers.map((header, headerIndex) =>
                 headerIndex === 0 ? (
                   <StyledTableHeader
-                    stickyWidth={stickColumns ? 0 : undefined}
+                    stickyWidth={staticColumns ? 0 : undefined}
                     key={header.id}
                     colSpan={header.colSpan}
                     ref={firstColumn}
@@ -115,7 +115,7 @@ const Table: FC<IProps> = ({ tableData, stickColumns = 1 }) => {
                   </StyledTableHeader>
                 ) : (
                   <StyledTableHeader
-                    stickyWidth={headerIndex < stickColumns ? width : undefined}
+                    stickyWidth={headerIndex < staticColumns ? width : undefined}
                     key={header.id}
                     colSpan={header.colSpan}
                     {...{
@@ -137,7 +137,7 @@ const Table: FC<IProps> = ({ tableData, stickColumns = 1 }) => {
             <tr key={row.id}>
               {row.getVisibleCells().map((cell, cellIdx) => (
                 <StyledTableData
-                  stickyWidth={cellIdx < stickColumns ? (cellIdx === 0 ? 0 : width) : undefined}
+                  stickyWidth={cellIdx < staticColumns ? (cellIdx === 0 ? 0 : width) : undefined}
                   key={cell.id}
                   style={{
                     background: cellIdx % 2 === 1 ? TABLE_COLOURS.STRIPE_LIGHT : TABLE_COLOURS.STRIPE_DARK,
@@ -177,7 +177,7 @@ export interface TableData {
 
 interface IProps {
   tableData: TableData
-  stickColumns?: 0 | 1 | 2
+  staticColumns?: 0 | 1 | 2
 }
 
 export default Table
