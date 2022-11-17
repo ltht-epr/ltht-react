@@ -7,6 +7,7 @@ import {
   TABLE_COLOURS,
 } from '@ltht-react/styles'
 import styled from '@emotion/styled'
+import { Icon, IconButton } from '@ltht-react/icon'
 
 const Container = styled.div`
   ${CSS_RESET};
@@ -77,21 +78,6 @@ const PaginationContainer = styled.div`
   margin-top: 5px;
   display: block;
 `
-const PaginationButtonStyle = `
-padding: 2px 5px;
-background-color: ${TRANSLUCENT_BRIGHT_BLUE};
-color: black;
-border: 1px solid ${TRANSLUCENT_MID_GREY};
-margin: 0 2.5px;
-border-radius: 3px;
-
-&:disabled {
-  background-color: inherit;
-  color: gray;
-  border-color: ${TRANSLUCENT_MID_GREY};
-  pointer-events: none;
-}
-`
 const StyledPaginationPageInput = styled.input`
   ${CSS_RESET};
   width: 50px;
@@ -105,6 +91,8 @@ const StyledPaginationPageSelect = styled.select`
   border: 1px solid gray;
 `
 const StyledHideOnMobile = styled.span`
+  font-size: 1.1em;
+  padding: 2px;
   @media (max-width: 320px) {
     display: none;
   }
@@ -124,7 +112,7 @@ const StyledPageCountDiv = styled.div`
   padding: 1px;
 `
 
-const StandardButtonStyle = `
+const StyledStandardButton = styled(IconButton)`
   color: ${BTN_COLOURS.STANDARD.TEXT};
   background-color: ${BTN_COLOURS.STANDARD.VALUE};
   padding: 2px 5px;
@@ -136,6 +124,28 @@ const StandardButtonStyle = `
   &:disabled {
     background-color: ${BTN_COLOURS.STANDARD.DISABLED};
   }
+`
+
+const StyledPaginationButton = styled(IconButton)`
+  padding: 2px 5px;
+  background-color: ${TRANSLUCENT_BRIGHT_BLUE};
+  color: black;
+  border: 1px solid ${TRANSLUCENT_MID_GREY};
+  margin: 0 2.5px;
+  border-radius: 3px;
+
+  &:disabled {
+    background-color: inherit;
+    color: gray;
+    border-color: ${TRANSLUCENT_MID_GREY};
+    pointer-events: none;
+  }
+`
+
+const StyledSpinnerIcon = styled(Icon)`
+  margin: 3px 0;
+  font-size: 1.1em;
+  padding: 1.5px;
 `
 
 interface IStyledTableCell {
@@ -151,9 +161,10 @@ export {
   StyledPaginationPageInput,
   StyledPaginationPageSelect,
   StyledHideOnMobile,
-  PaginationButtonStyle,
+  StyledPaginationButton,
   ScrollableContainer,
   StyledPaginationButtonDiv,
   StyledPageCountDiv,
-  StandardButtonStyle,
+  StyledStandardButton,
+  StyledSpinnerIcon,
 }

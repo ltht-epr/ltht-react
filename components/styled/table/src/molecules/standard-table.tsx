@@ -10,7 +10,7 @@ import {
   getPaginationRowModel,
 } from '@tanstack/react-table'
 import { createColumns } from './table-methods'
-import { Container, ScrollableContainer, StyledTable } from './table-styles'
+import { Container, ScrollableContainer, StyledTable } from './table-styled-components'
 import { buildTableBody, buildTableHead, TableData, TableOptions } from './table-core'
 import TablePaginationControls from './table-pagination-controls'
 import useDimensionsRef from './useDimensionRef'

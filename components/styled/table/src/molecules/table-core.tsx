@@ -1,11 +1,10 @@
-import styled from '@emotion/styled'
-import { Icon, IconButton } from '@ltht-react/icon'
+import { Icon } from '@ltht-react/icon'
 import { TABLE_COLOURS, TEXT_COLOURS } from '@ltht-react/styles'
-import { flexRender, Table } from '@tanstack/react-table'
+import { flexRender, SortingState, Table } from '@tanstack/react-table'
 import { Dispatch, SetStateAction } from 'react'
 import { CellProps } from './table-cell'
 import { calculateStaticColumnOffset } from './table-methods'
-import { StandardButtonStyle, StyledTableData, StyledTableHeader } from './table-styles'
+import { StyledStandardButton, StyledTableData, StyledTableHeader } from './table-styled-components'
 
 const DefaultTableOptions = {
   showExpanderColumn: false,
@@ -79,9 +78,6 @@ const buildTableBody = (table: Table<DataEntity>, staticColumns: 0 | 1 | 2, widt
   </tbody>
 )
 
-const StyledStandardButton = styled(IconButton)`
-  ${StandardButtonStyle}
-`
 const displayErrorMessage = (message: string, setState: Dispatch<SetStateAction<boolean>>) => (
   <>
     <div style={{ padding: 10, borderRadius: 10 }}>
@@ -126,6 +122,7 @@ interface TableOptions {
 interface PaginationOptions {
   pageIndex: number
   pageSize: number
+  sorting: SortingState
 }
 
 interface PaginationResult {

@@ -1,20 +1,15 @@
 import { Table } from '@tanstack/react-table'
-import { Icon, IconButton } from '@ltht-react/icon'
-import styled from '@emotion/styled'
 import {
   PaginationContainer,
   StyledPaginationPageInput,
   StyledPaginationPageSelect,
   StyledHideOnMobile,
-  PaginationButtonStyle,
+  StyledPaginationButton,
   StyledPaginationButtonDiv,
   StyledPageCountDiv,
-} from './table-styles'
+  StyledSpinnerIcon,
+} from './table-styled-components'
 import { DefaultPerPageOptions, DefaultTableOptions, TableOptions } from './table-core'
-
-const StyledIconButton = styled(IconButton)`
-  ${PaginationButtonStyle}
-`
 
 const TablePaginationControls = <T,>({ table, tableOptions, isFetching, serverSidePagination }: IProps<T>) => {
   const { perPageOptions, hidePerPageOptions } = tableOptions
@@ -43,17 +38,18 @@ const TablePaginationControls = <T,>({ table, tableOptions, isFetching, serverSi
       ) : null}
       <StyledPaginationButtonDiv>
         {isFetching && serverSidePagination ? (
-          <div style={{ marginLeft: 5, fontSize: '1.1em', padding: 2 }}>
-            <Icon type="spinner" size="medium" /> <StyledHideOnMobile>Loading</StyledHideOnMobile>
-          </div>
+          <>
+            <StyledSpinnerIcon type="spinner" size="medium" />
+            <StyledHideOnMobile>Loading</StyledHideOnMobile>
+          </>
         ) : null}
-        <StyledIconButton
+        <StyledPaginationButton
           data-testid="paged-table-first-page-btn"
           iconProps={{ type: 'chevron-double', direction: 'left', size: 'small' }}
           onClick={() => table.setPageIndex(0)}
           disabled={!table.getCanPreviousPage()}
         />
-        <StyledIconButton
+        <StyledPaginationButton
           data-testid="paged-table-previous-page-btn"
           iconProps={{ type: 'chevron', direction: 'left', size: 'small' }}
           onClick={() => table.previousPage()}
@@ -74,13 +70,13 @@ const TablePaginationControls = <T,>({ table, tableOptions, isFetching, serverSi
             {table.getPageCount()}
           </span>
         </StyledPageCountDiv>
-        <StyledIconButton
+        <StyledPaginationButton
           data-testid="paged-table-next-page-btn"
           iconProps={{ type: 'chevron', direction: 'right', size: 'small' }}
           onClick={() => table.nextPage()}
           disabled={!table.getCanNextPage()}
         />
-        <StyledIconButton
+        <StyledPaginationButton
           data-testid="paged-table-last-page-btn"
           iconProps={{ type: 'chevron-double', direction: 'right', size: 'small' }}
           onClick={() => table.setPageIndex(table.getPageCount() - 1)}

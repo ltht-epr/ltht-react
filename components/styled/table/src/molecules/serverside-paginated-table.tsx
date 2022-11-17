@@ -10,7 +10,7 @@ import {
   ColumnDef,
 } from '@tanstack/react-table'
 import { createColumns } from './table-methods'
-import { Container, ScrollableContainer, StyledTable } from './table-styles'
+import { Container, ScrollableContainer, StyledTable } from './table-styled-components'
 import {
   buildTableBody,
   buildTableHead,
@@ -47,7 +47,7 @@ const ServerSidePaginatedTable: FC<IProps> = ({ tableOptions, fetchData, staticC
   })
 
   const [refetch, setRefetch] = useState<boolean>(false)
-  const pagination = useMemo(() => ({ pageIndex, pageSize }), [pageIndex, pageSize])
+  const pagination = useMemo(() => ({ pageIndex, pageSize, sorting }), [pageIndex, pageSize, sorting])
 
   useEffect(() => {
     const fetch = async (options: PaginationOptions) => {
