@@ -54,7 +54,7 @@ export const ServerSidePaginatedTable: Story = () => (
       tableOptions={{ enablePagination: true, serverSidePagination: true }}
       fetchData={async (options: PaginationOptions) => {
         // Simulate some network latency
-        await new Promise((r) => setTimeout(r, 111500))
+        await new Promise((r) => setTimeout(r, 500))
         return new Promise((res) =>
           res({
             tableData: {
