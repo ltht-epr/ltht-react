@@ -659,7 +659,7 @@ const ConditionThree: Condition = {
     kind: PartialDateTimeKindCode.Date,
     value: '2022-03-18T00:00:00+00:00',
   },
-  verificationStatus: ConditionVerificationStatus.EnteredInError,
+  verificationStatus: ConditionVerificationStatus.Confirmed,
   severity: {
     coding: [{ code: '2448402', display: 'Severe' }],
     text: 'Severe',
