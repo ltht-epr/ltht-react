@@ -23,7 +23,7 @@ const QuestionnaireTable: FC<IProps> = ({ definition, records, headerAxis = 'y',
     )
   }
 
-  return <Table tableData={tableData} staticColumns={staticColumns} />
+  return <Table tableData={tableData} staticColumns={staticColumns} headerAxis={headerAxis} />
 }
 
 interface IProps {
