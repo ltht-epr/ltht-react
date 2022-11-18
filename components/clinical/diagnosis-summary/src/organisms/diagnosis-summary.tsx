@@ -71,7 +71,7 @@ const DiagnosisSummary: FC<Props> = ({
         <StyledTitle>
           <Title enteredInError={enteredInError} condition={condition} />
         </StyledTitle>
-        {extensionTemplateDisplayName && !isMobile && !isReadOnly && (
+        {extensionTemplateDisplayName && !isMobile && !isReadOnly && !enteredInError && (
           <IconButtonWrapper
             onClick={extensionClickHandler}
             type="button"
@@ -83,7 +83,7 @@ const DiagnosisSummary: FC<Props> = ({
             title={`This diagnosis can be extended further to form '${extensionTemplateDisplayName}' by clicking here`}
           />
         )}
-        {extensionTemplateDisplayName && isMobile && !isReadOnly && (
+        {extensionTemplateDisplayName && isMobile && !isReadOnly && !enteredInError && (
           <IconWrapper>
             <FolderPlusIcon
               size="medium"
