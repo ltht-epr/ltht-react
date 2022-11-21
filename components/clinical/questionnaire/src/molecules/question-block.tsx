@@ -186,5 +186,7 @@ type QuestionTypes =
   | QuestionnaireItemTypeCode.QuestionStringBbCode
   | QuestionnaireItemTypeCode.QuestionStringHtml
   | QuestionnaireItemTypeCode.QuestionCoding
+  | QuestionnaireItemTypeCode.QuestionChoice
+  | QuestionnaireItemTypeCode.Unknown
 
 export default QuestionBlock
