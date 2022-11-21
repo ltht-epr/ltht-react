@@ -14,7 +14,7 @@ import { createColumns, handleScrollEventManual } from './table-methods'
 import useDimensionsRef from './useDimensionRef'
 import { ScrollableContainer, StyledNextPageButtonContainer, StyledTable } from './table-styled-components'
 import useScrollRef from './useScrollRef'
-import { buildTableBody, buildTableHead, DataEntity, Header, TableData } from './table-core'
+import { buildTableBody, buildTableHead, DataEntity, TableData } from './table-core'
 
 const InfiniteScrollManualPaginatedTable: FC<IProps> = ({
   tableData,
@@ -32,28 +32,23 @@ const InfiniteScrollManualPaginatedTable: FC<IProps> = ({
   const [expanded, setExpanded] = useState<ExpandedState>({})
   const [sorting, setSorting] = useState<SortingState>([])
 
-  const [headers, setHeaders] = useState<Header[]>([])
   const [data, setData] = useState<DataEntity[]>([])
   const [columns, setColumns] = useState<ColumnDef<DataEntity>[]>([])
 
   useEffect(() => {
-    if (!tableData) {
-      return
+    if (tableData) {
+      if (headerAxis === 'x') {
+        setColumns(createColumns(tableData))
+        setData((old) => [...old, ...tableData.rows])
+      } else if (tableData.headers.length > 0) {
+        setColumns((old) => {
+          const newColumns = createColumns(tableData)
+          return [...old, ...newColumns.slice(old.length > 0 ? 1 : 0, newColumns.length)]
+        })
+        setData(tableData.rows)
+      }
     }
-
-    if (headerAxis === 'x') {
-      setColumns(createColumns(tableData))
-      setData((old) => [...old, ...tableData.rows])
-    } else if (tableData.headers.length > 0) {
-      const head = tableData.headers[0]
-      const tail = tableData.headers.slice(1, tableData.headers.length)
-      const newTableData: TableData = { headers: [head, ...headers, ...tail], rows: tableData.rows }
-
-      setColumns(createColumns(newTableData))
-      setData(tableData.rows)
-      setHeaders((old) => [...old, ...tail])
-    }
-  }, [tableData, headerAxis])
+  }, [tableData.rows, tableData.headers, tableData, headerAxis])
 
   const table = useReactTable({
     data,
