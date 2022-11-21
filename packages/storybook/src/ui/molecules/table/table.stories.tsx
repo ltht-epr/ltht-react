@@ -63,8 +63,6 @@ export const TableWithManualPagination: Story = () => {
       <Table
         tableData={data}
         staticColumns={1}
-        pageSize={pageSize}
-        currentPage={pageIndex + 1}
         nextPage={nextPage}
         getCanNextPage={getCanNextPage}
         headerAxis="x"
@@ -106,8 +104,6 @@ export const TableWithVerticalManualPagination: Story = () => {
       <Table
         tableData={data}
         staticColumns={1}
-        pageSize={pageSize}
-        currentPage={pageIndex + 1}
         nextPage={nextPage}
         getCanNextPage={getCanNextPage}
         headerAxis="y"

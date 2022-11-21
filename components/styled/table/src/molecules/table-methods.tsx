@@ -1,7 +1,8 @@
 import { ColumnDef, ColumnHelper, createColumnHelper, HeaderContext, Table } from '@tanstack/react-table'
 import { IconProps } from '@ltht-react/icon'
 import { Axis } from '@ltht-react/types'
-import { Header, TableData, DataEntity } from './table-core'
+import React from 'react'
+import { Header, TableData, DataEntity } from './table'
 import TableCell, { CellProps } from './table-cell'
 import { ScrollState } from './useScrollRef'
 
@@ -165,4 +166,51 @@ const handleScrollEventManual = (
   }
 }
 
-export { createColumns, calculateStaticColumnOffset, handleScrollEvent, handleScrollEventManual }
+const handleDataUpdate = (
+  tableData: TableData,
+  pageIndex: number,
+  pageSize: number,
+  headerAxis: Axis,
+  setColumns: (value: React.SetStateAction<ColumnDef<DataEntity>[]>) => void,
+  setData: (value: React.SetStateAction<DataEntity[]>) => void,
+  setPageCount: (value: React.SetStateAction<number>) => void
+) => {
+  if (headerAxis === 'x') {
+    setColumns(createColumns(tableData))
+    setData(tableData.rows.slice(0, (pageIndex + 1) * pageSize))
+    setPageCount(Math.ceil(tableData.rows.length / pageSize))
+  } else {
+    const head = tableData.headers[0]
+    const tail = tableData.headers.slice(1, tableData.headers.length)
+    setColumns(createColumns({ headers: [head, ...tail.slice(0, (pageIndex + 1) * pageSize)], rows: tableData.rows }))
+    setData(tableData.rows)
+    setPageCount(Math.ceil(tail.length / pageSize))
+  }
+}
+
+const handleDataUpdateForManualPagination = (
+  tableData: TableData,
+  headerAxis: Axis,
+  setColumns: (value: React.SetStateAction<ColumnDef<DataEntity>[]>) => void,
+  setData: (value: React.SetStateAction<DataEntity[]>) => void
+) => {
+  if (headerAxis === 'x') {
+    setColumns(createColumns(tableData))
+    setData((old) => [...old, ...tableData.rows])
+  } else if (tableData.headers.length > 0) {
+    setColumns((old) => {
+      const newColumns = createColumns(tableData)
+      return [...old, ...newColumns.slice(old.length > 0 ? 1 : 0, newColumns.length)]
+    })
+    setData(tableData.rows)
+  }
+}
+
+export {
+  createColumns,
+  calculateStaticColumnOffset,
+  handleScrollEvent,
+  handleScrollEventManual,
+  handleDataUpdate,
+  handleDataUpdateForManualPagination,
+}
