@@ -1,7 +1,9 @@
-import { ColumnDef, ColumnHelper, createColumnHelper, HeaderContext } from '@tanstack/react-table'
+import { ColumnDef, ColumnHelper, createColumnHelper, HeaderContext, Table } from '@tanstack/react-table'
 import { IconProps } from '@ltht-react/icon'
-import { Header, TableData, DataEntity } from './table'
+import { Axis } from '@ltht-react/types'
+import { Header, TableData, DataEntity } from './table-core'
 import TableCell, { CellProps } from './table-cell'
+import { ScrollState } from './useScrollRef'
 
 const createColumns = (tableData: TableData): ColumnDef<DataEntity>[] => {
   const columnHelper = createColumnHelper<DataEntity>()
@@ -100,4 +102,67 @@ const prependColumnWithExpansionControls = (
   return [expanderColumn].concat(columns)
 }
 
-export default createColumns
+const calculateStaticColumnOffset = (cellIdx: number, staticColumns: number, firstColumnWidth: number) => {
+  if (staticColumns === 0) {
+    return undefined
+  }
+
+  if (cellIdx === 0) {
+    return 0
+  }
+
+  if (cellIdx < staticColumns) {
+    return firstColumnWidth
+  }
+
+  return undefined
+}
+
+const handleScrollEvent = (table: Table<DataEntity>, headerAxis: Axis, scrollState: ScrollState) => {
+  const { scrollWidth, scrollHeight, currentXScroll, currentYScroll } = scrollState
+  if (
+    headerAxis === 'x' &&
+    currentYScroll > scrollHeight - 20 &&
+    currentYScroll < scrollHeight + 20 &&
+    table.getCanNextPage()
+  ) {
+    table.nextPage()
+  }
+
+  if (
+    headerAxis === 'y' &&
+    currentXScroll > scrollWidth - 20 &&
+    currentXScroll < scrollWidth + 20 &&
+    table.getCanNextPage()
+  ) {
+    table.nextPage()
+  }
+}
+
+const handleScrollEventManual = (
+  getCanNextPage: () => boolean,
+  nextPage: () => void,
+  headerAxis: Axis,
+  scrollState: ScrollState
+) => {
+  const { scrollWidth, scrollHeight, currentXScroll, currentYScroll } = scrollState
+  if (
+    headerAxis === 'x' &&
+    currentYScroll > scrollHeight - 20 &&
+    currentYScroll < scrollHeight + 20 &&
+    getCanNextPage()
+  ) {
+    nextPage()
+  }
+
+  if (
+    headerAxis === 'y' &&
+    currentXScroll > scrollWidth - 20 &&
+    currentXScroll < scrollWidth + 20 &&
+    getCanNextPage()
+  ) {
+    nextPage()
+  }
+}
+
+export { createColumns, calculateStaticColumnOffset, handleScrollEvent, handleScrollEventManual }

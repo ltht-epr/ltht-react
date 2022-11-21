@@ -26,11 +26,16 @@ describe('Generic Table', () => {
 
   it('Renders the same HTML as it would if given the TableData directly', () => {
     const tableRenderedWithMapper = render(
-      <GenericTable columnData={mockSummaryDefinition} rowData={mockSummaryRecordsList} mapToTableData={mockMapper} />
+      <GenericTable
+        columnData={mockSummaryDefinition}
+        rowData={mockSummaryRecordsList}
+        mapToTableData={mockMapper}
+        headerAxis="x"
+      />
     ).asFragment()
 
     const tableRenderedWithTableData = render(
-      <Table tableData={mockMapper(mockSummaryDefinition, mockSummaryRecordsList)} />
+      <Table tableData={mockMapper(mockSummaryDefinition, mockSummaryRecordsList)} headerAxis="x" />
     ).asFragment()
 
     expect(tableRenderedWithMapper).toEqual(tableRenderedWithTableData)

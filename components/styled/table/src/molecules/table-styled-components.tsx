@@ -143,8 +143,13 @@ const StyledSpinnerIcon = styled(Icon)`
 `
 
 const StyledNextPageButtonContainer = styled.div<IStyledNextPageButtonContainer>`
-  display: ${({ hidden, elementPosition }) =>
-    hidden ? 'none' : elementPosition === 'bottom' ? 'flex' : 'inline-flex'};
+  display: ${({ hidden, elementPosition }) => {
+    if (!hidden) {
+      return elementPosition === 'bottom' ? 'flex' : 'inline-flex'
+    }
+
+    return 'none'
+  }};
   justify-content: center;
   cursor: pointer;
   align-items: center;
@@ -154,6 +159,13 @@ const StyledNextPageButtonContainer = styled.div<IStyledNextPageButtonContainer>
     font-size: 1.3em;
     transition: 0.15s linear;
   }
+`
+
+const StyledTHead = styled.thead`
+  position: sticky;
+  left: 0;
+  top: 0;
+  z-index: 2;
 `
 
 interface IStyledTableCell {
@@ -183,4 +195,5 @@ export {
   StyledStandardButton,
   StyledSpinnerIcon,
   StyledNextPageButtonContainer,
+  StyledTHead,
 }
