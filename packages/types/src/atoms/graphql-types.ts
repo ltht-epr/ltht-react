@@ -2730,8 +2730,18 @@ export type Questionnaire = {
   version?: Maybe<Scalars['String']>;
 };
 
+/** Permitted answer */
+export type QuestionnaireAnswerOption = {
+  /** Whether option is selected by default */
+  initialSelected?: Maybe<Scalars['Boolean']>;
+  /** Answer value */
+  valueCoding?: Maybe<Coding>;
+};
+
 /** Questions and sections within the Questionnaire. */
 export type QuestionnaireItem = {
+  /** Permitted answer */
+  answerOption?: Maybe<Array<Maybe<QuestionnaireAnswerOption>>>;
   /** Corresponding concept for this item in a terminology. */
   code?: Maybe<Array<Maybe<Coding>>>;
   /** ElementDefinition - details for the item. */
@@ -2760,11 +2770,13 @@ export enum QuestionnaireItemTypeCode {
   Display = 'DISPLAY',
   Group = 'GROUP',
   QuestionBoolean = 'QUESTION_BOOLEAN',
+  QuestionChoice = 'QUESTION_CHOICE',
   QuestionCoding = 'QUESTION_CODING',
   QuestionDate = 'QUESTION_DATE',
   QuestionString = 'QUESTION_STRING',
   QuestionStringBbCode = 'QUESTION_STRING_BB_CODE',
-  QuestionStringHtml = 'QUESTION_STRING_HTML'
+  QuestionStringHtml = 'QUESTION_STRING_HTML',
+  Unknown = 'UNKNOWN'
 }
 
 export enum QuestionnairePublicationStatus {
