@@ -8,9 +8,9 @@ An implementation of medical javascript UI components based on [FHIR](https://ww
 
 Components are built using atomic design principles. Each set of components is published as its own npm package (e.g. `@ltht-react/diagnosis-summary` and `@ltht-react/questionnaire`). They are also all pooled together into a root package `@ltht-react/root`.
 
-Related components are have their own sub directory e.g. Clinical related components in `components\clinical`. General use components are in `components\styled`
+Related components are have their own sub directory e.g. Clinical related components in `components\clinical`. General use components are in `components\styled`.
 
-`packages` contains non-jsx based exports and the storybook package which is used for showing examples
+`packages` contains non-jsx based exports and the storybook package which is used for showing examples.
 
 ## Usage
 
@@ -45,7 +45,7 @@ See the [Storybook](https://ltht-epr.github.io/ltht-react) for examples of all a
 3. Build all component libraries `yarn build` or `yarn build:slow`
 4. View existing components using `yarn start`
 
-> **Note:** If you are working on a component that makes use of other packaged in the library (.e.g importing from `ltht-react/types`), you will need to run a build task each time you modify that library in order for your changes to appear in other packages such as storybook
+> **Note:** If you are working on a component that makes use of other packaged in the library (.e.g importing from `ltht-react/types`), you will need to run a build task each time you modify that library in order for your changes to appear in other packages such as storybook.
 >
 > You can do this by navigating to the appropriate project and running `yarn build --watch` to continuously compile new changes.
 
@@ -69,7 +69,7 @@ This project uses `jest` and `@testing-library/react`.
 
 ## Releasing a new version to npm
 
-Your code must be reviewed and merged into `main`. A short while after this, an automated task will update versions wherever necessary and commit directly to `main`. This will appear as a commit by `ltht-epr` called "Publish"
+Your code must be reviewed and merged into `main`. A short while after this, an automated task will update versions wherever necessary and commit directly to `main`. This will appear as a commit by `ltht-epr` called "Publish".
 
 1. Switch to `main` and `git pull`
 2. Ensure versions have updated, if not wait for `ltht-epr` to update `main`
@@ -77,3 +77,7 @@ Your code must be reviewed and merged into `main`. A short while after this, an 
 4. Install dependencies `yarn install`
 5. Build with `yarn build` or `yarn build:slow`
 6. Publish to npm with `yarn run deploy:npm`. You'll need to authenticate.
+
+## GraphQL type generation
+
+GraphQL types can be updated by running `yarn run type:gen`. This assumes that you have the appropriate GraphQL endpoint up and running. Running ehr-client in mock mode is sufficient for this purpose.
