@@ -2,18 +2,15 @@ import { useEffect, useState } from 'react'
 
 const useScrollRef = (elementRef: React.RefObject<HTMLElement>) => {
   const [scrollState, setScrollState] = useState<ScrollState>()
-  const element = elementRef.current as HTMLElement
+  const element = elementRef.current
 
   useEffect(() => {
-    const getScrollState = (): ScrollState => {
-      const { scrollTop, scrollHeight, clientHeight, clientWidth, scrollWidth, scrollLeft } = element
-      return {
-        scrollWidth,
-        scrollHeight,
-        currentXScroll: scrollLeft + clientWidth,
-        currentYScroll: scrollTop + clientHeight,
-      }
-    }
+    const getScrollState = (): ScrollState => ({
+      scrollWidth: element?.scrollWidth ?? 0,
+      scrollHeight: element?.scrollHeight ?? 0,
+      currentXScroll: (element?.scrollLeft ?? 0) + (element?.clientWidth ?? 0),
+      currentYScroll: (element?.scrollTop ?? 0) + (element?.clientHeight ?? 0),
+    })
 
     const handleScroll = () => {
       setScrollState(getScrollState())
