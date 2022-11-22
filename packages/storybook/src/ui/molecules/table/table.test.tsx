@@ -143,10 +143,10 @@ describe('Table with infinite scroll pagination (x) [MANUAL]', () => {
   })
 
   it('navigates to next page using the button when scroll is not available', async () => {
-    const mockNextPageHandler = jest.fn(() => {})
+    const mockNextPageHandler = jest.fn(() => null)
     const mockGetCanNextPageHandler = jest.fn(() => true)
 
-    let getTable = (pageIndex: number) => (
+    const getTable = (pageIndex: number) => (
       <div style={{ height: '400px' }}>
         <Table
           tableData={getPaginatedData(pageIndex, 10)}
@@ -173,10 +173,10 @@ describe('Table with infinite scroll pagination (x) [MANUAL]', () => {
   })
 
   it('navigates to next page using the scroll when scroll is available', () => {
-    const mockNextPageHandler = jest.fn(() => {})
+    const mockNextPageHandler = jest.fn(() => null)
     const mockGetCanNextPageHandler = jest.fn(() => true)
 
-    let getTable = (pageIndex: number) => (
+    const getTable = (pageIndex: number) => (
       <div style={{ height: '200px' }}>
         <Table
           tableData={getPaginatedData(pageIndex, 10)}
@@ -221,10 +221,10 @@ describe('Table with infinite scroll pagination (y) [MANUAL]', () => {
   })
 
   it('navigates to next page using the button when scroll is not available', () => {
-    const mockNextPageHandler = jest.fn(() => {})
+    const mockNextPageHandler = jest.fn(() => null)
     const mockGetCanNextPageHandler = jest.fn(() => true)
 
-    let getTable = (pageIndex: number) => (
+    const getTable = (pageIndex: number) => (
       <div style={{ maxWidth: '100%' }}>
         <Table
           tableData={getPaginatedData(pageIndex, 10)}
@@ -251,10 +251,10 @@ describe('Table with infinite scroll pagination (y) [MANUAL]', () => {
   })
 
   it('navigates to next page using the scroll when scroll is available', () => {
-    const mockNextPageHandler = jest.fn(() => {})
+    const mockNextPageHandler = jest.fn(() => null)
     const mockGetCanNextPageHandler = jest.fn(() => true)
 
-    let getTable = (pageIndex: number) => (
+    const getTable = (pageIndex: number) => (
       <div style={{ maxWidth: '1050px' }}>
         <Table
           tableData={getPaginatedData(pageIndex, 10)}
