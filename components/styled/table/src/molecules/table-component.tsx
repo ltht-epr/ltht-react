@@ -22,13 +22,21 @@ const TableComponent = <T,>({ table, staticColumns }: ITableHeadProps<T>): JSX.E
         {table.getHeaderGroups().map((headerGroup) => (
           <tr key={headerGroup.id} role="row">
             {headerGroup.headers.map((header, headerIndex) =>
-              header.column.id === 'expander' ? (
+              headerIndex === 0 ? (
                 <StyledTableHeader
                   stickyWidth={calculateStaticColumnOffset(headerIndex, staticColumns, width)}
                   key={header.id}
                   colSpan={header.colSpan}
                   ref={firstColumn}
                   role="columnheader"
+                  {...(header.column.id !== 'expander'
+                    ? {
+                        style: {
+                          cursor: header.column.getCanSort() ? 'pointer' : '',
+                        },
+                        onClick: header.column.getToggleSortingHandler(),
+                      }
+                    : {})}
                 >
                   {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
                 </StyledTableHeader>
