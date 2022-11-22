@@ -103,20 +103,26 @@ const prependColumnWithExpansionControls = (
   return [expanderColumn].concat(columns)
 }
 
-const calculateStaticColumnOffset = (cellIdx: number, staticColumns: number, firstColumnWidth: number) => {
+const calculateStaticColumnOffset = (
+  cellIdx: number,
+  staticColumns: number,
+  firstColumnWidth: number,
+  secondColumnWidth: number
+) => {
   if (staticColumns === 0) {
     return undefined
   }
 
-  if (cellIdx === 0) {
-    return 0
+  switch (cellIdx) {
+    case 0:
+      return 0
+    case 1:
+      return cellIdx < staticColumns ? firstColumnWidth : undefined
+    case 2:
+      return cellIdx < staticColumns ? firstColumnWidth + secondColumnWidth : undefined
+    default:
+      return undefined
   }
-
-  if (cellIdx < staticColumns) {
-    return firstColumnWidth
-  }
-
-  return undefined
 }
 
 const handleScrollEvent = (table: Table<DataEntity>, headerAxis: Axis, scrollState: ScrollState) => {
@@ -175,17 +181,31 @@ const handleDataUpdate = (
   setData: (value: React.SetStateAction<DataEntity[]>) => void,
   setPageCount: (value: React.SetStateAction<number>) => void
 ) => {
-  if (headerAxis === 'x') {
-    setColumns(createColumns(tableData))
-    setData(tableData.rows.slice(0, (pageIndex + 1) * pageSize))
-    setPageCount(Math.ceil(tableData.rows.length / pageSize))
-  } else {
-    const head = tableData.headers[0]
-    const tail = tableData.headers.slice(1, tableData.headers.length)
-    setColumns(createColumns({ headers: [head, ...tail.slice(0, (pageIndex + 1) * pageSize)], rows: tableData.rows }))
-    setData(tableData.rows)
-    setPageCount(Math.ceil(tail.length / pageSize))
+  if (tableData) {
+    if (headerAxis === 'x') {
+      setColumns(createColumns(tableData))
+      setData(tableData.rows.slice(0, (pageIndex + 1) * pageSize))
+      setPageCount(Math.ceil(tableData.rows.length / pageSize))
+    } else {
+      if (tableData.headers.length > 0) {
+        const head = tableData.headers[0]
+        const tail = tableData.headers.slice(1, tableData.headers.length)
+        setColumns(
+          createColumns({ headers: [head, ...tail.slice(0, (pageIndex + 1) * pageSize)], rows: tableData.rows })
+        )
+        setData(tableData.rows)
+        setPageCount(Math.ceil(tail.length / pageSize))
+      }
+    }
   }
+}
+
+const calculateSliceStartPoint = (oldLength: number, usingExpanderColumn: boolean) => {
+  if (oldLength > 0) {
+    return usingExpanderColumn ? 2 : 1
+  }
+
+  return 0
 }
 
 const handleDataUpdateForManualPagination = (
@@ -195,12 +215,20 @@ const handleDataUpdateForManualPagination = (
   setData: (value: React.SetStateAction<DataEntity[]>) => void
 ) => {
   if (headerAxis === 'x') {
-    setColumns(createColumns(tableData))
-    setData((old) => [...old, ...tableData.rows])
+    setData((old) => {
+      const newData = [...old, ...tableData.rows]
+      setColumns(createColumns({ headers: tableData.headers, rows: newData }))
+      return newData
+    })
   } else if (tableData.headers.length > 0) {
     setColumns((old) => {
       const newColumns = createColumns(tableData)
-      return [...old, ...newColumns.slice(old.length > 0 ? 1 : 0, newColumns.length)]
+      const sliceStartPoint = calculateSliceStartPoint(
+        old.length,
+        tableData.rows.some((x) => x.subRows)
+      )
+
+      return [...old, ...newColumns.slice(sliceStartPoint, newColumns.length)]
     })
     setData(tableData.rows)
   }
