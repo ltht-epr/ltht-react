@@ -1,8 +1,6 @@
 import { fireEvent, render, screen, within } from '@testing-library/react'
 import Table, { TableData } from '@ltht-react/table'
 import userEvent from '@testing-library/user-event'
-import { renderHook } from '@testing-library/react-hooks'
-import { useEffect, useState } from 'react'
 import {
   mockTableData,
   mockTableDataForPagination,
@@ -139,191 +137,152 @@ describe('Table with infinite scroll pagination (y)', () => {
 })
 
 describe('Table with infinite scroll pagination (x) [MANUAL]', () => {
+  const getPaginatedData = (pageIndex: number, pageSize: number): TableData => ({
+    headers: mockTableDataForPagination.headers,
+    rows: mockTableDataForPagination.rows.slice(pageIndex * pageSize, (pageIndex + 1) * pageSize),
+  })
+
   it('navigates to next page using the button when scroll is not available', async () => {
-    const { result } = renderHook(() => {
-      const getPaginatedData = (pageIndex: number, pageSize: number): TableData => ({
-        headers: mockTableDataForPagination.headers,
-        rows: mockTableDataForPagination.rows.slice(pageIndex * pageSize, (pageIndex + 1) * pageSize),
-      })
+    const mockNextPageHandler = jest.fn(() => {})
+    const mockGetCanNextPageHandler = jest.fn(() => true)
 
-      const [pageIndex, setPageIndex] = useState<number>(0)
-      const pageSize = 10
-      const [data, setData] = useState<TableData>({ headers: [], rows: [] })
+    let getTable = (pageIndex: number) => (
+      <div style={{ height: '400px' }}>
+        <Table
+          tableData={getPaginatedData(pageIndex, 10)}
+          nextPage={mockNextPageHandler}
+          getCanNextPage={mockGetCanNextPageHandler}
+          headerAxis="x"
+          manualPagination
+        />
+      </div>
+    )
 
-      const pageCount = Math.ceil(mockTableDataForPagination.rows.length / pageSize)
-
-      useEffect(() => {
-        setData(getPaginatedData(pageIndex, pageSize))
-      }, [pageIndex, pageSize])
-
-      const nextPage = () => {
-        setPageIndex((old: number) => old + 1)
-      }
-
-      const getCanNextPage = () => pageIndex + 1 < pageCount
-
-      return (
-        <div style={{ height: '400px' }}>
-          <Table tableData={data} nextPage={nextPage} getCanNextPage={getCanNextPage} headerAxis="x" manualPagination />
-        </div>
-      )
-    })
-
-    const { rerender } = render(result.current)
+    const { rerender } = render(getTable(0))
 
     expect(screen.getAllByRole('row').length).toEqual(11)
 
     userEvent.click(screen.getByRole('button'))
 
-    rerender(result.current)
+    rerender(getTable(1))
 
     expect(within(screen.getByRole('table')).getAllByRole('row').length).toEqual(21)
+
+    expect(mockGetCanNextPageHandler).toHaveBeenCalled()
+    expect(mockNextPageHandler).toHaveBeenCalled()
   })
 
   it('navigates to next page using the scroll when scroll is available', () => {
-    const { result } = renderHook(() => {
-      const getPaginatedData = (pageIndex: number, pageSize: number): TableData => ({
-        headers: mockTableDataForPagination.headers,
-        rows: mockTableDataForPagination.rows.slice(pageIndex * pageSize, (pageIndex + 1) * pageSize),
-      })
+    const mockNextPageHandler = jest.fn(() => {})
+    const mockGetCanNextPageHandler = jest.fn(() => true)
 
-      const [pageIndex, setPageIndex] = useState<number>(0)
-      const pageSize = 10
-      const [data, setData] = useState<TableData>({ headers: [], rows: [] })
+    let getTable = (pageIndex: number) => (
+      <div style={{ height: '200px' }}>
+        <Table
+          tableData={getPaginatedData(pageIndex, 10)}
+          nextPage={mockNextPageHandler}
+          getCanNextPage={mockGetCanNextPageHandler}
+          headerAxis="x"
+          manualPagination
+        />
+      </div>
+    )
 
-      const pageCount = Math.ceil(mockTableDataForPagination.rows.length / pageSize)
-
-      useEffect(() => {
-        setData(getPaginatedData(pageIndex, pageSize))
-      }, [pageIndex, pageSize])
-
-      const nextPage = () => {
-        setPageIndex((old: number) => old + 1)
-      }
-
-      const getCanNextPage = () => pageIndex + 1 < pageCount
-
-      return (
-        <div style={{ height: '200px' }}>
-          <Table tableData={data} nextPage={nextPage} getCanNextPage={getCanNextPage} headerAxis="x" manualPagination />
-        </div>
-      )
-    })
-
-    const { rerender } = render(result.current)
+    const { rerender } = render(getTable(0))
 
     expect(screen.getAllByRole('row').length).toEqual(11)
 
     fireEvent.scroll(screen.getByRole('table').parentElement as HTMLElement, { target: { scrollY: 100 } })
 
-    rerender(result.current)
+    rerender(getTable(1))
 
     expect(screen.getAllByRole('row').length).toEqual(21)
 
     fireEvent.scroll(screen.getByRole('table').parentElement as HTMLElement, { target: { scrollY: 100 } })
 
-    rerender(result.current)
+    rerender(getTable(2))
 
     expect(screen.getAllByRole('row').length).toEqual(31)
+
+    expect(mockGetCanNextPageHandler).toHaveBeenCalled()
+    expect(mockNextPageHandler).toHaveBeenCalled()
   })
 })
 
 describe('Table with infinite scroll pagination (y) [MANUAL]', () => {
+  const getPaginatedData = (pageIndex: number, pageSize: number): TableData => ({
+    headers: [
+      mockTableDataForVerticalPagination.headers[0],
+      ...mockTableDataForVerticalPagination.headers
+        .slice(1, mockTableDataForVerticalPagination.headers.length)
+        .slice(pageIndex * pageSize, (pageIndex + 1) * pageSize),
+    ],
+    rows: mockTableDataForVerticalPagination.rows,
+  })
+
   it('navigates to next page using the button when scroll is not available', () => {
-    const { result } = renderHook(() => {
-      const getPaginatedData = (pageIndex: number, pageSize: number): TableData => ({
-        headers: [
-          mockTableDataForVerticalPagination.headers[0],
-          ...mockTableDataForVerticalPagination.headers
-            .slice(1, mockTableDataForVerticalPagination.headers.length)
-            .slice(pageIndex * pageSize, (pageIndex + 1) * pageSize),
-        ],
-        rows: mockTableDataForVerticalPagination.rows,
-      })
+    const mockNextPageHandler = jest.fn(() => {})
+    const mockGetCanNextPageHandler = jest.fn(() => true)
 
-      const [pageIndex, setPageIndex] = useState<number>(0)
-      const pageSize = 10
-      const [data, setData] = useState<TableData>({ headers: [], rows: [] })
+    let getTable = (pageIndex: number) => (
+      <div style={{ maxWidth: '100%' }}>
+        <Table
+          tableData={getPaginatedData(pageIndex, 10)}
+          nextPage={mockNextPageHandler}
+          getCanNextPage={mockGetCanNextPageHandler}
+          headerAxis="y"
+          manualPagination
+        />
+      </div>
+    )
 
-      const pageCount = Math.ceil(mockTableDataForPagination.rows.length / pageSize)
-
-      useEffect(() => {
-        setData(getPaginatedData(pageIndex, pageSize))
-      }, [pageIndex, pageSize])
-
-      const nextPage = () => {
-        setPageIndex((old: number) => old + 1)
-      }
-
-      const getCanNextPage = () => pageIndex + 1 < pageCount
-
-      return (
-        <div style={{ height: '200px' }}>
-          <Table tableData={data} nextPage={nextPage} getCanNextPage={getCanNextPage} headerAxis="y" manualPagination />
-        </div>
-      )
-    })
-
-    const { rerender } = render(result.current)
+    const { rerender } = render(getTable(0))
 
     expect(screen.getAllByRole('columnheader').length).toEqual(11)
 
     userEvent.click(screen.getByRole('button'))
 
-    rerender(result.current)
+    rerender(getTable(1))
 
     expect(screen.getAllByRole('columnheader').length).toEqual(21)
+
+    expect(mockGetCanNextPageHandler).toHaveBeenCalled()
+    expect(mockNextPageHandler).toHaveBeenCalled()
   })
 
   it('navigates to next page using the scroll when scroll is available', () => {
-    const { result } = renderHook(() => {
-      const getPaginatedData = (pageIndex: number, pageSize: number): TableData => ({
-        headers: [
-          mockTableDataForVerticalPagination.headers[0],
-          ...mockTableDataForVerticalPagination.headers
-            .slice(1, mockTableDataForVerticalPagination.headers.length)
-            .slice(pageIndex * pageSize, (pageIndex + 1) * pageSize),
-        ],
-        rows: mockTableDataForVerticalPagination.rows,
-      })
+    const mockNextPageHandler = jest.fn(() => {})
+    const mockGetCanNextPageHandler = jest.fn(() => true)
 
-      const [pageIndex, setPageIndex] = useState<number>(0)
-      const pageSize = 10
-      const [data, setData] = useState<TableData>({ headers: [], rows: [] })
+    let getTable = (pageIndex: number) => (
+      <div style={{ maxWidth: '1050px' }}>
+        <Table
+          tableData={getPaginatedData(pageIndex, 10)}
+          nextPage={mockNextPageHandler}
+          getCanNextPage={mockGetCanNextPageHandler}
+          headerAxis="y"
+          manualPagination
+        />
+      </div>
+    )
 
-      const pageCount = Math.ceil(mockTableDataForPagination.rows.length / pageSize)
-
-      useEffect(() => {
-        setData(getPaginatedData(pageIndex, pageSize))
-      }, [pageIndex, pageSize])
-
-      const nextPage = () => {
-        setPageIndex((old: number) => old + 1)
-      }
-
-      const getCanNextPage = () => pageIndex + 1 < pageCount
-
-      return (
-        <div style={{ height: '1050px' }}>
-          <Table tableData={data} nextPage={nextPage} getCanNextPage={getCanNextPage} headerAxis="y" manualPagination />
-        </div>
-      )
-    })
-
-    const { rerender } = render(result.current)
+    const { rerender } = render(getTable(0))
 
     expect(screen.getAllByRole('columnheader').length).toEqual(11)
 
     fireEvent.scroll(screen.getByRole('table').parentElement as HTMLElement, { target: { scrollX: 100 } })
 
-    rerender(result.current)
+    rerender(getTable(1))
 
     expect(screen.getAllByRole('columnheader').length).toEqual(21)
 
     fireEvent.scroll(screen.getByRole('table').parentElement as HTMLElement, { target: { scrollX: 100 } })
 
-    rerender(result.current)
+    rerender(getTable(2))
 
     expect(screen.getAllByRole('columnheader').length).toEqual(31)
+
+    expect(mockGetCanNextPageHandler).toHaveBeenCalled()
+    expect(mockNextPageHandler).toHaveBeenCalled()
   })
 })
