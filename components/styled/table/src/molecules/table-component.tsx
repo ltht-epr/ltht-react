@@ -1,7 +1,7 @@
 import { Icon } from '@ltht-react/icon'
 import { TABLE_COLOURS } from '@ltht-react/styles'
 import { flexRender, Header as ReactTableHeader, Table } from '@tanstack/react-table'
-import { useEffect, useMemo, useRef } from 'react'
+import React, { useEffect, useMemo, useRef } from 'react'
 import { calculateStaticColumnOffset } from './table-methods'
 import {
   StyledNextPageButtonContainer,
@@ -32,82 +32,49 @@ const TableComponent = <T,>({ table, staticColumns }: ITableHeadProps<T>): JSX.E
   const getHeaderColumn = <TData, TValue>(header: ReactTableHeader<TData, TValue>, headerIndex: number) => {
     switch (headerIndex) {
       case 0:
-        return (
-          <StyledTableHeader
-            stickyWidth={calculateStaticColumnOffset(
-              headerIndex,
-              totalStaticColumns,
-              firstColumnWidth,
-              secondColumnWidth
-            )}
-            key={header.id}
-            colSpan={header.colSpan}
-            ref={firstColumn}
-            role="columnheader"
-            {...(header.column.id !== 'expander'
-              ? {
-                  style: {
-                    cursor: header.column.getCanSort() ? 'pointer' : '',
-                  },
-                  onClick: header.column.getToggleSortingHandler(),
-                }
-              : {})}
-          >
-            {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
-          </StyledTableHeader>
+        return getHeaderElement(
+          header,
+          calculateStaticColumnOffset(headerIndex, totalStaticColumns, firstColumnWidth, secondColumnWidth),
+          firstColumn
         )
       case 1:
-        return (
-          <StyledTableHeader
-            stickyWidth={calculateStaticColumnOffset(
-              headerIndex,
-              totalStaticColumns,
-              firstColumnWidth,
-              secondColumnWidth
-            )}
-            key={header.id}
-            colSpan={header.colSpan}
-            ref={secondColumn}
-            role="columnheader"
-            {...(header.column.id !== 'expander'
-              ? {
-                  style: {
-                    cursor: header.column.getCanSort() ? 'pointer' : '',
-                  },
-                  onClick: header.column.getToggleSortingHandler(),
-                }
-              : {})}
-          >
-            {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
-          </StyledTableHeader>
+        return getHeaderElement(
+          header,
+          calculateStaticColumnOffset(headerIndex, totalStaticColumns, firstColumnWidth, secondColumnWidth),
+          secondColumn
         )
 
       default:
-        return (
-          <StyledTableHeader
-            stickyWidth={calculateStaticColumnOffset(
-              headerIndex,
-              totalStaticColumns,
-              firstColumnWidth,
-              secondColumnWidth
-            )}
-            key={header.id}
-            colSpan={header.colSpan}
-            role="columnheader"
-            {...(header.column.id !== 'expander'
-              ? {
-                  style: {
-                    cursor: header.column.getCanSort() ? 'pointer' : '',
-                  },
-                  onClick: header.column.getToggleSortingHandler(),
-                }
-              : {})}
-          >
-            {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
-          </StyledTableHeader>
+        return getHeaderElement(
+          header,
+          calculateStaticColumnOffset(headerIndex, totalStaticColumns, firstColumnWidth, secondColumnWidth)
         )
     }
   }
+
+  const getHeaderElement = <TData, TValue>(
+    header: ReactTableHeader<TData, TValue>,
+    stickyWidth?: number,
+    elementRef?: React.MutableRefObject<null>
+  ) => (
+    <StyledTableHeader
+      stickyWidth={stickyWidth}
+      key={header.id}
+      colSpan={header.colSpan}
+      ref={elementRef}
+      role="columnheader"
+      {...(header.column.id !== 'expander'
+        ? {
+            style: {
+              cursor: header.column.getCanSort() ? 'pointer' : '',
+            },
+            onClick: header.column.getToggleSortingHandler(),
+          }
+        : {})}
+    >
+      {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
+    </StyledTableHeader>
+  )
 
   return (
     <StyledTable>

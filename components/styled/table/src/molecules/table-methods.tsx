@@ -171,21 +171,17 @@ const handleDataUpdate = (
   setData: (value: React.SetStateAction<DataEntity[]>) => void,
   setPageCount: (value: React.SetStateAction<number>) => void
 ) => {
-  if (tableData) {
+  if (tableData && tableData.headers.length > 0) {
     if (headerAxis === 'x') {
       setColumns(createColumns(tableData))
       setData(tableData.rows.slice(0, (pageIndex + 1) * pageSize))
       setPageCount(Math.ceil(tableData.rows.length / pageSize))
     } else {
-      if (tableData.headers.length > 0) {
-        const head = tableData.headers[0]
-        const tail = tableData.headers.slice(1, tableData.headers.length)
-        setColumns(
-          createColumns({ headers: [head, ...tail.slice(0, (pageIndex + 1) * pageSize)], rows: tableData.rows })
-        )
-        setData(tableData.rows)
-        setPageCount(Math.ceil(tail.length / pageSize))
-      }
+      const head = tableData.headers[0]
+      const tail = tableData.headers.slice(1, tableData.headers.length)
+      setColumns(createColumns({ headers: [head, ...tail.slice(0, (pageIndex + 1) * pageSize)], rows: tableData.rows }))
+      setData(tableData.rows)
+      setPageCount(Math.ceil(tail.length / pageSize))
     }
   }
 }
