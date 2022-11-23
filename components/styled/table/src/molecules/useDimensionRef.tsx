@@ -21,11 +21,9 @@ const useDimensionsRef = (elementRef: React.RefObject<HTMLElement>) => {
     }
 
     window.addEventListener('resize', handleResize)
-    window.addEventListener('updateDimensions', handleResize)
 
     return () => {
       window.removeEventListener('resize', handleResize)
-      window.removeEventListener('updateDimensions', handleResize)
     }
   }, [elementRef])
 

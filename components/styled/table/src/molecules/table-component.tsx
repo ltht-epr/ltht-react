@@ -26,7 +26,7 @@ const TableComponent = <T,>({ table, staticColumns }: ITableHeadProps<T>): JSX.E
   ])
 
   useEffect(() => {
-    window.dispatchEvent(new Event('updateDimensions'))
+    window.dispatchEvent(new Event('resize'))
   }, [totalStaticColumns])
 
   const getHeaderColumn = <TData, TValue>(header: ReactTableHeader<TData, TValue>, headerIndex: number) => {
