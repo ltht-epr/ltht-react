@@ -146,9 +146,7 @@ const handleScrollEvent = (table: Table<DataEntity>, headerAxis: Axis, scrollSta
   }
 }
 
-const getPercentageOfMax = (percentage: number, max: number) => {
-  return max * (percentage / 100)
-}
+const getPercentageOfMax = (percentage: number, max: number) => max * (percentage / 100)
 
 const handleScrollEventManual = (
   getCanNextPage: () => boolean,
