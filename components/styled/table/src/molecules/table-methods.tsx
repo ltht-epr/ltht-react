@@ -129,7 +129,7 @@ const handleScrollEvent = (table: Table<DataEntity>, headerAxis: Axis, scrollSta
   const { scrollWidth, scrollHeight, currentXScroll, currentYScroll } = scrollState
   if (
     headerAxis === 'x' &&
-    currentYScroll > scrollHeight - 20 &&
+    currentYScroll >= scrollHeight - getPercentageOfMax(5, scrollHeight) &&
     currentYScroll <= scrollHeight &&
     table.getCanNextPage()
   ) {
@@ -138,7 +138,7 @@ const handleScrollEvent = (table: Table<DataEntity>, headerAxis: Axis, scrollSta
 
   if (
     headerAxis === 'y' &&
-    currentXScroll > scrollWidth - 20 &&
+    currentXScroll >= scrollWidth - getPercentageOfMax(5, scrollWidth) &&
     currentXScroll <= scrollWidth &&
     table.getCanNextPage()
   ) {
