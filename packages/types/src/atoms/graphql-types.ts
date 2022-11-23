@@ -1781,6 +1781,8 @@ export type Extension = {
   elementId?: Maybe<Scalars['String']>;
   /** Additional content defined by implementations. */
   extension?: Maybe<Array<Maybe<Extension>>>;
+  /** Value of extension (String Array). */
+  multiValueString?: Maybe<Array<Maybe<Scalars['String']>>>;
   /** Identifies the meaning of the extension. */
   url: Scalars['String'];
   /** Value of extension (Attachment). */
@@ -1789,8 +1791,16 @@ export type Extension = {
   valueBoolean?: Maybe<Scalars['Boolean']>;
   /** Value of extension (CodeableConcept). */
   valueCodeableConcept?: Maybe<CodeableConcept>;
+  /** Value of extension (Coding). */
+  valueCoding?: Maybe<Coding>;
+  /** Value of extension (DateTime). */
+  valueDateTime?: Maybe<PartialDateTime>;
+  /** Value of extension (Identifier). */
+  valueIdentifier?: Maybe<Identifier>;
   /** Value of extension (String). */
   valueString?: Maybe<Scalars['String']>;
+  /** Value of extension (Uuid). */
+  valueUuid?: Maybe<Scalars['Guid']>;
 };
 
 export type ExtensionInput = {
@@ -2730,18 +2740,8 @@ export type Questionnaire = {
   version?: Maybe<Scalars['String']>;
 };
 
-/** Permitted answer */
-export type QuestionnaireAnswerOption = {
-  /** Whether option is selected by default */
-  initialSelected?: Maybe<Scalars['Boolean']>;
-  /** Answer value */
-  valueCoding?: Maybe<Coding>;
-};
-
 /** Questions and sections within the Questionnaire. */
 export type QuestionnaireItem = {
-  /** Permitted answer */
-  answerOption?: Maybe<Array<Maybe<QuestionnaireAnswerOption>>>;
   /** Corresponding concept for this item in a terminology. */
   code?: Maybe<Array<Maybe<Coding>>>;
   /** ElementDefinition - details for the item. */
@@ -2770,13 +2770,11 @@ export enum QuestionnaireItemTypeCode {
   Display = 'DISPLAY',
   Group = 'GROUP',
   QuestionBoolean = 'QUESTION_BOOLEAN',
-  QuestionChoice = 'QUESTION_CHOICE',
   QuestionCoding = 'QUESTION_CODING',
   QuestionDate = 'QUESTION_DATE',
   QuestionString = 'QUESTION_STRING',
   QuestionStringBbCode = 'QUESTION_STRING_BB_CODE',
-  QuestionStringHtml = 'QUESTION_STRING_HTML',
-  Unknown = 'UNKNOWN'
+  QuestionStringHtml = 'QUESTION_STRING_HTML'
 }
 
 export enum QuestionnairePublicationStatus {
