@@ -5,6 +5,7 @@ import { useEffect, useMemo, useRef } from 'react'
 import { calculateStaticColumnOffset } from './table-methods'
 import {
   StyledNextPageButtonContainer,
+  StyledSpinnerContainer,
   StyledTable,
   StyledTableData,
   StyledTableHeader,
@@ -145,21 +146,32 @@ const TableComponent = <T,>({ table, staticColumns }: ITableHeadProps<T>): JSX.E
   )
 }
 
-const TableNavigationButton = ({ position, getCanNextPage, nextPage }: ITableNavButtonProps) => (
+const TableNavigationButton = ({ position, hidden, clickHandler }: ITableNavButtonProps) => (
   <StyledNextPageButtonContainer
     role="button"
     elementPosition={position}
-    onClick={() => nextPage()}
-    hidden={!getCanNextPage()}
+    onClick={() => clickHandler()}
+    hidden={hidden}
   >
     <Icon type="chevron" direction={position === 'bottom' ? 'down' : 'right'} size="medium" />
   </StyledNextPageButtonContainer>
 )
 
+const TableSpinner = ({ position, hidden }: ITableSpinnerProps) => (
+  <StyledSpinnerContainer elementPosition={position} hidden={hidden}>
+    <Icon type="spinner" size="medium" title="Loading..." />
+  </StyledSpinnerContainer>
+)
+
 interface ITableNavButtonProps {
   position: 'bottom' | 'right'
-  getCanNextPage: () => boolean
-  nextPage: () => void
+  hidden: boolean
+  clickHandler: () => void
+}
+
+interface ITableSpinnerProps {
+  position: 'bottom' | 'right'
+  hidden: boolean
 }
 
 interface ITableHeadProps<T> {
@@ -168,4 +180,4 @@ interface ITableHeadProps<T> {
 }
 
 export default TableComponent
-export { TableNavigationButton }
+export { TableNavigationButton, TableSpinner }

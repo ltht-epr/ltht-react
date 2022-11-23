@@ -18,7 +18,7 @@ import {
   handleScrollEvent,
   handleScrollEventManual,
 } from './table-methods'
-import TableComponent, { TableNavigationButton } from './table-component'
+import TableComponent, { TableNavigationButton, TableSpinner } from './table-component'
 import { CellProps } from './table-cell'
 
 const Table: FC<IProps> = ({
@@ -30,6 +30,7 @@ const Table: FC<IProps> = ({
   manualPagination = false,
   getCanNextPage = () => false,
   nextPage = () => null,
+  isFetching = false,
 }) => {
   const scrollableDivElement = useRef(null)
   const scrollState = useScrollRef(scrollableDivElement)
@@ -83,10 +84,10 @@ const Table: FC<IProps> = ({
       return
     }
 
-    if (manualPagination) {
+    if (manualPagination && !isFetching) {
       handleScrollEventManual(getCanNextPage, nextPage, headerAxis, scrollState)
     }
-  }, [scrollState, headerAxis, manualPagination, getCanNextPage, nextPage])
+  }, [scrollState, headerAxis, manualPagination, isFetching, getCanNextPage, nextPage])
 
   useEffect(() => {
     if (!scrollState) {
@@ -98,14 +99,26 @@ const Table: FC<IProps> = ({
     }
   }, [scrollState, table, headerAxis, manualPagination])
 
+  const getNextPage = () => {
+    if (manualPagination) {
+      nextPage()
+    } else {
+      table.nextPage()
+    }
+  }
+
   return (
     <>
       <ScrollableContainer ref={scrollableDivElement} tableHeaderAxis={headerAxis}>
         <TableComponent table={table} staticColumns={staticColumns} />
+        <TableSpinner
+          position={headerAxis === 'x' ? 'bottom' : 'right'}
+          hidden={manualPagination ? !isFetching : true}
+        />
         <TableNavigationButton
           position={headerAxis === 'x' ? 'bottom' : 'right'}
-          getCanNextPage={manualPagination ? getCanNextPage : table.getCanNextPage}
-          nextPage={manualPagination ? nextPage : table.nextPage}
+          hidden={isFetching || (manualPagination ? !getCanNextPage() : !table.getCanNextPage())}
+          clickHandler={getNextPage}
         />
       </ScrollableContainer>
     </>
@@ -121,6 +134,7 @@ interface IProps {
   manualPagination?: boolean
   nextPage?: () => void
   getCanNextPage?: () => boolean
+  isFetching?: boolean
 }
 
 type DataEntity = Record<string, CellProps | DataEntity[]> & {

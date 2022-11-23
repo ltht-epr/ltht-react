@@ -130,7 +130,7 @@ const handleScrollEvent = (table: Table<DataEntity>, headerAxis: Axis, scrollSta
   if (
     headerAxis === 'x' &&
     currentYScroll > scrollHeight - 20 &&
-    currentYScroll < scrollHeight + 20 &&
+    currentYScroll <= scrollHeight &&
     table.getCanNextPage()
   ) {
     table.nextPage()
@@ -139,7 +139,7 @@ const handleScrollEvent = (table: Table<DataEntity>, headerAxis: Axis, scrollSta
   if (
     headerAxis === 'y' &&
     currentXScroll > scrollWidth - 20 &&
-    currentXScroll < scrollWidth + 20 &&
+    currentXScroll <= scrollWidth &&
     table.getCanNextPage()
   ) {
     table.nextPage()
@@ -153,21 +153,11 @@ const handleScrollEventManual = (
   scrollState: ScrollState
 ) => {
   const { scrollWidth, scrollHeight, currentXScroll, currentYScroll } = scrollState
-  if (
-    headerAxis === 'x' &&
-    currentYScroll > scrollHeight - 20 &&
-    currentYScroll < scrollHeight + 20 &&
-    getCanNextPage()
-  ) {
+  if (headerAxis === 'x' && currentYScroll > scrollHeight - 30 && currentYScroll <= scrollHeight && getCanNextPage()) {
     nextPage()
   }
 
-  if (
-    headerAxis === 'y' &&
-    currentXScroll > scrollWidth - 20 &&
-    currentXScroll < scrollWidth + 20 &&
-    getCanNextPage()
-  ) {
+  if (headerAxis === 'y' && currentXScroll > scrollWidth - 30 && currentXScroll <= scrollWidth && getCanNextPage()) {
     nextPage()
   }
 }

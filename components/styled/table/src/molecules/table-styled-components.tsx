@@ -34,7 +34,6 @@ const StyledTable = styled.table`
   border-spacing: 0px;
   border-radius: 6px;
 `
-
 const StyledTableHeader = styled.th<IStyledTableCell>`
   background-color: ${TABLE_COLOURS.HEADER};
   border: thin solid ${TABLE_COLOURS.BORDER};
@@ -49,7 +48,6 @@ const StyledTableHeader = styled.th<IStyledTableCell>`
     top: 0;
     z-index: 1;`}
 `
-
 const StyledTableData = styled.td<IStyledTableCell>`
   border: thin solid ${TABLE_COLOURS.BORDER};
   white-space: nowrap;
@@ -66,7 +64,6 @@ const StyledTableData = styled.td<IStyledTableCell>`
     background-color: ${TABLE_COLOURS.HEADER} !important;
   }
 `
-
 const PaginationContainer = styled.div`
   ${CSS_RESET};
   margin-top: 5px;
@@ -91,7 +88,6 @@ const StyledHideOnMobile = styled.span`
     display: none;
   }
 `
-
 const StyledPaginationButtonDiv = styled.div`
   float: right;
   display: flex;
@@ -105,7 +101,6 @@ const StyledPageCountDiv = styled.div`
   font-size: 1.1em;
   padding: 1px;
 `
-
 const StyledStandardButton = styled(IconButton)`
   color: ${BTN_COLOURS.STANDARD.TEXT};
   background-color: ${BTN_COLOURS.STANDARD.VALUE};
@@ -119,7 +114,6 @@ const StyledStandardButton = styled(IconButton)`
     background-color: ${BTN_COLOURS.STANDARD.DISABLED};
   }
 `
-
 const StyledPaginationButton = styled(IconButton)`
   padding: 2px 5px;
   background-color: ${TRANSLUCENT_BRIGHT_BLUE};
@@ -135,13 +129,11 @@ const StyledPaginationButton = styled(IconButton)`
     pointer-events: none;
   }
 `
-
 const StyledSpinnerIcon = styled(Icon)`
   margin: 3px 0;
   font-size: 1.1em;
   padding: 1.5px;
 `
-
 const StyledNextPageButtonContainer = styled.div<IStyledNextPageButtonContainer>`
   display: ${({ hidden, elementPosition }) => {
     if (!hidden) {
@@ -160,7 +152,19 @@ const StyledNextPageButtonContainer = styled.div<IStyledNextPageButtonContainer>
     transition: 0.15s linear;
   }
 `
+const StyledSpinnerContainer = styled.div<IStyledNextPageButtonContainer>`
+  display: ${({ hidden, elementPosition }) => {
+    if (!hidden) {
+      return elementPosition === 'bottom' ? 'flex' : 'inline-flex'
+    }
 
+    return 'none'
+  }};
+  justify-content: center;
+  cursor: pointer;
+  align-items: center;
+  padding: 5px;
+`
 const StyledTHead = styled.thead`
   position: sticky;
   left: 0;
@@ -196,4 +200,5 @@ export {
   StyledSpinnerIcon,
   StyledNextPageButtonContainer,
   StyledTHead,
+  StyledSpinnerContainer,
 }

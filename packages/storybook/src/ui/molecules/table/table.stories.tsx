@@ -45,14 +45,19 @@ export const TableWithManualPagination: Story = () => {
   const [pageIndex, setPageIndex] = useState<number>(0)
   const pageSize = 10
   const [data, setData] = useState<TableData>({ headers: [], rows: [] })
-
+  const [isFetching, setIsFetching] = useState<boolean>(false)
   const pageCount = Math.ceil(mockTableDataForPagination.rows.length / pageSize)
 
   useEffect(() => {
-    setData(getPaginatedData(pageIndex, pageSize))
+    // simulate letency
+    setTimeout(() => {
+      setIsFetching(false)
+      setData(getPaginatedData(pageIndex, pageSize))
+    }, 500)
   }, [pageIndex, pageSize])
 
   const nextPage = () => {
+    setIsFetching(true)
     setPageIndex((old: number) => old + 1)
   }
 
@@ -67,6 +72,7 @@ export const TableWithManualPagination: Story = () => {
         getCanNextPage={getCanNextPage}
         headerAxis="x"
         manualPagination
+        isFetching={isFetching}
       />
     </div>
   )
@@ -86,14 +92,20 @@ export const TableWithVerticalManualPagination: Story = () => {
   const [pageIndex, setPageIndex] = useState<number>(0)
   const pageSize = 10
   const [data, setData] = useState<TableData>({ headers: [], rows: [] })
+  const [isFetching, setIsFetching] = useState<boolean>(false)
 
   const pageCount = Math.ceil((mockTableDataForVerticalPagination.headers.length - 1) / pageSize)
 
   useEffect(() => {
-    setData(getPaginatedData(pageIndex, pageSize))
+    // simulate letency
+    setTimeout(() => {
+      setIsFetching(false)
+      setData(getPaginatedData(pageIndex, pageSize))
+    }, 500)
   }, [pageIndex, pageSize])
 
   const nextPage = () => {
+    setIsFetching(true)
     setPageIndex((old: number) => old + 1)
   }
 
@@ -108,6 +120,7 @@ export const TableWithVerticalManualPagination: Story = () => {
         getCanNextPage={getCanNextPage}
         headerAxis="y"
         manualPagination
+        isFetching={isFetching}
       />
     </div>
   )
