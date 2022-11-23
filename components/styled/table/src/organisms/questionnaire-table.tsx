@@ -55,6 +55,7 @@ interface IProps {
   manualPagination?: boolean
   nextPage?: () => void
   getCanNextPage?: () => boolean
+  isFetching?: boolean
 }
 
 export default QuestionnaireTable

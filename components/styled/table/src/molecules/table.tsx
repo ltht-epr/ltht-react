@@ -111,10 +111,9 @@ const Table: FC<IProps> = ({
     <>
       <ScrollableContainer ref={scrollableDivElement} tableHeaderAxis={headerAxis}>
         <TableComponent table={table} staticColumns={staticColumns} />
-        <TableSpinner
-          position={headerAxis === 'x' ? 'bottom' : 'right'}
-          hidden={manualPagination ? !isFetching : true}
-        />
+        {manualPagination ? (
+          <TableSpinner position={headerAxis === 'x' ? 'bottom' : 'right'} hidden={!isFetching} />
+        ) : null}
         <TableNavigationButton
           position={headerAxis === 'x' ? 'bottom' : 'right'}
           hidden={isFetching || (manualPagination ? !getCanNextPage() : !table.getCanNextPage())}
