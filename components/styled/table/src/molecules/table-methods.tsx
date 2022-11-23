@@ -147,7 +147,7 @@ const handleScrollEvent = (table: Table<DataEntity>, headerAxis: Axis, scrollSta
 }
 
 const getPercentageOfMax = (percentage: number, max: number) => {
-  return Math.ceil(max * (percentage / 100))
+  return max * (percentage / 100)
 }
 
 const handleScrollEventManual = (
@@ -159,7 +159,7 @@ const handleScrollEventManual = (
   const { scrollWidth, scrollHeight, currentXScroll, currentYScroll } = scrollState
   if (
     headerAxis === 'x' &&
-    currentYScroll > scrollHeight - getPercentageOfMax(5, scrollHeight) &&
+    currentYScroll >= scrollHeight - getPercentageOfMax(5, scrollHeight) &&
     currentYScroll <= scrollHeight &&
     getCanNextPage()
   ) {
@@ -168,7 +168,7 @@ const handleScrollEventManual = (
 
   if (
     headerAxis === 'y' &&
-    currentXScroll > scrollWidth - getPercentageOfMax(5, scrollWidth) &&
+    currentXScroll >= scrollWidth - getPercentageOfMax(5, scrollWidth) &&
     currentXScroll <= scrollWidth &&
     getCanNextPage()
   ) {
