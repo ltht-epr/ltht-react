@@ -1,9 +1,6 @@
 import { useEffect, useState } from 'react'
 
-const useDimensionsRef = (
-  elementRef: React.RefObject<HTMLElement>,
-  parentElementRef?: React.RefObject<HTMLElement>
-) => {
+const useDimensionsRef = (elementRef: React.RefObject<HTMLElement>, parentElementRef: React.RefObject<HTMLElement>) => {
   const [dimensions, setDimensions] = useState({
     width: 0,
     height: 0,
@@ -23,8 +20,6 @@ const useDimensionsRef = (
       setDimensions(getDimensions())
     }
 
-    window.addEventListener('resize', handleResize)
-
     const parentElementResizeObserver = new ResizeObserver((_e: ResizeObserverEntry[]) => handleResize())
 
     if (parentElementRef?.current) {
@@ -32,7 +27,6 @@ const useDimensionsRef = (
     }
 
     return () => {
-      window.removeEventListener('resize', handleResize)
       parentElementResizeObserver?.disconnect()
     }
   }, [elementRef, parentElementRef])
