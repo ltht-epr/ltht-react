@@ -1,6 +1,6 @@
 {
   "name": "@ltht-react/menu",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "ltht-react styled Menu component.",
   "author": "LTHT",
   "homepage": "",
@@ -27,9 +27,9 @@
   "dependencies": {
     "@emotion/react": "^11.0.0",
     "@emotion/styled": "^11.0.0",
-    "@ltht-react/button": "^1.3.166",
-    "@ltht-react/icon": "^1.3.166",
-    "@ltht-react/styles": "^1.3.158",
+    "@ltht-react/button": "^1.3.167",
+    "@ltht-react/icon": "^1.3.167",
+    "@ltht-react/styles": "^1.3.159",
     "focus-trap-react": "^10.0.0",
     "react": "^17.0.0",
     "react-popper": "^2.3.0"
