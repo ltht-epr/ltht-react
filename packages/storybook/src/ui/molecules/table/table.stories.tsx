@@ -30,7 +30,7 @@ export const TableWithPagination: Story = () => (
   </div>
 )
 
-export const VeritcalTableWithPagination: Story = () => (
+export const VerticalTableWithPagination: Story = () => (
   <div style={{ height: '400px' }}>
     <Table tableData={mockTableDataForVerticalPagination} staticColumns={1} headerAxis="y" />
   </div>
@@ -49,7 +49,7 @@ export const TableWithManualPagination: Story = () => {
   const pageCount = Math.ceil(mockTableDataForPagination.rows.length / pageSize)
 
   useEffect(() => {
-    // simulate letency
+    // simulate latency
     setTimeout(() => {
       setIsFetching(false)
       setData(getPaginatedData(pageIndex, pageSize))
@@ -97,7 +97,7 @@ export const TableWithVerticalManualPagination: Story = () => {
   const pageCount = Math.ceil((mockTableDataForVerticalPagination.headers.length - 1) / pageSize)
 
   useEffect(() => {
-    // simulate letency
+    // simulate latency
     setTimeout(() => {
       setIsFetching(false)
       setData(getPaginatedData(pageIndex, pageSize))
