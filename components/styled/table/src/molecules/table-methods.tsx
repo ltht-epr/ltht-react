@@ -1,7 +1,10 @@
-import { ColumnDef, ColumnHelper, createColumnHelper, HeaderContext } from '@tanstack/react-table'
+import { ColumnDef, ColumnHelper, createColumnHelper, HeaderContext, Table } from '@tanstack/react-table'
 import { IconProps } from '@ltht-react/icon'
+import { Axis } from '@ltht-react/types'
+import React from 'react'
 import { Header, TableData, DataEntity } from './table'
 import TableCell, { CellProps } from './table-cell'
+import { ScrollState } from './useScrollRef'
 
 const createColumns = (tableData: TableData): ColumnDef<DataEntity>[] => {
   const columnHelper = createColumnHelper<DataEntity>()
@@ -100,4 +103,140 @@ const prependColumnWithExpansionControls = (
   return [expanderColumn].concat(columns)
 }
 
-export default createColumns
+const calculateStaticColumnOffset = (
+  cellIdx: number,
+  staticColumns: number,
+  firstColumnWidth: number,
+  secondColumnWidth: number
+) => {
+  if (staticColumns === 0) {
+    return undefined
+  }
+
+  switch (cellIdx) {
+    case 0:
+      return 0
+    case 1:
+      return cellIdx < staticColumns ? firstColumnWidth : undefined
+    case 2:
+      return cellIdx < staticColumns ? firstColumnWidth + secondColumnWidth : undefined
+    default:
+      return undefined
+  }
+}
+
+const handleScrollEvent = (table: Table<DataEntity>, headerAxis: Axis, scrollState: ScrollState) => {
+  const { scrollWidth, scrollHeight, currentXScroll, currentYScroll } = scrollState
+  if (
+    headerAxis === 'x' &&
+    currentYScroll >= scrollHeight - getPercentageOfMax(5, scrollHeight) &&
+    currentYScroll <= scrollHeight &&
+    table.getCanNextPage()
+  ) {
+    table.nextPage()
+  }
+
+  if (
+    headerAxis === 'y' &&
+    currentXScroll >= scrollWidth - getPercentageOfMax(5, scrollWidth) &&
+    currentXScroll <= scrollWidth &&
+    table.getCanNextPage()
+  ) {
+    table.nextPage()
+  }
+}
+
+const getPercentageOfMax = (percentage: number, max: number) => max * (percentage / 100)
+
+const handleScrollEventManual = (
+  getCanNextPage: () => boolean,
+  nextPage: () => void,
+  headerAxis: Axis,
+  scrollState: ScrollState
+) => {
+  const { scrollWidth, scrollHeight, currentXScroll, currentYScroll } = scrollState
+  if (
+    headerAxis === 'x' &&
+    currentYScroll >= scrollHeight - getPercentageOfMax(5, scrollHeight) &&
+    currentYScroll <= scrollHeight &&
+    getCanNextPage()
+  ) {
+    nextPage()
+  }
+
+  if (
+    headerAxis === 'y' &&
+    currentXScroll >= scrollWidth - getPercentageOfMax(5, scrollWidth) &&
+    currentXScroll <= scrollWidth &&
+    getCanNextPage()
+  ) {
+    nextPage()
+  }
+}
+
+const handleDataUpdate = (
+  tableData: TableData,
+  pageIndex: number,
+  pageSize: number,
+  headerAxis: Axis,
+  setColumns: (value: React.SetStateAction<ColumnDef<DataEntity>[]>) => void,
+  setData: (value: React.SetStateAction<DataEntity[]>) => void,
+  setPageCount: (value: React.SetStateAction<number>) => void
+) => {
+  if (tableData && tableData.headers.length > 0) {
+    if (headerAxis === 'x') {
+      setColumns(createColumns(tableData))
+      setData(tableData.rows.slice(0, (pageIndex + 1) * pageSize))
+      setPageCount(Math.ceil(tableData.rows.length / pageSize))
+    } else {
+      const head = tableData.headers[0]
+      const tail = tableData.headers.slice(1, tableData.headers.length)
+      setColumns(createColumns({ headers: [head, ...tail.slice(0, (pageIndex + 1) * pageSize)], rows: tableData.rows }))
+      setData(tableData.rows)
+      setPageCount(Math.ceil(tail.length / pageSize))
+    }
+  }
+}
+
+const calculateSliceStartPoint = (oldLength: number, usingExpanderColumn: boolean) => {
+  if (oldLength > 0) {
+    return usingExpanderColumn ? 2 : 1
+  }
+
+  return 0
+}
+
+const handleDataUpdateForManualPagination = (
+  tableData: TableData,
+  headerAxis: Axis,
+  setColumns: (value: React.SetStateAction<ColumnDef<DataEntity>[]>) => void,
+  setData: (value: React.SetStateAction<DataEntity[]>) => void
+) => {
+  if (headerAxis === 'x') {
+    setData((old) => {
+      const newData = [...old, ...tableData.rows]
+      setColumns(createColumns({ headers: tableData.headers, rows: newData }))
+      return newData
+    })
+  } else if (tableData.headers.length > 0) {
+    setColumns((old) => {
+      const newColumns = createColumns(tableData)
+      const sliceStartPoint = calculateSliceStartPoint(
+        old.length,
+        tableData.rows.some((x) => x.subRows)
+      )
+
+      return [...old, ...newColumns.slice(sliceStartPoint, newColumns.length)]
+    })
+    setData(tableData.rows)
+  }
+}
+
+export {
+  createColumns,
+  calculateStaticColumnOffset,
+  handleScrollEvent,
+  handleScrollEventManual,
+  handleDataUpdate,
+  handleDataUpdateForManualPagination,
+}

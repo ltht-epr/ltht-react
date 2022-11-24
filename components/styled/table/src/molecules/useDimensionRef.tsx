@@ -1,7 +1,10 @@
 import { useEffect, useState } from 'react'
 
-const useDimensionsRef = (elementRef: React.RefObject<HTMLElement>) => {
-  const [dimensions, setDimensions] = useState({ width: 0, height: 0 })
+const useDimensionsRef = (elementRef: React.RefObject<HTMLElement>, parentElementRef: React.RefObject<HTMLElement>) => {
+  const [dimensions, setDimensions] = useState({
+    width: 0,
+    height: 0,
+  })
 
   useEffect(() => {
     const getDimensions = () => ({
@@ -17,12 +20,16 @@ const useDimensionsRef = (elementRef: React.RefObject<HTMLElement>) => {
       setDimensions(getDimensions())
     }
 
-    window.addEventListener('resize', handleResize)
+    const parentElementResizeObserver = new ResizeObserver((_e: ResizeObserverEntry[]) => handleResize())
+
+    if (parentElementRef?.current) {
+      parentElementResizeObserver.observe(parentElementRef.current)
+    }
 
     return () => {
-      window.removeEventListener('resize', handleResize)
+      parentElementResizeObserver?.disconnect()
     }
-  }, [elementRef])
+  }, [elementRef, parentElementRef])
 
   return dimensions
 }

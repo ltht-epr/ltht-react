@@ -6,7 +6,16 @@ import mapQuestionnaireDefinitionAndResponsesToTableData, {
   AdminActionsForQuestionnaire,
 } from './questionnaire-table-methods'
 
-const QuestionnaireTable: FC<IProps> = ({ definition, records, headerAxis = 'y', staticColumns = 0, adminActions }) => {
+const QuestionnaireTable: FC<IProps> = ({
+  definition,
+  records,
+  headerAxis = 'y',
+  staticColumns = 0,
+  adminActions,
+  pageSize = 10,
+  currentPage = 1,
+  ...props
+}) => {
   const tableData = useMemo(
     () => mapQuestionnaireDefinitionAndResponsesToTableData(definition, records, headerAxis, adminActions),
     [headerAxis, definition, records, adminActions]
@@ -23,7 +32,16 @@ const QuestionnaireTable: FC<IProps> = ({ definition, records, headerAxis = 'y',
     )
   }
 
-  return <Table tableData={tableData} staticColumns={staticColumns} />
+  return (
+    <Table
+      tableData={tableData}
+      staticColumns={staticColumns}
+      headerAxis={headerAxis}
+      pageSize={pageSize}
+      currentPage={currentPage}
+      {...props}
+    />
+  )
 }
 
 interface IProps {
@@ -32,6 +50,12 @@ interface IProps {
   headerAxis?: Axis
   adminActions?: AdminActionsForQuestionnaire[]
   staticColumns?: 0 | 1 | 2
+  currentPage?: number
+  pageSize?: number
+  manualPagination?: boolean
+  nextPage?: () => void
+  getCanNextPage?: () => boolean
+  isFetching?: boolean
 }
 
 export default QuestionnaireTable

@@ -39,7 +39,7 @@ import ToggleOnIcon from '../atoms/toggle-on-icon'
 import TrashIcon from '../atoms/trash-icon'
 import UserIcon from '../atoms/user-icon'
 
-const Icon: FC<IconProps> = ({ type, size, status, direction, counterValue, ...rest }) => {
+const Icon: FC<IconProps> = ({ type, size, status, direction, counterValue, animate, ...rest }) => {
   switch (type) {
     case 'bullseye': {
       return <BullseyeIcon size={size} {...rest} />
@@ -150,7 +150,7 @@ const Icon: FC<IconProps> = ({ type, size, status, direction, counterValue, ...r
     }
 
     case 'spinner': {
-      return <SpinnerIcon size={size} {...rest} />
+      return <SpinnerIcon size={size} animate={animate} {...rest} />
     }
 
     case 'stop': {
@@ -205,6 +205,7 @@ export interface IconProps extends HTMLAttributes<SVGElement> {
   status?: IconStatus
   direction?: IconDirection
   counterValue?: number
+  animate?: boolean
 }
 
 export default Icon
