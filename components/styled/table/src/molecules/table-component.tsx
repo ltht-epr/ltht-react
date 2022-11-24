@@ -1,7 +1,7 @@
 import { Icon } from '@ltht-react/icon'
 import { TABLE_COLOURS } from '@ltht-react/styles'
 import { flexRender, Header as ReactTableHeader, Table } from '@tanstack/react-table'
-import React, { useEffect, useMemo, useRef } from 'react'
+import React, { useMemo, useRef } from 'react'
 import { calculateStaticColumnOffset } from './table-methods'
 import {
   StyledNextPageButtonContainer,
@@ -16,18 +16,15 @@ import useDimensionsRef from './useDimensionRef'
 const TableComponent = <T,>({ table, staticColumns }: ITableHeadProps<T>): JSX.Element => {
   const firstColumn = useRef(null)
   const secondColumn = useRef(null)
-  const { width: firstColumnWidth } = useDimensionsRef(firstColumn)
-  const { width: secondColumnWidth } = useDimensionsRef(secondColumn)
+  const tableElement = useRef(null)
+  const { width: firstColumnWidth } = useDimensionsRef(firstColumn, tableElement)
+  const { width: secondColumnWidth } = useDimensionsRef(secondColumn, tableElement)
 
   const usingExpanderColumn = table.getHeaderGroups().some((x) => x.headers.some((h) => h.column.id === 'expander'))
   const totalStaticColumns = useMemo(() => (usingExpanderColumn ? staticColumns + 1 : staticColumns), [
     usingExpanderColumn,
     staticColumns,
   ])
-
-  useEffect(() => {
-    window.dispatchEvent(new Event('resize'))
-  }, [totalStaticColumns])
 
   const getHeaderColumn = <TData, TValue>(header: ReactTableHeader<TData, TValue>, headerIndex: number) => {
     switch (headerIndex) {
@@ -77,7 +74,7 @@ const TableComponent = <T,>({ table, staticColumns }: ITableHeadProps<T>): JSX.E
   )
 
   return (
-    <StyledTable>
+    <StyledTable ref={tableElement}>
       <StyledTHead>
         {table.getHeaderGroups().map((headerGroup) => (
           <tr key={headerGroup.id} role="row">
