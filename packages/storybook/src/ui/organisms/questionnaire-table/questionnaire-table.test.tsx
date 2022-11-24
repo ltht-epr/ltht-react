@@ -11,6 +11,14 @@ import {
   mockAdminActionsForForms,
 } from './questionnaire-table.mockdata'
 
+window.ResizeObserver =
+  window.ResizeObserver ||
+  jest.fn().mockImplementation(() => ({
+    disconnect: jest.fn(),
+    observe: jest.fn(),
+    unobserve: jest.fn(),
+  }))
+
 describe('Questionnaire Table (using Fixture data)', () => {
   it('Renders Vertically', () => {
     render(<QuestionnaireTable definition={summaryDefinition} records={summaryRecordsList} headerAxis="y" />)

@@ -28,7 +28,7 @@ const useDimensionsRef = (
     const parentElementResizeObserver = new ResizeObserver((_e: ResizeObserverEntry[]) => handleResize())
 
     if (parentElementRef?.current) {
-      parentElementResizeObserver.observe(parentElementRef?.current)
+      parentElementResizeObserver.observe(parentElementRef.current)
     }
 
     return () => {

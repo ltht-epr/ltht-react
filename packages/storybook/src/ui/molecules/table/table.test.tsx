@@ -14,6 +14,14 @@ const getDataCells = () => within(screen.getAllByRole('rowgroup')[1])
 const getFirstHeaderRow = () => within(getHeaders().getAllByRole('row')[0])
 const getSecondHeaderRow = () => within(getHeaders().getAllByRole('row')[1])
 
+window.ResizeObserver =
+  window.ResizeObserver ||
+  jest.fn().mockImplementation(() => ({
+    disconnect: jest.fn(),
+    observe: jest.fn(),
+    unobserve: jest.fn(),
+  }))
+
 describe('Simple Table', () => {
   beforeEach(() => {
     render(<Table tableData={mockTableData} />)
