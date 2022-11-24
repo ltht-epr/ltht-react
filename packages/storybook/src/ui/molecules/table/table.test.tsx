@@ -76,6 +76,7 @@ describe('Component overrride', () => {
   })
 })
 
+// TODO: move these test to cypress testing when its setup
 describe('Table with infinite scroll pagination (x)', () => {
   it('navigates to next page using the button when scroll is not available', () => {
     render(
@@ -110,6 +111,7 @@ describe('Table with infinite scroll pagination (x)', () => {
   })
 })
 
+// TODO: move these test to cypress testing when its setup
 describe('Table with infinite scroll pagination (y)', () => {
   it('navigates to next page using the button when scroll is not available', () => {
     render(
@@ -144,6 +146,7 @@ describe('Table with infinite scroll pagination (y)', () => {
   })
 })
 
+// TODO: move these test to cypress testing when its setup
 describe('Table with infinite scroll pagination (x) [MANUAL]', () => {
   const getPaginatedData = (pageIndex: number, pageSize: number): TableData => ({
     headers: mockTableDataForPagination.headers,
@@ -217,6 +220,7 @@ describe('Table with infinite scroll pagination (x) [MANUAL]', () => {
   })
 })
 
+// TODO: move these test to cypress testing when its setup
 describe('Table with infinite scroll pagination (y) [MANUAL]', () => {
   const getPaginatedData = (pageIndex: number, pageSize: number): TableData => ({
     headers: [
