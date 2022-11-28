@@ -9,6 +9,7 @@ import {
 import styled from '@emotion/styled'
 import { Icon, IconButton } from '@ltht-react/icon'
 import { Axis } from '@ltht-react/types'
+import { css } from '@emotion/react'
 
 const ScrollableContainer = styled.div<IScrollableContainer>`
   ${CSS_RESET};
@@ -32,7 +33,6 @@ const ScrollableContainer = styled.div<IScrollableContainer>`
 `
 const StyledTable = styled.table`
   background-color: white;
-  border-collapse: separate;
   border-spacing: 0px;
   border-radius: 6px;
 `
@@ -65,6 +65,39 @@ const StyledTableData = styled.td<IStyledTableCell>`
   &:first-of-type {
     background-color: ${TABLE_COLOURS.HEADER} !important;
   }
+`
+const directionalThemingStyle = (props: IDirectionalTheming) =>
+  props.tableHeaderAxis === 'x'
+    ? css`
+        tr {
+          &:nth-of-type(odd) {
+            background-color: ${TABLE_COLOURS.STRIPE_DARK};
+          }
+          &:hover {
+            background-color: ${TRANSLUCENT_BRIGHT_BLUE};
+            cursor: pointer;
+          }
+
+          td {
+            border: thin solid rgba(200, 200, 200, 0.5);
+            &:first-of-type {
+              font-weight: bold;
+            }
+          }
+        }
+      `
+    : css`
+        td {
+          border: thin solid rgba(200, 200, 200, 0.5);
+          &:nth-of-type(even) {
+            background-color: ${TABLE_COLOURS.STRIPE_DARK};
+          }
+        }
+      `
+const StyledTableBody = styled.tbody`
+  text-align: center;
+
+  ${directionalThemingStyle};
 `
 const PaginationContainer = styled.div`
   ${CSS_RESET};
@@ -188,10 +221,15 @@ interface IScrollableContainer {
   maxWidth?: string
 }
 
+interface IDirectionalTheming {
+  tableHeaderAxis: Axis
+}
+
 export {
   StyledTable,
   StyledTableHeader,
   StyledTableData,
+  StyledTableBody,
   PaginationContainer,
   StyledPaginationPageInput,
   StyledPaginationPageSelect,

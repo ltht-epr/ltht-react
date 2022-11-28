@@ -1,5 +1,4 @@
 import { Icon } from '@ltht-react/icon'
-import { TABLE_COLOURS } from '@ltht-react/styles'
 import { flexRender, Header as ReactTableHeader, Table } from '@tanstack/react-table'
 import React, { useMemo, useRef } from 'react'
 import { calculateStaticColumnOffset } from './table-methods'
@@ -10,6 +9,7 @@ import {
   StyledTableData,
   StyledTableHeader,
   StyledTHead,
+  StyledTableBody,
 } from './table-styled-components'
 import useDimensionsRef from './useDimensionRef'
 
@@ -82,7 +82,7 @@ const TableComponent = <T,>({ table, staticColumns }: ITableHeadProps<T>): JSX.E
           </tr>
         ))}
       </StyledTHead>
-      <tbody>
+      <StyledTableBody tableHeaderAxis="y">
         {table.getRowModel().rows.map((row) => (
           <tr key={row.id} role="row">
             {row.getVisibleCells().map((cell, cellIdx) => (
@@ -94,10 +94,6 @@ const TableComponent = <T,>({ table, staticColumns }: ITableHeadProps<T>): JSX.E
                   secondColumnWidth
                 )}
                 key={cell.id}
-                style={{
-                  background: cellIdx % 2 === 1 ? TABLE_COLOURS.STRIPE_LIGHT : TABLE_COLOURS.STRIPE_DARK,
-                  textAlign: 'center',
-                }}
                 role="cell"
               >
                 {flexRender(cell.column.columnDef.cell, cell.getContext())}
@@ -105,7 +101,7 @@ const TableComponent = <T,>({ table, staticColumns }: ITableHeadProps<T>): JSX.E
             ))}
           </tr>
         ))}
-      </tbody>
+      </StyledTableBody>
     </StyledTable>
   )
 }
