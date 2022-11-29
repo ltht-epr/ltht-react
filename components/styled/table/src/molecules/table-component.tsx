@@ -1,6 +1,7 @@
 import { Icon } from '@ltht-react/icon'
 import { flexRender, Header as ReactTableHeader, Table } from '@tanstack/react-table'
 import React, { useMemo, useRef } from 'react'
+import { Axis } from '@ltht-react/types'
 import { calculateStaticColumnOffset } from './table-methods'
 import {
   StyledNextPageButtonContainer,
@@ -13,10 +14,7 @@ import {
 } from './table-styled-components'
 import useDimensionsRef from './useDimensionRef'
 
-// TODO: Implement this properly to be passed down from table
-const myTableHeaderAxis = 'y'
-
-const TableComponent = <T,>({ table, staticColumns }: ITableHeadProps<T>): JSX.Element => {
+const TableComponent = <T,>({ table, staticColumns, headerAxis }: ITableHeadProps<T>): JSX.Element => {
   const firstColumn = useRef(null)
   const secondColumn = useRef(null)
   const tableElement = useRef(null)
@@ -87,10 +85,10 @@ const TableComponent = <T,>({ table, staticColumns }: ITableHeadProps<T>): JSX.E
       </StyledTHead>
       <tbody>
         {table.getRowModel().rows.map((row) => (
-          <StyledTableRow tableHeaderAxis={myTableHeaderAxis} key={row.id} role="row">
+          <StyledTableRow tableHeaderAxis={headerAxis} key={row.id} role="row">
             {row.getVisibleCells().map((cell, cellIdx) => (
               <StyledTableData
-                tableHeaderAxis={myTableHeaderAxis}
+                tableHeaderAxis={headerAxis}
                 stickyWidth={calculateStaticColumnOffset(
                   cellIdx,
                   totalStaticColumns,
@@ -140,6 +138,7 @@ interface ITableSpinnerProps {
 
 interface ITableHeadProps<T> {
   table: Table<T>
+  headerAxis: Axis
   staticColumns: 0 | 1 | 2
 }
 
