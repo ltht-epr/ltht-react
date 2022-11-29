@@ -6,12 +6,15 @@ import {
   StyledNextPageButtonContainer,
   StyledSpinnerContainer,
   StyledTable,
+  StyledTableRow,
   StyledTableData,
   StyledTableHeader,
   StyledTHead,
-  StyledTableBody,
 } from './table-styled-components'
 import useDimensionsRef from './useDimensionRef'
+
+// TODO: Implement this properly to be passed down from table
+const myTableHeaderAxis = 'y'
 
 const TableComponent = <T,>({ table, staticColumns }: ITableHeadProps<T>): JSX.Element => {
   const firstColumn = useRef(null)
@@ -82,11 +85,12 @@ const TableComponent = <T,>({ table, staticColumns }: ITableHeadProps<T>): JSX.E
           </tr>
         ))}
       </StyledTHead>
-      <StyledTableBody tableHeaderAxis="y">
+      <tbody>
         {table.getRowModel().rows.map((row) => (
-          <tr key={row.id} role="row">
+          <StyledTableRow tableHeaderAxis={myTableHeaderAxis} key={row.id} role="row">
             {row.getVisibleCells().map((cell, cellIdx) => (
               <StyledTableData
+                tableHeaderAxis={myTableHeaderAxis}
                 stickyWidth={calculateStaticColumnOffset(
                   cellIdx,
                   totalStaticColumns,
@@ -99,9 +103,9 @@ const TableComponent = <T,>({ table, staticColumns }: ITableHeadProps<T>): JSX.E
                 {flexRender(cell.column.columnDef.cell, cell.getContext())}
               </StyledTableData>
             ))}
-          </tr>
+          </StyledTableRow>
         ))}
-      </StyledTableBody>
+      </tbody>
     </StyledTable>
   )
 }

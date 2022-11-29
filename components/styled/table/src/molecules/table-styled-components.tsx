@@ -9,7 +9,6 @@ import {
 import styled from '@emotion/styled'
 import { Icon, IconButton } from '@ltht-react/icon'
 import { Axis } from '@ltht-react/types'
-import { css } from '@emotion/react'
 
 const ScrollableContainer = styled.div<IScrollableContainer>`
   ${CSS_RESET};
@@ -54,6 +53,11 @@ const StyledTableData = styled.td<IStyledTableCell>`
   border: thin solid ${TABLE_COLOURS.BORDER};
   white-space: nowrap;
 
+  &:first-of-type {
+    background-color: ${TABLE_COLOURS.HEADER} !important;
+    font-weight: bold;
+  }
+
   ${({ stickyWidth }) =>
     stickyWidth !== undefined &&
     `
@@ -62,42 +66,24 @@ const StyledTableData = styled.td<IStyledTableCell>`
     top: 0;
     z-index: 1;`}
 
-  &:first-of-type {
-    background-color: ${TABLE_COLOURS.HEADER} !important;
-  }
+  ${({ tableHeaderAxis }) =>
+    tableHeaderAxis === 'y' &&
+    `
+    &:nth-of-type(odd) {
+      background-color: ${TABLE_COLOURS.STRIPE_DARK};
+    }`}
 `
-const directionalThemingStyle = (props: IDirectionalTheming) =>
-  props.tableHeaderAxis === 'x'
-    ? css`
-        tr {
-          &:nth-of-type(odd) {
-            background-color: ${TABLE_COLOURS.STRIPE_DARK};
-          }
-          &:hover {
-            background-color: ${TRANSLUCENT_BRIGHT_BLUE};
-            cursor: pointer;
-          }
-
-          td {
-            border: thin solid rgba(200, 200, 200, 0.5);
-            &:first-of-type {
-              font-weight: bold;
-            }
-          }
-        }
-      `
-    : css`
-        td {
-          border: thin solid rgba(200, 200, 200, 0.5);
-          &:nth-of-type(even) {
-            background-color: ${TABLE_COLOURS.STRIPE_DARK};
-          }
-        }
-      `
-const StyledTableBody = styled.tbody`
-  text-align: center;
-
-  ${directionalThemingStyle};
+const StyledTableRow = styled.tr<IStyledTableCell>`
+  ${({ tableHeaderAxis }) =>
+    tableHeaderAxis === 'x' &&
+    `
+    &:nth-of-type(odd) {
+      background-color: ${TABLE_COLOURS.STRIPE_DARK};
+    }
+    &:hover {
+      background-color: ${TRANSLUCENT_BRIGHT_BLUE};
+      cursor: pointer;
+    }`}
 `
 const PaginationContainer = styled.div`
   ${CSS_RESET};
@@ -209,6 +195,7 @@ const StyledTHead = styled.thead`
 
 interface IStyledTableCell {
   stickyWidth?: number
+  tableHeaderAxis?: string
 }
 
 interface IStyledNextPageButtonContainer {
@@ -221,15 +208,11 @@ interface IScrollableContainer {
   maxWidth?: string
 }
 
-interface IDirectionalTheming {
-  tableHeaderAxis: Axis
-}
-
 export {
   StyledTable,
   StyledTableHeader,
+  StyledTableRow,
   StyledTableData,
-  StyledTableBody,
   PaginationContainer,
   StyledPaginationPageInput,
   StyledPaginationPageSelect,
