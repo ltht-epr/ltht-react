@@ -13,13 +13,11 @@ import { Axis } from '@ltht-react/types'
 const ScrollableContainer = styled.div<IScrollableContainer>`
   ${CSS_RESET};
   background-color: white;
-  ${({ tableHeaderAxis, maxWidth, maxHeight }) => {
-    return `
-      display: ${tableHeaderAxis === 'y' ? 'inline-flex' : 'inline-block'};
-      max-width: ${maxWidth ? maxWidth : '100%'};
-      max-height: ${maxHeight ? maxHeight : '100%'};
-    `
-  }}
+  ${({ tableHeaderAxis, maxWidth, maxHeight }) => `
+    display: ${tableHeaderAxis === 'y' ? 'inline-flex' : 'inline-block'};
+    max-width: ${maxWidth ? maxWidth : '100%'};
+    max-height: ${maxHeight ? maxHeight : '100%'};
+  `}
   border-radius: 6px;
   overflow: auto;
   &::-webkit-scrollbar {
