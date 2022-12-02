@@ -31,7 +31,6 @@ const ScrollableContainer = styled.div<IScrollableContainer>`
   }
 `
 const StyledTable = styled.table`
-  background-color: white;
   border-spacing: 0px;
   border-radius: 6px;
 `
@@ -49,9 +48,12 @@ const StyledTableHeader = styled.th<IStyledTableCell>`
     top: 0;
     z-index: 1;`}
 `
+// TODO: Fix 'Actions' column being transparent on horizontal tables (is only solid when background-color is set for StyledTableData)
 const StyledTableData = styled.td<IStyledTableCell>`
+  //background-color: ${TABLE_COLOURS.STRIPE_LIGHT};
   border: thin solid ${TABLE_COLOURS.BORDER};
   white-space: nowrap;
+  text-align: center;
 
   &:first-of-type {
     background-color: ${TABLE_COLOURS.HEADER} !important;
@@ -69,7 +71,7 @@ const StyledTableData = styled.td<IStyledTableCell>`
   ${({ tableHeaderAxis }) =>
     tableHeaderAxis === 'y' &&
     `
-    &:nth-of-type(odd) {
+    &:nth-of-type(even) {
       background-color: ${TABLE_COLOURS.STRIPE_DARK};
     }`}
 `
@@ -79,10 +81,6 @@ const StyledTableRow = styled.tr<IStyledTableCell>`
     `
     &:nth-of-type(odd) {
       background-color: ${TABLE_COLOURS.STRIPE_DARK};
-    }
-    &:hover {
-      background-color: ${TRANSLUCENT_BRIGHT_BLUE};
-      cursor: pointer;
     }`}
 `
 const PaginationContainer = styled.div`
