@@ -165,6 +165,7 @@ describe('Table with infinite scroll pagination (x) [MANUAL]', () => {
           getCanNextPage={mockGetCanNextPageHandler}
           headerAxis="x"
           manualPagination
+          keepPreviousData
         />
       </div>
     )
@@ -195,6 +196,7 @@ describe('Table with infinite scroll pagination (x) [MANUAL]', () => {
           getCanNextPage={mockGetCanNextPageHandler}
           headerAxis="x"
           manualPagination
+          keepPreviousData
         />
       </div>
     )
@@ -244,6 +246,7 @@ describe('Table with infinite scroll pagination (y) [MANUAL]', () => {
           getCanNextPage={mockGetCanNextPageHandler}
           headerAxis="y"
           manualPagination
+          keepPreviousData
         />
       </div>
     )
@@ -274,6 +277,7 @@ describe('Table with infinite scroll pagination (y) [MANUAL]', () => {
           getCanNextPage={mockGetCanNextPageHandler}
           headerAxis="y"
           manualPagination
+          keepPreviousData
         />
       </div>
     )

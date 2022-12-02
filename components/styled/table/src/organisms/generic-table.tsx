@@ -8,12 +8,20 @@ const GenericTable = <TColumn, TRow>({
   headerAxis = 'x',
   pageSize = 10,
   currentPage = 1,
+  keepPreviousData = true,
   ...props
 }: IProps<TColumn, TRow>) => {
   const tableData = mapToTableData(columnData, rowData)
 
   return (
-    <Table tableData={tableData} headerAxis={headerAxis} pageSize={pageSize} currentPage={currentPage} {...props} />
+    <Table
+      tableData={tableData}
+      headerAxis={headerAxis}
+      pageSize={pageSize}
+      currentPage={currentPage}
+      keepPreviousData={keepPreviousData}
+      {...props}
+    />
   )
 }
 
@@ -28,6 +36,7 @@ interface IProps<TColumn, TRow> {
   nextPage?: () => void
   getCanNextPage?: () => boolean
   isFetching?: boolean
+  keepPreviousData?: boolean
 }
 
 export default GenericTable

@@ -14,6 +14,7 @@ const QuestionnaireTable: FC<IProps> = ({
   adminActions,
   pageSize = 10,
   currentPage = 1,
+  keepPreviousData = true,
   ...props
 }) => {
   const tableData = useMemo(
@@ -39,6 +40,7 @@ const QuestionnaireTable: FC<IProps> = ({
       headerAxis={headerAxis}
       pageSize={pageSize}
       currentPage={currentPage}
+      keepPreviousData={keepPreviousData}
       {...props}
     />
   )
@@ -56,6 +58,7 @@ interface IProps {
   nextPage?: () => void
   getCanNextPage?: () => boolean
   isFetching?: boolean
+  keepPreviousData?: boolean
 }
 
 export default QuestionnaireTable
