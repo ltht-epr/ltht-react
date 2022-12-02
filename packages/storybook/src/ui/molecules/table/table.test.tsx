@@ -153,6 +153,37 @@ describe('Table with infinite scroll pagination (x) [MANUAL]', () => {
     rows: mockTableDataForPagination.rows.slice(pageIndex * pageSize, (pageIndex + 1) * pageSize),
   })
 
+  it('navigates to next page using the button (NOT keeping previous data)', async () => {
+    const mockNextPageHandler = jest.fn(() => null)
+    const mockGetCanNextPageHandler = jest.fn(() => true)
+
+    const getTable = (pageIndex: number) => (
+      <div style={{ height: '400px' }}>
+        <Table
+          tableData={getPaginatedData(pageIndex, 10)}
+          nextPage={mockNextPageHandler}
+          getCanNextPage={mockGetCanNextPageHandler}
+          headerAxis="x"
+          manualPagination
+          keepPreviousData={false}
+        />
+      </div>
+    )
+
+    const { rerender } = render(getTable(0))
+
+    expect(screen.getAllByRole('row').length).toEqual(11)
+
+    userEvent.click(screen.getByRole('button'))
+
+    rerender(getTable(1))
+
+    expect(within(screen.getByRole('table')).getAllByRole('row').length).toEqual(11)
+
+    expect(mockGetCanNextPageHandler).toHaveBeenCalled()
+    expect(mockNextPageHandler).toHaveBeenCalled()
+  })
+
   it('navigates to next page using the button when scroll is not available', async () => {
     const mockNextPageHandler = jest.fn(() => null)
     const mockGetCanNextPageHandler = jest.fn(() => true)
@@ -232,6 +263,37 @@ describe('Table with infinite scroll pagination (y) [MANUAL]', () => {
         .slice(pageIndex * pageSize, (pageIndex + 1) * pageSize),
     ],
     rows: mockTableDataForVerticalPagination.rows,
+  })
+
+  it('navigates to next page using the button (NOT Keeping Previous Data)', () => {
+    const mockNextPageHandler = jest.fn(() => null)
+    const mockGetCanNextPageHandler = jest.fn(() => true)
+
+    const getTable = (pageIndex: number) => (
+      <div style={{ maxWidth: '100%' }}>
+        <Table
+          tableData={getPaginatedData(pageIndex, 10)}
+          nextPage={mockNextPageHandler}
+          getCanNextPage={mockGetCanNextPageHandler}
+          headerAxis="y"
+          manualPagination
+          keepPreviousData={false}
+        />
+      </div>
+    )
+
+    const { rerender } = render(getTable(0))
+
+    expect(screen.getAllByRole('columnheader').length).toEqual(11)
+
+    userEvent.click(screen.getByRole('button'))
+
+    rerender(getTable(1))
+
+    expect(screen.getAllByRole('columnheader').length).toEqual(11)
+
+    expect(mockGetCanNextPageHandler).toHaveBeenCalled()
+    expect(mockNextPageHandler).toHaveBeenCalled()
   })
 
   it('navigates to next page using the button when scroll is not available', () => {
