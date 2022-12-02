@@ -1,5 +1,5 @@
 import { Axis } from '@ltht-react/types'
-import Table, { TableData } from '../molecules/table'
+import Table, { IPaginationProps, ITableDimensionProps, TableData } from '../molecules/table'
 
 const GenericTable = <TColumn, TRow>({
   columnData,
@@ -8,26 +8,28 @@ const GenericTable = <TColumn, TRow>({
   headerAxis = 'x',
   pageSize = 10,
   currentPage = 1,
+  keepPreviousData = true,
   ...props
 }: IProps<TColumn, TRow>) => {
   const tableData = mapToTableData(columnData, rowData)
 
   return (
-    <Table tableData={tableData} headerAxis={headerAxis} pageSize={pageSize} currentPage={currentPage} {...props} />
+    <Table
+      tableData={tableData}
+      headerAxis={headerAxis}
+      pageSize={pageSize}
+      currentPage={currentPage}
+      keepPreviousData={keepPreviousData}
+      {...props}
+    />
   )
 }
 
-interface IProps<TColumn, TRow> {
+interface IProps<TColumn, TRow> extends IPaginationProps, ITableDimensionProps {
   columnData: TColumn
   rowData: TRow
   mapToTableData: (colData: TColumn, rowData: TRow) => TableData
   headerAxis?: Axis
-  currentPage?: number
-  pageSize?: number
-  manualPagination?: boolean
-  nextPage?: () => void
-  getCanNextPage?: () => boolean
-  isFetching?: boolean
 }
 
 export default GenericTable

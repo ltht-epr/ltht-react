@@ -1,7 +1,7 @@
 import { QuestionnaireResponse, Axis, Questionnaire } from '@ltht-react/types'
 import { FC, useMemo } from 'react'
 import { Icon } from '@ltht-react/icon'
-import Table from '../molecules/table'
+import Table, { IPaginationProps, ITableDimensionProps } from '../molecules/table'
 import mapQuestionnaireDefinitionAndResponsesToTableData, {
   AdminActionsForQuestionnaire,
 } from './questionnaire-table-methods'
@@ -14,6 +14,7 @@ const QuestionnaireTable: FC<IProps> = ({
   adminActions,
   pageSize = 10,
   currentPage = 1,
+  keepPreviousData = true,
   ...props
 }) => {
   const tableData = useMemo(
@@ -39,23 +40,18 @@ const QuestionnaireTable: FC<IProps> = ({
       headerAxis={headerAxis}
       pageSize={pageSize}
       currentPage={currentPage}
+      keepPreviousData={keepPreviousData}
       {...props}
     />
   )
 }
 
-interface IProps {
+interface IProps extends IPaginationProps, ITableDimensionProps {
   definition: Questionnaire
   records: QuestionnaireResponse[]
   headerAxis?: Axis
   adminActions?: AdminActionsForQuestionnaire[]
   staticColumns?: 0 | 1 | 2
-  currentPage?: number
-  pageSize?: number
-  manualPagination?: boolean
-  nextPage?: () => void
-  getCanNextPage?: () => boolean
-  isFetching?: boolean
 }
 
 export default QuestionnaireTable

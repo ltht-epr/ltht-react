@@ -209,12 +209,13 @@ const calculateSliceStartPoint = (oldLength: number, usingExpanderColumn: boolea
 const handleDataUpdateForManualPagination = (
   tableData: TableData,
   headerAxis: Axis,
+  keepPreviousData: boolean,
   setColumns: (value: React.SetStateAction<ColumnDef<DataEntity>[]>) => void,
   setData: (value: React.SetStateAction<DataEntity[]>) => void
 ) => {
   if (headerAxis === 'x') {
     setData((old) => {
-      const newData = [...old, ...tableData.rows]
+      const newData = keepPreviousData ? [...old, ...tableData.rows] : tableData.rows
       setColumns(createColumns({ headers: tableData.headers, rows: newData }))
       return newData
     })
@@ -226,7 +227,7 @@ const handleDataUpdateForManualPagination = (
         tableData.rows.some((x) => x.subRows)
       )
 
-      return [...old, ...newColumns.slice(sliceStartPoint, newColumns.length)]
+      return keepPreviousData ? [...old, ...newColumns.slice(sliceStartPoint, newColumns.length)] : newColumns
     })
     setData(tableData.rows)
   }

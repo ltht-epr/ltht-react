@@ -31,6 +31,9 @@ const Table: FC<IProps> = ({
   getCanNextPage = () => false,
   nextPage = () => null,
   isFetching = false,
+  keepPreviousData = false,
+  maxHeight,
+  maxWidth,
 }) => {
   const scrollableDivElement = useRef(null)
   const scrollState = useScrollRef(scrollableDivElement)
@@ -43,7 +46,6 @@ const Table: FC<IProps> = ({
   })
 
   const pagination = useMemo(() => ({ pageIndex, pageSize }), [pageIndex, pageSize])
-
   const [data, setData] = useState<DataEntity[]>([])
   const [columns, setColumns] = useState<ColumnDef<DataEntity>[]>([])
   const [pageCount, setPageCount] = useState<number>(-1)
@@ -56,9 +58,9 @@ const Table: FC<IProps> = ({
 
   useEffect(() => {
     if (manualPagination) {
-      handleDataUpdateForManualPagination(tableData, headerAxis, setColumns, setData)
+      handleDataUpdateForManualPagination(tableData, headerAxis, keepPreviousData, setColumns, setData)
     }
-  }, [headerAxis, tableData, manualPagination])
+  }, [headerAxis, tableData, manualPagination, keepPreviousData])
 
   const table = useReactTable({
     data,
@@ -108,32 +110,39 @@ const Table: FC<IProps> = ({
   }
 
   return (
-    <>
-      <ScrollableContainer ref={scrollableDivElement} tableHeaderAxis={headerAxis}>
-        <TableComponent table={table} staticColumns={staticColumns} />
-        {manualPagination ? (
-          <TableSpinner position={headerAxis === 'x' ? 'bottom' : 'right'} hidden={!isFetching} />
-        ) : null}
-        <TableNavigationButton
-          position={headerAxis === 'x' ? 'bottom' : 'right'}
-          hidden={isFetching || (manualPagination ? !getCanNextPage() : !table.getCanNextPage())}
-          clickHandler={getNextPage}
-        />
-      </ScrollableContainer>
-    </>
+    <ScrollableContainer ref={scrollableDivElement} tableHeaderAxis={headerAxis} {...{ maxHeight, maxWidth }}>
+      <TableComponent table={table} staticColumns={staticColumns} />
+      {manualPagination ? (
+        <TableSpinner position={headerAxis === 'x' ? 'bottom' : 'right'} hidden={!isFetching} />
+      ) : null}
+      <TableNavigationButton
+        position={headerAxis === 'x' ? 'bottom' : 'right'}
+        hidden={isFetching || (manualPagination ? !getCanNextPage() : !table.getCanNextPage())}
+        clickHandler={getNextPage}
+      />
+    </ScrollableContainer>
   )
 }
 
-interface IProps {
+interface IProps extends IPaginationProps, ITableDimensionProps {
   tableData: TableData
   staticColumns?: 0 | 1 | 2
+  headerAxis?: Axis
+}
+
+export interface IPaginationProps {
   currentPage?: number
   pageSize?: number
-  headerAxis?: Axis
   manualPagination?: boolean
   nextPage?: () => void
   getCanNextPage?: () => boolean
   isFetching?: boolean
+  keepPreviousData?: boolean
+}
+
+export interface ITableDimensionProps {
+  maxWidth?: string
+  maxHeight?: string
 }
 
 type DataEntity = Record<string, CellProps | DataEntity[]> & {
