@@ -48,9 +48,7 @@ const StyledTableHeader = styled.th<IStyledTableCell>`
     top: 0;
     z-index: 1;`}
 `
-// TODO: Fix 'Actions' column being transparent on horizontal tables (is only solid when background-color is set for StyledTableData)
 const StyledTableData = styled.td<IStyledTableCell>`
-  //background-color: ${TABLE_COLOURS.STRIPE_LIGHT};
   border: thin solid ${TABLE_COLOURS.BORDER};
   white-space: nowrap;
   text-align: center;
@@ -63,6 +61,7 @@ const StyledTableData = styled.td<IStyledTableCell>`
   ${({ stickyWidth }) =>
     stickyWidth !== undefined &&
     `
+    background-color: ${TABLE_COLOURS.STRIPE_LIGHT};
     position: sticky !important;
     left: ${stickyWidth}px;
     top: 0;
