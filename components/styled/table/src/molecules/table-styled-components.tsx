@@ -15,8 +15,8 @@ const ScrollableContainer = styled.div<IScrollableContainer>`
   background-color: white;
   ${({ tableHeaderAxis, maxWidth, maxHeight }) => `
     display: ${tableHeaderAxis === 'y' ? 'inline-flex' : 'inline-block'};
-    max-width: ${maxWidth ? maxWidth : '100%'};
-    max-height: ${maxHeight ? maxHeight : '100%'};
+    max-width: ${maxWidth ?? '100%'};
+    max-height: ${maxHeight ?? '100%'};
   `}
   border-radius: 6px;
   overflow: auto;
