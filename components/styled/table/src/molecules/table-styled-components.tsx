@@ -31,8 +31,6 @@ const ScrollableContainer = styled.div<IScrollableContainer>`
   }
 `
 const StyledTable = styled.table`
-  background-color: white;
-  border-collapse: separate;
   border-spacing: 0px;
   border-radius: 6px;
 `
@@ -53,18 +51,36 @@ const StyledTableHeader = styled.th<IStyledTableCell>`
 const StyledTableData = styled.td<IStyledTableCell>`
   border: thin solid ${TABLE_COLOURS.BORDER};
   white-space: nowrap;
+  text-align: center;
+
+  &:first-of-type {
+    background-color: ${TABLE_COLOURS.HEADER} !important;
+    font-weight: bold;
+  }
 
   ${({ stickyWidth }) =>
     stickyWidth !== undefined &&
     `
+    background-color: ${TABLE_COLOURS.STRIPE_LIGHT};
     position: sticky !important;
     left: ${stickyWidth}px;
     top: 0;
     z-index: 1;`}
 
-  &:first-of-type {
-    background-color: ${TABLE_COLOURS.HEADER} !important;
-  }
+  ${({ tableHeaderAxis }) =>
+    tableHeaderAxis === 'y' &&
+    `
+    &:nth-of-type(even) {
+      background-color: ${TABLE_COLOURS.STRIPE_DARK};
+    }`}
+`
+const StyledTableRow = styled.tr<IStyledTableCell>`
+  ${({ tableHeaderAxis }) =>
+    tableHeaderAxis === 'x' &&
+    `
+    &:nth-of-type(odd) {
+      background-color: ${TABLE_COLOURS.STRIPE_DARK};
+    }`}
 `
 const PaginationContainer = styled.div`
   ${CSS_RESET};
@@ -176,6 +192,7 @@ const StyledTHead = styled.thead`
 
 interface IStyledTableCell {
   stickyWidth?: number
+  tableHeaderAxis?: string
 }
 
 interface IStyledNextPageButtonContainer {
@@ -191,6 +208,7 @@ interface IScrollableContainer {
 export {
   StyledTable,
   StyledTableHeader,
+  StyledTableRow,
   StyledTableData,
   PaginationContainer,
   StyledPaginationPageInput,

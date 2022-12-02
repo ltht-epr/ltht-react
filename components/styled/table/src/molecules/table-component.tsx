@@ -1,19 +1,20 @@
 import { Icon } from '@ltht-react/icon'
-import { TABLE_COLOURS } from '@ltht-react/styles'
 import { flexRender, Header as ReactTableHeader, Table } from '@tanstack/react-table'
 import React, { useMemo, useRef } from 'react'
+import { Axis } from '@ltht-react/types'
 import { calculateStaticColumnOffset } from './table-methods'
 import {
   StyledNextPageButtonContainer,
   StyledSpinnerContainer,
   StyledTable,
+  StyledTableRow,
   StyledTableData,
   StyledTableHeader,
   StyledTHead,
 } from './table-styled-components'
 import useDimensionsRef from './useDimensionRef'
 
-const TableComponent = <T,>({ table, staticColumns }: ITableHeadProps<T>): JSX.Element => {
+const TableComponent = <T,>({ table, staticColumns, headerAxis }: ITableHeadProps<T>): JSX.Element => {
   const firstColumn = useRef(null)
   const secondColumn = useRef(null)
   const tableElement = useRef(null)
@@ -84,9 +85,10 @@ const TableComponent = <T,>({ table, staticColumns }: ITableHeadProps<T>): JSX.E
       </StyledTHead>
       <tbody>
         {table.getRowModel().rows.map((row) => (
-          <tr key={row.id} role="row">
+          <StyledTableRow tableHeaderAxis={headerAxis} key={row.id} role="row">
             {row.getVisibleCells().map((cell, cellIdx) => (
               <StyledTableData
+                tableHeaderAxis={headerAxis}
                 stickyWidth={calculateStaticColumnOffset(
                   cellIdx,
                   totalStaticColumns,
@@ -94,16 +96,12 @@ const TableComponent = <T,>({ table, staticColumns }: ITableHeadProps<T>): JSX.E
                   secondColumnWidth
                 )}
                 key={cell.id}
-                style={{
-                  background: cellIdx % 2 === 1 ? TABLE_COLOURS.STRIPE_LIGHT : TABLE_COLOURS.STRIPE_DARK,
-                  textAlign: 'center',
-                }}
                 role="cell"
               >
                 {flexRender(cell.column.columnDef.cell, cell.getContext())}
               </StyledTableData>
             ))}
-          </tr>
+          </StyledTableRow>
         ))}
       </tbody>
     </StyledTable>
@@ -140,6 +138,7 @@ interface ITableSpinnerProps {
 
 interface ITableHeadProps<T> {
   table: Table<T>
+  headerAxis: Axis
   staticColumns: 0 | 1 | 2
 }
 
