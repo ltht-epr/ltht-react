@@ -1,6 +1,6 @@
 import { FC, InputHTMLAttributes } from 'react'
 import styled from '@emotion/styled'
-import { BADGE_COLOURS } from '@ltht-react/styles'
+import { INPUT_COLOURS } from '@ltht-react/styles'
 
 const StyledCheckbox = styled.div<InputHTMLAttributes<HTMLInputElement>>`
   display: flex;
@@ -25,7 +25,7 @@ const StyledInput = styled.input`
   }
 
   &:checked:before {
-    background-color: ${BADGE_COLOURS.PRIMARY};
+    background-color: ${INPUT_COLOURS.RADIO_SELECTED};
     content: '';
     color: white;
   }

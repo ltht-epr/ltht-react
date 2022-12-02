@@ -1177,6 +1177,7 @@ export type EhrConditionsArgs = {
   count?: Maybe<Scalars['Int']>;
   cursorToken?: Maybe<Scalars['String']>;
   patientGuid: Scalars['String'];
+  severity?: Maybe<Array<Maybe<Scalars['String']>>>;
   sortBy?: Maybe<SortOptionType>;
   verificationStatus?: Maybe<Array<Maybe<ConditionVerificationStatus>>>;
 };
@@ -1797,6 +1798,8 @@ export type Extension = {
   valueDateTime?: Maybe<PartialDateTime>;
   /** Value of extension (Identifier). */
   valueIdentifier?: Maybe<Identifier>;
+  /** Value of extension (Integer). */
+  valueInteger?: Maybe<Scalars['Int']>;
   /** Value of extension (String). */
   valueString?: Maybe<Scalars['String']>;
   /** Value of extension (Uuid). */
@@ -2756,6 +2759,8 @@ export type QuestionnaireItem = {
   item?: Maybe<Array<Maybe<QuestionnaireItem>>>;
   /** Unique id for item in questionnaire. */
   linkId?: Maybe<Scalars['String']>;
+  /** No more than this many characters. */
+  maxLength?: Maybe<Scalars['Int']>;
   /** E.g. '1(a)', '2.5.3'. */
   prefix?: Maybe<Scalars['String']>;
   /** Whether the item may repeat. */
@@ -2789,9 +2794,11 @@ export enum QuestionnaireItemTypeCode {
   QuestionChoice = 'QUESTION_CHOICE',
   QuestionCoding = 'QUESTION_CODING',
   QuestionDate = 'QUESTION_DATE',
+  QuestionDateTime = 'QUESTION_DATE_TIME',
   QuestionString = 'QUESTION_STRING',
   QuestionStringBbCode = 'QUESTION_STRING_BB_CODE',
   QuestionStringHtml = 'QUESTION_STRING_HTML',
+  QuestionText = 'QUESTION_TEXT',
   Unknown = 'UNKNOWN'
 }
 
