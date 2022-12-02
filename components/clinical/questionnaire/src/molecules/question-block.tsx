@@ -40,7 +40,7 @@ const DisplayBlock = styled.div`
 `
 
 const generateAnswer = (
-  type?: QuestionTypes,
+  type?: QuestionnaireItemTypeCode,
   responseItem?: Maybe<QuestionnaireResponseItem>,
   showIfEmpty?: Maybe<boolean>,
   question?: Maybe<string>
@@ -171,22 +171,10 @@ interface IAnswer {
 
 interface IProps {
   className?: string
-  type?: QuestionTypes
+  type?: QuestionnaireItemTypeCode
   question?: Maybe<string>
   responseItem?: Maybe<QuestionnaireResponseItem>
   showIfEmpty?: Maybe<boolean>
 }
-
-type QuestionTypes =
-  | QuestionnaireItemTypeCode.Display
-  | QuestionnaireItemTypeCode.Group
-  | QuestionnaireItemTypeCode.QuestionBoolean
-  | QuestionnaireItemTypeCode.QuestionDate
-  | QuestionnaireItemTypeCode.QuestionString
-  | QuestionnaireItemTypeCode.QuestionStringBbCode
-  | QuestionnaireItemTypeCode.QuestionStringHtml
-  | QuestionnaireItemTypeCode.QuestionCoding
-  | QuestionnaireItemTypeCode.QuestionChoice
-  | QuestionnaireItemTypeCode.Unknown
 
 export default QuestionBlock
