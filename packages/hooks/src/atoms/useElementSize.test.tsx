@@ -1,14 +1,13 @@
 import { renderHook } from '@testing-library/react-hooks'
-import useElementSize from './useElementSize'
 import { act } from 'react-dom/test-utils'
 
+import useElementSize from './useElementSize'
+
 describe('useElementSize', () => {
-  const resize = (ref: React.MutableRefObject<Element>, width: number, height: number) => {
-    return [
-      jest.spyOn(ref.current, 'clientWidth', 'get').mockImplementation(() => width),
-      jest.spyOn(ref.current, 'clientHeight', 'get').mockImplementation(() => height),
-    ]
-  }
+  const resize = (ref: React.MutableRefObject<Element>, width: number, height: number) => [
+    jest.spyOn(ref.current, 'clientWidth', 'get').mockImplementation(() => width),
+    jest.spyOn(ref.current, 'clientHeight', 'get').mockImplementation(() => height),
+  ]
 
   it('Should return the correct width and height values on resize', async () => {
     const elementRef = {
