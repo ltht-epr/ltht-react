@@ -50,7 +50,7 @@ const StyledTableHeader = styled.th<IStyledTableCell>`
 `
 const StyledTableData = styled.td<IStyledTableCell>`
   border: thin solid ${TABLE_COLOURS.BORDER};
-  white-space: nowrap;
+  white-space: normal;
   text-align: center;
 
   &:first-of-type {
