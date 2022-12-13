@@ -1,5 +1,6 @@
 import { Axis } from '@ltht-react/types'
-import Table, { IPaginationProps, ITableDimensionProps, TableData } from '../molecules/table'
+import Table from '../molecules/table'
+import { IPaginationProps, ITableDimensionProps, TableData } from '../molecules/table-core'
 
 const GenericTable = <TColumn, TRow>({
   columnData,

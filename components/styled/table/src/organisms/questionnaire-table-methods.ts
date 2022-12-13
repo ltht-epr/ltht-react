@@ -9,7 +9,7 @@ import {
   QuestionnaireResponseItemAnswer,
 } from '@ltht-react/types'
 import { EnsureMaybe, EnsureMaybeArray, partialDateTimeText } from '@ltht-react/utils'
-import { DataEntity, Header, TableData } from '../molecules/table'
+import { DataEntity, Header, TableData } from '../molecules/table-core'
 import { CellProps } from '../molecules/table-cell'
 
 const mapQuestionnaireDefinitionAndResponsesToTableData = (

@@ -3,7 +3,7 @@ import Button, { ButtonProps } from '@ltht-react/button/lib/atoms/button'
 import { Icon, IconButton, IconProps } from '@ltht-react/icon'
 import { BTN_COLOURS, CSS_RESET } from '@ltht-react/styles'
 import FocusTrap from 'focus-trap-react'
-import { FC, HTMLAttributes, useRef, useState } from 'react'
+import { FC, HTMLAttributes, useState, useRef } from 'react'
 import { usePopper } from 'react-popper'
 
 const defaultMenuButtonProps: IconButtonMenuProps = {
@@ -69,23 +69,35 @@ const ActionMenu: FC<IProps> = ({
 }) => {
   const popperRef = useRef<HTMLDivElement>(null)
   const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(null)
+  // const [containerElement, setContainerElement] = useState<HTMLDivElement | null>(null)
 
   const popper = usePopper(popperRef.current, popperElement, {
     placement: 'bottom-start',
   })
 
   const closePopper = () => {
+    //setParentContainerZIndex(1)
     setShowMenu(false)
   }
 
   const [showMenu, setShowMenu] = useState(false)
 
+  // const setParentContainerZIndex = (zIndex: number | null) => {
+  //   const parentContainer = containerElement?.parentElement
+  //   console.log(containerElement, parentContainer)
+  //   if (parentContainer) {
+  //     parentContainer.setAttribute('style', `z-index: ${zIndex}`)
+  //     console.log('set zindex: ' + zIndex)
+  //   }
+  // }
+
   const menuButtonClickHandler = () => {
+    //setParentContainerZIndex(showMenu ? 1 : 2)
     setShowMenu(!showMenu)
   }
 
   return (
-    <>
+    <div>
       <FocusTrap
         active={showMenu}
         focusTrapOptions={{
@@ -120,7 +132,12 @@ const ActionMenu: FC<IProps> = ({
             </Button>
           )}
           {showMenu && (
-            <StyledCard tabIndex={-1} ref={setPopperElement} style={popper.styles.popper} {...popper.attributes.popper}>
+            <StyledCard
+              tabIndex={-1}
+              ref={setPopperElement}
+              style={{ ...popper.styles.popper, zIndex: 3 }}
+              {...popper.attributes.popper}
+            >
               <StyledUnorderedList role="menu" aria-labelledby={id}>
                 {actions.map((action, idx) => (
                   <StyledListItem
@@ -141,7 +158,7 @@ const ActionMenu: FC<IProps> = ({
           )}
         </StyledMenuButtonWrapper>
       </FocusTrap>
-    </>
+    </div>
   )
 }
 

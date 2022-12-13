@@ -1,5 +1,5 @@
 import { Icon } from '@ltht-react/icon'
-import { flexRender, Header as ReactTableHeader, Table } from '@tanstack/react-table'
+import { Cell, flexRender, Header as ReactTableHeader, Table } from '@tanstack/react-table'
 import React, { useMemo, useRef } from 'react'
 import { Axis } from '@ltht-react/types'
 import { calculateStaticColumnOffset } from './table-methods'
@@ -13,8 +13,10 @@ import {
   StyledTHead,
 } from './table-styled-components'
 import useDimensionsRef from './useDimensionRef'
+import { DataEntity } from './table-core'
+import { CellProps } from './table-cell'
 
-const TableComponent = <T,>({ table, staticColumns, headerAxis }: ITableHeadProps<T>): JSX.Element => {
+const TableComponent = ({ table, staticColumns, headerAxis }: ITableHeadProps): JSX.Element => {
   const firstColumn = useRef(null)
   const secondColumn = useRef(null)
   const tableElement = useRef(null)
@@ -74,6 +76,9 @@ const TableComponent = <T,>({ table, staticColumns, headerAxis }: ITableHeadProp
     </StyledTableHeader>
   )
 
+  const doesCellContainActionMenu = (cell: Cell<DataEntity, CellProps>): boolean =>
+    (cell.getValue()?.adminActions?.length ?? 0) > 0
+
   return (
     <StyledTable ref={tableElement}>
       <StyledTHead>
@@ -88,6 +93,7 @@ const TableComponent = <T,>({ table, staticColumns, headerAxis }: ITableHeadProp
           <StyledTableRow tableHeaderAxis={headerAxis} key={row.id} role="row">
             {row.getVisibleCells().map((cell, cellIdx) => (
               <StyledTableData
+                containsActionMenu={doesCellContainActionMenu(cell as Cell<DataEntity, CellProps>)}
                 tableHeaderAxis={headerAxis}
                 stickyWidth={calculateStaticColumnOffset(
                   cellIdx,
@@ -136,8 +142,8 @@ interface ITableSpinnerProps {
   hidden: boolean
 }
 
-interface ITableHeadProps<T> {
-  table: Table<T>
+interface ITableHeadProps {
+  table: Table<DataEntity>
   headerAxis: Axis
   staticColumns: 0 | 1 | 2
 }

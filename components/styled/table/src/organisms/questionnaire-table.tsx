@@ -1,7 +1,8 @@
 import { QuestionnaireResponse, Axis, Questionnaire } from '@ltht-react/types'
 import { FC, useMemo } from 'react'
 import { Icon } from '@ltht-react/icon'
-import Table, { IPaginationProps, ITableDimensionProps } from '../molecules/table'
+import Table from '../molecules/table'
+import { IPaginationProps, ITableDimensionProps } from '../molecules/table-core'
 import mapQuestionnaireDefinitionAndResponsesToTableData, {
   AdminActionsForQuestionnaire,
 } from './questionnaire-table-methods'

@@ -19,7 +19,7 @@ import {
   handleScrollEventManual,
 } from './table-methods'
 import TableComponent, { TableNavigationButton, TableSpinner } from './table-component'
-import { CellProps } from './table-cell'
+import { DataEntity, IPaginationProps, ITableDimensionProps, TableData } from './table-core'
 
 const Table: FC<IProps> = ({
   tableData,
@@ -130,36 +130,4 @@ interface IProps extends IPaginationProps, ITableDimensionProps {
   headerAxis?: Axis
 }
 
-export interface IPaginationProps {
-  currentPage?: number
-  pageSize?: number
-  manualPagination?: boolean
-  nextPage?: () => void
-  getCanNextPage?: () => boolean
-  isFetching?: boolean
-  keepPreviousData?: boolean
-}
-
-export interface ITableDimensionProps {
-  maxWidth?: string
-  maxHeight?: string
-}
-
-type DataEntity = Record<string, CellProps | DataEntity[]> & {
-  subRows?: DataEntity[]
-}
-
-interface Header {
-  type: 'accessor' | 'group' | 'display'
-  id: string
-  cellProps: CellProps
-  subHeaders?: Header[]
-}
-
-interface TableData {
-  headers: Header[]
-  rows: DataEntity[]
-}
-
 export default Table
-export { DataEntity, Header, TableData }

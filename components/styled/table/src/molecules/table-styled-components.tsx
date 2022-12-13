@@ -58,14 +58,20 @@ const StyledTableData = styled.td<IStyledTableCell>`
     font-weight: bold;
   }
 
-  ${({ stickyWidth }) =>
+  ${({ containsActionMenu = false }) =>
+    containsActionMenu &&
+    `
+       z-index: 2;
+  `}
+
+  ${({ stickyWidth, containsActionMenu = false }) =>
     stickyWidth !== undefined &&
     `
     background-color: ${TABLE_COLOURS.STRIPE_LIGHT};
     position: sticky !important;
     left: ${stickyWidth}px;
     top: 0;
-    z-index: 1;`}
+    z-index: ${containsActionMenu ? 2 : 1};`}
 
   ${({ tableHeaderAxis }) =>
     tableHeaderAxis === 'y' &&
@@ -193,6 +199,7 @@ const StyledTHead = styled.thead`
 interface IStyledTableCell {
   stickyWidth?: number
   tableHeaderAxis?: string
+  containsActionMenu?: boolean
 }
 
 interface IStyledNextPageButtonContainer {
