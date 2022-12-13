@@ -1,10 +1,16 @@
 import { FC, InputHTMLAttributes } from 'react'
 import styled from '@emotion/styled'
-import { INPUT_COLOURS } from '@ltht-react/styles'
+import { BADGE_COLOURS, INPUT_COLOURS } from '@ltht-react/styles'
+import { css } from '@emotion/react'
 
-const StyledCheckbox = styled.div<InputHTMLAttributes<HTMLInputElement>>`
+const StyledCheckbox = styled.div<ConditionalStyles>`
   display: flex;
   align-items: center;
+  ${(props) =>
+    props.checked &&
+    css`
+      background-color: ${INPUT_COLOURS.RADIO_SELECTED};
+    `}
 `
 
 const StyledInput = styled.input`
@@ -25,7 +31,7 @@ const StyledInput = styled.input`
   }
 
   &:checked:before {
-    background-color: ${INPUT_COLOURS.RADIO_SELECTED};
+    background-color: ${BADGE_COLOURS.PRIMARY};
     content: '';
     color: white;
   }
@@ -48,12 +54,15 @@ const StyledLabel = styled.label`
 `
 
 const Checkbox: FC<Props> = ({ id, checked = false, onChange, children, ...rest }) => (
-  <StyledCheckbox {...rest}>
+  <StyledCheckbox {...rest} checked={checked}>
     <StyledInput id={id} onChange={onChange} type="checkbox" checked={checked} aria-checked={checked} />
     <StyledLabel htmlFor={id}>{children}</StyledLabel>
   </StyledCheckbox>
 )
 
+interface ConditionalStyles extends InputHTMLAttributes<HTMLInputElement> {
+  checked: boolean
+}
 interface Props extends InputHTMLAttributes<HTMLInputElement> {
   children: React.ReactNode
 }
