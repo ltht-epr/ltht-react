@@ -2,7 +2,7 @@ import { ColumnDef, ColumnHelper, createColumnHelper, HeaderContext, Table } fro
 import { IconProps } from '@ltht-react/icon'
 import { Axis } from '@ltht-react/types'
 import React from 'react'
-import { Header, TableData, DataEntity } from './table-core'
+import { Header, TableData, DataEntity } from './table'
 import TableCell, { CellProps } from './table-cell'
 import { ScrollState } from './useScrollRef'
 
