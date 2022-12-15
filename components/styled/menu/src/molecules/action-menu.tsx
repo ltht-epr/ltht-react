@@ -69,17 +69,30 @@ const ActionMenu: FC<IProps> = ({
 }) => {
   const popperRef = useRef<HTMLDivElement>(null)
   const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(null)
+  // const [containerElement, setContainerElement] = useState<HTMLDivElement | null>(null)
+
   const popper = usePopper(popperRef.current, popperElement, {
     placement: 'bottom-start',
   })
 
   const closePopper = () => {
+    //setParentContainerZIndex(1)
     setShowMenu(false)
   }
 
   const [showMenu, setShowMenu] = useState(false)
 
+  // const setParentContainerZIndex = (zIndex: number | null) => {
+  //   const parentContainer = containerElement?.parentElement
+  //   console.log(containerElement, parentContainer)
+  //   if (parentContainer) {
+  //     parentContainer.setAttribute('style', `z-index: ${zIndex}`)
+  //     console.log('set zindex: ' + zIndex)
+  //   }
+  // }
+
   const menuButtonClickHandler = () => {
+    //setParentContainerZIndex(showMenu ? 1 : 2)
     setShowMenu(!showMenu)
   }
 
