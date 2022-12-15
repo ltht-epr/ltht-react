@@ -65,6 +65,7 @@ const ActionMenu: FC<IProps> = ({
   actions,
   menuButtonOptions = defaultMenuButtonProps,
   id = 'action-menu-button',
+  popupStyle = {},
   ...rest
 }) => {
   const popperRef = useRef<HTMLDivElement>(null)
@@ -120,7 +121,12 @@ const ActionMenu: FC<IProps> = ({
             </Button>
           )}
           {showMenu && (
-            <StyledCard tabIndex={-1} ref={setPopperElement} style={popper.styles.popper} {...popper.attributes.popper}>
+            <StyledCard
+              tabIndex={-1}
+              ref={setPopperElement}
+              style={{ ...popper.styles.popper, ...popupStyle }}
+              {...popper.attributes.popper}
+            >
               <StyledUnorderedList role="menu" aria-labelledby={id}>
                 {actions.map((action, idx) => (
                   <StyledListItem
@@ -148,6 +154,7 @@ const ActionMenu: FC<IProps> = ({
 interface IProps extends HTMLAttributes<HTMLButtonElement> {
   actions: ActionMenuOption[]
   menuButtonOptions?: IconButtonMenuProps | ButtonMenuProps
+  popupStyle?: React.CSSProperties
 }
 
 interface IconButtonMenuProps {

@@ -9,6 +9,7 @@ import {
   QuestionnaireResponseItemAnswer,
 } from '@ltht-react/types'
 import { EnsureMaybe, EnsureMaybeArray, partialDateTimeText } from '@ltht-react/utils'
+import { getZIndex, TableDataWithPopUp } from '@ltht-react/styles'
 import { DataEntity, Header, TableData } from '../molecules/table'
 import { CellProps } from '../molecules/table-cell'
 
@@ -86,7 +87,10 @@ const mapQuestionnaireResponsesIntoDataEntities = (
           (actionForForm) => actionForForm.questionnaire === record.id
         )
         if (adminActionsForThisDataEntity) {
-          dataEntity.adminactions = { adminActions: adminActionsForThisDataEntity.adminActions }
+          dataEntity.adminactions = {
+            adminActions: adminActionsForThisDataEntity.adminActions,
+            parentStyle: { zIndex: getZIndex(TableDataWithPopUp) },
+          }
         }
       }
       record.item
@@ -181,7 +185,10 @@ const buildVerticalCellRows = (
       )
 
       if (adminActionsForThisDataEntity) {
-        actionsDataEntity[recordIndex + 1] = { adminActions: adminActionsForThisDataEntity.adminActions }
+        actionsDataEntity[recordIndex + 1] = {
+          adminActions: adminActionsForThisDataEntity.adminActions,
+          parentStyle: { zIndex: getZIndex(TableDataWithPopUp) },
+        }
       }
     })
 

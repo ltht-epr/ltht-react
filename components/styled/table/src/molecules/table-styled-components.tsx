@@ -9,6 +9,7 @@ import {
 import styled from '@emotion/styled'
 import { Icon, IconButton } from '@ltht-react/icon'
 import { Axis } from '@ltht-react/types'
+import { StickyTableData, StickyTableHead, getZIndex } from '@ltht-react/styles'
 
 const ScrollableContainer = styled.div<IScrollableContainer>`
   ${CSS_RESET};
@@ -46,7 +47,7 @@ const StyledTableHeader = styled.th<IStyledTableCell>`
     position: sticky !important;
     left: ${stickyWidth}px;
     top: 0;
-    z-index: 1;`}
+    z-index: ${getZIndex(StickyTableData)};`}
 `
 const StyledTableData = styled.td<IStyledTableCell>`
   border: thin solid ${TABLE_COLOURS.BORDER};
@@ -65,7 +66,7 @@ const StyledTableData = styled.td<IStyledTableCell>`
     position: sticky !important;
     left: ${stickyWidth}px;
     top: 0;
-    z-index: 1;`}
+    z-index: ${getZIndex(StickyTableData)};`}
 
   ${({ tableHeaderAxis }) =>
     tableHeaderAxis === 'y' &&
@@ -187,7 +188,7 @@ const StyledTHead = styled.thead`
   position: sticky;
   left: 0;
   top: 0;
-  z-index: 2;
+  z-index: ${getZIndex(StickyTableHead)};
 `
 
 interface IStyledTableCell {

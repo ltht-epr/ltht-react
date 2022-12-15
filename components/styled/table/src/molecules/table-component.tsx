@@ -13,6 +13,7 @@ import {
   StyledTHead,
 } from './table-styled-components'
 import useDimensionsRef from './useDimensionRef'
+import { CellProps } from './table-cell'
 
 const TableComponent = <T,>({ table, staticColumns, headerAxis }: ITableHeadProps<T>): JSX.Element => {
   const firstColumn = useRef(null)
@@ -97,6 +98,7 @@ const TableComponent = <T,>({ table, staticColumns, headerAxis }: ITableHeadProp
                 )}
                 key={cell.id}
                 role="cell"
+                style={(cell.getValue() as CellProps)?.parentStyle}
               >
                 {flexRender(cell.column.columnDef.cell, cell.getContext())}
               </StyledTableData>
