@@ -3,8 +3,9 @@ import Button, { ButtonProps } from '@ltht-react/button/lib/atoms/button'
 import { Icon, IconButton, IconProps } from '@ltht-react/icon'
 import { BTN_COLOURS, CSS_RESET } from '@ltht-react/styles'
 import FocusTrap from 'focus-trap-react'
-import { FC, HTMLAttributes, useRef, useState } from 'react'
+import { FC, HTMLAttributes, useRef, useState, useEffect } from 'react'
 import { usePopper } from 'react-popper'
+import { PopUp, TableDataWithPopUp, getZIndex } from '@ltht-react/styles'
 
 const defaultMenuButtonProps: IconButtonMenuProps = {
   type: 'icon',
@@ -70,6 +71,7 @@ const ActionMenu: FC<IProps> = ({
 }) => {
   const popperRef = useRef<HTMLDivElement>(null)
   const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(null)
+  const [containerElement, setContainerElement] = useState<HTMLDivElement | null>(null)
 
   const popper = usePopper(popperRef.current, popperElement, {
     placement: 'bottom-start',
@@ -81,12 +83,20 @@ const ActionMenu: FC<IProps> = ({
 
   const [showMenu, setShowMenu] = useState(false)
 
+  useEffect(() => {
+    if (containerElement?.parentElement?.style?.zIndex) {
+      containerElement.parentElement.style.zIndex = showMenu
+        ? `${getZIndex(PopUp)}`
+        : `${getZIndex(TableDataWithPopUp)}`
+    }
+  }, [containerElement, showMenu])
+
   const menuButtonClickHandler = () => {
     setShowMenu(!showMenu)
   }
 
   return (
-    <>
+    <div ref={setContainerElement}>
       <FocusTrap
         active={showMenu}
         focusTrapOptions={{
@@ -147,7 +157,7 @@ const ActionMenu: FC<IProps> = ({
           )}
         </StyledMenuButtonWrapper>
       </FocusTrap>
-    </>
+    </div>
   )
 }
 
