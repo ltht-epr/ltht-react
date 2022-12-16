@@ -3,6 +3,7 @@ import { Button } from '@ltht-react/button'
 import styled from '@emotion/styled'
 import { Icon, IconButton, IconProps } from '@ltht-react/icon'
 import ActionMenu, { ActionMenuOption } from '@ltht-react/menu'
+import { PopUp, getZIndex } from '@ltht-react/styles'
 
 const StyledText = styled.span`
   margin-left: 0.4rem;
@@ -25,7 +26,7 @@ const TableCell: FC<CellProps> = ({
   }
 
   if (adminActions) {
-    return <ActionMenu actions={adminActions} />
+    return <ActionMenu actions={adminActions} popupStyle={{ zIndex: getZIndex(PopUp) }} />
   }
 
   if (isButton) {
@@ -59,6 +60,7 @@ export interface CellProps {
   iconProps?: IconProps
   clickHandler?: React.MouseEventHandler<HTMLButtonElement>
   customComponentOverride?: JSX.Element
+  parentStyle?: React.CSSProperties
 }
 
 export default TableCell

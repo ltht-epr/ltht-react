@@ -1,9 +1,9 @@
 import styled from '@emotion/styled'
 import Button, { ButtonProps } from '@ltht-react/button/lib/atoms/button'
 import { Icon, IconButton, IconProps } from '@ltht-react/icon'
-import { BTN_COLOURS, CSS_RESET } from '@ltht-react/styles'
+import { BTN_COLOURS, CSS_RESET, PopUp, TableDataWithPopUp, getZIndex } from '@ltht-react/styles'
 import FocusTrap from 'focus-trap-react'
-import { FC, HTMLAttributes, useRef, useState } from 'react'
+import { FC, HTMLAttributes, useRef, useState, useEffect } from 'react'
 import { usePopper } from 'react-popper'
 
 const defaultMenuButtonProps: IconButtonMenuProps = {
@@ -65,10 +65,12 @@ const ActionMenu: FC<IProps> = ({
   actions,
   menuButtonOptions = defaultMenuButtonProps,
   id = 'action-menu-button',
+  popupStyle = {},
   ...rest
 }) => {
   const popperRef = useRef<HTMLDivElement>(null)
   const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(null)
+  const [containerElement, setContainerElement] = useState<HTMLDivElement | null>(null)
 
   const popper = usePopper(popperRef.current, popperElement, {
     placement: 'bottom-start',
@@ -80,12 +82,20 @@ const ActionMenu: FC<IProps> = ({
 
   const [showMenu, setShowMenu] = useState(false)
 
+  useEffect(() => {
+    if (containerElement?.parentElement?.style) {
+      containerElement.parentElement.style.zIndex = showMenu
+        ? `${getZIndex(PopUp)}`
+        : `${getZIndex(TableDataWithPopUp)}`
+    }
+  }, [containerElement, showMenu])
+
   const menuButtonClickHandler = () => {
     setShowMenu(!showMenu)
   }
 
   return (
-    <>
+    <div ref={setContainerElement}>
       <FocusTrap
         active={showMenu}
         focusTrapOptions={{
@@ -120,7 +130,12 @@ const ActionMenu: FC<IProps> = ({
             </Button>
           )}
           {showMenu && (
-            <StyledCard tabIndex={-1} ref={setPopperElement} style={popper.styles.popper} {...popper.attributes.popper}>
+            <StyledCard
+              tabIndex={-1}
+              ref={setPopperElement}
+              style={{ ...popper.styles.popper, ...popupStyle }}
+              {...popper.attributes.popper}
+            >
               <StyledUnorderedList role="menu" aria-labelledby={id}>
                 {actions.map((action, idx) => (
                   <StyledListItem
@@ -141,13 +156,14 @@ const ActionMenu: FC<IProps> = ({
           )}
         </StyledMenuButtonWrapper>
       </FocusTrap>
-    </>
+    </div>
   )
 }
 
 interface IProps extends HTMLAttributes<HTMLButtonElement> {
   actions: ActionMenuOption[]
   menuButtonOptions?: IconButtonMenuProps | ButtonMenuProps
+  popupStyle?: React.CSSProperties
 }
 
 interface IconButtonMenuProps {

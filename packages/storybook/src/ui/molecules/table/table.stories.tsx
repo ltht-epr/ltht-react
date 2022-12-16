@@ -73,6 +73,7 @@ export const TableWithManualPagination: Story = () => {
         headerAxis="x"
         manualPagination
         isFetching={isFetching}
+        keepPreviousData
       />
     </div>
   )
@@ -121,6 +122,7 @@ export const TableWithVerticalManualPagination: Story = () => {
         headerAxis="y"
         manualPagination
         isFetching={isFetching}
+        keepPreviousData
       />
     </div>
   )
