@@ -5,11 +5,13 @@ import {
   TRANSLUCENT_BRIGHT_BLUE,
   BTN_COLOURS,
   TABLE_COLOURS,
+  StickyTableData,
+  StickyTableHead,
+  getZIndex,
 } from '@ltht-react/styles'
 import styled from '@emotion/styled'
 import { Icon, IconButton } from '@ltht-react/icon'
 import { Axis } from '@ltht-react/types'
-import { StickyTableData, StickyTableHead, getZIndex } from '@ltht-react/styles'
 
 const ScrollableContainer = styled.div<IScrollableContainer>`
   ${CSS_RESET};

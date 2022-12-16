@@ -1,8 +1,8 @@
 const makeZIndexes = (layers: string[]): Record<string, number> =>
-  layers.reduce((agg: Record<string, number>, layerName: string, index: number) => {
-    agg[layerName] = (index + 1) * 100
-    return agg
-  }, {})
+  layers.reduce(
+    (agg: Record<string, number>, layerName: string, index: number) => ({ ...agg, [layerName]: (index + 1) * 100 }),
+    {}
+  )
 
 export const StickyTableData = 'stickyTableData'
 export const StickyTableHead = 'stickyTableHead'
