@@ -50,6 +50,7 @@ export const expectedResultOfMappingWithHeadersOnXAxis: TableData = {
             rightIcon: { type: 'external-link', size: 'medium' },
           },
         ],
+        parentStyle: { zIndex: 200 },
       },
       '1': { text: '5 NEWS' },
       '2': { text: 'ICON' },
@@ -82,6 +83,7 @@ export const expectedResultOfMappingWithHeadersOnXAxis: TableData = {
             rightIcon: { type: 'external-link', size: 'medium' },
           },
         ],
+        parentStyle: { zIndex: 200 },
       },
       '1': { text: '40 NEWS' },
       '2': { text: 'ICON' },
@@ -114,6 +116,7 @@ export const expectedResultOfMappingWithHeadersOnXAxis: TableData = {
             rightIcon: { type: 'external-link', size: 'medium' },
           },
         ],
+        parentStyle: { zIndex: 200 },
       },
       '1': { text: '17 NEWS' },
       '2': { text: 'ICON' },
@@ -157,6 +160,7 @@ export const expectedResultOfMappingWithHeadersOnYAxis: TableData = {
             rightIcon: { type: 'external-link', size: 'medium' },
           },
         ],
+        parentStyle: { zIndex: 200 },
       },
       '2': {
         adminActions: [
@@ -169,6 +173,7 @@ export const expectedResultOfMappingWithHeadersOnYAxis: TableData = {
             rightIcon: { type: 'external-link', size: 'medium' },
           },
         ],
+        parentStyle: { zIndex: 200 },
       },
       '3': {
         adminActions: [
@@ -181,6 +186,7 @@ export const expectedResultOfMappingWithHeadersOnYAxis: TableData = {
             rightIcon: { type: 'external-link', size: 'medium' },
           },
         ],
+        parentStyle: { zIndex: 200 },
       },
     },
     {
