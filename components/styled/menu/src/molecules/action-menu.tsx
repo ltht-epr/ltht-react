@@ -83,7 +83,7 @@ const ActionMenu: FC<IProps> = ({
   const [showMenu, setShowMenu] = useState(false)
 
   useEffect(() => {
-    if (containerElement?.parentElement?.style?.zIndex) {
+    if (containerElement?.parentElement?.style) {
       containerElement.parentElement.style.zIndex = showMenu
         ? `${getZIndex(PopUp)}`
         : `${getZIndex(TableDataWithPopUp)}`
