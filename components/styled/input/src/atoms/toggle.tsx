@@ -9,6 +9,7 @@ const StyledInput = styled.input`
   cursor: pointer;
   height: 1rem;
   width: 2rem;
+  min-width: 2rem;
   background: white;
   transition: all linear 0.1s;
 
