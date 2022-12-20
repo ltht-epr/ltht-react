@@ -1325,6 +1325,7 @@ export type EhrMutationDiscontinueCarePlanArgs = {
 /** Mutations of the LTHT EHR. */
 export type EhrMutationPauseCarePlanArgs = {
   carePlanId: Scalars['Guid'];
+  continuationDate?: Maybe<Scalars['DateTimeOffset']>;
   patientGuid: Scalars['Guid'];
   reasonCode: Scalars['String'];
   reasonText: Scalars['String'];
