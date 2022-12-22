@@ -75,6 +75,8 @@
     "start": "cd packages/storybook && yarn start",
     "test:unit": "jest",
     "test": "yarn test:unit",
+    "testcafe": "cd packages/storybook/testcafe && node ./testcafe-setup.js && testcafe --config-file ./.testcaferc.json",
+    "testcafe:chrome": "cd packages/storybook/testcafe && node ./testcafe-setup.js && testcafe chrome",
     "type:check": "nx run-many --all --target=type:check",
     "type:gen": "nx type:gen @ltht-react/types && nx run @ltht-react/types:build",
     "prepare": "husky install"
