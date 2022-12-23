@@ -5,13 +5,46 @@ const URL = 'http://localhost:9009/?path=/story/ui-molecules-table--table-with-p
 
 fixture`${TEST_NAME}`.page`${URL}`
 
-test('test', async (t) => {
-  const root = Selector('#root')
-  const table = root.find('table')
-  const button = root.find('button')
-  const rowCountBefore = await table.find('tr').count
-  await t.click(button)
-  const rowCountAfter = await table.find('tr').count
+/*  StoryBook renders components in an iframe in order to interact with those with testcafe selectors. 
+    We need to switch the context to that iframe, therefore all the selector work with the iframe document
+    rather than the main one
+*/
+const switchToStoryBookComponentIFrame = (t: TestController) => {
+  const iframe = Selector('#storybook-preview-wrapper').child('iframe')
+  return t.switchToIframe(iframe)
+}
 
-  await t.expect(rowCountAfter).gt(rowCountBefore)
+test('when next button clicked more data is loaded into the table', async (t) => {
+  await switchToStoryBookComponentIFrame(t)
+
+  const scrollableContainer = Selector('#root').child('div').child('div')
+  const button = scrollableContainer.child('div').child('svg')
+  const scrollHeightBefore = await scrollableContainer.scrollHeight
+
+  await t.click(button)
+
+  await t.expect(scrollableContainer.scrollHeight).gt(scrollHeightBefore)
+})
+
+test('scroll to end of table retrieves more data', async (t) => {
+  await switchToStoryBookComponentIFrame(t)
+
+  const scrollableContainer = Selector('#root').child('div').child('div')
+  const button = scrollableContainer.child('div').child('svg')
+  let scrollHeightBefore = await scrollableContainer.scrollHeight
+
+  await t.click(button)
+
+  await t.expect(scrollableContainer.scrollHeight).gt(scrollHeightBefore)
+
+  scrollHeightBefore = await scrollableContainer.scrollHeight
+
+  await t.click(scrollableContainer).scroll(scrollableContainer, 0, 1000)
+
+  await t.expect(scrollableContainer.scrollHeight).gt(scrollHeightBefore)
+  scrollHeightBefore = await scrollableContainer.scrollHeight
+
+  await t.click(scrollableContainer).scroll(scrollableContainer, 0, 2000)
+
+  await t.expect(scrollableContainer.scrollHeight).gt(scrollHeightBefore)
 })
