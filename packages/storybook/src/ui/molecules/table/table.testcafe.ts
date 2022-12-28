@@ -1,7 +1,9 @@
 import { Selector } from 'testcafe' // first import testcafe selectors
 
+const BASE_URL = process.env.BASE_URL ?? 'http://localhost:9009'
+
 const TEST_NAME = 'ui/molecules/table/table-with-pagination'
-const URL = 'http://localhost:9009/?path=/story/ui-molecules-table--table-with-pagination'
+const URL = `${BASE_URL}/?path=/story/ui-molecules-table--table-with-pagination`
 
 fixture`${TEST_NAME}`.page`${URL}`
 
