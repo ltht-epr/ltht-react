@@ -1082,6 +1082,7 @@ export type Ehr = {
   allergyIntolerance?: Maybe<AllergyIntolerance>;
   allergyIntolerances?: Maybe<AllergyIntoleranceContinuationType>;
   auditEvents?: Maybe<AuditEventContinuation>;
+  availableCarePlanDefinitionsForPatient?: Maybe<PlanDefinitionContinuationType>;
   carePlanDefinition?: Maybe<PlanDefinition>;
   carePlanDefinitionUseContexts?: Maybe<Array<Maybe<TerminologyItem>>>;
   carePlanDefinitions?: Maybe<PlanDefinitionContinuationType>;
@@ -1138,6 +1139,17 @@ export type EhrAuditEventsArgs = {
   pathwayId: Scalars['String'];
   pathwayType: Scalars['String'];
   patientGuid: Scalars['String'];
+};
+
+
+/** Queries the LTHT EHR. */
+export type EhrAvailableCarePlanDefinitionsForPatientArgs = {
+  count?: Maybe<Scalars['Int']>;
+  cursorToken?: Maybe<Scalars['String']>;
+  filter?: Maybe<Scalars['String']>;
+  pathwayType: Scalars['String'];
+  patientGuid?: Maybe<Scalars['Guid']>;
+  useContext?: Maybe<Scalars['String']>;
 };
 
 
