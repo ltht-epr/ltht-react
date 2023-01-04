@@ -1,6 +1,6 @@
 import { Selector } from 'testcafe' // first import testcafe selectors
 
-const BASE_URL = process.env.BASE_URL ?? 'http://localhost:9009'
+const BASE_URL = process.env.BASE_URL ?? 'http://localhost:9010'
 
 const TEST_NAME = 'ui/molecules/table/table-with-pagination'
 const URL = `${BASE_URL}/?path=/story/ui-molecules-table--table-with-pagination`
@@ -23,7 +23,7 @@ test('when next button clicked more data is loaded into the table', async (t) =>
   const button = scrollableContainer.child('div').child('svg')
   const scrollHeightBefore = await scrollableContainer.scrollHeight
 
-  await t.click(button)
+  await t.click(button).takeScreenshot()
 
   await t.expect(scrollableContainer.scrollHeight).gt(scrollHeightBefore)
 })
@@ -35,18 +35,18 @@ test('scroll to end of table retrieves more data', async (t) => {
   const button = scrollableContainer.child('div').child('svg')
   let scrollHeightBefore = await scrollableContainer.scrollHeight
 
-  await t.click(button)
+  await t.click(button).takeScreenshot()
 
   await t.expect(scrollableContainer.scrollHeight).gt(scrollHeightBefore)
 
   scrollHeightBefore = await scrollableContainer.scrollHeight
 
-  await t.click(scrollableContainer).scroll(scrollableContainer, 0, 1000)
+  await t.click(scrollableContainer).scroll(scrollableContainer, 0, 1000).takeScreenshot()
 
   await t.expect(scrollableContainer.scrollHeight).gt(scrollHeightBefore)
   scrollHeightBefore = await scrollableContainer.scrollHeight
 
-  await t.click(scrollableContainer).scroll(scrollableContainer, 0, 2000)
+  await t.click(scrollableContainer).scroll(scrollableContainer, 0, 2000).takeScreenshot()
 
   await t.expect(scrollableContainer.scrollHeight).gt(scrollHeightBefore)
 })

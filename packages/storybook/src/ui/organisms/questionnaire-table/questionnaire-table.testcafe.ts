@@ -1,6 +1,6 @@
 import { Selector } from 'testcafe' // first import testcafe selectors
 
-const BASE_URL = process.env.BASE_URL ?? 'http://localhost:9009'
+const BASE_URL = process.env.BASE_URL ?? 'http://localhost:9010'
 
 const TEST_NAME = 'ui/organisms/questionnaire-table/vertical-table-with-admin-actions'
 

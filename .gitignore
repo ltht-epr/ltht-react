@@ -28,4 +28,4 @@ yarn-error.log*
 
 # IntelliJ
 /.idea
-packages/storybook/testcafe/tests/testcafe-tests.generated.ts
+packages/storybook/testcafe/screenshots/*
