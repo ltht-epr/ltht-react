@@ -33,7 +33,7 @@ const AnnotationListDetail: DetailViewComponent<IProps> = ({ term, notes, showIf
           : 'annotation-list-detail'
       }
     >
-      <StyledList>
+      <StyledList className="annotation-styled-list">
         {notes?.map((note, index) => (
           <li key={`allergy-note-${index + 1}`}>
             {note?.author && <StyledAnnotationAuthorInfo>{note.author?.display}</StyledAnnotationAuthorInfo>}
