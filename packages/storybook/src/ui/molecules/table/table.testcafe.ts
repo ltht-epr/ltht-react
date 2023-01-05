@@ -23,7 +23,7 @@ test('when next button clicked more data is loaded into the table', async (t) =>
   const button = scrollableContainer.child('div').child('svg')
   const scrollHeightBefore = await scrollableContainer.scrollHeight
 
-  await t.click(button).takeScreenshot()
+  await t.click(button)
 
   await t.expect(scrollableContainer.scrollHeight).gt(scrollHeightBefore)
 })
@@ -35,18 +35,18 @@ test('scroll to end of table retrieves more data', async (t) => {
   const button = scrollableContainer.child('div').child('svg')
   let scrollHeightBefore = await scrollableContainer.scrollHeight
 
-  await t.click(button).takeScreenshot()
+  await t.click(button)
 
   await t.expect(scrollableContainer.scrollHeight).gt(scrollHeightBefore)
 
   scrollHeightBefore = await scrollableContainer.scrollHeight
 
-  await t.click(scrollableContainer).scroll(scrollableContainer, 0, 1000).takeScreenshot()
+  await t.click(scrollableContainer).scroll(scrollableContainer, 0, 1000)
 
   await t.expect(scrollableContainer.scrollHeight).gt(scrollHeightBefore)
   scrollHeightBefore = await scrollableContainer.scrollHeight
 
-  await t.click(scrollableContainer).scroll(scrollableContainer, 0, 2000).takeScreenshot()
+  await t.click(scrollableContainer).scroll(scrollableContainer, 0, 2000)
 
   await t.expect(scrollableContainer.scrollHeight).gt(scrollHeightBefore)
 })

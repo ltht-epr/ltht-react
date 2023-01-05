@@ -19,7 +19,7 @@
   "scripts": {
     "clean": "rimraf storybook-static && rimraf node_modules",
     "start": "start-storybook -p 9009",
-    "start:testcafe": "concurrently --kill-others --success \"command-{1}\" \"start-storybook --ci -p 9010\" \"sleep 8 && testcafe --config-file ./testcafe/.testcaferc.json chrome\"",
+    "start:testcafe": "node ./testcafe/run.js",
     "start:debug": "storybook --debug-webpack",
     "build:storybook": "build-storybook -c .storybook",
     "deploy:storybook": "storybook-to-ghpages -e storybook-static"
@@ -27,8 +27,7 @@
   "devDependencies": {
     "@storybook/addon-essentials": "^6.1.15",
     "@storybook/storybook-deployer": "^2.8.7",
-    "babel-loader": "^8.0.6",
-    "concurrently": "^7.6.0"
+    "babel-loader": "^8.0.6"
   },
   "dependencies": {
     "@emotion/react": "^11.0.0",

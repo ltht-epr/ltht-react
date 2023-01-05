@@ -1,7 +1,7 @@
 {
   "src": ["./src/**/*.testcafe.ts", "./src/**/*.testcafe.tsx"],
-  "browsers": ["chrome:headless", "firefox:headless"],
-  "concurrency": 1,
+  "browsers": ["chrome:headless"],
+  "concurrency": 2,
   "speed": 1,
   "screenshots": {
     "path": "./testcafe/screenshots",
