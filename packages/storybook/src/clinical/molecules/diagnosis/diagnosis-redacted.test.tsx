@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react'
-import conditions from '../../organisms/diagnosis/diagnosis.fixtures'
 import DiagnosisRedacted from '@ltht-react/diagnosis-summary/src/molecules/diagnosis-redacted'
 import { PartialDateTimeKindCode } from '@ltht-react/types'
+import conditions from '../../organisms/diagnosis/diagnosis.fixtures'
 
 const redactedCondition = conditions[0]
 

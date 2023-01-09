@@ -75,7 +75,7 @@ const DiagnosisSummary: FC<Props> = ({
             icon={<FolderPlusIcon size="medium" />}
             iconPlacement="center"
             iconColour={BTN_COLOURS.PRIMARY.VALUE}
-            title={`This diagnosis can be extended further to form '${extensionTemplateDisplayName}' by clicking here`}
+            title={`This diagnosis can be extended further using form '${extensionTemplateDisplayName}' by clicking here`}
           />
         )}
         {extendedTemplateDisplayName && (
