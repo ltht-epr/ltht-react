@@ -585,12 +585,33 @@ export type CarePlanContinuationType = {
   totalResources?: Maybe<Scalars['Int']>;
 };
 
+/** Record progress against a care plan through interventions and goals */
+export type CarePlanDocumentInput = {
+  carePlanId?: Maybe<Scalars['Guid']>;
+  interventions?: Maybe<Array<Maybe<CarePlanInterventionInput>>>;
+};
+
 export enum CarePlanIntentCode {
   Option = 'OPTION',
   Order = 'ORDER',
   Plan = 'PLAN',
   Proposal = 'PROPOSAL'
 }
+
+/** Actions taken as part of the intervention */
+export type CarePlanInterventionActionInput = {
+  id?: Maybe<Scalars['String']>;
+  label?: Maybe<Scalars['String']>;
+};
+
+/** Interventions performed from the care plan */
+export type CarePlanInterventionInput = {
+  actionDate?: Maybe<Scalars['DateTimeOffset']>;
+  actions?: Maybe<Array<Maybe<CarePlanInterventionActionInput>>>;
+  id?: Maybe<Scalars['String']>;
+  label?: Maybe<Scalars['String']>;
+  notes?: Maybe<Scalars['String']>;
+};
 
 export enum CarePlanStatusCode {
   Active = 'ACTIVE',
@@ -1300,6 +1321,7 @@ export type EhrMutation = {
   addCarePlan?: Maybe<CarePlan>;
   addConditions?: Maybe<Array<Maybe<Condition>>>;
   discontinueCarePlan?: Maybe<CarePlan>;
+  documentCarePlan?: Maybe<Scalars['Boolean']>;
   pauseCarePlan?: Maybe<CarePlan>;
   resumeCarePlan?: Maybe<CarePlan>;
   setConditionStatus?: Maybe<Condition>;
@@ -1331,6 +1353,12 @@ export type EhrMutationDiscontinueCarePlanArgs = {
   reasonCode: Scalars['String'];
   reasonText: Scalars['String'];
   template: Scalars['String'];
+};
+
+
+/** Mutations of the LTHT EHR. */
+export type EhrMutationDocumentCarePlanArgs = {
+  document: CarePlanDocumentInput;
 };
 
 
