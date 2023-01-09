@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import DiagnosisTitle from '@ltht-react/diagnosis-summary/src/atoms/diagnosis-title'
-import conditions from '../organisms/diagnosis/diagnosis.fixtures'
+import conditions from '../../organisms/diagnosis/diagnosis.fixtures'
 
 const conditionWithClinicalCode = conditions[0]
 conditionWithClinicalCode.code = {
