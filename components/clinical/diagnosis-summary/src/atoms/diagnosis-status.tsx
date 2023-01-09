@@ -21,7 +21,7 @@ const DiagnosisStatus: FC<Props> = ({ condition, enteredInError, ...rest }) => {
 
   return (
     <StyledConditionStatus enteredInError={enteredInError} {...rest}>
-      {values.join(' - ')}
+      {values.length > 0 ? values.join(' - ') : 'Insufficient data provided'}
     </StyledConditionStatus>
   )
 }
