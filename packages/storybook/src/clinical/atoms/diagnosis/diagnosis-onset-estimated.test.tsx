@@ -18,8 +18,7 @@ describe('Diagnosis Onset Estimate', () => {
   })
 
   it('Does not Renders the expected text if the condition onset date was estimated', () => {
-    const conditionWithoutEstimatedOnsetDate = conditions[0]
-    conditionWithoutEstimatedOnsetDate.extension = []
+    const conditionWithoutEstimatedOnsetDate = { ...conditions[0], extension: [] }
 
     render(<DiagnosisOnsetEstimated condition={conditionWithoutEstimatedOnsetDate} enteredInError={false} />)
 
