@@ -1359,7 +1359,7 @@ export type EhrMutationDiscontinueCarePlanArgs = {
 /** Mutations of the LTHT EHR. */
 export type EhrMutationDocumentCarePlanArgs = {
   document: CarePlanDocumentInput;
-  patientGuid: CarePlanDocumentInput;
+  patientGuid: Scalars['Guid'];
 };
 
 
