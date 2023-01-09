@@ -6,9 +6,7 @@ import { DateSummary } from '@ltht-react/type-summary'
 import { CommentIcon, FolderPlusIcon } from '@ltht-react/icon'
 import { Button } from '@ltht-react/button'
 
-import { LINK_COLOURS } from '@ltht-react/styles'
-import { isMobileView } from '@ltht-react/utils'
-import { useWindowSize } from '@ltht-react/hooks'
+import { BTN_COLOURS } from '@ltht-react/styles'
 import Category from '../atoms/diagnosis-category'
 import Status from '../atoms/diagnosis-status'
 import Title from '../atoms/diagnosis-title'
@@ -52,9 +50,6 @@ const DiagnosisSummary: FC<Props> = ({
   isReadOnly,
   ...rest
 }) => {
-  const { width } = useWindowSize()
-  const isMobile = isMobileView(width)
-
   if (condition.metadata.isRedacted) {
     return (
       <StyledSummary {...rest}>
@@ -71,7 +66,7 @@ const DiagnosisSummary: FC<Props> = ({
         <StyledTitle>
           <Title enteredInError={enteredInError} condition={condition} />
         </StyledTitle>
-        {extensionTemplateDisplayName && !isMobile && !isReadOnly && !enteredInError && (
+        {extensionTemplateDisplayName && !isReadOnly && !enteredInError && (
           <IconButtonWrapper
             onClick={extensionClickHandler}
             type="button"
@@ -79,17 +74,9 @@ const DiagnosisSummary: FC<Props> = ({
             value=""
             icon={<FolderPlusIcon size="medium" />}
             iconPlacement="center"
-            iconColour={LINK_COLOURS.TEXT.DEFAULT}
+            iconColour={BTN_COLOURS.PRIMARY.VALUE}
             title={`This diagnosis can be extended further to form '${extensionTemplateDisplayName}' by clicking here`}
           />
-        )}
-        {extensionTemplateDisplayName && isMobile && !isReadOnly && !enteredInError && (
-          <IconWrapper>
-            <FolderPlusIcon
-              size="medium"
-              title={`This diagnosis can be extended further to form '${extensionTemplateDisplayName}' from the quick actions menu`}
-            />
-          </IconWrapper>
         )}
         {extendedTemplateDisplayName && (
           <IconWrapper>
