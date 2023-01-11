@@ -84,7 +84,7 @@ describe('Diagnosis Detail', () => {
 
     expect(screen.getByText('Diagnosis')).toBeVisible()
     expect(screen.getByText('Heel Pain').closest('a')).toHaveAttribute('href', 'https://www.google.com')
-    expect(screen.getByText('Heel Pain').closest('a')?.children[1] as SVGAElement).toHaveClass('fa-external-link-alt')
+    expect(screen.getByText('Heel Pain').closest('a')?.children[1]).toHaveClass('fa-external-link-alt')
   })
 
   it('Renders questionnaire data for level 2 details', () => {
