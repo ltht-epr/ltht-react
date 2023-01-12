@@ -608,7 +608,9 @@ export type CarePlanInterventionActionInput = {
 export type CarePlanInterventionInput = {
   actionDate?: Maybe<Scalars['DateTimeOffset']>;
   actions?: Maybe<Array<Maybe<CarePlanInterventionActionInput>>>;
-  id?: Maybe<Scalars['String']>;
+  /** Provide a unique identifier so you can find the outcome in the response object */
+  id?: Maybe<Scalars['Guid']>;
+  interventionId?: Maybe<Scalars['String']>;
   label?: Maybe<Scalars['String']>;
   notes?: Maybe<Scalars['String']>;
 };
@@ -1321,7 +1323,7 @@ export type EhrMutation = {
   addCarePlan?: Maybe<CarePlan>;
   addConditions?: Maybe<Array<Maybe<Condition>>>;
   discontinueCarePlan?: Maybe<CarePlan>;
-  documentCarePlan?: Maybe<Scalars['Boolean']>;
+  documentCarePlan?: Maybe<Parameters>;
   pauseCarePlan?: Maybe<CarePlan>;
   resumeCarePlan?: Maybe<CarePlan>;
   setConditionStatus?: Maybe<Condition>;
@@ -2361,6 +2363,33 @@ export type ObservationValue = {
   valueRatio?: Maybe<Ratio>;
   valueSampledData?: Maybe<SampledData>;
   valueString?: Maybe<Scalars['String']>;
+};
+
+/** Operation Parameter */
+export type Parameter = {
+  /** Unique id for inter-element referencing. */
+  elementId?: Maybe<Scalars['String']>;
+  /** Additional content defined by implementations. */
+  extension?: Maybe<Array<Maybe<Extension>>>;
+  name?: Maybe<Scalars['String']>;
+  valueBoolean?: Maybe<Scalars['Boolean']>;
+  valueCode?: Maybe<Scalars['String']>;
+  valueCodeableConcept?: Maybe<CodeableConcept>;
+  valueCoding?: Maybe<Coding>;
+  valueDateTime?: Maybe<PartialDateTime>;
+  valueInt?: Maybe<Scalars['Int']>;
+  valueString?: Maybe<Scalars['String']>;
+  valueUrl?: Maybe<Scalars['String']>;
+  valueUuid?: Maybe<Scalars['Guid']>;
+};
+
+/** Operation Request or Response */
+export type Parameters = {
+  /** Logical Id of the resource. */
+  id: Scalars['ID'];
+  /** Metadata about the resource. */
+  metadata: Metadata;
+  parameter?: Maybe<Parameter>;
 };
 
 /** A Date + Time, Year, Year + Month, or just a Time. */
