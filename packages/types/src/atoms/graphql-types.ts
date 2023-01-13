@@ -2389,7 +2389,7 @@ export type Parameters = {
   id: Scalars['ID'];
   /** Metadata about the resource. */
   metadata: Metadata;
-  parameter?: Maybe<Parameter>;
+  parameter?: Maybe<Array<Maybe<Parameter>>>;
 };
 
 /** A Date + Time, Year, Year + Month, or just a Time. */
