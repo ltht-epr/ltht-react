@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.3.188 (2023-01-13)
+
+**Note:** Version bump only for package @ltht-react/diagnosis-detail
+
+
+
+
+
 ## 1.3.187 (2023-01-12)
 
 **Note:** Version bump only for package @ltht-react/diagnosis-detail
