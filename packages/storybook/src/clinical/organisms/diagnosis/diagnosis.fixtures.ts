@@ -485,7 +485,11 @@ const ConditionOne: Condition = {
   },
   metadata: {
     requestedWhen: '2016-09-01T00:00:00+00:00',
-    dataSources: [],
+    dataSources: [
+      {
+        display: 'Mock',
+      },
+    ],
     isRedacted: false,
     tag: [
       {
@@ -577,10 +581,10 @@ const ConditionOne: Condition = {
   ],
   clinicalStatus: ConditionClinicalStatus.Active,
   verificationStatus: ConditionVerificationStatus.Confirmed,
-  // assertedDate: {
-  //   value: '2018-08-07T00:00:00+00:00',
-  //   kind: PartialDateTimeKindCode.Date,
-  // },
+  assertedDate: {
+    value: '2018-08-07T00:00:00+00:00',
+    kind: PartialDateTimeKindCode.Date,
+  },
   onset: {
     dateTime: {
       value: '2019-03-04T00:00:00+00:00',

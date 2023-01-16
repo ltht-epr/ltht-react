@@ -18,7 +18,7 @@ const AuthorInfo: FC<IProps> = ({ author, authoredOn, ...rest }) => {
   if (!author && !authoredOn) return null
 
   return (
-    <StyledAuthorInfo {...rest}>
+    <StyledAuthorInfo {...rest} role="mark">
       {author && <AuthorName>Authored By: {author.display}</AuthorName>}
       {author && authoredOn && <AuthorDate> on {partialDateTimeText(authoredOn)}</AuthorDate>}
       {!author && authoredOn && <AuthorDate>{partialDateTimeText(authoredOn)}</AuthorDate>}
