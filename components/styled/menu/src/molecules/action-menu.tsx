@@ -119,13 +119,7 @@ const ActionMenu: FC<IProps> = ({
             />
           )}
           {menuButtonOptions.type === 'button' && (
-            <Button
-              {...menuButtonOptions.buttonProps}
-              {...rest}
-              value={menuButtonOptions.text}
-              onClick={menuButtonClickHandler}
-              id={id}
-            >
+            <Button {...menuButtonOptions.buttonProps} {...rest} onClick={menuButtonClickHandler} id={id}>
               {menuButtonOptions.text}
             </Button>
           )}
