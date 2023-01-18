@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.0.33 (2023-01-18)
+
+**Note:** Version bump only for package @ltht-react/plan-definition-editor
+
+
+
+
+
 ## 1.0.32 (2023-01-16)
 
 **Note:** Version bump only for package @ltht-react/plan-definition-editor
