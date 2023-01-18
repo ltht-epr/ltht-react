@@ -131,8 +131,6 @@ const ButtonIcon = styled.div<ButtonIconProps>`
   }
 `
 
-const ButtonText = styled.div``
-
 const Button: FC<Props> = ({
   type,
   value,
@@ -141,6 +139,7 @@ const Button: FC<Props> = ({
   icon,
   iconPlacement = 'left',
   iconColour = 'white',
+  children,
   ...rest
 }) => (
   <StyledButton type={type} buttonStyle={buttonStyle} disabled={disabled} {...rest}>
@@ -149,7 +148,8 @@ const Button: FC<Props> = ({
         {icon}
       </ButtonIcon>
     )}
-    {value && <ButtonText>{value}</ButtonText>}
+    {value}
+    {children}
     {icon && iconPlacement === 'right' && (
       <ButtonIcon placement={iconPlacement} iconColour={iconColour}>
         {icon}
