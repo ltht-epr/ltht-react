@@ -1,4 +1,4 @@
-import { FC, InputHTMLAttributes } from 'react'
+import { FC, HTMLAttributes, InputHTMLAttributes } from 'react'
 import styled from '@emotion/styled'
 import { BADGE_COLOURS, INPUT_COLOURS } from '@ltht-react/styles'
 import { css } from '@emotion/react'
@@ -53,10 +53,30 @@ const StyledLabel = styled.label`
   margin-bottom: 0;
 `
 
-const Checkbox: FC<Props> = ({ id, checked = false, onChange, children, ...rest }) => (
-  <StyledCheckbox {...rest} checked={checked}>
-    <StyledInput id={id} onChange={onChange} type="checkbox" checked={checked} aria-checked={checked} />
-    <StyledLabel htmlFor={id}>{children}</StyledLabel>
+const Checkbox: FC<Props> = ({
+  id,
+  checked = false,
+  onChange,
+  children,
+  name,
+  parentDivAttributes = {},
+  labelAttributes = {},
+  ...rest
+}) => (
+  <StyledCheckbox checked={checked} {...parentDivAttributes}>
+    <StyledInput
+      id={id}
+      onChange={onChange}
+      type="checkbox"
+      checked={checked}
+      aria-checked={checked}
+      role="checkbox"
+      name={name}
+      {...rest}
+    />
+    <StyledLabel htmlFor={id} {...labelAttributes}>
+      {children}
+    </StyledLabel>
   </StyledCheckbox>
 )
 
@@ -65,6 +85,8 @@ interface ConditionalStyles extends InputHTMLAttributes<HTMLInputElement> {
 }
 interface Props extends InputHTMLAttributes<HTMLInputElement> {
   children: React.ReactNode
+  parentDivAttributes?: HTMLAttributes<HTMLDivElement>
+  labelAttributes?: HTMLAttributes<HTMLLabelElement>
 }
 
 export default Checkbox
