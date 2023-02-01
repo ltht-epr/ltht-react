@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.3.191 (2023-02-01)
+
+**Note:** Version bump only for package @ltht-react/select
+
+
+
+
+
 ## 1.3.190 (2023-01-24)
 
 **Note:** Version bump only for package @ltht-react/select
