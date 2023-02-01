@@ -594,12 +594,12 @@ export type CarePlanDocumentInput = {
 
 /** Goal evaluations from the care plan */
 export type CarePlanGoalEvaluationInput = {
-  actionDate?: Maybe<Scalars['DateTimeOffset']>;
-  goalId?: Maybe<Scalars['String']>;
   /** Provide a unique identifier so you can find the goal evaluation in the response object */
   id?: Maybe<Scalars['Guid']>;
+  itemId?: Maybe<Scalars['String']>;
   label?: Maybe<Scalars['String']>;
   notes?: Maybe<Scalars['String']>;
+  performed?: Maybe<Scalars['DateTimeOffset']>;
   type?: Maybe<CodingInput>;
   value?: Maybe<CodingInput>;
 };
@@ -619,13 +619,13 @@ export type CarePlanInterventionActionInput = {
 
 /** Interventions performed from the care plan */
 export type CarePlanInterventionInput = {
-  actionDate?: Maybe<Scalars['DateTimeOffset']>;
   actions?: Maybe<Array<Maybe<CarePlanInterventionActionInput>>>;
   /** Provide a unique identifier so you can find the intervention in the response object */
   id?: Maybe<Scalars['Guid']>;
-  interventionId?: Maybe<Scalars['String']>;
+  itemId?: Maybe<Scalars['String']>;
   label?: Maybe<Scalars['String']>;
   notes?: Maybe<Scalars['String']>;
+  performed?: Maybe<Scalars['DateTimeOffset']>;
 };
 
 export enum CarePlanStatusCode {
@@ -1383,6 +1383,7 @@ export type EhrMutationDiscontinueCarePlanArgs = {
 /** Mutations of the LTHT EHR. */
 export type EhrMutationDocumentCarePlanArgs = {
   document: CarePlanDocumentInput;
+  goalEvaluationTemplate: Scalars['String'];
   interventionTemplate: Scalars['String'];
   patientGuid: Scalars['Guid'];
 };
