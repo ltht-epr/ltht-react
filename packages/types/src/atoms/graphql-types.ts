@@ -588,7 +588,20 @@ export type CarePlanContinuationType = {
 /** Record progress against a care plan through interventions and goals */
 export type CarePlanDocumentInput = {
   carePlanId?: Maybe<Scalars['Guid']>;
+  goalEvaluations?: Maybe<Array<Maybe<CarePlanGoalEvaluationInput>>>;
   interventions?: Maybe<Array<Maybe<CarePlanInterventionInput>>>;
+};
+
+/** Goal evaluations from the care plan */
+export type CarePlanGoalEvaluationInput = {
+  actionDate?: Maybe<Scalars['DateTimeOffset']>;
+  goalId?: Maybe<Scalars['String']>;
+  /** Provide a unique identifier so you can find the goal evaluation in the response object */
+  id?: Maybe<Scalars['Guid']>;
+  label?: Maybe<Scalars['String']>;
+  notes?: Maybe<Scalars['String']>;
+  type?: Maybe<CodingInput>;
+  value?: Maybe<CodingInput>;
 };
 
 export enum CarePlanIntentCode {
@@ -608,7 +621,7 @@ export type CarePlanInterventionActionInput = {
 export type CarePlanInterventionInput = {
   actionDate?: Maybe<Scalars['DateTimeOffset']>;
   actions?: Maybe<Array<Maybe<CarePlanInterventionActionInput>>>;
-  /** Provide a unique identifier so you can find the outcome in the response object */
+  /** Provide a unique identifier so you can find the intervention in the response object */
   id?: Maybe<Scalars['Guid']>;
   interventionId?: Maybe<Scalars['String']>;
   label?: Maybe<Scalars['String']>;
