@@ -11,14 +11,12 @@ const StyledErrorDiv = styled.div`
   padding: 0.75rem;
 `
 
-const SingleError: FC<ErrorInfo> = ({ type: errorType, text, ...rest }) => {
-  return (
-    <StyledErrorDiv {...rest}>
-      <Icon type="exclamation" size="large" status={errorType === 'warning' ? 'amber' : 'red'} />
-      {text}
-    </StyledErrorDiv>
-  )
-}
+const SingleError: FC<ErrorInfo> = ({ type: errorType, text, ...rest }) => (
+  <StyledErrorDiv {...rest}>
+    <Icon type="exclamation" size="large" status={errorType === 'warning' ? 'amber' : 'red'} />
+    {text}
+  </StyledErrorDiv>
+)
 
 export interface ErrorInfo extends HTMLAttributes<HTMLDivElement> {
   type: 'warning' | 'error'

@@ -20,13 +20,11 @@ const ErrorSummary: FC<Props> = ({ errors, errorHeaderText, ...rest }) => {
       />
       {showErrorList && (
         <ul>
-          {errors.map((error, index) => {
-            return (
-              <li key={index}>
-                <SingleError type={error.type} text={error.text} />
-              </li>
-            )
-          })}
+          {errors.map((error, index) => (
+            <li key={index}>
+              <SingleError type={error.type} text={error.text} />
+            </li>
+          ))}
         </ul>
       )}
     </div>
