@@ -11,9 +11,9 @@ const ErrorDescription: FC<Props> = ({ errors, errorHeaderText, ...rest }) => {
 
   return (
     <div {...rest}>
-      <>{errorHeaderText ?? 'Some errors occurred...'}</>
+      <>{errorHeaderText ?? 'Multiple errors found. Click here to view details'}</>
       <IconButton
-        iconProps={{ type: 'chevron', size: 'large', direction: showErrorList ? 'down' : 'up' }}
+        iconProps={{ type: 'chevron', size: 'large', direction: showErrorList ? 'down' : 'right' }}
         onClick={() => {
           setShowErrorList(!showErrorList)
         }}

@@ -11,9 +11,13 @@ const StyledErrorDiv = styled.div`
   padding: 0.75rem;
 `
 
+const StyledIcon = styled(Icon)`
+  margin-right: 0.5rem;
+`
+
 const SingleError: FC<ErrorInfo> = ({ type: errorType, text, ...rest }) => (
   <StyledErrorDiv {...rest}>
-    <Icon type="exclamation" size="large" status={errorType === 'warning' ? 'amber' : 'red'} />
+    <StyledIcon type="exclamation" size="large" status={errorType === 'warning' ? 'amber' : 'red'} />
     {text}
   </StyledErrorDiv>
 )
