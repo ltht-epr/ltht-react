@@ -1,2 +1,2 @@
 export { default as SingleError } from './atoms/error'
-export { default as ErrorSummary } from './molecules/error-summary'
+export { default as ErrorDescription } from './molecules/error-summary'

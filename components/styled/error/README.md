@@ -5,11 +5,11 @@
 ### Import
 
 ```js
-import Form from '@ltht-react/error'
+import ErrorDescription from '@ltht-react/error'
 ```
 
 ### Usage
 
 ```jsx
-<ErrorSummary text="Some error here" />
+<ErrorDescription text="Some error here" />
 ```

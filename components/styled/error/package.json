@@ -1,7 +1,7 @@
 {
   "name": "@ltht-react/error",
   "version": "1.0.0",
-  "description": "ltht-react atoms Error Summary component.",
+  "description": "ltht-react Error Description component.",
   "author": "LTHT",
   "homepage": "",
   "license": "MIT",

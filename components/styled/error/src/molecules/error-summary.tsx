@@ -2,7 +2,7 @@ import { IconButton } from '@ltht-react/icon'
 import { FC, HTMLAttributes, useState } from 'react'
 import SingleError, { ErrorInfo } from '../atoms/error'
 
-const ErrorSummary: FC<Props> = ({ errors, errorHeaderText, ...rest }) => {
+const ErrorDescription: FC<Props> = ({ errors, errorHeaderText, ...rest }) => {
   const [showErrorList, setShowErrorList] = useState<boolean>(errors.length <= 3)
 
   if (errors.length === 1) {
@@ -36,4 +36,4 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
   errorHeaderText?: string
 }
 
-export default ErrorSummary
+export default ErrorDescription
