@@ -1221,10 +1221,11 @@ export type EhrConditionArgs = {
 /** Queries the LTHT EHR. */
 export type EhrConditionsArgs = {
   admissionPeriod?: Maybe<ConditionAdmissionPeriodType>;
-  clinicalStatus?: Maybe<Array<Maybe<ConditionClinicalStatus>>>;
+  clinicalStatus?: Maybe<Array<Maybe<Scalars['String']>>>;
   count?: Maybe<Scalars['Int']>;
   cursorToken?: Maybe<Scalars['String']>;
   patientGuid: Scalars['String'];
+  search?: Maybe<Scalars['String']>;
   severity?: Maybe<Array<Maybe<Scalars['String']>>>;
   sortBy?: Maybe<SortOptionType>;
   verificationStatus?: Maybe<Array<Maybe<ConditionVerificationStatus>>>;
@@ -2888,6 +2889,8 @@ export enum QuestionnaireItemTypeCode {
   QuestionCoding = 'QUESTION_CODING',
   QuestionDate = 'QUESTION_DATE',
   QuestionDateTime = 'QUESTION_DATE_TIME',
+  QuestionDecimal = 'QUESTION_DECIMAL',
+  QuestionInteger = 'QUESTION_INTEGER',
   QuestionString = 'QUESTION_STRING',
   QuestionStringBbCode = 'QUESTION_STRING_BB_CODE',
   QuestionStringHtml = 'QUESTION_STRING_HTML',
@@ -2982,6 +2985,10 @@ export type QuestionnaireResponseItemAnswer = {
   valueCoding?: Maybe<Coding>;
   /** Date Time Value. */
   valueDateTime?: Maybe<PartialDateTime>;
+  /** Decimal Value. */
+  valueDecimal?: Maybe<Scalars['Decimal']>;
+  /** Integer Value. */
+  valueInteger?: Maybe<Scalars['Int']>;
   /** String Value. */
   valueString?: Maybe<Scalars['String']>;
 };
