@@ -268,6 +268,21 @@ const createCellPropsForAnswer = (answer: QuestionnaireResponseItemAnswer): Cell
       text: answer.valueString,
     }
   }
+  if (answer.valueBoolean != null) {
+    return {
+      text: answer.valueBoolean.toString(),
+    }
+  }
+  if (answer.valueInteger != null) {
+    return {
+      text: answer.valueInteger.toString(),
+    }
+  }
+  if (answer.valueDecimal != null) {
+    return {
+      text: answer.valueDecimal.toString(),
+    }
+  }
   return {
     text: '',
   }
