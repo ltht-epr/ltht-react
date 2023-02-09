@@ -4,11 +4,12 @@ import { QuestionnaireItem } from '@ltht-react/types'
 import { render, screen, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { mockSummaryDefinition, mockSummaryRecordsList } from '../generic-table/generic-table.mockdata'
-import { summaryDefinition, summaryRecordsList } from './questionnaire-table.fixtures'
 import {
   expectedResultOfMappingWithHeadersOnXAxis,
   expectedResultOfMappingWithHeadersOnYAxis,
   mockAdminActionsForForms,
+  summaryDefinition,
+  summaryRecordsList,
 } from './questionnaire-table.mockdata'
 
 window.ResizeObserver =
@@ -57,7 +58,7 @@ describe('Questionnaire Table (using Fixture data)', () => {
     userEvent.click(screen.getByText('17-Feb-2022 17:23'))
     userEvent.click(screen.getByText('17-Feb-2022 17:23'))
 
-    expect(getTopLeftDataCell()).toHaveTextContent('Standard Observations')
+    expect(getTopLeftDataCell()).toHaveTextContent('Average BASFI Score')
   })
 
   it('Sorts the table if the lowest level of subheaders are clicked in horizontal mode', () => {
@@ -90,17 +91,17 @@ describe('Questionnaire Table (using Fixture data)', () => {
     const getChevronCell = () => within(screen.getAllByRole('row')[4]).getAllByRole('cell')[0]
 
     expect(within(getChevronCell()).getByRole('img', { hidden: true })).toHaveClass('fa-chevron-right')
-    expect(screen.getAllByRole('row').length).toBe(5)
+    expect(screen.getAllByRole('row').length).toBe(6)
 
     userEvent.click(screen.getAllByRole('img', { hidden: true })[1])
 
     expect(within(getChevronCell()).getByRole('img', { hidden: true })).toHaveClass('fa-chevron-down')
-    expect(screen.getAllByRole('row').length).toBeGreaterThan(5)
-    expect(screen.getAllByRole('row')[5]).toBeVisible()
+    expect(screen.getAllByRole('row').length).toBeGreaterThan(6)
+    expect(screen.getAllByRole('row')[6]).toBeVisible()
 
     userEvent.click(screen.getAllByRole('img', { hidden: true })[1])
     expect(within(getChevronCell()).getByRole('img', { hidden: true })).toHaveClass('fa-chevron-right')
-    expect(screen.getAllByRole('row').length).toBe(5)
+    expect(screen.getAllByRole('row').length).toBe(6)
   })
 
   it('Toggles all expandable rows when chevron is clicked', () => {
@@ -109,13 +110,13 @@ describe('Questionnaire Table (using Fixture data)', () => {
     const getChevronCell = () => within(screen.getAllByRole('row')[0]).getAllByRole('columnheader')[0]
 
     expect(within(getChevronCell()).getByRole('img', { hidden: true })).toHaveClass('fa-chevron-right')
-    expect(screen.getAllByRole('row').length).toBe(5)
+    expect(screen.getAllByRole('row').length).toBe(6)
 
     userEvent.click(screen.getAllByRole('img', { hidden: true })[0])
 
     expect(within(getChevronCell()).getByRole('img', { hidden: true })).toHaveClass('fa-chevron-down')
-    expect(screen.getAllByRole('row').length).toBeGreaterThan(5)
-    expect(screen.getAllByRole('row')[5]).toBeVisible()
+    expect(screen.getAllByRole('row').length).toBeGreaterThan(6)
+    expect(screen.getAllByRole('row')[6]).toBeVisible()
 
     expect(within(screen.getAllByRole('row')[6]).getAllByRole('cell')[1]).toHaveTextContent('RR Part 1 (breaths/min)')
     expect(within(screen.getAllByRole('row')[7]).getAllByRole('cell')[1]).toHaveTextContent('RR Part 2 (breaths/min)')
@@ -123,7 +124,7 @@ describe('Questionnaire Table (using Fixture data)', () => {
     userEvent.click(within(getChevronCell()).getByRole('img', { hidden: true }))
     expect(within(getChevronCell()).getByRole('img', { hidden: true })).toHaveClass('fa-chevron-right')
 
-    expect(screen.getAllByRole('row').length).toBe(5)
+    expect(screen.getAllByRole('row').length).toBe(6)
   })
 })
 

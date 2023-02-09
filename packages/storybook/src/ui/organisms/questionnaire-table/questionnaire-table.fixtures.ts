@@ -101,18 +101,7 @@ export const summaryDefinitionItems: QuestionnaireItem[] = [
         type: QuestionnaireItemTypeCode.QuestionString,
         linkId: '4k',
       },
-      {
-        text: 'Spine Pain (VAS)',
-        type: QuestionnaireItemTypeCode.QuestionString,
-        linkId: '4l',
-      },
     ],
-  },
-  {
-    text: 'Average BASFI Score',
-    type: QuestionnaireItemTypeCode.QuestionString,
-    linkId: '5',
-    item: null,
   },
 ]
 
@@ -388,33 +377,7 @@ const summaryRecordOne: QuestionnaireResponse = {
                 },
               ],
             },
-            {
-              linkId: '4l',
-              answer: [
-                {
-                  valueDateTime: null,
-                  valueBoolean: false,
-                  valueString: null,
-                  valueInteger: null,
-                  valueDecimal: null,
-                },
-              ],
-            },
           ],
-        },
-      ],
-    },
-    {
-      linkId: '5',
-      extension: null,
-      answer: [
-        {
-          valueDateTime: null,
-          valueBoolean: null,
-          valueString: null,
-          valueInteger: null,
-          valueDecimal: 70.5,
-          item: null,
         },
       ],
     },
@@ -658,33 +621,7 @@ const summaryRecordTwo = {
                 },
               ],
             },
-            {
-              linkId: '4l',
-              answer: [
-                {
-                  valueDateTime: null,
-                  valueBoolean: null,
-                  valueString: null,
-                  valueInteger: null,
-                  valueDecimal: 20.5,
-                },
-              ],
-            },
           ],
-        },
-      ],
-    },
-    {
-      linkId: '5',
-      extension: null,
-      answer: [
-        {
-          valueDateTime: null,
-          valueBoolean: true,
-          valueString: null,
-          valueInteger: null,
-          valueDecimal: null,
-          item: null,
         },
       ],
     },
@@ -928,33 +865,7 @@ const summaryRecordThree = {
                 },
               ],
             },
-            {
-              linkId: '4l',
-              answer: [
-                {
-                  valueDateTime: null,
-                  valueBoolean: null,
-                  valueString: null,
-                  valueInteger: 45,
-                  valueDecimal: null,
-                },
-              ],
-            },
           ],
-        },
-      ],
-    },
-    {
-      linkId: '5',
-      extension: null,
-      answer: [
-        {
-          valueDateTime: null,
-          valueBoolean: null,
-          valueString: null,
-          valueInteger: null,
-          valueDecimal: 12.5,
-          item: null,
         },
       ],
     },
