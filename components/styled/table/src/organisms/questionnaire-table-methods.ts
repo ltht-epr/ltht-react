@@ -99,7 +99,7 @@ const mapQuestionnaireResponsesIntoDataEntities = (
           const linkId = EnsureMaybe<string>(item?.linkId)
           const answer = EnsureMaybe<QuestionnaireResponseItemAnswer>(item?.answer?.find((answer) => !!answer))
 
-          dataEntity[linkId] = { text: EnsureMaybe<string>(answer.valueString, '') }
+          dataEntity[linkId] = createCellPropsForAnswer(answer, false)
 
           if (answer.item) {
             dataEntity = recursivelyMapResponseItemsOntoData(
@@ -122,7 +122,7 @@ const recursivelyMapResponseItemsOntoData = (
 
     if (item.linkId && firstAnswer) {
       updatedDataEntity[item.linkId] = {
-        text: EnsureMaybe<string>(firstAnswer.valueString, ''),
+        text: createCellPropsForAnswer(firstAnswer, false).text,
       }
 
       if (firstAnswer.item) {
@@ -241,7 +241,7 @@ const getRecordItemByLinkId = (
 
     if (recordItemAnswer) {
       if (recordItem?.linkId && recordItem?.linkId === linkId) {
-        updatedDataEntity[recordIndex + 1] = createCellPropsForAnswer(recordItemAnswer)
+        updatedDataEntity[recordIndex + 1] = createCellPropsForAnswer(recordItemAnswer, true)
       }
       if (recordItemAnswer.item && recordItemAnswer.item.length > 0) {
         updatedDataEntity = getRecordItemByLinkId(
@@ -257,9 +257,12 @@ const getRecordItemByLinkId = (
   return updatedDataEntity
 }
 
-const createCellPropsForAnswer = (answer: QuestionnaireResponseItemAnswer): CellProps => {
+const createCellPropsForAnswer = (
+  answer: QuestionnaireResponseItemAnswer,
+  shouldRenderCheckbox: boolean
+): CellProps => {
   if (answer.valueString) {
-    if (answer.valueString === 'CHECKBOX') {
+    if (shouldRenderCheckbox && answer.valueString === 'CHECKBOX') {
       return {
         iconProps: { type: 'checkbox', size: 'medium' },
       }

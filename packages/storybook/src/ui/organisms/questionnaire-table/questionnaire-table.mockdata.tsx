@@ -33,8 +33,10 @@ export const expectedResultOfMappingWithHeadersOnXAxis: TableData = {
         { id: '4i', type: 'accessor', cellProps: { text: 'Consciousness' }, subHeaders: [] },
         { id: '4j', type: 'accessor', cellProps: { text: 'Pain Score' }, subHeaders: [] },
         { id: '4k', type: 'accessor', cellProps: { text: 'Blood Glucose (mmol/L)' }, subHeaders: [] },
+        { id: '4l', type: 'accessor', cellProps: { text: 'Spine Pain (VAS)' }, subHeaders: [] },
       ],
     },
+    { id: '5', type: 'accessor', cellProps: { text: 'Average BASFI Score' }, subHeaders: [] },
   ],
   rows: [
     {
@@ -69,6 +71,8 @@ export const expectedResultOfMappingWithHeadersOnXAxis: TableData = {
       '4i': { text: 'Alert' },
       '4j': { text: '8' },
       '4k': { text: '75' },
+      '4l': { text: 'false' },
+      '5': { text: '70.5' },
     },
     {
       date: { text: '12-Feb-2022 12:33' },
@@ -102,6 +106,8 @@ export const expectedResultOfMappingWithHeadersOnXAxis: TableData = {
       '4i': { text: 'Alert' },
       '4j': { text: '3' },
       '4k': { text: '65' },
+      '4l': { text: '20.5' },
+      '5': { text: 'true' },
     },
     {
       date: { text: '01-Jan-2022 16:02' },
@@ -135,6 +141,8 @@ export const expectedResultOfMappingWithHeadersOnXAxis: TableData = {
       '4i': { text: 'Confusion' },
       '4j': { text: '5' },
       '4k': { text: '102' },
+      '4l': { text: '45' },
+      '5': { text: '12.5' },
     },
   ],
 }
@@ -293,7 +301,19 @@ export const expectedResultOfMappingWithHeadersOnYAxis: TableData = {
           '2': { text: '65' },
           '3': { text: '102' },
         },
+        {
+          property: { text: 'Spine Pain (VAS)' },
+          '1': { text: 'false' },
+          '2': { text: '20.5' },
+          '3': { text: '45' },
+        },
       ],
+    },
+    {
+      property: { text: 'Average BASFI Score' },
+      '1': { text: '70.5' },
+      '2': { text: 'true' },
+      '3': { text: '12.5' },
     },
   ],
 }
