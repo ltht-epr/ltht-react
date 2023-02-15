@@ -179,13 +179,13 @@ const buildVerticalCellRows = (
     const actionsDataEntity: DataEntity = {}
     actionsDataEntity.property = { text: 'Actions' }
 
-    records.forEach((record, recordIndex) => {
+    records.forEach((record) => {
       const adminActionsForThisDataEntity = adminActions.find(
         (actionForForm) => actionForForm.questionnaire === record.id
       )
 
       if (adminActionsForThisDataEntity) {
-        actionsDataEntity[recordIndex + 1] = {
+        actionsDataEntity[record.id] = {
           adminActions: adminActionsForThisDataEntity.adminActions,
           parentStyle: { zIndex: getZIndex(TableDataWithPopUp) },
         }
@@ -207,12 +207,12 @@ const buildVerticalCellRowsRecursive = (
     updatedDataEntity.property = { text: definitionItem.text ?? '' }
 
     if (definitionItem.linkId) {
-      records.forEach((record, recordIndex) => {
+      records.forEach((record) => {
         updatedDataEntity = getRecordItemByLinkId(
           EnsureMaybeArray<QuestionnaireResponseItem>(record.item ?? []),
           EnsureMaybe<string>(definitionItem.linkId),
           updatedDataEntity,
-          recordIndex
+          record.id
         )
       })
     }
@@ -232,7 +232,7 @@ const getRecordItemByLinkId = (
   recordItems: QuestionnaireResponseItem[],
   linkId: string,
   dataEntity: DataEntity,
-  recordIndex: number
+  recordId: string
 ) => {
   let updatedDataEntity = { ...dataEntity }
   recordItems.forEach((recordItem) => {
@@ -241,14 +241,14 @@ const getRecordItemByLinkId = (
 
     if (recordItemAnswer) {
       if (recordItem?.linkId && recordItem?.linkId === linkId) {
-        updatedDataEntity[recordIndex + 1] = createCellPropsForAnswer(recordItemAnswer, true)
+        updatedDataEntity[recordId] = createCellPropsForAnswer(recordItemAnswer, true)
       }
       if (recordItemAnswer.item && recordItemAnswer.item.length > 0) {
         updatedDataEntity = getRecordItemByLinkId(
           EnsureMaybeArray<QuestionnaireResponseItem>(recordItemAnswer.item),
           linkId,
           updatedDataEntity,
-          recordIndex
+          recordId
         )
       }
     }
