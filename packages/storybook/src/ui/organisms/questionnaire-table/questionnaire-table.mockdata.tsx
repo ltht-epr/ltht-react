@@ -81,7 +81,7 @@ export const expectedResultOfMappingWithHeadersOnXAxis: TableData = {
       '4i': { text: 'Alert' },
       '4j': { text: '8' },
       '4k': { text: '75' },
-      '4l': { text: 'false' },
+      '4l': { text: 'No' },
       '5': { text: '70.5' },
     },
     {
@@ -117,7 +117,7 @@ export const expectedResultOfMappingWithHeadersOnXAxis: TableData = {
       '4j': { text: '3' },
       '4k': { text: '65' },
       '4l': { text: '20.5' },
-      '5': { text: 'true' },
+      '5': { text: 'Yes' },
     },
     {
       date: { text: '01-Jan-2022 16:02' },
@@ -313,7 +313,7 @@ export const expectedResultOfMappingWithHeadersOnYAxis: TableData = {
         },
         {
           property: { text: 'Spine Pain (VAS)' },
-          '1': { text: 'false' },
+          '1': { text: 'No' },
           '2': { text: '20.5' },
           '3': { text: '45' },
         },
@@ -322,7 +322,7 @@ export const expectedResultOfMappingWithHeadersOnYAxis: TableData = {
     {
       property: { text: 'Average BASFI Score' },
       '1': { text: '70.5' },
-      '2': { text: 'true' },
+      '2': { text: 'Yes' },
       '3': { text: '12.5' },
     },
   ],
