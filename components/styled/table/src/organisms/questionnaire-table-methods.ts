@@ -272,8 +272,9 @@ const createCellPropsForAnswer = (
     }
   }
   if (answer.valueBoolean != null) {
+    const parsedBoolean = answer.valueBoolean ? 'Yes' : 'No'
     return {
-      text: answer.valueBoolean.toString(),
+      text: parsedBoolean,
     }
   }
   if (answer.valueInteger != null) {
