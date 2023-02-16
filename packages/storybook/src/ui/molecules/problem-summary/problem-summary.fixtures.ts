@@ -16,17 +16,17 @@ export const ErrorMessageThree: Problem = {
 }
 
 export const WarningMessageOne: Problem = {
-  text: `Some data was missing. QuestionnaireResponses do not contain a rootInstanceIdentifier.`,
+  text: `Some data were missing. QuestionnaireResponses do not contain a rootInstanceIdentifier.`,
   type: 'warning',
 }
 
 export const WarningMessageTwo: Problem = {
-  text: `Some data was missing. QuestionnaireResponses do not contain a setGuid.`,
+  text: `Some data were missing. QuestionnaireResponses do not contain a setGuid.`,
   type: 'warning',
 }
 
 export const WarningMessageThree: Problem = {
-  text: `Some data was missing. QuestionnaireResponses do not contain a template name.`,
+  text: `Some data were missing. QuestionnaireResponses do not contain a template name.`,
   type: 'warning',
 }
 

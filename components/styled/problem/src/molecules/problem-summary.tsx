@@ -36,7 +36,7 @@ const ProblemSummary: FC<MultipleErrorsProps> = ({
         onClick={() => {
           setShowErrorList(!showErrorList)
         }}
-        text="See details"
+        text={showErrorList ? 'See fewer details' : 'See more details'}
         iconPosition="right"
       />
       {showErrorList && (
