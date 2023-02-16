@@ -1,7 +1,7 @@
 {
-  "name": "@ltht-react/error",
+  "name": "@ltht-react/problem",
   "version": "1.0.0",
-  "description": "ltht-react Error Description component.",
+  "description": "ltht-react Problem Summary component.",
   "author": "LTHT",
   "homepage": "",
   "license": "MIT",

@@ -15,14 +15,14 @@ const StyledIcon = styled(Icon)`
   margin-right: 0.5rem;
 `
 
-export const SingleError: FC<ErrorInfo> = ({ type: errorType, text, ...rest }) => (
+export const ProblemMessage: FC<Problem> = ({ type: errorType, text, ...rest }) => (
   <StyledErrorDiv {...rest}>
     <StyledIcon type="exclamation" size="large" status={errorType === 'warning' ? 'amber' : 'red'} />
     {text}
   </StyledErrorDiv>
 )
 
-export interface ErrorInfo extends HTMLAttributes<HTMLDivElement> {
+export interface Problem extends HTMLAttributes<HTMLDivElement> {
   type: 'warning' | 'error'
   text: string
 }
