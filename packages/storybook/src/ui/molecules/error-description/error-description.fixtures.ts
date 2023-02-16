@@ -1,4 +1,4 @@
-import { ErrorInfo } from '@ltht-react/root'
+import { ErrorInfo } from '@ltht-react/error'
 
 export const ErrorMessageOne: ErrorInfo = {
   text: `Unable to fetch data from GraphQL. Field 'ehr' does not exist.`,

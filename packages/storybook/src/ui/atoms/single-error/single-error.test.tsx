@@ -1,5 +1,5 @@
+import { SingleError } from '@ltht-react/error'
 import { render, screen } from '@testing-library/react'
-import { SingleError } from '@ltht-react/root'
 
 describe('Single Error', () => {
   it('Renders some error text', () => {

@@ -1,6 +1,6 @@
 import { IconButton } from '@ltht-react/icon'
 import { FC, HTMLAttributes, useState } from 'react'
-import SingleError, { ErrorInfo } from '../atoms/error'
+import { ErrorInfo, SingleError } from '../atoms/error'
 
 const ErrorDescription: FC<Props> = ({ errors, errorHeaderText, ...rest }) => {
   const [showErrorList, setShowErrorList] = useState<boolean>(errors.length <= 3)
