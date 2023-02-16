@@ -32,7 +32,7 @@ const ErrorDescription: FC<Props> = ({ errors, errorHeaderText, ...rest }) => {
         onClick={() => {
           setShowErrorList(!showErrorList)
         }}
-        text={'See Details'}
+        text={'See details'}
         iconPosition={'right'}
       />
       {showErrorList && (
