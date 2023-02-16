@@ -1,7 +1,7 @@
 import { MedicationDosageInstructions } from '@ltht-react/medication'
 import { DosageType, Maybe } from '@ltht-react/types'
 import { DosageRelationshipType } from '@ltht-react/types/src'
-import { render } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import {
   thenDosageInstruction1,
   thenDosageInstruction2,
@@ -35,31 +35,87 @@ describe('MedicationDosageInstructions', () => {
   })
 
   it.each([
-    [instructionsUndefined, DosageRelationshipType.And],
-    [instructionsUndefined, DosageRelationshipType.Then],
-    [instructionsUndefined, DosageRelationshipType.Or],
-    [instructionsUndefined, DosageRelationshipType.Singleline],
-    [instructionsEmpty, DosageRelationshipType.And],
-    [instructionsEmpty, DosageRelationshipType.Then],
-    [instructionsEmpty, DosageRelationshipType.Or],
-    [instructionsEmpty, DosageRelationshipType.Singleline],
-    [instructionsSingle, DosageRelationshipType.And],
-    [instructionsSingle, DosageRelationshipType.Then],
-    [instructionsSingle, DosageRelationshipType.Or],
-    [instructionsMultiple, DosageRelationshipType.Singleline],
-    [instructionsMultiple, undefined],
+    [
+      instructionsUndefined,
+      DosageRelationshipType.And,
+      'Expecting at least two instructions if relationship type defined and not SingleLine',
+    ],
+    [
+      instructionsUndefined,
+      DosageRelationshipType.Then,
+      'Expecting at least two instructions if relationship type defined and not SingleLine',
+    ],
+    [
+      instructionsUndefined,
+      DosageRelationshipType.Or,
+      'Expecting at least two instructions if relationship type defined and not SingleLine',
+    ],
+    [
+      instructionsUndefined,
+      DosageRelationshipType.Singleline,
+      'Expecting exactly one instruction if relationship type is SingleLine',
+    ],
+    [
+      instructionsEmpty,
+      DosageRelationshipType.And,
+      'Expecting at least two instructions if relationship type defined and not SingleLine',
+    ],
+    [
+      instructionsEmpty,
+      DosageRelationshipType.Then,
+      'Expecting at least two instructions if relationship type defined and not SingleLine',
+    ],
+    [
+      instructionsEmpty,
+      DosageRelationshipType.Or,
+      'Expecting at least two instructions if relationship type defined and not SingleLine',
+    ],
+    [
+      instructionsEmpty,
+      DosageRelationshipType.Singleline,
+      'Expecting exactly one instruction if relationship type is SingleLine',
+    ],
+    [
+      instructionsSingle,
+      DosageRelationshipType.And,
+      'Expecting at least two instructions if relationship type defined and not SingleLine',
+    ],
+    [
+      instructionsSingle,
+      DosageRelationshipType.Then,
+      'Expecting at least two instructions if relationship type defined and not SingleLine',
+    ],
+    [
+      instructionsSingle,
+      DosageRelationshipType.Or,
+      'Expecting at least two instructions if relationship type defined and not SingleLine',
+    ],
+    [
+      instructionsMultiple,
+      DosageRelationshipType.Singleline,
+      'Expecting exactly one instruction if relationship type is SingleLine',
+    ],
+    [
+      instructionsMultiple,
+      undefined,
+      'Expecting one or less instructions if relationship type is undefined or SingleLine',
+    ],
   ])(
     'Expected errors due to instruction and type mismatch',
-    (instructions: Maybe<Maybe<DosageType>[]> | undefined, instructionType) => {
-      expect(() => {
-        render(
-          <MedicationDosageInstructions
-            dosageInstructions={instructions}
-            reasons={undefined}
-            dosageRelationshipType={instructionType}
-          />
-        )
-      }).toThrowError()
+    (instructions: Maybe<Maybe<DosageType>[]> | undefined, instructionType, expectedErrorMessage: string) => {
+      render(
+        <MedicationDosageInstructions
+          dosageInstructions={instructions}
+          reasons={undefined}
+          dosageRelationshipType={instructionType}
+        />
+      )
+
+      expect(screen.getByText(expectedErrorMessage)).toBeVisible()
     }
   )
 })
+
+// Expecting one or less instructions if relationship type is undefined or SingleLine
+// Expecting exactly one instruction if relationship type is SingleLine
+// Expecting at least two instructions if relationship type defined and not SingleLine
