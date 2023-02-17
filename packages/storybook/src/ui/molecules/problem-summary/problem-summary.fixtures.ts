@@ -1,32 +1,32 @@
 import { Problem } from '@ltht-react/problem'
 
 export const ErrorMessageOne: Problem = {
-  text: `Unable to fetch data from GraphQL. Field 'ehr' does not exist.`,
+  text: `An error occurred whilst fetching Medications. If this issue persists please contact the helpdesk.`,
   type: 'error',
 }
 
 export const ErrorMessageTwo: Problem = {
-  text: `Unable to fetch data from GraphQL. Field 'summaryView' does not exist.`,
+  text: `An error occurred whilst fetching Diagnoses. If this issue persists please contact the helpdesk.`,
   type: 'error',
 }
 
 export const ErrorMessageThree: Problem = {
-  text: `Unable to fetch data from GraphQL. Field 'auditEvent' does not exist.`,
+  text: `An error occurred whilst fetching Allergies. If this issue persists please contact the helpdesk.`,
   type: 'error',
 }
 
 export const WarningMessageOne: Problem = {
-  text: `Some data were missing. QuestionnaireResponses do not contain a rootInstanceIdentifier.`,
+  text: `Taking this action will remove the patient from their current Pedigree Group.`,
   type: 'warning',
 }
 
 export const WarningMessageTwo: Problem = {
-  text: `Some data were missing. QuestionnaireResponses do not contain a setGuid.`,
+  text: `You do not have access to this feature.`,
   type: 'warning',
 }
 
 export const WarningMessageThree: Problem = {
-  text: `Some data were missing. QuestionnaireResponses do not contain a template name.`,
+  text: `There is insufficient data in this patient record to show this widget.`,
   type: 'warning',
 }
 
