@@ -2,6 +2,7 @@ import styled from '@emotion/styled'
 import { TEXT_COLOURS } from '@ltht-react/styles'
 import { CodeableConcept, DosageRelationshipType, DosageType, Maybe } from '@ltht-react/types'
 import { partialDateTimeText, periodSummaryText, medicationTitleSeparator } from '@ltht-react/utils'
+import { ProblemSummary } from '@ltht-react/problem'
 import { FC } from 'react'
 import MedicationDosage from '../atoms/medication-dosage'
 import MedicationDosageInstruction from '../atoms/medication-dosage-instruction'
@@ -27,7 +28,16 @@ const MedicationDosageInstructions: FC<IProps> = ({ dosageInstructions, dosageRe
     case DosageRelationshipType.And:
     case DosageRelationshipType.Then:
       if (!dosageInstructions || dosageInstructions.length < 2) {
-        throw new Error('Expecting at least two instructions if relationship type defined and not SingleLine')
+        return (
+          <ProblemSummary
+            problems={[
+              {
+                type: 'error',
+                text: 'Expecting at least two instructions if relationship type defined and not SingleLine',
+              },
+            ]}
+          />
+        )
       }
       return (
         <StyledInstructions>
@@ -67,7 +77,16 @@ const MedicationDosageInstructions: FC<IProps> = ({ dosageInstructions, dosageRe
       )
     case DosageRelationshipType.Or:
       if (!dosageInstructions || dosageInstructions.length < 2) {
-        throw new Error('Expecting at least two instructions if relationship type defined and not SingleLine')
+        return (
+          <ProblemSummary
+            problems={[
+              {
+                type: 'error',
+                text: 'Expecting at least two instructions if relationship type defined and not SingleLine',
+              },
+            ]}
+          />
+        )
       }
 
       if (dosageInstructions[0]?.timing?.event != null) {
@@ -106,11 +125,29 @@ const MedicationDosageInstructions: FC<IProps> = ({ dosageInstructions, dosageRe
     case DosageRelationshipType.Singleline:
     default:
       if (dosageRelationshipType === DosageRelationshipType.Singleline && dosageInstructions?.length !== 1) {
-        throw new Error('Expecting exactly one instruction if relationship type is SingleLine')
+        return (
+          <ProblemSummary
+            problems={[
+              {
+                type: 'error',
+                text: 'Expecting exactly one instruction if relationship type is SingleLine',
+              },
+            ]}
+          />
+        )
       }
 
       if (dosageInstructions && dosageInstructions.length > 1) {
-        throw new Error('Expecting one or less instructions if relationship type is undefined or SingleLine')
+        return (
+          <ProblemSummary
+            problems={[
+              {
+                type: 'error',
+                text: 'Expecting one or less instructions if relationship type is undefined or SingleLine',
+              },
+            ]}
+          />
+        )
       }
 
       if (dosageInstructions?.length === 1) {
