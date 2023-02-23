@@ -1743,6 +1743,7 @@ export enum EntityType {
   OutPatient = 'OUT_PATIENT',
   Pathology = 'PATHOLOGY',
   Patient = 'PATIENT',
+  PatientGroups = 'PATIENT_GROUPS',
   PatientProduct = 'PATIENT_PRODUCT',
   PatientTasks = 'PATIENT_TASKS',
   QToolQuestionnaireResponse = 'Q_TOOL_QUESTIONNAIRE_RESPONSE',
@@ -1867,6 +1868,8 @@ export type Extension = {
   valueIdentifier?: Maybe<Identifier>;
   /** Value of extension (Integer). */
   valueInteger?: Maybe<Scalars['Int']>;
+  /** Value of extension (Quantity). */
+  valueQuantity?: Maybe<Quantity>;
   /** Value of extension (String). */
   valueString?: Maybe<Scalars['String']>;
   /** Value of extension (Uuid). */
