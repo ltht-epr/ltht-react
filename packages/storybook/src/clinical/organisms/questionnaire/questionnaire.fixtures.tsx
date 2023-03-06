@@ -239,6 +239,16 @@ export const DateFieldData: QuestionnaireResponse = {
         text: 'What is your date of birth?',
         type: QuestionnaireItemTypeCode.QuestionDate,
       },
+      {
+        linkId: '2',
+        text: 'What is your time of birth?',
+        type: QuestionnaireItemTypeCode.QuestionTime,
+      },
+      {
+        linkId: '3',
+        text: 'What is your date & time of birth?',
+        type: QuestionnaireItemTypeCode.QuestionDateTime,
+      },
     ],
   },
   item: [
@@ -251,7 +261,35 @@ export const DateFieldData: QuestionnaireResponse = {
           valueBoolean: false,
           valueDateTime: {
             kind: PartialDateTimeKindCode.Date,
-            value: '1971-01-12T00:00:00+00:00',
+            value: '2023-03-06T16:22:36+00:00',
+          },
+        },
+      ],
+    },
+    {
+      linkId: '2',
+      text: null,
+      answer: [
+        {
+          valueString: null,
+          valueBoolean: false,
+          valueDateTime: {
+            kind: PartialDateTimeKindCode.Time,
+            value: '2023-03-06T16:22:36+00:00',
+          },
+        },
+      ],
+    },
+    {
+      linkId: '3',
+      text: null,
+      answer: [
+        {
+          valueString: null,
+          valueBoolean: false,
+          valueDateTime: {
+            kind: PartialDateTimeKindCode.DateTime,
+            value: '2023-03-06T16:22:36+00:00',
           },
         },
       ],

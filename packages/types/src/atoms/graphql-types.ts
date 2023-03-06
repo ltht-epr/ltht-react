@@ -2898,6 +2898,7 @@ export enum QuestionnaireItemTypeCode {
   QuestionStringBbCode = 'QUESTION_STRING_BB_CODE',
   QuestionStringHtml = 'QUESTION_STRING_HTML',
   QuestionText = 'QUESTION_TEXT',
+  QuestionTime = 'QUESTION_TIME',
   Unknown = 'UNKNOWN'
 }
 

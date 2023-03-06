@@ -96,6 +96,32 @@ const generateAnswer = (
         ),
         isFullWidth: false,
       }
+    case QuestionnaireItemTypeCode.QuestionDateTime:
+      return {
+        Answer: (
+          <NestedListDetail term={question || '-'} showIfEmpty={showIfEmpty}>
+            {responseItem?.answer?.map((answerItem, index) => (
+              <div key={`${question}-${answerItem?.valueDateTime?.value}-${index + 1}`}>
+                {partialDateTimeText(answerItem?.valueDateTime)}
+              </div>
+            ))}
+          </NestedListDetail>
+        ),
+        isFullWidth: false,
+      }
+    case QuestionnaireItemTypeCode.QuestionTime:
+      return {
+        Answer: (
+          <NestedListDetail term={question || '-'} showIfEmpty={showIfEmpty}>
+            {responseItem?.answer?.map((answerItem, index) => (
+              <div key={`${question}-${answerItem?.valueDateTime?.value}-${index + 1}`}>
+                {partialDateTimeText(answerItem?.valueDateTime)}
+              </div>
+            ))}
+          </NestedListDetail>
+        ),
+        isFullWidth: false,
+      }
     case QuestionnaireItemTypeCode.QuestionStringBbCode:
       return {
         Answer: (
