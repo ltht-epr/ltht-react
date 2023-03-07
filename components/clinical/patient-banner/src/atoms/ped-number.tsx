@@ -18,7 +18,7 @@ const StyledValue = styled.span`
 `
 
 const PedNumber: FC<Props> = ({ patientGroups, ...rest }) => {
-  const pedGroup = patientGroups.find((pg) => pg.id.includes('PED'))
+  const pedGroup = patientGroups.find((pg) => pg.id.startsWith('PED'))
 
   if (pedGroup === undefined) {
     return null
