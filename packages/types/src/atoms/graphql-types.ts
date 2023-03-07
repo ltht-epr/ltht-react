@@ -13,6 +13,7 @@ export type Scalars = {
   DateTimeOffset: string;
   Decimal: number;
   Guid: any;
+  UInt: any;
 };
 
 /** An address expressed using postal conventions (as opposed to GPS or other location definition formats). This data type may be used to convey addresses for use in delivering mail as well as for visiting locations which might not be valid for mail delivery. There are a variety of postal address formats defined around the world. */
@@ -1129,6 +1130,7 @@ export type Ehr = {
   medication?: Maybe<MedicationRequest>;
   medications?: Maybe<MedicationRequestContinuationType>;
   patient?: Maybe<Patient>;
+  patientGroup?: Maybe<Group>;
   questionnaireResponseByInstance?: Maybe<QuestionnaireResponse>;
   questionnaireResponseLastCompleted?: Maybe<QuestionnaireResponse>;
   questionnaireResponsesBySet?: Maybe<QuestionnaireResponseContinuation>;
@@ -1268,6 +1270,13 @@ export type EhrMedicationsArgs = {
 /** Queries the LTHT EHR. */
 export type EhrPatientArgs = {
   patientGuid: Scalars['String'];
+};
+
+
+/** Queries the LTHT EHR. */
+export type EhrPatientGroupArgs = {
+  groupIdentifier: Scalars['String'];
+  prefix: Scalars['String'];
 };
 
 
@@ -1947,6 +1956,89 @@ export type GpConnect = {
 export type GpConnectDataAvailabilityArgs = {
   nhsNumber: Scalars['String'];
 };
+
+/** An unordered set grouping other domain resources together. */
+export type Group = {
+  /** Whether this group's record is in active use */
+  active?: Maybe<Scalars['Boolean']>;
+  /** If true, indicates that the resource refers to a specific group of real individuals. If false, the group defines a set of intended individuals. */
+  actual: Scalars['Boolean'];
+  /** Characteristic filters to include or exclude group members by. */
+  characteristic?: Maybe<Array<Maybe<GroupCharacteristic>>>;
+  /** The kind of group members. */
+  code?: Maybe<CodeableConcept>;
+  /** Additional content defined by implementations. */
+  extension?: Maybe<Array<Maybe<Extension>>>;
+  /** Logical Id of the resource. */
+  id: Scalars['ID'];
+  /** Unique identifiers for the group. */
+  identifier?: Maybe<Array<Maybe<Identifier>>>;
+  /** Flag to state whether the resource should be displayed as entered in error in user interface */
+  isEnteredInError?: Maybe<Scalars['Boolean']>;
+  /** Entity that is the custodian of the Group's definition. */
+  managingEntity?: Maybe<ResourceReference>;
+  /** Who or what is in group. */
+  member?: Maybe<GroupMember>;
+  /** Metadata about the resource. */
+  metadata: Metadata;
+  /** Label for this group. */
+  name?: Maybe<Scalars['String']>;
+  /** How many members are in the group. */
+  quantity?: Maybe<Scalars['UInt']>;
+  /** Text summary of the resource, for human interpretation. */
+  text?: Maybe<Narrative>;
+  /** Group Type, e.g. Patient, Medication etc. */
+  type: GroupType;
+};
+
+/** A group member filter, defining which members to include or exclude. */
+export type GroupCharacteristic = {
+  /** The kind of group characteristic. */
+  code: CodeableConcept;
+  /** Unique id for inter-element referencing. */
+  elementId?: Maybe<Scalars['String']>;
+  /** Whether to include or exclude group members with this characteristic. */
+  exclude: Scalars['Boolean'];
+  /** Additional content defined by implementations. */
+  extension?: Maybe<Array<Maybe<Extension>>>;
+  /** Whether this group's record is in active use */
+  period?: Maybe<Period>;
+  /** Boolean chacteristic */
+  valueBoolean?: Maybe<Scalars['Boolean']>;
+  /** Codeable Concept characteristic */
+  valueCodeableConcept?: Maybe<CodeableConcept>;
+  /** Unsigned Integer characteristic */
+  valueQuantity?: Maybe<Scalars['UInt']>;
+  /** Range characteristic */
+  valueRange?: Maybe<Range>;
+  /** Resource Reference characteristic */
+  valueReference?: Maybe<ResourceReference>;
+};
+
+/** The reference to the resource belonging to the group */
+export type GroupMember = {
+  /** Unique id for inter-element referencing. */
+  elementId?: Maybe<Scalars['String']>;
+  /** Reference to the group member */
+  entity?: Maybe<ResourceReference>;
+  /** The Patient this group member represents */
+  entityPatient?: Maybe<Patient>;
+  /** Additional content defined by implementations. */
+  extension?: Maybe<Array<Maybe<Extension>>>;
+  /** If member is no longer in group */
+  inactive?: Maybe<Scalars['Boolean']>;
+  /** Period member belonged to the group */
+  period?: Maybe<Period>;
+};
+
+export enum GroupType {
+  Animal = 'ANIMAL',
+  Device = 'DEVICE',
+  Medication = 'MEDICATION',
+  Person = 'PERSON',
+  Practitioner = 'PRACTITIONER',
+  Substance = 'SUBSTANCE'
+}
 
 
 /** https://hl7.org/fhir/2018May/guidanceresponse.html */
@@ -3232,6 +3324,7 @@ export type TimingType = {
   extension?: Maybe<Array<Maybe<Extension>>>;
   repeat?: Maybe<TimingRepeatType>;
 };
+
 
 export enum UnitsOfTimeType {
   /** Year */
