@@ -4,6 +4,7 @@ import { render, screen } from '@testing-library/react'
 import {
   BooleanFieldData,
   ComposedExampleData as NestedQuestionnaireData,
+  DateFieldData,
   NoAnswerData,
 } from './questionnaire.fixtures'
 
@@ -25,6 +26,19 @@ describe('Questionnaire', () => {
 
     screen.getByText('What is your gender?')
     screen.getByText(/Male/)
+  })
+
+  it('should render date, datetime & time', async () => {
+    render(<Questionnaire questionnaire={DateFieldData} />)
+
+    await screen.findByText('What is your date of birth?')
+    screen.getByText('06-Mar-2023')
+
+    await screen.findByText('What is your time of birth?')
+    screen.getByText('16:22')
+
+    await screen.findByText('What is your date & time of birth?')
+    screen.getByText('06-Mar-2023 16:22')
   })
 
   describe('compact view', () => {
