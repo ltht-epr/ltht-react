@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import styled from '@emotion/styled'
-import { Patient } from '@ltht-react/types'
+import { Group, Patient } from '@ltht-react/types'
 
 import {
   CSS_RESET,
@@ -18,7 +18,7 @@ const StyledPatientBanner = styled.div<StyledPatientBannerProps>`
       : `2px solid ${PATIENT_BANNER_BACKGROUND_COLOUR}`};
 `
 
-const PatientBanner: FC<Props> = ({ patient }) => {
+const PatientBanner: FC<Props> = ({ patient, patientGroups }) => {
   const date = patient?.deceased?.deceasedDateTime
 
   let deceased: boolean
@@ -32,7 +32,7 @@ const PatientBanner: FC<Props> = ({ patient }) => {
   return (
     <StyledPatientBanner deceased={deceased}>
       <PrimaryInformation patient={patient} deceased={deceased} />
-      <SecondaryInformation patient={patient} />
+      <SecondaryInformation patient={patient} patientGroups={patientGroups} />
     </StyledPatientBanner>
   )
 }
@@ -43,6 +43,7 @@ interface StyledPatientBannerProps {
 
 interface Props {
   patient: Patient | undefined
+  patientGroups?: Group[]
 }
 
 export default PatientBanner
