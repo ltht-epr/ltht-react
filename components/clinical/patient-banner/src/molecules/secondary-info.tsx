@@ -22,8 +22,10 @@ const StyledSecondaryInformation = styled.div`
 const SecondaryInformation: FC<Props> = ({ patient, patientGroups }) => (
   <StyledSecondaryInformation>
     <Address patient={patient} />
-    {patientGroups && <PedNumber patientGroups={patientGroups} />}
-    <PasNumber patient={patient} />
+    <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'start', flexDirection: 'row' }}>
+      {patientGroups && <PedNumber patientGroups={patientGroups} style={{ marginLeft: '0.5rem' }} />}
+      <PasNumber patient={patient} style={{ marginLeft: '0.5rem' }} />
+    </div>
   </StyledSecondaryInformation>
 )
 
