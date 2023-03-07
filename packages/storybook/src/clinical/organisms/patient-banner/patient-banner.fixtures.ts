@@ -1,5 +1,7 @@
 import {
   Patient,
+  Group,
+  GroupType,
   AddressUseCode,
   Metadata,
   AddressTypeCode,
@@ -84,6 +86,12 @@ const AlivePatient: Patient = {
     },
   ],
 }
+
+const groupsIncludingPedigreeGroup: Group[] = [
+  { id: 'PED048164', actual: true, metadata: mockMetadata, type: GroupType.Person },
+  { id: 'ZZZ123456', actual: true, metadata: mockMetadata, type: GroupType.Person },
+  { id: 'XXX123456', actual: true, metadata: mockMetadata, type: GroupType.Person },
+]
 
 const DeceasedPatient: Patient = {
   id: '829ca260-67e0-e357-b2c7-115087226fg2|patient',
@@ -295,4 +303,10 @@ const DeceasedPatientWithoutBoolean: Patient = {
   ],
 }
 
-export { AlivePatient, DeceasedPatient, DeceasedPatientWithoutDate, DeceasedPatientWithoutBoolean }
+export {
+  AlivePatient,
+  DeceasedPatient,
+  DeceasedPatientWithoutDate,
+  DeceasedPatientWithoutBoolean,
+  groupsIncludingPedigreeGroup,
+}
