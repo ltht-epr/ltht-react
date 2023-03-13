@@ -1,6 +1,6 @@
 import { Story } from '@storybook/react'
 import Card from '@ltht-react/card'
-import Timeline from '@ltht-react/timeline'
+import Timeline, { ITimelineFilter } from '@ltht-react/timeline'
 import { ITimelineItem } from '@ltht-react/timeline/src'
 import { AuditEvent, DocumentReference, QuestionnaireResponse, TimelineDomainResourceType } from '@ltht-react/types'
 import Questionnaires, {
@@ -220,6 +220,55 @@ export const DocumentRedactedTimeline: Story = () => {
       </Card.Header>
       <Card.Body>
         <Timeline timelineItems={timelineItems} key="Timeline3" domainResourceType={documentType} />
+      </Card.Body>
+    </Card>
+  )
+}
+
+export const TimelineWithFilters: Story = () => {
+  const timelineItems: ITimelineItem[] = AuditTrail.resources.map((ti) => ({
+    domainResource: ti as AuditEvent,
+    buttonState: 'no-button',
+    buttonText: 'View',
+  }))
+
+  const filters: ITimelineFilter[] = [
+    {
+      label: 'Care plan',
+      options: [
+        { label: '', value: undefined },
+        {
+          label: 'Pneumonia',
+          value: 'domain:careplan:definitionseriesid:9f4e2790-d0b7-a891-5d51-5f35b0e58228',
+        },
+      ],
+    },
+    {
+      label: 'User',
+      options: [
+        { label: '', value: undefined },
+        {
+          label: 'Bob',
+          value: 'domain:user:some-random-user-guid',
+        },
+      ],
+    },
+  ]
+
+  return (
+    <Card>
+      <Card.Header>
+        <Card.Title style={{ textAlign: 'center' }}>Timeline</Card.Title>
+      </Card.Header>
+      <Card.Body>
+        <Timeline
+          timelineItems={timelineItems}
+          key="Timeline3"
+          domainResourceType={auditType}
+          filters={filters}
+          // eslint-disable-next-line no-console
+          onFilterChange={console.log}
+        />
       </Card.Body>
     </Card>
   )

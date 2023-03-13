@@ -14,7 +14,7 @@ const StyledSelect = styled.select`
 `
 
 const Select: FC<ISelectProps> = ({ onChange, options, value, ...rest }) => (
-  <StyledSelect required onChange={(e) => onChange && onChange(e)} value={value} {...rest}>
+  <StyledSelect onChange={(e) => onChange && onChange(e)} value={value} {...rest}>
     {options.map((item, key) => (
       <option key={key} value={item.value}>
         {item.label}

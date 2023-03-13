@@ -1,7 +1,7 @@
-import { FC } from 'react'
+import { FC, useEffect, useState } from 'react'
 import styled from '@emotion/styled'
 import { CircleIcon } from '@ltht-react/icon'
-import { TEXT_COLOURS, BANNER_COLOURS } from '@ltht-react/styles'
+import { TEXT_COLOURS, BANNER_COLOURS, TABLET_MINIMUM_MEDIA_QUERY } from '@ltht-react/styles'
 import {
   AuditEvent,
   DocumentReference,
@@ -11,6 +11,7 @@ import {
 } from '@ltht-react/types'
 import { formatDate, formatDateExplicitMonth, formatTime, isMobileView } from '@ltht-react/utils'
 import { useWindowSize } from '@ltht-react/hooks'
+import Select from '@ltht-react/select'
 
 import TimelineTime from '../atoms/timeline-time'
 import TimelineItem, { ITimelineItem } from '../molecules/timeline-item'
@@ -109,10 +110,51 @@ const StyledInnerCircle = styled(CircleIcon)`
   font-size: 0.5rem;
 `
 
-const Timeline: FC<IProps> = ({ timelineItems, domainResourceType }) => {
+const StyledFilters = styled.div`
+  padding: 0.5em;
+  display: block;
+
+  ${TABLET_MINIMUM_MEDIA_QUERY} {
+    display: flex;
+    padding: 1em;
+  }
+`
+
+const StyledFilter = styled.div`
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+
+  ${TABLET_MINIMUM_MEDIA_QUERY} {
+    max-width: 200px;
+  }
+
+  > select {
+    min-width: 100px;
+    flex: 2;
+
+    ${TABLET_MINIMUM_MEDIA_QUERY} {
+      flex: unset;
+    }
+  }
+
+  > label {
+    flex: 1;
+    white-space: pre;
+    padding-right: 0.5em;
+
+    ${TABLET_MINIMUM_MEDIA_QUERY} {
+      flex: unset;
+    }
+  }
+`
+
+const Timeline: FC<IProps> = ({ timelineItems, domainResourceType, filters, onFilterChange }) => {
   const { width } = useWindowSize()
   const isMobile = isMobileView(width)
   const timelineDates: { [date: string]: { item: Maybe<ITimelineItem>[]; formattedDate: string } } = {}
+  const [activeFilters, setActiveFilters] = useState<Record<number, string>>({})
+  useEffect(() => setActiveFilters([]), [filters])
 
   timelineItems?.forEach((timelineItem) => {
     if (!timelineItem?.domainResource) {
@@ -166,8 +208,35 @@ const Timeline: FC<IProps> = ({ timelineItems, domainResourceType }) => {
 
   let position = 0
 
+  const handleFilterChange = (key: number, filter?: string) => {
+    const newActiveFilters = { ...activeFilters }
+
+    if (filter && filter.length > 0) {
+      newActiveFilters[key] = filter
+    } else {
+      delete newActiveFilters[key]
+    }
+
+    setActiveFilters(newActiveFilters)
+    onFilterChange && onFilterChange(Object.values(newActiveFilters).filter((x) => x && x.length > 0))
+  }
+
   return (
     <StyledTimeline key="timeline" data-testid="timeline">
+      {filters && (
+        <StyledFilters>
+          {filters.map((filter, key) => (
+            <StyledFilter key={key}>
+              <label htmlFor={`${filter.label}-${key}`}>{filter.label}:</label>
+              <Select
+                id={`${filter.label}-${key}`}
+                options={filter.options}
+                onChange={(e) => handleFilterChange(key, e.target.value)}
+              />
+            </StyledFilter>
+          ))}
+        </StyledFilters>
+      )}
       {Object.entries(timelineDates).map(([dateKey, value]) => {
         position += 1
         return (
@@ -319,10 +388,20 @@ const Timeline: FC<IProps> = ({ timelineItems, domainResourceType }) => {
 interface IProps {
   timelineItems: Maybe<ITimelineItem>[]
   domainResourceType: TimelineDomainResourceType
+  filters?: ITimelineFilter[]
+  onFilterChange?: (value: string[]) => void
 }
 
 interface IStyledMobile {
   isMobile: boolean
+}
+
+export interface ITimelineFilter {
+  label: string
+  options: {
+    value?: string
+    label: string
+  }[]
 }
 
 export default Timeline

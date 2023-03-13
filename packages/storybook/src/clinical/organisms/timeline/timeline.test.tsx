@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/react'
-import Timeline, { ITimelineItem } from '@ltht-react/timeline'
+import userEvent from '@testing-library/user-event'
+import Timeline, { ITimelineFilter, ITimelineItem } from '@ltht-react/timeline'
 import { formatTime, formatDate } from '@ltht-react/utils'
 import { TimelineDomainResourceType } from '@ltht-react/types'
 import Questionnaires, {
@@ -209,4 +210,109 @@ it('Questionnaire uses questionnaire.title as backup title', () => {
   )
   const backupTitle = TitleResponse.questionnaire?.title ?? ''
   expect(screen.queryAllByText(backupTitle)).toHaveLength(1)
+})
+
+it('will show filters if available', async () => {
+  const timelineItems: ITimelineItem[] = [
+    {
+      domainResource: TitleResponse,
+      buttonState: 'selectable-button',
+    },
+  ]
+
+  const filters: ITimelineFilter[] = [
+    {
+      label: 'Care plan',
+      options: [
+        { label: '', value: undefined },
+        {
+          label: 'Pneumonia',
+          value: 'domain:careplan:definitionseriesid:9f4e2790-d0b7-a891-5d51-5f35b0e58228',
+        },
+      ],
+    },
+    {
+      label: 'User',
+      options: [
+        { label: '', value: undefined },
+        {
+          label: 'Bob',
+          value: 'domain:user:some-random-user-guid',
+        },
+      ],
+    },
+  ]
+
+  render(
+    <Timeline
+      timelineItems={timelineItems}
+      domainResourceType={TimelineDomainResourceType.QuestionnaireResponse}
+      filters={filters}
+    />
+  )
+
+  await screen.findByLabelText(/Care plan:/)
+  await screen.findByLabelText(/User:/)
+})
+
+it('will call back with selected filters when a value is changed', async () => {
+  const timelineItems: ITimelineItem[] = [
+    {
+      domainResource: TitleResponse,
+      buttonState: 'selectable-button',
+    },
+  ]
+
+  const filters: ITimelineFilter[] = [
+    {
+      label: 'Care plan',
+      options: [
+        { label: '', value: undefined },
+        {
+          label: 'Pneumonia',
+          value: 'domain:careplan:definitionseriesid:9f4e2790-d0b7-a891-5d51-5f35b0e58228',
+        },
+      ],
+    },
+    {
+      label: 'User',
+      options: [
+        { label: '', value: undefined },
+        {
+          label: 'Bob',
+          value: 'domain:user:some-random-user-guid',
+        },
+      ],
+    },
+  ]
+
+  const handleFilterChangeMock = jest.fn()
+
+  render(
+    <Timeline
+      timelineItems={timelineItems}
+      domainResourceType={TimelineDomainResourceType.QuestionnaireResponse}
+      filters={filters}
+      onFilterChange={handleFilterChangeMock}
+    />
+  )
+  const carePlanFilter = await screen.findByLabelText(/Care plan:/)
+  const userFilter = await screen.findByLabelText(/User:/)
+
+  userEvent.selectOptions(carePlanFilter, 'domain:careplan:definitionseriesid:9f4e2790-d0b7-a891-5d51-5f35b0e58228')
+
+  expect(handleFilterChangeMock).toHaveBeenLastCalledWith([
+    'domain:careplan:definitionseriesid:9f4e2790-d0b7-a891-5d51-5f35b0e58228',
+  ])
+
+  userEvent.selectOptions(userFilter, 'domain:user:some-random-user-guid')
+
+  expect(handleFilterChangeMock).toHaveBeenLastCalledWith([
+    'domain:careplan:definitionseriesid:9f4e2790-d0b7-a891-5d51-5f35b0e58228',
+    'domain:user:some-random-user-guid',
+  ])
+
+  userEvent.selectOptions(carePlanFilter, '')
+
+  expect(handleFilterChangeMock).toHaveBeenLastCalledWith(['domain:user:some-random-user-guid'])
 })
