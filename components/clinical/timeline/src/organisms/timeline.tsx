@@ -18,6 +18,7 @@ import TimelineItem, { ITimelineItem } from '../molecules/timeline-item'
 import TimelineItemRedacted from '../molecules/timeline-item-redacted'
 
 const StyledTimeline = styled.div`
+  position: relative;
   margin: -0.75rem;
 `
 
@@ -111,6 +112,11 @@ const StyledInnerCircle = styled(CircleIcon)`
 `
 
 const StyledFilters = styled.div`
+  position: sticky;
+  margin-bottom: 1rem;
+  top: 0;
+  background-color: ${BANNER_COLOURS.DEFAULT.BACKGROUND};
+  z-index: 1000;
   padding: 0.5em;
   display: block;
 
