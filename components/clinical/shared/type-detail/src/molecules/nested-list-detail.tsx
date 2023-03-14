@@ -10,7 +10,7 @@ const NestedListDetail: DetailViewComponent<INestedListDetailProps> = ({
   className = '',
 }) =>
   children || showIfEmpty === true ? (
-    <DescriptionList className={className}>
+    <DescriptionList className={className} data-testid={term.split(' ').join('-')}>
       {(children || showIfEmpty === true) && <DescriptionList.Term>{term}</DescriptionList.Term>}
       {(children || showIfEmpty === true) && wrapDescription === true && (
         <DescriptionList.Description>{children}</DescriptionList.Description>
