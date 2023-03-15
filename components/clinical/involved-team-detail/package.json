@@ -1,6 +1,6 @@
 {
   "name": "@ltht-react/involved-team-detail",
-  "version": "1.3.199",
+  "version": "1.3.200",
   "description": "ltht-react clinical InvolvedTeamDetail component.",
   "author": "LTHT",
   "homepage": "",
@@ -27,9 +27,9 @@
   "dependencies": {
     "@emotion/react": "^11.0.0",
     "@emotion/styled": "^11.0.0",
-    "@ltht-react/styles": "^1.3.193",
-    "@ltht-react/types": "^1.0.197",
-    "@ltht-react/utils": "^1.1.199",
+    "@ltht-react/styles": "^1.3.194",
+    "@ltht-react/types": "^1.0.198",
+    "@ltht-react/utils": "^1.1.200",
     "react": "^17.0.0"
   },
   "gitHead": "4d364556bb11e294d86697c2dac66742f7aabc7f"
