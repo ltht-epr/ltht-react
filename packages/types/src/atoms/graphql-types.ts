@@ -1123,9 +1123,12 @@ export type Ehr = {
   carePlanDefinition?: Maybe<PlanDefinition>;
   carePlanDefinitionUseContexts?: Maybe<Array<Maybe<TerminologyItem>>>;
   carePlanDefinitions?: Maybe<PlanDefinitionContinuationType>;
+  carePlanSummaries?: Maybe<Array<Maybe<CarePlan>>>;
   condition?: Maybe<Condition>;
   conditions?: Maybe<ConditionContinuation>;
   documentReferences?: Maybe<DocumentReferenceContinuation>;
+  flags?: Maybe<Array<Maybe<Flag>>>;
+  flagsTODO?: Maybe<FlagContinuationType>;
   guidance?: Maybe<Array<Maybe<Guidance>>>;
   medication?: Maybe<MedicationRequest>;
   medications?: Maybe<MedicationRequestContinuationType>;
@@ -1214,6 +1217,13 @@ export type EhrCarePlanDefinitionsArgs = {
 
 
 /** Queries the LTHT EHR. */
+export type EhrCarePlanSummariesArgs = {
+  pathwayType: Scalars['String'];
+  patientGuid: Scalars['String'];
+};
+
+
+/** Queries the LTHT EHR. */
 export type EhrConditionArgs = {
   id: Scalars['String'];
   patientGuid: Scalars['String'];
@@ -1238,6 +1248,20 @@ export type EhrConditionsArgs = {
 export type EhrDocumentReferencesArgs = {
   patientGuid: Scalars['String'];
   template: Scalars['String'];
+};
+
+
+/** Queries the LTHT EHR. */
+export type EhrFlagsArgs = {
+  patientGuid: Scalars['String'];
+};
+
+
+/** Queries the LTHT EHR. */
+export type EhrFlagsTodoArgs = {
+  count?: Maybe<Scalars['Int']>;
+  cursorToken?: Maybe<Scalars['String']>;
+  patientGuid: Scalars['String'];
 };
 
 
@@ -1938,6 +1962,20 @@ export type Flag = {
   status: FlagStatusCode;
   /** Text summary of the resource, for human interpretation. */
   text?: Maybe<Narrative>;
+};
+
+/** A continuation of Flag resources. */
+export type FlagContinuationType = {
+  /** The first cursor token. */
+  firstCursorToken?: Maybe<Scalars['String']>;
+  /** The next cursor token. */
+  nextCursorToken?: Maybe<Scalars['String']>;
+  /** The continuation of Flag resources. */
+  resources: Array<Maybe<Flag>>;
+  /** The self cursor token. */
+  selfCursorToken: Scalars['String'];
+  /** The total number of resources available (if known). */
+  totalResources?: Maybe<Scalars['Int']>;
 };
 
 export enum FlagStatusCode {
