@@ -81,8 +81,12 @@ const FlagTwo: Flag = {
       kind: PartialDateTimeKindCode.Date,
     },
   },
-
   status: FlagStatusCode.Inactive,
+  text: {
+    div: 'Lorem ipsum dolor sit amet',
+    text:
+      'Lorem ipsum dolor sit amet, falli nulla oportere vel eu. Ea meis moderatius scripserit his, ei decore ceteros has. Quo at apeirian facilisi consectetuer. At putant animal persius his, inani maiestatis moderatius vis no',
+  },
 }
 
 const flags: Flag[] = [FlagOne, FlagTwo]
