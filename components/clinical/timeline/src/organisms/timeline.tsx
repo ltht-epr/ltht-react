@@ -404,10 +404,12 @@ interface IStyledMobile {
 
 export interface ITimelineFilter {
   label: string
-  options: {
-    value?: string
-    label: string
-  }[]
+  options: ITimelineFilterOption[]
+}
+
+export interface ITimelineFilterOption {
+  value?: string
+  label: string
 }
 
 export default Timeline
