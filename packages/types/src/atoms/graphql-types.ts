@@ -1352,6 +1352,8 @@ export type EhrTasksArgs = {
   pathwayId?: Maybe<Scalars['String']>;
   pathwayType?: Maybe<Scalars['String']>;
   patientGuid: Scalars['String'];
+  processId?: Maybe<Scalars['String']>;
+  processName?: Maybe<Scalars['String']>;
   status?: Array<Maybe<TaskStatusCode>>;
 };
 
@@ -2527,6 +2529,7 @@ export type Parameter = {
   /** Additional content defined by implementations. */
   extension?: Maybe<Array<Maybe<Extension>>>;
   name?: Maybe<Scalars['String']>;
+  part?: Maybe<Array<Maybe<Parameter>>>;
   valueBoolean?: Maybe<Scalars['Boolean']>;
   valueCode?: Maybe<Scalars['String']>;
   valueCodeableConcept?: Maybe<CodeableConcept>;
