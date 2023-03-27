@@ -214,11 +214,11 @@ const Timeline: FC<IProps> = ({ timelineItems, domainResourceType, filters, onFi
 
   let position = 0
 
-  const handleFilterChange = (key: number, filter?: string) => {
+  const handleFilterChange = (key: number, filter: ITimelineFilter, value?: string) => {
     const newActiveFilters = { ...activeFilters }
 
-    if (filter && filter.length > 0) {
-      newActiveFilters[key] = filter
+    if (value && value.length > 0 && filter.options.some((x) => x.value === value)) {
+      newActiveFilters[key] = value
     } else {
       delete newActiveFilters[key]
     }
@@ -237,7 +237,7 @@ const Timeline: FC<IProps> = ({ timelineItems, domainResourceType, filters, onFi
               <Select
                 id={`${filter.label}-${key}`}
                 options={filter.options}
-                onChange={(e) => handleFilterChange(key, e.target.value)}
+                onChange={(e) => handleFilterChange(key, filter, e.target.value)}
               />
             </StyledFilter>
           ))}

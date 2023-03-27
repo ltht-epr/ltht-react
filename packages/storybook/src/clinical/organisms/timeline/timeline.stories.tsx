@@ -236,7 +236,7 @@ export const TimelineWithFilters: Story = () => {
     {
       label: 'Care plan',
       options: [
-        { label: '', value: undefined },
+        { label: 'All', value: undefined },
         {
           label: 'Pneumonia',
           value: 'domain:careplan:definitionseriesid:9f4e2790-d0b7-a891-5d51-5f35b0e58228',
