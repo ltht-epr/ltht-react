@@ -18,7 +18,7 @@ import appointments from '../../../clinical/organisms/appointments/appointments.
 import carePlans from '../../../clinical/organisms/care-plans/care-plans.fixtures'
 import communityOrders from '../../../clinical/organisms/community-treatment-orders/community-treatment-orders.fixtures'
 import episodeOfCares from '../../../clinical/organisms/involved-teams/involved-teams.fixtures'
-import flags from '../../../clinical/organisms/flags/flags.fixtures'
+// import flags from '../../../clinical/organisms/flags/flags.fixtures'
 import flagsHigh from '../../../clinical/organisms/flags/flags.fixturesHigh'
 import flagsClinical from '../../../clinical/organisms/flags/flags.fixturesClinical'
 import flagsAdministrative from '../../../clinical/organisms/flags/flags.fixturesAdministrative'
