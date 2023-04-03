@@ -1115,31 +1115,59 @@ export type DosageType = {
 
 /** Queries the LTHT EHR. */
 export type Ehr = {
+  /** Active Care Plans */
   activeCarePlans?: Maybe<CarePlanContinuationType>;
+  /** Allergy/Intolerance Detail */
   allergyIntolerance?: Maybe<AllergyIntolerance>;
+  /** Allergies and Intolerances */
   allergyIntolerances?: Maybe<AllergyIntoleranceContinuationType>;
+  /** Timeline Events */
   auditEvents?: Maybe<AuditEventContinuation>;
+  /** Available Care Plans */
   availableCarePlanDefinitionsForPatient?: Maybe<PlanDefinitionContinuationType>;
+  /** Care Plan Definition Detail */
   carePlanDefinition?: Maybe<PlanDefinition>;
+  /** Care Plan Definition Usage Contexts */
   carePlanDefinitionUseContexts?: Maybe<Array<Maybe<TerminologyItem>>>;
+  /** Care Plan Definitions */
   carePlanDefinitions?: Maybe<PlanDefinitionContinuationType>;
+  /** Active Care Plan Summaries */
   carePlanSummaries?: Maybe<Array<Maybe<CarePlan>>>;
+  /** Diagnosis Detail */
   condition?: Maybe<Condition>;
+  /** Diagnosis */
   conditions?: Maybe<ConditionContinuation>;
+  /** Documents */
   documentReferences?: Maybe<DocumentReferenceContinuation>;
+  /** Alerts */
   flags?: Maybe<Array<Maybe<Flag>>>;
+  /** Alerts */
   flagsTODO?: Maybe<FlagContinuationType>;
+  /** All PatientGroups a certain patient belongs to */
+  groupsByPatient?: Maybe<Array<Maybe<Group>>>;
+  /** Guidance */
   guidance?: Maybe<Array<Maybe<Guidance>>>;
+  /** Medication Detail */
   medication?: Maybe<MedicationRequest>;
+  /** Medications */
   medications?: Maybe<MedicationRequestContinuationType>;
+  /** Patient Demographics */
   patient?: Maybe<Patient>;
+  /** Patient Group and Membership */
   patientGroup?: Maybe<Group>;
+  /** Questionnaire Detail */
   questionnaireResponseByInstance?: Maybe<QuestionnaireResponse>;
+  /** Questionnaire Detail */
   questionnaireResponseLastCompleted?: Maybe<QuestionnaireResponse>;
+  /** Questionnaires */
   questionnaireResponsesBySet?: Maybe<QuestionnaireResponseContinuation>;
+  /** Summary View Definition */
   summaryDefinition?: Maybe<Questionnaire>;
+  /** Summary View Data */
   summaryView?: Maybe<QuestionnaireResponseContinuation>;
+  /** Tasks */
   tasks?: Maybe<TaskContinuation>;
+  /** Terminology */
   terminologyItems?: Maybe<TerminologyItemContinuation>;
 };
 
@@ -1177,9 +1205,12 @@ export type EhrAuditEventsArgs = {
   auditProfile?: Maybe<Scalars['String']>;
   count?: Maybe<Scalars['Int']>;
   cursorToken?: Maybe<Scalars['String']>;
+  from?: Maybe<Scalars['DateTimeOffset']>;
   pathwayId: Scalars['String'];
   pathwayType: Scalars['String'];
   patientGuid: Scalars['String'];
+  tags?: Maybe<Array<Maybe<Scalars['String']>>>;
+  to?: Maybe<Scalars['DateTimeOffset']>;
 };
 
 
@@ -1266,6 +1297,13 @@ export type EhrFlagsTodoArgs = {
 
 
 /** Queries the LTHT EHR. */
+export type EhrGroupsByPatientArgs = {
+  patientGuid: Scalars['String'];
+  showHistory: Scalars['String'];
+};
+
+
+/** Queries the LTHT EHR. */
 export type EhrGuidanceArgs = {
   instanceSetGuid: Scalars['String'];
   patientGuid: Scalars['String'];
@@ -1301,6 +1339,7 @@ export type EhrPatientArgs = {
 export type EhrPatientGroupArgs = {
   groupIdentifier: Scalars['String'];
   prefix: Scalars['String'];
+  showHistory: Scalars['String'];
 };
 
 
@@ -1369,15 +1408,25 @@ export type EhrTerminologyItemsArgs = {
 
 /** Mutations of the LTHT EHR. */
 export type EhrMutation = {
+  /** Start Care Plan with Expected Actions */
   addCarePlan?: Maybe<CarePlan>;
+  /** Add Multiple Diagnosis (Medical History) */
   addConditions?: Maybe<Array<Maybe<Condition>>>;
+  /** Complete all Care Plan Expected Actions */
   completeCarePlan?: Maybe<CarePlan>;
+  /** Discontinue Care Plan and Expected Actions */
   discontinueCarePlan?: Maybe<CarePlan>;
+  /** Document Care Plan Action Activities and Goal Evaluations */
   documentCarePlan?: Maybe<Parameters>;
+  /** Pause all Care Plan Expected Actions */
   pauseCarePlan?: Maybe<CarePlan>;
+  /** Resume all Care Plan Expected Actions */
   resumeCarePlan?: Maybe<CarePlan>;
+  /** Update Diagnosis */
   setConditionStatus?: Maybe<Condition>;
+  /** Update Care Plan with Expected Actions */
   updateCarePlan?: Maybe<CarePlan>;
+  /** Update Task */
   updateTask?: Maybe<Task>;
 };
 
@@ -1787,6 +1836,7 @@ export enum EntityType {
   Referral = 'REFERRAL',
   Review = 'REVIEW',
   SelfClaim = 'SELF_CLAIM',
+  Sepsis = 'SEPSIS',
   Spine = 'SPINE',
   SummaryViewPilot = 'SUMMARY_VIEW_PILOT',
   Surgery = 'SURGERY',
@@ -1988,6 +2038,7 @@ export enum FlagStatusCode {
 
 /** Queries the GP Connect system. */
 export type GpConnect = {
+  /** Data Availability Check */
   dataAvailability?: Maybe<DataAvailability>;
 };
 
@@ -2018,7 +2069,7 @@ export type Group = {
   /** Entity that is the custodian of the Group's definition. */
   managingEntity?: Maybe<ResourceReference>;
   /** Who or what is in group. */
-  member?: Maybe<GroupMember>;
+  member?: Maybe<Array<Maybe<GroupMember>>>;
   /** Metadata about the resource. */
   metadata: Metadata;
   /** Label for this group. */
@@ -2182,14 +2233,23 @@ export enum IntentCode {
 
 /** Queries the LYPFT EHR. */
 export type Lypft = {
+  /** Allergies and Intolerances */
   allergyIntolerances?: Maybe<Array<Maybe<AllergyIntolerance>>>;
+  /** Appointments */
   appointments?: Maybe<EncounterContinuation>;
+  /** Care Plans */
   carePlans?: Maybe<Array<Maybe<CarePlan>>>;
+  /** Care Teams */
   careTeams?: Maybe<Array<Maybe<EpisodeOfCare>>>;
+  /** Community Treatment Orders */
   communityTreatmentOrders?: Maybe<Array<Maybe<LypftCommunityTreatmentOrder>>>;
+  /** Data Availability Check */
   dataAvailability?: Maybe<DataAvailability>;
+  /** Documents */
   documents?: Maybe<Array<Maybe<DocumentReference>>>;
+  /** Alerts */
   flags?: Maybe<Array<Maybe<Flag>>>;
+  /** Hospital Stays */
   hospitalStays?: Maybe<Array<Maybe<Encounter>>>;
 };
 
@@ -2901,11 +2961,17 @@ export enum QuantityComparatorCode {
 }
 
 export type Query = {
+  /** EHR Platform (Data Provider) */
   ehr?: Maybe<Ehr>;
+  /** Feature Toggles for System, User, and Organisation Context */
   featureToggles?: Maybe<Array<Maybe<FeatureToggle>>>;
+  /** GP Connect (Data Provider) */
   gpConnect?: Maybe<GpConnect>;
+  /** Leeds and York Partnership NHS Foundation Trust (Data Provider) */
   lypft?: Maybe<Lypft>;
+  /** Authenticated User Details */
   user?: Maybe<User>;
+  /** Yorkshire Humber Care Record (Data Provider) */
   yhcr?: Maybe<Yhcr>;
 };
 
@@ -3420,13 +3486,21 @@ export type User = {
 
 /** Queries the YHCR System-of-Systems. */
 export type Yhcr = {
+  /** Allergies and Intolerances */
   allergyIntolerances?: Maybe<Array<Maybe<AllergyIntolerance>>>;
+  /** Appointments */
   appointments?: Maybe<EncounterContinuation>;
+  /** Diagnosis Detail */
   condition?: Maybe<Condition>;
+  /** Diagnosis */
   conditions?: Maybe<Array<Maybe<Condition>>>;
+  /** Data Availability Check */
   dataAvailability?: Maybe<DataAvailability>;
+  /** Documents */
   documents?: Maybe<DocumentReferenceContinuation>;
+  /** Hospital Stays */
   hospitalStays?: Maybe<Array<Maybe<Encounter>>>;
+  /** Observations */
   observations?: Maybe<Array<Maybe<Observation>>>;
 };
 
