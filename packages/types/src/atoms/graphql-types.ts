@@ -10,6 +10,7 @@ export type Scalars = {
   Int: number;
   Float: number;
   Date: string;
+  DateTime: string;
   DateTimeOffset: string;
   Decimal: number;
   Guid: any;
@@ -904,6 +905,7 @@ export enum DataSourceProfile {
 
 
 
+
 export enum DaysOfWeekType {
   /** Friday */
   Fri = 'FRI',
@@ -1155,6 +1157,10 @@ export type Ehr = {
   patient?: Maybe<Patient>;
   /** Patient Group and Membership */
   patientGroup?: Maybe<Group>;
+  /** Patient Search by Free Text */
+  patientSearchByFreeText?: Maybe<PatientContinuationType>;
+  /** Patient Search by Search Criteria */
+  patientSearchBySearchCriteria?: Maybe<PatientContinuationType>;
   /** Questionnaire Detail */
   questionnaireResponseByInstance?: Maybe<QuestionnaireResponse>;
   /** Questionnaire Detail */
@@ -1340,6 +1346,31 @@ export type EhrPatientGroupArgs = {
   groupIdentifier: Scalars['String'];
   prefix: Scalars['String'];
   showHistory: Scalars['String'];
+};
+
+
+/** Queries the LTHT EHR. */
+export type EhrPatientSearchByFreeTextArgs = {
+  count?: Maybe<Scalars['Int']>;
+  cursorToken?: Maybe<Scalars['String']>;
+  otherOrganisations?: Maybe<Scalars['Boolean']>;
+  searchText: Scalars['String'];
+  useTrialIdentifiers?: Maybe<Scalars['Boolean']>;
+};
+
+
+/** Queries the LTHT EHR. */
+export type EhrPatientSearchBySearchCriteriaArgs = {
+  count?: Maybe<Scalars['Int']>;
+  cursorToken?: Maybe<Scalars['String']>;
+  dateOfBirth?: Maybe<Scalars['DateTime']>;
+  familyName?: Maybe<Scalars['String']>;
+  givenName?: Maybe<Scalars['String']>;
+  nhsNumber?: Maybe<Scalars['String']>;
+  otherOrganisations?: Maybe<Scalars['Boolean']>;
+  pedigreeNumber?: Maybe<Scalars['String']>;
+  postCode?: Maybe<Scalars['String']>;
+  useTrialIdentifiers?: Maybe<Scalars['Boolean']>;
 };
 
 
@@ -2696,6 +2727,20 @@ export type PatientContact = {
   relationship?: Maybe<Array<Maybe<CodeableConcept>>>;
   /** A contact detail for the person. */
   telecom?: Maybe<Array<Maybe<ContactPoint>>>;
+};
+
+/** A continuation of Patient resources. */
+export type PatientContinuationType = {
+  /** The first cursor token. */
+  firstCursorToken?: Maybe<Scalars['String']>;
+  /** The next cursor token. */
+  nextCursorToken?: Maybe<Scalars['String']>;
+  /** The continuation of Patient resources. */
+  resources: Array<Maybe<Patient>>;
+  /** The self cursor token. */
+  selfCursorToken: Scalars['String'];
+  /** The total number of resources available (if known). */
+  totalResources?: Maybe<Scalars['Int']>;
 };
 
 /** Indicates if the individual is deceased or not. */
