@@ -10,7 +10,6 @@ export type Scalars = {
   Int: number;
   Float: number;
   Date: string;
-  DateTime: string;
   DateTimeOffset: string;
   Decimal: number;
   Guid: any;
@@ -905,7 +904,6 @@ export enum DataSourceProfile {
 
 
 
-
 export enum DaysOfWeekType {
   /** Friday */
   Fri = 'FRI',
@@ -1363,7 +1361,7 @@ export type EhrPatientSearchByFreeTextArgs = {
 export type EhrPatientSearchBySearchCriteriaArgs = {
   count?: Maybe<Scalars['Int']>;
   cursorToken?: Maybe<Scalars['String']>;
-  dateOfBirth?: Maybe<Scalars['DateTime']>;
+  dateOfBirth?: Maybe<Scalars['DateTimeOffset']>;
   familyName?: Maybe<Scalars['String']>;
   givenName?: Maybe<Scalars['String']>;
   nhsNumber?: Maybe<Scalars['String']>;
