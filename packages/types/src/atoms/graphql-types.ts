@@ -1125,6 +1125,8 @@ export type Ehr = {
   auditEvents?: Maybe<AuditEventContinuation>;
   /** Available Care Plans */
   availableCarePlanDefinitionsForPatient?: Maybe<PlanDefinitionContinuationType>;
+  /** Gets the care plan associated with an intervention or goal evaluation */
+  carePlan?: Maybe<CarePlan>;
   /** Care Plan Definition Detail */
   carePlanDefinition?: Maybe<PlanDefinition>;
   /** Care Plan Definition Usage Contexts */
@@ -1226,6 +1228,15 @@ export type EhrAvailableCarePlanDefinitionsForPatientArgs = {
   pathwayType: Scalars['String'];
   patientGuid?: Maybe<Scalars['Guid']>;
   useContext?: Maybe<Scalars['String']>;
+};
+
+
+/** Queries the LTHT EHR. */
+export type EhrCarePlanArgs = {
+  carePlanId?: Maybe<Scalars['Guid']>;
+  interactionId?: Maybe<Scalars['Guid']>;
+  patientGuid: Scalars['Guid'];
+  type: Scalars['String'];
 };
 
 
