@@ -153,7 +153,6 @@ const formatPatientGender = (patient: Patient | undefined): string => {
     case AdministrativeGenderCode.Other:
       return 'Other'
     case AdministrativeGenderCode.Unknown:
-      return 'Unknown'
     default:
       return 'Unknown'
   }
