@@ -1,4 +1,11 @@
-import { Patient, HumanNameUseCode, AddressUseCode, NhsNumberStatus, PatientIdentifierType } from '@ltht-react/types'
+import {
+  Patient,
+  HumanNameUseCode,
+  AddressUseCode,
+  NhsNumberStatus,
+  PatientIdentifierType,
+  AdministrativeGenderCode,
+} from '@ltht-react/types'
 import { titleCase } from './title-case'
 
 const daysInMonth = (iMonth: number, iYear: number): number => 32 - new Date(iYear, iMonth, 32).getDate()
@@ -137,4 +144,25 @@ const nhsNumberStatus = (patient: Patient | undefined): NhsNumberStatus => {
   return NhsNumberStatus.Unknown
 }
 
-export { formatPatientAddress, formatPatientAge, formatPatientName, formatNHSNumber, nhsNumberStatus }
+const formatPatientGender = (patient: Patient | undefined): string => {
+  switch (patient?.gender) {
+    case AdministrativeGenderCode.Male:
+      return 'Male'
+    case AdministrativeGenderCode.Female:
+      return 'Female'
+    case AdministrativeGenderCode.Other:
+      return 'Other'
+    case AdministrativeGenderCode.Unknown:
+    default:
+      return 'Unknown'
+  }
+}
+
+export {
+  formatPatientAddress,
+  formatPatientAge,
+  formatPatientName,
+  formatNHSNumber,
+  nhsNumberStatus,
+  formatPatientGender,
+}
