@@ -1,6 +1,6 @@
 {
   "name": "@ltht-react/questionnaire",
-  "version": "1.0.198",
+  "version": "1.0.199",
   "description": "ltht-react Questionnaire component.",
   "author": "LTHT",
   "homepage": "",
@@ -27,13 +27,13 @@
   "dependencies": {
     "@emotion/react": "^11.0.0",
     "@emotion/styled": "^11.0.0",
-    "@ltht-react/hooks": "^1.0.198",
-    "@ltht-react/icon": "^1.3.208",
-    "@ltht-react/styles": "^1.3.200",
-    "@ltht-react/type-detail": "^1.3.208",
-    "@ltht-react/type-summary": "^1.3.208",
-    "@ltht-react/types": "^1.0.204",
-    "@ltht-react/utils": "^1.1.206",
+    "@ltht-react/hooks": "^1.0.199",
+    "@ltht-react/icon": "^1.3.209",
+    "@ltht-react/styles": "^1.3.201",
+    "@ltht-react/type-detail": "^1.3.209",
+    "@ltht-react/type-summary": "^1.3.209",
+    "@ltht-react/types": "^1.0.205",
+    "@ltht-react/utils": "^1.1.207",
     "bbcode-to-react": "^0.2.9",
     "react": "^17.0.0",
     "react-html-parser": "^2.0.2"
