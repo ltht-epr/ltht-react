@@ -5,8 +5,16 @@ import {
   AddressUseCode,
   PartialDateTimeKindCode,
   HumanNameUseCode,
+  AdministrativeGenderCode,
 } from '@ltht-react/types'
-import { formatNHSNumber, formatPatientAddress, formatPatientAge, formatPatientName, nhsNumberStatus } from './patient'
+import {
+  formatNHSNumber,
+  formatPatientAddress,
+  formatPatientAge,
+  formatPatientGender,
+  formatPatientName,
+  nhsNumberStatus,
+} from './patient'
 
 let patient: Patient
 
@@ -510,5 +518,18 @@ describe('nhsNumberStatus', () => {
       },
     ]
     expect(nhsNumberStatus(patient)).toEqual(NhsNumberStatus.Unknown)
+  })
+})
+
+describe('formatPatientGender', () => {
+  it.each([
+    [{ ...patient, gender: AdministrativeGenderCode.Female }, 'Female'],
+    [{ ...patient, gender: AdministrativeGenderCode.Male }, 'Male'],
+    [{ ...patient, gender: AdministrativeGenderCode.Other }, 'Other'],
+    [{ ...patient, gender: AdministrativeGenderCode.Unknown }, 'Unknown'],
+    [{ ...patient, gender: null }, 'Unknown'],
+    [{ ...patient, gender: undefined }, 'Unknown'],
+  ])('Formats Patient Gender', (genderCode, expectedDisplayValue) => {
+    expect(formatPatientGender(genderCode)).toBe(expectedDisplayValue)
   })
 })
