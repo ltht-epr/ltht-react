@@ -600,9 +600,9 @@ export type CarePlanGoalEvaluationInput = {
   itemId?: Maybe<Scalars['String']>;
   label?: Maybe<Scalars['String']>;
   notes?: Maybe<Scalars['String']>;
+  outcome?: Maybe<CodingInput>;
   performed?: Maybe<Scalars['DateTimeOffset']>;
   type?: Maybe<CodingInput>;
-  value?: Maybe<CodingInput>;
 };
 
 export enum CarePlanIntentCode {
@@ -625,8 +625,11 @@ export type CarePlanInterventionInput = {
   id?: Maybe<Scalars['Guid']>;
   itemId?: Maybe<Scalars['String']>;
   label?: Maybe<Scalars['String']>;
+  learner?: Maybe<Array<Maybe<CodingInput>>>;
   notes?: Maybe<Scalars['String']>;
+  outcome?: Maybe<CodingInput>;
   performed?: Maybe<Scalars['DateTimeOffset']>;
+  type?: Maybe<CodingInput>;
 };
 
 export enum CarePlanStatusCode {
@@ -1146,7 +1149,7 @@ export type Ehr = {
   /** Alerts */
   flagsTODO?: Maybe<FlagContinuationType>;
   /** All PatientGroups a certain patient belongs to */
-  groupsByPatient?: Maybe<Array<Maybe<Group>>>;
+  groupsForPatient?: Maybe<Array<Maybe<Group>>>;
   /** Guidance */
   guidance?: Maybe<Array<Maybe<Guidance>>>;
   /** Medication Detail */
@@ -1312,7 +1315,7 @@ export type EhrFlagsTodoArgs = {
 
 
 /** Queries the LTHT EHR. */
-export type EhrGroupsByPatientArgs = {
+export type EhrGroupsForPatientArgs = {
   patientGuid: Scalars['String'];
   showHistory: Scalars['String'];
 };
