@@ -20,7 +20,7 @@ const StyledText = Styled.div`
   flex-basis: 100%;
 `
 
-// TODO: 0. Helper for extension lookup (code in flag-icon) and apply to flag-title [extension.ts in utils], 1. Work out where ehrconstants are in ltht-react, 2. FIxup storybook data to have single list of flags again, 3. add storybook for narrative summary?
+// TODO: 2. FIxup storybook data to have single list of flags again, 3. add storybook for narrative summary? 4. add icon to flag storybook data
 const FlagSummary: FC<Props> = ({ flag, ...rest }) => {
   if (flag.metadata.isRedacted) {
     return (
