@@ -7,7 +7,6 @@ import Title from '../atoms/flag-title'
 const StyledFlagIdentifier = styled.div`
   flex-grow: 1;
   display: inline-flex;
-  padding-right: 2px;
 `
 
 const FlagIdentifier: FC<Props> = ({ flag, ...rest }) => (

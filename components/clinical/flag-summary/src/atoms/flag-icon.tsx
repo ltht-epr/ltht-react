@@ -1,11 +1,21 @@
 import { FC, HTMLAttributes } from 'react'
+import styled from '@emotion/styled'
 import { ExclamationIcon } from '@ltht-react/icon'
+import { getStringExtension } from '@ltht-react/utils'
 import { Flag } from '@ltht-react/types'
 
-const FlagIcon: FC<Props> = ({ flag: { extension } }) => {
-  const ext = extension?.find((e) => e?.url === 'https://leedsth.nhs.uk/alert/priority')
-  if (ext !== null && ext?.valueString === 'High') {
-    return <ExclamationIcon status="red" size="medium" />
+const StyledFlagIcon = styled.div`
+  margin-bottom: 0px;
+`
+
+const FlagIcon: FC<Props> = ({ flag: { extension, ...rest } }) => {
+  const ext = getStringExtension(extension, 'https://leedsth.nhs.uk/alert/priority')
+  if (ext === 'High') {
+    return (
+      <StyledFlagIcon {...rest}>
+        <ExclamationIcon status="red" size="medium" />
+      </StyledFlagIcon>
+    )
   }
 
   return <></>
