@@ -52,6 +52,7 @@ const FlagOne: Flag = {
     text:
       'A ReSPECT plan for emergency care, including a DO NOT ATTEMPT CARDIOPULMONARY RESUSCITATION decision, is in place. Please review the ReSPECT form and CPR decision, check for changes and, if valid and applicable, take this DNACPR status into account.',
   },
+  extension: [{ url: 'https://leedsth.nhs.uk/alert/priority', valueString: 'High' }],
 }
 
 const FlagTwo: Flag = {
@@ -87,6 +88,7 @@ const FlagTwo: Flag = {
     text:
       'It has been confirmed that Bleomycin has previously been administered to this patient. They may experience severe lung toxicity or death if high concentration oxygen is administered. Commence oxygen therapy only if SaO2 <85%. SaO2 should be maintained no higher than 85-88% whether on invasive or non invasive ventilation. Refer to LTHT Bleomycin pulmonary toxicity guidelines on LHP for further information/contact the Oncology enquiries nurse bleepholder via LTHT switchboard on 0113 2433144.',
   },
+  extension: [{ url: 'https://leedsth.nhs.uk/alert/priority', valueString: 'High' }],
 }
 
 const FlagThree: Flag = {
@@ -121,6 +123,7 @@ const FlagThree: Flag = {
     div: 'Lorem ipsum dolor sit amet',
     text: 'COVID19RdRP PCR Positive',
   },
+  extension: [{ url: 'https://leedsth.nhs.uk/alert/priority', valueString: 'High' }],
 }
 
 const FlagFour: Flag = {
@@ -155,6 +158,7 @@ const FlagFour: Flag = {
     div: 'Lorem ipsum dolor sit amet',
     text: 'This patient has a history of life threatening anaphylaxis.',
   },
+  extension: [{ url: 'https://leedsth.nhs.uk/alert/priority', valueString: 'High' }],
 }
 
 const FlagFive: Flag = {
@@ -189,6 +193,7 @@ const FlagFive: Flag = {
     div: 'Lorem ipsum dolor sit amet',
     text: 'This patient has a HISTORY OF VIOLENCE TOWARDS STAFF / OTHERS ',
   },
+  extension: [{ url: 'https://leedsth.nhs.uk/alert/priority', valueString: 'High' }],
 }
 
 const FlagSix: Flag = {
@@ -223,6 +228,7 @@ const FlagSix: Flag = {
     text:
       'A ReSPECT plan for care in emergency situations has been completed. Please read and consider these recommendations in event of clinical deterioration.',
   },
+  extension: [{ url: 'https://leedsth.nhs.uk/alert/priority', valueString: 'Clinical' }],
 }
 
 const FlagSeven: Flag = {
