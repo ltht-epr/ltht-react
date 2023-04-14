@@ -18,11 +18,7 @@ import appointments from '../../../clinical/organisms/appointments/appointments.
 import carePlans from '../../../clinical/organisms/care-plans/care-plans.fixtures'
 import communityOrders from '../../../clinical/organisms/community-treatment-orders/community-treatment-orders.fixtures'
 import episodeOfCares from '../../../clinical/organisms/involved-teams/involved-teams.fixtures'
-// import flags from '../../../clinical/organisms/flags/flags.fixtures'
-import flagsHigh from '../../../clinical/organisms/flags/flags.fixturesHigh'
-import flagsClinical from '../../../clinical/organisms/flags/flags.fixturesClinical'
-import flagsAdministrative from '../../../clinical/organisms/flags/flags.fixturesAdministrative'
-import flagsCombined from '../../../clinical/organisms/flags/flags.fixturesCombined'
+import flags from '../../../clinical/organisms/flags/flags.fixtures'
 import hospitalStays from '../../../clinical/organisms/hospital-stays/hospital-stays.fixtures'
 import conditions from '../../../clinical/organisms/diagnosis/diagnosis.fixtures'
 import medications from '../../../clinical/organisms/medications/medications.fixture'
@@ -37,43 +33,7 @@ export const ReadOnly: Story = () => (
           <Card.Title>Alerts</Card.Title>
         </Card.Header>
         <Card.List>
-          {flagsCombined.map((flag) => (
-            <Card.ListItem key={flag.id}>
-              <FlagSummary flag={flag} />
-            </Card.ListItem>
-          ))}
-        </Card.List>
-      </Card>
-      <Card>
-        <Card.Header>
-          <Card.Title>High Priority</Card.Title>
-        </Card.Header>
-        <Card.List>
-          {flagsHigh.map((flag) => (
-            <Card.ListItem key={flag.id}>
-              <FlagSummary flag={flag} />
-            </Card.ListItem>
-          ))}
-        </Card.List>
-      </Card>
-      <Card>
-        <Card.Header>
-          <Card.Title>Clinical</Card.Title>
-        </Card.Header>
-        <Card.List>
-          {flagsClinical.map((flag) => (
-            <Card.ListItem key={flag.id}>
-              <FlagSummary flag={flag} />
-            </Card.ListItem>
-          ))}
-        </Card.List>
-      </Card>
-      <Card>
-        <Card.Header>
-          <Card.Title>Administrative</Card.Title>
-        </Card.Header>
-        <Card.List>
-          {flagsAdministrative.map((flag) => (
+          {flags.map((flag) => (
             <Card.ListItem key={flag.id}>
               <FlagSummary flag={flag} />
             </Card.ListItem>

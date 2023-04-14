@@ -20,7 +20,7 @@ const StyledText = Styled.div`
   flex-basis: 100%;
 `
 
-// TODO: 2. FIxup storybook data to have single list of flags again, 3. add storybook for narrative summary? 4. add icon to flag storybook data
+// TODO: 5. flag-detail........!
 const FlagSummary: FC<Props> = ({ flag, ...rest }) => {
   if (flag.metadata.isRedacted) {
     return (
