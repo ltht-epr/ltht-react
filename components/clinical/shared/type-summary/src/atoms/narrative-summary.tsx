@@ -1,6 +1,5 @@
 import { FC } from 'react'
 import styled from '@emotion/styled'
-// import { TEXT_COLOURS } from '@ltht-react/styles'
 
 import { Narrative } from '@ltht-react/types'
 
