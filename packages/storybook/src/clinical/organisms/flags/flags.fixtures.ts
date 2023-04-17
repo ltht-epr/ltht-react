@@ -52,7 +52,10 @@ const FlagOne: Flag = {
     text:
       'A ReSPECT plan for emergency care, including a DO NOT ATTEMPT CARDIOPULMONARY RESUSCITATION decision, is in place. Please review the ReSPECT form and CPR decision, check for changes and, if valid and applicable, take this DNACPR status into account.',
   },
-  extension: [{ url: 'https://leedsth.nhs.uk/alert/priority', valueString: 'High' }],
+  extension: [
+    { url: 'https://leedsth.nhs.uk/alert/priority', valueString: 'High' },
+    { url: 'https://leedsth.nhs.uk/alert/advice', valueString: 'Some advice' },
+  ],
 }
 
 const FlagTwo: Flag = {
@@ -103,7 +106,7 @@ const FlagThree: Flag = {
     identifier: undefined,
   },
   code: {
-    coding: [{ display: 'Infection', code: 'T_NCOVPP' }],
+    coding: [{ display: 'Adrenal Insufficiency', code: 'STEROID' }],
   },
   category: {
     coding: [{ display: 'Violence', code: '66706' }],
@@ -121,9 +124,16 @@ const FlagThree: Flag = {
   status: FlagStatusCode.Active,
   text: {
     div: 'Lorem ipsum dolor sit amet',
-    text: 'COVID19RdRP PCR Positive',
+    text: 'Requirement for Urgent Glucocorticoids',
   },
-  extension: [{ url: 'https://leedsth.nhs.uk/alert/priority', valueString: 'High' }],
+  extension: [
+    { url: 'https://leedsth.nhs.uk/alert/priority', valueString: 'High' },
+    {
+      url: 'https://leedsth.nhs.uk/alert/advice',
+      valueString:
+        'This patient has adrenal insufficiency and is steroid dependent. Any serious injury or illness may precipitate an adrenal crisis. In the event of a serious illness/accident they require the following age-related doses of Hydrocortisone immediately by IM or IV injection: Age <1 year: Hydrocortisone 25 mg Age 1-5 years: Hydrocortisone 50 mg Age > 6 years: Hydrocortisone 100 mg The usual oral steroids should be doubled or tripled. Please seek advice from the on-call endocrinologist',
+    },
+  ],
 }
 
 const FlagFour: Flag = {

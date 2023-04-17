@@ -20,7 +20,7 @@ const StyledText = Styled.div`
   flex-basis: 100%;
 `
 
-// TODO: 5. flag-detail........!
+// TODO: 5. flag-detail - stringdetail is wrong atom..... 6. Can I share the priorityenum and extensionurls in a single file and not hard code?
 const FlagSummary: FC<Props> = ({ flag, ...rest }) => {
   if (flag.metadata.isRedacted) {
     return (
