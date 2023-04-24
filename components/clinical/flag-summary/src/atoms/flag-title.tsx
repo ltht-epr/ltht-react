@@ -4,27 +4,28 @@ import { TEXT_COLOURS } from '@ltht-react/styles'
 import { Flag } from '@ltht-react/types'
 import { codeableConceptDisplaySummary, getStringExtension } from '@ltht-react/utils'
 
-const StyledFlagTitle = styled.div`
+const StyledFlagTitle = styled.div<IStyledFlagTitleProps>`
   color: ${TEXT_COLOURS.PRIMARY};
   text-align: left;
-`
-const StyledFlagTitleHighlight = styled.div`
-  color: ${TEXT_COLOURS.DANGER};
-  text-align: left;
-  padding-left: 2px;
+  ${(props) =>
+    props.priority === 'High' &&
+    `
+    padding-left:2px;
+    color: ${TEXT_COLOURS.DANGER};
+`}
 `
 
-const FlagTitle: FC<Props> = ({ flag: { code, extension }, ...rest }) => {
-  const ext = getStringExtension(extension, 'https://leedsth.nhs.uk/alert/priority')
-  if (ext === 'High') {
-    return <StyledFlagTitleHighlight {...rest}>{codeableConceptDisplaySummary(code)}</StyledFlagTitleHighlight>
-  }
-
-  return <StyledFlagTitle {...rest}>{codeableConceptDisplaySummary(code)}</StyledFlagTitle>
+const FlagTitle: FC<Props> = ({ flag: { code, extension } }) => {
+  const ext = getStringExtension(extension, 'https://leedsth.nhs.uk/alert/priority') ?? ''
+  return <StyledFlagTitle priority={ext}>{codeableConceptDisplaySummary(code)}</StyledFlagTitle>
 }
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   flag: Flag
+}
+
+interface IStyledFlagTitleProps {
+  priority: string
 }
 
 export default FlagTitle
