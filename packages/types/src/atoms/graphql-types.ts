@@ -463,22 +463,6 @@ export type CarePlan = {
   title?: Maybe<Scalars['String']>;
 };
 
-export type CarePlanActionInput = {
-  id?: Maybe<Scalars['String']>;
-  label?: Maybe<Scalars['String']>;
-  reasonCode?: Maybe<Scalars['String']>;
-  reasonText?: Maybe<Scalars['String']>;
-  type?: Maybe<Scalars['String']>;
-};
-
-export type CarePlanActionsInput = {
-  actions?: Maybe<Array<Maybe<CarePlanActionInput>>>;
-  planDefinitionId?: Maybe<Scalars['Guid']>;
-  planDefinitionLabel?: Maybe<Scalars['String']>;
-  reasonCode?: Maybe<Scalars['String']>;
-  reasonText?: Maybe<Scalars['String']>;
-};
-
 /** Action to occur as part of plan. */
 export type CarePlanActivity = {
   /** In-line definition of activity. */
@@ -495,6 +479,12 @@ export type CarePlanActivity = {
   progress?: Maybe<Array<Maybe<Annotation>>>;
   /** Activity details defined in specific resource. */
   reference?: Maybe<ResourceReference>;
+};
+
+/** Actions taken as part of the activity */
+export type CarePlanActivityActionInput = {
+  id: Scalars['String'];
+  label: Scalars['String'];
 };
 
 /** In-line definition of activity. */
@@ -572,6 +562,21 @@ export enum CarePlanActivityDetailStatusCode {
   Unknown = 'UNKNOWN'
 }
 
+/** Activity performed on the care plan */
+export type CarePlanActivityInput = {
+  actions?: Maybe<Array<Maybe<CarePlanActivityActionInput>>>;
+  goalId?: Maybe<Scalars['String']>;
+  /** Provide a unique identifier so you can find the activity in the response object */
+  id: Scalars['Guid'];
+  itemId: Scalars['String'];
+  label: Scalars['String'];
+  notes?: Maybe<Scalars['String']>;
+  outcome?: Maybe<CodingInput>;
+  performed: Scalars['DateTimeOffset'];
+  performedOn?: Maybe<Array<Maybe<CodingInput>>>;
+  templateName: Scalars['String'];
+};
+
 /** A continuation of Care Plan resources. */
 export type CarePlanContinuationType = {
   /** The first cursor token. */
@@ -588,21 +593,21 @@ export type CarePlanContinuationType = {
 
 /** Record progress against a care plan through interventions and goals */
 export type CarePlanDocumentInput = {
-  carePlanId?: Maybe<Scalars['Guid']>;
+  activities?: Maybe<Array<Maybe<CarePlanActivityInput>>>;
+  carePlanId: Scalars['Guid'];
   goalEvaluations?: Maybe<Array<Maybe<CarePlanGoalEvaluationInput>>>;
-  interventions?: Maybe<Array<Maybe<CarePlanInterventionInput>>>;
 };
 
 /** Goal evaluations from the care plan */
 export type CarePlanGoalEvaluationInput = {
   /** Provide a unique identifier so you can find the goal evaluation in the response object */
-  id?: Maybe<Scalars['Guid']>;
-  itemId?: Maybe<Scalars['String']>;
-  label?: Maybe<Scalars['String']>;
+  id: Scalars['Guid'];
+  itemId: Scalars['String'];
+  label: Scalars['String'];
   notes?: Maybe<Scalars['String']>;
-  outcome?: Maybe<CodingInput>;
-  performed?: Maybe<Scalars['DateTimeOffset']>;
-  type?: Maybe<CodingInput>;
+  outcome: CodingInput;
+  performed: Scalars['DateTimeOffset'];
+  templateName: Scalars['String'];
 };
 
 export enum CarePlanIntentCode {
@@ -612,24 +617,20 @@ export enum CarePlanIntentCode {
   Proposal = 'PROPOSAL'
 }
 
-/** Actions taken as part of the intervention */
-export type CarePlanInterventionActionInput = {
+export type CarePlanModelActionInput = {
   id?: Maybe<Scalars['String']>;
   label?: Maybe<Scalars['String']>;
+  reasonCode?: Maybe<Scalars['String']>;
+  reasonText?: Maybe<Scalars['String']>;
+  type?: Maybe<Scalars['String']>;
 };
 
-/** Interventions performed from the care plan */
-export type CarePlanInterventionInput = {
-  actions?: Maybe<Array<Maybe<CarePlanInterventionActionInput>>>;
-  /** Provide a unique identifier so you can find the intervention in the response object */
-  id?: Maybe<Scalars['Guid']>;
-  itemId?: Maybe<Scalars['String']>;
-  label?: Maybe<Scalars['String']>;
-  learner?: Maybe<Array<Maybe<CodingInput>>>;
-  notes?: Maybe<Scalars['String']>;
-  outcome?: Maybe<CodingInput>;
-  performed?: Maybe<Scalars['DateTimeOffset']>;
-  type?: Maybe<CodingInput>;
+export type CarePlanModelInput = {
+  actions?: Maybe<Array<Maybe<CarePlanModelActionInput>>>;
+  planDefinitionId?: Maybe<Scalars['Guid']>;
+  planDefinitionLabel?: Maybe<Scalars['String']>;
+  reasonCode?: Maybe<Scalars['String']>;
+  reasonText?: Maybe<Scalars['String']>;
 };
 
 export enum CarePlanStatusCode {
@@ -1128,7 +1129,7 @@ export type Ehr = {
   auditEvents?: Maybe<AuditEventContinuation>;
   /** Available Care Plans */
   availableCarePlanDefinitionsForPatient?: Maybe<PlanDefinitionContinuationType>;
-  /** Gets the care plan associated with an intervention or goal evaluation */
+  /** Gets the care plan associated with an activity or goal evaluation */
   carePlan?: Maybe<CarePlan>;
   /** Care Plan Definition Detail */
   carePlanDefinition?: Maybe<PlanDefinition>;
@@ -1476,7 +1477,7 @@ export type EhrMutation = {
 
 /** Mutations of the LTHT EHR. */
 export type EhrMutationAddCarePlanArgs = {
-  model: CarePlanActionsInput;
+  model: CarePlanModelInput;
   patientGuid: Scalars['Guid'];
   template: Scalars['String'];
 };
@@ -1511,8 +1512,6 @@ export type EhrMutationDiscontinueCarePlanArgs = {
 /** Mutations of the LTHT EHR. */
 export type EhrMutationDocumentCarePlanArgs = {
   document: CarePlanDocumentInput;
-  goalEvaluationTemplate: Scalars['String'];
-  interventionTemplate: Scalars['String'];
   patientGuid: Scalars['Guid'];
 };
 
@@ -1549,7 +1548,7 @@ export type EhrMutationSetConditionStatusArgs = {
 /** Mutations of the LTHT EHR. */
 export type EhrMutationUpdateCarePlanArgs = {
   carePlanId: Scalars['Guid'];
-  model: CarePlanActionsInput;
+  model: CarePlanModelInput;
   patientGuid: Scalars['Guid'];
   template: Scalars['String'];
 };
