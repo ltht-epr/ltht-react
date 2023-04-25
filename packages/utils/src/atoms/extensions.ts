@@ -10,4 +10,14 @@ const getBooleanExtension = (extensions: Maybe<Array<Maybe<Extension>>> | undefi
   return booleanExtensionValue
 }
 
-export default getBooleanExtension
+const getStringExtension = (extensions: Maybe<Array<Maybe<Extension>>> | undefined, uri: string): Maybe<string> => {
+  if (extensions === undefined) return null
+
+  const stringExtensionValue = extensions?.find((extension) => extension?.url === uri)?.valueString
+
+  if (stringExtensionValue === undefined) return null
+
+  return stringExtensionValue
+}
+
+export { getBooleanExtension, getStringExtension }

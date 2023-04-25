@@ -15,7 +15,7 @@ export const Detail: Story = () => (
       <Card.Title>Flag</Card.Title>
     </Card.Header>
     <Card.Body>
-      <FlagDetail flag={flags[0]} />
+      <FlagDetail flag={flags[1]} />
     </Card.Body>
   </Card>
 )
@@ -42,7 +42,33 @@ export const DetailsCollapsibleView: Story = () => {
   )
 }
 
-export const Summary: Story = () => (
+export const HighPrioritySummary: Story = () => (
+  <Card>
+    <Card.Header>
+      <Card.Title>Flags</Card.Title>
+    </Card.Header>
+    <Card.List>
+      <Card.ListItem>
+        <FlagSummary flag={flags[0]} />
+      </Card.ListItem>
+    </Card.List>
+  </Card>
+)
+
+export const NormalPrioritySummary: Story = () => (
+  <Card>
+    <Card.Header>
+      <Card.Title>Flags</Card.Title>
+    </Card.Header>
+    <Card.List>
+      <Card.ListItem>
+        <FlagSummary flag={flags[5]} />
+      </Card.ListItem>
+    </Card.List>
+  </Card>
+)
+
+export const AllSummary: Story = () => (
   <Card>
     <Card.Header>
       <Card.Title>Flags</Card.Title>
@@ -64,7 +90,7 @@ export const Redacted: Story = () => (
     </Card.Header>
     <Card.List>
       <Card.ListItem>
-        <FlagSummary flag={flags[0]} />
+        <FlagSummary flag={flags[6]} />
       </Card.ListItem>
     </Card.List>
   </Card>

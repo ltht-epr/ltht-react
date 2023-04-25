@@ -4,20 +4,20 @@ import Styled from '@emotion/styled'
 import { Flag } from '@ltht-react/types'
 import { PeriodSummary } from '@ltht-react/type-summary'
 
-import Title from '../atoms/flag-title'
-import Description from '../atoms/flag-description'
-import Status from '../atoms/flag-status'
+import Text from '../atoms/flag-text'
+import Identifier from '../molecules/flag-identifier'
 import Redacted from '../molecules/flag-redacted'
 
 const StyledSummary = Styled.div`
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-`
-const StyledDescription = Styled.div`
-  flex-grow: 1;
 `
 const StyledDate = Styled.div`
   text-align: right;
+`
+const StyledText = Styled.div`
+  flex-basis: 100%;
 `
 
 const FlagSummary: FC<Props> = ({ flag, ...rest }) => {
@@ -31,14 +31,13 @@ const FlagSummary: FC<Props> = ({ flag, ...rest }) => {
 
   return (
     <StyledSummary {...rest}>
-      <StyledDescription>
-        <Title flag={flag} />
-        <Description flag={flag} />
-      </StyledDescription>
+      <Identifier flag={flag} />
       <StyledDate>
         <PeriodSummary period={flag.period} />
-        <Status flag={flag} />
       </StyledDate>
+      <StyledText>
+        <Text flag={flag} />
+      </StyledText>
     </StyledSummary>
   )
 }
