@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.3.211 (2023-04-25)
+
+**Note:** Version bump only for package @ltht-react/appointment-summary
+
+
+
+
+
 ## 1.3.210 (2023-04-13)
 
 **Note:** Version bump only for package @ltht-react/appointment-summary
