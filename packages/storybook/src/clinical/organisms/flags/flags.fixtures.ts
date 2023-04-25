@@ -370,7 +370,7 @@ const FlagTen: Flag = {
       kind: PartialDateTimeKindCode.Year,
     },
   },
-  status: FlagStatusCode.Blank,
+  status: FlagStatusCode.Active,
   text: {
     div: 'Infection Prevention & Control Hazard, please use Apron & Gloves',
     text: 'Klebsiella pneumoniae',
