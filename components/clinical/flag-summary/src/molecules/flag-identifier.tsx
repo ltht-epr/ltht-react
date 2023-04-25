@@ -19,5 +19,4 @@ const FlagIdentifier: FC<Props> = ({ flag, ...rest }) => (
 interface Props extends HTMLAttributes<HTMLDivElement> {
   flag: Flag
 }
-
 export default FlagIdentifier
