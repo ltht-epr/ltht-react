@@ -44,6 +44,27 @@ const StyledInput = styled.input`
     left: 1.25rem;
     background: white;
   }
+
+  &:disabled {
+    background: white;
+    outline: grey;
+    border-color: grey;
+  }
+
+  &:disabled::before {
+    background: grey;
+    outline: grey;
+  }
+
+  &:checked:disabled {
+    background: grey;
+  }
+
+  &:checked:disabled::before {
+    outline: white;
+    background: white;
+    border-color: white;
+  }
 `
 
 const ToggleInput: FC<ToggleInputProps> = ({ checked, onChange, disabled, ...rest }) => (
