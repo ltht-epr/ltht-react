@@ -6,7 +6,9 @@ import styled from '@emotion/styled'
 import Card from '@ltht-react/card'
 import { Container } from '../../organisms/dashboard/dashboard'
 
-const StyledLabel = styled.label``
+const StyledLabel = styled.label`
+  cursor: pointer;
+`
 
 const StyledWrapper = styled.div`
   display: flex;
@@ -25,6 +27,36 @@ export const ToggleInput: Story = () => {
             <Toggle
               onChange={(e) => setIsToggledOn((e.target as HTMLInputElement).checked)}
               checked={isToggledOn}
+              id="toggle-1"
+            />
+            <StyledLabel htmlFor="toggle-1">Click me</StyledLabel>
+          </StyledWrapper>
+        </Container>
+      </Card.Header>
+    </Card>
+  )
+}
+export const DisabledToggleInput: Story = () => {
+  const [isToggledOn, setIsToggledOn] = useState(false)
+
+  return (
+    <Card>
+      <Card.Header>
+        <Container>
+          <StyledWrapper>
+            <Toggle
+              onChange={(e) => setIsToggledOn((e.target as HTMLInputElement).checked)}
+              checked={isToggledOn}
+              disabled
+              id="toggle-1"
+            />
+            <StyledLabel htmlFor="toggle-1">Click me</StyledLabel>
+          </StyledWrapper>
+          <StyledWrapper>
+            <Toggle
+              onChange={(e) => setIsToggledOn((e.target as HTMLInputElement).checked)}
+              checked={!isToggledOn}
+              disabled
               id="toggle-1"
             />
             <StyledLabel htmlFor="toggle-1">Click me</StyledLabel>
