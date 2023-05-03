@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.1.212 (2023-05-03)
+
+**Note:** Version bump only for package @ltht-react/utils
+
+
+
+
+
 ## 1.1.211 (2023-04-25)
 
 **Note:** Version bump only for package @ltht-react/utils
