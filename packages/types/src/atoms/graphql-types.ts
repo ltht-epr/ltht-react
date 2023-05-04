@@ -419,6 +419,8 @@ export type CarePlan = {
   careTeam?: Maybe<Array<Maybe<ResourceReference>>>;
   /** http://hl7.org/fhir/stu3/valueset-care-plan-category.html */
   category?: Maybe<Array<Maybe<CodeableConcept>>>;
+  /** Associated Goals and their current status */
+  containedGoals?: Maybe<Array<Maybe<Goal>>>;
   /** Who provided the content of the care plan */
   contributor?: Maybe<Array<Maybe<ResourceReference>>>;
   /** Date record was first recorded */
@@ -2100,6 +2102,58 @@ export type GpConnect = {
 export type GpConnectDataAvailabilityArgs = {
   nhsNumber: Scalars['String'];
 };
+
+/** Describes the intended objective(s) for a patient, group or organization */
+export type Goal = {
+  /** Describes the progression, or lack thereof, towards the goal against the target. */
+  achievementStatus?: Maybe<CodeableConcept>;
+  /** E.g. Treatment, dietary, behavioral, etc. */
+  category?: Maybe<Array<Maybe<CodeableConcept>>>;
+  /** Code or text describing goal. */
+  description?: Maybe<CodeableConcept>;
+  /** Additional content defined by implementations. */
+  extension?: Maybe<Array<Maybe<Extension>>>;
+  /** Logical Id of the resource. */
+  id: Scalars['ID'];
+  /** External Ids for this goal. */
+  identifier?: Maybe<Array<Maybe<Identifier>>>;
+  /** Flag to state whether the resource should be displayed as entered in error in user interface */
+  isEnteredInError?: Maybe<Scalars['Boolean']>;
+  /** Codes that reflect the current state of a goal and whether the goal is still being targeted. */
+  lifecycleStatus?: Maybe<GoalLifecycleStatus>;
+  /** Metadata about the resource. */
+  metadata: Metadata;
+  /** Comments about the goal */
+  note?: Maybe<Annotation>;
+  /** What result was achieved regarding the goal? */
+  outcomeCode?: Maybe<Array<Maybe<CodeableConcept>>>;
+  /** Indicates the level of importance associated with reaching or sustaining a goal. */
+  priority?: Maybe<CodeableConcept>;
+  /** When goal pursuit begins */
+  startCodeableConcept?: Maybe<CodeableConcept>;
+  /** When goal pursuit begins */
+  startDate?: Maybe<PartialDateTime>;
+  /** When goal status took effect */
+  statusDate?: Maybe<PartialDateTime>;
+  /** Reason for current status */
+  statusReason?: Maybe<Scalars['String']>;
+  /** Who this goal is intended for */
+  subject?: Maybe<ResourceReference>;
+  /** Text summary of the resource, for human interpretation. */
+  text?: Maybe<Narrative>;
+};
+
+export enum GoalLifecycleStatus {
+  Accepted = 'ACCEPTED',
+  Active = 'ACTIVE',
+  Cancelled = 'CANCELLED',
+  Completed = 'COMPLETED',
+  EnteredInError = 'ENTERED_IN_ERROR',
+  OnHold = 'ON_HOLD',
+  Planned = 'PLANNED',
+  Proposed = 'PROPOSED',
+  Rejected = 'REJECTED'
+}
 
 /** An unordered set grouping other domain resources together. */
 export type Group = {
