@@ -1438,6 +1438,7 @@ export type EhrTasksArgs = {
   processId?: Maybe<Scalars['String']>;
   processName?: Maybe<Scalars['String']>;
   status?: Array<Maybe<TaskStatusCode>>;
+  tags?: Maybe<Array<Maybe<Scalars['String']>>>;
 };
 
 
@@ -1468,6 +1469,8 @@ export type EhrMutation = {
   resumeCarePlan?: Maybe<CarePlan>;
   /** Update Diagnosis */
   setConditionStatus?: Maybe<Condition>;
+  /** Assign a patient to a patient group */
+  setPatientGroup?: Maybe<Group>;
   /** Update Care Plan with Expected Actions */
   updateCarePlan?: Maybe<CarePlan>;
   /** Update Task */
@@ -1542,6 +1545,14 @@ export type EhrMutationSetConditionStatusArgs = {
   patientGuid: Scalars['String'];
   template: Scalars['String'];
   verificationStatus?: Maybe<ConditionVerificationStatus>;
+};
+
+
+/** Mutations of the LTHT EHR. */
+export type EhrMutationSetPatientGroupArgs = {
+  groupIdentifier: Scalars['String'];
+  patientGuid: Scalars['Guid'];
+  prefix: Scalars['String'];
 };
 
 
