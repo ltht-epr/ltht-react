@@ -70,6 +70,7 @@ const generateAnswer = (
         isFullWidth: false,
       }
     case QuestionnaireItemTypeCode.QuestionString:
+    case QuestionnaireItemTypeCode.QuestionText:
       return {
         Answer: (
           <NestedListDetail term={question || '-'} showIfEmpty={showIfEmpty}>
