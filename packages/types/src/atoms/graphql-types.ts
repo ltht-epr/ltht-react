@@ -1471,6 +1471,8 @@ export type EhrMutation = {
   resumeCarePlan?: Maybe<CarePlan>;
   /** Update Diagnosis */
   setConditionStatus?: Maybe<Condition>;
+  /** Create a new patient group and assign a patient to it. */
+  setNewPatientGroup?: Maybe<Group>;
   /** Assign a patient to a patient group */
   setPatientGroup?: Maybe<Group>;
   /** Update Care Plan with Expected Actions */
@@ -1547,6 +1549,13 @@ export type EhrMutationSetConditionStatusArgs = {
   patientGuid: Scalars['String'];
   template: Scalars['String'];
   verificationStatus?: Maybe<ConditionVerificationStatus>;
+};
+
+
+/** Mutations of the LTHT EHR. */
+export type EhrMutationSetNewPatientGroupArgs = {
+  patientGuid: Scalars['Guid'];
+  prefix: Scalars['String'];
 };
 
 
