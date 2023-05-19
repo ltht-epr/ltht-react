@@ -192,11 +192,11 @@ const Timeline: FC<IProps> = ({ timelineItems, domainResourceType, filters, onFi
 
       case TimelineDomainResourceType.AuditEvent: {
         const audit = timelineItem?.domainResource as AuditEvent
-        if (!audit.period?.start?.value) {
+        if (!audit.recorded?.value) {
           return
         }
-        date = formatDate(new Date(audit.period?.start?.value))
-        displayDate = formatDateExplicitMonth(new Date(audit.period?.start?.value))
+        date = formatDate(new Date(audit.recorded?.value))
+        displayDate = formatDateExplicitMonth(new Date(audit.recorded?.value))
         break
       }
       default:
@@ -294,18 +294,18 @@ const Timeline: FC<IProps> = ({ timelineItems, domainResourceType, filters, onFi
                   }
                   case TimelineDomainResourceType.AuditEvent: {
                     const audit = timelineItem?.domainResource as AuditEvent
-                    if (!audit.period?.start?.value) {
+                    if (!audit.recorded?.value) {
                       return <></>
                     }
-                    currentTime = formatTime(new Date(audit.period?.start?.value))
+                    currentTime = formatTime(new Date(audit.recorded?.value))
                     previousTime = currentTime
 
                     if (idx > 0) {
                       const previousItem = value.item[idx - 1]?.domainResource as AuditEvent
-                      if (!previousItem?.period?.start?.value) {
+                      if (!previousItem?.recorded?.value) {
                         return <></>
                       }
-                      previousTime = formatTime(new Date(previousItem?.period?.start?.value))
+                      previousTime = formatTime(new Date(previousItem?.recorded?.value))
                     }
                     break
                   }

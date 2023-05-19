@@ -30,8 +30,8 @@ const TimelineTime: FC<Props> = ({ domainResource, domainResourceType, ...rest }
     }
     case TimelineDomainResourceType.AuditEvent: {
       const audit = domainResource as AuditEvent
-      if (audit && audit?.period?.start?.value) {
-        const time = formatTime(new Date(audit.period.start.value))
+      if (audit && audit?.recorded?.value) {
+        const time = formatTime(new Date(audit.recorded.value))
         return <div {...rest}>{time}</div>
       }
       return <></>

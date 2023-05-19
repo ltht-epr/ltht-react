@@ -15,7 +15,7 @@ const auditTimelineItems: ITimelineItem[] = AuditTrail.resources.map((ti) => ({
   domainResource: ti,
   buttonState: 'selectable-button',
 }))
-const auditDatetimes = AuditTrail.resources.map((x) => x?.period?.start)
+const auditDatetimes = AuditTrail.resources.map((x) => x?.recorded)
 const auditType = TimelineDomainResourceType.AuditEvent
 
 const questionnaireTimelineItems: ITimelineItem[] = Questionnaires.resources.map((ti) => ({
