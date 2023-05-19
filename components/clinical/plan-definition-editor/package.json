@@ -1,6 +1,6 @@
 {
   "name": "@ltht-react/plan-definition-editor",
-  "version": "1.0.63",
+  "version": "1.0.64",
   "description": "ltht-react component for selecting problems from a PlanDefinition.",
   "author": "LTHT",
   "homepage": "",
@@ -27,10 +27,10 @@
   "dependencies": {
     "@emotion/react": "^11.0.0",
     "@emotion/styled": "^11.0.0",
-    "@ltht-react/icon": "^1.3.218",
-    "@ltht-react/input": "^1.3.218",
-    "@ltht-react/styles": "^1.3.210",
-    "@ltht-react/types": "^1.0.214",
+    "@ltht-react/icon": "^1.3.219",
+    "@ltht-react/input": "^1.3.219",
+    "@ltht-react/styles": "^1.3.211",
+    "@ltht-react/types": "^1.0.215",
     "react": "^17.0.0"
   },
   "gitHead": "4d364556bb11e294d86697c2dac66742f7aabc7f"
