@@ -38,6 +38,7 @@ import {
   SearchIcon,
   CheckboxIcon,
   SquareIcon,
+  StarIcon,
 } from '@ltht-react/icon'
 import { render, screen } from '@testing-library/react'
 
@@ -71,6 +72,7 @@ describe('All icons', () => {
     [<PlayIcon size="small" />],
     [<PlusIcon size="small" />],
     [<SpinnerIcon size="small" />],
+    [<StarIcon size="small" />],
     [<StopIcon size="small" />],
     [<TableIcon size="small" status="default" />],
     [<ToggleOffIcon size="small" />],
@@ -114,6 +116,7 @@ describe('All icons', () => {
     [<PlayIcon size="small" />, 'icon__play'],
     [<PlusIcon size="small" />, 'icon__plus'],
     [<SpinnerIcon size="small" />, 'icon__spinner'],
+    [<StarIcon size="small" />, 'icon__star'],
     [<StopIcon size="small" />, 'icon__stop'],
     [<TableIcon size="small" status="default" />, 'icon__table'],
     [<ToggleOffIcon size="small" />, 'icon__toggle--off'],
@@ -158,7 +161,8 @@ describe('All icons', () => {
     [<PauseIcon size="small" className="further-maths" />, 'icon__pause'],
     [<PlayIcon size="small" className="further-maths" />, 'icon__play'],
     [<PlusIcon size="small" className="further-maths" />, 'icon__plus'],
-    [<SpinnerIcon size="small" className="further-maths" />, 'icon__spinner'],
+    [<SpinnerIcon size="small" className="further-maths" />, 'star__icon'],
+    [<StarIcon size="small" className="further-maths" />, 'icon__spinner'],
     [<StopIcon size="small" className="further-maths" />, 'icon__stop'],
     [<TableIcon size="small" status="default" className="further-maths" />, 'icon__table'],
     [<ToggleOffIcon size="small" className="further-maths" />, 'icon__toggle--off'],
@@ -205,6 +209,7 @@ describe('All icons', () => {
     [<PlayIcon size="small" id="123abc" />],
     [<PlusIcon size="small" id="123abc" />],
     [<SpinnerIcon size="small" id="123abc" />],
+    [<StarIcon size="small" id="123abc" />],
     [<StopIcon size="small" id="123abc" />], // TODO: This is inconsistent
     [<TableIcon size="small" status="default" id="123abc" />],
     [<ToggleOffIcon size="small" id="123abc" />],
@@ -250,6 +255,7 @@ describe('All icons', () => {
     ['play'],
     ['plus'],
     ['spinner'],
+    ['star'],
     ['stop'],
     ['table'],
     ['toggle-off'],
@@ -459,6 +465,13 @@ describe('All icons', () => {
 
       case 'spinner': {
         const Icon = styled(SpinnerIcon)`
+          color: pink;
+        `
+        return <Icon size="small" />
+      }
+
+      case 'star': {
+        const Icon = styled(StarIcon)`
           color: pink;
         `
         return <Icon size="small" />

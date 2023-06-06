@@ -39,6 +39,7 @@ export type IconType =
   | 'play'
   | 'plus'
   | 'spinner'
+  | 'star'
   | 'stop'
   | 'table'
   | 'toggle-off'
