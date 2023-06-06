@@ -32,6 +32,7 @@ import PlusIcon from '../atoms/plus-icon'
 import SearchIcon from '../atoms/search-icon'
 import SpinnerIcon from '../atoms/spinner-icon'
 import SquareIcon from '../atoms/square-icon'
+import StarIcon from '../atoms/star-icon'
 import StopIcon from '../atoms/stop-icon'
 import TableIcon from '../atoms/table-icon'
 import ToggleOffIcon from '../atoms/toggle-off-icon'
@@ -151,6 +152,10 @@ const Icon: FC<IconProps> = ({ type, size, status, direction, counterValue, anim
 
     case 'spinner': {
       return <SpinnerIcon size={size} animate={animate} {...rest} />
+    }
+
+    case 'star': {
+      return <StarIcon size={size} {...rest} />
     }
 
     case 'stop': {
