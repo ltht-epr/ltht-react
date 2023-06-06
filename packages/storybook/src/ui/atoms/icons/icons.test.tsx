@@ -161,8 +161,8 @@ describe('All icons', () => {
     [<PauseIcon size="small" className="further-maths" />, 'icon__pause'],
     [<PlayIcon size="small" className="further-maths" />, 'icon__play'],
     [<PlusIcon size="small" className="further-maths" />, 'icon__plus'],
-    [<SpinnerIcon size="small" className="further-maths" />, 'star__icon'],
-    [<StarIcon size="small" className="further-maths" />, 'icon__spinner'],
+    [<SpinnerIcon size="small" className="further-maths" />, 'icon__spinner'],
+    [<StarIcon size="small" className="further-maths" />, 'icon__star'],
     [<StopIcon size="small" className="further-maths" />, 'icon__stop'],
     [<TableIcon size="small" status="default" className="further-maths" />, 'icon__table'],
     [<ToggleOffIcon size="small" className="further-maths" />, 'icon__toggle--off'],
@@ -173,12 +173,15 @@ describe('All icons', () => {
     [<SearchIcon size="small" className="further-maths" />, 'icon__search'],
     [<CheckboxIcon size="small" className="further-maths" />, 'icon__checkbox'],
     [<SquareIcon size="small" className="further-maths" />, 'icon__square'],
-  ])('Still has the right class name when given custom class names', (icon: JSX.Element, expectedClass: string) => {
-    render(icon)
+  ])(
+    "'%s' Still has the right class name when given custom class names",
+    (icon: JSX.Element, expectedClass: string) => {
+      render(icon)
 
-    expect(screen.getByRole('img', { hidden: true })).toHaveClass(expectedClass)
-    expect(screen.getByRole('img', { hidden: true })).toHaveClass('further-maths')
-  })
+      expect(screen.getByRole('img', { hidden: true })).toHaveClass(expectedClass)
+      expect(screen.getByRole('img', { hidden: true })).toHaveClass('further-maths')
+    }
+  )
 
   it.each([
     [<BullseyeIcon size="small" id="123abc" />],

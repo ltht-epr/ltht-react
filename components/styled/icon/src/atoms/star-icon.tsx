@@ -5,7 +5,7 @@ import { calculateIconSize, IconSize } from '@ltht-react/styles'
 
 const StarIcon: FC<StarIconProps> = ({ size, className, ...rest }) => (
   <FontAwesomeIcon
-    className={`${className ?? ''} icon__play`.trimStart()}
+    className={`${className ?? ''} icon__star`.trimStart()}
     icon={faStar}
     size={calculateIconSize(size)}
     {...rest}
