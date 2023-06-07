@@ -1149,8 +1149,6 @@ export type Ehr = {
   documentReferences?: Maybe<DocumentReferenceContinuation>;
   /** Alerts */
   flags?: Maybe<Array<Maybe<Flag>>>;
-  /** Alerts */
-  flagsTODO?: Maybe<FlagContinuationType>;
   /** All PatientGroups a certain patient belongs to */
   groupsForPatient?: Maybe<Array<Maybe<Group>>>;
   /** Guidance */
@@ -1310,14 +1308,6 @@ export type EhrFlagsArgs = {
 
 
 /** Queries the LTHT EHR. */
-export type EhrFlagsTodoArgs = {
-  count?: Maybe<Scalars['Int']>;
-  cursorToken?: Maybe<Scalars['String']>;
-  patientGuid: Scalars['String'];
-};
-
-
-/** Queries the LTHT EHR. */
 export type EhrGroupsForPatientArgs = {
   patientGuid: Scalars['String'];
   showHistory: Scalars['String'];
@@ -1381,7 +1371,7 @@ export type EhrPatientSearchBySearchCriteriaArgs = {
   dateOfBirth?: Maybe<Scalars['DateTimeOffset']>;
   familyName?: Maybe<Scalars['String']>;
   givenName?: Maybe<Scalars['String']>;
-  nhsNumber?: Maybe<Scalars['String']>;
+  nhsNumberGraphQLInput?: Maybe<Scalars['String']>;
   otherOrganisations?: Maybe<Scalars['Boolean']>;
   pedigreeNumber?: Maybe<Scalars['String']>;
   postCode?: Maybe<Scalars['String']>;
@@ -1459,6 +1449,8 @@ export type EhrMutation = {
   addCarePlan?: Maybe<CarePlan>;
   /** Add Multiple Diagnosis (Medical History) */
   addConditions?: Maybe<Array<Maybe<Condition>>>;
+  /** Add a favourite plan definition */
+  addPlanDefinitionFavourite?: Maybe<PlanDefinition>;
   /** Complete all Care Plan Expected Actions */
   completeCarePlan?: Maybe<CarePlan>;
   /** Discontinue Care Plan and Expected Actions */
@@ -1467,6 +1459,8 @@ export type EhrMutation = {
   documentCarePlan?: Maybe<Parameters>;
   /** Pause all Care Plan Expected Actions */
   pauseCarePlan?: Maybe<CarePlan>;
+  /** Remove a favourite plan definition */
+  removePlanDefinitionFavourite?: Maybe<PlanDefinition>;
   /** Resume all Care Plan Expected Actions */
   resumeCarePlan?: Maybe<CarePlan>;
   /** Update Diagnosis */
@@ -1495,6 +1489,13 @@ export type EhrMutationAddConditionsArgs = {
   conditions: ConditionMinimalInputList;
   patientGuid: Scalars['String'];
   template: Scalars['String'];
+};
+
+
+/** Mutations of the LTHT EHR. */
+export type EhrMutationAddPlanDefinitionFavouriteArgs = {
+  planDefinitionId: Scalars['Guid'];
+  planDefinitionSeriesId: Scalars['Guid'];
 };
 
 
@@ -1531,6 +1532,12 @@ export type EhrMutationPauseCarePlanArgs = {
   reasonCode: Scalars['String'];
   reasonText: Scalars['String'];
   template?: Maybe<Scalars['String']>;
+};
+
+
+/** Mutations of the LTHT EHR. */
+export type EhrMutationRemovePlanDefinitionFavouriteArgs = {
+  planDefinitionSeriesId: Scalars['Guid'];
 };
 
 
@@ -1885,6 +1892,7 @@ export enum EntityType {
   MpvTransferPlanning = 'MPV_TRANSFER_PLANNING',
   MpvVenousThromboembolism = 'MPV_VENOUS_THROMBOEMBOLISM',
   NewsInterventionsUnrestricted = 'NEWS_INTERVENTIONS_UNRESTRICTED',
+  NursingCarePlan = 'NURSING_CARE_PLAN',
   Observation = 'OBSERVATION',
   OnlineForms = 'ONLINE_FORMS',
   Organisation = 'ORGANISATION',
@@ -2078,20 +2086,6 @@ export type Flag = {
   status: FlagStatusCode;
   /** Text summary of the resource, for human interpretation. */
   text?: Maybe<Narrative>;
-};
-
-/** A continuation of Flag resources. */
-export type FlagContinuationType = {
-  /** The first cursor token. */
-  firstCursorToken?: Maybe<Scalars['String']>;
-  /** The next cursor token. */
-  nextCursorToken?: Maybe<Scalars['String']>;
-  /** The continuation of Flag resources. */
-  resources: Array<Maybe<Flag>>;
-  /** The self cursor token. */
-  selfCursorToken: Scalars['String'];
-  /** The total number of resources available (if known). */
-  totalResources?: Maybe<Scalars['Int']>;
 };
 
 export enum FlagStatusCode {
