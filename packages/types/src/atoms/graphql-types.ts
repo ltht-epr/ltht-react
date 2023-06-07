@@ -1537,6 +1537,7 @@ export type EhrMutationPauseCarePlanArgs = {
 
 /** Mutations of the LTHT EHR. */
 export type EhrMutationRemovePlanDefinitionFavouriteArgs = {
+  planDefinitionId: Scalars['Guid'];
   planDefinitionSeriesId: Scalars['Guid'];
 };
 
