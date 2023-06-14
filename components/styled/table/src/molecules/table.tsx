@@ -162,4 +162,4 @@ interface TableData {
 }
 
 export default Table
-export { DataEntity, Header, TableData }
+export { DataEntity, CellProps, Header, TableData }
