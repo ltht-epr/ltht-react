@@ -1310,7 +1310,7 @@ export type EhrFlagsArgs = {
 /** Queries the LTHT EHR. */
 export type EhrGroupsForPatientArgs = {
   patientGuid: Scalars['String'];
-  showHistory: Scalars['String'];
+  showHistory: Scalars['Boolean'];
 };
 
 
@@ -1348,9 +1348,8 @@ export type EhrPatientArgs = {
 
 /** Queries the LTHT EHR. */
 export type EhrPatientGroupArgs = {
-  groupIdentifier: Scalars['String'];
-  prefix: Scalars['String'];
-  showHistory: Scalars['String'];
+  groupNumber?: Maybe<Scalars['Int']>;
+  groupType: Scalars['String'];
 };
 
 
@@ -1459,6 +1458,8 @@ export type EhrMutation = {
   documentCarePlan?: Maybe<Parameters>;
   /** Pause all Care Plan Expected Actions */
   pauseCarePlan?: Maybe<CarePlan>;
+  /** Remove a patient from an existing patient group. */
+  removePatientFromGroup?: Maybe<Group>;
   /** Remove a favourite plan definition */
   removePlanDefinitionFavourite?: Maybe<PlanDefinition>;
   /** Resume all Care Plan Expected Actions */
@@ -1536,6 +1537,14 @@ export type EhrMutationPauseCarePlanArgs = {
 
 
 /** Mutations of the LTHT EHR. */
+export type EhrMutationRemovePatientFromGroupArgs = {
+  groupNumber?: Maybe<Scalars['Int']>;
+  groupType: Scalars['String'];
+  patientGuid: Scalars['Guid'];
+};
+
+
+/** Mutations of the LTHT EHR. */
 export type EhrMutationRemovePlanDefinitionFavouriteArgs = {
   planDefinitionId: Scalars['Guid'];
   planDefinitionSeriesId: Scalars['Guid'];
@@ -1562,16 +1571,16 @@ export type EhrMutationSetConditionStatusArgs = {
 
 /** Mutations of the LTHT EHR. */
 export type EhrMutationSetNewPatientGroupArgs = {
+  groupType: Scalars['String'];
   patientGuid: Scalars['Guid'];
-  prefix: Scalars['String'];
 };
 
 
 /** Mutations of the LTHT EHR. */
 export type EhrMutationSetPatientGroupArgs = {
-  groupIdentifier: Scalars['String'];
+  groupNumber?: Maybe<Scalars['Int']>;
+  groupType: Scalars['String'];
   patientGuid: Scalars['Guid'];
-  prefix: Scalars['String'];
 };
 
 
