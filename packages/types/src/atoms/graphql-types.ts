@@ -1177,6 +1177,8 @@ export type Ehr = {
   summaryView?: Maybe<QuestionnaireResponseContinuation>;
   /** Tasks */
   tasks?: Maybe<TaskContinuation>;
+  /** Returns the available extension to a f4h form */
+  templateExtension?: Maybe<Questionnaire>;
   /** Terminology */
   terminologyItems?: Maybe<TerminologyItemContinuation>;
 };
@@ -1430,6 +1432,14 @@ export type EhrTasksArgs = {
   processName?: Maybe<Scalars['String']>;
   status?: Array<Maybe<TaskStatusCode>>;
   tags?: Maybe<Array<Maybe<Scalars['String']>>>;
+};
+
+
+/** Queries the LTHT EHR. */
+export type EhrTemplateExtensionArgs = {
+  baseTemplateName?: Maybe<Scalars['String']>;
+  baseTemplateVersion?: Maybe<Scalars['Int']>;
+  extensionValue?: Maybe<Scalars['String']>;
 };
 
 
