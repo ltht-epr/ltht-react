@@ -88,7 +88,7 @@ const AlivePatient: Patient = {
 }
 
 const groupsIncludingPedigreeGroup: Group[] = [
-  { id: 'PED048164', actual: true, metadata: mockMetadata, type: GroupType.Person },
+  { id: 'LCG048164', actual: true, metadata: mockMetadata, type: GroupType.Person },
   { id: 'ZZZ123456', actual: true, metadata: mockMetadata, type: GroupType.Person },
   { id: 'XXX123456', actual: true, metadata: mockMetadata, type: GroupType.Person },
 ]
