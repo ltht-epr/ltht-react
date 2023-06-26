@@ -41,7 +41,7 @@ const StyledTableHeader = styled.th<IStyledTableCell>`
   background-color: ${TABLE_COLOURS.HEADER};
   border: thin solid ${TABLE_COLOURS.BORDER};
   font-weight: bold;
-  padding: 1rem;
+  padding: 0.5rem;
 
   ${({ stickyWidth }) =>
     stickyWidth !== undefined &&
@@ -55,6 +55,7 @@ const StyledTableData = styled.td<IStyledTableCell>`
   border: thin solid ${TABLE_COLOURS.BORDER};
   white-space: normal;
   text-align: center;
+  padding: 0.15rem;
 
   &:first-of-type {
     background-color: ${TABLE_COLOURS.HEADER} !important;

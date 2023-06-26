@@ -3,7 +3,7 @@ import { Button } from '@ltht-react/button'
 import styled from '@emotion/styled'
 import { Icon, IconButton, IconProps } from '@ltht-react/icon'
 import ActionMenu, { ActionMenuOption } from '@ltht-react/menu'
-import { PopUp, getZIndex } from '@ltht-react/styles'
+import { PopUp, getZIndex, BTN_COLOURS } from '@ltht-react/styles'
 
 const StyledText = styled.span`
   margin-left: 0.4rem;
@@ -26,7 +26,22 @@ const TableCell: FC<CellProps> = ({
   }
 
   if (adminActions) {
-    return <ActionMenu actions={adminActions} popupStyle={{ zIndex: getZIndex(PopUp) }} />
+    return (
+      <ActionMenu
+        actions={adminActions}
+        menuButtonOptions={{
+          type: 'button',
+          text: '',
+          buttonProps: {
+            type: 'submit',
+            icon: <Icon {...{ type: 'caret-square-down', size: 'large' }} />,
+            iconPlacement: 'center',
+            color: `${BTN_COLOURS.DANGER.VALUE}`,
+          },
+        }}
+        popupStyle={{ zIndex: getZIndex(PopUp) }}
+      />
+    )
   }
 
   if (isButton) {
