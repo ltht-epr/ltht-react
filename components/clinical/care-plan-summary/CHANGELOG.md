@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.3.227 (2023-06-26)
+
+**Note:** Version bump only for package @ltht-react/care-plan-summary
+
+
+
+
+
 ## 1.3.226 (2023-06-20)
 
 **Note:** Version bump only for package @ltht-react/care-plan-summary
