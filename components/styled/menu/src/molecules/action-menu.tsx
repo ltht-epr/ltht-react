@@ -74,6 +74,7 @@ const ActionMenu: FC<IProps> = ({
 
   const popper = usePopper(popperRef.current, popperElement, {
     placement: 'bottom-start',
+    strategy: 'fixed',
   })
 
   const closePopper = () => {
