@@ -18,7 +18,8 @@ const StyledValue = styled.span`
 `
 
 const PedNumber: FC<Props> = ({ patientGroups, ...rest }) => {
-  const pedGroup = patientGroups.find((pg) => pg.id.startsWith('PED'))
+  // TODO: find a better solkution to this magic string. Endpoint? Pass in front ehr-client?
+  const pedGroup = patientGroups.find((pg) => pg.id.startsWith('LCG'))
 
   if (pedGroup === undefined) {
     return null

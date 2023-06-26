@@ -12,6 +12,6 @@ describe('Patient Banner', () => {
     render(<PatientBanner patient={AlivePatient} patientGroups={groupsIncludingPedigreeGroup} />)
 
     expect(screen.getByText('Ped No.')).toBeInTheDocument()
-    expect(screen.getByText('PED048164')).toBeInTheDocument()
+    expect(screen.getByText('LCG048164')).toBeInTheDocument()
   })
 })
