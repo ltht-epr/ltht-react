@@ -1450,21 +1450,21 @@ export const obsAdminActionsForForms: AdminActionsForQuestionnaire[] = [
       {
         text: 'View',
         clickHandler: () => {
-          console.log('Viewing submission 1')
+          console.log('Viewing submission 3')
         },
         leftIcon: { type: 'info-circle', size: 'medium' },
       },
       {
         text: 'Edit',
         clickHandler: () => {
-          console.log('Editing submission 1')
+          console.log('Editing submission 3')
         },
-        leftIcon: { type: 'edit', size: 'medium', status: 'amber' },
+        leftIcon: { type: 'edit', size: 'medium', status: 'green' },
       },
       {
         text: 'Delete',
         clickHandler: () => {
-          console.log('Deleting submission 1')
+          console.log('Deleting submission 3')
         },
         leftIcon: { type: 'cross', size: 'medium', status: 'red' },
       },
@@ -1476,21 +1476,21 @@ export const obsAdminActionsForForms: AdminActionsForQuestionnaire[] = [
       {
         text: 'View',
         clickHandler: () => {
-          console.log('Viewing submission 2')
+          console.log('Viewing submission 3')
         },
-        leftIcon: { type: 'info-circle', size: 'medium', status: 'info' },
+        leftIcon: { type: 'info-circle', size: 'medium' },
       },
       {
         text: 'Edit',
         clickHandler: () => {
-          console.log('Editing submission 2')
+          console.log('Editing submission 3')
         },
-        leftIcon: { type: 'edit', size: 'medium', status: 'amber' },
+        leftIcon: { type: 'edit', size: 'medium', status: 'green' },
       },
       {
         text: 'Delete',
         clickHandler: () => {
-          console.log('Deleting submission 2')
+          console.log('Deleting submission 3')
         },
         leftIcon: { type: 'cross', size: 'medium', status: 'red' },
       },

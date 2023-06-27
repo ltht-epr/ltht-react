@@ -36,9 +36,19 @@ const StyledListItem = styled.li`
   }
 `
 
+const StyledListItemIcon = styled.div`
+  flex-basis: 25%;
+`
+
+const StyledListItemContent = styled.div`
+  flex: 1;
+  text-align: left;
+`
+
 const StyledCard = styled.div`
   ${CSS_RESET}
   display: inline-block;
+  min-width: 10rem;
   z-index: 1;
   background: white;
   border-radius: 4px;
@@ -142,9 +152,13 @@ const ActionMenu: FC<IProps> = ({
                       action.clickHandler()
                     }}
                   >
-                    {action.leftIcon && <StyledLeftIcon {...action.leftIcon} />}
-                    {action.text}
-                    {action.rightIcon && <StyledRightIcon {...action.rightIcon} />}
+                    <StyledListItemIcon>
+                      {action.leftIcon && <StyledLeftIcon {...action.leftIcon} />}
+                    </StyledListItemIcon>
+                    <StyledListItemContent>{action.text}</StyledListItemContent>
+                    <StyledListItemIcon>
+                      {action.rightIcon && <StyledRightIcon {...action.rightIcon} />}
+                    </StyledListItemIcon>
                   </StyledListItem>
                 ))}
               </StyledUnorderedList>
