@@ -91,7 +91,6 @@ const setIconMargins = (placement: IconPlacement): SerializedStyles => {
 }
 
 const setButtonPadding = (padding: string | undefined): SerializedStyles => {
-  console.log(padding)
   if (padding) {
     return css`
       ${{ padding }};
