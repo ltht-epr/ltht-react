@@ -1453,7 +1453,6 @@ export const obsAdminActionsForForms: AdminActionsForQuestionnaire[] = [
           console.log('Viewing submission 1')
         },
         leftIcon: { type: 'info-circle', size: 'medium' },
-        rightIcon: { type: 'external-link', size: 'medium' },
       },
       {
         text: 'Edit',
@@ -1461,7 +1460,6 @@ export const obsAdminActionsForForms: AdminActionsForQuestionnaire[] = [
           console.log('Editing submission 1')
         },
         leftIcon: { type: 'edit', size: 'medium' },
-        rightIcon: { type: 'external-link', size: 'medium' },
       },
       {
         text: 'Delete',
@@ -1481,7 +1479,6 @@ export const obsAdminActionsForForms: AdminActionsForQuestionnaire[] = [
           console.log('Viewing submission 2')
         },
         leftIcon: { type: 'info-circle', size: 'medium' },
-        rightIcon: { type: 'external-link', size: 'medium' },
       },
       {
         text: 'Edit',
@@ -1489,7 +1486,6 @@ export const obsAdminActionsForForms: AdminActionsForQuestionnaire[] = [
           console.log('Editing submission 2')
         },
         leftIcon: { type: 'edit', size: 'medium' },
-        rightIcon: { type: 'external-link', size: 'medium' },
       },
       {
         text: 'Delete',
@@ -1509,7 +1505,6 @@ export const obsAdminActionsForForms: AdminActionsForQuestionnaire[] = [
           console.log('Viewing submission 3')
         },
         leftIcon: { type: 'info-circle', size: 'medium' },
-        rightIcon: { type: 'external-link', size: 'medium' },
       },
       {
         text: 'Edit',
@@ -1517,14 +1512,14 @@ export const obsAdminActionsForForms: AdminActionsForQuestionnaire[] = [
           console.log('Editing submission 3')
         },
         leftIcon: { type: 'edit', size: 'medium' },
-        rightIcon: { type: 'external-link', size: 'medium' },
+        rightIcon: { type: 'edit', size: 'medium' },
       },
       {
         text: 'Delete',
         clickHandler: () => {
           console.log('Deleting submission 3')
         },
-        leftIcon: { type: 'exclamation', size: 'medium' },
+        leftIcon: { type: 'cross', size: 'medium', status: 'red' },
       },
     ],
   },

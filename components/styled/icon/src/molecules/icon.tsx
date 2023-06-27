@@ -83,7 +83,7 @@ const Icon: FC<IconProps> = ({ type, size, status, direction, counterValue, anim
     }
 
     case 'cross': {
-      return <CrossIcon size={size} {...rest} />
+      return <CrossIcon size={size} status={status ?? 'default'} {...rest} />
     }
 
     case 'edit': {

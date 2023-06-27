@@ -70,7 +70,7 @@ const DiagnosisSummary: FC<Props> = ({
           <IconButtonWrapper
             onClick={extensionClickHandler}
             type="button"
-            buttonStyle="clear"
+            styling={{ buttonStyle: 'clear' }}
             value=""
             icon={<FolderPlusIcon size="medium" />}
             iconPlacement="center"

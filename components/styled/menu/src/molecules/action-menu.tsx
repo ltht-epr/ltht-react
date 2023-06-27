@@ -25,6 +25,7 @@ const StyledListItem = styled.li`
   ${CSS_RESET}
   background-color: 'white';
   padding: 0.5rem;
+  line-height: 1em;
   display: flex;
   border-radius: 4px;
 
@@ -38,7 +39,6 @@ const StyledListItem = styled.li`
 const StyledCard = styled.div`
   ${CSS_RESET}
   display: inline-block;
-  min-width: 10rem;
   z-index: 1;
   background: white;
   border-radius: 4px;
@@ -47,7 +47,7 @@ const StyledCard = styled.div`
 
 const StyledRightIcon = styled(Icon)`
   margin-right: 0.5rem;
-  margin-left: auto;
+  margin-left: 3rem;
   color: ${BTN_COLOURS.STANDARD.VALUE};
 `
 
