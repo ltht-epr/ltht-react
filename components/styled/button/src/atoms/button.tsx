@@ -90,13 +90,25 @@ const setIconMargins = (placement: IconPlacement): SerializedStyles => {
   }
 }
 
+const setButtonPadding = (padding: string | undefined): SerializedStyles => {
+  console.log(padding)
+  if (padding) {
+    return css`
+      ${{ padding }};
+    `
+  }
+
+  return css`
+    padding: 0.375rem 0.75rem;
+  `
+}
+
 const StyledButton = styled.button<StyledProps>`
   display: flex;
   align-items: center;
   justify-content: center;
   white-space: nowrap;
   border: 1px solid transparent;
-  padding: 0.375rem 0.75rem;
   font-size: 0.8rem;
   font-weight: bold;
   line-height: 1.5;
@@ -120,7 +132,8 @@ const StyledButton = styled.button<StyledProps>`
     width: auto;
   }
 
-  ${({ buttonStyle }): SerializedStyles => setColors(buttonStyle)}
+  ${({ padding }): SerializedStyles => setButtonPadding(padding)}
+  ${({ buttonStyle }): SerializedStyles => setColors(buttonStyle ?? 'primary')}
 `
 
 const ButtonIcon = styled.div<ButtonIconProps>`
@@ -131,10 +144,10 @@ const ButtonIcon = styled.div<ButtonIconProps>`
   }
 `
 
-const Button: FC<Props> = ({
+const Button: FC<ButtonProps> = ({
   type,
   value,
-  buttonStyle = 'primary',
+  styling = { buttonStyle: 'primary' },
   disabled = false,
   icon,
   iconPlacement = 'left',
@@ -142,7 +155,7 @@ const Button: FC<Props> = ({
   children,
   ...rest
 }) => (
-  <StyledButton type={type} buttonStyle={buttonStyle} disabled={disabled} {...rest}>
+  <StyledButton {...styling} type={type} disabled={disabled} {...rest}>
     {icon && iconPlacement === 'left' && (
       <ButtonIcon placement={iconPlacement} iconColour={iconColour}>
         {icon}
@@ -167,12 +180,9 @@ type ButtonStyle = 'primary' | 'standard' | 'workflow' | 'danger' | 'clear'
 type ButtonTypes = 'button' | 'submit' | 'reset'
 type IconPlacement = 'left' | 'right' | 'center'
 
-interface Props extends ButtonProps {
-  buttonStyle?: ButtonStyle
-}
-
 interface StyledProps {
-  buttonStyle: ButtonStyle
+  buttonStyle?: ButtonStyle
+  padding?: string
 }
 
 interface ButtonIconProps {
@@ -182,6 +192,7 @@ interface ButtonIconProps {
 
 export interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
   type: ButtonTypes
+  styling?: StyledProps
   value?: string
   disabled?: boolean
   icon?: ReactNode

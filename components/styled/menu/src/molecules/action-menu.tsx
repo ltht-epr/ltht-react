@@ -66,6 +66,7 @@ const ActionMenu: FC<IProps> = ({
   menuButtonOptions = defaultMenuButtonProps,
   id = 'action-menu-button',
   popupStyle = {},
+  popupPlacement = 'bottom-start',
   ...rest
 }) => {
   const popperRef = useRef<HTMLDivElement>(null)
@@ -73,7 +74,7 @@ const ActionMenu: FC<IProps> = ({
   const [containerElement, setContainerElement] = useState<HTMLDivElement | null>(null)
 
   const popper = usePopper(popperRef.current, popperElement, {
-    placement: 'bottom-start',
+    placement: popupPlacement,
     strategy: 'fixed',
   })
 
@@ -159,6 +160,7 @@ interface IProps extends HTMLAttributes<HTMLButtonElement> {
   actions: ActionMenuOption[]
   menuButtonOptions?: IconButtonMenuProps | ButtonMenuProps
   popupStyle?: React.CSSProperties
+  popupPlacement?: 'bottom-start' | 'right-start'
 }
 
 interface IconButtonMenuProps {

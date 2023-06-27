@@ -4,6 +4,7 @@ import styled from '@emotion/styled'
 import { Icon, IconButton, IconProps } from '@ltht-react/icon'
 import ActionMenu, { ActionMenuOption } from '@ltht-react/menu'
 import { PopUp, getZIndex, BTN_COLOURS } from '@ltht-react/styles'
+import { Axis } from '@ltht-react/types'
 
 const StyledText = styled.span`
   margin-left: 0.4rem;
@@ -18,6 +19,7 @@ const TableCell: FC<CellProps> = ({
   isButton = false,
   text,
   iconProps,
+  headerAxis = 'x',
   clickHandler,
   customComponentOverride,
 }) => {
@@ -33,13 +35,20 @@ const TableCell: FC<CellProps> = ({
           type: 'button',
           text: '',
           buttonProps: {
-            type: 'submit',
-            icon: <Icon {...{ type: 'caret-square-down', size: 'large' }} />,
+            type: 'button',
+            styling: {
+              buttonStyle: 'standard',
+              padding: headerAxis === 'x' ? '0.3rem 0.5rem' : '0.15rem 0.3rem',
+            },
+            icon: (
+              <Icon {...{ type: headerAxis === 'x' ? 'ellipsis-vertical' : 'ellipsis-horizontal', size: 'medium' }} />
+            ),
             iconPlacement: 'center',
             color: `${BTN_COLOURS.DANGER.VALUE}`,
           },
         }}
         popupStyle={{ zIndex: getZIndex(PopUp) }}
+        popupPlacement={headerAxis === 'x' ? 'bottom-start' : 'right-start'}
       />
     )
   }
@@ -76,6 +85,7 @@ export interface CellProps {
   clickHandler?: React.MouseEventHandler<HTMLButtonElement>
   customComponentOverride?: JSX.Element
   parentStyle?: React.CSSProperties
+  headerAxis?: Axis
 }
 
 export default TableCell

@@ -6,13 +6,13 @@ import { Header, TableData, DataEntity } from './table'
 import TableCell, { CellProps } from './table-cell'
 import { ScrollState } from './useScrollRef'
 
-const createColumns = (tableData: TableData): ColumnDef<DataEntity>[] => {
+const createColumns = (tableData: TableData, headerAxis: Axis): ColumnDef<DataEntity>[] => {
   const columnHelper = createColumnHelper<DataEntity>()
 
-  let columns = createColumnsRecursively(tableData.headers, columnHelper)
+  let columns = createColumnsRecursively(tableData.headers, columnHelper, headerAxis)
 
   if (tableData.rows.some((row) => row.subRows)) {
-    columns = prependColumnWithExpansionControls(columns, columnHelper)
+    columns = prependColumnWithExpansionControls(columns, columnHelper, headerAxis)
   }
 
   return columns
@@ -20,30 +20,40 @@ const createColumns = (tableData: TableData): ColumnDef<DataEntity>[] => {
 
 const createColumnsRecursively = (
   headers: Header[],
-  columnHelper: ColumnHelper<DataEntity>
+  columnHelper: ColumnHelper<DataEntity>,
+  headerAxis: Axis
 ): ColumnDef<DataEntity>[] => {
   const result: ColumnDef<DataEntity>[] = headers.map((header) => {
     if (header.type === 'display') {
       return columnHelper.display({
         id: header.id,
-        header: () => <TableCell {...header.cellProps} />,
-        cell: (props) => <TableCell {...(props.getValue() as CellProps)} />,
+        header: () => {
+          const headerCellProps: CellProps = { ...header.cellProps, headerAxis }
+          return <TableCell {...headerCellProps} />
+        },
+        cell: (props) => {
+          const cellProps: CellProps = { ...(props.getValue() as CellProps), headerAxis }
+          return <TableCell {...cellProps} />
+        },
       })
     }
 
     if (header.type === 'accessor') {
       return columnHelper.accessor(header.id, {
         header: (props) => {
-          const cellProps: CellProps = { ...header.cellProps, iconProps: deriveHeaderIconProps(props) }
+          const cellProps: CellProps = { ...header.cellProps, iconProps: deriveHeaderIconProps(props), headerAxis }
           return <TableCell {...cellProps} />
         },
-        cell: (props) => <TableCell {...(props.getValue() as CellProps)} />,
+        cell: (props) => {
+          const cellProps: CellProps = { ...(props.getValue() as CellProps), headerAxis }
+          return <TableCell {...cellProps} />
+        },
       }) as ColumnDef<DataEntity, unknown>
     }
 
     return columnHelper.group({
       header: header.cellProps.text ?? '',
-      columns: createColumnsRecursively(header.subHeaders ?? [], columnHelper),
+      columns: createColumnsRecursively(header.subHeaders ?? [], columnHelper, headerAxis),
     })
   })
 
@@ -70,7 +80,8 @@ const deriveHeaderIconProps = (props: HeaderContext<DataEntity, CellProps | Data
 
 const prependColumnWithExpansionControls = (
   columns: ColumnDef<DataEntity, unknown>[],
-  columnHelper: ColumnHelper<DataEntity>
+  columnHelper: ColumnHelper<DataEntity>,
+  headerAxis: Axis
 ) => {
   const expanderColumn = columnHelper.display({
     id: 'expander',
@@ -81,6 +92,7 @@ const prependColumnWithExpansionControls = (
           direction: table.getIsAllRowsExpanded() ? 'down' : 'right',
           size: 'medium',
         },
+        headerAxis,
         clickHandler: table.getToggleAllRowsExpandedHandler(),
       }
       return <TableCell {...headerCellProps} />
@@ -93,9 +105,10 @@ const prependColumnWithExpansionControls = (
               direction: props.row.getIsExpanded() ? 'down' : 'right',
               size: 'medium',
             },
+            headerAxis,
             clickHandler: props.row.getToggleExpandedHandler(),
           }
-        : {}
+        : { headerAxis }
       return <TableCell {...cellProps} />
     },
   })
@@ -185,13 +198,18 @@ const handleDataUpdate = (
 ) => {
   if (tableData && tableData.headers.length > 0) {
     if (headerAxis === 'x') {
-      setColumns(createColumns(tableData))
+      setColumns(createColumns(tableData, headerAxis))
       setData(tableData.rows.slice(0, (pageIndex + 1) * pageSize))
       setPageCount(Math.ceil(tableData.rows.length / pageSize))
     } else {
       const head = tableData.headers[0]
       const tail = tableData.headers.slice(1, tableData.headers.length)
-      setColumns(createColumns({ headers: [head, ...tail.slice(0, (pageIndex + 1) * pageSize)], rows: tableData.rows }))
+      setColumns(
+        createColumns(
+          { headers: [head, ...tail.slice(0, (pageIndex + 1) * pageSize)], rows: tableData.rows },
+          headerAxis
+        )
+      )
       setData(tableData.rows)
       setPageCount(Math.ceil(tail.length / pageSize))
     }
@@ -216,12 +234,12 @@ const handleDataUpdateForManualPagination = (
   if (headerAxis === 'x') {
     setData((old) => {
       const newData = keepPreviousData ? [...old, ...tableData.rows] : tableData.rows
-      setColumns(createColumns({ headers: tableData.headers, rows: newData }))
+      setColumns(createColumns({ headers: tableData.headers, rows: newData }, headerAxis))
       return newData
     })
   } else if (tableData.headers.length > 0) {
     setColumns((old) => {
-      const newColumns = createColumns(tableData)
+      const newColumns = createColumns(tableData, headerAxis)
       const sliceStartPoint = calculateSliceStartPoint(
         old.length,
         tableData.rows.some((x) => x.subRows)
