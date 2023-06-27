@@ -1459,14 +1459,14 @@ export const obsAdminActionsForForms: AdminActionsForQuestionnaire[] = [
         clickHandler: () => {
           console.log('Editing submission 1')
         },
-        leftIcon: { type: 'edit', size: 'medium' },
+        leftIcon: { type: 'edit', size: 'medium', status: 'amber' },
       },
       {
         text: 'Delete',
         clickHandler: () => {
           console.log('Deleting submission 1')
         },
-        leftIcon: { type: 'exclamation', size: 'medium' },
+        leftIcon: { type: 'cross', size: 'medium', status: 'red' },
       },
     ],
   },
@@ -1478,21 +1478,21 @@ export const obsAdminActionsForForms: AdminActionsForQuestionnaire[] = [
         clickHandler: () => {
           console.log('Viewing submission 2')
         },
-        leftIcon: { type: 'info-circle', size: 'medium' },
+        leftIcon: { type: 'info-circle', size: 'medium', status: 'info' },
       },
       {
         text: 'Edit',
         clickHandler: () => {
           console.log('Editing submission 2')
         },
-        leftIcon: { type: 'edit', size: 'medium' },
+        leftIcon: { type: 'edit', size: 'medium', status: 'amber' },
       },
       {
         text: 'Delete',
         clickHandler: () => {
           console.log('Deleting submission 2')
         },
-        leftIcon: { type: 'exclamation', size: 'medium' },
+        leftIcon: { type: 'cross', size: 'medium', status: 'red' },
       },
     ],
   },
@@ -1511,8 +1511,7 @@ export const obsAdminActionsForForms: AdminActionsForQuestionnaire[] = [
         clickHandler: () => {
           console.log('Editing submission 3')
         },
-        leftIcon: { type: 'edit', size: 'medium' },
-        rightIcon: { type: 'edit', size: 'medium' },
+        leftIcon: { type: 'edit', size: 'medium', status: 'green' },
       },
       {
         text: 'Delete',

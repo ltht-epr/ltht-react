@@ -6,11 +6,11 @@ import { faInfoCircle } from '@fortawesome/free-solid-svg-icons'
 import { ICON_COLOURS, calculateIconSize, IconStatus, IconSize } from '@ltht-react/styles'
 
 const calculateIconColor = (status: string): SerializedStyles => css`
-  ${status === 'green' && `${ICON_COLOURS.SUCCESS.VALUE};`}
-  ${status === 'amber' && `${ICON_COLOURS.WARNING};`}
-  ${status === 'red' && `${ICON_COLOURS.DANGER};`}
-  ${status === 'default' && `${ICON_COLOURS.DEFAULT};`}
-  ${status === 'info' && `${ICON_COLOURS.INFO};`}
+  ${status === 'green' && `${ICON_COLOURS.SUCCESS.VALUE} !important;`}
+  ${status === 'amber' && `${ICON_COLOURS.WARNING} !important;`}
+  ${status === 'red' && `${ICON_COLOURS.DANGER} !important;`}
+  ${status === 'default' && `${ICON_COLOURS.DEFAULT} !important;`}
+  ${status === 'info' && `${ICON_COLOURS.INFO} !important;`}
 `
 
 const StyledFontAwesomeIcon = styled(FontAwesomeIcon)<StyledFontAwesomeIconProps>`

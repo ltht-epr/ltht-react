@@ -87,7 +87,7 @@ const Icon: FC<IconProps> = ({ type, size, status, direction, counterValue, anim
     }
 
     case 'edit': {
-      return <EditIcon size={size} {...rest} />
+      return <EditIcon size={size} status={status} {...rest} />
     }
 
     case 'ellipsis-horizontal': {

@@ -1,5 +1,6 @@
 import ActionMenu from '@ltht-react/menu'
 import { render, screen } from '@testing-library/react'
+import { ICON_COLOURS } from '@ltht-react/styles'
 import userEvent from '@testing-library/user-event'
 import mockActions from './action-menu-mockdata'
 
@@ -25,6 +26,18 @@ describe('Action menu', () => {
     )
 
     expect(screen.getByRole('img', { hidden: true })).toHaveClass('icon__hamburger')
+  })
+
+  it('Can be rendered with a different colour', () => {
+    render(
+      <ActionMenu
+        actions={mockActions}
+        menuButtonOptions={{ type: 'icon', iconProps: { type: 'cross', size: 'large', status: 'red' } }}
+      />
+    )
+
+    expect(screen.getByRole('img', { hidden: true })).toHaveClass('icon__cross')
+    expect(screen.getByRole('img', { hidden: true })).toHaveStyle(`color: ${ICON_COLOURS.DANGER};`)
   })
 
   it('Can be rendered as a button', () => {
