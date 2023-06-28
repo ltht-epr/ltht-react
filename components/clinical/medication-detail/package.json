@@ -1,6 +1,6 @@
 {
   "name": "@ltht-react/medication-detail",
-  "version": "1.0.202",
+  "version": "1.0.203",
   "description": "Detail of a medication",
   "author": "Phil McVay",
   "homepage": "",
@@ -23,13 +23,13 @@
   },
   "dependencies": {
     "@emotion/styled": "^11.0.0",
-    "@ltht-react/description-list": "^1.3.226",
-    "@ltht-react/hooks": "^1.0.218",
-    "@ltht-react/medication": "^1.0.195",
-    "@ltht-react/styles": "^1.3.220",
-    "@ltht-react/type-detail": "^1.3.228",
-    "@ltht-react/types": "^1.0.224",
-    "@ltht-react/utils": "^1.1.226",
+    "@ltht-react/description-list": "^1.3.227",
+    "@ltht-react/hooks": "^1.0.219",
+    "@ltht-react/medication": "^1.0.196",
+    "@ltht-react/styles": "^1.3.221",
+    "@ltht-react/type-detail": "^1.3.229",
+    "@ltht-react/types": "^1.0.225",
+    "@ltht-react/utils": "^1.1.227",
     "react": "^17.0.0"
   },
   "gitHead": "4d364556bb11e294d86697c2dac66742f7aabc7f"
