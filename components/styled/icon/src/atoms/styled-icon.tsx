@@ -24,7 +24,7 @@ const StyledIcon: FC<StyledFontAwesomeIconProps> = ({
     clickHandler && clickHandler()
   }
 
-  let spinClass = animation?.spin ? 'fa-spin' : ''
+  const spinClass = animation?.spin ? 'fa-spin' : ''
 
   return (
     <StyledFontAwesomeIcon
