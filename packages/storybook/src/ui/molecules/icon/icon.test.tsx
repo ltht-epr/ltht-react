@@ -26,6 +26,7 @@ describe('All icons', () => {
     render(<Icon type={iconType} size="small" className={extraClass} />)
     expect(screen.getByRole('img', { hidden: true })).toHaveClass(expectedClass)
     expect(screen.getByRole('img', { hidden: true })).toHaveClass(extraClass)
+    expect(screen.getByRole('img', { hidden: true })).not.toHaveClass('undefined')
   })
 
   it.each(iconTypes)("'%s' Spreads html attributes down", (iconType: IconType) => {
@@ -44,5 +45,43 @@ describe('All icons', () => {
     const style = window.getComputedStyle(icons[0])
 
     expect(style.color).toBe('pink')
+  })
+
+  it.each(iconTypes.filter((icon) => icon !== 'counter'))("'%s' can spin", (iconType: IconType) => {
+    const expectedClass = `icon__${iconType}`
+    render(<Icon type={iconType} size="small" animation={{ spin: true }} />)
+    expect(screen.getByRole('img', { hidden: true })).toHaveClass(expectedClass)
+    expect(screen.getByRole('img', { hidden: true })).toHaveClass('fa-spin')
+  })
+
+  it('Counter does not spin!', () => {
+    const expectedClass = `icon__counter`
+    render(<Icon type="counter" size="small" />)
+    expect(screen.getByRole('img', { hidden: true })).toHaveClass(expectedClass)
+    expect(screen.getByRole('img', { hidden: true })).not.toHaveClass('fa-spin')
+  })
+
+  it.each(iconTypes)("'%s' can choose not to spin!", (iconType: IconType) => {
+    const expectedClass = `icon__${iconType}`
+
+    render(<Icon type={iconType} size="small" animation={{ spin: false }} />)
+
+    expect(screen.getByRole('img', { hidden: true })).toHaveClass(expectedClass)
+    expect(screen.getByRole('img', { hidden: true })).not.toHaveClass('fa-spin')
+    expect(screen.getByRole('img', { hidden: true })).not.toHaveClass('undefined')
+  })
+
+  it('Spinner spins be default', () => {
+    const expectedClass = `icon__spinner`
+    render(<Icon type="spinner" size="small" />)
+    expect(screen.getByRole('img', { hidden: true })).toHaveClass(expectedClass)
+    expect(screen.getByRole('img', { hidden: true })).toHaveClass('fa-spin')
+  })
+
+  it('Spinner can be made static', () => {
+    const expectedClass = `icon__spinner`
+    render(<Icon type="spinner" size="small" animation={{ spin: false }} />)
+    expect(screen.getByRole('img', { hidden: true })).toHaveClass(expectedClass)
+    expect(screen.getByRole('img', { hidden: true })).not.toHaveClass('fa-spin')
   })
 })

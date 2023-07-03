@@ -24,9 +24,11 @@ const StyledIcon: FC<StyledFontAwesomeIconProps> = ({
     clickHandler && clickHandler()
   }
 
+  let spinClass = animation?.spin ? 'fa-spin' : ''
+
   return (
     <StyledFontAwesomeIcon
-      className={`${className ?? ''} icon__${type} ${animation?.spin && 'fa-spin'}`.trimStart()}
+      className={`${className ?? ''} icon__${type} ${spinClass}`.trimStart()}
       status={status}
       icon={icon}
       size={calculateIconSize(customSize ?? 'medium')}
