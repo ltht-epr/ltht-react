@@ -13,7 +13,7 @@ describe('All icons', () => {
   })
 
   it.each(iconTypes)("'%s' has the right class name", (iconType: IconType) => {
-    const expectedClass = 'icon__' + iconType.toString()
+    const expectedClass = `icon__${iconType.toString()}`
     render(<Icon type={iconType} size="small" />)
 
     expect(screen.getByRole('img', { hidden: true })).toHaveClass(expectedClass)
@@ -21,7 +21,7 @@ describe('All icons', () => {
 
   it.each(iconTypes)("'%s' Still has the right class name when given custom class names", (iconType: IconType) => {
     const extraClass = 'further-maths'
-    const expectedClass = 'icon__' + iconType
+    const expectedClass = `icon__${iconType}`
 
     render(<Icon type={iconType} size="small" className={extraClass} />)
     expect(screen.getByRole('img', { hidden: true })).toHaveClass(expectedClass)
@@ -36,7 +36,7 @@ describe('All icons', () => {
   })
 
   it.each(iconTypes)("'%s' can be styled", (iconType: IconType) => {
-    const expectedClass = 'icon__' + iconType
+    const expectedClass = `icon__${iconType}`
 
     render(<PinkIcon type={iconType} status="green" size="small" />)
 

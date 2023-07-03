@@ -48,9 +48,9 @@ import {
   faTrashAlt,
   faUser,
 } from '@fortawesome/free-solid-svg-icons'
+import { Transform } from '@fortawesome/fontawesome-svg-core'
 import CounterIcon from '../molecules/counter-icon'
 import StyledIcon, { IconAnimation } from '../atoms/styled-icon'
-import { Transform } from '@fortawesome/fontawesome-svg-core'
 
 const calculateChevronCircleIcon = (direction: IconDirection): IconDefinition => {
   switch (direction) {
@@ -92,6 +92,8 @@ const Icon: FC<IconProps> = ({
 }) => {
   let icon: IconDefinition
   let transform: string | Transform | undefined
+  let iconStatus = status
+  let iconAnimation = animation
 
   switch (type) {
     case 'bullseye': {
@@ -146,7 +148,7 @@ const Icon: FC<IconProps> = ({
     }
 
     case 'counter': {
-      return <CounterIcon size={size} status={status} value={counterValue ?? 0} {...rest} />
+      return <CounterIcon size={size} status={iconStatus} value={counterValue ?? 0} {...rest} />
     }
 
     case 'cross': {
@@ -182,8 +184,8 @@ const Icon: FC<IconProps> = ({
 
     case 'external-link': {
       icon = faExternalLinkAlt
-      if (status === 'default') {
-        status = 'link'
+      if (iconStatus === 'default') {
+        iconStatus = 'link'
       }
       break
     }
@@ -245,15 +247,15 @@ const Icon: FC<IconProps> = ({
 
     case 'search': {
       icon = faSearch
-      status = 'primary'
+      iconStatus = 'primary'
       break
     }
 
     case 'spinner': {
       icon = faSync
-      status = 'primary'
-      if (animation === undefined) {
-        animation = { spin: true }
+      iconStatus = 'primary'
+      if (iconAnimation === undefined) {
+        iconAnimation = { spin: true }
       }
       break
     }
@@ -291,8 +293,8 @@ const Icon: FC<IconProps> = ({
 
     case 'trash': {
       icon = faTrashAlt
-      if (status === 'default') {
-        status = 'link'
+      if (iconStatus === 'default') {
+        iconStatus = 'link'
       }
       break
     }
@@ -313,9 +315,9 @@ const Icon: FC<IconProps> = ({
       type={type}
       customSize={size}
       icon={icon}
-      status={status}
+      status={iconStatus}
       transform={transform}
-      animation={animation}
+      animation={iconAnimation}
       clickHandler={clickHandler}
       {...rest}
     />
