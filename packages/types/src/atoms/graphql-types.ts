@@ -631,6 +631,7 @@ export type CarePlanModelInput = {
   actions?: Maybe<Array<Maybe<CarePlanModelActionInput>>>;
   planDefinitionId?: Maybe<Scalars['Guid']>;
   planDefinitionLabel?: Maybe<Scalars['String']>;
+  planDefinitionSeriesId?: Maybe<Scalars['String']>;
   reasonCode?: Maybe<Scalars['String']>;
   reasonText?: Maybe<Scalars['String']>;
 };
@@ -1177,7 +1178,7 @@ export type Ehr = {
   summaryView?: Maybe<QuestionnaireResponseContinuation>;
   /** Tasks */
   tasks?: Maybe<TaskContinuation>;
-  /** Returns the available extension to a f4h form */
+  /** Returns the available CDS extension template for a given base template and value */
   templateExtension?: Maybe<Questionnaire>;
   /** Terminology */
   terminologyItems?: Maybe<TerminologyItemContinuation>;
@@ -1449,7 +1450,7 @@ export type EhrTerminologyItemsArgs = {
   codeSystemVersion: Scalars['Int'];
   count?: Maybe<Scalars['Int']>;
   cursorToken?: Maybe<Scalars['String']>;
-  filter: Scalars['String'];
+  filter?: Maybe<Scalars['String']>;
 };
 
 /** Mutations of the LTHT EHR. */
