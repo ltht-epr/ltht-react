@@ -1,7 +1,7 @@
 import { FC, HTMLAttributes } from 'react'
 import classNames from 'classnames'
 import styled from '@emotion/styled'
-import { ChevronIcon } from '@ltht-react/icon'
+import { Icon } from '@ltht-react/icon'
 import { CARD_LIST_ITEM_BACKGROUND_HOVER, CARD_LIST_ITEM_SELECTED_BACKGROUND, ICON_COLOURS } from '@ltht-react/styles'
 
 const shouldClick = (props: Props): boolean => props.onClick !== undefined
@@ -85,7 +85,7 @@ const ListItem: FC<Props> = (props) => {
   return (
     <StyledListItem className={classNames(`card__list-item${suffix}`, classes)} {...rest}>
       <div className="card__list-item-container">{children}</div>
-      {shouldClick(props) && <ChevronIcon size="medium" direction="right" />}
+      {shouldClick(props) && <Icon type="chevron" size="medium" direction="right" />}
     </StyledListItem>
   )
 }

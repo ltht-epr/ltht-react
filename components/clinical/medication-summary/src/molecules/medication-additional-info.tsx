@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import styled from '@emotion/styled'
-import { CommentIcon } from '@ltht-react/icon'
+import { Icon } from '@ltht-react/icon'
 import Badge from '@ltht-react/badge'
 import { Maybe } from '@ltht-react/types'
 
@@ -19,7 +19,7 @@ const MedicationAdditionalInfo: FC<IProps> = ({ hasChanged, hasVerificationComme
   return (
     <StyledMedicationAdditionalInfo>
       {hasChanged && <StyledBadge>Changed</StyledBadge>}
-      {hasVerificationComments && <CommentIcon size="medium" title="Has Additional Comments" />}
+      {hasVerificationComments && <Icon type="comment" size="medium" title="Has Additional Comments" />}
     </StyledMedicationAdditionalInfo>
   )
 }

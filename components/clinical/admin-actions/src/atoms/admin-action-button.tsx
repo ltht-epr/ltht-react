@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 import { Button } from '@ltht-react/button'
-import { CheckIcon, CrossIcon, SpinnerIcon } from '@ltht-react/icon'
+import { Icon } from '@ltht-react/icon'
 import { BTN_COLOURS } from '@ltht-react/styles'
 import { Maybe, Task } from '@ltht-react/types'
 import { FC } from 'react'
@@ -25,10 +25,16 @@ const FailButton = styled(Button)`
 
 const ActionButton: FC<IProps> = ({ adminAction, actionClickHandler }) => {
   if (adminAction.isSuccess === true) {
-    return <SuccessButton type="button" value="Done" icon={<CheckIcon size="medium" />} />
+    return <SuccessButton type="button" value="Done" icon={<Icon type="check" size="medium" />} />
   }
   if (adminAction.isSuccess === false) {
-    return <FailButton type="button" value={adminAction.failText} icon={<CrossIcon size="medium" status="default" />} />
+    return (
+      <FailButton
+        type="button"
+        value={adminAction.failText}
+        icon={<Icon type="cross" size="medium" status="default" />}
+      />
+    )
   }
 
   return (
@@ -36,7 +42,7 @@ const ActionButton: FC<IProps> = ({ adminAction, actionClickHandler }) => {
       type="button"
       title="Perform Action"
       value={!adminAction.isLoading ? 'Perform Action' : 'Loading'}
-      icon={adminAction.isLoading && <SpinnerIcon size="medium" />}
+      icon={adminAction.isLoading && <Icon type="spinner" size="medium" />}
       onClick={adminAction.isLoading ? () => undefined : () => actionClickHandler(adminAction)}
     />
   )

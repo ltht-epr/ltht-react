@@ -3,7 +3,7 @@ import styled from '@emotion/styled'
 
 import { Condition, ConditionVerificationStatus } from '@ltht-react/types'
 import { DateSummary } from '@ltht-react/type-summary'
-import { CommentIcon, FolderPlusIcon } from '@ltht-react/icon'
+import { Icon } from '@ltht-react/icon'
 import { Button } from '@ltht-react/button'
 
 import { BTN_COLOURS } from '@ltht-react/styles'
@@ -72,7 +72,7 @@ const DiagnosisSummary: FC<Props> = ({
             type="button"
             styling={{ buttonStyle: 'clear' }}
             value=""
-            icon={<FolderPlusIcon size="medium" />}
+            icon={<Icon type="folder-plus" size="medium" />}
             iconPlacement="center"
             iconColour={BTN_COLOURS.PRIMARY.VALUE}
             title={`This diagnosis can be extended further using form '${extensionTemplateDisplayName}' by clicking here`}
@@ -80,7 +80,8 @@ const DiagnosisSummary: FC<Props> = ({
         )}
         {extendedTemplateDisplayName && (
           <IconWrapper>
-            <CommentIcon
+            <Icon
+              type="comment"
               size="medium"
               title={`This diagnosis has been extended beyond standard diagnosis with form '${extendedTemplateDisplayName}'.
            To view these extra details, click into the full diagnosis detail or edit the existing form.`}

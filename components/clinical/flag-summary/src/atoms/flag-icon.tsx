@@ -1,6 +1,6 @@
 import { FC, HTMLAttributes } from 'react'
 import styled from '@emotion/styled'
-import { ExclamationIcon } from '@ltht-react/icon'
+import { Icon } from '@ltht-react/icon'
 import { getStringExtension } from '@ltht-react/utils'
 import { Flag } from '@ltht-react/types'
 
@@ -13,7 +13,7 @@ const FlagIcon: FC<Props> = ({ flag: { extension, ...rest } }) => {
   if (ext === 'High') {
     return (
       <StyledFlagIcon {...rest}>
-        <ExclamationIcon status="red" size="medium" />
+        <Icon type="exclamation" status="red" size="medium" />
       </StyledFlagIcon>
     )
   }

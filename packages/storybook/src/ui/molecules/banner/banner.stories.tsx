@@ -3,14 +3,14 @@
 import { Story } from '@storybook/react'
 
 import Banner from '@ltht-react/banner'
-import { UserIcon } from '@ltht-react/icon'
+import { Icon } from '@ltht-react/icon'
 
 export const Info: Story = () => <Banner type="info">Info Banner</Banner>
 export const Warning: Story = () => <Banner type="warning">Warning Banner</Banner>
 export const Danger: Story = () => <Banner type="danger">Danger Banner</Banner>
 
 export const WithCustomIcon: Story = () => (
-  <Banner type="warning" icon={<UserIcon size="medium" />}>
+  <Banner type="warning" icon={<Icon type="user" size="medium" />}>
     Banner with custom icon
   </Banner>
 )

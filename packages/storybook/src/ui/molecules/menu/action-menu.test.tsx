@@ -14,7 +14,7 @@ describe('Action menu', () => {
   it('Renders with an ellipsis by default', () => {
     render(<ActionMenu actions={mockActions} />)
 
-    expect(screen.getByRole('img', { hidden: true })).toHaveClass('icon__ellipsis__vertical')
+    expect(screen.getByRole('img', { hidden: true })).toHaveClass('icon__ellipsis-vertical')
   })
 
   it('Can be rendered with a different icon', () => {

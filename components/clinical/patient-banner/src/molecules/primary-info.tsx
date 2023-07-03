@@ -7,7 +7,7 @@ import {
   PATIENT_BANNER_DECEASED_BACKGROUND_COLOUR,
   TABLET_MINIMUM_MEDIA_QUERY,
 } from '@ltht-react/styles'
-import { ChevronCircleIcon } from '@ltht-react/icon'
+import { Icon } from '@ltht-react/icon'
 
 import Name from '../atoms/name'
 import DateOfBirth from '../atoms/date-of-birth'
@@ -63,7 +63,7 @@ const StyledInfo = styled.div`
   }
 `
 
-const StyledChevronCircleIcon = styled(ChevronCircleIcon)`
+const StyledChevronCircleIcon = styled(Icon)`
   position: absolute;
   right: 0.5rem;
   top: 0.5rem;
@@ -86,7 +86,7 @@ const PrimaryInformation: FC<Props> = ({ patient, deceased }) => {
       <StyledName>
         <Name patient={patient} />
       </StyledName>
-      <StyledChevronCircleIcon direction={collapsed ? 'up' : 'down'} size="medium" />
+      <StyledChevronCircleIcon type="chevron-circle" direction={collapsed ? 'up' : 'down'} size="medium" />
       <StyledInfo>
         <DateOfBirth patient={patient} deceased={deceased} />
         {deceased && patient?.deceased?.deceasedDateTime && <DateOfDeath patient={patient} />}

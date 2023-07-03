@@ -2,7 +2,7 @@ import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 import { PlanDefinition } from '@ltht-react/types'
 import { BANNER_COLOURS, WIDESCREEN_MINIMUM_MEDIA_QUERY } from '@ltht-react/styles'
-import { BullseyeIcon } from '@ltht-react/icon'
+import { Icon } from '@ltht-react/icon'
 import { Toggle as ToggleInput } from '@ltht-react/input'
 import { ChangeEvent, FC, useMemo } from 'react'
 
@@ -73,8 +73,6 @@ const StyledSectionToggle = styled.div`
   padding: 0.5rem 0.25rem;
   ${toggleInputMixin}
 `
-
-const StyledBullseyeIcon = styled(BullseyeIcon)``
 
 const StyledProblemSection = styled.ul`
   list-style: none;
@@ -164,7 +162,7 @@ export const SelectedPlanDetail: FC<ISelectedPlanDetailProps> = ({
               <div>
                 <StyledTargetRow>
                   <span>
-                    <BullseyeIcon size="large" />
+                    <Icon type="bullseye" size="large" />
                   </span>
                   <div>{goal?.description?.text}</div>
                 </StyledTargetRow>
@@ -211,7 +209,7 @@ export const SelectedPlanDetail: FC<ISelectedPlanDetailProps> = ({
                   />
                 </div>
                 <label htmlFor={`education-${eaidx}`}>
-                  <StyledBullseyeIcon size="large" />
+                  <Icon type="bullseye" size="large" />
                   {g?.description}
                 </label>
               </StyledEducationToggleRow>

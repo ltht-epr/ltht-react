@@ -1,5 +1,5 @@
 import { FC, HTMLAttributes } from 'react'
-import { UserIcon } from '@ltht-react/icon'
+import { Icon } from '@ltht-react/icon'
 import styled from '@emotion/styled'
 
 import {
@@ -26,7 +26,7 @@ const TimelineAuthor: FC<Props> = ({ domainResource, domainResourceType, ...rest
       }
       return (
         <StyledTimelineItemLeft {...rest}>
-          <UserIcon size="medium" /> by {qr?.author?.display}
+          <Icon type="user" size="medium" /> by {qr?.author?.display}
         </StyledTimelineItemLeft>
       )
     }
@@ -50,7 +50,7 @@ const TimelineAuthor: FC<Props> = ({ domainResource, domainResourceType, ...rest
 
       return (
         <StyledTimelineItemLeft {...rest}>
-          <UserIcon size="medium" /> by {authorList.join(', ')}
+          <Icon type="user" size="medium" /> by {authorList.join(', ')}
         </StyledTimelineItemLeft>
       )
     }
@@ -71,7 +71,7 @@ const TimelineAuthor: FC<Props> = ({ domainResource, domainResourceType, ...rest
 
       return (
         <StyledTimelineItemLeft {...rest}>
-          <UserIcon size="medium" /> by {authorName}
+          <Icon type="user" size="medium" /> by {authorName}
         </StyledTimelineItemLeft>
       )
     }
