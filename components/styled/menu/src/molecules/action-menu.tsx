@@ -58,13 +58,11 @@ const StyledCard = styled.div`
 const StyledRightIcon = styled(Icon)`
   margin-right: 0.5rem;
   margin-left: 3rem;
-  color: ${BTN_COLOURS.STANDARD.VALUE};
 `
 
 const StyledLeftIcon = styled(Icon)`
   margin-right: 0.5rem;
   margin-left: 0.5rem;
-  color: ${BTN_COLOURS.STANDARD.VALUE};
 `
 
 const StyledMenuButtonWrapper = styled.div`

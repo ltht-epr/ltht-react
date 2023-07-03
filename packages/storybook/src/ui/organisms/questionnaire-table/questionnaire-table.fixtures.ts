@@ -1452,7 +1452,7 @@ export const obsAdminActionsForForms: AdminActionsForQuestionnaire[] = [
         clickHandler: () => {
           console.log('Viewing submission 3')
         },
-        leftIcon: { type: 'info-circle', size: 'medium' },
+        leftIcon: { type: 'info-circle', size: 'medium', status: 'info' },
       },
       {
         text: 'Edit',
@@ -1478,7 +1478,7 @@ export const obsAdminActionsForForms: AdminActionsForQuestionnaire[] = [
         clickHandler: () => {
           console.log('Viewing submission 3')
         },
-        leftIcon: { type: 'info-circle', size: 'medium' },
+        leftIcon: { type: 'info-circle', size: 'medium', status: 'info' },
       },
       {
         text: 'Edit',
@@ -1504,7 +1504,7 @@ export const obsAdminActionsForForms: AdminActionsForQuestionnaire[] = [
         clickHandler: () => {
           console.log('Viewing submission 3')
         },
-        leftIcon: { type: 'info-circle', size: 'medium' },
+        leftIcon: { type: 'info-circle', size: 'medium', status: 'info' },
       },
       {
         text: 'Edit',

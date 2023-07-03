@@ -1,44 +1,48 @@
-import Icon from '@ltht-react/icon/src/molecules/icon'
-import { IconType } from '@ltht-react/styles'
-import { render } from '@testing-library/react'
+import styled from '@emotion/styled'
+import Icon from '@ltht-react/icon/src/organisms/icon'
+import { IconType, iconTypes } from '@ltht-react/styles'
+import { render, screen } from '@testing-library/react'
 
-it.each([
-  ['bullseye' as IconType],
-  ['calendar' as IconType],
-  ['check' as IconType],
-  ['chevron-circle' as IconType],
-  ['chevron' as IconType],
-  ['circle' as IconType],
-  ['column' as IconType],
-  ['comment' as IconType],
-  ['counter' as IconType],
-  ['cross' as IconType],
-  ['edit' as IconType],
-  ['ellipsis-horizontal' as IconType],
-  ['ellipsis-vertical' as IconType],
-  ['exclamation' as IconType],
-  ['external-link' as IconType],
-  ['filter' as IconType],
-  ['folder-plus' as IconType],
-  ['grid-layout' as IconType],
-  ['hamburger' as IconType],
-  ['info-circle' as IconType],
-  ['layer-group' as IconType],
-  ['list-layout' as IconType],
-  ['pause' as IconType],
-  ['play' as IconType],
-  ['plus' as IconType],
-  ['spinner' as IconType],
-  ['stop' as IconType],
-  ['table' as IconType],
-  ['toggle-off' as IconType],
-  ['toggle-on' as IconType],
-  ['trash' as IconType],
-  ['user' as IconType],
-  ['dot-circle' as IconType],
-  ['search' as IconType],
-  ['checkbox' as IconType],
-  ['square' as IconType],
-])('Renders', (iconName: IconType) => {
-  render(<Icon type={iconName} size="small" />)
+const PinkIcon = styled(Icon)`
+  color: pink;
+`
+
+describe('All icons', () => {
+  it.each(iconTypes)("'%s' renders", (iconType: IconType) => {
+    render(<Icon type={iconType} size="small" />)
+  })
+
+  it.each(iconTypes)("'%s' has the right class name", (iconType: IconType) => {
+    const expectedClass = 'icon__' + iconType.toString()
+    render(<Icon type={iconType} size="small" />)
+
+    expect(screen.getByRole('img', { hidden: true })).toHaveClass(expectedClass)
+  })
+
+  it.each(iconTypes)("'%s' Still has the right class name when given custom class names", (iconType: IconType) => {
+    const extraClass = 'further-maths'
+    const expectedClass = 'icon__' + iconType
+
+    render(<Icon type={iconType} size="small" className={extraClass} />)
+    expect(screen.getByRole('img', { hidden: true })).toHaveClass(expectedClass)
+    expect(screen.getByRole('img', { hidden: true })).toHaveClass(extraClass)
+  })
+
+  it.each(iconTypes)("'%s' Spreads html attributes down", (iconType: IconType) => {
+    const id = '123abc'
+    render(<Icon type={iconType} size="small" id={id} />)
+
+    expect(screen.getByRole('img', { hidden: true })).toHaveAttribute('id', id)
+  })
+
+  it.each(iconTypes)("'%s' can be styled", (iconType: IconType) => {
+    const expectedClass = 'icon__' + iconType
+
+    render(<PinkIcon type={iconType} status="green" size="small" />)
+
+    const icons = document.getElementsByClassName(expectedClass)
+    const style = window.getComputedStyle(icons[0])
+
+    expect(style.color).toBe('pink')
+  })
 })

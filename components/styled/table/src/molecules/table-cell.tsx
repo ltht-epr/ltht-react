@@ -35,7 +35,6 @@ const TableCell: FC<CellProps> = ({
           type: 'button',
           text: '',
           buttonProps: {
-            type: 'button',
             styling: {
               buttonStyle: 'standard',
               padding: headerAxis === 'x' ? '0.3rem 0.5rem' : '0.15rem 0.3rem',
@@ -54,7 +53,7 @@ const TableCell: FC<CellProps> = ({
   }
 
   if (isButton) {
-    return <Button type="button" value={text} icon={iconProps && <Icon {...iconProps} />} onClick={clickHandler} />
+    return <Button value={text} icon={iconProps && <Icon {...iconProps} />} onClick={clickHandler} />
   }
 
   if (clickHandler && iconProps) {

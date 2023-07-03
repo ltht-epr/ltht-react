@@ -6,7 +6,7 @@ import { Button } from '@ltht-react/button'
 import { usePopper } from 'react-popper'
 import { format, isValid, parse } from 'date-fns'
 import FocusTrap from 'focus-trap-react'
-import { CalendarIcon } from '@ltht-react/icon'
+import { Icon } from '@ltht-react/icon'
 
 const StyledDialogSheet = styled.div`
   z-index: 1;
@@ -167,7 +167,7 @@ const Daypicker: FC<DaypickerProps> = ({
           {showIcon && (
             <StyledButton
               type="button"
-              icon={<CalendarIcon size="medium" />}
+              icon={<Icon type="calendar" size="medium" />}
               iconPlacement="center"
               onClick={onButtonClick}
             />

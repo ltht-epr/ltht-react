@@ -90,18 +90,6 @@ const setIconMargins = (placement: IconPlacement): SerializedStyles => {
   }
 }
 
-const setButtonPadding = (padding: string | undefined): SerializedStyles => {
-  if (padding) {
-    return css`
-      ${{ padding }};
-    `
-  }
-
-  return css`
-    padding: 0.375rem 0.75rem;
-  `
-}
-
 const StyledButton = styled.button<StyledProps>`
   display: flex;
   align-items: center;
@@ -113,6 +101,7 @@ const StyledButton = styled.button<StyledProps>`
   line-height: 1.5;
   border-radius: 4px;
   width: 100%;
+  padding: ${({ padding }) => padding ?? '0.375rem 0.75rem'};
 
   &:hover:not([disabled]) {
     cursor: pointer;
@@ -131,7 +120,6 @@ const StyledButton = styled.button<StyledProps>`
     width: auto;
   }
 
-  ${({ padding }): SerializedStyles => setButtonPadding(padding)}
   ${({ buttonStyle }): SerializedStyles => setColors(buttonStyle ?? 'primary')}
 `
 
@@ -144,9 +132,9 @@ const ButtonIcon = styled.div<ButtonIconProps>`
 `
 
 const Button: FC<ButtonProps> = ({
-  type,
+  type = 'button',
   value,
-  styling = { buttonStyle: 'primary' },
+  styling,
   disabled = false,
   icon,
   iconPlacement = 'left',
@@ -190,7 +178,7 @@ interface ButtonIconProps {
 }
 
 export interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
-  type: ButtonTypes
+  type?: ButtonTypes
   styling?: StyledProps
   value?: string
   disabled?: boolean
