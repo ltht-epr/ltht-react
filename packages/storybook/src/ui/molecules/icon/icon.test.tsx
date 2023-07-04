@@ -49,7 +49,7 @@ describe('All icons', () => {
   it.each(iconTypes.filter((icon) => icon !== 'do-not-use!'))("'%s' can be styled", (iconType: IconType) => {
     const expectedClass = `icon__${iconType}`
 
-    render(<PinkIcon type={iconType} status="green" size="small" />)
+    render(<PinkIcon type={iconType} status="success" size="small" />)
 
     const icons = document.getElementsByClassName(expectedClass)
     const style = window.getComputedStyle(icons[0])

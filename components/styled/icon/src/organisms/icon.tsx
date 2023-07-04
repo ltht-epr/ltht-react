@@ -82,7 +82,7 @@ const calculateChevronIcon = (direction: IconDirection): IconDefinition => {
 const Icon: FC<IconProps> = ({
   type,
   size,
-  status = 'default',
+  status = 'primary',
   direction = 'up',
   counterValue,
   animation,
@@ -183,7 +183,7 @@ const Icon: FC<IconProps> = ({
 
     case 'external-link': {
       icon = faExternalLinkAlt
-      if (iconStatus === 'default') {
+      if (iconStatus === 'primary') {
         iconStatus = 'link'
       }
       break
@@ -246,13 +246,11 @@ const Icon: FC<IconProps> = ({
 
     case 'search': {
       icon = faSearch
-      iconStatus = 'primary'
       break
     }
 
     case 'spinner': {
       icon = faSync
-      iconStatus = 'primary'
       if (iconAnimation === undefined) {
         iconAnimation = { spin: true }
       }
@@ -292,7 +290,7 @@ const Icon: FC<IconProps> = ({
 
     case 'trash': {
       icon = faTrashAlt
-      if (iconStatus === 'default') {
+      if (iconStatus === 'primary') {
         iconStatus = 'link'
       }
       break

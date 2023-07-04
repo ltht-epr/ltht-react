@@ -27,7 +27,7 @@ const QuestionnaireTable: FC<IProps> = ({
   if (!tableData) {
     return (
       <>
-        <Icon type="exclamation" size="large" status="red" />
+        <Icon type="exclamation" size="large" status="danger" />
         <div>An error occurred whilst loading this table.</div>
       </>
     )

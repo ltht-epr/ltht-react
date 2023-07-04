@@ -32,7 +32,7 @@ const ActionButton: FC<IProps> = ({ adminAction, actionClickHandler }) => {
       <FailButton
         type="button"
         value={adminAction.failText}
-        icon={<Icon type="cross" size="medium" status="default" />}
+        icon={<Icon type="cross" size="medium" status="disabled" />}
       />
     )
   }

@@ -9,7 +9,7 @@ type FontAwesomeIconSize = 'xs' | 'lg' | 'sm' | '1x' | '2x' | '3x' | '4x' | '5x'
 
 export type IconSize = 'small' | 'medium' | 'large'
 
-export type IconStatus = 'default' | 'red' | 'green' | 'amber' | 'info' | 'primary' | 'secondary' | 'link'
+export type IconStatus = 'primary' | 'secondary' | 'link' | 'disabled' | 'info' | 'success' | 'warning' | 'danger'
 
 export type IconDirection = 'up' | 'down' | 'left' | 'right'
 
@@ -72,12 +72,12 @@ export const calculateIconSize = (input: IconSize): FontAwesomeIconSize => {
 }
 
 export const calculateIconColor = (status: IconStatus): SerializedStyles => css`
-  ${status === 'default' && `color: ${ICON_COLOURS.DEFAULT};`}
-  ${status === 'green' && `color: ${ICON_COLOURS.SUCCESS.VALUE};`}
-  ${status === 'amber' && `color: ${ICON_COLOURS.WARNING};`}
-  ${status === 'red' && `color: ${ICON_COLOURS.DANGER};`}
-  ${status === 'info' && `color: ${ICON_COLOURS.INFO};`}
   ${status === 'primary' && `color: ${ICON_COLOURS.PRIMARY};`}
   ${status === 'secondary' && `color: ${ICON_COLOURS.SECONDARY};`}
   ${status === 'link' && `color: ${LINK_COLOURS.TEXT.DEFAULT};`}
+  ${status === 'disabled' && `color: ${ICON_COLOURS.DISABLED.VALUE};`}
+  ${status === 'info' && `color: ${ICON_COLOURS.INFO};`}
+  ${status === 'success' && `color: ${ICON_COLOURS.SUCCESS.VALUE};`}
+  ${status === 'warning' && `color: ${ICON_COLOURS.WARNING};`}
+  ${status === 'danger' && `color: ${ICON_COLOURS.DANGER};`}
 `

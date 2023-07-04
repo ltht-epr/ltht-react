@@ -19,11 +19,11 @@ export const TEXT_COLOURS = {
 export const ICON_COLOURS = {
   PRIMARY: colours.NHS_BLACK,
   SECONDARY: colours.NHS_DARK_BLUE.VALUE,
-  DANGER: colours.NHS_EMERGENCY_SERVICES_RED.VALUE,
-  WARNING: colours.NHS_ORANGE,
-  SUCCESS: colours.NHS_GREEN,
-  DEFAULT: colours.NHS_MID_GREY,
   INFO: colours.NHS_BRIGHT_BLUE,
+  SUCCESS: colours.NHS_GREEN,
+  WARNING: colours.NHS_ORANGE,
+  DANGER: colours.NHS_EMERGENCY_SERVICES_RED.VALUE,
+  DISABLED: colours.NHS_MID_GREY,
 }
 
 export const LINK_COLOURS = {

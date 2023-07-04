@@ -4,16 +4,16 @@ import { Icon } from '@ltht-react/icon'
 // eslint-disable-next-line import/prefer-default-export
 export const Exclamation: Story = () => (
   <>
-    <Icon type="exclamation" status="green" size="small" />
-    <Icon type="exclamation" status="green" size="medium" />
-    <Icon type="exclamation" status="green" size="large" />
+    <Icon type="exclamation" status="success" size="small" />
+    <Icon type="exclamation" status="success" size="medium" />
+    <Icon type="exclamation" status="success" size="large" />
     <br />
-    <Icon type="exclamation" status="amber" size="small" />
-    <Icon type="exclamation" status="amber" size="medium" />
-    <Icon type="exclamation" status="amber" size="large" />
+    <Icon type="exclamation" status="warning" size="small" />
+    <Icon type="exclamation" status="warning" size="medium" />
+    <Icon type="exclamation" status="warning" size="large" />
     <br />
-    <Icon type="exclamation" status="red" size="small" />
-    <Icon type="exclamation" status="red" size="medium" />
-    <Icon type="exclamation" status="red" size="large" />
+    <Icon type="exclamation" status="danger" size="small" />
+    <Icon type="exclamation" status="danger" size="medium" />
+    <Icon type="exclamation" status="danger" size="large" />
   </>
 )

@@ -97,8 +97,8 @@ const Banner: FC<IBannerProps> = ({ type = 'info', icon, children, ...rest }) =>
     ) : (
       <StyledIcon>
         {type === 'info' && <Icon type="info-circle" status="info" size="medium" />}
-        {type === 'warning' && <Icon type="exclamation" status="amber" size="medium" />}
-        {type === 'danger' && <Icon type="exclamation" status="red" size="medium" />}
+        {type === 'warning' && <Icon type="exclamation" status="warning" size="medium" />}
+        {type === 'danger' && <Icon type="exclamation" status="danger" size="medium" />}
       </StyledIcon>
     )}
     <BannerContent>{children}</BannerContent>
@@ -120,8 +120,8 @@ export const ButtonBanner: FC<IButtonBannerProps> = ({
     ) : (
       <StyledIcon>
         {type === 'info' && <Icon type="info-circle" status="info" size="medium" />}
-        {type === 'warning' && <Icon type="exclamation" status="amber" size="medium" />}
-        {type === 'danger' && <Icon type="exclamation" status="red" size="medium" />}
+        {type === 'warning' && <Icon type="exclamation" status="warning" size="medium" />}
+        {type === 'danger' && <Icon type="exclamation" status="danger" size="medium" />}
       </StyledIcon>
     )}
     <BannerContent>{children}</BannerContent>

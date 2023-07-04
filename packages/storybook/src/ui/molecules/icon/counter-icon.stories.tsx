@@ -13,20 +13,20 @@ export const Counter: Story = () => (
     <Icon type="counter" size="medium" status="secondary" counterValue={5} />
     <Icon type="counter" size="large" status="secondary" counterValue={10} />
     <br />
-    <Icon type="counter" size="small" status="amber" counterValue={1} />
-    <Icon type="counter" size="medium" status="amber" counterValue={5} />
-    <Icon type="counter" size="large" status="amber" counterValue={10} />
+    <Icon type="counter" size="small" status="warning" counterValue={1} />
+    <Icon type="counter" size="medium" status="warning" counterValue={5} />
+    <Icon type="counter" size="large" status="warning" counterValue={10} />
     <br />
-    <Icon type="counter" size="small" status="red" counterValue={1} />
-    <Icon type="counter" size="medium" status="red" counterValue={5} />
-    <Icon type="counter" size="large" status="red" counterValue={10} />
+    <Icon type="counter" size="small" status="danger" counterValue={1} />
+    <Icon type="counter" size="medium" status="danger" counterValue={5} />
+    <Icon type="counter" size="large" status="danger" counterValue={10} />
     <br />
-    <Icon type="counter" size="small" status="default" counterValue={1} />
-    <Icon type="counter" size="medium" status="default" counterValue={5} />
-    <Icon type="counter" size="large" status="default" counterValue={10} />
+    <Icon type="counter" size="small" status="disabled" counterValue={1} />
+    <Icon type="counter" size="medium" status="disabled" counterValue={5} />
+    <Icon type="counter" size="large" status="disabled" counterValue={10} />
     <br />
-    <Icon type="counter" size="small" status="green" counterValue={1} />
-    <Icon type="counter" size="medium" status="green" counterValue={5} />
-    <Icon type="counter" size="large" status="green" counterValue={10} />
+    <Icon type="counter" size="small" status="success" counterValue={1} />
+    <Icon type="counter" size="medium" status="success" counterValue={5} />
+    <Icon type="counter" size="large" status="success" counterValue={10} />
   </>
 )
