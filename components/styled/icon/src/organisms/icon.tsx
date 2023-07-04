@@ -5,7 +5,6 @@ import {
   faBullseye,
   faCalendar,
   faCircle,
-  faSquare,
   faCaretSquareDown,
   faCheck,
   faCheckSquare,
@@ -304,10 +303,8 @@ const Icon: FC<IconProps> = ({
       break
     }
 
-    default: {
-      icon = faSquare
-      break
-    }
+    default:
+      throw new Error('Icon definition not implemented')
   }
 
   return (

@@ -53,6 +53,7 @@ export const iconTypes = [
   'search',
   'checkbox',
   'square',
+  'do-not-use!',
 ] as const
 
 export type IconType = typeof iconTypes[number]
