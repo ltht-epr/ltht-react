@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 import { CSS_RESET } from '@ltht-react/styles'
 import { FC, ButtonHTMLAttributes } from 'react'
-import Icon, { IconProps } from '../molecules/icon'
+import Icon, { IconProps } from './icon'
 
 const StyledInvisibleButton = styled.button`
   ${CSS_RESET}

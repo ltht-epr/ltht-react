@@ -1,6 +1,6 @@
 import { QuestionnaireResponse, Axis, Questionnaire } from '@ltht-react/types'
 import { FC, useMemo } from 'react'
-import { Icon } from '@ltht-react/icon'
+import Icon from '@ltht-react/icon'
 import Table, { IPaginationProps, ITableDimensionProps } from '../molecules/table'
 import mapQuestionnaireDefinitionAndResponsesToTableData, {
   AdminActionsForQuestionnaire,
@@ -27,7 +27,7 @@ const QuestionnaireTable: FC<IProps> = ({
   if (!tableData) {
     return (
       <>
-        <Icon type="exclamation" size="large" status="red" />
+        <Icon type="exclamation" size="large" color="red" />
         <div>An error occurred whilst loading this table.</div>
       </>
     )

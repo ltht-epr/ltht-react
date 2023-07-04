@@ -96,12 +96,12 @@ const StyledButton = styled.button<StyledProps>`
   justify-content: center;
   white-space: nowrap;
   border: 1px solid transparent;
-  padding: 0.375rem 0.75rem;
   font-size: 0.8rem;
   font-weight: bold;
   line-height: 1.5;
   border-radius: 4px;
   width: 100%;
+  padding: ${({ padding }) => padding ?? '0.375rem 0.75rem'};
 
   &:hover:not([disabled]) {
     cursor: pointer;
@@ -120,7 +120,7 @@ const StyledButton = styled.button<StyledProps>`
     width: auto;
   }
 
-  ${({ buttonStyle }): SerializedStyles => setColors(buttonStyle)}
+  ${({ buttonStyle }): SerializedStyles => setColors(buttonStyle ?? 'primary')}
 `
 
 const ButtonIcon = styled.div<ButtonIconProps>`
@@ -131,10 +131,10 @@ const ButtonIcon = styled.div<ButtonIconProps>`
   }
 `
 
-const Button: FC<Props> = ({
-  type,
+const Button: FC<ButtonProps> = ({
+  type = 'button',
   value,
-  buttonStyle = 'primary',
+  styling,
   disabled = false,
   icon,
   iconPlacement = 'left',
@@ -142,7 +142,7 @@ const Button: FC<Props> = ({
   children,
   ...rest
 }) => (
-  <StyledButton type={type} buttonStyle={buttonStyle} disabled={disabled} {...rest}>
+  <StyledButton {...styling} type={type} disabled={disabled} {...rest}>
     {icon && iconPlacement === 'left' && (
       <ButtonIcon placement={iconPlacement} iconColour={iconColour}>
         {icon}
@@ -167,12 +167,9 @@ type ButtonStyle = 'primary' | 'standard' | 'workflow' | 'danger' | 'clear'
 type ButtonTypes = 'button' | 'submit' | 'reset'
 type IconPlacement = 'left' | 'right' | 'center'
 
-interface Props extends ButtonProps {
-  buttonStyle?: ButtonStyle
-}
-
 interface StyledProps {
-  buttonStyle: ButtonStyle
+  buttonStyle?: ButtonStyle
+  padding?: string
 }
 
 interface ButtonIconProps {
@@ -181,7 +178,8 @@ interface ButtonIconProps {
 }
 
 export interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
-  type: ButtonTypes
+  type?: ButtonTypes
+  styling?: StyledProps
   value?: string
   disabled?: boolean
   icon?: ReactNode

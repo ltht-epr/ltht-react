@@ -3,12 +3,12 @@ import parser from 'bbcode-to-react'
 import ReactHtmlParser from 'react-html-parser'
 import styled from '@emotion/styled'
 import { Maybe, QuestionnaireItemTypeCode, QuestionnaireResponseItem } from '@ltht-react/types'
-import { InfoCircleIcon } from '@ltht-react/icon'
+import Icon from '@ltht-react/icon'
 import { partialDateTimeText, stripBBTags, stripHtmlTags } from '@ltht-react/utils'
 import { NestedListDetail } from '@ltht-react/type-detail'
 import { DESKTOP_MINIMUM_MEDIA_QUERY, MOBILE_MAXIMUM_MEDIA_QUERY, TABLET_ONLY_MEDIA_QUERY } from '@ltht-react/styles'
 
-const StyledInfoCircleIcon = styled(InfoCircleIcon)`
+const StyledInfoCircleIcon = styled(Icon)`
   padding-right: 0.25rem;
 `
 
@@ -50,7 +50,7 @@ const generateAnswer = (
       return {
         Answer: (
           <DisplayBlock>
-            <StyledInfoCircleIcon status="info" size="medium" />
+            <StyledInfoCircleIcon type="info-circle" color="info-blue" size="medium" />
             {responseItem?.text}
           </DisplayBlock>
         ),

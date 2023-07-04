@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import { Icon, IconButton } from '@ltht-react/icon'
+import Icon, { IconButton } from '@ltht-react/icon'
 import { FC, HTMLAttributes, useState } from 'react'
 import { Problem, ProblemMessage } from '../atoms/problem-message'
 
@@ -29,7 +29,7 @@ const ProblemSummary: FC<MultipleErrorsProps> = ({
 
   return (
     <div {...rest}>
-      <StyledIcon type="exclamation" status={problems.some((p) => p.type === 'error') ? 'red' : 'amber'} size="large" />
+      <StyledIcon type="exclamation" color={problems.some((p) => p.type === 'error') ? 'red' : 'amber'} size="large" />
       <span>{headerMessage}</span>
       <StyledIconButton
         iconProps={{ type: 'chevron', size: 'large', direction: showErrorList ? 'down' : 'right' }}

@@ -1,6 +1,6 @@
 import { FC, useEffect, useState } from 'react'
 import styled from '@emotion/styled'
-import { CircleIcon } from '@ltht-react/icon'
+import Icon from '@ltht-react/icon'
 import { TEXT_COLOURS, BANNER_COLOURS, TABLET_MINIMUM_MEDIA_QUERY } from '@ltht-react/styles'
 import {
   AuditEvent,
@@ -88,7 +88,7 @@ const StyledTimelineDayTimeRight = styled.div`
   font-weight: bold;
 `
 
-const StyledOuterCircle = styled(CircleIcon)`
+const StyledOuterCircle = styled(Icon)`
   position: absolute;
   z-index: 1;
   transform: translate(-50%);
@@ -99,7 +99,7 @@ const StyledOuterCircle = styled(CircleIcon)`
   font-size: 0.75rem;
 `
 
-const StyledInnerCircle = styled(CircleIcon)`
+const StyledInnerCircle = styled(Icon)`
   position: absolute;
   z-index: 2;
   top: 0.125rem;
@@ -341,8 +341,8 @@ const Timeline: FC<IProps> = ({ timelineItems, domainResourceType, filters, onFi
                         )}
                       </StyledTimelineDayContent>
                       <StyledTimelineDayLine>
-                        <StyledOuterCircle status="info" size="medium" />
-                        <StyledInnerCircle status="info" size="medium" />
+                        <StyledOuterCircle type="circle" color="info-blue" size="medium" />
+                        <StyledInnerCircle type="circle" color="info-blue" size="medium" />
                       </StyledTimelineDayLine>
                       <StyledTimelineDayTimeRight>
                         <TimelineTime
@@ -363,8 +363,8 @@ const Timeline: FC<IProps> = ({ timelineItems, domainResourceType, filters, onFi
                         />
                       </StyledTimelineDayTimeLeft>
                       <StyledTimelineDayLine>
-                        <StyledOuterCircle status="info" size="medium" />
-                        <StyledInnerCircle status="info" size="medium" />
+                        <StyledOuterCircle type="circle" color="info-blue" size="medium" />
+                        <StyledInnerCircle type="circle" color="info-blue" size="medium" />
                       </StyledTimelineDayLine>
                       <StyledTimelineDayContent isMobile={false}>
                         {isRedacted ? (

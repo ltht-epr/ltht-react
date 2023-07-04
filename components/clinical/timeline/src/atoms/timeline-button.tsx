@@ -1,5 +1,5 @@
 import { ButtonBanner } from '@ltht-react/banner'
-import { InfoCircleIcon } from '@ltht-react/icon'
+import Icon from '@ltht-react/icon'
 import { FC, HTMLAttributes } from 'react'
 import { ITimelineItem } from '../molecules/timeline-item'
 
@@ -26,7 +26,7 @@ const TimelineButton: FC<Props> = ({ timelineItem, className }) => {
         <ButtonBanner
           className={className}
           type="highlight"
-          icon={<InfoCircleIcon status="info" size="medium" />}
+          icon={<Icon type="info-circle" color="info-blue" size="medium" />}
           onClick={clickHandler}
         >
           {buttonText ?? ''}

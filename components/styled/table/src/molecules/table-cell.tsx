@@ -1,9 +1,10 @@
 import { FC } from 'react'
 import { Button } from '@ltht-react/button'
 import styled from '@emotion/styled'
-import { Icon, IconButton, IconProps } from '@ltht-react/icon'
+import Icon, { IconButton, IconProps } from '@ltht-react/icon'
 import ActionMenu, { ActionMenuOption } from '@ltht-react/menu'
-import { PopUp, getZIndex } from '@ltht-react/styles'
+import { PopUp, getZIndex, BTN_COLOURS } from '@ltht-react/styles'
+import { Axis } from '@ltht-react/types'
 
 const StyledText = styled.span`
   margin-left: 0.4rem;
@@ -18,6 +19,7 @@ const TableCell: FC<CellProps> = ({
   isButton = false,
   text,
   iconProps,
+  headerAxis = 'x',
   clickHandler,
   customComponentOverride,
 }) => {
@@ -26,11 +28,32 @@ const TableCell: FC<CellProps> = ({
   }
 
   if (adminActions) {
-    return <ActionMenu actions={adminActions} popupStyle={{ zIndex: getZIndex(PopUp) }} />
+    return (
+      <ActionMenu
+        actions={adminActions}
+        menuButtonOptions={{
+          type: 'button',
+          text: '',
+          buttonProps: {
+            styling: {
+              buttonStyle: 'standard',
+              padding: headerAxis === 'x' ? '0.3rem 0.5rem' : '0.15rem 0.3rem',
+            },
+            icon: (
+              <Icon {...{ type: headerAxis === 'x' ? 'ellipsis-vertical' : 'ellipsis-horizontal', size: 'medium' }} />
+            ),
+            iconPlacement: 'center',
+            color: `${BTN_COLOURS.DANGER.VALUE}`,
+          },
+        }}
+        popupStyle={{ zIndex: getZIndex(PopUp) }}
+        popupPlacement={headerAxis === 'x' ? 'bottom-start' : 'right-start'}
+      />
+    )
   }
 
   if (isButton) {
-    return <Button type="button" value={text} icon={iconProps && <Icon {...iconProps} />} onClick={clickHandler} />
+    return <Button value={text} icon={iconProps && <Icon {...iconProps} />} onClick={clickHandler} />
   }
 
   if (clickHandler && iconProps) {
@@ -61,6 +84,7 @@ export interface CellProps {
   clickHandler?: React.MouseEventHandler<HTMLButtonElement>
   customComponentOverride?: JSX.Element
   parentStyle?: React.CSSProperties
+  headerAxis?: Axis
 }
 
 export default TableCell

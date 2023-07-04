@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import { Icon } from '@ltht-react/icon'
+import Icon from '@ltht-react/icon'
 import { CSS_RESET } from '@ltht-react/styles'
 import { FC, HTMLAttributes } from 'react'
 
@@ -17,7 +17,7 @@ const StyledIcon = styled(Icon)`
 
 export const ProblemMessage: FC<Problem> = ({ type: errorType, text, ...rest }) => (
   <StyledErrorDiv {...rest}>
-    <StyledIcon type="exclamation" size="large" status={errorType === 'warning' ? 'amber' : 'red'} />
+    <StyledIcon type="exclamation" size="large" color={errorType === 'warning' ? 'amber' : 'red'} />
     {text}
   </StyledErrorDiv>
 )

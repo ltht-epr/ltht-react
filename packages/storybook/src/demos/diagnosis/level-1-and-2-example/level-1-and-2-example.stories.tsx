@@ -9,7 +9,7 @@ import DiagnosisDetail from '@ltht-react/diagnosis-detail'
 import FlagSummary from '@ltht-react/flag-summary'
 import HospitalStaySummary from '@ltht-react/hospital-stay-summary'
 import AdminActions from '@ltht-react/admin-actions'
-import { ChevronIcon } from '@ltht-react/icon'
+import Icon from '@ltht-react/icon'
 import { DESKTOP_MINIMUM_MEDIA_QUERY, ICON_COLOURS } from '@ltht-react/styles'
 import Card from '@ltht-react/card'
 import { DetailViewType } from '@ltht-react/types'
@@ -230,7 +230,7 @@ export const Dashboard: Story = () => {
             <Card>
               <Card.Header>
                 <BackButton onClick={() => setView('summary')} title="Back to List View">
-                  <ChevronIcon direction="left" size="large" />
+                  <Icon type="chevron" direction="left" size="large" />
                   <BackButtonText>List</BackButtonText>
                 </BackButton>
                 <Card.Title style={{ textAlign: 'center' }}>Diagnosis</Card.Title>

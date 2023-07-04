@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 import Button, { ButtonProps } from '@ltht-react/button/lib/atoms/button'
-import { Icon, IconButton, IconProps } from '@ltht-react/icon'
+import Icon, { IconButton, IconProps } from '@ltht-react/icon'
 import { BTN_COLOURS, CSS_RESET, PopUp, TableDataWithPopUp, getZIndex } from '@ltht-react/styles'
 import FocusTrap from 'focus-trap-react'
 import { FC, HTMLAttributes, useRef, useState, useEffect } from 'react'
@@ -25,6 +25,7 @@ const StyledListItem = styled.li`
   ${CSS_RESET}
   background-color: 'white';
   padding: 0.5rem;
+  line-height: 1em;
   display: flex;
   border-radius: 4px;
 
@@ -33,6 +34,15 @@ const StyledListItem = styled.li`
     cursor: pointer;
     color: white;
   }
+`
+
+const StyledListItemIcon = styled.div`
+  flex-basis: 25%;
+`
+
+const StyledListItemContent = styled.div`
+  flex: 1;
+  text-align: left;
 `
 
 const StyledCard = styled.div`
@@ -47,14 +57,12 @@ const StyledCard = styled.div`
 
 const StyledRightIcon = styled(Icon)`
   margin-right: 0.5rem;
-  margin-left: auto;
-  color: ${BTN_COLOURS.STANDARD.VALUE};
+  margin-left: 3rem;
 `
 
 const StyledLeftIcon = styled(Icon)`
   margin-right: 0.5rem;
   margin-left: 0.5rem;
-  color: ${BTN_COLOURS.STANDARD.VALUE};
 `
 
 const StyledMenuButtonWrapper = styled.div`
@@ -66,6 +74,7 @@ const ActionMenu: FC<IProps> = ({
   menuButtonOptions = defaultMenuButtonProps,
   id = 'action-menu-button',
   popupStyle = {},
+  popupPlacement = 'bottom-start',
   ...rest
 }) => {
   const popperRef = useRef<HTMLDivElement>(null)
@@ -73,7 +82,7 @@ const ActionMenu: FC<IProps> = ({
   const [containerElement, setContainerElement] = useState<HTMLDivElement | null>(null)
 
   const popper = usePopper(popperRef.current, popperElement, {
-    placement: 'bottom-start',
+    placement: popupPlacement,
     strategy: 'fixed',
   })
 
@@ -141,9 +150,13 @@ const ActionMenu: FC<IProps> = ({
                       action.clickHandler()
                     }}
                   >
-                    {action.leftIcon && <StyledLeftIcon {...action.leftIcon} />}
-                    {action.text}
-                    {action.rightIcon && <StyledRightIcon {...action.rightIcon} />}
+                    <StyledListItemIcon>
+                      {action.leftIcon && <StyledLeftIcon {...action.leftIcon} />}
+                    </StyledListItemIcon>
+                    <StyledListItemContent>{action.text}</StyledListItemContent>
+                    <StyledListItemIcon>
+                      {action.rightIcon && <StyledRightIcon {...action.rightIcon} />}
+                    </StyledListItemIcon>
                   </StyledListItem>
                 ))}
               </StyledUnorderedList>
@@ -159,6 +172,7 @@ interface IProps extends HTMLAttributes<HTMLButtonElement> {
   actions: ActionMenuOption[]
   menuButtonOptions?: IconButtonMenuProps | ButtonMenuProps
   popupStyle?: React.CSSProperties
+  popupPlacement?: 'bottom-start' | 'right-start'
 }
 
 interface IconButtonMenuProps {

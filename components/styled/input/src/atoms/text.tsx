@@ -1,7 +1,7 @@
 import { FC, InputHTMLAttributes } from 'react'
 import styled from '@emotion/styled'
 import { DESKTOP_MINIMUM_MEDIA_QUERY, inputBaseStyles } from '@ltht-react/styles'
-import { Icon, IconProps } from '@ltht-react/icon'
+import Icon, { IconProps } from '@ltht-react/icon'
 
 const TextInputContainer = styled.div`
   width: 100%;

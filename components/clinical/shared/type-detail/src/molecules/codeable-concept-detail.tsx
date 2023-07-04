@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 import { CodeableConcept } from '@ltht-react/types'
-import { ExternalLinkIcon } from '@ltht-react/icon'
+import Icon from '@ltht-react/icon'
 import { LINK_COLOURS } from '@ltht-react/styles'
 import { codeableConceptDisplaySummary } from '@ltht-react/utils'
 import DescriptionList from '@ltht-react/description-list'
@@ -38,7 +38,7 @@ const CodeableConceptDetail: DetailViewComponent<IProps> = ({ term, concept, lin
         {linkUrl ? (
           <StyledLink href={linkUrl} target="_blank">
             <DescriptionList.Description>{displaySummary}</DescriptionList.Description>
-            <ExternalLinkIcon size="small" />
+            <Icon type="external-link" size="small" />
           </StyledLink>
         ) : (
           <DescriptionList.Description>{displaySummary}</DescriptionList.Description>

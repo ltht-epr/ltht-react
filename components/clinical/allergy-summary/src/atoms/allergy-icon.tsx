@@ -1,19 +1,19 @@
 import { FC } from 'react'
 import styled from '@emotion/styled'
-import { ExclamationIcon } from '@ltht-react/icon'
+import Icon from '@ltht-react/icon'
 import { AllergyIntoleranceCriticalityCode, Maybe } from '@ltht-react/types'
 
-const StyledExclamationIcon = styled(ExclamationIcon)`
+const StyledExclamationIcon = styled(Icon)`
   padding-right: 10px;
 `
 
 const AllergyIcon: FC<Props> = ({ criticalityCode }) => {
   if (criticalityCode === AllergyIntoleranceCriticalityCode.High) {
-    return <StyledExclamationIcon status="red" size="medium" />
+    return <StyledExclamationIcon type="exclamation" color="red" size="medium" />
   }
 
   if (criticalityCode && criticalityCode === AllergyIntoleranceCriticalityCode.Low) {
-    return <StyledExclamationIcon status="amber" size="medium" />
+    return <StyledExclamationIcon type="exclamation" color="amber" size="medium" />
   }
 
   return null

@@ -1,7 +1,7 @@
 import { FC, HTMLAttributes, ReactNode } from 'react'
 import styled from '@emotion/styled'
 import { BANNER_COLOURS, CSS_RESET } from '@ltht-react/styles'
-import { ChevronIcon, ExclamationIcon, InfoCircleIcon } from '@ltht-react/icon'
+import Icon from '@ltht-react/icon'
 import { StatusTypes } from '@ltht-react/types'
 
 const generateStyles = (type: StatusTypes) => {
@@ -96,13 +96,13 @@ const Banner: FC<IBannerProps> = ({ type = 'info', icon, children, ...rest }) =>
       <StyledIcon>{icon}</StyledIcon>
     ) : (
       <StyledIcon>
-        {type === 'info' && <InfoCircleIcon status="info" size="medium" />}
-        {type === 'warning' && <ExclamationIcon status="amber" size="medium" />}
-        {type === 'danger' && <ExclamationIcon status="red" size="medium" />}
+        {type === 'info' && <Icon type="info-circle" color="info-blue" size="medium" />}
+        {type === 'warning' && <Icon type="exclamation" color="amber" size="medium" />}
+        {type === 'danger' && <Icon type="exclamation" color="red" size="medium" />}
       </StyledIcon>
     )}
     <BannerContent>{children}</BannerContent>
-    {canClick(rest) && <ChevronIcon size="medium" direction="right" />}
+    {canClick(rest) && <Icon type="chevron" size="medium" direction="right" />}
   </StyledBanner>
 )
 
@@ -119,13 +119,13 @@ export const ButtonBanner: FC<IButtonBannerProps> = ({
       <StyledIcon>{icon}</StyledIcon>
     ) : (
       <StyledIcon>
-        {type === 'info' && <InfoCircleIcon status="info" size="medium" />}
-        {type === 'warning' && <ExclamationIcon status="amber" size="medium" />}
-        {type === 'danger' && <ExclamationIcon status="red" size="medium" />}
+        {type === 'info' && <Icon type="info-circle" color="info-blue" size="medium" />}
+        {type === 'warning' && <Icon type="exclamation" color="amber" size="medium" />}
+        {type === 'danger' && <Icon type="exclamation" color="red" size="medium" />}
       </StyledIcon>
     )}
     <BannerContent>{children}</BannerContent>
-    {showChevron === true && <ChevronIcon size="medium" direction="right" />}
+    {showChevron === true && <Icon type="chevron" size="medium" direction="right" />}
   </StyledButtonBanner>
 )
 
