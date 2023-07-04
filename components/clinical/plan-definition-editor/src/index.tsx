@@ -2,7 +2,7 @@ import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 import { PlanDefinition } from '@ltht-react/types'
 import { BANNER_COLOURS, WIDESCREEN_MINIMUM_MEDIA_QUERY } from '@ltht-react/styles'
-import { Icon } from '@ltht-react/icon'
+import Icon from '@ltht-react/icon'
 import { Toggle as ToggleInput } from '@ltht-react/input'
 import { ChangeEvent, FC, useMemo } from 'react'
 

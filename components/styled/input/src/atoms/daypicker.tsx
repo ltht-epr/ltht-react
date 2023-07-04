@@ -6,7 +6,7 @@ import { Button } from '@ltht-react/button'
 import { usePopper } from 'react-popper'
 import { format, isValid, parse } from 'date-fns'
 import FocusTrap from 'focus-trap-react'
-import { Icon } from '@ltht-react/icon'
+import Icon from '@ltht-react/icon'
 
 const StyledDialogSheet = styled.div`
   z-index: 1;

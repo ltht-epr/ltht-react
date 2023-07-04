@@ -1,5 +1,5 @@
 import { ButtonBanner } from '@ltht-react/banner'
-import { Icon } from '@ltht-react/icon'
+import Icon from '@ltht-react/icon'
 import { FC, HTMLAttributes } from 'react'
 import { ITimelineItem } from '../molecules/timeline-item'
 

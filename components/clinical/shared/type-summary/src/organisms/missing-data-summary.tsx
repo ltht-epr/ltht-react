@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import { Maybe } from '@ltht-react/types'
 import Card from '@ltht-react/card'
-import { Icon } from '@ltht-react/icon'
+import Icon from '@ltht-react/icon'
 
 const MissingDataSummary: FC<Props> = ({ type, noData, partialData, completeData, missingData }) => {
   const missingDataSection =

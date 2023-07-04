@@ -1,6 +1,6 @@
 import { FC, useEffect, useState } from 'react'
 import styled from '@emotion/styled'
-import { Icon } from '@ltht-react/icon'
+import Icon from '@ltht-react/icon'
 import { TEXT_COLOURS, BANNER_COLOURS, TABLET_MINIMUM_MEDIA_QUERY } from '@ltht-react/styles'
 import {
   AuditEvent,

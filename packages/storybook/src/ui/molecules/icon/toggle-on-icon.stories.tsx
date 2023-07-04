@@ -1,4 +1,4 @@
-import { Icon } from '@ltht-react/icon'
+import Icon from '@ltht-react/icon'
 import { Story } from '@storybook/react'
 
 // eslint-disable-next-line import/prefer-default-export

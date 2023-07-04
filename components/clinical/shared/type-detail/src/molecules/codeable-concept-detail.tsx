@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 import { CodeableConcept } from '@ltht-react/types'
-import { Icon } from '@ltht-react/icon'
+import Icon from '@ltht-react/icon'
 import { LINK_COLOURS } from '@ltht-react/styles'
 import { codeableConceptDisplaySummary } from '@ltht-react/utils'
 import DescriptionList from '@ltht-react/description-list'

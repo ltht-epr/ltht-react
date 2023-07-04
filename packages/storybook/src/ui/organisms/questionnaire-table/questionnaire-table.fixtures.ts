@@ -1452,21 +1452,21 @@ export const obsAdminActionsForForms: AdminActionsForQuestionnaire[] = [
         clickHandler: () => {
           console.log('Viewing submission 3')
         },
-        leftIcon: { type: 'info-circle', size: 'medium', status: 'info' },
+        leftIcon: { type: 'info-circle', size: 'medium', color: 'info-blue' },
       },
       {
         text: 'Edit',
         clickHandler: () => {
           console.log('Editing submission 3')
         },
-        leftIcon: { type: 'edit', size: 'medium', status: 'green' },
+        leftIcon: { type: 'edit', size: 'medium', color: 'green' },
       },
       {
         text: 'Delete',
         clickHandler: () => {
           console.log('Deleting submission 3')
         },
-        leftIcon: { type: 'cross', size: 'medium', status: 'red' },
+        leftIcon: { type: 'cross', size: 'medium', color: 'red' },
       },
     ],
   },
@@ -1478,21 +1478,21 @@ export const obsAdminActionsForForms: AdminActionsForQuestionnaire[] = [
         clickHandler: () => {
           console.log('Viewing submission 3')
         },
-        leftIcon: { type: 'info-circle', size: 'medium', status: 'info' },
+        leftIcon: { type: 'info-circle', size: 'medium', color: 'info-blue' },
       },
       {
         text: 'Edit',
         clickHandler: () => {
           console.log('Editing submission 3')
         },
-        leftIcon: { type: 'edit', size: 'medium', status: 'green' },
+        leftIcon: { type: 'edit', size: 'medium', color: 'green' },
       },
       {
         text: 'Delete',
         clickHandler: () => {
           console.log('Deleting submission 3')
         },
-        leftIcon: { type: 'cross', size: 'medium', status: 'red' },
+        leftIcon: { type: 'cross', size: 'medium', color: 'red' },
       },
     ],
   },
@@ -1504,21 +1504,21 @@ export const obsAdminActionsForForms: AdminActionsForQuestionnaire[] = [
         clickHandler: () => {
           console.log('Viewing submission 3')
         },
-        leftIcon: { type: 'info-circle', size: 'medium', status: 'info' },
+        leftIcon: { type: 'info-circle', size: 'medium', color: 'info-blue' },
       },
       {
         text: 'Edit',
         clickHandler: () => {
           console.log('Editing submission 3')
         },
-        leftIcon: { type: 'edit', size: 'medium', status: 'green' },
+        leftIcon: { type: 'edit', size: 'medium', color: 'green' },
       },
       {
         text: 'Delete',
         clickHandler: () => {
           console.log('Deleting submission 3')
         },
-        leftIcon: { type: 'cross', size: 'medium', status: 'red' },
+        leftIcon: { type: 'cross', size: 'medium', color: 'red' },
       },
     ],
   },

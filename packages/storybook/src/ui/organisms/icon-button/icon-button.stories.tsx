@@ -14,7 +14,7 @@ export const IconButtons: Story = () => {
       <div style={{ marginBottom: '1rem' }}>These buttons have been clicked {timesClicked} times</div>
 
       <div style={{ marginBottom: '1rem' }}>
-        <IconButton iconProps={{ type: 'square', size: 'large' }} onClick={clickHandler} />
+        <IconButton iconProps={{ type: 'external-link', size: 'large', color: 'dark-blue' }} onClick={clickHandler} />
       </div>
 
       <div style={{ marginBottom: '1rem' }}>
@@ -26,7 +26,11 @@ export const IconButtons: Story = () => {
       </div>
 
       <div style={{ marginBottom: '1rem' }}>
-        <IconButton iconProps={{ type: 'calendar', size: 'large' }} text="Some button text" onClick={clickHandler} />
+        <IconButton
+          iconProps={{ type: 'calendar', size: 'large', color: 'green' }}
+          text="Some button text"
+          onClick={clickHandler}
+        />
       </div>
     </>
   )

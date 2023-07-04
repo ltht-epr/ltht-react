@@ -3,7 +3,7 @@
 import { Story } from '@storybook/react'
 
 import Banner from '@ltht-react/banner'
-import { Icon } from '@ltht-react/icon'
+import Icon from '@ltht-react/icon'
 
 export const Info: Story = () => <Banner type="info">Info Banner</Banner>
 export const Warning: Story = () => <Banner type="warning">Warning Banner</Banner>

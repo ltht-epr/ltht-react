@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import { Button } from '@ltht-react/button'
 import styled from '@emotion/styled'
-import { Icon, IconButton, IconProps } from '@ltht-react/icon'
+import Icon, { IconButton, IconProps } from '@ltht-react/icon'
 import ActionMenu, { ActionMenuOption } from '@ltht-react/menu'
 import { PopUp, getZIndex, BTN_COLOURS } from '@ltht-react/styles'
 import { Axis } from '@ltht-react/types'

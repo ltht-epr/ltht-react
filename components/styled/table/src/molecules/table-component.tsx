@@ -1,4 +1,4 @@
-import { Icon } from '@ltht-react/icon'
+import Icon from '@ltht-react/icon'
 import { flexRender, Header as ReactTableHeader, Table } from '@tanstack/react-table'
 import React, { useMemo, useRef } from 'react'
 import { Axis } from '@ltht-react/types'

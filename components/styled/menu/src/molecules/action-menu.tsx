@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 import Button, { ButtonProps } from '@ltht-react/button/lib/atoms/button'
-import { Icon, IconButton, IconProps } from '@ltht-react/icon'
+import Icon, { IconButton, IconProps } from '@ltht-react/icon'
 import { BTN_COLOURS, CSS_RESET, PopUp, TableDataWithPopUp, getZIndex } from '@ltht-react/styles'
 import FocusTrap from 'focus-trap-react'
 import { FC, HTMLAttributes, useRef, useState, useEffect } from 'react'

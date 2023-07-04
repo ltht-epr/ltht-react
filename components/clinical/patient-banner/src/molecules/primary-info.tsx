@@ -7,7 +7,7 @@ import {
   PATIENT_BANNER_DECEASED_BACKGROUND_COLOUR,
   TABLET_MINIMUM_MEDIA_QUERY,
 } from '@ltht-react/styles'
-import { Icon } from '@ltht-react/icon'
+import Icon from '@ltht-react/icon'
 
 import Name from '../atoms/name'
 import DateOfBirth from '../atoms/date-of-birth'

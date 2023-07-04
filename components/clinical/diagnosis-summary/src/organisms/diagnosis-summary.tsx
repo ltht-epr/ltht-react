@@ -3,7 +3,7 @@ import styled from '@emotion/styled'
 
 import { Condition, ConditionVerificationStatus } from '@ltht-react/types'
 import { DateSummary } from '@ltht-react/type-summary'
-import { Icon } from '@ltht-react/icon'
+import Icon from '@ltht-react/icon'
 import { Button } from '@ltht-react/button'
 
 import { BTN_COLOURS } from '@ltht-react/styles'

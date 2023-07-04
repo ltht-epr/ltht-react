@@ -1,7 +1,7 @@
 import { FC, HTMLAttributes, ReactNode } from 'react'
 import styled from '@emotion/styled'
 import { BANNER_COLOURS, CSS_RESET } from '@ltht-react/styles'
-import { Icon } from '@ltht-react/icon'
+import Icon from '@ltht-react/icon'
 import { StatusTypes } from '@ltht-react/types'
 
 const generateStyles = (type: StatusTypes) => {

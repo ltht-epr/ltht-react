@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import { Icon, IconButton } from '@ltht-react/icon'
+import Icon, { IconButton } from '@ltht-react/icon'
 import { FC, HTMLAttributes, useState } from 'react'
 import { Problem, ProblemMessage } from '../atoms/problem-message'
 

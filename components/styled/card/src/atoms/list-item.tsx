@@ -1,7 +1,7 @@
 import { FC, HTMLAttributes } from 'react'
 import classNames from 'classnames'
 import styled from '@emotion/styled'
-import { Icon } from '@ltht-react/icon'
+import Icon from '@ltht-react/icon'
 import { CARD_LIST_ITEM_BACKGROUND_HOVER, CARD_LIST_ITEM_SELECTED_BACKGROUND, ICON_COLOURS } from '@ltht-react/styles'
 
 const shouldClick = (props: Props): boolean => props.onClick !== undefined

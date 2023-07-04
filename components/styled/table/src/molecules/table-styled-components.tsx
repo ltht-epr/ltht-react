@@ -10,7 +10,7 @@ import {
   getZIndex,
 } from '@ltht-react/styles'
 import styled from '@emotion/styled'
-import { Icon, IconButton } from '@ltht-react/icon'
+import Icon, { IconButton } from '@ltht-react/icon'
 import { Axis } from '@ltht-react/types'
 
 const ScrollableContainer = styled.div<IScrollableContainer>`

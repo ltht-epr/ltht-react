@@ -1,9 +1,9 @@
 import styled from '@emotion/styled'
 import { Button } from '@ltht-react/button'
-import { Icon } from '@ltht-react/icon'
 import { BTN_COLOURS } from '@ltht-react/styles'
 import { Maybe, Task } from '@ltht-react/types'
 import { FC } from 'react'
+import Icon from '@ltht-react/icon'
 
 const SuccessButton = styled(Button)`
   background-color: ${BTN_COLOURS.WORKFLOW.VALUE};

@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import { Icon } from '@ltht-react/icon'
+import Icon from '@ltht-react/icon'
 import { CSS_RESET } from '@ltht-react/styles'
 import { FC, HTMLAttributes } from 'react'
 

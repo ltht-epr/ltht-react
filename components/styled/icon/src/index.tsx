@@ -1,2 +1,5 @@
-export { default as Icon, IconProps } from './organisms/icon'
-export { default as IconButton } from './organisms/icon-button'
+import Icon, { IconProps } from './organisms/icon'
+import IconButton from './organisms/icon-button'
+
+export default Icon
+export { IconProps, IconButton }
