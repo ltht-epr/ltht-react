@@ -13,7 +13,7 @@ const FlagIcon: FC<Props> = ({ flag: { extension, ...rest } }) => {
   if (ext === 'High') {
     return (
       <StyledFlagIcon {...rest}>
-        <Icon type="exclamation" status="danger" size="medium" />
+        <Icon type="exclamation" color="red" size="medium" />
       </StyledFlagIcon>
     )
   }

@@ -29,11 +29,7 @@ const ProblemSummary: FC<MultipleErrorsProps> = ({
 
   return (
     <div {...rest}>
-      <StyledIcon
-        type="exclamation"
-        status={problems.some((p) => p.type === 'error') ? 'danger' : 'warning'}
-        size="large"
-      />
+      <StyledIcon type="exclamation" color={problems.some((p) => p.type === 'error') ? 'red' : 'amber'} size="large" />
       <span>{headerMessage}</span>
       <StyledIconButton
         iconProps={{ type: 'chevron', size: 'large', direction: showErrorList ? 'down' : 'right' }}

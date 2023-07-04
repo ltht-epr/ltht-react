@@ -50,7 +50,7 @@ const generateAnswer = (
       return {
         Answer: (
           <DisplayBlock>
-            <StyledInfoCircleIcon type="info-circle" status="info" size="medium" />
+            <StyledInfoCircleIcon type="info-circle" color="info-blue" size="medium" />
             {responseItem?.text}
           </DisplayBlock>
         ),

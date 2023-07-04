@@ -58,7 +58,7 @@ const StyledListItem = styled.li`
 
   & > .icon__chevron {
     margin-left: 1rem;
-    color: ${ICON_COLOURS.DISABLED.LIGHTER25};
+    color: ${ICON_COLOURS.GREY.LIGHTER25};
   }
 
   &:hover {

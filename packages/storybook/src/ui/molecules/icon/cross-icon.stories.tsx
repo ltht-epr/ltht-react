@@ -4,19 +4,19 @@ import { Icon } from '@ltht-react/icon'
 // eslint-disable-next-line import/prefer-default-export
 export const Cross: Story = () => (
   <>
-    <Icon type="cross" size="small" status="disabled" />
-    <Icon type="cross" size="small" status="warning" />
-    <Icon type="cross" size="small" status="success" />
-    <Icon type="cross" size="small" status="danger" />
+    <Icon type="cross" size="small" color="grey" />
+    <Icon type="cross" size="small" color="amber" />
+    <Icon type="cross" size="small" color="green" />
+    <Icon type="cross" size="small" color="red" />
     <br />
-    <Icon type="cross" size="medium" status="disabled" />
-    <Icon type="cross" size="medium" status="warning" />
-    <Icon type="cross" size="medium" status="success" />
-    <Icon type="cross" size="medium" status="danger" />
+    <Icon type="cross" size="medium" color="grey" />
+    <Icon type="cross" size="medium" color="amber" />
+    <Icon type="cross" size="medium" color="green" />
+    <Icon type="cross" size="medium" color="red" />
     <br />
-    <Icon type="cross" size="large" status="disabled" />
-    <Icon type="cross" size="large" status="warning" />
-    <Icon type="cross" size="large" status="success" />
-    <Icon type="cross" size="large" status="danger" />
+    <Icon type="cross" size="large" color="grey" />
+    <Icon type="cross" size="large" color="amber" />
+    <Icon type="cross" size="large" color="green" />
+    <Icon type="cross" size="large" color="red" />
   </>
 )

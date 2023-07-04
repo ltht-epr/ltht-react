@@ -10,7 +10,7 @@ const MissingDataSummary: FC<Props> = ({ type, noData, partialData, completeData
         <Card.Banner
           data-testid="missing-data-count"
           status="warning"
-          icon={<Icon type="counter" size="large" status="warning" counterValue={missingData.length} />}
+          icon={<Icon type="counter" size="large" color="amber" counterValue={missingData.length} />}
         >
           Missing Data
         </Card.Banner>
@@ -30,7 +30,7 @@ const MissingDataSummary: FC<Props> = ({ type, noData, partialData, completeData
         <Card.Banner
           data-testid="partial-data-count"
           status="warning"
-          icon={<Icon type="counter" size="large" status="warning" counterValue={partialData.length} />}
+          icon={<Icon type="counter" size="large" color="amber" counterValue={partialData.length} />}
         >
           Partial Data
         </Card.Banner>
@@ -50,7 +50,7 @@ const MissingDataSummary: FC<Props> = ({ type, noData, partialData, completeData
         <Card.Banner
           data-testid="complete-data-count"
           status="info"
-          icon={<Icon type="counter" size="large" status="info" counterValue={completeData.length} />}
+          icon={<Icon type="counter" size="large" color="info-blue" counterValue={completeData.length} />}
         >
           Complete Data
         </Card.Banner>
@@ -70,7 +70,7 @@ const MissingDataSummary: FC<Props> = ({ type, noData, partialData, completeData
         <Card.Banner
           data-testid="no-data-count"
           status="info"
-          icon={<Icon type="counter" size="large" status="info" counterValue={noData.length} />}
+          icon={<Icon type="counter" size="large" color="info-blue" counterValue={noData.length} />}
         >
           No Data
         </Card.Banner>

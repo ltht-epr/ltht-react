@@ -5,28 +5,28 @@ import { Icon } from '@ltht-react/icon'
 export const Counter: Story = () => (
   <>
     <br />
-    <Icon type="counter" size="small" status="primary" counterValue={1} />
-    <Icon type="counter" size="medium" status="primary" counterValue={5} />
-    <Icon type="counter" size="large" status="primary" counterValue={10} />
+    <Icon type="counter" size="small" color="black" counterValue={1} />
+    <Icon type="counter" size="medium" color="black" counterValue={5} />
+    <Icon type="counter" size="large" color="black" counterValue={10} />
     <br />
-    <Icon type="counter" size="small" status="secondary" counterValue={1} />
-    <Icon type="counter" size="medium" status="secondary" counterValue={5} />
-    <Icon type="counter" size="large" status="secondary" counterValue={10} />
+    <Icon type="counter" size="small" color="dark-blue" counterValue={1} />
+    <Icon type="counter" size="medium" color="dark-blue" counterValue={5} />
+    <Icon type="counter" size="large" color="dark-blue" counterValue={10} />
     <br />
-    <Icon type="counter" size="small" status="warning" counterValue={1} />
-    <Icon type="counter" size="medium" status="warning" counterValue={5} />
-    <Icon type="counter" size="large" status="warning" counterValue={10} />
+    <Icon type="counter" size="small" color="amber" counterValue={1} />
+    <Icon type="counter" size="medium" color="amber" counterValue={5} />
+    <Icon type="counter" size="large" color="amber" counterValue={10} />
     <br />
-    <Icon type="counter" size="small" status="danger" counterValue={1} />
-    <Icon type="counter" size="medium" status="danger" counterValue={5} />
-    <Icon type="counter" size="large" status="danger" counterValue={10} />
+    <Icon type="counter" size="small" color="red" counterValue={1} />
+    <Icon type="counter" size="medium" color="red" counterValue={5} />
+    <Icon type="counter" size="large" color="red" counterValue={10} />
     <br />
-    <Icon type="counter" size="small" status="disabled" counterValue={1} />
-    <Icon type="counter" size="medium" status="disabled" counterValue={5} />
-    <Icon type="counter" size="large" status="disabled" counterValue={10} />
+    <Icon type="counter" size="small" color="grey" counterValue={1} />
+    <Icon type="counter" size="medium" color="grey" counterValue={5} />
+    <Icon type="counter" size="large" color="grey" counterValue={10} />
     <br />
-    <Icon type="counter" size="small" status="success" counterValue={1} />
-    <Icon type="counter" size="medium" status="success" counterValue={5} />
-    <Icon type="counter" size="large" status="success" counterValue={10} />
+    <Icon type="counter" size="small" color="green" counterValue={1} />
+    <Icon type="counter" size="medium" color="green" counterValue={5} />
+    <Icon type="counter" size="large" color="green" counterValue={10} />
   </>
 )

@@ -2,16 +2,16 @@ import { FC, MouseEvent } from 'react'
 import styled from '@emotion/styled'
 import { SerializedStyles } from '@emotion/react'
 import { FontAwesomeIcon, FontAwesomeIconProps } from '@fortawesome/react-fontawesome'
-import { IconSize, calculateIconSize, IconStatus, calculateIconColor } from '@ltht-react/styles'
+import { IconSize, calculateIconSize, IconColor, calculateIconColor } from '@ltht-react/styles'
 
 const StyledFontAwesomeIcon = styled(FontAwesomeIcon)<StyledFontAwesomeIconProps>`
-  ${({ status }): SerializedStyles => calculateIconColor(status)};
+  ${({ color }): SerializedStyles => calculateIconColor(color)};
 `
 
 const StyledIcon: FC<StyledFontAwesomeIconProps> = ({
   icon,
   type,
-  status,
+  color,
   customSize,
   animation,
   className,
@@ -29,7 +29,7 @@ const StyledIcon: FC<StyledFontAwesomeIconProps> = ({
   return (
     <StyledFontAwesomeIcon
       className={`${className ?? ''} icon__${type} ${spinClass}`.trimStart()}
-      status={status}
+      color={color}
       icon={icon}
       size={calculateIconSize(customSize ?? 'medium')}
       onClick={clickHandler && handleClick}
@@ -43,7 +43,7 @@ export interface IconAnimation {
 }
 
 interface StyledFontAwesomeIconProps extends FontAwesomeIconProps {
-  status: IconStatus
+  color: IconColor
   customSize?: IconSize
   animation?: IconAnimation
   clickHandler?(): void

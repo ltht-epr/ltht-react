@@ -19,7 +19,7 @@ export const IconButtons: Story = () => {
 
       <div style={{ marginBottom: '1rem' }}>
         <IconButton
-          iconProps={{ type: 'info-circle', status: 'red', size: 'large' }}
+          iconProps={{ type: 'info-circle', color: 'red', size: 'large' }}
           onClick={clickHandler}
           text="Click me!"
         />

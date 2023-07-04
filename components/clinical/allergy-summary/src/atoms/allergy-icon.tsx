@@ -9,11 +9,11 @@ const StyledExclamationIcon = styled(Icon)`
 
 const AllergyIcon: FC<Props> = ({ criticalityCode }) => {
   if (criticalityCode === AllergyIntoleranceCriticalityCode.High) {
-    return <StyledExclamationIcon type="exclamation" status="danger" size="medium" />
+    return <StyledExclamationIcon type="exclamation" color="red" size="medium" />
   }
 
   if (criticalityCode && criticalityCode === AllergyIntoleranceCriticalityCode.Low) {
-    return <StyledExclamationIcon type="exclamation" status="warning" size="medium" />
+    return <StyledExclamationIcon type="exclamation" color="amber" size="medium" />
   }
 
   return null

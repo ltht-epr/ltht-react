@@ -341,8 +341,8 @@ const Timeline: FC<IProps> = ({ timelineItems, domainResourceType, filters, onFi
                         )}
                       </StyledTimelineDayContent>
                       <StyledTimelineDayLine>
-                        <StyledOuterCircle type="circle" status="info" size="medium" />
-                        <StyledInnerCircle type="circle" status="info" size="medium" />
+                        <StyledOuterCircle type="circle" color="info-blue" size="medium" />
+                        <StyledInnerCircle type="circle" color="info-blue" size="medium" />
                       </StyledTimelineDayLine>
                       <StyledTimelineDayTimeRight>
                         <TimelineTime
@@ -363,8 +363,8 @@ const Timeline: FC<IProps> = ({ timelineItems, domainResourceType, filters, onFi
                         />
                       </StyledTimelineDayTimeLeft>
                       <StyledTimelineDayLine>
-                        <StyledOuterCircle type="circle" status="info" size="medium" />
-                        <StyledInnerCircle type="circle" status="info" size="medium" />
+                        <StyledOuterCircle type="circle" color="info-blue" size="medium" />
+                        <StyledInnerCircle type="circle" color="info-blue" size="medium" />
                       </StyledTimelineDayLine>
                       <StyledTimelineDayContent isMobile={false}>
                         {isRedacted ? (

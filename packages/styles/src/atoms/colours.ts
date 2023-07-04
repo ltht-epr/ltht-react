@@ -23,7 +23,7 @@ export const ICON_COLOURS = {
   SUCCESS: colours.NHS_GREEN,
   WARNING: colours.NHS_ORANGE,
   DANGER: colours.NHS_EMERGENCY_SERVICES_RED.VALUE,
-  DISABLED: colours.NHS_MID_GREY,
+  GREY: colours.NHS_MID_GREY,
 }
 
 export const LINK_COLOURS = {

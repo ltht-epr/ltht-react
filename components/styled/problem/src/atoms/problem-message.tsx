@@ -17,7 +17,7 @@ const StyledIcon = styled(Icon)`
 
 export const ProblemMessage: FC<Problem> = ({ type: errorType, text, ...rest }) => (
   <StyledErrorDiv {...rest}>
-    <StyledIcon type="exclamation" size="large" status={errorType === 'warning' ? 'warning' : 'danger'} />
+    <StyledIcon type="exclamation" size="large" color={errorType === 'warning' ? 'amber' : 'red'} />
     {text}
   </StyledErrorDiv>
 )

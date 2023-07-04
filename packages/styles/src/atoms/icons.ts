@@ -9,7 +9,7 @@ type FontAwesomeIconSize = 'xs' | 'lg' | 'sm' | '1x' | '2x' | '3x' | '4x' | '5x'
 
 export type IconSize = 'small' | 'medium' | 'large'
 
-export type IconStatus = 'primary' | 'secondary' | 'link' | 'disabled' | 'info' | 'success' | 'warning' | 'danger'
+export type IconColor = 'black' | 'dark-blue' | 'link-blue' | 'grey' | 'info-blue' | 'green' | 'amber' | 'red'
 
 export type IconDirection = 'up' | 'down' | 'left' | 'right'
 
@@ -71,13 +71,13 @@ export const calculateIconSize = (input: IconSize): FontAwesomeIconSize => {
   }
 }
 
-export const calculateIconColor = (status: IconStatus): SerializedStyles => css`
-  ${status === 'primary' && `color: ${ICON_COLOURS.PRIMARY};`}
-  ${status === 'secondary' && `color: ${ICON_COLOURS.SECONDARY};`}
-  ${status === 'link' && `color: ${LINK_COLOURS.TEXT.DEFAULT};`}
-  ${status === 'disabled' && `color: ${ICON_COLOURS.DISABLED.VALUE};`}
-  ${status === 'info' && `color: ${ICON_COLOURS.INFO};`}
-  ${status === 'success' && `color: ${ICON_COLOURS.SUCCESS.VALUE};`}
-  ${status === 'warning' && `color: ${ICON_COLOURS.WARNING};`}
-  ${status === 'danger' && `color: ${ICON_COLOURS.DANGER};`}
+export const calculateIconColor = (status: IconColor): SerializedStyles => css`
+  ${status === 'black' && `color: ${ICON_COLOURS.PRIMARY};`}
+  ${status === 'dark-blue' && `color: ${ICON_COLOURS.SECONDARY};`}
+  ${status === 'link-blue' && `color: ${LINK_COLOURS.TEXT.DEFAULT};`}
+  ${status === 'grey' && `color: ${ICON_COLOURS.GREY.VALUE};`}
+  ${status === 'info-blue' && `color: ${ICON_COLOURS.INFO};`}
+  ${status === 'green' && `color: ${ICON_COLOURS.SUCCESS.VALUE};`}
+  ${status === 'amber' && `color: ${ICON_COLOURS.WARNING};`}
+  ${status === 'red' && `color: ${ICON_COLOURS.DANGER};`}
 `

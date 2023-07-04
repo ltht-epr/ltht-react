@@ -29,11 +29,7 @@ const ActionButton: FC<IProps> = ({ adminAction, actionClickHandler }) => {
   }
   if (adminAction.isSuccess === false) {
     return (
-      <FailButton
-        type="button"
-        value={adminAction.failText}
-        icon={<Icon type="cross" size="medium" status="disabled" />}
-      />
+      <FailButton type="button" value={adminAction.failText} icon={<Icon type="cross" size="medium" color="grey" />} />
     )
   }
 

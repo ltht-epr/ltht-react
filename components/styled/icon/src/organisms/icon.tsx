@@ -1,4 +1,4 @@
-import { IconType, IconSize, IconStatus, IconDirection } from '@ltht-react/styles'
+import { IconType, IconSize, IconColor, IconDirection } from '@ltht-react/styles'
 import { FC, HTMLAttributes } from 'react'
 import {
   IconDefinition,
@@ -82,7 +82,7 @@ const calculateChevronIcon = (direction: IconDirection): IconDefinition => {
 const Icon: FC<IconProps> = ({
   type,
   size,
-  status = 'primary',
+  color = 'black',
   direction = 'up',
   counterValue,
   animation,
@@ -91,7 +91,7 @@ const Icon: FC<IconProps> = ({
 }) => {
   let icon: IconDefinition
   let transform: string | Transform | undefined
-  let iconStatus = status
+  let iconColor = color
   let iconAnimation = animation
 
   switch (type) {
@@ -147,7 +147,7 @@ const Icon: FC<IconProps> = ({
     }
 
     case 'counter': {
-      return <CounterIcon size={size} status={iconStatus} value={counterValue ?? 0} {...rest} />
+      return <CounterIcon size={size} color={iconColor} value={counterValue ?? 0} {...rest} />
     }
 
     case 'cross': {
@@ -183,8 +183,8 @@ const Icon: FC<IconProps> = ({
 
     case 'external-link': {
       icon = faExternalLinkAlt
-      if (iconStatus === 'primary') {
-        iconStatus = 'link'
+      if (iconColor === 'black') {
+        iconColor = 'link-blue'
       }
       break
     }
@@ -290,8 +290,8 @@ const Icon: FC<IconProps> = ({
 
     case 'trash': {
       icon = faTrashAlt
-      if (iconStatus === 'primary') {
-        iconStatus = 'link'
+      if (iconColor === 'black') {
+        iconColor = 'link-blue'
       }
       break
     }
@@ -310,7 +310,7 @@ const Icon: FC<IconProps> = ({
       type={type}
       customSize={size}
       icon={icon}
-      status={iconStatus}
+      color={iconColor}
       transform={transform}
       animation={iconAnimation}
       clickHandler={clickHandler}
@@ -322,7 +322,7 @@ const Icon: FC<IconProps> = ({
 export interface IconProps extends HTMLAttributes<SVGElement> {
   type: IconType
   size: IconSize
-  status?: IconStatus
+  color?: IconColor
   direction?: IconDirection
   counterValue?: number
   animation?: IconAnimation

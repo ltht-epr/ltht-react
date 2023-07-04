@@ -26,7 +26,7 @@ const TimelineButton: FC<Props> = ({ timelineItem, className }) => {
         <ButtonBanner
           className={className}
           type="highlight"
-          icon={<Icon type="info-circle" status="info" size="medium" />}
+          icon={<Icon type="info-circle" color="info-blue" size="medium" />}
           onClick={clickHandler}
         >
           {buttonText ?? ''}

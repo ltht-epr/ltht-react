@@ -32,7 +32,7 @@ describe('Action menu', () => {
     render(
       <ActionMenu
         actions={mockActions}
-        menuButtonOptions={{ type: 'icon', iconProps: { type: 'cross', size: 'large', status: 'danger' } }}
+        menuButtonOptions={{ type: 'icon', iconProps: { type: 'cross', size: 'large', color: 'red' } }}
       />
     )
 
