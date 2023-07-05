@@ -26,7 +26,7 @@ const TimelineAuthor: FC<Props> = ({ domainResource, domainResourceType, ...rest
       }
       return (
         <StyledTimelineItemLeft {...rest}>
-          <Icon type="user" size="medium" /> by {qr?.author?.display}
+          <Icon type="user" size="medium" color="grey" /> by {qr?.author?.display}
         </StyledTimelineItemLeft>
       )
     }
@@ -50,7 +50,7 @@ const TimelineAuthor: FC<Props> = ({ domainResource, domainResourceType, ...rest
 
       return (
         <StyledTimelineItemLeft {...rest}>
-          <Icon type="user" size="medium" /> by {authorList.join(', ')}
+          <Icon type="user" size="medium" color="grey" /> by {authorList.join(', ')}
         </StyledTimelineItemLeft>
       )
     }
@@ -71,7 +71,7 @@ const TimelineAuthor: FC<Props> = ({ domainResource, domainResourceType, ...rest
 
       return (
         <StyledTimelineItemLeft {...rest}>
-          <Icon type="user" size="medium" /> by {authorName}
+          <Icon type="user" size="medium" color="grey" /> by {authorName}
         </StyledTimelineItemLeft>
       )
     }
