@@ -1,6 +1,6 @@
 {
   "name": "@ltht-react/admin-actions",
-  "version": "1.0.117",
+  "version": "1.0.118",
   "description": "ltht-react clinical AdminActions component.",
   "author": "LTHT",
   "homepage": "",
@@ -27,13 +27,13 @@
   "dependencies": {
     "@emotion/react": "^11.0.0",
     "@emotion/styled": "^11.0.0",
-    "@ltht-react/button": "^1.3.232",
-    "@ltht-react/hooks": "^1.0.222",
-    "@ltht-react/icon": "^1.3.232",
-    "@ltht-react/styles": "^1.3.224",
-    "@ltht-react/type-summary": "^1.3.232",
-    "@ltht-react/types": "^1.0.228",
-    "@ltht-react/utils": "^1.1.230",
+    "@ltht-react/button": "^1.3.233",
+    "@ltht-react/hooks": "^1.0.223",
+    "@ltht-react/icon": "^1.3.233",
+    "@ltht-react/styles": "^1.3.225",
+    "@ltht-react/type-summary": "^1.3.233",
+    "@ltht-react/types": "^1.0.229",
+    "@ltht-react/utils": "^1.1.231",
     "react": "^17.0.0"
   }
 }
