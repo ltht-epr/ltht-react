@@ -588,6 +588,96 @@ export const BooleanFieldData: QuestionnaireResponse = {
   ],
 }
 
+export const IntegerFieldData: QuestionnaireResponse = {
+  id: '435d2aca-7776-43e7-a33f-1ba481bd2892',
+  isEnteredInError: false,
+  metadata: mockMetadata,
+  status: QuestionnaireResponseStatus.Completed,
+  questionnaire: {
+    id: '14720227-b1f7-4cc5-a0d0-403938cf710d',
+    isEnteredInError: false,
+    identifier: [
+      {
+        system: 'http://leedsth.nhs.uk/user/guid',
+        value: 'cfe6a9d7-f23d-4bb9-a28d-8a3895bee48a',
+      },
+    ],
+    metadata: mockMetadata,
+    url: 'http://ehr.leedsth.nhs.uk/questionnaire/Right-To-Reside',
+    version: '1',
+    title: 'Diagnosis Oncology Core 1',
+    status: QuestionnairePublicationStatus.Active,
+    item: [
+      {
+        linkId: '1',
+        text: 'Index lesion',
+        type: QuestionnaireItemTypeCode.QuestionInteger,
+        item: null,
+      },
+    ],
+  },
+  item: [
+    {
+      linkId: '1',
+      text: null,
+      answer: [
+        {
+          valueString: null,
+          valueBoolean: null,
+          valueDateTime: null,
+          valueInteger: 1,
+        },
+      ],
+      item: null,
+    },
+  ],
+}
+
+export const DecimalFieldData: QuestionnaireResponse = {
+  id: '435d2aca-7776-43e7-a33f-1ba481bd2892',
+  isEnteredInError: false,
+  metadata: mockMetadata,
+  status: QuestionnaireResponseStatus.Completed,
+  questionnaire: {
+    id: '14720227-b1f7-4cc5-a0d0-403938cf710d',
+    isEnteredInError: false,
+    identifier: [
+      {
+        system: 'http://leedsth.nhs.uk/user/guid',
+        value: 'cfe6a9d7-f23d-4bb9-a28d-8a3895bee48a',
+      },
+    ],
+    metadata: mockMetadata,
+    url: 'http://ehr.leedsth.nhs.uk/questionnaire/Right-To-Reside',
+    version: '1',
+    title: 'Diagnosis Oncology Core 1',
+    status: QuestionnairePublicationStatus.Active,
+    item: [
+      {
+        linkId: '1',
+        text: 'Index lesion',
+        type: QuestionnaireItemTypeCode.QuestionDecimal,
+        item: null,
+      },
+    ],
+  },
+  item: [
+    {
+      linkId: '1',
+      text: null,
+      answer: [
+        {
+          valueString: null,
+          valueBoolean: null,
+          valueDateTime: null,
+          valueDecimal: 1.234,
+        },
+      ],
+      item: null,
+    },
+  ],
+}
+
 export const RepeatingGroupsExampleData: QuestionnaireResponse = {
   id: '435d2aca-7776-43e7-a33f-1ba481bd2892',
   isEnteredInError: false,
