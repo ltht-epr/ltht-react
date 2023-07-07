@@ -1,6 +1,6 @@
 {
   "name": "@ltht-react/badge",
-  "version": "1.0.208",
+  "version": "1.0.209",
   "description": "ltht-react atoms Badge component.",
   "author": "LTHT",
   "homepage": "",
@@ -27,10 +27,10 @@
   "dependencies": {
     "@emotion/react": "^11.0.0",
     "@emotion/styled": "^11.0.0",
-    "@ltht-react/icon": "^1.3.233",
-    "@ltht-react/styles": "^1.3.225",
-    "@ltht-react/types": "^1.0.229",
-    "@ltht-react/utils": "^1.1.231",
+    "@ltht-react/icon": "^1.3.234",
+    "@ltht-react/styles": "^1.3.226",
+    "@ltht-react/types": "^1.0.230",
+    "@ltht-react/utils": "^1.1.232",
     "react": "^17.0.0"
   },
   "gitHead": "4d364556bb11e294d86697c2dac66742f7aabc7f"
