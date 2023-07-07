@@ -1351,7 +1351,7 @@ export type EhrPatientArgs = {
 
 /** Queries the LTHT EHR. */
 export type EhrPatientGroupArgs = {
-  groupNumber?: Maybe<Scalars['Int']>;
+  groupNumber: Scalars['String'];
   groupType: Scalars['String'];
 };
 
@@ -1549,7 +1549,7 @@ export type EhrMutationPauseCarePlanArgs = {
 
 /** Mutations of the LTHT EHR. */
 export type EhrMutationRemovePatientFromGroupArgs = {
-  groupNumber?: Maybe<Scalars['Int']>;
+  groupNumber: Scalars['String'];
   groupType: Scalars['String'];
   patientGuid: Scalars['Guid'];
 };
@@ -1589,7 +1589,7 @@ export type EhrMutationSetNewPatientGroupArgs = {
 
 /** Mutations of the LTHT EHR. */
 export type EhrMutationSetPatientGroupArgs = {
-  groupNumber?: Maybe<Scalars['Int']>;
+  groupNumber: Scalars['String'];
   groupType: Scalars['String'];
   patientGuid: Scalars['Guid'];
 };
