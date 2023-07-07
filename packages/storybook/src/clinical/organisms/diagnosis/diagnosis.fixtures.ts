@@ -110,6 +110,11 @@ export const QuestionnaireResponse2: QuestionnaireResponse = {
         text: 'Dexterity',
         type: QuestionnaireItemTypeCode.QuestionCoding,
       },
+      {
+        linkId: 'IndexLesion',
+        text: 'Index Lesion',
+        type: QuestionnaireItemTypeCode.QuestionInteger,
+      },
     ],
   },
   item: [
@@ -177,6 +182,17 @@ export const QuestionnaireResponse2: QuestionnaireResponse = {
         },
       ],
       item: null,
+    },
+    {
+      linkId: 'IndexLesion',
+      answer: [
+        {
+          valueString: null,
+          valueBoolean: null,
+          valueDateTime: null,
+          valueInteger: 2,
+        },
+      ],
     },
   ],
 }

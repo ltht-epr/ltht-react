@@ -6,6 +6,8 @@ import {
   ComposedExampleData as NestedQuestionnaireData,
   DateFieldData,
   NoAnswerData,
+  IntegerFieldData,
+  DecimalFieldData,
 } from './questionnaire.fixtures'
 
 describe('Questionnaire', () => {
@@ -14,6 +16,20 @@ describe('Questionnaire', () => {
 
     await screen.findByText('Do you have allergies?')
     screen.getByText('Yes')
+  })
+
+  it('should render an integer question', async () => {
+    render(<Questionnaire questionnaire={IntegerFieldData} />)
+
+    await screen.findByText('Index lesion')
+    screen.getByText('1')
+  })
+
+  it('should render an decimal question', async () => {
+    render(<Questionnaire questionnaire={DecimalFieldData} />)
+
+    await screen.findByText('Index lesion')
+    screen.getByText('1.234')
   })
 
   it('should show question groups', async () => {

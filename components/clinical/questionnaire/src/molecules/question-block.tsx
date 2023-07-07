@@ -162,6 +162,21 @@ const generateAnswer = (
         ),
         isFullWidth: false,
       }
+    case QuestionnaireItemTypeCode.QuestionDecimal:
+    case QuestionnaireItemTypeCode.QuestionInteger: {
+      return {
+        Answer: (
+          <NestedListDetail term={question || '-'} showIfEmpty={showIfEmpty}>
+            {responseItem?.answer?.map((answerItem, index) => (
+              <div key={`${question}-${answerItem?.valueDecimal ?? answerItem?.valueInteger}-${index + 1}`}>
+                {ReactHtmlParser(`${answerItem?.valueDecimal ?? answerItem?.valueInteger}` ?? '')}
+              </div>
+            ))}
+          </NestedListDetail>
+        ),
+        isFullWidth: false,
+      }
+    }
     default:
       return { Answer: <></>, isFullWidth: false }
   }
