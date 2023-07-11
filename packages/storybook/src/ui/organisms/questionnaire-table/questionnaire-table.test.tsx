@@ -5,11 +5,14 @@ import { render, screen, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { mockSummaryDefinition, mockSummaryRecordsList } from '../generic-table/generic-table.mockdata'
 import {
+  expectedResultOfMappingWithHeadersOnWithdrawnXAxis,
+  expectedResultOfMappingWithHeadersOnWithdrawnYAxis,
   expectedResultOfMappingWithHeadersOnXAxis,
   expectedResultOfMappingWithHeadersOnYAxis,
   mockAdminActionsForForms,
   summaryDefinition,
   summaryRecordsList,
+  summaryRecordsWithdrawnList,
 } from './questionnaire-table.mockdata'
 
 window.ResizeObserver =
@@ -209,6 +212,17 @@ describe('Questionnaire Table Methods', () => {
     expect(JSON.stringify(result)).toEqual(JSON.stringify(expectedResultOfMappingWithHeadersOnXAxis))
   })
 
+  it('Maps withdrawn questionnaires data with headers along the X axis', () => {
+    const result = mapQuestionnaireDefinitionAndResponsesToTableData(
+      summaryDefinition,
+      summaryRecordsWithdrawnList,
+      'x',
+      mockAdminActionsForForms
+    )
+
+    expect(JSON.stringify(result)).toEqual(JSON.stringify(expectedResultOfMappingWithHeadersOnWithdrawnXAxis))
+  })
+
   it('Maps questionnaires data with headers along the Y axis', () => {
     const result = mapQuestionnaireDefinitionAndResponsesToTableData(
       summaryDefinition,
@@ -218,5 +232,16 @@ describe('Questionnaire Table Methods', () => {
     )
 
     expect(JSON.stringify(result)).toEqual(JSON.stringify(expectedResultOfMappingWithHeadersOnYAxis))
+  })
+
+  it('Maps withdrawn questionnaires data with headers along the Y axis', () => {
+    const result = mapQuestionnaireDefinitionAndResponsesToTableData(
+      summaryDefinition,
+      summaryRecordsWithdrawnList,
+      'y',
+      mockAdminActionsForForms
+    )
+
+    expect(JSON.stringify(result)).toEqual(JSON.stringify(expectedResultOfMappingWithHeadersOnWithdrawnYAxis))
   })
 })

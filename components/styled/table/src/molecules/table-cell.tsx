@@ -6,8 +6,13 @@ import ActionMenu, { ActionMenuOption } from '@ltht-react/menu'
 import { PopUp, getZIndex, BTN_COLOURS } from '@ltht-react/styles'
 import { Axis } from '@ltht-react/types'
 
-const StyledText = styled.span`
+const StyledIconText = styled.span`
   margin-left: 0.4rem;
+`
+
+const StyledText = styled.div<CellProps>`
+  text-decoration: ${({ enteredInError }) => (enteredInError === true ? 'line-through' : 'none')};
+  color: ${({ enteredInError }) => (enteredInError === true ? 'gray' : 'black')};
 `
 
 // TODO: This component is still a WIP and will be re-factored soon!
@@ -17,6 +22,7 @@ const StyledText = styled.span`
 const TableCell: FC<CellProps> = ({
   adminActions,
   isButton = false,
+  enteredInError,
   text,
   iconProps,
   headerAxis = 'x',
@@ -64,13 +70,13 @@ const TableCell: FC<CellProps> = ({
     return (
       <>
         <Icon {...iconProps} />
-        {text && <StyledText>{text}</StyledText>}
+        {text && <StyledIconText>{text}</StyledIconText>}
       </>
     )
   }
 
   if (text) {
-    return <div>{text ?? ''}</div>
+    return <StyledText enteredInError={enteredInError}>{text ?? ''}</StyledText>
   }
 
   return <></>
@@ -79,6 +85,7 @@ const TableCell: FC<CellProps> = ({
 export interface CellProps {
   adminActions?: ActionMenuOption[]
   isButton?: boolean
+  enteredInError?: boolean
   text?: string
   iconProps?: IconProps
   clickHandler?: React.MouseEventHandler<HTMLButtonElement>
