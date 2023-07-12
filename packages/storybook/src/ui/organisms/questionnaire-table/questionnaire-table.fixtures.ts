@@ -201,7 +201,7 @@ const obsRecordOne: QuestionnaireResponse = {
     isRedacted: false,
     dataSources: [],
   },
-  status: QuestionnaireResponseStatus.Completed,
+  status: QuestionnaireResponseStatus.EnteredInError,
   id: '1',
   item: [
     {
@@ -1315,7 +1315,7 @@ const axialRecordThree: QuestionnaireResponse = {
 
 const axialRecordFour: QuestionnaireResponse = {
   id: '451c890b-38a0-4fa9-ab71-dfba655c5f78',
-  status: QuestionnaireResponseStatus.Completed,
+  status: QuestionnaireResponseStatus.EnteredInError,
   authored: {
     kind: PartialDateTimeKindCode.DateTime,
     value: '2023-06-20T13:24:07.957\u002B00:00',

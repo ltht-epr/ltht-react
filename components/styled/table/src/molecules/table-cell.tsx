@@ -6,7 +6,7 @@ import ActionMenu, { ActionMenuOption } from '@ltht-react/menu'
 import { PopUp, getZIndex, BTN_COLOURS } from '@ltht-react/styles'
 import { Axis } from '@ltht-react/types'
 
-const StyledText = styled.span`
+const StyledIconText = styled.span`
   margin-left: 0.4rem;
 `
 
@@ -64,7 +64,7 @@ const TableCell: FC<CellProps> = ({
     return (
       <>
         <Icon {...iconProps} />
-        {text && <StyledText>{text}</StyledText>}
+        {text && <StyledIconText>{text}</StyledIconText>}
       </>
     )
   }
