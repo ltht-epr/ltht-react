@@ -13,9 +13,7 @@ import {
   QuestionnaireResponseStatus,
 } from '@ltht-react/types'
 
-const withdrawnWrapper = (text: string): JSX.Element => (
-  <QuestionnaireWithdrawnTableCell text={text}></QuestionnaireWithdrawnTableCell>
-)
+const withdrawnWrapper = (text: string): JSX.Element => <QuestionnaireWithdrawnTableCell text={text} />
 
 export const expectedResultOfMappingWithHeadersOnXAxis: TableData = {
   headers: [

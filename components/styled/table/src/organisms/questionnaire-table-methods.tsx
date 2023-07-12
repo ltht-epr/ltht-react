@@ -15,6 +15,8 @@ import { DataEntity, Header, TableData } from '../molecules/table'
 import { CellProps } from '../molecules/table-cell'
 import QuestionnaireWithdrawnTableCell from '../atoms/questionnaire-withdrawn-table-cell'
 
+const withdrawnWrapper = (text: string): JSX.Element => <QuestionnaireWithdrawnTableCell text={text} />
+
 const mapQuestionnaireDefinitionAndResponsesToTableData = (
   definition: Questionnaire,
   questionnaireResponses: QuestionnaireResponse[],
@@ -85,11 +87,9 @@ const mapQuestionnaireResponsesIntoDataEntities = (
 
       dataEntity.date = {
         customComponentOverride:
-          record.status === QuestionnaireResponseStatus.EnteredInError ? (
-            <QuestionnaireWithdrawnTableCell
-              text={partialDateTimeText(record.authored)}
-            ></QuestionnaireWithdrawnTableCell>
-          ) : undefined,
+          record.status === QuestionnaireResponseStatus.EnteredInError
+            ? withdrawnWrapper(partialDateTimeText(record.authored))
+            : undefined,
         text: partialDateTimeText(record.authored),
       }
 
@@ -173,11 +173,9 @@ const mapQuestionnaireObjectsToVerticalTableData = (
         type: 'accessor',
         cellProps: {
           customComponentOverride:
-            record.status === QuestionnaireResponseStatus.EnteredInError ? (
-              <QuestionnaireWithdrawnTableCell
-                text={partialDateTimeText(record.authored) ?? ''}
-              ></QuestionnaireWithdrawnTableCell>
-            ) : undefined,
+            record.status === QuestionnaireResponseStatus.EnteredInError
+              ? withdrawnWrapper(partialDateTimeText(record.authored) ?? '')
+              : undefined,
           text: partialDateTimeText(record.authored) ?? '',
         },
       })
@@ -291,10 +289,6 @@ const getRecordItemByLinkId = (
 
   return updatedDataEntity
 }
-
-const withdrawnWrapper = (text: string): JSX.Element => (
-  <QuestionnaireWithdrawnTableCell text={text}></QuestionnaireWithdrawnTableCell>
-)
 
 const createCellPropsForAnswer = (
   answer: QuestionnaireResponseItemAnswer,
