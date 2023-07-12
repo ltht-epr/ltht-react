@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import styled from '@emotion/styled'
 
-const StyledText = styled.div<WithdrawnCellProps>`
+const StyledText = styled.div`
   text-decoration: line-through;
   color: gray;
 `
