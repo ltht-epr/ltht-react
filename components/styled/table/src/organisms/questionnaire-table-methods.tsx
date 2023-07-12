@@ -13,6 +13,7 @@ import { EnsureMaybe, EnsureMaybeArray, partialDateTimeText } from '@ltht-react/
 import { getZIndex, TableDataWithPopUp } from '@ltht-react/styles'
 import { DataEntity, Header, TableData } from '../molecules/table'
 import { CellProps } from '../molecules/table-cell'
+import QuestionnaireWithdrawnTableCell from '../atoms/questionnaire-withdrawn-table-cell'
 
 const mapQuestionnaireDefinitionAndResponsesToTableData = (
   definition: Questionnaire,
@@ -81,9 +82,15 @@ const mapQuestionnaireResponsesIntoDataEntities = (
     .filter((record) => !!record.item)
     .map((record) => {
       let dataEntity: DataEntity = {}
+
       dataEntity.date = {
+        customComponentOverride:
+          record.status === QuestionnaireResponseStatus.EnteredInError ? (
+            <QuestionnaireWithdrawnTableCell
+              text={partialDateTimeText(record.authored)}
+            ></QuestionnaireWithdrawnTableCell>
+          ) : undefined,
         text: partialDateTimeText(record.authored),
-        enteredInError: record.status === QuestionnaireResponseStatus.EnteredInError ? true : undefined,
       }
 
       if (adminActions) {
@@ -106,7 +113,7 @@ const mapQuestionnaireResponsesIntoDataEntities = (
           dataEntity[linkId] = createCellPropsForAnswer(
             answer,
             false,
-            record.status === QuestionnaireResponseStatus.EnteredInError ? true : undefined
+            record.status === QuestionnaireResponseStatus.EnteredInError
           )
 
           if (answer.item) {
@@ -131,14 +138,10 @@ const recursivelyMapResponseItemsOntoData = (
     const firstAnswer = item.answer ? item.answer[0] : undefined
 
     if (item.linkId && firstAnswer) {
-      const props = createCellPropsForAnswer(
-        firstAnswer,
-        false,
-        status === QuestionnaireResponseStatus.EnteredInError ? true : undefined
-      )
+      const props = createCellPropsForAnswer(firstAnswer, false, status === QuestionnaireResponseStatus.EnteredInError)
       updatedDataEntity[item.linkId] = {
+        customComponentOverride: props.customComponentOverride,
         text: props.text,
-        enteredInError: props.enteredInError,
       }
 
       if (firstAnswer.item) {
@@ -169,8 +172,13 @@ const mapQuestionnaireObjectsToVerticalTableData = (
         id: record?.id ?? '',
         type: 'accessor',
         cellProps: {
+          customComponentOverride:
+            record.status === QuestionnaireResponseStatus.EnteredInError ? (
+              <QuestionnaireWithdrawnTableCell
+                text={partialDateTimeText(record.authored) ?? ''}
+              ></QuestionnaireWithdrawnTableCell>
+            ) : undefined,
           text: partialDateTimeText(record.authored) ?? '',
-          enteredInError: record.status === QuestionnaireResponseStatus.EnteredInError ? true : undefined,
         },
       })
     ),
@@ -266,7 +274,7 @@ const getRecordItemByLinkId = (
         updatedDataEntity[recordId] = createCellPropsForAnswer(
           recordItemAnswer,
           true,
-          status === QuestionnaireResponseStatus.EnteredInError ? true : undefined
+          status === QuestionnaireResponseStatus.EnteredInError
         )
       }
       if (recordItemAnswer.item && recordItemAnswer.item.length > 0) {
@@ -284,45 +292,47 @@ const getRecordItemByLinkId = (
   return updatedDataEntity
 }
 
+const withdrawnWrapper = (text: string): JSX.Element => (
+  <QuestionnaireWithdrawnTableCell text={text}></QuestionnaireWithdrawnTableCell>
+)
+
 const createCellPropsForAnswer = (
   answer: QuestionnaireResponseItemAnswer,
   shouldRenderCheckbox: boolean,
-  isEnteredInError: boolean | undefined
+  isEnteredInError: boolean
 ): CellProps => {
   if (answer.valueString) {
     if (shouldRenderCheckbox && answer.valueString === 'CHECKBOX') {
       return {
         iconProps: { type: 'checkbox', size: 'medium' },
-        enteredInError: isEnteredInError,
       }
     }
     return {
+      customComponentOverride: isEnteredInError ? withdrawnWrapper(answer.valueString) : undefined,
       text: answer.valueString,
-      enteredInError: isEnteredInError,
     }
   }
   if (answer.valueBoolean != null) {
     const parsedBoolean = answer.valueBoolean ? 'Yes' : 'No'
     return {
+      customComponentOverride: isEnteredInError ? withdrawnWrapper(parsedBoolean) : undefined,
       text: parsedBoolean,
-      enteredInError: isEnteredInError,
     }
   }
   if (answer.valueInteger != null) {
     return {
+      customComponentOverride: isEnteredInError ? withdrawnWrapper(answer.valueInteger.toString()) : undefined,
       text: answer.valueInteger.toString(),
-      enteredInError: isEnteredInError,
     }
   }
   if (answer.valueDecimal != null) {
     return {
+      customComponentOverride: isEnteredInError ? withdrawnWrapper(answer.valueDecimal.toString()) : undefined,
       text: answer.valueDecimal.toString(),
-      enteredInError: isEnteredInError,
     }
   }
   return {
     text: '',
-    enteredInError: isEnteredInError,
   }
 }
 

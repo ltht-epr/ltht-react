@@ -10,11 +10,6 @@ const StyledIconText = styled.span`
   margin-left: 0.4rem;
 `
 
-const StyledText = styled.div<CellProps>`
-  text-decoration: ${({ enteredInError }) => (enteredInError === true ? 'line-through' : 'none')};
-  color: ${({ enteredInError }) => (enteredInError === true ? 'gray' : 'black')};
-`
-
 // TODO: This component is still a WIP and will be re-factored soon!
 // May be best to split it out into different components, the important part is unifying Type used by React-Table so the mapping can be simplified
 // It will need to facilitate the Actions list capability Jonny Dyson has requested
@@ -22,7 +17,6 @@ const StyledText = styled.div<CellProps>`
 const TableCell: FC<CellProps> = ({
   adminActions,
   isButton = false,
-  enteredInError,
   text,
   iconProps,
   headerAxis = 'x',
@@ -76,7 +70,7 @@ const TableCell: FC<CellProps> = ({
   }
 
   if (text) {
-    return <StyledText enteredInError={enteredInError}>{text ?? ''}</StyledText>
+    return <div>{text ?? ''}</div>
   }
 
   return <></>
@@ -85,7 +79,6 @@ const TableCell: FC<CellProps> = ({
 export interface CellProps {
   adminActions?: ActionMenuOption[]
   isButton?: boolean
-  enteredInError?: boolean
   text?: string
   iconProps?: IconProps
   clickHandler?: React.MouseEventHandler<HTMLButtonElement>

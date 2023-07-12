@@ -1,6 +1,7 @@
 /* eslint no-console: 0 */
 import { TableData } from '@ltht-react/table'
 import { AdminActionsForQuestionnaire } from '@ltht-react/table/lib/organisms/questionnaire-table-methods'
+import QuestionnaireWithdrawnTableCell from '@ltht-react/table/src/atoms/questionnaire-withdrawn-table-cell'
 
 import {
   PartialDateTimeKindCode,
@@ -11,6 +12,10 @@ import {
   QuestionnaireResponse,
   QuestionnaireResponseStatus,
 } from '@ltht-react/types'
+
+const withdrawnWrapper = (text: string): JSX.Element => (
+  <QuestionnaireWithdrawnTableCell text={text}></QuestionnaireWithdrawnTableCell>
+)
 
 export const expectedResultOfMappingWithHeadersOnXAxis: TableData = {
   headers: [
@@ -265,7 +270,7 @@ export const expectedResultOfMappingWithHeadersOnWithdrawnXAxis: TableData = {
       '5': { text: 'Yes' },
     },
     {
-      date: { text: '01-Jan-2022 16:02', enteredInError: true },
+      date: { customComponentOverride: withdrawnWrapper('01-Jan-2022 16:02'), text: '01-Jan-2022 16:02' },
       adminactions: {
         adminActions: [
           {
@@ -279,25 +284,25 @@ export const expectedResultOfMappingWithHeadersOnWithdrawnXAxis: TableData = {
         ],
         parentStyle: { zIndex: 200 },
       },
-      '1': { text: '17 NEWS', enteredInError: true },
-      '2': { text: 'ICON', enteredInError: true },
-      '3': { text: 'No', enteredInError: true },
-      '4': { text: 'CHECKBOX', enteredInError: true },
-      '4a': { text: '17', enteredInError: true },
-      '4aa': { text: '17(1)', enteredInError: true },
-      '4ab': { text: '17(2)', enteredInError: true },
-      '4b': { text: '95 (Target 94-98 %)', enteredInError: true },
-      '4c': { text: '103', enteredInError: true },
-      '4d': { text: '125 / 115', enteredInError: true },
-      '4e': { text: '129', enteredInError: true },
-      '4f': { text: '123', enteredInError: true },
-      '4g': { text: '120', enteredInError: true },
-      '4h': { text: '23', enteredInError: true },
-      '4i': { text: 'Confusion', enteredInError: true },
-      '4j': { text: '5', enteredInError: true },
-      '4k': { text: '102', enteredInError: true },
-      '4l': { text: '45', enteredInError: true },
-      '5': { text: '12.5', enteredInError: true },
+      '1': { customComponentOverride: withdrawnWrapper('17 NEWS'), text: '17 NEWS' },
+      '2': { customComponentOverride: withdrawnWrapper('ICON'), text: 'ICON' },
+      '3': { customComponentOverride: withdrawnWrapper('No'), text: 'No' },
+      '4': { customComponentOverride: withdrawnWrapper('CHECKBOX'), text: 'CHECKBOX' },
+      '4a': { customComponentOverride: withdrawnWrapper('17'), text: '17' },
+      '4aa': { customComponentOverride: withdrawnWrapper('17(1)'), text: '17(1)' },
+      '4ab': { customComponentOverride: withdrawnWrapper('17(2)'), text: '17(2)' },
+      '4b': { customComponentOverride: withdrawnWrapper('95 (Target 94-98 %)'), text: '95 (Target 94-98 %)' },
+      '4c': { customComponentOverride: withdrawnWrapper('103'), text: '103' },
+      '4d': { customComponentOverride: withdrawnWrapper('125 / 115'), text: '125 / 115' },
+      '4e': { customComponentOverride: withdrawnWrapper('129'), text: '129' },
+      '4f': { customComponentOverride: withdrawnWrapper('123'), text: '123' },
+      '4g': { customComponentOverride: withdrawnWrapper('120'), text: '120' },
+      '4h': { customComponentOverride: withdrawnWrapper('23'), text: '23' },
+      '4i': { customComponentOverride: withdrawnWrapper('Confusion'), text: 'Confusion' },
+      '4j': { customComponentOverride: withdrawnWrapper('5'), text: '5' },
+      '4k': { customComponentOverride: withdrawnWrapper('102'), text: '102' },
+      '4l': { customComponentOverride: withdrawnWrapper('45'), text: '45' },
+      '5': { customComponentOverride: withdrawnWrapper('12.5'), text: '12.5' },
     },
   ],
 }
@@ -478,7 +483,11 @@ export const expectedResultOfMappingWithHeadersOnWithdrawnYAxis: TableData = {
     { id: 'property', type: 'accessor', cellProps: { text: '' } },
     { id: '1', type: 'accessor', cellProps: { text: '17-Feb-2022 17:23' } },
     { id: '2', type: 'accessor', cellProps: { text: '12-Feb-2022 12:33' } },
-    { id: '3', type: 'accessor', cellProps: { text: '01-Jan-2022 16:02', enteredInError: true } },
+    {
+      id: '3',
+      type: 'accessor',
+      cellProps: { customComponentOverride: withdrawnWrapper('01-Jan-2022 16:02'), text: '01-Jan-2022 16:02' },
+    },
   ],
   rows: [
     {
@@ -527,43 +536,45 @@ export const expectedResultOfMappingWithHeadersOnWithdrawnYAxis: TableData = {
       property: { text: 'Score' },
       '1': { text: '5 NEWS' },
       '2': { text: '40 NEWS' },
-      '3': { text: '17 NEWS', enteredInError: true },
+      '3': { customComponentOverride: withdrawnWrapper('17 NEWS'), text: '17 NEWS' },
     },
     {
       property: { text: 'Intervention' },
       '1': { text: 'ICON' },
       '2': { text: 'ICON' },
-      '3': { text: 'ICON', enteredInError: true },
+      '3': { customComponentOverride: withdrawnWrapper('ICON'), text: 'ICON' },
     },
     {
       property: { text: 'Partial Indication' },
       '1': { text: 'No' },
       '2': { text: 'Yes' },
-      '3': { text: 'No', enteredInError: true },
+      '3': { customComponentOverride: withdrawnWrapper('No'), text: 'No' },
     },
     {
       property: { text: 'Standard Observations' },
       '1': { iconProps: { type: 'checkbox', size: 'medium' } },
       '2': { iconProps: { type: 'checkbox', size: 'medium' } },
-      '3': { iconProps: { type: 'checkbox', size: 'medium' }, enteredInError: true },
+      '3': {
+        iconProps: { type: 'checkbox', size: 'medium' },
+      },
       subRows: [
         {
           property: { text: 'RR (breaths/min)' },
           '1': { text: '25' },
           '2': { text: '31' },
-          '3': { text: '17', enteredInError: true },
+          '3': { customComponentOverride: withdrawnWrapper('17'), text: '17' },
           subRows: [
             {
               property: { text: 'RR Part 1 (breaths/min)' },
               '1': { text: '25(1)' },
               '2': { text: '31(1)' },
-              '3': { text: '17(1)', enteredInError: true },
+              '3': { customComponentOverride: withdrawnWrapper('17(1)'), text: '17(1)' },
             },
             {
               property: { text: 'RR Part 2 (breaths/min)' },
               '1': { text: '25(2)' },
               '2': { text: '31(2)' },
-              '3': { text: '17(2)', enteredInError: true },
+              '3': { customComponentOverride: withdrawnWrapper('17(2)'), text: '17(2)' },
             },
           ],
         },
@@ -571,67 +582,67 @@ export const expectedResultOfMappingWithHeadersOnWithdrawnYAxis: TableData = {
           property: { text: 'O2 Sat (%)' },
           '1': { text: '92 (Target 94-98 %)' },
           '2': { text: '81 (Target 94-98 %)' },
-          '3': { text: '95 (Target 94-98 %)', enteredInError: true },
+          '3': { customComponentOverride: withdrawnWrapper('95 (Target 94-98 %)'), text: '95 (Target 94-98 %)' },
         },
         {
           property: { text: 'Supp O2' },
           '1': { text: '93' },
           '2': { text: '95' },
-          '3': { text: '103', enteredInError: true },
+          '3': { customComponentOverride: withdrawnWrapper('103'), text: '103' },
         },
         {
           property: { text: 'Blood Pressure' },
           '1': { text: '144 / 122' },
           '2': { text: '160 / 140' },
-          '3': { text: '125 / 115', enteredInError: true },
+          '3': { customComponentOverride: withdrawnWrapper('125 / 115'), text: '125 / 115' },
         },
         {
           property: { text: 'Standing 1 Minute BP' },
           '1': { text: '120' },
           '2': { text: '140' },
-          '3': { text: '129', enteredInError: true },
+          '3': { customComponentOverride: withdrawnWrapper('129'), text: '129' },
         },
         {
           property: { text: 'Standing 3 Minute BP' },
           '1': { text: '143' },
           '2': { text: '132' },
-          '3': { text: '123', enteredInError: true },
+          '3': { customComponentOverride: withdrawnWrapper('123'), text: '123' },
         },
         {
           property: { text: 'HR (BPM)' },
           '1': { text: '88' },
           '2': { text: '74' },
-          '3': { text: '120', enteredInError: true },
+          '3': { customComponentOverride: withdrawnWrapper('120'), text: '120' },
         },
         {
           property: { text: 'Temp (°C)' },
           '1': { text: '37' },
           '2': { text: '64' },
-          '3': { text: '23', enteredInError: true },
+          '3': { customComponentOverride: withdrawnWrapper('23'), text: '23' },
         },
         {
           property: { text: 'Consciousness' },
           '1': { text: 'Alert' },
           '2': { text: 'Alert' },
-          '3': { text: 'Confusion', enteredInError: true },
+          '3': { customComponentOverride: withdrawnWrapper('Confusion'), text: 'Confusion' },
         },
         {
           property: { text: 'Pain Score' },
           '1': { text: '8' },
           '2': { text: '3' },
-          '3': { text: '5', enteredInError: true },
+          '3': { customComponentOverride: withdrawnWrapper('5'), text: '5' },
         },
         {
           property: { text: 'Blood Glucose (mmol/L)' },
           '1': { text: '75' },
           '2': { text: '65' },
-          '3': { text: '102', enteredInError: true },
+          '3': { customComponentOverride: withdrawnWrapper('102'), text: '102' },
         },
         {
           property: { text: 'Spine Pain (VAS)' },
           '1': { text: 'No' },
           '2': { text: '20.5' },
-          '3': { text: '45', enteredInError: true },
+          '3': { customComponentOverride: withdrawnWrapper('45'), text: '45' },
         },
       ],
     },
@@ -639,7 +650,7 @@ export const expectedResultOfMappingWithHeadersOnWithdrawnYAxis: TableData = {
       property: { text: 'Average BASFI Score' },
       '1': { text: '70.5' },
       '2': { text: 'Yes' },
-      '3': { text: '12.5', enteredInError: true },
+      '3': { customComponentOverride: withdrawnWrapper('12.5'), text: '12.5' },
     },
   ],
 }
