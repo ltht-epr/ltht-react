@@ -28,6 +28,9 @@ const TableCell: FC<CellProps> = ({
   }
 
   if (adminActions) {
+    if (adminActions.length === 0) {
+      return <></>
+    }
     return (
       <ActionMenu
         actions={adminActions}

@@ -3,7 +3,11 @@ import mapQuestionnaireDefinitionAndResponsesToTableData from '@ltht-react/table
 import { QuestionnaireItem } from '@ltht-react/types'
 import { render, screen, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { mockSummaryDefinition, mockSummaryRecordsList } from '../generic-table/generic-table.mockdata'
+import {
+  mockSummaryAdminActionsForForms,
+  mockSummaryDefinition,
+  mockSummaryRecordsList,
+} from '../generic-table/generic-table.mockdata'
 import {
   expectedResultOfMappingWithHeadersOnWithdrawnXAxis,
   expectedResultOfMappingWithHeadersOnWithdrawnYAxis,
@@ -162,12 +166,27 @@ describe('Questionnaire Table (using mock Monty Python data)', () => {
     render(<QuestionnaireTable definition={mockSummaryDefinition} records={mockSummaryRecordsList} headerAxis="x" />)
 
     expect(screen.getAllByRole('columnheader').length).toBe(13)
+
+    expect(screen.queryAllByTestId('action-menu-button')).toHaveLength(0)
   })
 
   it('Renders horizontal table with two data rows', () => {
     render(<QuestionnaireTable definition={mockSummaryDefinition} records={mockSummaryRecordsList} headerAxis="x" />)
 
     expect(screen.getAllByRole('rowgroup')[0].children.length).toBe(2)
+  })
+
+  it('Renders horizontal table with 2 admin actions buttons', () => {
+    render(
+      <QuestionnaireTable
+        headerAxis="x"
+        definition={mockSummaryDefinition}
+        records={mockSummaryRecordsList}
+        adminActions={mockSummaryAdminActionsForForms}
+      />
+    )
+
+    expect(screen.getAllByTestId('action-menu-button')).toHaveLength(2)
   })
 
   it('Renders horizontal table containing subheaders', () => {
@@ -197,6 +216,20 @@ describe('Questionnaire Table (using mock Monty Python data)', () => {
 
     expect(screen.getByRole('table').children[1].tagName).toBe('TBODY')
     expect(screen.getByRole('table').children[1].children.length).toBe(5)
+
+    expect(screen.queryAllByTestId('action-menu-button')).toHaveLength(0)
+  })
+
+  it('Renders Vertical table with 2 admin actions buttons', () => {
+    render(
+      <QuestionnaireTable
+        definition={mockSummaryDefinition}
+        records={mockSummaryRecordsList}
+        adminActions={mockSummaryAdminActionsForForms}
+      />
+    )
+
+    expect(screen.getAllByTestId('action-menu-button')).toHaveLength(2)
   })
 })
 

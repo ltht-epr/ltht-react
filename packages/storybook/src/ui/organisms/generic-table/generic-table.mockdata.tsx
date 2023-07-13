@@ -1,4 +1,4 @@
-import { TableData } from '@ltht-react/table'
+import { AdminActionsForQuestionnaire, TableData } from '@ltht-react/table'
 import mapQuestionnaireDefinitionAndResponsesToTableData from '@ltht-react/table/src/organisms/questionnaire-table-methods'
 import {
   PartialDateTime,
@@ -177,6 +177,51 @@ export const mockSummaryRecordsList: QuestionnaireResponse[] = [
       dataSources: [],
     },
   } as QuestionnaireResponse,
+]
+
+export const mockSummaryAdminActionsForForms: AdminActionsForQuestionnaire[] = [
+  {
+    questionnaire: 'S1rL4nc5l0t',
+    adminActions: [
+      {
+        text: 'View',
+        clickHandler: () => {
+          // eslint-disable-next-line no-console
+          console.log('Viewing submission 3')
+        },
+        leftIcon: { type: 'info-circle', size: 'medium', color: 'info-blue' },
+      },
+    ],
+  },
+  {
+    questionnaire: 'S1rR0b1n',
+    adminActions: [
+      {
+        text: 'View',
+        clickHandler: () => {
+          // eslint-disable-next-line no-console
+          console.log('Viewing submission 3')
+        },
+        leftIcon: { type: 'info-circle', size: 'medium', color: 'info-blue' },
+      },
+      {
+        text: 'Edit',
+        clickHandler: () => {
+          // eslint-disable-next-line no-console
+          console.log('Editing submission 3')
+        },
+        leftIcon: { type: 'edit', size: 'medium', color: 'green' },
+      },
+      {
+        text: 'Delete',
+        clickHandler: () => {
+          // eslint-disable-next-line no-console
+          console.log('Deleting submission 3')
+        },
+        leftIcon: { type: 'cross', size: 'medium', color: 'red' },
+      },
+    ],
+  },
 ]
 
 export const mockMapper = (colData: Questionnaire, rowData: QuestionnaireResponse[]): TableData => {
