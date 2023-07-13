@@ -1472,29 +1472,7 @@ export const obsAdminActionsForForms: AdminActionsForQuestionnaire[] = [
   },
   {
     questionnaire: '2',
-    adminActions: [
-      {
-        text: 'View',
-        clickHandler: () => {
-          console.log('Viewing submission 3')
-        },
-        leftIcon: { type: 'info-circle', size: 'medium', color: 'info-blue' },
-      },
-      {
-        text: 'Edit',
-        clickHandler: () => {
-          console.log('Editing submission 3')
-        },
-        leftIcon: { type: 'edit', size: 'medium', color: 'green' },
-      },
-      {
-        text: 'Delete',
-        clickHandler: () => {
-          console.log('Deleting submission 3')
-        },
-        leftIcon: { type: 'cross', size: 'medium', color: 'red' },
-      },
-    ],
+    adminActions: [],
   },
   {
     questionnaire: '3',

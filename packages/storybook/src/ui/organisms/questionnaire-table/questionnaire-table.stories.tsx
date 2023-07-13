@@ -8,6 +8,19 @@ import {
   axialDefinition,
   axialAdminActionsForForms,
 } from './questionnaire-table.fixtures'
+import {
+  mockSummaryAdminActionsForForms,
+  mockSummaryDefinition,
+  mockSummaryRecordsList,
+} from '../generic-table/generic-table.mockdata'
+
+export const MockVerticalTable: Story = () => (
+  <QuestionnaireTable
+    definition={mockSummaryDefinition}
+    records={mockSummaryRecordsList}
+    adminActions={mockSummaryAdminActionsForForms}
+  />
+)
 
 export const ObservationsVerticalTable: Story = () => (
   <QuestionnaireTable definition={obsDefinition} records={obsRecordsList} staticColumns={2} />
