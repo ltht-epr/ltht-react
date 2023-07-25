@@ -167,13 +167,16 @@ const StyledNextPageButtonContainer = styled.div<IStyledNextPageButtonContainer>
   justify-content: center;
   cursor: pointer;
   align-items: center;
+  padding: 10px;
+  font-size: 1.3em;
+  border: solid 2px #eeeeee;
+  border-left: solid 1px #eeeeee;
 
-  &:hover {
-    padding: 5px;
-    font-size: 1.3em;
-    transition: 0.15s linear;
+  :hover {
+    background-color: #f3f6f6;
   }
 `
+
 const StyledSpinnerContainer = styled.div<IStyledNextPageButtonContainer>`
   display: ${({ hidden, elementPosition }) => {
     if (!hidden) {

@@ -161,32 +161,6 @@ const handleScrollEvent = (table: Table<DataEntity>, headerAxis: Axis, scrollSta
 
 const getPercentageOfMax = (percentage: number, max: number) => max * (percentage / 100)
 
-const handleScrollEventManual = (
-  getCanNextPage: () => boolean,
-  nextPage: () => void,
-  headerAxis: Axis,
-  scrollState: ScrollState
-) => {
-  const { scrollWidth, scrollHeight, currentXScroll, currentYScroll } = scrollState
-  if (
-    headerAxis === 'x' &&
-    currentYScroll >= scrollHeight - getPercentageOfMax(5, scrollHeight) &&
-    currentYScroll <= scrollHeight &&
-    getCanNextPage()
-  ) {
-    nextPage()
-  }
-
-  if (
-    headerAxis === 'y' &&
-    currentXScroll >= scrollWidth - getPercentageOfMax(5, scrollWidth) &&
-    currentXScroll <= scrollWidth &&
-    getCanNextPage()
-  ) {
-    nextPage()
-  }
-}
-
 const handleDataUpdate = (
   tableData: TableData,
   pageIndex: number,
@@ -255,7 +229,6 @@ export {
   createColumns,
   calculateStaticColumnOffset,
   handleScrollEvent,
-  handleScrollEventManual,
   handleDataUpdate,
   handleDataUpdateForManualPagination,
 }

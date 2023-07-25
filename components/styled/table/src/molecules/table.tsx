@@ -12,12 +12,7 @@ import {
 import { Axis } from '@ltht-react/types'
 import { ScrollableContainer } from './table-styled-components'
 import useScrollRef from './useScrollRef'
-import {
-  handleDataUpdate,
-  handleDataUpdateForManualPagination,
-  handleScrollEvent,
-  handleScrollEventManual,
-} from './table-methods'
+import { handleDataUpdate, handleDataUpdateForManualPagination, handleScrollEvent } from './table-methods'
 import TableComponent, { TableNavigationButton, TableSpinner } from './table-component'
 import { CellProps } from './table-cell'
 
@@ -80,16 +75,6 @@ const Table: FC<IProps> = ({
     getSortedRowModel: getSortedRowModel(),
     ...(!manualPagination ? { onPaginationChange: setPagination } : {}),
   })
-
-  useEffect(() => {
-    if (!scrollState) {
-      return
-    }
-
-    if (manualPagination && !isFetching) {
-      handleScrollEventManual(getCanNextPage, nextPage, headerAxis, scrollState)
-    }
-  }, [scrollState, headerAxis, manualPagination, isFetching, getCanNextPage, nextPage])
 
   useEffect(() => {
     if (!scrollState) {
