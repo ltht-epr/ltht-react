@@ -23,6 +23,10 @@ module.exports = async ({ config, mode }) => {
     },
   })
 
+  if (mode === 'DEVELOPMENT') {
+    config.devtool = '#inline-source-map'
+  }
+
   // Return the altered config
   return config
 }

@@ -91,7 +91,7 @@ export const TableWithVerticalManualPagination: Story = () => {
   })
 
   const [pageIndex, setPageIndex] = useState<number>(0)
-  const pageSize = 10
+  const pageSize = 3
   const [data, setData] = useState<TableData>({ headers: [], rows: [] })
   const [isFetching, setIsFetching] = useState<boolean>(false)
 

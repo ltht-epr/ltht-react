@@ -1511,6 +1511,21 @@ export const axialRecordsList: QuestionnaireResponse[] = [
   axialRecordFour,
 ]
 
+export const axialPaginatedRecordsList: QuestionnaireResponse[] = [
+  axialRecordOne,
+  axialRecordTwo,
+  axialRecordThree,
+  axialRecordFour,
+  axialRecordOne,
+  axialRecordTwo,
+  axialRecordThree,
+  axialRecordFour,
+  axialRecordOne,
+  axialRecordTwo,
+  axialRecordThree,
+  axialRecordFour,
+]
+
 export const axialAdminActionsForForms: AdminActionsForQuestionnaire[] = [
   {
     questionnaire: '75f131eb-5cb8-47b7-a12c-2fa71bf4bbc7',
