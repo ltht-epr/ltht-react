@@ -1,5 +1,7 @@
 import { Story } from '@storybook/react'
 import { QuestionnaireTable } from '@ltht-react/table'
+import { useEffect, useState } from 'react'
+import { QuestionnaireResponse } from '@ltht-react/types'
 import {
   obsDefinition,
   obsRecordsList,
@@ -14,8 +16,6 @@ import {
   mockSummaryDefinition,
   mockSummaryRecordsList,
 } from '../generic-table/generic-table.mockdata'
-import { useEffect, useState } from 'react'
-import { QuestionnaireResponse } from '@ltht-react/types'
 
 export const MockVerticalTable: Story = () => (
   <QuestionnaireTable

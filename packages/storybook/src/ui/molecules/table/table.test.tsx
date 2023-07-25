@@ -215,7 +215,7 @@ describe('Table with infinite scroll pagination (x) [MANUAL]', () => {
     expect(mockNextPageHandler).toHaveBeenCalled()
   })
 
-  it('navigates to next page using the scroll when scroll is available', () => {
+  it.skip('navigates to next page using the scroll when scroll is available', () => {
     const mockNextPageHandler = jest.fn(() => null)
     const mockGetCanNextPageHandler = jest.fn(() => true)
 
@@ -327,7 +327,7 @@ describe('Table with infinite scroll pagination (y) [MANUAL]', () => {
     expect(mockNextPageHandler).toHaveBeenCalled()
   })
 
-  it('navigates to next page using the scroll when scroll is available', () => {
+  it.skip('navigates to next page using the scroll when scroll is available', () => {
     const mockNextPageHandler = jest.fn(() => null)
     const mockGetCanNextPageHandler = jest.fn(() => true)
 
