@@ -2066,6 +2066,8 @@ export enum FeatureInstance {
   GpConnectDataProvider = 'GP_CONNECT_DATA_PROVIDER',
   InteractWithDiagnosisDashboard = 'INTERACT_WITH_DIAGNOSIS_DASHBOARD',
   ResourceAuthorization = 'RESOURCE_AUTHORIZATION',
+  SepsisAdultEnabled = 'SEPSIS_ADULT_ENABLED',
+  SepsisAdultFullWorkflowEnabled = 'SEPSIS_ADULT_FULL_WORKFLOW_ENABLED',
   YhcrDataProvider = 'YHCR_DATA_PROVIDER'
 }
 
