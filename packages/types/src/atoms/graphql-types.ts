@@ -2068,6 +2068,7 @@ export enum FeatureInstance {
   ResourceAuthorization = 'RESOURCE_AUTHORIZATION',
   SepsisAdultEnabled = 'SEPSIS_ADULT_ENABLED',
   SepsisAdultFullWorkflowEnabled = 'SEPSIS_ADULT_FULL_WORKFLOW_ENABLED',
+  SepsisObservationsWidgetEnabled = 'SEPSIS_OBSERVATIONS_WIDGET_ENABLED',
   YhcrDataProvider = 'YHCR_DATA_PROVIDER'
 }
 
