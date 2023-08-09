@@ -97,6 +97,8 @@ export type AllergyIntolerance = {
   note?: Maybe<Array<Maybe<Annotation>>>;
   /** When allergy or intolerance was identified. */
   onSet?: Maybe<AllergyIntoleranceOnSet>;
+  /** Who, What, When for a set of resources. */
+  provenance?: Maybe<Array<Maybe<Provenance>>>;
   /** Adverse Reaction Events linked to exposure to substance. */
   reaction?: Maybe<Array<Maybe<AllergyIntoleranceReaction>>>;
   /** Who recorded the sensitivity. */
@@ -255,6 +257,8 @@ export type AuditEvent = {
   outcomeDesc?: Maybe<Scalars['String']>;
   /** When the activity occurred. */
   period?: Maybe<Period>;
+  /** Who, What, When for a set of resources. */
+  provenance?: Maybe<Array<Maybe<Provenance>>>;
   /** The purposeOfUse of the event. */
   purposeOfEvent?: Maybe<Array<Maybe<CodeableConcept>>>;
   /** Time when the event was recorded. */
@@ -453,6 +457,8 @@ export type CarePlan = {
   partOf?: Maybe<Array<Maybe<ResourceReference>>>;
   /** Time period plan covers. */
   period?: Maybe<Period>;
+  /** Who, What, When for a set of resources. */
+  provenance?: Maybe<Array<Maybe<Provenance>>>;
   /** CarePlan replaced by this CarePlan. */
   replaces?: Maybe<Array<Maybe<ResourceReference>>>;
   /** http://hl7.org/fhir/stu3/valueset-care-plan-status.html */
@@ -716,6 +722,8 @@ export type Condition = {
   metadata: Metadata;
   note?: Maybe<Array<Maybe<Annotation>>>;
   onset?: Maybe<ConditionOnset>;
+  /** Who, What, When for a set of resources. */
+  provenance?: Maybe<Array<Maybe<Provenance>>>;
   severity?: Maybe<CodeableConcept>;
   stage?: Maybe<ConditionStage>;
   /** Text summary of the resource, for human interpretation. */
@@ -963,6 +971,8 @@ export type DocumentReference = {
   masterIdentifier?: Maybe<Identifier>;
   /** Metadata about the resource. */
   metadata: Metadata;
+  /** Who, What, When for a set of resources. */
+  provenance?: Maybe<Array<Maybe<Provenance>>>;
   /** Relationships to other documents. */
   relatesTo?: Maybe<Array<Maybe<DocumentReferenceRelatesTo>>>;
   /** Document security-tags. */
@@ -1172,10 +1182,10 @@ export type Ehr = {
   questionnaireResponseLastCompleted?: Maybe<QuestionnaireResponse>;
   /** Questionnaires */
   questionnaireResponsesBySet?: Maybe<QuestionnaireResponseContinuation>;
-  /** Summary View Definition */
-  summaryDefinition?: Maybe<Questionnaire>;
-  /** Summary View Data */
-  summaryView?: Maybe<QuestionnaireResponseContinuation>;
+  /** Summary View Definition Data */
+  summaryViewDefinition?: Maybe<Questionnaire>;
+  /** Summary View Entries Data */
+  summaryViewEntries?: Maybe<QuestionnaireResponseContinuation>;
   /** Tasks */
   tasks?: Maybe<TaskContinuation>;
   /** Returns the available CDS extension template for a given base template and value */
@@ -1408,13 +1418,13 @@ export type EhrQuestionnaireResponsesBySetArgs = {
 
 
 /** Queries the LTHT EHR. */
-export type EhrSummaryDefinitionArgs = {
+export type EhrSummaryViewDefinitionArgs = {
   name: Scalars['String'];
 };
 
 
 /** Queries the LTHT EHR. */
-export type EhrSummaryViewArgs = {
+export type EhrSummaryViewEntriesArgs = {
   count?: Maybe<Scalars['Int']>;
   cursorToken?: Maybe<Scalars['String']>;
   name: Scalars['String'];
@@ -1654,6 +1664,8 @@ export type Encounter = {
   period?: Maybe<Period>;
   /** http://hl7.org/fhir/stu3/v3/ActPriority/vs.html */
   priority?: Maybe<CodeableConcept>;
+  /** Who, What, When for a set of resources. */
+  provenance?: Maybe<Array<Maybe<Provenance>>>;
   /** http://hl7.org/fhir/stu3/valueset-encounter-reason.html */
   reason?: Maybe<Array<Maybe<CodeableConcept>>>;
   /** The custodian organization of this Encounter record. */
@@ -1972,6 +1984,8 @@ export type EpisodeOfCare = {
   metadata: Metadata;
   /** Interval during responsibility is assumed. */
   period?: Maybe<Period>;
+  /** Who, What, When for a set of resources. */
+  provenance?: Maybe<Array<Maybe<Provenance>>>;
   /** Originating Referral Request(s). */
   referralRequest?: Maybe<Array<Maybe<ResourceReference>>>;
   /** http://hl7.org/fhir/stu3/valueset-episode-of-care-status.html */
@@ -2106,6 +2120,8 @@ export type Flag = {
   metadata: Metadata;
   /** Time period when flag is active. */
   period?: Maybe<Period>;
+  /** Who, What, When for a set of resources. */
+  provenance?: Maybe<Array<Maybe<Provenance>>>;
   /** http://hl7.org/fhir/stu3/valueset-flag-status.html */
   status: FlagStatusCode;
   /** Text summary of the resource, for human interpretation. */
@@ -2156,6 +2172,8 @@ export type Goal = {
   outcomeCode?: Maybe<Array<Maybe<CodeableConcept>>>;
   /** Indicates the level of importance associated with reaching or sustaining a goal. */
   priority?: Maybe<CodeableConcept>;
+  /** Who, What, When for a set of resources. */
+  provenance?: Maybe<Array<Maybe<Provenance>>>;
   /** When goal pursuit begins */
   startCodeableConcept?: Maybe<CodeableConcept>;
   /** When goal pursuit begins */
@@ -2208,6 +2226,8 @@ export type Group = {
   metadata: Metadata;
   /** Label for this group. */
   name?: Maybe<Scalars['String']>;
+  /** Who, What, When for a set of resources. */
+  provenance?: Maybe<Array<Maybe<Provenance>>>;
   /** How many members are in the group. */
   quantity?: Maybe<Scalars['UInt']>;
   /** Text summary of the resource, for human interpretation. */
@@ -2280,6 +2300,8 @@ export type Guidance = {
   note?: Maybe<Array<Maybe<Annotation>>>;
   /** When the guidance response was processed. */
   occuranceDateTime?: Maybe<PartialDateTime>;
+  /** Who, What, When for a set of resources. */
+  provenance?: Maybe<Array<Maybe<Provenance>>>;
   /** Describes the reason for the guidance response in coded or textual form. */
   reasonCode?: Maybe<CodeableConcept>;
   /** The identifier of the request associated with this response, if any. */
@@ -2479,6 +2501,8 @@ export type LypftCommunityTreatmentOrder = {
   metadata: Metadata;
   /** The time period of the treatment order. */
   period: Period;
+  /** Who, What, When for a set of resources. */
+  provenance?: Maybe<Array<Maybe<Provenance>>>;
   /** ?Needs more information from LYPFT? */
   restrictions?: Maybe<Scalars['String']>;
   /** Text summary of the resource, for human interpretation. */
@@ -2504,6 +2528,8 @@ export type MedicationRequest = {
   metadata: Metadata;
   note?: Maybe<Array<Maybe<Annotation>>>;
   priority?: Maybe<MedicationRequestPriorityType>;
+  /** Who, What, When for a set of resources. */
+  provenance?: Maybe<Array<Maybe<Provenance>>>;
   reasonCode?: Maybe<Array<Maybe<CodeableConcept>>>;
   reasonReference?: Maybe<ResourceReference>;
   status?: Maybe<MedicationRequestStatusType>;
@@ -2564,6 +2590,8 @@ export type MedicationType = {
   isBrand?: Maybe<Scalars['Boolean']>;
   /** Flag to state whether the resource should be displayed as entered in error in user interface */
   isEnteredInError?: Maybe<Scalars['Boolean']>;
+  /** Who, What, When for a set of resources. */
+  provenance?: Maybe<Array<Maybe<Provenance>>>;
   /** Text summary of the resource, for human interpretation. */
   text?: Maybe<Narrative>;
 };
@@ -2640,6 +2668,8 @@ export type Observation = {
   metadata: Metadata;
   method?: Maybe<CodeableConcept>;
   performer?: Maybe<Array<Maybe<ResourceReference>>>;
+  /** Who, What, When for a set of resources. */
+  provenance?: Maybe<Array<Maybe<Provenance>>>;
   referenceRange?: Maybe<Array<Maybe<ObservationReferenceRange>>>;
   related?: Maybe<Array<Maybe<ObservationReferenceRange>>>;
   specimen?: Maybe<ResourceReference>;
@@ -2804,6 +2834,8 @@ export type Patient = {
   name: Array<Maybe<HumanName>>;
   /** Image of the patient. */
   photo?: Maybe<Array<Maybe<Attachment>>>;
+  /** Who, What, When for a set of resources. */
+  provenance?: Maybe<Array<Maybe<Provenance>>>;
   /** A contact detail for the individual. */
   telecom?: Maybe<Array<Maybe<ContactPoint>>>;
   /** Text summary of the resource, for human interpretation. */
@@ -2948,6 +2980,8 @@ export type PlanDefinition = {
   metadata: Metadata;
   /** Name for this plan definition (computer friendly). */
   name?: Maybe<Scalars['String']>;
+  /** Who, What, When for a set of resources. */
+  provenance?: Maybe<Array<Maybe<Provenance>>>;
   /** Name of the publisher (organization or individual). */
   publisher?: Maybe<Scalars['String']>;
   /** Why this plan definition is defined. */
@@ -3083,6 +3117,72 @@ export enum PriorityCode {
   Urgent = 'URGENT'
 }
 
+/** Who, What, When for a set of resources. */
+export type Provenance = {
+  /** Activity that occurred. */
+  activity?: Maybe<CodeableConcept>;
+  /** Actor involved. */
+  agent: ProvenanceAgent;
+  /** An entity used in this activity. */
+  entity?: Maybe<Array<Maybe<ProvenanceEntity>>>;
+  /** Additional content defined by implementations. */
+  extension?: Maybe<Array<Maybe<Extension>>>;
+  /** Logical Id of the resource. */
+  id: Scalars['ID'];
+  /** Flag to state whether the resource should be displayed as entered in error in user interface */
+  isEnteredInError?: Maybe<Scalars['Boolean']>;
+  /** Where the activity occurred, if relevant. */
+  location?: Maybe<ResourceReference>;
+  /** Metadata about the resource. */
+  metadata: Metadata;
+  /** When the activity occurred. */
+  occurredDateTime?: Maybe<PartialDateTime>;
+  /** When the activity occurred. */
+  occurredPeriod?: Maybe<Period>;
+  /** Policy or plan the activity was defined by. */
+  policy?: Maybe<Array<Maybe<Scalars['String']>>>;
+  /** Who, What, When for a set of resources. */
+  provenance?: Maybe<Array<Maybe<Provenance>>>;
+  /** Reason the activity is occurring. */
+  reason?: Maybe<Array<Maybe<CodeableConcept>>>;
+  /** When the activity was recorded / updated. */
+  recorded: PartialDateTime;
+  /** Target Reference(s) (usually version specific). */
+  target: Array<Maybe<ResourceReference>>;
+  /** Text summary of the resource, for human interpretation. */
+  text?: Maybe<Narrative>;
+};
+
+/** Actor involved. */
+export type ProvenanceAgent = {
+  /** Unique id for inter-element referencing. */
+  elementId?: Maybe<Scalars['String']>;
+  /** Additional content defined by implementations. */
+  extension?: Maybe<Array<Maybe<Extension>>>;
+  /** Who the agent is representing */
+  onBehalfOf?: Maybe<ResourceReference>;
+  /** What the agents role was. */
+  role?: Maybe<CodeableConcept>;
+  /** How the agent participated. */
+  type?: Maybe<Array<Maybe<CodeableConcept>>>;
+  /** Who participated. */
+  who: ResourceReference;
+};
+
+/** An entity used in this activity. */
+export type ProvenanceEntity = {
+  /** Entity is attributed to this agent. */
+  agent?: Maybe<Array<Maybe<ProvenanceAgent>>>;
+  /** Unique id for inter-element referencing. */
+  elementId?: Maybe<Scalars['String']>;
+  /** Additional content defined by implementations. */
+  extension?: Maybe<Array<Maybe<Extension>>>;
+  /** The type of action taken on the entity. */
+  role: Coding;
+  /** Identity of entity. */
+  what: ResourceReference;
+};
+
 /** A measured amount (or an amount that can potentially be measured). */
 export type Quantity = {
   /** Coded form of the unit. */
@@ -3167,6 +3267,8 @@ export type Questionnaire = {
   metadata: Metadata;
   /** Name for this questionnaire (computer friendly). */
   name?: Maybe<Scalars['String']>;
+  /** Who, What, When for a set of resources. */
+  provenance?: Maybe<Array<Maybe<Provenance>>>;
   /** Name of the publisher (organization or individual). */
   publisher?: Maybe<Scalars['String']>;
   /** Why this questionnaire is defined. */
@@ -3280,6 +3382,8 @@ export type QuestionnaireResponse = {
   metadata: Metadata;
   /** Part of this action. */
   partOf?: Maybe<ResourceReference>;
+  /** Who, What, When for a set of resources. */
+  provenance?: Maybe<Array<Maybe<Provenance>>>;
   /** Form being answered. */
   questionnaire?: Maybe<Questionnaire>;
   /** The person who answered the questions. */
@@ -3492,6 +3596,8 @@ export type Task = {
   performerType: CodeableConcept;
   /** normal | urgent | asap | stat */
   priority?: Maybe<PriorityCode>;
+  /** Who, What, When for a set of resources. */
+  provenance?: Maybe<Array<Maybe<Provenance>>>;
   /** EHR task status */
   status: TaskStatusCode;
   /** Text summary of the resource, for human interpretation. */
