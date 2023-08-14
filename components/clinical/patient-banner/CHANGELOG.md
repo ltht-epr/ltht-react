@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.3.242 (2023-08-14)
+
+**Note:** Version bump only for package @ltht-react/patient-banner
+
+
+
+
+
 ## 1.3.241 (2023-08-09)
 
 **Note:** Version bump only for package @ltht-react/patient-banner
