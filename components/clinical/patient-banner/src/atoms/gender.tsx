@@ -21,7 +21,7 @@ const StyledValue = styled.span`
 
 const Gender: FC<Props> = ({ patient, ...rest }) => (
   <StyledGender {...rest}>
-    <StyledLabel>Gender</StyledLabel>
+    <StyledLabel>Sex</StyledLabel>
     <StyledValue>{patient?.gender && titleCase(patient.gender)}</StyledValue>
   </StyledGender>
 )
