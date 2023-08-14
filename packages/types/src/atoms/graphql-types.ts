@@ -652,6 +652,14 @@ export enum CarePlanStatusCode {
   Unknown = 'UNKNOWN'
 }
 
+export enum ClinicalApprovalStatus {
+  Approved = 'APPROVED',
+  Cancelled = 'CANCELLED',
+  Denied = 'DENIED',
+  Expired = 'EXPIRED',
+  Requested = 'REQUESTED'
+}
+
 /** A reference to one or more terminologies or ontologies but may also be defined by the provision of text. */
 export type CodeableConcept = {
   /** Code defined by a terminology system. */
@@ -1152,6 +1160,8 @@ export type Ehr = {
   carePlanDefinitions?: Maybe<PlanDefinitionContinuationType>;
   /** Active Care Plan Summaries */
   carePlanSummaries?: Maybe<Array<Maybe<CarePlan>>>;
+  /** Clinical data history for user */
+  clinicalDataHistoryForUser?: Maybe<QuestionnaireResponseContinuation>;
   /** Diagnosis Detail */
   condition?: Maybe<Condition>;
   /** Diagnosis */
@@ -1283,6 +1293,17 @@ export type EhrCarePlanDefinitionsArgs = {
 export type EhrCarePlanSummariesArgs = {
   pathwayType: Scalars['String'];
   patientGuid: Scalars['String'];
+};
+
+
+/** Queries the LTHT EHR. */
+export type EhrClinicalDataHistoryForUserArgs = {
+  count?: Maybe<Scalars['Int']>;
+  cursorToken?: Maybe<Scalars['String']>;
+  from?: Maybe<Scalars['DateTimeOffset']>;
+  status?: Maybe<ClinicalApprovalStatus>;
+  templateName?: Maybe<Scalars['String']>;
+  to?: Maybe<Scalars['DateTimeOffset']>;
 };
 
 
