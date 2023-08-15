@@ -68,6 +68,26 @@ describe('Questionnaire Table (using Fixture data)', () => {
     expect(getTopLeftDataCell()).toHaveTextContent('Average BASFI Score')
   })
 
+  it('Does not sort the table if sorting is disabled', () => {
+    render(
+      <QuestionnaireTable
+        definition={summaryDefinition}
+        records={summaryRecordsList}
+        headerAxis="y"
+        enableSorting={false}
+      />
+    )
+
+    const getTopLeftDataCell = () => within(screen.getAllByRole('row')[1]).getAllByRole('cell')[1]
+
+    expect(getTopLeftDataCell()).toHaveTextContent('Score')
+
+    userEvent.click(screen.getByText('17-Feb-2022 17:23'))
+    userEvent.click(screen.getByText('17-Feb-2022 17:23'))
+
+    expect(getTopLeftDataCell()).toHaveTextContent('Score')
+  })
+
   it('Sorts the table if the lowest level of subheaders are clicked in horizontal mode', () => {
     render(<QuestionnaireTable definition={summaryDefinition} records={summaryRecordsList} headerAxis="x" />)
 

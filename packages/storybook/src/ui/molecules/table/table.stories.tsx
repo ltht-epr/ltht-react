@@ -12,6 +12,8 @@ import {
 
 export const SimpleTable: Story = () => <Table tableData={mockTableData} />
 
+export const TableWithSortingDisabled: Story = () => <Table tableData={mockTableData} enableSorting={false} />
+
 export const TableWithSubheaders: Story = () => <Table tableData={mockTableDataWithSubheaders} />
 
 export const TableWithSubrows: Story = () => <Table tableData={mockTableDataWithSubrows} />
