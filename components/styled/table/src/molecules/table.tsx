@@ -8,6 +8,7 @@ import {
   SortingState,
   PaginationState,
   ColumnDef,
+  SortingFn,
 } from '@tanstack/react-table'
 import { Axis } from '@ltht-react/types'
 import { ScrollableContainer } from './table-styled-components'
@@ -29,6 +30,8 @@ const Table: FC<IProps> = ({
   keepPreviousData = false,
   maxHeight,
   maxWidth,
+  enableSorting = true,
+  sortingFunctions = undefined,
 }) => {
   const scrollableDivElement = useRef(null)
   const scrollState = useScrollRef(scrollableDivElement)
@@ -69,6 +72,8 @@ const Table: FC<IProps> = ({
     manualPagination: true,
     onExpandedChange: setExpanded,
     onSortingChange: setSorting,
+    enableSorting,
+    sortingFns: sortingFunctions,
     getSubRows: (row) => row.subRows,
     getCoreRowModel: getCoreRowModel(),
     getExpandedRowModel: getExpandedRowModel(),
@@ -109,10 +114,16 @@ const Table: FC<IProps> = ({
   )
 }
 
-interface IProps extends IPaginationProps, ITableDimensionProps {
+interface IProps extends ITableConfig, IPaginationProps, ITableDimensionProps {
   tableData: TableData
+}
+
+export interface ITableConfig {
   staticColumns?: 0 | 1 | 2
   headerAxis?: Axis
+  enableSorting?: boolean
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  sortingFunctions?: Record<string, SortingFn<any>> | undefined
 }
 
 export interface IPaginationProps {

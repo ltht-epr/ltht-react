@@ -1,7 +1,7 @@
-import { QuestionnaireResponse, Axis, Questionnaire } from '@ltht-react/types'
+import { QuestionnaireResponse, Questionnaire } from '@ltht-react/types'
 import { FC, useMemo } from 'react'
 import Icon from '@ltht-react/icon'
-import Table, { IPaginationProps, ITableDimensionProps } from '../molecules/table'
+import Table, { IPaginationProps, ITableDimensionProps, ITableConfig } from '../molecules/table'
 import mapQuestionnaireDefinitionAndResponsesToTableData, {
   AdminActionsForQuestionnaire,
 } from './questionnaire-table-methods'
@@ -46,12 +46,10 @@ const QuestionnaireTable: FC<IProps> = ({
   )
 }
 
-interface IProps extends IPaginationProps, ITableDimensionProps {
+interface IProps extends ITableConfig, IPaginationProps, ITableDimensionProps {
   definition: Questionnaire
   records: QuestionnaireResponse[]
-  headerAxis?: Axis
   adminActions?: AdminActionsForQuestionnaire[]
-  staticColumns?: 0 | 1 | 2
 }
 
 export default QuestionnaireTable
