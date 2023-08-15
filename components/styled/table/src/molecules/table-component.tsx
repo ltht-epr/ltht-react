@@ -1,7 +1,6 @@
 import Icon from '@ltht-react/icon'
 import { flexRender, Header as ReactTableHeader, Table } from '@tanstack/react-table'
 import React, { useMemo, useRef } from 'react'
-import { Axis } from '@ltht-react/types'
 import { calculateStaticColumnOffset } from './table-methods'
 import {
   StyledNextPageButtonContainer,
@@ -14,8 +13,9 @@ import {
 } from './table-styled-components'
 import useDimensionsRef from './useDimensionRef'
 import { CellProps } from './table-cell'
+import { ITableConfig } from './table'
 
-const TableComponent = <T,>({ table, staticColumns, headerAxis }: ITableHeadProps<T>): JSX.Element => {
+const TableComponent = <T,>({ table, staticColumns = 0, headerAxis }: ITableHeadProps<T>): JSX.Element => {
   const firstColumn = useRef(null)
   const secondColumn = useRef(null)
   const tableElement = useRef(null)
@@ -138,10 +138,8 @@ interface ITableSpinnerProps {
   hidden: boolean
 }
 
-interface ITableHeadProps<T> {
+interface ITableHeadProps<T> extends ITableConfig {
   table: Table<T>
-  headerAxis: Axis
-  staticColumns: 0 | 1 | 2
 }
 
 export default TableComponent
