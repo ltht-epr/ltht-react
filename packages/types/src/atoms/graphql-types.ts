@@ -1881,6 +1881,7 @@ export enum EntityType {
   CustomListPatient = 'CUSTOM_LIST_PATIENT',
   CustomListPreAssessment = 'CUSTOM_LIST_PRE_ASSESSMENT',
   CustomListSdec = 'CUSTOM_LIST_SDEC',
+  CustomListSepsis = 'CUSTOM_LIST_SEPSIS',
   CustomListSuspiciousFindings = 'CUSTOM_LIST_SUSPICIOUS_FINDINGS',
   Diagnosis = 'DIAGNOSIS',
   Document = 'DOCUMENT',
@@ -2099,6 +2100,7 @@ export type ExtensionInput = {
 export enum FeatureInstance {
   FormsForHealthLaunch = 'FORMS_FOR_HEALTH_LAUNCH',
   GpConnectDataProvider = 'GP_CONNECT_DATA_PROVIDER',
+  InteractWithCountersignature = 'INTERACT_WITH_COUNTERSIGNATURE',
   InteractWithDiagnosisDashboard = 'INTERACT_WITH_DIAGNOSIS_DASHBOARD',
   ResourceAuthorization = 'RESOURCE_AUTHORIZATION',
   SepsisAdultEnabled = 'SEPSIS_ADULT_ENABLED',
@@ -3411,6 +3413,8 @@ export type QuestionnaireResponse = {
   source?: Maybe<ResourceReference>;
   /** Why this questionnaire is defined. */
   status: QuestionnaireResponseStatus;
+  /** The subject of the questions. */
+  subject?: Maybe<ResourceReference>;
   /** Text summary of the resource, for human interpretation. */
   text?: Maybe<Narrative>;
 };
