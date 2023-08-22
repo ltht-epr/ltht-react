@@ -3145,7 +3145,7 @@ export type Provenance = {
   /** Activity that occurred. */
   activity?: Maybe<CodeableConcept>;
   /** Actor involved. */
-  agent: ProvenanceAgent;
+  agent: Array<Maybe<ProvenanceAgent>>;
   /** An entity used in this activity. */
   entity?: Maybe<Array<Maybe<ProvenanceEntity>>>;
   /** Additional content defined by implementations. */
@@ -3185,9 +3185,9 @@ export type ProvenanceAgent = {
   /** Who the agent is representing */
   onBehalfOf?: Maybe<ResourceReference>;
   /** What the agents role was. */
-  role?: Maybe<CodeableConcept>;
+  role?: Maybe<Array<Maybe<CodeableConcept>>>;
   /** How the agent participated. */
-  type?: Maybe<Array<Maybe<CodeableConcept>>>;
+  type?: Maybe<CodeableConcept>;
   /** Who participated. */
   who: ResourceReference;
 };
