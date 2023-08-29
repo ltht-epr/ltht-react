@@ -98,7 +98,7 @@ export type AllergyIntolerance = {
   /** When allergy or intolerance was identified. */
   onSet?: Maybe<AllergyIntoleranceOnSet>;
   /** Who, What, When for a set of resources. */
-  provenance?: Maybe<Array<Maybe<Provenance>>>;
+  provenance?: Maybe<Array<Provenance>>;
   /** Adverse Reaction Events linked to exposure to substance. */
   reaction?: Maybe<Array<Maybe<AllergyIntoleranceReaction>>>;
   /** Who recorded the sensitivity. */
@@ -258,7 +258,7 @@ export type AuditEvent = {
   /** When the activity occurred. */
   period?: Maybe<Period>;
   /** Who, What, When for a set of resources. */
-  provenance?: Maybe<Array<Maybe<Provenance>>>;
+  provenance?: Maybe<Array<Provenance>>;
   /** The purposeOfUse of the event. */
   purposeOfEvent?: Maybe<Array<Maybe<CodeableConcept>>>;
   /** Time when the event was recorded. */
@@ -458,7 +458,7 @@ export type CarePlan = {
   /** Time period plan covers. */
   period?: Maybe<Period>;
   /** Who, What, When for a set of resources. */
-  provenance?: Maybe<Array<Maybe<Provenance>>>;
+  provenance?: Maybe<Array<Provenance>>;
   /** CarePlan replaced by this CarePlan. */
   replaces?: Maybe<Array<Maybe<ResourceReference>>>;
   /** http://hl7.org/fhir/stu3/valueset-care-plan-status.html */
@@ -582,6 +582,7 @@ export type CarePlanActivityInput = {
   outcome?: Maybe<CodingInput>;
   performed: Scalars['DateTimeOffset'];
   performedOn?: Maybe<Array<Maybe<CodingInput>>>;
+  requestCountersignature?: Maybe<Scalars['Boolean']>;
   templateName: Scalars['String'];
 };
 
@@ -604,6 +605,7 @@ export type CarePlanDocumentInput = {
   activities?: Maybe<Array<Maybe<CarePlanActivityInput>>>;
   carePlanId: Scalars['Guid'];
   goalEvaluations?: Maybe<Array<Maybe<CarePlanGoalEvaluationInput>>>;
+  signatories?: Maybe<Array<Maybe<SignatoryInputType>>>;
 };
 
 /** Goal evaluations from the care plan */
@@ -615,6 +617,7 @@ export type CarePlanGoalEvaluationInput = {
   notes?: Maybe<Scalars['String']>;
   outcome: CodingInput;
   performed: Scalars['DateTimeOffset'];
+  requestCountersignature?: Maybe<Scalars['Boolean']>;
   templateName: Scalars['String'];
 };
 
@@ -640,6 +643,8 @@ export type CarePlanModelInput = {
   planDefinitionSeriesId?: Maybe<Scalars['String']>;
   reasonCode?: Maybe<Scalars['String']>;
   reasonText?: Maybe<Scalars['String']>;
+  requestCountersignature?: Maybe<Scalars['Boolean']>;
+  signatories?: Maybe<Array<Maybe<SignatoryInputType>>>;
 };
 
 export enum CarePlanStatusCode {
@@ -731,7 +736,7 @@ export type Condition = {
   note?: Maybe<Array<Maybe<Annotation>>>;
   onset?: Maybe<ConditionOnset>;
   /** Who, What, When for a set of resources. */
-  provenance?: Maybe<Array<Maybe<Provenance>>>;
+  provenance?: Maybe<Array<Provenance>>;
   severity?: Maybe<CodeableConcept>;
   stage?: Maybe<ConditionStage>;
   /** Text summary of the resource, for human interpretation. */
@@ -980,7 +985,7 @@ export type DocumentReference = {
   /** Metadata about the resource. */
   metadata: Metadata;
   /** Who, What, When for a set of resources. */
-  provenance?: Maybe<Array<Maybe<Provenance>>>;
+  provenance?: Maybe<Array<Provenance>>;
   /** Relationships to other documents. */
   relatesTo?: Maybe<Array<Maybe<DocumentReferenceRelatesTo>>>;
   /** Document security-tags. */
@@ -1160,6 +1165,8 @@ export type Ehr = {
   carePlanDefinitions?: Maybe<PlanDefinitionContinuationType>;
   /** Active Care Plan Summaries */
   carePlanSummaries?: Maybe<Array<Maybe<CarePlan>>>;
+  /** Clinical data history for a patient by a user */
+  clinicalDataHistoryForPatientByUser?: Maybe<QuestionnaireResponseContinuation>;
   /** Clinical data history for user */
   clinicalDataHistoryForUser?: Maybe<QuestionnaireResponseContinuation>;
   /** Diagnosis Detail */
@@ -1293,6 +1300,18 @@ export type EhrCarePlanDefinitionsArgs = {
 export type EhrCarePlanSummariesArgs = {
   pathwayType: Scalars['String'];
   patientGuid: Scalars['String'];
+};
+
+
+/** Queries the LTHT EHR. */
+export type EhrClinicalDataHistoryForPatientByUserArgs = {
+  count?: Maybe<Scalars['Int']>;
+  cursorToken?: Maybe<Scalars['String']>;
+  from?: Maybe<Scalars['DateTimeOffset']>;
+  patientGuid: Scalars['Guid'];
+  status?: Maybe<ClinicalApprovalStatus>;
+  templateName?: Maybe<Scalars['String']>;
+  to?: Maybe<Scalars['DateTimeOffset']>;
 };
 
 
@@ -1686,7 +1705,7 @@ export type Encounter = {
   /** http://hl7.org/fhir/stu3/v3/ActPriority/vs.html */
   priority?: Maybe<CodeableConcept>;
   /** Who, What, When for a set of resources. */
-  provenance?: Maybe<Array<Maybe<Provenance>>>;
+  provenance?: Maybe<Array<Provenance>>;
   /** http://hl7.org/fhir/stu3/valueset-encounter-reason.html */
   reason?: Maybe<Array<Maybe<CodeableConcept>>>;
   /** The custodian organization of this Encounter record. */
@@ -2007,7 +2026,7 @@ export type EpisodeOfCare = {
   /** Interval during responsibility is assumed. */
   period?: Maybe<Period>;
   /** Who, What, When for a set of resources. */
-  provenance?: Maybe<Array<Maybe<Provenance>>>;
+  provenance?: Maybe<Array<Provenance>>;
   /** Originating Referral Request(s). */
   referralRequest?: Maybe<Array<Maybe<ResourceReference>>>;
   /** http://hl7.org/fhir/stu3/valueset-episode-of-care-status.html */
@@ -2144,7 +2163,7 @@ export type Flag = {
   /** Time period when flag is active. */
   period?: Maybe<Period>;
   /** Who, What, When for a set of resources. */
-  provenance?: Maybe<Array<Maybe<Provenance>>>;
+  provenance?: Maybe<Array<Provenance>>;
   /** http://hl7.org/fhir/stu3/valueset-flag-status.html */
   status: FlagStatusCode;
   /** Text summary of the resource, for human interpretation. */
@@ -2196,7 +2215,7 @@ export type Goal = {
   /** Indicates the level of importance associated with reaching or sustaining a goal. */
   priority?: Maybe<CodeableConcept>;
   /** Who, What, When for a set of resources. */
-  provenance?: Maybe<Array<Maybe<Provenance>>>;
+  provenance?: Maybe<Array<Provenance>>;
   /** When goal pursuit begins */
   startCodeableConcept?: Maybe<CodeableConcept>;
   /** When goal pursuit begins */
@@ -2250,7 +2269,7 @@ export type Group = {
   /** Label for this group. */
   name?: Maybe<Scalars['String']>;
   /** Who, What, When for a set of resources. */
-  provenance?: Maybe<Array<Maybe<Provenance>>>;
+  provenance?: Maybe<Array<Provenance>>;
   /** How many members are in the group. */
   quantity?: Maybe<Scalars['UInt']>;
   /** Text summary of the resource, for human interpretation. */
@@ -2324,7 +2343,7 @@ export type Guidance = {
   /** When the guidance response was processed. */
   occuranceDateTime?: Maybe<PartialDateTime>;
   /** Who, What, When for a set of resources. */
-  provenance?: Maybe<Array<Maybe<Provenance>>>;
+  provenance?: Maybe<Array<Provenance>>;
   /** Describes the reason for the guidance response in coded or textual form. */
   reasonCode?: Maybe<CodeableConcept>;
   /** The identifier of the request associated with this response, if any. */
@@ -2525,7 +2544,7 @@ export type LypftCommunityTreatmentOrder = {
   /** The time period of the treatment order. */
   period: Period;
   /** Who, What, When for a set of resources. */
-  provenance?: Maybe<Array<Maybe<Provenance>>>;
+  provenance?: Maybe<Array<Provenance>>;
   /** ?Needs more information from LYPFT? */
   restrictions?: Maybe<Scalars['String']>;
   /** Text summary of the resource, for human interpretation. */
@@ -2552,7 +2571,7 @@ export type MedicationRequest = {
   note?: Maybe<Array<Maybe<Annotation>>>;
   priority?: Maybe<MedicationRequestPriorityType>;
   /** Who, What, When for a set of resources. */
-  provenance?: Maybe<Array<Maybe<Provenance>>>;
+  provenance?: Maybe<Array<Provenance>>;
   reasonCode?: Maybe<Array<Maybe<CodeableConcept>>>;
   reasonReference?: Maybe<ResourceReference>;
   status?: Maybe<MedicationRequestStatusType>;
@@ -2614,7 +2633,7 @@ export type MedicationType = {
   /** Flag to state whether the resource should be displayed as entered in error in user interface */
   isEnteredInError?: Maybe<Scalars['Boolean']>;
   /** Who, What, When for a set of resources. */
-  provenance?: Maybe<Array<Maybe<Provenance>>>;
+  provenance?: Maybe<Array<Provenance>>;
   /** Text summary of the resource, for human interpretation. */
   text?: Maybe<Narrative>;
 };
@@ -2692,7 +2711,7 @@ export type Observation = {
   method?: Maybe<CodeableConcept>;
   performer?: Maybe<Array<Maybe<ResourceReference>>>;
   /** Who, What, When for a set of resources. */
-  provenance?: Maybe<Array<Maybe<Provenance>>>;
+  provenance?: Maybe<Array<Provenance>>;
   referenceRange?: Maybe<Array<Maybe<ObservationReferenceRange>>>;
   related?: Maybe<Array<Maybe<ObservationReferenceRange>>>;
   specimen?: Maybe<ResourceReference>;
@@ -2858,7 +2877,7 @@ export type Patient = {
   /** Image of the patient. */
   photo?: Maybe<Array<Maybe<Attachment>>>;
   /** Who, What, When for a set of resources. */
-  provenance?: Maybe<Array<Maybe<Provenance>>>;
+  provenance?: Maybe<Array<Provenance>>;
   /** A contact detail for the individual. */
   telecom?: Maybe<Array<Maybe<ContactPoint>>>;
   /** Text summary of the resource, for human interpretation. */
@@ -3004,7 +3023,7 @@ export type PlanDefinition = {
   /** Name for this plan definition (computer friendly). */
   name?: Maybe<Scalars['String']>;
   /** Who, What, When for a set of resources. */
-  provenance?: Maybe<Array<Maybe<Provenance>>>;
+  provenance?: Maybe<Array<Provenance>>;
   /** Name of the publisher (organization or individual). */
   publisher?: Maybe<Scalars['String']>;
   /** Why this plan definition is defined. */
@@ -3165,7 +3184,7 @@ export type Provenance = {
   /** Policy or plan the activity was defined by. */
   policy?: Maybe<Array<Maybe<Scalars['String']>>>;
   /** Who, What, When for a set of resources. */
-  provenance?: Maybe<Array<Maybe<Provenance>>>;
+  provenance?: Maybe<Array<Provenance>>;
   /** Reason the activity is occurring. */
   reason?: Maybe<Array<Maybe<CodeableConcept>>>;
   /** When the activity was recorded / updated. */
@@ -3291,7 +3310,7 @@ export type Questionnaire = {
   /** Name for this questionnaire (computer friendly). */
   name?: Maybe<Scalars['String']>;
   /** Who, What, When for a set of resources. */
-  provenance?: Maybe<Array<Maybe<Provenance>>>;
+  provenance?: Maybe<Array<Provenance>>;
   /** Name of the publisher (organization or individual). */
   publisher?: Maybe<Scalars['String']>;
   /** Why this questionnaire is defined. */
@@ -3406,7 +3425,7 @@ export type QuestionnaireResponse = {
   /** Part of this action. */
   partOf?: Maybe<ResourceReference>;
   /** Who, What, When for a set of resources. */
-  provenance?: Maybe<Array<Maybe<Provenance>>>;
+  provenance?: Maybe<Array<Provenance>>;
   /** Form being answered. */
   questionnaire?: Maybe<Questionnaire>;
   /** The person who answered the questions. */
@@ -3590,6 +3609,18 @@ export type SampledData = {
   upperLimit?: Maybe<Scalars['Decimal']>;
 };
 
+/** Users and / or teams that will be requested to sign a document */
+export type SignatoryInputType = {
+  /** User guid if Type is User OR Team Contact guid if Type is Team. */
+  guid: Scalars['Guid'];
+  type: SignatoryType;
+};
+
+export enum SignatoryType {
+  Team = 'TEAM',
+  User = 'USER'
+}
+
 export enum SortOptionType {
   Alphabetical = 'ALPHABETICAL',
   MostRecent = 'MOST_RECENT'
@@ -3622,7 +3653,7 @@ export type Task = {
   /** normal | urgent | asap | stat */
   priority?: Maybe<PriorityCode>;
   /** Who, What, When for a set of resources. */
-  provenance?: Maybe<Array<Maybe<Provenance>>>;
+  provenance?: Maybe<Array<Provenance>>;
   /** EHR task status */
   status: TaskStatusCode;
   /** Text summary of the resource, for human interpretation. */
