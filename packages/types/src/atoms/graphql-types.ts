@@ -605,7 +605,7 @@ export type CarePlanDocumentInput = {
   activities?: Maybe<Array<Maybe<CarePlanActivityInput>>>;
   carePlanId: Scalars['Guid'];
   goalEvaluations?: Maybe<Array<Maybe<CarePlanGoalEvaluationInput>>>;
-  signatories?: Maybe<Array<Maybe<SignatoryInputType>>>;
+  signatories?: Maybe<Array<SignatoryInputType>>;
 };
 
 /** Goal evaluations from the care plan */
@@ -644,7 +644,7 @@ export type CarePlanModelInput = {
   reasonCode?: Maybe<Scalars['String']>;
   reasonText?: Maybe<Scalars['String']>;
   requestCountersignature?: Maybe<Scalars['Boolean']>;
-  signatories?: Maybe<Array<Maybe<SignatoryInputType>>>;
+  signatories?: Maybe<Array<SignatoryInputType>>;
 };
 
 export enum CarePlanStatusCode {
@@ -658,11 +658,10 @@ export enum CarePlanStatusCode {
 }
 
 export enum ClinicalApprovalStatus {
-  Approved = 'APPROVED',
   Cancelled = 'CANCELLED',
-  Denied = 'DENIED',
   Expired = 'EXPIRED',
-  Requested = 'REQUESTED'
+  Requested = 'REQUESTED',
+  Reviewed = 'REVIEWED'
 }
 
 /** A reference to one or more terminologies or ontologies but may also be defined by the provision of text. */
@@ -1565,6 +1564,7 @@ export type EhrMutationAddPlanDefinitionFavouriteArgs = {
 export type EhrMutationCompleteCarePlanArgs = {
   carePlanId: Scalars['Guid'];
   patientGuid: Scalars['Guid'];
+  signatories?: Maybe<Array<SignatoryInputType>>;
   template: Scalars['String'];
 };
 
@@ -1575,6 +1575,7 @@ export type EhrMutationDiscontinueCarePlanArgs = {
   patientGuid: Scalars['Guid'];
   reasonCode: Scalars['String'];
   reasonText: Scalars['String'];
+  signatories?: Maybe<Array<SignatoryInputType>>;
   template: Scalars['String'];
 };
 
@@ -1593,6 +1594,7 @@ export type EhrMutationPauseCarePlanArgs = {
   patientGuid: Scalars['Guid'];
   reasonCode: Scalars['String'];
   reasonText: Scalars['String'];
+  signatories?: Maybe<Array<SignatoryInputType>>;
   template?: Maybe<Scalars['String']>;
 };
 
@@ -1616,6 +1618,7 @@ export type EhrMutationRemovePlanDefinitionFavouriteArgs = {
 export type EhrMutationResumeCarePlanArgs = {
   carePlanId: Scalars['Guid'];
   patientGuid: Scalars['Guid'];
+  signatories?: Maybe<Array<SignatoryInputType>>;
   template?: Maybe<Scalars['String']>;
 };
 
@@ -1650,6 +1653,7 @@ export type EhrMutationUpdateCarePlanArgs = {
   carePlanId: Scalars['Guid'];
   model: CarePlanModelInput;
   patientGuid: Scalars['Guid'];
+  signatories?: Maybe<Array<SignatoryInputType>>;
   template: Scalars['String'];
 };
 
@@ -3613,6 +3617,7 @@ export type SampledData = {
 export type SignatoryInputType = {
   /** User guid if Type is User OR Team Contact guid if Type is Team. */
   guid: Scalars['Guid'];
+  name?: Maybe<Scalars['String']>;
   type: SignatoryType;
 };
 
