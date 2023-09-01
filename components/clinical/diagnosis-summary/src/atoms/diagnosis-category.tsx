@@ -3,7 +3,7 @@ import styled from '@emotion/styled'
 
 import { TEXT_COLOURS } from '@ltht-react/styles'
 import { Condition } from '@ltht-react/types'
-import { codeableConceptDisplaySummary, codeableConceptTextSummary } from '@ltht-react/utils'
+import { codeableConceptDisplaySummary } from '@ltht-react/utils'
 
 const StyledConditionCategory = styled.div<IStyledDescription>`
   color: ${TEXT_COLOURS.SECONDARY.VALUE};
@@ -14,14 +14,9 @@ const StyledConditionCategory = styled.div<IStyledDescription>`
 `
 
 const DiagnosisCategory: FC<Props> = ({ condition, enteredInError, ...rest }) => {
-  const values = []
-
-  if (condition.category && condition.category.length) values.push(codeableConceptTextSummary(condition.category))
-  if (condition.severity) values.push(codeableConceptDisplaySummary(condition.severity))
-
   return (
     <StyledConditionCategory enteredInError={enteredInError} {...rest}>
-      {values.join(' - ')}
+      {codeableConceptDisplaySummary(condition.severity)}
     </StyledConditionCategory>
   )
 }
