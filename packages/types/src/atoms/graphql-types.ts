@@ -1308,8 +1308,8 @@ export type EhrClinicalDataHistoryForPatientByUserArgs = {
   cursorToken?: Maybe<Scalars['String']>;
   from?: Maybe<Scalars['DateTimeOffset']>;
   patientGuid: Scalars['Guid'];
-  status?: Maybe<ClinicalApprovalStatus>;
-  templateName?: Maybe<Scalars['String']>;
+  statuses?: Maybe<Array<ClinicalApprovalStatus>>;
+  templateNames?: Maybe<Array<Scalars['String']>>;
   to?: Maybe<Scalars['DateTimeOffset']>;
 };
 
@@ -1319,8 +1319,8 @@ export type EhrClinicalDataHistoryForUserArgs = {
   count?: Maybe<Scalars['Int']>;
   cursorToken?: Maybe<Scalars['String']>;
   from?: Maybe<Scalars['DateTimeOffset']>;
-  status?: Maybe<ClinicalApprovalStatus>;
-  templateName?: Maybe<Scalars['String']>;
+  statuses?: Maybe<Array<ClinicalApprovalStatus>>;
+  templateNames?: Maybe<Array<Scalars['String']>>;
   to?: Maybe<Scalars['DateTimeOffset']>;
 };
 
