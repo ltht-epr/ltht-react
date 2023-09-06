@@ -3,45 +3,7 @@ import DiagnosisCategory from '@ltht-react/diagnosis-summary/src/atoms/diagnosis
 import conditions from '../../organisms/diagnosis/diagnosis.fixtures'
 
 describe('Diagnosis Category', () => {
-  it('renders category and severity if provided', () => {
-    const conditionWithCategoryAndSeverity = conditions[0]
-    conditionWithCategoryAndSeverity.category = [
-      {
-        text: 'Category1',
-      },
-      {
-        text: 'Category2',
-      },
-    ]
-
-    conditionWithCategoryAndSeverity.severity = {
-      text: 'Severity',
-    }
-
-    render(<DiagnosisCategory condition={conditionWithCategoryAndSeverity} enteredInError={false} />)
-
-    expect(screen.getByText('Category1, Category2 - Severity')).toBeVisible()
-  })
-
-  it('renders only category if severity was not provided', () => {
-    const conditionWithCategory = conditions[0]
-    conditionWithCategory.category = [
-      {
-        text: 'Category1',
-      },
-      {
-        text: 'Category2',
-      },
-    ]
-
-    conditionWithCategory.severity = undefined
-
-    render(<DiagnosisCategory condition={conditionWithCategory} enteredInError={false} />)
-
-    expect(screen.getByText('Category1, Category2')).toBeVisible()
-  })
-
-  it('renders only severity if category was not provided', () => {
+  it('renders severity if severity is provided', () => {
     const conditionWithSeverity = conditions[0]
     conditionWithSeverity.category = undefined
 
@@ -55,22 +17,14 @@ describe('Diagnosis Category', () => {
   })
 
   it('Adds the strikethrough property if entered in error', () => {
-    const conditionWithCategoryAndSeverity = conditions[0]
-    conditionWithCategoryAndSeverity.category = [
-      {
-        text: 'Category1',
-      },
-      {
-        text: 'Category2',
-      },
-    ]
+    const conditionWithSeverity = conditions[0]
 
-    conditionWithCategoryAndSeverity.severity = {
+    conditionWithSeverity.severity = {
       text: 'Severity',
     }
 
-    render(<DiagnosisCategory condition={conditionWithCategoryAndSeverity} enteredInError />)
+    render(<DiagnosisCategory condition={conditionWithSeverity} enteredInError />)
 
-    expect(screen.getByText('Category1, Category2 - Severity')).toHaveStyle('text-decoration: line-through')
+    expect(screen.getByText('Severity')).toHaveStyle('text-decoration: line-through')
   })
 })
