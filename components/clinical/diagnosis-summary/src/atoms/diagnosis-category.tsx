@@ -13,13 +13,11 @@ const StyledConditionCategory = styled.div<IStyledDescription>`
   text-decoration: ${({ enteredInError }) => (enteredInError ? 'line-through' : 'none')};
 `
 
-const DiagnosisCategory: FC<Props> = ({ condition, enteredInError, ...rest }) => {
-  return (
-    <StyledConditionCategory enteredInError={enteredInError} {...rest}>
-      {codeableConceptDisplaySummary(condition.severity)}
-    </StyledConditionCategory>
-  )
-}
+const DiagnosisCategory: FC<Props> = ({ condition, enteredInError, ...rest }) => (
+  <StyledConditionCategory enteredInError={enteredInError} {...rest}>
+    {codeableConceptDisplaySummary(condition.severity)}
+  </StyledConditionCategory>
+)
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   condition: Condition
