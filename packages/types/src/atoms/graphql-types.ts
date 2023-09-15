@@ -1584,6 +1584,7 @@ export type EhrMutationDiscontinueCarePlanArgs = {
 export type EhrMutationDocumentCarePlanArgs = {
   document: CarePlanDocumentInput;
   patientGuid: Scalars['Guid'];
+  signatories?: Maybe<Array<SignatoryInputType>>;
 };
 
 
