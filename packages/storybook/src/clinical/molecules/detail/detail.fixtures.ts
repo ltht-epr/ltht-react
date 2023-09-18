@@ -143,6 +143,7 @@ const asserter: ConditionAsserter = {
   display: 'John Smith (Dr)',
   asserterName: 'John smith (Dr)',
   asserterType: 'Practitioner',
+  asserterAddress: 'Asserter Address Line 1, Line 2, Post Code',
 }
 
 export {

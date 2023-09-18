@@ -760,6 +760,7 @@ export enum ConditionAdmissionPeriodType {
 }
 
 export type ConditionAsserter = {
+  asserterAddress?: Maybe<Scalars['String']>;
   asserterName?: Maybe<Scalars['String']>;
   asserterType?: Maybe<Scalars['String']>;
   /** Text alternative for the resource. */
