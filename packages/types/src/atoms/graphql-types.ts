@@ -605,7 +605,6 @@ export type CarePlanDocumentInput = {
   activities?: Maybe<Array<Maybe<CarePlanActivityInput>>>;
   carePlanId: Scalars['Guid'];
   goalEvaluations?: Maybe<Array<Maybe<CarePlanGoalEvaluationInput>>>;
-  signatories?: Maybe<Array<SignatoryInputType>>;
 };
 
 /** Goal evaluations from the care plan */
@@ -643,8 +642,6 @@ export type CarePlanModelInput = {
   planDefinitionSeriesId?: Maybe<Scalars['String']>;
   reasonCode?: Maybe<Scalars['String']>;
   reasonText?: Maybe<Scalars['String']>;
-  requestCountersignature?: Maybe<Scalars['Boolean']>;
-  signatories?: Maybe<Array<SignatoryInputType>>;
 };
 
 export enum CarePlanStatusCode {
@@ -1542,6 +1539,7 @@ export type EhrMutation = {
 export type EhrMutationAddCarePlanArgs = {
   model: CarePlanModelInput;
   patientGuid: Scalars['Guid'];
+  signatories?: Maybe<Array<SignatoryInputType>>;
   template: Scalars['String'];
 };
 
