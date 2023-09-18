@@ -12,6 +12,9 @@ const AsserterDetail: DetailViewComponent<IAsserterDetailProps> = ({ asserter, s
         <NestedListDetail term="Asserter Relationship" showIfEmpty={showIfEmpty}>
           {asserter?.asserterType}
         </NestedListDetail>
+        <NestedListDetail term="Asserter Address" showIfEmpty={showIfEmpty}>
+          {asserter?.asserterAddress}
+        </NestedListDetail>
       </>
     )}
   </>
