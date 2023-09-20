@@ -1520,6 +1520,8 @@ export type EhrMutation = {
   removePatientFromGroup?: Maybe<Group>;
   /** Remove a favourite plan definition */
   removePlanDefinitionFavourite?: Maybe<PlanDefinition>;
+  /** Raise a request for countersignature. */
+  requestCountersignature?: Maybe<Parameters>;
   /** Resume all Care Plan Expected Actions */
   resumeCarePlan?: Maybe<CarePlan>;
   /** Update Diagnosis */
@@ -1611,6 +1613,13 @@ export type EhrMutationRemovePatientFromGroupArgs = {
 export type EhrMutationRemovePlanDefinitionFavouriteArgs = {
   planDefinitionId: Scalars['Guid'];
   planDefinitionSeriesId: Scalars['Guid'];
+};
+
+
+/** Mutations of the LTHT EHR. */
+export type EhrMutationRequestCountersignatureArgs = {
+  documents: Array<Maybe<QuestionnaireResponseReferenceInputType>>;
+  signatories: Array<SignatoryInputType>;
 };
 
 
@@ -2420,6 +2429,20 @@ export type Identifier = {
   value: Scalars['String'];
 };
 
+/** An identifier intended for computation. */
+export type IdentifierInputType = {
+  /** Time period when id is/was valid for use. */
+  period?: Maybe<PeriodInputGraphType>;
+  /** The namespace for the identifier value. */
+  system?: Maybe<Scalars['String']>;
+  /** Description of identifier. */
+  type?: Maybe<CodeableConceptInput>;
+  /** The purpose of this identifier. */
+  use?: Maybe<UseCode>;
+  /** The value that is unique. */
+  value?: Maybe<Scalars['String']>;
+};
+
 export enum IdentifierUseCode {
   Official = 'OFFICIAL',
   Secondary = 'SECONDARY',
@@ -2936,6 +2959,20 @@ export type PatientDeceased = {
   extension?: Maybe<Array<Maybe<Extension>>>;
 };
 
+/** Patient identifier. */
+export type PatientIdentifierInputType = {
+  /** Type of patient identifier. */
+  type: PatientIdentifierTypeInputType;
+  /** Unique identifier for the patient. */
+  value: Scalars['String'];
+};
+
+export enum PatientIdentifierTypeInputType {
+  DataProviderFhirId = 'DATA_PROVIDER_FHIR_ID',
+  EhrPatientGuid = 'EHR_PATIENT_GUID',
+  NhsNumber = 'NHS_NUMBER'
+}
+
 /** Link to another patient resource that concerns the same actual person. */
 export type PatientLink = {
   /** Unique id for inter-element referencing. */
@@ -2978,6 +3015,14 @@ export type Period = {
   extension?: Maybe<Array<Maybe<Extension>>>;
   /** Starting time with inclusive boundary. */
   start?: Maybe<PartialDateTime>;
+};
+
+/** Time range defined by start and end date/time */
+export type PeriodInputGraphType = {
+  /** End time with inclusive boundary, if not ongoing. */
+  end?: Maybe<PartialDateTimeInput>;
+  /** Starting time with inclusive boundary. */
+  start?: Maybe<PartialDateTimeInput>;
 };
 
 /** https://www.hl7.org/fhir/R4/plandefinition.html */
@@ -3496,6 +3541,16 @@ export type QuestionnaireResponseItemAnswer = {
   valueString?: Maybe<Scalars['String']>;
 };
 
+/** A reference to a questionnaire response. */
+export type QuestionnaireResponseReferenceInputType = {
+  /** Primary identifier for the questionnaire response. */
+  id: Scalars['String'];
+  /** Alternative identifiers for the questionnaire response. */
+  identifier?: Maybe<Array<IdentifierInputType>>;
+  /** The patient that questionnaire response is applicable to. */
+  patient: PatientIdentifierInputType;
+};
+
 export enum QuestionnaireResponseStatus {
   Amended = 'AMENDED',
   Completed = 'COMPLETED',
@@ -3776,6 +3831,13 @@ export type UsageContext = {
   valueRange?: Maybe<Range>;
   valueReference?: Maybe<ResourceReference>;
 };
+
+export enum UseCode {
+  Official = 'OFFICIAL',
+  Secondary = 'SECONDARY',
+  Temp = 'TEMP',
+  Usual = 'USUAL'
+}
 
 /** The currently logged-in User Identity and Permissions. */
 export type User = {
