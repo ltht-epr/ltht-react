@@ -2005,6 +2005,7 @@ export enum EntityType {
   TrustWideWatchListManagement = 'TRUST_WIDE_WATCH_LIST_MANAGEMENT',
   User = 'USER',
   VirtualWard = 'VIRTUAL_WARD',
+  Vte = 'VTE',
   WaitingTime = 'WAITING_TIME',
   Ward = 'WARD',
   WardAttender = 'WARD_ATTENDER',
@@ -3549,6 +3550,8 @@ export type QuestionnaireResponseReferenceInputType = {
   identifier?: Maybe<Array<IdentifierInputType>>;
   /** The patient that questionnaire response is applicable to. */
   patient: PatientIdentifierInputType;
+  /** The template associated with the response data. */
+  templateName: Scalars['String'];
 };
 
 export enum QuestionnaireResponseStatus {
