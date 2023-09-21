@@ -15,6 +15,6 @@ describe('Task', () => {
 
     expect(screen.getByRole('button')).toBeVisible()
 
-    expect(screen.getByRole('img', { hidden: true })).toHaveClass('icon__ellipsis-vertical')
+    expect(screen.getByRole('img', { hidden: true })).toHaveClass('icon__ellipsis-horizontal')
   })
 })

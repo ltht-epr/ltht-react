@@ -25,8 +25,7 @@ const StyledTask = styled.div<IStyledTask>`
   `}
 `
 const StyledActionMenu = styled(ActionMenu)`
-  margin-left: auto;
-  margin-right: 0.3rem;
+  margin-left: 0.4rem;
 `
 
 const RightSection = styled.div`
@@ -48,6 +47,12 @@ const Task: FC<IProps> = ({
   return (
     <StyledTask status={status}>
       <Description cancelled={status === TaskStatusCode.Cancelled} description={description} />
+      <RightSection>
+        {![TaskStatusCode.Complete, TaskStatusCode.Cancelled].includes(status) && (
+          <Date executionPeriod={executionPeriod} status={status} />
+        )}
+        <Status status={status} />
+      </RightSection>
       {actions && (
         <StyledActionMenu
           id="look-at-me"
@@ -60,19 +65,13 @@ const Task: FC<IProps> = ({
                 buttonStyle: 'standard',
                 padding: '0.4rem',
               },
-              icon: <Icon {...{ type: 'ellipsis-vertical', size: 'medium' }} />,
+              icon: <Icon {...{ type: 'ellipsis-horizontal', size: 'medium' }} />,
               iconPlacement: 'center',
               color: `${BTN_COLOURS.DANGER.VALUE}`,
             },
           }}
         />
       )}
-      <RightSection>
-        {![TaskStatusCode.Complete, TaskStatusCode.Cancelled].includes(status) && (
-          <Date executionPeriod={executionPeriod} status={status} />
-        )}
-        <Status status={status} />
-      </RightSection>
     </StyledTask>
   )
 }
