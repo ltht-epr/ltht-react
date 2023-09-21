@@ -1,3 +1,4 @@
+import { ActionMenuOption } from '@ltht-react/menu'
 import { Task, IntentCode, TaskStatusCode, Metadata } from '@ltht-react/types'
 
 const mockMetadata: Metadata = {
@@ -179,5 +180,10 @@ export const RedactedTask: Task = {
   },
   description: 'Redacted Task Description',
 }
+
+export const TaskActions: ActionMenuOption[] = [
+  { text: 'Close', clickHandler: () => undefined, leftIcon: { type: 'cross', size: 'medium', color: 'red' } },
+  { text: 'Reassign', clickHandler: () => undefined, leftIcon: { type: 'edit', size: 'medium', color: 'info-blue' } },
+]
 
 export const Tasks: Task[] = [Task1, Task2, Task3, Task4, Task5, CompletedTask, CancelledTask]
