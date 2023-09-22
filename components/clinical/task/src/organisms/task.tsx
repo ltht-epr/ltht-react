@@ -4,8 +4,6 @@ import { Task as ITask, TaskStatusCode } from '@ltht-react/types'
 import ActionMenu, { ActionMenuOption } from '@ltht-react/menu'
 import Icon from '@ltht-react/icon'
 import { BTN_COLOURS } from '@ltht-react/styles'
-import { isMobileView } from '@ltht-react/utils'
-import { useWindowSize } from '@ltht-react/hooks'
 import Description from '../atoms/task-description'
 import Date from '../atoms/task-date'
 import Status from '../atoms/task-status'
@@ -50,10 +48,7 @@ const RightSection = styled.div`
   flex-grow: 0;
   flex-basis: fit-content;
   flex-shrink: 1;
-`
-
-const StyledStatusAndDue = styled.div<IStyledMobile>`
-  min-width: ${({ isMobile }) => (isMobile ? '50px' : '100px')};
+  min-width: 100px;
 `
 
 const Task: FC<IProps> = ({
@@ -67,9 +62,6 @@ const Task: FC<IProps> = ({
   assignedUser,
   actions,
 }) => {
-  const { width } = useWindowSize()
-  const isMobile = isMobileView(width)
-
   if (isRedacted) return <Redacted executionPeriod={executionPeriod} status={status} />
 
   return (
@@ -101,12 +93,10 @@ const Task: FC<IProps> = ({
       </ActionMenuSection>
 
       <RightSection>
-        <StyledStatusAndDue isMobile={isMobile}>
-          {![TaskStatusCode.Complete, TaskStatusCode.Cancelled].includes(status) && (
-            <Date executionPeriod={executionPeriod} status={status} />
-          )}
-          <Status status={status} />
-        </StyledStatusAndDue>
+        {![TaskStatusCode.Complete, TaskStatusCode.Cancelled].includes(status) && (
+          <Date executionPeriod={executionPeriod} status={status} />
+        )}
+        <Status status={status} />
       </RightSection>
     </StyledTask>
   )
@@ -121,10 +111,6 @@ interface IProps {
 
 interface IStyledTask {
   status: TaskStatusCode
-}
-
-interface IStyledMobile {
-  isMobile: boolean
 }
 
 export default Task
