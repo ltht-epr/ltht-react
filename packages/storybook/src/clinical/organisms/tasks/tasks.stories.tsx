@@ -3,7 +3,7 @@ import { Story } from '@storybook/react'
 import Card from '@ltht-react/card'
 import Task from '@ltht-react/task'
 
-import { RedactedTask, CompletedTask, CancelledTask, Tasks } from './tasks.fixtures'
+import { RedactedTask, CompletedTask, CancelledTask, Tasks, TaskActions } from './tasks.fixtures'
 
 export const TasksStory: Story = () => {
   const [selectedTaskId, setSelectedTaskId] = useState('')
@@ -76,6 +76,26 @@ export const Cancelled: Story = () => (
       <Card.ListItem>
         <Task task={CancelledTask} />
       </Card.ListItem>
+    </Card.List>
+  </Card>
+)
+
+export const WithActions: Story = () => (
+  <Card>
+    <Card.Header>
+      <Card.Title>Tasks with Actions</Card.Title>
+    </Card.Header>
+    <Card.List>
+      {Tasks.map((task, index) => (
+        <Card.ListItem>
+          <Task
+            task={task}
+            assignedTeam={index % 2 === 0 ? 'Clinical Genetics' : undefined}
+            assignedUser={index % 3 === 0 ? 'Dr. Reginald Berkeley (MRI)' : undefined}
+            actions={index % 2 === 0 ? TaskActions : undefined}
+          />
+        </Card.ListItem>
+      ))}
     </Card.List>
   </Card>
 )

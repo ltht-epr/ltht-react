@@ -46,6 +46,7 @@ import {
   faToggleOff,
   faTrashAlt,
   faUser,
+  faUsers,
 } from '@fortawesome/free-solid-svg-icons'
 import { Transform } from '@fortawesome/fontawesome-svg-core'
 import CounterIcon from '../molecules/counter-icon'
@@ -298,6 +299,11 @@ const Icon: FC<IconProps> = ({
 
     case 'user': {
       icon = faUser
+      break
+    }
+
+    case 'users': {
+      icon = faUsers
       break
     }
 

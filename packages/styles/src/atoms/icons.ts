@@ -49,6 +49,7 @@ export const iconTypes = [
   'toggle-on',
   'trash',
   'user',
+  'users',
   'dot-circle',
   'search',
   'checkbox',
