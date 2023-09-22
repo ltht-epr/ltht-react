@@ -16,6 +16,7 @@ const StyledTask = styled.div<IStyledTask>`
   display: flex;
   flex-direction: row;
   align-items: center;
+  min-height: 35px;
 
   ${({ status }) =>
     status === TaskStatusCode.Overdue &&
