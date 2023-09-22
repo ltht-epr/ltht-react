@@ -3,13 +3,13 @@ import styled from '@emotion/styled'
 import { TEXT_COLOURS } from '@ltht-react/styles'
 
 const StyledDescription = styled.small`
-  color: ${TEXT_COLOURS.INFO}
+  color: ${TEXT_COLOURS.SECONDARY.VALUE};
   flex: 1;
 `
 
-const Assignee: FC<IProps> = ({ assignedUser, assignedTeam }) => {
-  return <StyledDescription>{calculateAssigneeText(assignedUser, assignedTeam)}</StyledDescription>
-}
+const Assignee: FC<IProps> = ({ assignedUser, assignedTeam }) => (
+  <StyledDescription>{calculateAssigneeText(assignedUser, assignedTeam)}</StyledDescription>
+)
 
 const calculateAssigneeText = (assignedUser: string | undefined, assignedTeam: string | undefined) => {
   if (!assignedUser && !assignedTeam) return null
