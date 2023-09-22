@@ -62,6 +62,8 @@ const Task: FC<IProps> = ({
     metadata: { isRedacted },
     executionPeriod,
   },
+  assignedTeam,
+  assignedUser,
   actions,
 }) => {
   const { width } = useWindowSize()
@@ -73,7 +75,7 @@ const Task: FC<IProps> = ({
     <StyledTask status={status}>
       <LeftSection>
         <Description cancelled={status === TaskStatusCode.Cancelled} description={description} />
-        <Assignee assignedUser="Davey Crocket" assignedTeam="Clinical Genetics" />
+        <Assignee assignedUser={assignedUser} assignedTeam={assignedTeam} />
       </LeftSection>
 
       <ActionMenuSection>
@@ -111,6 +113,8 @@ const Task: FC<IProps> = ({
 
 interface IProps {
   task: ITask
+  assignedTeam?: string
+  assignedUser?: string
   actions?: ActionMenuOption[]
 }
 

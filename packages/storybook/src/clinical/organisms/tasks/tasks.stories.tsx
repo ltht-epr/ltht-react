@@ -88,7 +88,12 @@ export const WithActions: Story = () => (
     <Card.List>
       {Tasks.map((task, index) => (
         <Card.ListItem>
-          <Task task={task} actions={index % 2 === 0 ? TaskActions : undefined} />
+          <Task
+            task={task}
+            assignedTeam={index % 2 === 0 ? 'Clinical Genetics' : undefined}
+            assignedUser={index % 3 === 0 ? 'Dr. Reginald Berkeley (MRI)' : undefined}
+            actions={index % 2 === 0 ? TaskActions : undefined}
+          />
         </Card.ListItem>
       ))}
     </Card.List>
