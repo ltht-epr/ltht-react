@@ -902,6 +902,15 @@ export enum ContactPointUseCode {
   Work = 'WORK'
 }
 
+/** Review for a single countersignature. */
+export type CountersignatureReviewInputType = {
+  approvalId: Scalars['Guid'];
+  notes?: Maybe<Scalars['String']>;
+  patient: PatientIdentifierInputType;
+  templateName: Scalars['String'];
+  verificationMethod: VerificationMethod;
+};
+
 /** Provides information on the availability of data from a given Provider for the current User. */
 export type DataAvailability = {
   /** The sources of the available data. */
@@ -1170,6 +1179,8 @@ export type Ehr = {
   condition?: Maybe<Condition>;
   /** Diagnosis */
   conditions?: Maybe<ConditionContinuation>;
+  /** Gets all open countersignature requests for the user that match the provided filters */
+  countersignatureRequestsForUser?: Maybe<QuestionnaireResponseContinuation>;
   /** Documents */
   documentReferences?: Maybe<DocumentReferenceContinuation>;
   /** Alerts */
@@ -1341,6 +1352,17 @@ export type EhrConditionsArgs = {
   severity?: Maybe<Array<Maybe<Scalars['String']>>>;
   sortBy?: Maybe<SortOptionType>;
   verificationStatus?: Maybe<Array<Maybe<ConditionVerificationStatus>>>;
+};
+
+
+/** Queries the LTHT EHR. */
+export type EhrCountersignatureRequestsForUserArgs = {
+  count?: Maybe<Scalars['Int']>;
+  cursorToken?: Maybe<Scalars['String']>;
+  from?: Maybe<Scalars['DateTimeOffset']>;
+  requesterGuid?: Maybe<Scalars['Guid']>;
+  templateNames?: Maybe<Array<Scalars['String']>>;
+  to?: Maybe<Scalars['DateTimeOffset']>;
 };
 
 
@@ -1520,10 +1542,12 @@ export type EhrMutation = {
   removePatientFromGroup?: Maybe<Group>;
   /** Remove a favourite plan definition */
   removePlanDefinitionFavourite?: Maybe<PlanDefinition>;
-  /** Raise a request for countersignature. */
+  /** Raise requests for countersignature. */
   requestCountersignature?: Maybe<Parameters>;
   /** Resume all Care Plan Expected Actions */
   resumeCarePlan?: Maybe<CarePlan>;
+  /** Review multiple countersignature requests */
+  reviewCountersignatureRequests?: Maybe<Parameters>;
   /** Update Diagnosis */
   setConditionStatus?: Maybe<Condition>;
   /** Create a new patient group and assign a patient to it. */
@@ -1618,7 +1642,7 @@ export type EhrMutationRemovePlanDefinitionFavouriteArgs = {
 
 /** Mutations of the LTHT EHR. */
 export type EhrMutationRequestCountersignatureArgs = {
-  documents: Array<Maybe<QuestionnaireResponseReferenceInputType>>;
+  documents: Array<QuestionnaireResponseReferenceInputType>;
   signatories: Array<SignatoryInputType>;
 };
 
@@ -1629,6 +1653,12 @@ export type EhrMutationResumeCarePlanArgs = {
   patientGuid: Scalars['Guid'];
   signatories?: Maybe<Array<SignatoryInputType>>;
   template?: Maybe<Scalars['String']>;
+};
+
+
+/** Mutations of the LTHT EHR. */
+export type EhrMutationReviewCountersignatureRequestsArgs = {
+  reviews: Array<CountersignatureReviewInputType>;
 };
 
 
@@ -3863,6 +3893,11 @@ export type User = {
   /** The username. */
   userName: Scalars['String'];
 };
+
+export enum VerificationMethod {
+  DirectObservation = 'DIRECT_OBSERVATION',
+  Unknown = 'UNKNOWN'
+}
 
 /** Queries the YHCR System-of-Systems. */
 export type Yhcr = {
