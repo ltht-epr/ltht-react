@@ -906,6 +906,7 @@ export enum ContactPointUseCode {
 export type CountersignatureReviewInputType = {
   approvalId: Scalars['Guid'];
   notes?: Maybe<Scalars['String']>;
+  outcome: CodingInput;
   patient: PatientIdentifierInputType;
   templateName: Scalars['String'];
   verificationMethod: VerificationMethod;
