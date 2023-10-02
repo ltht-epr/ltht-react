@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.0.66 (2023-10-02)
+
+**Note:** Version bump only for package @ltht-react/problem
+
+
+
+
+
 ## 1.0.65 (2023-09-28)
 
 **Note:** Version bump only for package @ltht-react/problem
