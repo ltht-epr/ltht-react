@@ -15,10 +15,6 @@ const StyledAnnotationAuthorInfo = styled(DescriptionList.Description)`
   font-weight: bold;
 `
 
-const StyledList = styled.ul`
-  padding-left: 1rem;
-`
-
 const AnnotationListDetail: DetailViewComponent<IProps> = ({ term, notes, showIfEmpty = false }) => {
   if (showIfEmpty !== true && !notes?.length) return <></>
 
@@ -33,7 +29,7 @@ const AnnotationListDetail: DetailViewComponent<IProps> = ({ term, notes, showIf
           : 'annotation-list-detail'
       }
     >
-      <StyledList className="annotation-styled-list">
+      <ul className="annotation-styled-list">
         {notes?.map((note, index) => (
           <li key={`allergy-note-${index + 1}`}>
             {note?.author && <StyledAnnotationAuthorInfo>{note.author?.display}</StyledAnnotationAuthorInfo>}
@@ -41,7 +37,7 @@ const AnnotationListDetail: DetailViewComponent<IProps> = ({ term, notes, showIf
             <StyledAnnotationNoteText>{ReactHtmlParser(ent.decode(note?.text ?? ''))}</StyledAnnotationNoteText>
           </li>
         ))}
-      </StyledList>
+      </ul>
     </NestedListDetail>
   )
 }
