@@ -1592,6 +1592,7 @@ export type EhrMutationAddPlanDefinitionFavouriteArgs = {
 export type EhrMutationCancelCountersignatureRequestArgs = {
   approvalId: Scalars['Guid'];
   patientGuid: Scalars['Guid'];
+  reason?: Maybe<Scalars['String']>;
   templateName: Scalars['String'];
 };
 
