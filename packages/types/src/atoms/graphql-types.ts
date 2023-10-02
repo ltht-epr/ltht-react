@@ -1531,6 +1531,8 @@ export type EhrMutation = {
   addConditions?: Maybe<Array<Maybe<Condition>>>;
   /** Add a favourite plan definition */
   addPlanDefinitionFavourite?: Maybe<PlanDefinition>;
+  /** Cancel an existing countersignature request */
+  cancelCountersignatureRequest?: Maybe<Parameters>;
   /** Complete all Care Plan Expected Actions */
   completeCarePlan?: Maybe<CarePlan>;
   /** Discontinue Care Plan and Expected Actions */
@@ -1583,6 +1585,14 @@ export type EhrMutationAddConditionsArgs = {
 export type EhrMutationAddPlanDefinitionFavouriteArgs = {
   planDefinitionId: Scalars['Guid'];
   planDefinitionSeriesId: Scalars['Guid'];
+};
+
+
+/** Mutations of the LTHT EHR. */
+export type EhrMutationCancelCountersignatureRequestArgs = {
+  approvalId: Scalars['Guid'];
+  patientGuid: Scalars['Guid'];
+  templateName: Scalars['String'];
 };
 
 
