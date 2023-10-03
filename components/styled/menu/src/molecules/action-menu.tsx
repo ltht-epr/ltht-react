@@ -152,7 +152,8 @@ const ActionMenu: FC<IProps> = ({
                   <StyledListItem
                     role="menuitem"
                     key={`menu-action-${idx}`}
-                    onClick={() => {
+                    onClick={(e) => {
+                      e.stopPropagation()
                       menuButtonClickHandler()
                       action.clickHandler()
                     }}
