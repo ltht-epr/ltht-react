@@ -124,7 +124,10 @@ const ActionMenu: FC<IProps> = ({
               iconProps={menuButtonOptions.iconProps}
               text={menuButtonOptions.text}
               {...rest}
-              onClick={menuButtonClickHandler}
+              onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
+                e.stopPropagation()
+                menuButtonClickHandler()
+              }}
               id={id}
               data-testid={id}
             />
@@ -133,7 +136,10 @@ const ActionMenu: FC<IProps> = ({
             <Button
               {...menuButtonOptions.buttonProps}
               {...rest}
-              onClick={menuButtonClickHandler}
+              onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
+                e.stopPropagation()
+                menuButtonClickHandler()
+              }}
               id={id}
               data-testid={id}
             >
