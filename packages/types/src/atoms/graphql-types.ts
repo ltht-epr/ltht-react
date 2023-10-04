@@ -3761,6 +3761,8 @@ export type Task = {
   priority?: Maybe<PriorityCode>;
   /** Who, What, When for a set of resources. */
   provenance?: Maybe<Array<Provenance>>;
+  /** The requested performers for the task */
+  requestedPerformer: CodeableConcept;
   /** EHR task status */
   status: TaskStatusCode;
   /** Text summary of the resource, for human interpretation. */
