@@ -1180,6 +1180,8 @@ export type Ehr = {
   condition?: Maybe<Condition>;
   /** Diagnosis */
   conditions?: Maybe<ConditionContinuation>;
+  /** Get countersignature requests raised against a specific document */
+  countersignatureRequestsForDocument?: Maybe<ProvenanceContinuationType>;
   /** Gets all open countersignature requests for the user that match the provided filters */
   countersignatureRequestsForUser?: Maybe<QuestionnaireResponseContinuation>;
   /** Documents */
@@ -1353,6 +1355,20 @@ export type EhrConditionsArgs = {
   severity?: Maybe<Array<Maybe<Scalars['String']>>>;
   sortBy?: Maybe<SortOptionType>;
   verificationStatus?: Maybe<Array<Maybe<ConditionVerificationStatus>>>;
+};
+
+
+/** Queries the LTHT EHR. */
+export type EhrCountersignatureRequestsForDocumentArgs = {
+  count?: Maybe<Scalars['Int']>;
+  countersignatureStatuses?: Maybe<Array<Maybe<ClinicalApprovalStatus>>>;
+  cursorToken?: Maybe<Scalars['String']>;
+  from?: Maybe<Scalars['DateTimeOffset']>;
+  instanceGuid: Scalars['Guid'];
+  patientGuid: Scalars['Guid'];
+  setGuid: Scalars['Guid'];
+  templateName: Scalars['String'];
+  to?: Maybe<Scalars['DateTimeOffset']>;
 };
 
 
@@ -3303,6 +3319,20 @@ export type ProvenanceAgent = {
   type?: Maybe<CodeableConcept>;
   /** Who participated. */
   who: ResourceReference;
+};
+
+/** A continuation of Provenance resources. */
+export type ProvenanceContinuationType = {
+  /** The first cursor token. */
+  firstCursorToken?: Maybe<Scalars['String']>;
+  /** The next cursor token. */
+  nextCursorToken?: Maybe<Scalars['String']>;
+  /** The continuation of Provenance resources. */
+  resources: Array<Provenance>;
+  /** The self cursor token. */
+  selfCursorToken: Scalars['String'];
+  /** The total number of resources available (if known). */
+  totalResources?: Maybe<Scalars['Int']>;
 };
 
 /** An entity used in this activity. */
