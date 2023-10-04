@@ -1494,6 +1494,7 @@ export type EhrSummaryViewEntriesArgs = {
 
 /** Queries the LTHT EHR. */
 export type EhrTasksArgs = {
+  assignee?: Maybe<Array<Maybe<TaskAssigneeFilter>>>;
   count?: Maybe<Scalars['Int']>;
   cursorToken?: Maybe<Scalars['String']>;
   pathwayId?: Maybe<Scalars['String']>;
@@ -1501,7 +1502,8 @@ export type EhrTasksArgs = {
   patientGuid: Scalars['String'];
   processId?: Maybe<Scalars['String']>;
   processName?: Maybe<Scalars['String']>;
-  status?: Array<Maybe<TaskStatusCode>>;
+  sortBy?: Maybe<TaskSorting>;
+  status?: Maybe<Array<Maybe<TaskStatusCode>>>;
   tags?: Maybe<Array<Maybe<Scalars['String']>>>;
 };
 
@@ -3759,11 +3761,18 @@ export type Task = {
   priority?: Maybe<PriorityCode>;
   /** Who, What, When for a set of resources. */
   provenance?: Maybe<Array<Provenance>>;
+  /** The requested performers for the task */
+  requestedPerformer: CodeableConcept;
   /** EHR task status */
   status: TaskStatusCode;
   /** Text summary of the resource, for human interpretation. */
   text?: Maybe<Narrative>;
 };
+
+export enum TaskAssigneeFilter {
+  Me = 'ME',
+  MyTeams = 'MY_TEAMS'
+}
 
 /** A continuation of Task resources. */
 export type TaskContinuation = {
@@ -3778,6 +3787,13 @@ export type TaskContinuation = {
   /** The total number of resources available (if known). */
   totalResources?: Maybe<Scalars['Int']>;
 };
+
+export enum TaskSorting {
+  AlphabeticalAsc = 'ALPHABETICAL_ASC',
+  AlphabeticalDesc = 'ALPHABETICAL_DESC',
+  StatusAndDateAsc = 'STATUS_AND_DATE_ASC',
+  StatusAndDateDesc = 'STATUS_AND_DATE_DESC'
+}
 
 export enum TaskStatusCode {
   Cancelled = 'CANCELLED',
