@@ -3762,7 +3762,7 @@ export type Task = {
   /** Who, What, When for a set of resources. */
   provenance?: Maybe<Array<Provenance>>;
   /** The requested performers for the task */
-  requestedPerformer: CodeableConcept;
+  requestedPerformer?: Maybe<CodeableConcept>;
   /** EHR task status */
   status: TaskStatusCode;
   /** Text summary of the resource, for human interpretation. */
