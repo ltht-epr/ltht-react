@@ -642,7 +642,7 @@ export type CarePlanModelInput = {
   planDefinitionSeriesId?: Maybe<Scalars['String']>;
   reasonCode?: Maybe<Scalars['String']>;
   reasonText?: Maybe<Scalars['String']>;
-  useContexts?: Maybe<Array<Maybe<CodingInput>>>;
+  useContexts?: Maybe<Array<Maybe<UsageContextInput>>>;
 };
 
 export enum CarePlanStatusCode {
@@ -3922,6 +3922,12 @@ export type UsageContext = {
   valueQuantity?: Maybe<Quantity>;
   valueRange?: Maybe<Range>;
   valueReference?: Maybe<ResourceReference>;
+};
+
+/** Describes the context of use for a conformance or knowledge resource */
+export type UsageContextInput = {
+  code: CodingInput;
+  valueCodeableConcept?: Maybe<CodeableConceptInput>;
 };
 
 export enum UseCode {
