@@ -1,6 +1,6 @@
 {
   "name": "@ltht-react/timeline",
-  "version": "1.0.254",
+  "version": "1.0.255",
   "description": "> TODO: description",
   "author": "Jonny Dyson",
   "homepage": "",
@@ -23,13 +23,13 @@
   },
   "dependencies": {
     "@emotion/styled": "^11.0.0",
-    "@ltht-react/banner": "^1.0.239",
-    "@ltht-react/hooks": "^1.0.256",
-    "@ltht-react/icon": "^1.3.266",
-    "@ltht-react/select": "^1.3.266",
-    "@ltht-react/styles": "^1.3.258",
-    "@ltht-react/types": "^1.0.262",
-    "@ltht-react/utils": "^1.1.264",
+    "@ltht-react/banner": "^1.0.240",
+    "@ltht-react/hooks": "^1.0.257",
+    "@ltht-react/icon": "^1.3.267",
+    "@ltht-react/select": "^1.3.267",
+    "@ltht-react/styles": "^1.3.259",
+    "@ltht-react/types": "^1.0.263",
+    "@ltht-react/utils": "^1.1.265",
     "react": "^17.0.0",
     "react-html-parser": "^2.0.2"
   },
