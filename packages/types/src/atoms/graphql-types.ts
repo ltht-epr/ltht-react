@@ -642,6 +642,7 @@ export type CarePlanModelInput = {
   planDefinitionSeriesId?: Maybe<Scalars['String']>;
   reasonCode?: Maybe<Scalars['String']>;
   reasonText?: Maybe<Scalars['String']>;
+  useContexts?: Maybe<Array<Maybe<CodingInput>>>;
 };
 
 export enum CarePlanStatusCode {
