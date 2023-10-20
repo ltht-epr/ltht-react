@@ -21,6 +21,8 @@ const redactedMetadata: Metadata = {
   requestedWhen: '',
 }
 
+const now = new Date()
+now.setMinutes(now.getMinutes() - 20)
 const Task1: Task = {
   id: 'task-1',
   isEnteredInError: false,
@@ -33,10 +35,10 @@ const Task1: Task = {
   },
   executionPeriod: {
     start: {
-      value: '2021-10-22T10:12:00+01:00',
+      value: now.toDateString(),
     },
     end: {
-      value: '2021-10-21T20:43:19+01:00',
+      value: now.toDateString(),
     },
   },
 }
@@ -102,12 +104,12 @@ const Task4: Task = {
 }
 
 const Task5: Task = {
-  id: 'task-4',
+  id: 'task-5',
   isEnteredInError: false,
   intent: IntentCode.Plan,
   metadata: mockMetadata,
   status: TaskStatusCode.NotYetDue,
-  description: 'Task 4 Description',
+  description: 'Task 5 Description',
   performerType: {
     text: 'Forms',
   },

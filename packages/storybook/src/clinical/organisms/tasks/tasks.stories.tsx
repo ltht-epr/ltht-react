@@ -100,4 +100,43 @@ export const WithActions: Story = () => (
   </Card>
 )
 
+export const WithActionsAndInteraction: Story = () => {
+  const [selectedTaskId, setSelectedTaskId] = useState('')
+
+  const handleSelectTask = (taskId: string) => {
+    // eslint-disable-next-line no-console
+    console.log(`${taskId} Clicked!`)
+    setSelectedTaskId(taskId)
+  }
+  return (
+    <Card>
+      <Card.Header>
+        <Card.Title>Tasks with Actions & Interaction</Card.Title>
+      </Card.Header>
+      <Card.List>
+        {Tasks.map((task, index) => {
+          const canPerformAction = !['COMPLETE', 'CANCELLED'].includes(task.status) && !task.metadata.isRedacted
+
+          const props = {
+            key: task.id,
+            selected: task.id === selectedTaskId,
+            ...(canPerformAction && { onClick: () => handleSelectTask(task.id) }),
+          }
+
+          return (
+            <Card.ListItem {...props}>
+              <Task
+                task={task}
+                assignedTeam={index % 2 === 0 ? 'Clinical Genetics' : undefined}
+                assignedUser={index % 3 === 0 ? 'Dr. Reginald Berkeley (MRI)' : undefined}
+                actions={index % 2 === 0 ? TaskActions : undefined}
+              />
+            </Card.ListItem>
+          )
+        })}
+      </Card.List>
+    </Card>
+  )
+}
+
 export default { title: 'Clinical/Organisms/Tasks' }

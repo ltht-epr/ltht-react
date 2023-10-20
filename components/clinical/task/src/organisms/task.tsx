@@ -29,26 +29,24 @@ const StyledTask = styled.div<IStyledTask>`
 `
 
 const LeftSection = styled.div`
+  flex-basis: fit-content;
+  flex-grow: 1;
   text-align: left;
   margin-right: 0.4rem;
-  flex-grow: 1;
-  flex-basis: fit-content;
-`
-
-const ActionMenuSection = styled.div`
-  margin-left: auto;
-  margin-left: 0.3rem;
-  flex-grow: 0;
-  flex-basis: fit-content;
 `
 
 const RightSection = styled.div`
-  text-align: right;
-  margin-left: 0.4rem;
-  flex-grow: 0;
   flex-basis: fit-content;
-  flex-shrink: 1;
+  text-align: right;
+  margin-left: 0.1rem;
   min-width: 100px;
+`
+
+const ActionMenuSection = styled.div`
+  flex-basis: fit-content;
+  text-align: right;
+  margin-left: 0.6rem;
+  min-width: 28px;
 `
 
 const Task: FC<IProps> = ({
@@ -71,6 +69,13 @@ const Task: FC<IProps> = ({
         <Assignee assignedUser={assignedUser} assignedTeam={assignedTeam} />
       </LeftSection>
 
+      <RightSection>
+        {![TaskStatusCode.Complete, TaskStatusCode.Cancelled].includes(status) && (
+          <Date executionPeriod={executionPeriod} status={status} />
+        )}
+        <Status status={status} />
+      </RightSection>
+
       <ActionMenuSection>
         {actions && (
           <ActionMenu
@@ -91,13 +96,6 @@ const Task: FC<IProps> = ({
           />
         )}
       </ActionMenuSection>
-
-      <RightSection>
-        {![TaskStatusCode.Complete, TaskStatusCode.Cancelled].includes(status) && (
-          <Date executionPeriod={executionPeriod} status={status} />
-        )}
-        <Status status={status} />
-      </RightSection>
     </StyledTask>
   )
 }
