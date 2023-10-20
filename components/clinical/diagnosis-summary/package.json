@@ -1,6 +1,6 @@
 {
   "name": "@ltht-react/diagnosis-summary",
-  "version": "1.3.268",
+  "version": "1.3.269",
   "description": "ltht-react clinical DiagnosisSummary component.",
   "author": "LTHT",
   "homepage": "",
@@ -27,14 +27,14 @@
   "dependencies": {
     "@emotion/react": "^11.0.0",
     "@emotion/styled": "^11.0.0",
-    "@ltht-react/button": "^1.3.268",
-    "@ltht-react/hooks": "^1.0.258",
-    "@ltht-react/icon": "^1.3.268",
-    "@ltht-react/list": "^1.3.266",
-    "@ltht-react/styles": "^1.3.260",
-    "@ltht-react/type-summary": "^1.3.268",
-    "@ltht-react/types": "^1.0.264",
-    "@ltht-react/utils": "^1.1.266",
+    "@ltht-react/button": "^1.3.269",
+    "@ltht-react/hooks": "^1.0.259",
+    "@ltht-react/icon": "^1.3.269",
+    "@ltht-react/list": "^1.3.267",
+    "@ltht-react/styles": "^1.3.261",
+    "@ltht-react/type-summary": "^1.3.269",
+    "@ltht-react/types": "^1.0.265",
+    "@ltht-react/utils": "^1.1.267",
     "react": "^17.0.0"
   },
   "gitHead": "4d364556bb11e294d86697c2dac66742f7aabc7f"
