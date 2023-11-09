@@ -16,10 +16,6 @@ const StyledQuestionGroup = styled.div`
   flex-basis: 100%;
   display: flex;
   flex-direction: column;
-
-  .QuestionBlock {
-    padding-left: 0.5rem;
-  }
 `
 
 const GroupHeader = styled.h3`
