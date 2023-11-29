@@ -35,6 +35,6 @@
     "@ltht-react/types": "^1.0.269",
     "@ltht-react/utils": "^1.1.271",
     "moment": "^2.29.1",
-    "react": "^17.0.0"
+    "react": "^18.2.0"
   }
 }

@@ -35,7 +35,7 @@
     "@ltht-react/type-summary": "^1.3.273",
     "@ltht-react/types": "^1.0.269",
     "@ltht-react/utils": "^1.1.271",
-    "react": "^17.0.0"
+    "react": "^18.2.0"
   },
   "gitHead": "4d364556bb11e294d86697c2dac66742f7aabc7f"
 }

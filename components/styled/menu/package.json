@@ -31,7 +31,7 @@
     "@ltht-react/icon": "^1.3.273",
     "@ltht-react/styles": "^1.3.265",
     "focus-trap-react": "^10.0.0",
-    "react": "^17.0.0",
+    "react": "^18.2.0",
     "react-popper": "^2.3.0"
   },
   "gitHead": "4d364556bb11e294d86697c2dac66742f7aabc7f"

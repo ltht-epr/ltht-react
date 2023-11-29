@@ -5,8 +5,8 @@
     "@emotion/react": "^11.0.0",
     "@emotion/styled": "^11.0.0",
     "@ltht-react/table": "^1.0.0",
-    "react": "^17.0.0",
-    "react-dom": "^17.0.0"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.18.2",
@@ -19,8 +19,8 @@
     "@types/classnames": "^2.2.10",
     "@types/domhandler": "^2.4.2",
     "@types/jest": "^26.0.20",
-    "@types/react": "^17.0.0",
-    "@types/react-dom": "^17.0.0",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
     "@types/react-html-parser": "^2.0.2",
     "@typescript-eslint/eslint-plugin": "^5.30.5",
     "@typescript-eslint/parser": "^5.30.5",

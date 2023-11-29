@@ -81,7 +81,7 @@ const packageJson = () => {
     "@ltht-react/type-summary": "^1.3.29",
     "@ltht-react/types": "^1.0.25",
     "@ltht-react/utils": "^1.1.27",
-    "react": "^17.0.0"
+    "react": "^18.2.0"
   }
 }
 `
