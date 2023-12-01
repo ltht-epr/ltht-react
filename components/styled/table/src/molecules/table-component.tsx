@@ -23,10 +23,10 @@ const TableComponent = <T,>({ table, staticColumns = 0, headerAxis }: ITableHead
   const { width: secondColumnWidth } = useDimensionsRef(secondColumn, tableElement)
 
   const usingExpanderColumn = table.getHeaderGroups().some((x) => x.headers.some((h) => h.column.id === 'expander'))
-  const totalStaticColumns = useMemo(() => (usingExpanderColumn ? staticColumns + 1 : staticColumns), [
-    usingExpanderColumn,
-    staticColumns,
-  ])
+  const totalStaticColumns = useMemo(
+    () => (usingExpanderColumn ? staticColumns + 1 : staticColumns),
+    [usingExpanderColumn, staticColumns]
+  )
 
   const getHeaderColumn = <TData, TValue>(header: ReactTableHeader<TData, TValue>, headerIndex: number) => {
     switch (headerIndex) {

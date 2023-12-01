@@ -84,7 +84,7 @@ describe('Diagnosis Detail', () => {
 
     expect(screen.getByText('Diagnosis')).toBeVisible()
     expect(screen.getByText('Heel Pain').closest('a')).toHaveAttribute('href', 'https://www.google.com')
-    expect(screen.getByText('Heel Pain').closest('a')?.children[1]).toHaveClass('fa-external-link-alt')
+    expect(screen.getByText('Heel Pain').closest('a')?.children[1]).toHaveClass('icon__external-link')
   })
 
   it('Renders questionnaire data for level 2 details', () => {
@@ -105,7 +105,7 @@ describe('Diagnosis Detail', () => {
 
     expect(screen.getByText('GP Actions')).toBeVisible()
     expect(screen.getByText('No actions for the GP post-discharge')).toBeVisible()
-    expect(screen.getByText('No actions for the GP post-discharge')?.firstChild).toHaveClass('fa-info-circle')
+    expect(screen.getByText('No actions for the GP post-discharge')?.firstChild).toHaveClass('fa-circle-info')
 
     expect(screen.getAllByText('Community Pharmacy Actions').length).toBe(2)
     expect(screen.getByText('Community Pharmacy Action 1')).toBeVisible()
@@ -115,7 +115,7 @@ describe('Diagnosis Detail', () => {
 
     expect(screen.getByText('CCG Actions')).toBeVisible()
     expect(screen.getByText('No actions for the CCG post-discharge')).toBeVisible()
-    expect(screen.getByText('No actions for the CCG post-discharge')?.firstChild).toHaveClass('fa-info-circle')
+    expect(screen.getByText('No actions for the CCG post-discharge')?.firstChild).toHaveClass('fa-circle-info')
 
     expect(screen.getByRole('mark')).toBeVisible()
     expect(screen.getByRole('mark').textContent).toBe(

@@ -1,7 +1,23 @@
-import { Story } from '@storybook/react'
+/* eslint-disable no-console */
+import { Meta, StoryObj } from '@storybook/react'
 import { Daypicker } from '@ltht-react/input'
 import Card from '@ltht-react/card'
 import 'react-day-picker/dist/style.css'
+import { FC } from 'react'
+
+const meta: Meta = {
+  component: Daypicker,
+}
+
+export default meta
+
+export const DaypickerIconInput: StoryObj<typeof Daypicker> = {
+  render: () => <DaypickerIconInputStory />,
+}
+
+export const DaypickerNoIconInput: StoryObj<typeof Daypicker> = {
+  render: () => <DaypickerNoIconInputStory />,
+}
 
 const getOneYearBeforeDate = (date: Date) => {
   const newDate = new Date()
@@ -11,12 +27,10 @@ const getOneYearBeforeDate = (date: Date) => {
 }
 
 const changeHandler = (date: Date | undefined) => {
-  // eslint-disable-next-line no-console
   console.log(`Handler change to :  ${date?.toDateString()}`)
 }
 
-// eslint-disable-next-line import/prefer-default-export
-export const DaypickerIconInput: Story = () => {
+const DaypickerIconInputStory: FC = () => {
   const initialDate = new Date()
   const maxDate = new Date()
   maxDate.setMonth(maxDate.getMonth() + 1)
@@ -39,8 +53,7 @@ export const DaypickerIconInput: Story = () => {
   )
 }
 
-// eslint-disable-next-line import/prefer-default-export
-export const DaypickerNoIconInput: Story = () => {
+const DaypickerNoIconInputStory: FC = () => {
   const initialDate = new Date()
   const maxDate = new Date()
   maxDate.setMonth(maxDate.getMonth() + 1)

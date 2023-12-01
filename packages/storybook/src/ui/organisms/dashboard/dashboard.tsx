@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, HTMLAttributes } from 'react'
 import styled from '@emotion/styled'
 import { TABLET_MINIMUM_MEDIA_QUERY } from '@ltht-react/styles'
 
@@ -24,8 +24,8 @@ const StyledColumn = styled.div`
   }
 `
 
-const Container: FC = ({ children }) => <StyledContainer>{children}</StyledContainer>
+const Container: FC<HTMLAttributes<HTMLDivElement>> = ({ children }) => <StyledContainer>{children}</StyledContainer>
 
-const Column: FC = ({ children }) => <StyledColumn>{children}</StyledColumn>
+const Column: FC<HTMLAttributes<HTMLDivElement>> = ({ children }) => <StyledColumn>{children}</StyledColumn>
 
 export { Container, Column }

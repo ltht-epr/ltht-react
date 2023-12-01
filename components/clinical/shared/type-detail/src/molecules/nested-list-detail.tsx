@@ -1,3 +1,4 @@
+import { ReactNode } from 'react'
 import DescriptionList from '@ltht-react/description-list'
 import { Maybe } from '@ltht-react/types'
 import { DetailViewComponent, IDetailViewProps } from '../atoms/detail-view-component'
@@ -24,6 +25,7 @@ const NestedListDetail: DetailViewComponent<INestedListDetailProps> = ({
 interface INestedListDetailProps extends IDetailViewProps {
   term: string
   wrapDescription?: Maybe<boolean>
+  children?: ReactNode
 }
 
 export default NestedListDetail

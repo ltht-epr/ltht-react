@@ -1,22 +1,19 @@
-import { Story } from '@storybook/react'
+/* eslint-disable no-alert */
 import Icon from '@ltht-react/icon'
-// eslint-disable-next-line import/prefer-default-export
-export const Filter: Story = () => {
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
-  const clickHandler = (): void => {}
-  return (
-    <>
-      <Icon type="filter" size="small" />
-      <br />
-      <Icon type="filter" size="medium" />
-      <br />
-      <Icon type="filter" size="large" title="Test title" />
-      <br />
-      <Icon type="filter" size="small" onClick={clickHandler} />
-      <br />
-      <Icon type="filter" size="medium" onClick={clickHandler} />
-      <br />
-      <Icon type="filter" size="large" title="Test title" onClick={clickHandler} />
-    </>
-  )
+import { Meta, StoryObj } from '@storybook/react'
+
+const meta: Meta = {
+  component: Icon,
+}
+
+export default meta
+
+export const Small: StoryObj<typeof Icon> = {
+  render: () => <Icon type="filter" size="small" onClick={() => alert('You clicked the icon')} title="Icon title" />,
+}
+export const Medium: StoryObj<typeof Icon> = {
+  render: () => <Icon type="filter" size="medium" onClick={() => alert('You clicked the icon')} title="Icon title" />,
+}
+export const Large: StoryObj<typeof Icon> = {
+  render: () => <Icon type="filter" size="large" onClick={() => alert('You clicked the icon')} title="Icon title" />,
 }

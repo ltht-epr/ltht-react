@@ -1,12 +1,15 @@
 import { FC, ReactElement } from 'react'
-import parser from 'bbcode-to-react'
-import ReactHtmlParser from 'react-html-parser'
+import BBCode from '@bbob/react'
+import presetReact from '@bbob/preset-react'
+import parseHtml from 'html-react-parser'
 import styled from '@emotion/styled'
 import { Maybe, QuestionnaireItemTypeCode, QuestionnaireResponseItem } from '@ltht-react/types'
 import Icon from '@ltht-react/icon'
 import { partialDateTimeText, stripBBTags, stripHtmlTags } from '@ltht-react/utils'
 import { NestedListDetail } from '@ltht-react/type-detail'
 import { DESKTOP_MINIMUM_MEDIA_QUERY, MOBILE_MAXIMUM_MEDIA_QUERY, TABLET_ONLY_MEDIA_QUERY } from '@ltht-react/styles'
+
+const plugins = [presetReact()]
 
 const StyledInfoCircleIcon = styled(Icon)`
   padding-right: 0.25rem;
@@ -76,7 +79,7 @@ const generateAnswer = (
           <NestedListDetail term={question || '-'} showIfEmpty={showIfEmpty}>
             {responseItem?.answer?.map((answerItem, index) => (
               <div key={`${question}-${answerItem?.valueString}-${index + 1}`}>
-                {ReactHtmlParser(answerItem?.valueString || '')}
+                {parseHtml(answerItem?.valueString || '')}
               </div>
             ))}
           </NestedListDetail>
@@ -129,7 +132,7 @@ const generateAnswer = (
           <NestedListDetail term={question || '-'} showIfEmpty={showIfEmpty}>
             {responseItem?.answer?.map((answerItem, index) => (
               <div key={`${question}-${answerItem?.valueString}-${index + 1}`}>
-                {ReactHtmlParser(parser.toHTML(answerItem?.valueString || ''))}
+                <BBCode plugins={plugins}>{answerItem?.valueString ?? ''}</BBCode>
               </div>
             ))}
           </NestedListDetail>
@@ -142,7 +145,7 @@ const generateAnswer = (
           <NestedListDetail term={question || '-'} showIfEmpty={showIfEmpty}>
             {responseItem?.answer?.map((answerItem, index) => (
               <div key={`${question}-${answerItem?.valueString}-${index + 1}`}>
-                {answerItem?.valueString ? ReactHtmlParser(answerItem?.valueString) : ''}
+                {answerItem?.valueString ? parseHtml(answerItem?.valueString) : ''}
               </div>
             ))}
           </NestedListDetail>
@@ -169,7 +172,7 @@ const generateAnswer = (
           <NestedListDetail term={question || '-'} showIfEmpty={showIfEmpty}>
             {responseItem?.answer?.map((answerItem, index) => (
               <div key={`${question}-${answerItem?.valueDecimal ?? answerItem?.valueInteger}-${index + 1}`}>
-                {ReactHtmlParser(`${answerItem?.valueDecimal ?? answerItem?.valueInteger}` ?? '')}
+                {parseHtml(`${answerItem?.valueDecimal ?? answerItem?.valueInteger}` ?? '')}
               </div>
             ))}
           </NestedListDetail>
