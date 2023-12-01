@@ -34,8 +34,8 @@
     "@ltht-react/types": "^1.0.270",
     "@ltht-react/utils": "^1.1.272",
     "ent": "^2.2.0",
-    "react": "^18.2.0",
-    "react-html-parser": "^2.0.2"
+    "html-react-parser": "^5.0.6",
+    "react": "^18.2.0"
   },
   "gitHead": "4d364556bb11e294d86697c2dac66742f7aabc7f",
   "devDependencies": {

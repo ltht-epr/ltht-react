@@ -6,7 +6,7 @@ import {
   QuestionnaireResponse,
   TimelineDomainResourceType,
 } from '@ltht-react/types'
-import ReactHtmlParser from 'react-html-parser'
+import parseHtml from 'html-react-parser'
 import styled from '@emotion/styled'
 
 const StyledDescription = styled.div`
@@ -25,7 +25,7 @@ const TimelineDescription: FC<Props> = ({ domainResource, domainResourceType, ..
       if (!qr.questionnaire?.description) {
         return <></>
       }
-      return <StyledDescription {...rest}>{ReactHtmlParser(qr.questionnaire?.description)}</StyledDescription>
+      return <StyledDescription {...rest}>{parseHtml(qr.questionnaire?.description)}</StyledDescription>
     }
     case TimelineDomainResourceType.DocumentReference: {
       const docRef = domainResource as DocumentReference
@@ -37,7 +37,7 @@ const TimelineDescription: FC<Props> = ({ domainResource, domainResourceType, ..
         return <></>
       }
 
-      return <StyledDescription {...rest}>{ReactHtmlParser(audit.outcomeDesc)}</StyledDescription>
+      return <StyledDescription {...rest}>{parseHtml(audit.outcomeDesc)}</StyledDescription>
     }
     default:
       return <></>

@@ -13,18 +13,18 @@ module.exports = async ({ config, mode }) => {
 
   // Make whatever fine-grained changes you need
   config.module.rules.push({
-    test: /\.(js|ts)$/,
+    test: /\.(js|ts)x?$/,
     include: buildPathsForAllModulesToInclude(es6NodeModules),
-    exclude: [],
+    exclude: /node_modules/,
     loader: 'babel-loader',
     options: {
       compact: true,
-      presets: ['@babel/preset-env'],
+      presets: ['@babel/preset-env', '@babel/preset-typescript', '@babel/preset-react'],
     },
   })
 
   if (mode === 'DEVELOPMENT') {
-    config.devtool = '#inline-source-map'
+    config.devtool = 'inline-source-map'
   }
 
   // Return the altered config

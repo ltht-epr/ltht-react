@@ -17,7 +17,6 @@ describe('Admin Actions', () => {
       <AdminActions
         adminAction={adminAction}
         actionClickHandler={() => {
-          // eslint-disable-next-line no-console
           console.log('Clicked')
         }}
       />

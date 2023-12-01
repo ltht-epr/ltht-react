@@ -65,7 +65,7 @@ const Daypicker: FC<DaypickerProps> = ({
   label,
   minDate,
   maxDate,
-  navigationNumberOfMonths,
+  navigationNumberOfMonths = 1,
   changeHandler,
   buttonHandler,
 }) => {

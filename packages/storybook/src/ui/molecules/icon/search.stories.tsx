@@ -1,13 +1,18 @@
-import { Story } from '@storybook/react'
 import Icon from '@ltht-react/icon'
+import { Meta, StoryObj } from '@storybook/react'
 
-// eslint-disable-next-line import/prefer-default-export
-export const Search: Story = () => (
-  <>
-    <Icon type="search" size="small" />
-    <br />
-    <Icon type="search" size="medium" />
-    <br />
-    <Icon type="search" size="large" />
-  </>
-)
+const meta: Meta = {
+  component: Icon,
+}
+
+export default meta
+
+export const Small: StoryObj<typeof Icon> = {
+  render: () => <Icon type="search" size="small" />,
+}
+export const Medium: StoryObj<typeof Icon> = {
+  render: () => <Icon type="search" size="medium" />,
+}
+export const Large: StoryObj<typeof Icon> = {
+  render: () => <Icon type="search" size="large" />,
+}

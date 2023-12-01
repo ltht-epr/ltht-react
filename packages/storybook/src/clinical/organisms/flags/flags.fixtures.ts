@@ -49,8 +49,7 @@ const FlagOne: Flag = {
   status: FlagStatusCode.Active,
   text: {
     div: 'Lorem ipsum dolor sit amet',
-    text:
-      'A ReSPECT plan for emergency care, including a DO NOT ATTEMPT CARDIOPULMONARY RESUSCITATION decision, is in place. Please review the ReSPECT form and CPR decision, check for changes and, if valid and applicable, take this DNACPR status into account.',
+    text: 'A ReSPECT plan for emergency care, including a DO NOT ATTEMPT CARDIOPULMONARY RESUSCITATION decision, is in place. Please review the ReSPECT form and CPR decision, check for changes and, if valid and applicable, take this DNACPR status into account.',
   },
   extension: [
     { url: 'https://leedsth.nhs.uk/alert/priority', valueString: 'High' },
@@ -88,8 +87,7 @@ const FlagTwo: Flag = {
   status: FlagStatusCode.Active,
   text: {
     div: 'Lorem ipsum dolor sit amet',
-    text:
-      'It has been confirmed that Bleomycin has previously been administered to this patient. They may experience severe lung toxicity or death if high concentration oxygen is administered. Commence oxygen therapy only if SaO2 <85%. SaO2 should be maintained no higher than 85-88% whether on invasive or non invasive ventilation. Refer to LTHT Bleomycin pulmonary toxicity guidelines on LHP for further information/contact the Oncology enquiries nurse bleepholder via LTHT switchboard on 0113 2433144.',
+    text: 'It has been confirmed that Bleomycin has previously been administered to this patient. They may experience severe lung toxicity or death if high concentration oxygen is administered. Commence oxygen therapy only if SaO2 <85%. SaO2 should be maintained no higher than 85-88% whether on invasive or non invasive ventilation. Refer to LTHT Bleomycin pulmonary toxicity guidelines on LHP for further information/contact the Oncology enquiries nurse bleepholder via LTHT switchboard on 0113 2433144.',
   },
   extension: [{ url: 'https://leedsth.nhs.uk/alert/priority', valueString: 'High' }],
 }
@@ -235,8 +233,7 @@ const FlagSix: Flag = {
   status: FlagStatusCode.Inactive,
   text: {
     div: 'Lorem ipsum dolor sit amet',
-    text:
-      'A ReSPECT plan for care in emergency situations has been completed. Please read and consider these recommendations in event of clinical deterioration.',
+    text: 'A ReSPECT plan for care in emergency situations has been completed. Please read and consider these recommendations in event of clinical deterioration.',
   },
   extension: [{ url: 'https://leedsth.nhs.uk/alert/priority', valueString: 'Clinical' }],
 }
@@ -338,8 +335,7 @@ const FlagNine: Flag = {
   },
   status: FlagStatusCode.Inactive,
   text: {
-    div:
-      'he patient is on an active trial and if the patient is acutely admitted then the Principal Investigator and Trial Nurse need to be informed within 24 hours of the admission.',
+    div: 'he patient is on an active trial and if the patient is acutely admitted then the Principal Investigator and Trial Nurse need to be informed within 24 hours of the admission.',
     text: 'SOMAscan Diabetes',
   },
 }
@@ -405,8 +401,7 @@ const FlagEleven: Flag = {
   },
   status: FlagStatusCode.EnteredInError,
   text: {
-    div:
-      'There is another record in the system which is probably for this patient. Please raise this issue to the Informatics Service Desk and supply the patient details.',
+    div: 'There is another record in the system which is probably for this patient. Please raise this issue to the Informatics Service Desk and supply the patient details.',
     text: 'Possible Duplicate Patient Exists',
   },
 }

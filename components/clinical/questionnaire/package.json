@@ -25,6 +25,8 @@
     "lint": "prettylint 'src/*.{ts,tsx}'"
   },
   "dependencies": {
+    "@bbob/preset-react": "^3.0.2",
+    "@bbob/react": "^3.0.2",
     "@emotion/react": "^11.0.0",
     "@emotion/styled": "^11.0.0",
     "@ltht-react/hooks": "^1.0.264",
@@ -34,8 +36,7 @@
     "@ltht-react/type-summary": "^1.3.274",
     "@ltht-react/types": "^1.0.270",
     "@ltht-react/utils": "^1.1.272",
-    "bbcode-to-react": "^0.2.9",
-    "react": "^18.2.0",
-    "react-html-parser": "^2.0.2"
+    "html-react-parser": "^5.0.6",
+    "react": "^18.2.0"
   }
 }

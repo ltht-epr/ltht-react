@@ -1,10 +1,19 @@
-import { useState } from 'react'
-import { Story } from '@storybook/react'
+import { useState, FC } from 'react'
+import { Meta, StoryObj } from '@storybook/react'
 import { Checkbox } from '@ltht-react/input'
 import Card from '@ltht-react/card'
 
-// eslint-disable-next-line import/prefer-default-export
-export const CheckboxInput: Story = () => {
+const meta: Meta<typeof Checkbox> = {
+  component: Checkbox,
+}
+
+export default meta
+
+export const CheckboxInput: StoryObj<typeof Checkbox> = {
+  render: () => <CheckboxInputWrapper />,
+}
+
+const CheckboxInputWrapper: FC = () => {
   const [checkbox, setCheckbox] = useState<boolean>(false)
   const [checkbox1, setCheckbox1] = useState<boolean>(false)
 

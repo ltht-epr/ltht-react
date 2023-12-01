@@ -579,20 +579,16 @@ const ConditionOne: Condition = {
   },
   note: [
     {
-      text:
-        '<ol><li><strong><em>This is a note field example</em></strong></li><li><strong><em>option</em></strong></li><li><strong><em><u>3rd</u></em></strong></li></ol>',
+      text: '<ol><li><strong><em>This is a note field example</em></strong></li><li><strong><em>option</em></strong></li><li><strong><em><u>3rd</u></em></strong></li></ol>',
     },
     {
-      text:
-        '&lt;ol&gt;&lt;li&gt;&lt;strong&gt;&lt;em&gt;This is a note field example&lt;/em&gt;&lt;/strong&gt;&lt;/li&gt;&lt;li&gt;&lt;strong&gt;&lt;em&gt;option&lt;/em&gt;&lt;/strong&gt;&lt;/li&gt;&lt;li&gt;&lt;strong&gt;&lt;em&gt;&lt;u&gt;3rd&lt;/u&gt;&lt;/em&gt;&lt;/strong&gt;&lt;/li&gt;&lt;/ol&gt;',
+      text: '&lt;ol&gt;&lt;li&gt;&lt;strong&gt;&lt;em&gt;This is a note field example&lt;/em&gt;&lt;/strong&gt;&lt;/li&gt;&lt;li&gt;&lt;strong&gt;&lt;em&gt;option&lt;/em&gt;&lt;/strong&gt;&lt;/li&gt;&lt;li&gt;&lt;strong&gt;&lt;em&gt;&lt;u&gt;3rd&lt;/u&gt;&lt;/em&gt;&lt;/strong&gt;&lt;/li&gt;&lt;/ol&gt;',
     },
     {
-      text:
-        '&lt;ol&gt;&lt;li&gt;option 1&lt;/li&gt;&lt;li&gt;option 2&lt;/li&gt;&lt;li&gt;option 3&lt;/li&gt;&lt;/ol&gt;&lt;p&gt;Note text&lt;/p&gt;&lt;ul&gt;&lt;li&gt;note 1&lt;/li&gt;&lt;li&gt;note 2&lt;/li&gt;&lt;li&gt;&lt;strong&gt;&lt;em&gt;&lt;u&gt;note 3&lt;/u&gt;&lt;/em&gt;&lt;/strong&gt;&lt;/li&gt;&lt;/ul&gt;',
+      text: '&lt;ol&gt;&lt;li&gt;option 1&lt;/li&gt;&lt;li&gt;option 2&lt;/li&gt;&lt;li&gt;option 3&lt;/li&gt;&lt;/ol&gt;&lt;p&gt;Note text&lt;/p&gt;&lt;ul&gt;&lt;li&gt;note 1&lt;/li&gt;&lt;li&gt;note 2&lt;/li&gt;&lt;li&gt;&lt;strong&gt;&lt;em&gt;&lt;u&gt;note 3&lt;/u&gt;&lt;/em&gt;&lt;/strong&gt;&lt;/li&gt;&lt;/ul&gt;',
     },
     {
-      text:
-        '&lt;ul&gt;&lt;li&gt;asd&lt;/li&gt;&lt;li&gt;dsa&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;NEXT&lt;/p&gt;&lt;ol&gt;&lt;li&gt;one&lt;/li&gt;&lt;li&gt;two&lt;/li&gt;&lt;/ol&gt;',
+      text: '&lt;ul&gt;&lt;li&gt;asd&lt;/li&gt;&lt;li&gt;dsa&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;NEXT&lt;/p&gt;&lt;ol&gt;&lt;li&gt;one&lt;/li&gt;&lt;li&gt;two&lt;/li&gt;&lt;/ol&gt;',
     },
   ],
   clinicalStatus: ConditionClinicalStatus.Active,
