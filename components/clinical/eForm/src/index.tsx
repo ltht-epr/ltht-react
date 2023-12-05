@@ -1,6 +1,6 @@
-import { useLayoutEffect, HTMLAttributes, FC, useRef, useState } from 'react'
-import styled from '@emotion/styled'
+import { FC, HTMLAttributes, useLayoutEffect, useRef, useState } from 'react'
 
+import styled from '@emotion/styled'
 import { CSS_RESET, EFORM_BACKGROUND_COLOUR } from '@ltht-react/styles'
 
 const StyledIframe = styled.div`
@@ -22,7 +22,7 @@ const StyledIframe = styled.div`
   }
 `
 
-const EForm: FC<Props> = ({ url, callback, forceRefresh, ...rest }) => {
+const EForm: FC<Props> = ({ url, callback, forceRefresh = false, ...rest }) => {
   const [iframeKey, setIframeKey] = useState(0)
   const iframeRef = useRef<HTMLIFrameElement | null>(null)
 
@@ -55,7 +55,7 @@ const EForm: FC<Props> = ({ url, callback, forceRefresh, ...rest }) => {
 
   return (
     <StyledIframe {...rest}>
-      <iframe key={iframeKey} ref={iframeRef} src={url} title="eForm" />
+      <iframe key={iframeKey} ref={iframeRef} src={url} title="eForm" data-iframe-key={iframeKey} />
     </StyledIframe>
   )
 }
