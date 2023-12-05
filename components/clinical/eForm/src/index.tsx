@@ -54,7 +54,7 @@ const EForm: FC<Props> = ({ url, callback, forceRefresh = false, ...rest }) => {
 
   return (
     <StyledIframe {...rest}>
-      <iframe ref={iframeRef} src={url} title="eForm" data-iframe-key={iframeKey} />
+      <iframe key={iframeKey} ref={iframeRef} src={url} title="eForm" data-iframe-key={iframeKey} />
     </StyledIframe>
   )
 }
