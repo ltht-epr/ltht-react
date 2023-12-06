@@ -1,6 +1,5 @@
-import { useLayoutEffect, HTMLAttributes, FC } from 'react'
+import { FC, HTMLAttributes, useLayoutEffect, useRef, useState } from 'react'
 import styled from '@emotion/styled'
-
 import { CSS_RESET, EFORM_BACKGROUND_COLOUR } from '@ltht-react/styles'
 
 const StyledIframe = styled.div`
@@ -22,7 +21,10 @@ const StyledIframe = styled.div`
   }
 `
 
-const EForm: FC<Props> = ({ url, callback, ...rest }) => {
+const EForm: FC<Props> = ({ url, callback, forceRefresh = false, ...rest }) => {
+  const [iframeKey, setIframeKey] = useState(0)
+  const iframeRef = useRef<HTMLIFrameElement | null>(null)
+
   useLayoutEffect(() => {
     function handleEvent(event: MessageEvent): void {
       switch (event.data.eventType) {
@@ -44,9 +46,15 @@ const EForm: FC<Props> = ({ url, callback, ...rest }) => {
     }
   }, [callback])
 
+  useLayoutEffect(() => {
+    if (forceRefresh && iframeRef.current) {
+      setIframeKey((prevKey: number) => prevKey + 1)
+    }
+  }, [forceRefresh])
+
   return (
     <StyledIframe {...rest}>
-      <iframe src={url} title="eForm" />
+      <iframe key={iframeKey} ref={iframeRef} src={url} title="eForm" data-iframe-key={iframeKey} />
     </StyledIframe>
   )
 }
@@ -59,6 +67,7 @@ interface Callback {
 interface Props extends HTMLAttributes<HTMLDivElement> {
   url: string
   callback?: Callback
+  forceRefresh?: boolean
 }
 
 export default EForm
