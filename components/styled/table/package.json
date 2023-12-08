@@ -33,12 +33,9 @@
     "@ltht-react/styles": "^2.0.0",
     "@ltht-react/types": "^2.0.0",
     "@ltht-react/utils": "^2.0.0",
-    "@tanstack/react-table": "^8.5.22",
+    "@tanstack/react-table": "^8.10.7",
     "react": "^18.2.0",
     "react-uuid": "^2.0.0"
   },
-  "gitHead": "4d364556bb11e294d86697c2dac66742f7aabc7f",
-  "devDependencies": {
-    "@types/react-table": "^7.7.12"
-  }
+  "gitHead": "4d364556bb11e294d86697c2dac66742f7aabc7f"
 }
