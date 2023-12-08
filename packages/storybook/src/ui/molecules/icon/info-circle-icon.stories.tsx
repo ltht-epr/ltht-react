@@ -1,19 +1,36 @@
-import { Story } from '@storybook/react'
 import Icon from '@ltht-react/icon'
+import { Meta, StoryObj } from '@storybook/react'
 
-// eslint-disable-next-line import/prefer-default-export
-export const InfoCircle: Story = () => (
-  <>
-    <Icon type="info-circle" color="green" size="small" />
-    <Icon type="info-circle" color="green" size="medium" />
-    <Icon type="info-circle" color="green" size="large" />
-    <br />
-    <Icon type="info-circle" color="amber" size="small" />
-    <Icon type="info-circle" color="amber" size="medium" />
-    <Icon type="info-circle" color="amber" size="large" />
-    <br />
-    <Icon type="info-circle" color="red" size="small" />
-    <Icon type="info-circle" color="red" size="medium" />
-    <Icon type="info-circle" color="red" size="large" />
-  </>
-)
+const meta: Meta = {
+  component: Icon,
+}
+
+export default meta
+
+export const Small: StoryObj<typeof Icon> = {
+  render: () => (
+    <>
+      <Icon type="plus" size="small" color="green" />
+      <Icon type="plus" size="small" color="amber" />
+      <Icon type="plus" size="small" color="red" />
+    </>
+  ),
+}
+export const Medium: StoryObj<typeof Icon> = {
+  render: () => (
+    <>
+      <Icon type="plus" size="medium" color="green" />
+      <Icon type="plus" size="medium" color="amber" />
+      <Icon type="plus" size="medium" color="red" />
+    </>
+  ),
+}
+export const Large: StoryObj<typeof Icon> = {
+  render: () => (
+    <>
+      <Icon type="plus" size="large" color="green" />
+      <Icon type="plus" size="large" color="amber" />
+      <Icon type="plus" size="large" color="red" />
+    </>
+  ),
+}

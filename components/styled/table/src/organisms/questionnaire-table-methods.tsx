@@ -192,11 +192,7 @@ const buildVerticalCellRows = (
   const dataEntities = definitionItems.map((item) => {
     let dataEntity: DataEntity = {}
 
-    dataEntity = buildVerticalCellRowsRecursive(
-      EnsureMaybeArray<QuestionnaireItem>([item]),
-      records,
-      dataEntity
-    )
+    dataEntity = buildVerticalCellRowsRecursive(EnsureMaybeArray<QuestionnaireItem>([item]), records, dataEntity)
 
     return dataEntity
   })

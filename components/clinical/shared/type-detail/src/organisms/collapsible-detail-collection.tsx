@@ -42,7 +42,7 @@ const StyledCollapsibleDetailCollection = styled.div`
   }
 `
 
-const CollapsibleDetailCollection: FC<CollapsibleDetailCollectionProps> = ({ children, viewType }): JSX.Element => {
+const CollapsibleDetailCollection: FC<CollapsibleDetailCollectionProps> = ({ children, viewType }) => {
   const showIfEmpty = viewType === DetailViewType.Expanded
   if (!children) return <></>
 

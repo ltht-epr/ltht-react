@@ -1,23 +1,28 @@
-import { Story } from '@storybook/react'
 import Icon from '@ltht-react/icon'
+import { Meta, StoryObj } from '@storybook/react'
 
-// eslint-disable-next-line import/prefer-default-export
-export const SpinnerAnimated: Story = () => (
-  <>
-    <Icon type="spinner" size="small" />
-    <br />
-    <Icon type="spinner" size="medium" />
-    <br />
-    <Icon type="spinner" size="large" />
-  </>
-)
+const meta: Meta = {
+  component: Icon,
+}
 
-export const Spinner: Story = () => (
-  <>
-    <Icon type="spinner" size="small" animation={{ spin: false }} />
-    <br />
-    <Icon type="spinner" size="medium" animation={{ spin: false }} />
-    <br />
-    <Icon type="spinner" size="large" animation={{ spin: false }} />
-  </>
-)
+export default meta
+
+export const Animated: StoryObj<typeof Icon> = {
+  render: () => (
+    <>
+      <Icon type="spinner" size="small" />
+      <Icon type="spinner" size="medium" />
+      <Icon type="spinner" size="large" />
+    </>
+  ),
+}
+
+export const Static: StoryObj<typeof Icon> = {
+  render: () => (
+    <>
+      <Icon type="spinner" size="small" animation={{ spin: false }} />
+      <Icon type="spinner" size="medium" animation={{ spin: false }} />
+      <Icon type="spinner" size="large" animation={{ spin: false }} />
+    </>
+  ),
+}

@@ -1,16 +1,33 @@
-import { Story } from '@storybook/react'
 import Icon from '@ltht-react/icon'
+import { Meta, StoryObj } from '@storybook/react'
 
-// eslint-disable-next-line import/prefer-default-export
-export const Circle: Story = () => (
-  <>
-    <Icon type="circle" color="grey" size="small" />
-    <Icon type="circle" color="green" size="small" />
-    <br />
-    <Icon type="circle" color="grey" size="medium" />
-    <Icon type="circle" color="green" size="medium" />
-    <br />
-    <Icon type="circle" color="grey" size="large" />
-    <Icon type="circle" color="green" size="large" />
-  </>
-)
+const meta: Meta = {
+  component: Icon,
+}
+
+export default meta
+
+export const Small: StoryObj<typeof Icon> = {
+  render: () => (
+    <>
+      <Icon type="circle" size="small" color="grey" />
+      <Icon type="circle" size="small" color="green" />
+    </>
+  ),
+}
+export const Medium: StoryObj<typeof Icon> = {
+  render: () => (
+    <>
+      <Icon type="circle" size="medium" color="grey" />
+      <Icon type="circle" size="medium" color="green" />
+    </>
+  ),
+}
+export const Large: StoryObj<typeof Icon> = {
+  render: () => (
+    <>
+      <Icon type="circle" size="large" color="grey" />
+      <Icon type="circle" size="large" color="green" />
+    </>
+  ),
+}

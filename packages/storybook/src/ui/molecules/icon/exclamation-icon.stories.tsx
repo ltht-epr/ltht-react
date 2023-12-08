@@ -1,19 +1,36 @@
-import { Story } from '@storybook/react'
 import Icon from '@ltht-react/icon'
+import { Meta, StoryObj } from '@storybook/react'
 
-// eslint-disable-next-line import/prefer-default-export
-export const Exclamation: Story = () => (
-  <>
-    <Icon type="exclamation" color="green" size="small" />
-    <Icon type="exclamation" color="green" size="medium" />
-    <Icon type="exclamation" color="green" size="large" />
-    <br />
-    <Icon type="exclamation" color="amber" size="small" />
-    <Icon type="exclamation" color="amber" size="medium" />
-    <Icon type="exclamation" color="amber" size="large" />
-    <br />
-    <Icon type="exclamation" color="red" size="small" />
-    <Icon type="exclamation" color="red" size="medium" />
-    <Icon type="exclamation" color="red" size="large" />
-  </>
-)
+const meta: Meta = {
+  component: Icon,
+}
+
+export default meta
+
+export const Small: StoryObj<typeof Icon> = {
+  render: () => (
+    <>
+      <Icon type="exclamation" size="small" color="green" />
+      <Icon type="exclamation" size="small" color="amber" />
+      <Icon type="exclamation" size="small" color="red" />
+    </>
+  ),
+}
+export const Medium: StoryObj<typeof Icon> = {
+  render: () => (
+    <>
+      <Icon type="exclamation" size="medium" color="green" />
+      <Icon type="exclamation" size="medium" color="amber" />
+      <Icon type="exclamation" size="medium" color="red" />
+    </>
+  ),
+}
+export const Large: StoryObj<typeof Icon> = {
+  render: () => (
+    <>
+      <Icon type="exclamation" size="large" color="green" />
+      <Icon type="exclamation" size="large" color="amber" />
+      <Icon type="exclamation" size="large" color="red" />
+    </>
+  ),
+}

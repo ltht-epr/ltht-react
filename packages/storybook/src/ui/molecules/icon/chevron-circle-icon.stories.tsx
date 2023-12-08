@@ -1,22 +1,39 @@
-import { Story } from '@storybook/react'
 import Icon from '@ltht-react/icon'
+import { Meta, StoryObj } from '@storybook/react'
 
-// eslint-disable-next-line import/prefer-default-export
-export const ChevronCircle: Story = () => (
-  <>
-    <Icon type="chevron-circle" direction="up" size="small" />
-    <Icon type="chevron-circle" direction="down" size="small" />
-    <Icon type="chevron-circle" direction="left" size="small" />
-    <Icon type="chevron-circle" direction="right" size="small" />
-    <br />
-    <Icon type="chevron-circle" direction="up" size="medium" />
-    <Icon type="chevron-circle" direction="down" size="medium" />
-    <Icon type="chevron-circle" direction="left" size="medium" />
-    <Icon type="chevron-circle" direction="right" size="medium" />
-    <br />
-    <Icon type="chevron-circle" direction="up" size="large" />
-    <Icon type="chevron-circle" direction="down" size="large" />
-    <Icon type="chevron-circle" direction="left" size="large" />
-    <Icon type="chevron-circle" direction="right" size="large" />
-  </>
-)
+const meta: Meta = {
+  component: Icon,
+}
+
+export default meta
+
+export const Small: StoryObj<typeof Icon> = {
+  render: () => (
+    <>
+      <Icon type="chevron-circle" size="small" direction="up" />
+      <Icon type="chevron-circle" size="small" direction="down" />
+      <Icon type="chevron-circle" size="small" direction="left" />
+      <Icon type="chevron-circle" size="small" direction="right" />
+    </>
+  ),
+}
+export const Medium: StoryObj<typeof Icon> = {
+  render: () => (
+    <>
+      <Icon type="chevron-circle" size="medium" direction="up" />
+      <Icon type="chevron-circle" size="medium" direction="down" />
+      <Icon type="chevron-circle" size="medium" direction="left" />
+      <Icon type="chevron-circle" size="medium" direction="right" />
+    </>
+  ),
+}
+export const Large: StoryObj<typeof Icon> = {
+  render: () => (
+    <>
+      <Icon type="chevron-circle" size="large" direction="up" />
+      <Icon type="chevron-circle" size="large" direction="down" />
+      <Icon type="chevron-circle" size="large" direction="left" />
+      <Icon type="chevron-circle" size="large" direction="right" />
+    </>
+  ),
+}

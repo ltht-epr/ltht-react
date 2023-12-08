@@ -57,7 +57,7 @@ export const iconTypes = [
   'do-not-use!',
 ] as const
 
-export type IconType = typeof iconTypes[number]
+export type IconType = (typeof iconTypes)[number]
 
 export const calculateIconSize = (input: IconSize): FontAwesomeIconSize => {
   switch (input) {

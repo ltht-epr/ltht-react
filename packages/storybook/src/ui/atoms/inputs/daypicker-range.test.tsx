@@ -74,6 +74,7 @@ describe('<DaypickerRange showIcon/>', () => {
     const buttons = screen.getAllByRole('button')
     userEvent.click(buttons[0])
     const newDay = 10
+
     const newDateText = screen.getByText(newDay)
     const cell = newDateText.closest('button')
     if (cell) {
@@ -93,7 +94,7 @@ describe('<DaypickerRange showIcon/>', () => {
       const disabledDateText = screen.getByText(disabledDay)
       const disabledCell = disabledDateText.closest('button')
       if (disabledCell) {
-        expect(disabledCell).toHaveAttribute('aria-disabled', 'true')
+        expect(disabledCell).toHaveAttribute('disabled')
         userEvent.click(disabledCell)
         expect(mockOnClick2).toBeCalledTimes(0)
         const disabledDate = new Date()

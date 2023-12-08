@@ -1,22 +1,39 @@
-import { Story } from '@storybook/react'
 import Icon from '@ltht-react/icon'
+import { Meta, StoryObj } from '@storybook/react'
 
-// eslint-disable-next-line import/prefer-default-export
-export const Chevron: Story = () => (
-  <>
-    <Icon type="chevron" direction="up" size="small" />
-    <Icon type="chevron" direction="down" size="small" />
-    <Icon type="chevron" direction="left" size="small" />
-    <Icon type="chevron" direction="right" size="small" />
-    <br />
-    <Icon type="chevron" direction="up" size="medium" />
-    <Icon type="chevron" direction="down" size="medium" />
-    <Icon type="chevron" direction="left" size="medium" />
-    <Icon type="chevron" direction="right" size="medium" />
-    <br />
-    <Icon type="chevron" direction="up" size="large" />
-    <Icon type="chevron" direction="down" size="large" />
-    <Icon type="chevron" direction="left" size="large" />
-    <Icon type="chevron" direction="right" size="large" />
-  </>
-)
+const meta: Meta = {
+  component: Icon,
+}
+
+export default meta
+
+export const Small: StoryObj<typeof Icon> = {
+  render: () => (
+    <>
+      <Icon type="chevron" size="small" direction="up" />
+      <Icon type="chevron" size="small" direction="down" />
+      <Icon type="chevron" size="small" direction="left" />
+      <Icon type="chevron" size="small" direction="right" />
+    </>
+  ),
+}
+export const Medium: StoryObj<typeof Icon> = {
+  render: () => (
+    <>
+      <Icon type="chevron" size="medium" direction="up" />
+      <Icon type="chevron" size="medium" direction="down" />
+      <Icon type="chevron" size="medium" direction="left" />
+      <Icon type="chevron" size="medium" direction="right" />
+    </>
+  ),
+}
+export const Large: StoryObj<typeof Icon> = {
+  render: () => (
+    <>
+      <Icon type="chevron" size="large" direction="up" />
+      <Icon type="chevron" size="large" direction="down" />
+      <Icon type="chevron" size="large" direction="left" />
+      <Icon type="chevron" size="large" direction="right" />
+    </>
+  ),
+}

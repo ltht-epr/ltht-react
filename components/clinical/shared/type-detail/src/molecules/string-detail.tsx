@@ -1,5 +1,5 @@
 import { titleCase } from '@ltht-react/utils'
-import ReactHtmlParser from 'react-html-parser'
+import parseHtml from 'html-react-parser'
 import { DetailViewComponent, IDetailViewProps } from '../atoms/detail-view-component'
 import NestedListDetail from './nested-list-detail'
 
@@ -10,7 +10,7 @@ const StringDetail: DetailViewComponent<IProps> = ({ term, description, showIfEm
         term={term}
         className={(description ?? '').length > 150 ? 'string-detail--full-width' : 'string-detail'}
       >
-        {parse === true ? ReactHtmlParser(titleCase(description ?? '')) : description ?? ''}
+        {parse === true ? parseHtml(titleCase(description ?? '')) : description ?? ''}
       </NestedListDetail>
     )
   }

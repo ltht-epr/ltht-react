@@ -1,10 +1,24 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import { Story } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react'
 import { Toggle } from '@ltht-react/input'
-import { useState } from 'react'
+import { FC, useState } from 'react'
 import styled from '@emotion/styled'
 import Card from '@ltht-react/card'
 import { Container } from '../../organisms/dashboard/dashboard'
+
+const meta: Meta = {
+  component: Toggle,
+}
+
+export default meta
+
+export const ToggleInput: StoryObj<typeof Toggle> = {
+  render: () => <ToggleInputStory />,
+}
+
+export const DisabledToggleInput: StoryObj<typeof Toggle> = {
+  render: () => <DisabledToggleInputStory />,
+}
 
 const StyledLabel = styled.label`
   cursor: pointer;
@@ -15,8 +29,7 @@ const StyledWrapper = styled.div`
   align-items: center;
 `
 
-// eslint-disable-next-line import/prefer-default-export
-export const ToggleInput: Story = () => {
+const ToggleInputStory: FC = () => {
   const [isToggledOn, setIsToggledOn] = useState(false)
 
   return (
@@ -36,7 +49,8 @@ export const ToggleInput: Story = () => {
     </Card>
   )
 }
-export const DisabledToggleInput: Story = () => {
+
+export const DisabledToggleInputStory: FC = () => {
   const [isToggledOn, setIsToggledOn] = useState(false)
 
   return (
