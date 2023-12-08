@@ -49,7 +49,7 @@ const packageJson = () => {
   const filename = fileNames.package
   const contents = `{  
   "name": "@ltht-react/${componentFolderName}",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "ltht-react ${componentType} ${componentName} component.",
   "author": "LTHT",
   "homepage": "",
@@ -76,11 +76,11 @@ const packageJson = () => {
   "dependencies": {
     "@emotion/react": "^11.0.0",
     "@emotion/styled": "^11.0.0",
-    "@ltht-react/hooks": "^1.0.19",
-    "@ltht-react/styles": "^1.3.21",
-    "@ltht-react/type-summary": "^1.3.29",
-    "@ltht-react/types": "^1.0.25",
-    "@ltht-react/utils": "^1.1.27",
+    "@ltht-react/hooks": "^2.0.0",
+    "@ltht-react/styles": "^2.0.0",
+    "@ltht-react/type-summary": "^2.0.0",
+    "@ltht-react/types": "^2.0.0",
+    "@ltht-react/utils": "^2.0.0",
     "react": "^18.2.0"
   }
 }

@@ -4,7 +4,7 @@
   "dependencies": {
     "@emotion/react": "^11.0.0",
     "@emotion/styled": "^11.0.0",
-    "@ltht-react/table": "^1.0.0",
+    "@ltht-react/table": "^2.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
