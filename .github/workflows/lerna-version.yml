@@ -20,10 +20,10 @@ jobs:
         env:
           GITHUB_PAT: ${{ secrets.ACTION_PAT }}
 
-      - name: Install Node v14
+      - name: Install Node v16
         uses: actions/setup-node@v2
         with:
-          node-version: 14
+          node-version: 16
 
       - name: Install packages
         run: yarn install --network-timeout 1000000
