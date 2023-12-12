@@ -21,7 +21,7 @@ const StyledIframe = styled.div`
   }
 `
 
-const EForm: FC<Props> = ({ url, callback, forceRefresh = false, ...rest }) => {
+const EForm: FC<Props> = ({ url, callback, checksum = 0, ...rest }) => {
   const [iframeKey, setIframeKey] = useState(0)
   const iframeRef = useRef<HTMLIFrameElement | null>(null)
 
@@ -47,10 +47,8 @@ const EForm: FC<Props> = ({ url, callback, forceRefresh = false, ...rest }) => {
   }, [callback])
 
   useLayoutEffect(() => {
-    if (forceRefresh && iframeRef.current) {
-      setIframeKey((prevKey: number) => prevKey + 1)
-    }
-  }, [forceRefresh])
+    setIframeKey(checksum)
+  }, [checksum])
 
   return (
     <StyledIframe {...rest}>
@@ -67,7 +65,7 @@ interface Callback {
 interface Props extends HTMLAttributes<HTMLDivElement> {
   url: string
   callback?: Callback
-  forceRefresh?: boolean
+  checksum?: number
 }
 
 export default EForm
