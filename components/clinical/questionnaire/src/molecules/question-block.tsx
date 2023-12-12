@@ -1,6 +1,6 @@
 import { FC, ReactElement } from 'react'
-import BBCode from '@bbob/react/es'
-import reactPreset from '@bbob/preset-react/es'
+import BBCode from '@bbob/react/lib'
+import reactPreset from '@bbob/preset-react/lib'
 import parseHtml from 'html-react-parser'
 import styled from '@emotion/styled'
 import { Maybe, QuestionnaireItemTypeCode, QuestionnaireResponseItem } from '@ltht-react/types'
