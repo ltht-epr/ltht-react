@@ -1,6 +1,6 @@
 import { FC, ReactElement } from 'react'
-import BBCode from '@bbob/react'
-import presetReact from '@bbob/preset-react'
+import BBCode from '@bbob/react/lib'
+import reactPreset from '@bbob/preset-react/lib'
 import parseHtml from 'html-react-parser'
 import styled from '@emotion/styled'
 import { Maybe, QuestionnaireItemTypeCode, QuestionnaireResponseItem } from '@ltht-react/types'
@@ -9,7 +9,7 @@ import { partialDateTimeText, stripBBTags, stripHtmlTags } from '@ltht-react/uti
 import { NestedListDetail } from '@ltht-react/type-detail'
 import { DESKTOP_MINIMUM_MEDIA_QUERY, MOBILE_MAXIMUM_MEDIA_QUERY, TABLET_ONLY_MEDIA_QUERY } from '@ltht-react/styles'
 
-const plugins = [presetReact()]
+const plugins = [reactPreset()]
 
 const StyledInfoCircleIcon = styled(Icon)`
   padding-right: 0.25rem;
