@@ -57,7 +57,8 @@ const packageJson = () => {
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
   "files": [
-    "lib"
+    "lib",
+    "src"
   ],
   "directories": {
     "lib": "lib"
