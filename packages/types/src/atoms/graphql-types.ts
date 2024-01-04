@@ -807,7 +807,6 @@ export type ConditionEvidence = {
 };
 
 export type ConditionMinimalInput = {
-  assertedDate?: Maybe<PartialDateTimeInput>;
   clinicalStatus?: Maybe<ConditionClinicalStatus>;
   code: CodeableConceptInput;
   extension?: Maybe<Array<Maybe<ExtensionInput>>>;
@@ -1981,10 +1980,13 @@ export enum EntityType {
   Consultation = 'CONSULTATION',
   Contact = 'CONTACT',
   CustomListAdmittedPatient = 'CUSTOM_LIST_ADMITTED_PATIENT',
+  CustomListAssignedTasks = 'CUSTOM_LIST_ASSIGNED_TASKS',
+  CustomListClinicAppointments = 'CUSTOM_LIST_CLINIC_APPOINTMENTS',
   CustomListCommunityPharmacy = 'CUSTOM_LIST_COMMUNITY_PHARMACY',
   CustomListDischargedPatient = 'CUSTOM_LIST_DISCHARGED_PATIENT',
   CustomListEdan = 'CUSTOM_LIST_EDAN',
   CustomListInfectionPreventionControl = 'CUSTOM_LIST_INFECTION_PREVENTION_CONTROL',
+  CustomListOutpatientClinicRecentlyDispensed = 'CUSTOM_LIST_OUTPATIENT_CLINIC_RECENTLY_DISPENSED',
   CustomListOutpatientPharmacy = 'CUSTOM_LIST_OUTPATIENT_PHARMACY',
   CustomListPatient = 'CUSTOM_LIST_PATIENT',
   CustomListPreAssessment = 'CUSTOM_LIST_PRE_ASSESSMENT',
@@ -2207,6 +2209,8 @@ export type ExtensionInput = {
 };
 
 export enum FeatureInstance {
+  FilterAssignedTasks = 'FILTER_ASSIGNED_TASKS',
+  FilterInactiveTasks = 'FILTER_INACTIVE_TASKS',
   FormsForHealthLaunch = 'FORMS_FOR_HEALTH_LAUNCH',
   GpConnectDataProvider = 'GP_CONNECT_DATA_PROVIDER',
   InteractWithCountersignature = 'INTERACT_WITH_COUNTERSIGNATURE',
