@@ -2070,6 +2070,7 @@ export enum EntityType {
   QToolQuestionnaireResponse = 'Q_TOOL_QUESTIONNAIRE_RESPONSE',
   Radiotherapy = 'RADIOTHERAPY',
   RadiotherapyBooking = 'RADIOTHERAPY_BOOKING',
+  RecoveryCarePlan = 'RECOVERY_CARE_PLAN',
   Referral = 'REFERRAL',
   Review = 'REVIEW',
   SelfClaim = 'SELF_CLAIM',
