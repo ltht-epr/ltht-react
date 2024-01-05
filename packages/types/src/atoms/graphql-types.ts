@@ -2070,6 +2070,7 @@ export enum EntityType {
   QToolQuestionnaireResponse = 'Q_TOOL_QUESTIONNAIRE_RESPONSE',
   Radiotherapy = 'RADIOTHERAPY',
   RadiotherapyBooking = 'RADIOTHERAPY_BOOKING',
+  RecoveryCarePlan = 'RECOVERY_CARE_PLAN',
   Referral = 'REFERRAL',
   Review = 'REVIEW',
   SelfClaim = 'SELF_CLAIM',
@@ -2209,8 +2210,6 @@ export type ExtensionInput = {
 };
 
 export enum FeatureInstance {
-  FilterAssignedTasks = 'FILTER_ASSIGNED_TASKS',
-  FilterInactiveTasks = 'FILTER_INACTIVE_TASKS',
   FormsForHealthLaunch = 'FORMS_FOR_HEALTH_LAUNCH',
   GpConnectDataProvider = 'GP_CONNECT_DATA_PROVIDER',
   InteractWithCountersignature = 'INTERACT_WITH_COUNTERSIGNATURE',
