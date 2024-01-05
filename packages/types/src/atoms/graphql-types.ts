@@ -2210,6 +2210,8 @@ export type ExtensionInput = {
 };
 
 export enum FeatureInstance {
+  FilterAssignedTasks = 'FILTER_ASSIGNED_TASKS',
+  FilterInactiveTasks = 'FILTER_INACTIVE_TASKS',
   FormsForHealthLaunch = 'FORMS_FOR_HEALTH_LAUNCH',
   GpConnectDataProvider = 'GP_CONNECT_DATA_PROVIDER',
   InteractWithCountersignature = 'INTERACT_WITH_COUNTERSIGNATURE',
