@@ -11,9 +11,6 @@
   "devDependencies": {
     "@babel/eslint-parser": "^7.18.2",
     "@emotion/eslint-plugin": "^11.7.0",
-    "@testing-library/jest-dom": "^5.11.9",
-    "@testing-library/react": "^11.2.3",
-    "@testing-library/user-event": "^12.6.2",
     "@types/async": "^3.0.3",
     "@types/classnames": "^2.2.10",
     "@types/domhandler": "^2.4.2",

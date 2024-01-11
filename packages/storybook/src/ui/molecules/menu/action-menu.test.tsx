@@ -51,17 +51,17 @@ describe('Action menu', () => {
     expect(screen.getByRole('button', { name: 'Actions' })).toBeVisible()
   })
 
-  it('Renders actions when clicked', () => {
+  it('Renders actions when clicked', async () => {
     render(<ActionMenu actions={mockActions} />)
 
     expect(screen.queryByText('View')).toBeNull()
 
-    userEvent.click(screen.getByRole('button'))
+    await userEvent.click(screen.getByRole('button'))
 
     expect(screen.queryByText('View')).not.toBeNull()
   })
 
-  it('Calls the action click handlers when actions are clicked', () => {
+  it('Calls the action click handlers when actions are clicked', async () => {
     const mockClickerHandler = jest.fn()
 
     render(
@@ -75,23 +75,23 @@ describe('Action menu', () => {
         ]}
       />
     )
-    userEvent.click(screen.getByRole('button'))
-    userEvent.click(screen.getByRole('menuitem', { name: 'Test Action' }))
+    await userEvent.click(screen.getByRole('button'))
+    await userEvent.click(screen.getByRole('menuitem', { name: 'Test Action' }))
 
     expect(mockClickerHandler).toHaveBeenCalled()
     mockClickerHandler.mockClear()
   })
 
-  it('Closes the menu after an action is clicked', () => {
+  it('Closes the menu after an action is clicked', async () => {
     render(<ActionMenu actions={mockActions} />)
 
-    userEvent.click(screen.getByRole('button'))
-    userEvent.click(screen.getByRole('menuitem', { name: 'View' }))
+    await userEvent.click(screen.getByRole('button'))
+    await userEvent.click(screen.getByRole('menuitem', { name: 'View' }))
 
     expect(screen.queryByText('View')).toBeNull()
   })
 
-  it('Closes the menu when another item is clicked', () => {
+  it('Closes the menu when another item is clicked', async () => {
     render(
       <>
         <div>This is a different element</div>
@@ -99,10 +99,10 @@ describe('Action menu', () => {
       </>
     )
 
-    userEvent.click(screen.getByRole('button'))
+    await userEvent.click(screen.getByRole('button'))
     expect(screen.queryByText('View')).not.toBeNull()
 
-    userEvent.click(screen.getByText('This is a different element'))
+    await userEvent.click(screen.getByText('This is a different element'))
     expect(screen.queryByText('View')).toBeNull()
   })
 })

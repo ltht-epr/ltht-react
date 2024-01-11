@@ -78,7 +78,7 @@ describe('Component overrride', () => {
 
 // TODO: move these test to cypress testing when its setup
 describe('Table with infinite scroll pagination (x)', () => {
-  it('navigates to next page using the button when scroll is not available', () => {
+  it('navigates to next page using the button when scroll is not available', async () => {
     render(
       <div style={{ maxHeight: '400px' }}>
         <Table tableData={mockTableDataForPagination} />
@@ -87,7 +87,7 @@ describe('Table with infinite scroll pagination (x)', () => {
 
     expect(screen.getAllByRole('row').length).toEqual(11)
 
-    userEvent.click(screen.getByRole('button'))
+    await userEvent.click(screen.getByRole('button'))
 
     expect(screen.getAllByRole('row').length).toEqual(21)
   })
@@ -113,7 +113,7 @@ describe('Table with infinite scroll pagination (x)', () => {
 
 // TODO: move these test to cypress testing when its setup
 describe('Table with infinite scroll pagination (y)', () => {
-  it('navigates to next page using the button when scroll is not available', () => {
+  it('navigates to next page using the button when scroll is not available', async () => {
     render(
       <div style={{ maxWidth: '100%' }}>
         <Table tableData={mockTableDataForVerticalPagination} headerAxis="y" />
@@ -122,7 +122,7 @@ describe('Table with infinite scroll pagination (y)', () => {
 
     expect(screen.getAllByRole('columnheader').length).toEqual(11)
 
-    userEvent.click(screen.getByRole('button'))
+    await userEvent.click(screen.getByRole('button'))
 
     expect(screen.getAllByRole('columnheader').length).toEqual(21)
   })
@@ -174,7 +174,7 @@ describe('Table with infinite scroll pagination (x) [MANUAL]', () => {
 
     expect(screen.getAllByRole('row').length).toEqual(11)
 
-    userEvent.click(screen.getByRole('button'))
+    await userEvent.click(screen.getByRole('button'))
 
     rerender(getTable(1))
 
@@ -205,7 +205,7 @@ describe('Table with infinite scroll pagination (x) [MANUAL]', () => {
 
     expect(screen.getAllByRole('row').length).toEqual(11)
 
-    userEvent.click(screen.getByRole('button'))
+    await userEvent.click(screen.getByRole('button'))
 
     rerender(getTable(1))
 
@@ -265,7 +265,7 @@ describe('Table with infinite scroll pagination (y) [MANUAL]', () => {
     rows: mockTableDataForVerticalPagination.rows,
   })
 
-  it('navigates to next page using the button (NOT Keeping Previous Data)', () => {
+  it('navigates to next page using the button (NOT Keeping Previous Data)', async () => {
     const mockNextPageHandler = jest.fn(() => null)
     const mockGetCanNextPageHandler = jest.fn(() => true)
 
@@ -286,7 +286,7 @@ describe('Table with infinite scroll pagination (y) [MANUAL]', () => {
 
     expect(screen.getAllByRole('columnheader').length).toEqual(11)
 
-    userEvent.click(screen.getByRole('button'))
+    await userEvent.click(screen.getByRole('button'))
 
     rerender(getTable(1))
 
@@ -296,7 +296,7 @@ describe('Table with infinite scroll pagination (y) [MANUAL]', () => {
     expect(mockNextPageHandler).toHaveBeenCalled()
   })
 
-  it('navigates to next page using the button when scroll is not available', () => {
+  it('navigates to next page using the button when scroll is not available', async () => {
     const mockNextPageHandler = jest.fn(() => null)
     const mockGetCanNextPageHandler = jest.fn(() => true)
 
@@ -317,7 +317,7 @@ describe('Table with infinite scroll pagination (y) [MANUAL]', () => {
 
     expect(screen.getAllByRole('columnheader').length).toEqual(11)
 
-    userEvent.click(screen.getByRole('button'))
+    await userEvent.click(screen.getByRole('button'))
 
     rerender(getTable(1))
 

@@ -31,7 +31,7 @@ describe('selected plan detail', () => {
   it('should call back when a problem is toggled', async () => {
     render(<SelectedPlanDetail {...defaultProps} />)
 
-    userEvent.click(await screen.findByText('Infection (Pneumonia)'))
+    await userEvent.click(await screen.findByText('Infection (Pneumonia)'))
 
     expect(defaultProps.onProblemChange).toHaveBeenCalledTimes(1)
     expect(defaultProps.onProblemChange).toHaveBeenLastCalledWith(
@@ -51,7 +51,7 @@ describe('selected plan detail', () => {
       />
     )
 
-    userEvent.click(await screen.findByText('Patient Problems'))
+    await userEvent.click(await screen.findByText('Patient Problems'))
 
     expect(defaultProps.onProblemChange).toHaveBeenCalledTimes(1)
     expect(defaultProps.onProblemChange).toHaveBeenLastCalledWith(
@@ -76,7 +76,7 @@ describe('selected plan detail', () => {
       />
     )
 
-    userEvent.click(await screen.findByText('Patient Education'))
+    await userEvent.click(await screen.findByText('Patient Education'))
 
     expect(defaultProps.onProblemChange).toHaveBeenCalledTimes(1)
     expect(defaultProps.onProblemChange).toHaveBeenLastCalledWith(
@@ -92,7 +92,7 @@ describe('selected plan detail', () => {
   it('should call back when all problems are toggled on', async () => {
     render(<SelectedPlanDetail {...defaultProps} />)
 
-    userEvent.click(await screen.findByText('Patient Problems'))
+    await userEvent.click(await screen.findByText('Patient Problems'))
 
     expect(defaultProps.onProblemChange).toHaveBeenCalledTimes(1)
     expect(defaultProps.onProblemChange).toHaveBeenLastCalledWith(
@@ -107,7 +107,7 @@ describe('selected plan detail', () => {
   it('should call back when all education points are toggled on', async () => {
     render(<SelectedPlanDetail {...defaultProps} />)
 
-    userEvent.click(await screen.findByText('Patient Education'))
+    await userEvent.click(await screen.findByText('Patient Education'))
 
     expect(defaultProps.onProblemChange).toHaveBeenCalledTimes(1)
     expect(defaultProps.onProblemChange).toHaveBeenLastCalledWith(
