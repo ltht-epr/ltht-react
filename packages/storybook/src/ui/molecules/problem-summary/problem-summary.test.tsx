@@ -73,7 +73,7 @@ describe('Problem Summary', () => {
     expect(screen.queryByText(WarningMessageThree.text)).toBeNull()
   })
 
-  it('Shows errors when dropdown is clicked', () => {
+  it('Shows errors when dropdown is clicked', async () => {
     render(
       <ProblemSummary
         problems={[
@@ -92,7 +92,7 @@ describe('Problem Summary', () => {
       .find((icon) => icon.classList.contains('icon__chevron'))
 
     if (chevronIcon) {
-      userEvent.click(chevronIcon)
+      await userEvent.click(chevronIcon)
     }
 
     expect(screen.getByText(ErrorMessageOne.text)).toBeVisible()
@@ -103,7 +103,7 @@ describe('Problem Summary', () => {
     expect(screen.getByText(WarningMessageThree.text)).toBeVisible()
   })
 
-  it('Hides errors again when dropdown is clicked', () => {
+  it('Hides errors again when dropdown is clicked', async () => {
     render(
       <ProblemSummary
         problems={[
@@ -122,7 +122,7 @@ describe('Problem Summary', () => {
       .find((icon) => icon.classList.contains('icon__chevron'))
 
     if (chevronIcon) {
-      userEvent.click(chevronIcon)
+      await userEvent.click(chevronIcon)
     }
 
     expect(screen.getByText(ErrorMessageOne.text)).toBeVisible()
@@ -133,7 +133,7 @@ describe('Problem Summary', () => {
     expect(screen.getByText(WarningMessageThree.text)).toBeVisible()
 
     if (chevronIcon) {
-      userEvent.click(chevronIcon)
+      await userEvent.click(chevronIcon)
     }
 
     expect(screen.queryByText(ErrorMessageOne.text)).toBeNull()

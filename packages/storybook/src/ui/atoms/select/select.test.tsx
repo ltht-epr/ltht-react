@@ -46,7 +46,7 @@ describe('<Select />', () => {
   it('Displays the active option when that option is clicked', async () => {
     render(<TestWrapper initialValue={mockOptions[0].value} />)
 
-    userEvent.selectOptions(await screen.findByDisplayValue('Option 1'), 'Option 2')
+    await userEvent.selectOptions(await screen.findByDisplayValue('Option 1'), 'Option 2')
 
     await screen.findByDisplayValue('Option 2')
   })
@@ -56,7 +56,7 @@ describe('<Select />', () => {
 
     render(<TestWrapper initialValue={mockOptions[0].value} onSelect={callbackMock} />)
 
-    userEvent.selectOptions(await screen.findByDisplayValue('Option 1'), 'Option 3')
+    await userEvent.selectOptions(await screen.findByDisplayValue('Option 1'), 'Option 3')
 
     expect(callbackMock).toHaveBeenCalledWith(
       expect.objectContaining({ target: expect.objectContaining({ value: 'option-3' }) })

@@ -55,20 +55,20 @@ describe('Questionnaire Table (using Fixture data)', () => {
     ).toBe(true)
   })
 
-  it('Sorts the table when headers are clicked', () => {
+  it('Sorts the table when headers are clicked', async () => {
     render(<QuestionnaireTable definition={summaryDefinition} records={summaryRecordsList} headerAxis="y" />)
 
     const getTopLeftDataCell = () => within(screen.getAllByRole('row')[1]).getAllByRole('cell')[1]
 
     expect(getTopLeftDataCell()).toHaveTextContent('Score')
 
-    userEvent.click(screen.getByText('17-Feb-2022 17:23'))
-    userEvent.click(screen.getByText('17-Feb-2022 17:23'))
+    await userEvent.click(screen.getByText('17-Feb-2022 17:23'))
+    await userEvent.click(screen.getByText('17-Feb-2022 17:23'))
 
     expect(getTopLeftDataCell()).toHaveTextContent('Average BASFI Score')
   })
 
-  it('Does not sort the table if sorting is disabled', () => {
+  it('Does not sort the table if sorting is disabled', async () => {
     render(
       <QuestionnaireTable
         definition={summaryDefinition}
@@ -82,37 +82,37 @@ describe('Questionnaire Table (using Fixture data)', () => {
 
     expect(getTopLeftDataCell()).toHaveTextContent('Score')
 
-    userEvent.click(screen.getByText('17-Feb-2022 17:23'))
-    userEvent.click(screen.getByText('17-Feb-2022 17:23'))
+    await userEvent.click(screen.getByText('17-Feb-2022 17:23'))
+    await userEvent.click(screen.getByText('17-Feb-2022 17:23'))
 
     expect(getTopLeftDataCell()).toHaveTextContent('Score')
   })
 
-  it('Sorts the table if the lowest level of subheaders are clicked in horizontal mode', () => {
+  it('Sorts the table if the lowest level of subheaders are clicked in horizontal mode', async () => {
     render(<QuestionnaireTable definition={summaryDefinition} records={summaryRecordsList} headerAxis="x" />)
 
     const getTopLeftDataCell = () => within(screen.getAllByRole('row')[3]).getAllByRole('cell')[0]
 
     expect(getTopLeftDataCell()).toHaveTextContent('17-Feb-2022 17:23')
 
-    userEvent.click(screen.getByText('Record Date'))
+    await userEvent.click(screen.getByText('Record Date'))
 
     expect(getTopLeftDataCell()).toHaveTextContent('17-Feb-2022 17:23')
   })
 
-  it('Does not try to sort the table when a header grouping is clicked', () => {
+  it('Does not try to sort the table when a header grouping is clicked', async () => {
     render(<QuestionnaireTable definition={summaryDefinition} records={summaryRecordsList} headerAxis="x" />)
 
     const getTopLeftDataCell = () => within(screen.getAllByRole('row')[3]).getAllByRole('cell')[0]
 
     expect(getTopLeftDataCell()).toHaveTextContent('17-Feb-2022 17:23')
 
-    userEvent.click(screen.getByText('RR (breaths/min)'))
+    await userEvent.click(screen.getByText('RR (breaths/min)'))
 
     expect(getTopLeftDataCell()).toHaveTextContent('17-Feb-2022 17:23')
   })
 
-  it('Expands collapsed rows when parent row is clicked', () => {
+  it('Expands collapsed rows when parent row is clicked', async () => {
     render(<QuestionnaireTable definition={summaryDefinition} records={summaryRecordsList} headerAxis="y" />)
 
     const getChevronCell = () => within(screen.getAllByRole('row')[4]).getAllByRole('cell')[0]
@@ -120,18 +120,18 @@ describe('Questionnaire Table (using Fixture data)', () => {
     expect(within(getChevronCell()).getByRole('img', { hidden: true })).toHaveClass('fa-chevron-right')
     expect(screen.getAllByRole('row').length).toBe(6)
 
-    userEvent.click(screen.getAllByRole('img', { hidden: true })[1])
+    await userEvent.click(screen.getAllByRole('img', { hidden: true })[1])
 
     expect(within(getChevronCell()).getByRole('img', { hidden: true })).toHaveClass('fa-chevron-down')
     expect(screen.getAllByRole('row').length).toBeGreaterThan(6)
     expect(screen.getAllByRole('row')[6]).toBeVisible()
 
-    userEvent.click(screen.getAllByRole('img', { hidden: true })[1])
+    await userEvent.click(screen.getAllByRole('img', { hidden: true })[1])
     expect(within(getChevronCell()).getByRole('img', { hidden: true })).toHaveClass('fa-chevron-right')
     expect(screen.getAllByRole('row').length).toBe(6)
   })
 
-  it('Toggles all expandable rows when chevron is clicked', () => {
+  it('Toggles all expandable rows when chevron is clicked', async () => {
     render(<QuestionnaireTable definition={summaryDefinition} records={summaryRecordsList} headerAxis="y" />)
 
     const getChevronCell = () => within(screen.getAllByRole('row')[0]).getAllByRole('columnheader')[0]
@@ -139,7 +139,7 @@ describe('Questionnaire Table (using Fixture data)', () => {
     expect(within(getChevronCell()).getByRole('img', { hidden: true })).toHaveClass('fa-chevron-right')
     expect(screen.getAllByRole('row').length).toBe(6)
 
-    userEvent.click(screen.getAllByRole('img', { hidden: true })[0])
+    await userEvent.click(screen.getAllByRole('img', { hidden: true })[0])
 
     expect(within(getChevronCell()).getByRole('img', { hidden: true })).toHaveClass('fa-chevron-down')
     expect(screen.getAllByRole('row').length).toBeGreaterThan(6)
@@ -148,7 +148,7 @@ describe('Questionnaire Table (using Fixture data)', () => {
     expect(within(screen.getAllByRole('row')[6]).getAllByRole('cell')[1]).toHaveTextContent('RR Part 1 (breaths/min)')
     expect(within(screen.getAllByRole('row')[7]).getAllByRole('cell')[1]).toHaveTextContent('RR Part 2 (breaths/min)')
 
-    userEvent.click(within(getChevronCell()).getByRole('img', { hidden: true }))
+    await userEvent.click(within(getChevronCell()).getByRole('img', { hidden: true }))
     expect(within(getChevronCell()).getByRole('img', { hidden: true })).toHaveClass('fa-chevron-right')
 
     expect(screen.getAllByRole('row').length).toBe(6)

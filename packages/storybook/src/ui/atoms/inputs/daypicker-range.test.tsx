@@ -63,23 +63,23 @@ describe('<DaypickerRange showIcon/>', () => {
     expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
   })
 
-  it('Daypicker range first button clicked should open one datepicker dialog', () => {
+  it('Daypicker range first button clicked should open one datepicker dialog', async () => {
     const buttons = screen.getAllByRole('button')
-    userEvent.click(buttons[0])
+    await userEvent.click(buttons[0])
     expect(screen.getByRole('dialog')).toBeInTheDocument()
     expect(screen.queryAllByRole('dialog')).toHaveLength(1)
   })
 
-  it('Daypicker range from date selected changes input text and value, and changes minDate for ToPicker', () => {
+  it('Daypicker range from date selected changes input text and value, and changes minDate for ToPicker', async () => {
     const buttons = screen.getAllByRole('button')
-    userEvent.click(buttons[0])
+    await userEvent.click(buttons[0])
     const newDay = 10
 
     const newDateText = screen.getByText(newDay)
     const cell = newDateText.closest('button')
     if (cell) {
       expect(cell).not.toBeNull()
-      userEvent.click(cell)
+      await userEvent.click(cell)
       expect(mockOnClick1).toBeCalledTimes(1)
       const newDate = new Date()
       newDate.setDate(newDay)
@@ -88,14 +88,14 @@ describe('<DaypickerRange showIcon/>', () => {
       expect(input).toHaveValue(format(newDate, dayFormat))
 
       // changed ToPicker...
-      userEvent.click(buttons[1])
+      await userEvent.click(buttons[1])
       expect(screen.queryAllByRole('dialog')).toHaveLength(1)
       const disabledDay = 9
       const disabledDateText = screen.getByText(disabledDay)
       const disabledCell = disabledDateText.closest('button')
       if (disabledCell) {
         expect(disabledCell).toHaveAttribute('disabled')
-        userEvent.click(disabledCell)
+        await userEvent.click(disabledCell)
         expect(mockOnClick2).toBeCalledTimes(0)
         const disabledDate = new Date()
         disabledDate.setDate(disabledDay)

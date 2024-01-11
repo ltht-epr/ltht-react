@@ -41,7 +41,7 @@ describe('toggle input', () => {
     expect(input).not.toBeDisabled()
     expect(input).not.toBeChecked()
 
-    userEvent.click(label)
+    await userEvent.click(label)
 
     expect(input).toBeChecked()
   })
@@ -54,7 +54,7 @@ describe('toggle input', () => {
 
     expect(input).toBeDisabled()
 
-    userEvent.click(label)
+    await userEvent.click(label)
 
     expect(input).not.toBeChecked()
   })

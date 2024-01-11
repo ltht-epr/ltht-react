@@ -24,7 +24,7 @@ describe('checkbox', () => {
 
     const label = await screen.findByText('Checkbox label')
 
-    userEvent.click(label)
+    await userEvent.click(label)
 
     expect(callback).toHaveBeenLastCalledWith(expect.objectContaining({ target: expect.anything() }))
   })
@@ -40,7 +40,7 @@ describe('checkbox', () => {
 
     const input = await screen.findByLabelText('Checkbox label')
 
-    userEvent.click(input)
+    await userEvent.click(input)
 
     expect(callback).toHaveBeenLastCalledWith(
       expect.objectContaining({ target: expect.objectContaining({ checked: expect.anything() }) })

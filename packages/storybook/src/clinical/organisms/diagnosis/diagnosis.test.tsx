@@ -73,7 +73,7 @@ describe('Diagnosis', () => {
     ).toBeNull()
   })
 
-  it('Calls the click handler provided when the button for extending the diagnosis is clicked', () => {
+  it('Calls the click handler provided when the button for extending the diagnosis is clicked', async () => {
     const clickHandler = jest.fn()
 
     render(
@@ -85,7 +85,7 @@ describe('Diagnosis', () => {
       />
     )
 
-    userEvent.click(
+    await userEvent.click(
       screen.getByRole('button', {
         name: /This diagnosis can be extended further using form 'Extension Template Name' by clicking here/,
       })

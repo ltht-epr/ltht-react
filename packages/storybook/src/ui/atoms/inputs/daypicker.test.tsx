@@ -27,43 +27,43 @@ describe('<Daypicker showIcon/>', () => {
     expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
   })
 
-  it('Daypicker input clicked should NOT open datepicker dialog', () => {
+  it('Daypicker input clicked should NOT open datepicker dialog', async () => {
     const input = screen.getByDisplayValue(format(initialDate, dayFormat))
-    userEvent.click(input)
+    await userEvent.click(input)
     expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
   })
 
   it('Daypicker button icon clicked should open datepicker dialog', async () => {
     const button = screen.getByRole('button')
-    userEvent.click(button)
+    await userEvent.click(button)
     expect(screen.getByRole('dialog')).toBeInTheDocument()
   })
 
   it('Daypicker button icon double clicked should close datepicker dialog', async () => {
     const button = screen.getByRole('button')
-    userEvent.dblClick(button)
+    await userEvent.dblClick(button)
     expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
   })
 
-  it('Daypicker button icon triple clicked should open datepicker dialog', () => {
+  it('Daypicker button icon triple clicked should open datepicker dialog', async () => {
     const button = screen.getByRole('button')
-    userEvent.dblClick(button)
-    userEvent.click(button)
+    await userEvent.dblClick(button)
+    await userEvent.click(button)
     expect(screen.getByRole('dialog')).toBeInTheDocument()
   })
 
-  it('Daypicker new date selected changes input text and value, and triggers changeHandler', () => {
+  it('Daypicker new date selected changes input text and value, and triggers changeHandler', async () => {
     const input = screen.getByDisplayValue(format(initialDate, dayFormat))
     expect(input).toBeInTheDocument()
     expect(input).toHaveValue(format(initialDate, dayFormat))
     const button = screen.getByRole('button')
-    userEvent.click(button)
+    await userEvent.click(button)
     const newDay = 16
     const newDate = screen.getByText(newDay)
     const cell = newDate.closest('button')
     if (cell) {
       expect(cell).not.toBeNull()
-      userEvent.click(cell)
+      await userEvent.click(cell)
       expect(mockOnClick1).toBeCalledTimes(1)
       const newDate = new Date()
       newDate.setDate(newDay)
@@ -95,11 +95,11 @@ describe('<Daypicker showIcon=false/>', () => {
     expect(screen.queryByDisplayValue(format(maxDate, dayFormat))).toBeNull()
   })
 
-  it('Daypicker input clicked should open datepicker dialog', () => {
+  it('Daypicker input clicked should open datepicker dialog', async () => {
     const button = screen.queryByRole('button')
     expect(button).toBeNull()
     const input = screen.getByDisplayValue(format(initialDate, dayFormat))
-    userEvent.click(input)
+    await userEvent.click(input)
     expect(screen.getByRole('dialog')).toBeInTheDocument()
   })
 })

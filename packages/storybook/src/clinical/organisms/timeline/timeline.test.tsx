@@ -300,20 +300,23 @@ describe('Filtering', () => {
     const carePlanFilter = await screen.findByLabelText(/Care plan:/)
     const userFilter = await screen.findByLabelText(/User:/)
 
-    userEvent.selectOptions(carePlanFilter, 'domain:careplan:definitionseriesid:9f4e2790-d0b7-a891-5d51-5f35b0e58228')
+    await userEvent.selectOptions(
+      carePlanFilter,
+      'domain:careplan:definitionseriesid:9f4e2790-d0b7-a891-5d51-5f35b0e58228'
+    )
 
     expect(handleFilterChangeMock).toHaveBeenLastCalledWith([
       'domain:careplan:definitionseriesid:9f4e2790-d0b7-a891-5d51-5f35b0e58228',
     ])
 
-    userEvent.selectOptions(userFilter, 'domain:user:some-random-user-guid')
+    await userEvent.selectOptions(userFilter, 'domain:user:some-random-user-guid')
 
     expect(handleFilterChangeMock).toHaveBeenLastCalledWith([
       'domain:careplan:definitionseriesid:9f4e2790-d0b7-a891-5d51-5f35b0e58228',
       'domain:user:some-random-user-guid',
     ])
 
-    userEvent.selectOptions(carePlanFilter, '')
+    await userEvent.selectOptions(carePlanFilter, '')
 
     expect(handleFilterChangeMock).toHaveBeenLastCalledWith(['domain:user:some-random-user-guid'])
   })
@@ -351,13 +354,16 @@ describe('Filtering', () => {
     )
     const carePlanFilter = await screen.findByLabelText(/Care plan:/)
 
-    userEvent.selectOptions(carePlanFilter, 'domain:careplan:definitionseriesid:9f4e2790-d0b7-a891-5d51-5f35b0e58228')
+    await userEvent.selectOptions(
+      carePlanFilter,
+      'domain:careplan:definitionseriesid:9f4e2790-d0b7-a891-5d51-5f35b0e58228'
+    )
 
     expect(handleFilterChangeMock).toHaveBeenLastCalledWith([
       'domain:careplan:definitionseriesid:9f4e2790-d0b7-a891-5d51-5f35b0e58228',
     ])
 
-    userEvent.selectOptions(carePlanFilter, 'All')
+    await userEvent.selectOptions(carePlanFilter, 'All')
 
     expect(handleFilterChangeMock).toHaveBeenLastCalledWith([])
   })

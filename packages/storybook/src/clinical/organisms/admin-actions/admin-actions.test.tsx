@@ -52,7 +52,7 @@ describe('Admin Actions', () => {
     expect(queryByText('Loading')).toBeInTheDocument()
   })
 
-  it('Invokes the click handler when clicked', () => {
+  it('Invokes the click handler when clicked', async () => {
     const mockClickHandler = jest.fn()
 
     const adminAction: IAdminAction = {
@@ -63,11 +63,11 @@ describe('Admin Actions', () => {
     }
     render(<AdminActions adminAction={adminAction} actionClickHandler={mockClickHandler} />)
 
-    userEvent.click(screen.getByRole('button'))
+    await userEvent.click(screen.getByRole('button'))
     expect(mockClickHandler).toBeCalledTimes(1)
   })
 
-  it('Does not invoke the click handler if clicked whilst loading', () => {
+  it('Does not invoke the click handler if clicked whilst loading', async () => {
     const mockClickHandler = jest.fn()
 
     const adminAction: IAdminAction = {
@@ -78,11 +78,11 @@ describe('Admin Actions', () => {
     }
     render(<AdminActions adminAction={adminAction} actionClickHandler={mockClickHandler} />)
 
-    userEvent.click(screen.getByRole('button'))
+    await userEvent.click(screen.getByRole('button'))
     expect(mockClickHandler).not.toHaveBeenCalled()
   })
 
-  it('Does not invoke the click handler if clicked whilst failed', () => {
+  it('Does not invoke the click handler if clicked whilst failed', async () => {
     const mockClickHandler = jest.fn()
 
     const adminAction: IAdminAction = {
@@ -93,11 +93,11 @@ describe('Admin Actions', () => {
     }
     render(<AdminActions adminAction={adminAction} actionClickHandler={mockClickHandler} />)
 
-    userEvent.click(screen.getByRole('button'))
+    await userEvent.click(screen.getByRole('button'))
     expect(mockClickHandler).not.toHaveBeenCalled()
   })
 
-  it('Does not invoke the click handler if clicked whilst already succeeded', () => {
+  it('Does not invoke the click handler if clicked whilst already succeeded', async () => {
     const mockClickHandler = jest.fn()
 
     const adminAction: IAdminAction = {
@@ -108,7 +108,7 @@ describe('Admin Actions', () => {
     }
     render(<AdminActions adminAction={adminAction} actionClickHandler={mockClickHandler} />)
 
-    userEvent.click(screen.getByRole('button'))
+    await userEvent.click(screen.getByRole('button'))
     expect(mockClickHandler).not.toHaveBeenCalled()
   })
 

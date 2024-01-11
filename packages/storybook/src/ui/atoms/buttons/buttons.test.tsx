@@ -15,7 +15,7 @@ describe('Buttons', () => {
     expect(screen.getByRole('button', { name: /Some Mock Text/ })).toBeVisible()
   })
 
-  it('Extends the behaviour of a normal HTML Button', () => {
+  it('Extends the behaviour of a normal HTML Button', async () => {
     const mockOnClick = jest.fn()
 
     render(
@@ -26,7 +26,7 @@ describe('Buttons', () => {
 
     expect(screen.getByRole('button')).toHaveAttribute('id', '123abc')
 
-    userEvent.click(screen.getByRole('button'))
+    await userEvent.click(screen.getByRole('button'))
 
     expect(mockOnClick).toHaveBeenCalled()
   })
