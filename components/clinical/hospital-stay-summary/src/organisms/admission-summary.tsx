@@ -14,11 +14,12 @@ const StyledSummary = styled.div<IStyledSummaryProps>`
   display: flex;
   justify-content: center;
   ${({ status }) =>
-    status === EncounterStatusCode.InProgress &&
-    `
+    status === EncounterStatusCode.InProgress
+      ? `
     background-color: ${BANNER_COLOURS.HIGHLIGHT.BACKGROUND};
     padding: 5px;
-  `};
+  `
+      : ``};
 `
 const StyledDescription = styled.div`
   flex: 1;
