@@ -1155,6 +1155,8 @@ export type DosageType = {
 export type Ehr = {
   /** Active Care Plans */
   activeCarePlans?: Maybe<CarePlanContinuationType>;
+  /** Admissions */
+  admissions?: Maybe<EncounterContinuation>;
   /** Allergy/Intolerance Detail */
   allergyIntolerance?: Maybe<AllergyIntolerance>;
   /** Allergies and Intolerances */
@@ -1231,6 +1233,14 @@ export type EhrActiveCarePlansArgs = {
   count?: Maybe<Scalars['Int']>;
   cursorToken?: Maybe<Scalars['String']>;
   pathwayType: Scalars['String'];
+  patientGuid: Scalars['String'];
+};
+
+
+/** Queries the LTHT EHR. */
+export type EhrAdmissionsArgs = {
+  count?: Maybe<Scalars['Int']>;
+  cursorToken?: Maybe<Scalars['String']>;
   patientGuid: Scalars['String'];
 };
 
