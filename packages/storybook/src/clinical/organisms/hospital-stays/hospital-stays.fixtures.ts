@@ -191,6 +191,101 @@ const HospitalStayThree: Encounter = {
   metadata: mockMetadata,
 }
 
+const AdmissionOne: Encounter = {
+  id: '1099749785',
+  status: EncounterStatusCode.InProgress,
+  text: {
+    div: '',
+    text: 'HRI WARD 17 APOLLO (Huddersfield Royal Infirmary), Sonwalkar S, 14/09/2017 to 16/09/2017',
+  },
+  period: {
+    start: {
+      value: '2017-09-13T13:28:00+00:00',
+      kind: PartialDateTimeKindCode.Date,
+    },
+    end: null,
+  },
+  length: {
+    unit: '2 Days 13 Hours 1 Minute',
+  },
+  serviceProvider: {
+    typeName: 'https://leedsth.nhs.uk/organisation-identifier',
+    display: 'Calderdale and Huddersfield NHS Foundation Trust',
+    reference: 'a73efc8d-0ebe-dd11-a2ab-001e68862219',
+    identifier: {
+      value: 'Calderdale',
+    },
+  },
+  metadata: {
+    requestedWhen: '',
+    isRedacted: false,
+    dataSources: [
+      {
+        code: 'EHR',
+        display: 'Electronic Health Record',
+      },
+    ],
+  },
+  extension: [
+    {
+      url: 'https://leedsth.nhs.uk/ehr/encounter/type',
+      valueString: 'ADMISSION',
+    },
+    {
+      url: 'https://leedsth.nhs.uk/organisation-identifier',
+      valueString: 'a73efc8d-0ebe-dd11-a2ab-001e68862219',
+    },
+  ],
+}
+
+const AdmissionTwo: Encounter = {
+  id: '1099749785',
+  status: EncounterStatusCode.Finished,
+  text: {
+    div: '',
+    text: 'HRI WARD 17 APOLLO (Huddersfield Royal Infirmary), Sonwalkar S, 14/09/2017 to 16/09/2017',
+  },
+  period: {
+    start: {
+      value: '2017-09-13T13:28:00+00:00',
+      kind: PartialDateTimeKindCode.Date,
+    },
+    end: null,
+  },
+  length: {
+    unit: '2 Days 13 Hours 1 Minute',
+  },
+  serviceProvider: {
+    typeName: 'https://leedsth.nhs.uk/organisation-identifier',
+    display: 'Calderdale and Huddersfield NHS Foundation Trust',
+    reference: 'a73efc8d-0ebe-dd11-a2ab-001e68862219',
+    identifier: {
+      value: 'Calderdale',
+    },
+  },
+  metadata: {
+    requestedWhen: '',
+    isRedacted: false,
+    dataSources: [
+      {
+        code: 'EHR',
+        display: 'Electronic Health Record',
+      },
+    ],
+  },
+  extension: [
+    {
+      url: 'https://leedsth.nhs.uk/ehr/encounter/type',
+      valueString: 'ADMISSION',
+    },
+    {
+      url: 'https://leedsth.nhs.uk/organisation-identifier',
+      valueString: 'a73efc8d-0ebe-dd11-a2ab-001e68862219',
+    },
+  ],
+}
+
 const stays: Encounter[] = [HospitalStayOne, HospitalStayTwo, HospitalStayThree]
 
+export const admissions: Encounter[] = [AdmissionOne, AdmissionTwo]
 export default stays
