@@ -18,7 +18,7 @@ describe('Hospital Stays', () => {
 
     it('Renders Length Of Stay', () => {
       render(<AdmissionSummary admission={admissions[0]} />)
-      expect(screen.getByText('2 Days 13 Hours 1 Minute')).toBeVisible()
+      expect(screen.getByText('Length of Stay: 6 hours')).toBeVisible()
     })
   })
 

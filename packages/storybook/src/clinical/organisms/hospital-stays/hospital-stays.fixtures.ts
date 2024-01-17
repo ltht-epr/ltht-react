@@ -200,13 +200,14 @@ const AdmissionOne: Encounter = {
   },
   period: {
     start: {
-      value: '2017-09-13T13:28:00+00:00',
+      value: '2018-09-24T13:28:00+00:00',
       kind: PartialDateTimeKindCode.Date,
     },
     end: null,
   },
   length: {
-    unit: '2 Days 13 Hours 1 Minute',
+    unit: 'minutes',
+    value: 360,
   },
   serviceProvider: {
     typeName: 'https://leedsth.nhs.uk/organisation-identifier',
@@ -247,13 +248,17 @@ const AdmissionTwo: Encounter = {
   },
   period: {
     start: {
-      value: '2017-09-13T13:28:00+00:00',
+      value: '2017-09-23T13:28:00+00:00',
       kind: PartialDateTimeKindCode.Date,
     },
-    end: null,
+    end: {
+      value: '2017-09-28T13:28:00+00:00',
+      kind: PartialDateTimeKindCode.Date,
+    },
   },
   length: {
-    unit: '2 Days 13 Hours 1 Minute',
+    unit: 'minutes',
+    value: 7200,
   },
   serviceProvider: {
     typeName: 'https://leedsth.nhs.uk/organisation-identifier',
