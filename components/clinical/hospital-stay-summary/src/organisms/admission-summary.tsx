@@ -2,13 +2,13 @@ import { HTMLAttributes, FC } from 'react'
 import styled from '@emotion/styled'
 
 import { Encounter, EncounterStatusCode, Maybe } from '@ltht-react/types'
-import { PeriodSummary } from '@ltht-react/type-summary'
 
 import { BANNER_COLOURS } from '@ltht-react/styles'
 import ServiceProvider from '../atoms/hospital-stay-service-provider'
 import Description from '../atoms/hospital-stay-description'
-import Redacted from '../molecules/hospital-stay-redacted'
 import AdmissionLengthOfStay from '../atoms/admission-length-of-stay'
+import AdmissionPeriodSummary from '../atoms/admission-period-summary'
+import AdmissionRedacted from '../molecules/admission-redacted'
 
 const StyledSummary = styled.div<IStyledSummaryProps>`
   display: flex;
@@ -35,13 +35,13 @@ const StyledService = styled.div`
 
 const AdmissionSummary: FC<Props> = ({ admission, ...rest }) => {
   if (admission.metadata.isRedacted) {
-    return <Redacted hospitalStay={admission} {...rest} />
+    return <AdmissionRedacted admission={admission} {...rest} />
   }
 
   return (
     <StyledSummary {...rest} status={admission.status}>
       <StyledDate>
-        <PeriodSummary period={admission.period} />
+        <AdmissionPeriodSummary period={admission.period} />
         <AdmissionLengthOfStay encounter={admission} />
       </StyledDate>
       {admission.text && (

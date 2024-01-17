@@ -201,7 +201,7 @@ const AdmissionOne: Encounter = {
   period: {
     start: {
       value: '2018-09-24T13:28:00+00:00',
-      kind: PartialDateTimeKindCode.Date,
+      kind: PartialDateTimeKindCode.DateTime,
     },
     end: null,
   },
@@ -249,11 +249,11 @@ const AdmissionTwo: Encounter = {
   period: {
     start: {
       value: '2017-09-23T13:28:00+00:00',
-      kind: PartialDateTimeKindCode.Date,
+      kind: PartialDateTimeKindCode.DateTime,
     },
     end: {
       value: '2017-09-28T13:28:00+00:00',
-      kind: PartialDateTimeKindCode.Date,
+      kind: PartialDateTimeKindCode.DateTime,
     },
   },
   length: {
