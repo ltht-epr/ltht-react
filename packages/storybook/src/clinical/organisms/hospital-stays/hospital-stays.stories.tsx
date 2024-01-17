@@ -1,12 +1,12 @@
 import { Story } from '@storybook/react'
 
 import HospitalStayDetail from '@ltht-react/hospital-stay-detail'
-import HospitalStaySummary from '@ltht-react/hospital-stay-summary'
+import HospitalStaySummary, { AdmissionSummary } from '@ltht-react/hospital-stay-summary'
 import Card from '@ltht-react/card'
 import { Button } from '@ltht-react/button'
 import * as types from '@ltht-react/types'
 import { useDetailViewType } from '../hooks/useDetailViewTypeHook'
-import stays from './hospital-stays.fixtures'
+import stays, { admissions } from './hospital-stays.fixtures'
 
 export const Detail: Story = () => (
   <Card>
@@ -50,6 +50,36 @@ export const Summary: Story = () => (
       {stays.map((stay) => (
         <Card.ListItem key={stay.id}>
           <HospitalStaySummary hospitalStay={stay} />
+        </Card.ListItem>
+      ))}
+    </Card.List>
+  </Card>
+)
+
+export const AdmissionSummaryStory: Story = () => (
+  <Card>
+    <Card.Header>
+      <Card.Title>Admissions</Card.Title>
+    </Card.Header>
+    <Card.List>
+      {admissions.map((stay) => (
+        <Card.ListItem key={stay.id}>
+          <AdmissionSummary admission={stay} />
+        </Card.ListItem>
+      ))}
+    </Card.List>
+  </Card>
+)
+
+export const AdmissionSummaryRedacted: Story = () => (
+  <Card>
+    <Card.Header>
+      <Card.Title>Admissions</Card.Title>
+    </Card.Header>
+    <Card.List>
+      {admissions.map((stay) => (
+        <Card.ListItem key={stay.id}>
+          <AdmissionSummary admission={{ ...stay, metadata: { ...stay.metadata, isRedacted: true } }} />
         </Card.ListItem>
       ))}
     </Card.List>
