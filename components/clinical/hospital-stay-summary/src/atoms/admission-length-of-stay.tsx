@@ -3,6 +3,7 @@ import styled from '@emotion/styled'
 
 import { TEXT_COLOURS } from '@ltht-react/styles'
 import { Encounter } from '@ltht-react/types'
+import * as moment from 'moment'
 
 const StyledLengthOfStayText = styled.div`
   color: ${TEXT_COLOURS.INFO};
@@ -13,7 +14,13 @@ const StyledLengthOfStayText = styled.div`
 `
 
 const AdmissionLengthOfStay: FC<Props> = ({ encounter, ...rest }) => {
-  if (encounter.text) return <StyledLengthOfStayText {...rest}>{encounter.length?.unit}</StyledLengthOfStayText>
+  if (encounter.length?.value) {
+    return (
+      <StyledLengthOfStayText {...rest}>
+        Length of Stay: {moment.duration(encounter.length?.value ?? 0, 'minutes').humanize()}
+      </StyledLengthOfStayText>
+    )
+  }
 
   return null
 }
