@@ -2226,6 +2226,7 @@ export enum FeatureInstance {
   GpConnectDataProvider = 'GP_CONNECT_DATA_PROVIDER',
   InteractWithCountersignature = 'INTERACT_WITH_COUNTERSIGNATURE',
   InteractWithDiagnosisDashboard = 'INTERACT_WITH_DIAGNOSIS_DASHBOARD',
+  InterweavePortalLaunch = 'INTERWEAVE_PORTAL_LAUNCH',
   ResourceAuthorization = 'RESOURCE_AUTHORIZATION',
   SepsisAdultEnabled = 'SEPSIS_ADULT_ENABLED',
   SepsisAdultFullWorkflowEnabled = 'SEPSIS_ADULT_FULL_WORKFLOW_ENABLED',
@@ -2629,7 +2630,8 @@ export type LypftHospitalStaysArgs = {
 };
 
 export enum LaunchApp {
-  FormsForHealth = 'FORMS_FOR_HEALTH'
+  FormsForHealth = 'FORMS_FOR_HEALTH',
+  InterweavePortal = 'INTERWEAVE_PORTAL'
 }
 
 /** Permission to launch one or more Apps with the given Intents. */
