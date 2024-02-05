@@ -2077,6 +2077,7 @@ export enum EntityType {
   PatientGroups = 'PATIENT_GROUPS',
   PatientProduct = 'PATIENT_PRODUCT',
   PatientTasks = 'PATIENT_TASKS',
+  ProcedureNote = 'PROCEDURE_NOTE',
   QToolQuestionnaireResponse = 'Q_TOOL_QUESTIONNAIRE_RESPONSE',
   Radiotherapy = 'RADIOTHERAPY',
   RadiotherapyBooking = 'RADIOTHERAPY_BOOKING',
