@@ -44,7 +44,7 @@ describe('Questionnaire', () => {
     screen.getByText(/Male/)
   })
 
-  it('should render date, datetime & time', async () => {
+  it('should render date, datetime & time and days', async () => {
     render(<Questionnaire questionnaire={DateFieldData} />)
 
     await screen.findByText('What is your date of birth?')
@@ -55,6 +55,9 @@ describe('Questionnaire', () => {
 
     await screen.findByText('What is your date & time of birth?')
     screen.getByText('06-Mar-2023 16:22')
+
+    await screen.findByText('Days since birth?')
+    screen.getByText('156 Days')
   })
 
   describe('compact view', () => {
