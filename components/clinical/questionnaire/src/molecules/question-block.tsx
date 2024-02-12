@@ -180,6 +180,22 @@ const generateAnswer = (
         isFullWidth: false,
       }
     }
+    case QuestionnaireItemTypeCode.QuestionDateDays: {
+      return {
+        Answer: (
+          <NestedListDetail term={question || '-'} showIfEmpty={showIfEmpty}>
+            {responseItem?.answer?.map((answerItem, index) => (
+              <div key={`${question}-${answerItem?.valueInteger}-${index + 1}`}>
+                {`${answerItem?.valueInteger} Day${
+                  answerItem?.valueInteger && answerItem?.valueInteger > 1 ? 's' : ''
+                }` ?? ''}
+              </div>
+            ))}
+          </NestedListDetail>
+        ),
+        isFullWidth: false,
+      }
+    }
     default:
       return { Answer: <></>, isFullWidth: false }
   }

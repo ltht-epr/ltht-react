@@ -249,6 +249,11 @@ export const DateFieldData: QuestionnaireResponse = {
         text: 'What is your date & time of birth?',
         type: QuestionnaireItemTypeCode.QuestionDateTime,
       },
+      {
+        linkId: '4',
+        text: 'Days since birth?',
+        type: QuestionnaireItemTypeCode.QuestionDateDays,
+      },
     ],
   },
   item: [
@@ -291,6 +296,15 @@ export const DateFieldData: QuestionnaireResponse = {
             kind: PartialDateTimeKindCode.DateTime,
             value: '2023-03-06T16:22:36+00:00',
           },
+        },
+      ],
+    },
+    {
+      linkId: '4',
+      text: null,
+      answer: [
+        {
+          valueInteger: 156,
         },
       ],
     },
