@@ -4,7 +4,6 @@ import styled from '@emotion/styled'
 
 const StyledFooter = styled.div`
   padding: 0.75rem 0.75rem 0.75rem 0;
-  margin-left: 0.75rem;
   border-top: 1px solid rgba(0, 0, 0, 0.125);
 `
 
