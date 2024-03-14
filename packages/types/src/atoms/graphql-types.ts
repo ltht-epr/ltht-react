@@ -1987,6 +1987,7 @@ export enum EntityType {
   ClinicalAlerts = 'CLINICAL_ALERTS',
   ClinicalTrial = 'CLINICAL_TRIAL',
   ClinicalTrialDocument = 'CLINICAL_TRIAL_DOCUMENT',
+  ClinicOutcome = 'CLINIC_OUTCOME',
   CommunityTreatmentOrder = 'COMMUNITY_TREATMENT_ORDER',
   Consultation = 'CONSULTATION',
   Contact = 'CONTACT',
