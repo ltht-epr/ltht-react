@@ -34,17 +34,6 @@ const StyledListItem = styled.li`
   border-width: 1px 0 0 0;
   background: ${(props: Props): string => background(props)};
 
-  &:before {
-    content: '';
-    position: absolute;
-    border: 1px solid #fff;
-    border-width: 1px 0 0 0;
-    width: 0.75rem;
-    left: 0;
-    top: -1px;
-    bottom: -1px;
-  }
-
   .card__list-item-container {
     flex: 1;
   }
