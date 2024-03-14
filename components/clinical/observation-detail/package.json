@@ -1,6 +1,6 @@
 {
   "name": "@ltht-react/observation-detail",
-  "version": "2.0.17",
+  "version": "2.0.18",
   "description": "ltht-react clinical ObservationDetail component.",
   "author": "LTHT",
   "homepage": "",
@@ -28,9 +28,9 @@
   "dependencies": {
     "@emotion/react": "^11.0.0",
     "@emotion/styled": "^11.0.0",
-    "@ltht-react/styles": "^2.0.17",
-    "@ltht-react/types": "^2.0.17",
-    "@ltht-react/utils": "^2.0.17",
+    "@ltht-react/styles": "^2.0.18",
+    "@ltht-react/types": "^2.0.18",
+    "@ltht-react/utils": "^2.0.18",
     "react": "^18.2.0"
   },
   "gitHead": "4d364556bb11e294d86697c2dac66742f7aabc7f"
