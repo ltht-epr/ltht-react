@@ -211,6 +211,83 @@ export type Annotation = {
   time?: Maybe<PartialDateTime>;
 };
 
+/** A record of an event among a patient or practitioner for a specific date/time. */
+export type Appointment = {
+  appointmentType?: Maybe<CodeableConcept>;
+  basedOn?: Maybe<Array<Maybe<ResourceReference>>>;
+  cancellationReason?: Maybe<CodeableConcept>;
+  comment?: Maybe<Scalars['String']>;
+  created?: Maybe<PartialDateTime>;
+  description?: Maybe<Scalars['String']>;
+  end?: Maybe<PartialDateTime>;
+  /** Additional content defined by implementations. */
+  extension?: Maybe<Array<Maybe<Extension>>>;
+  /** Logical Id of the resource. */
+  id: Scalars['ID'];
+  identifier?: Maybe<Array<Maybe<Identifier>>>;
+  /** Flag to state whether the resource should be displayed as entered in error in user interface */
+  isEnteredInError?: Maybe<Scalars['Boolean']>;
+  /** Metadata about the resource. */
+  metadata: Metadata;
+  minutesDuration?: Maybe<Scalars['UInt']>;
+  participant?: Maybe<Array<Maybe<AppointmentParticipant>>>;
+  patientInstruction?: Maybe<Scalars['String']>;
+  priority?: Maybe<Scalars['UInt']>;
+  /** Who, What, When for a set of resources. */
+  provenance?: Maybe<Array<Provenance>>;
+  reasonCode?: Maybe<CodeableConcept>;
+  reasonReference?: Maybe<ResourceReference>;
+  requestedPeriod?: Maybe<Array<Maybe<Period>>>;
+  serviceCategory?: Maybe<CodeableConcept>;
+  serviceType?: Maybe<CodeableConcept>;
+  slot?: Maybe<Array<Maybe<Slot>>>;
+  specialty?: Maybe<CodeableConcept>;
+  start?: Maybe<PartialDateTime>;
+  status?: Maybe<AppointmentStatusCode>;
+  supportingInformation?: Maybe<Array<Maybe<ResourceReference>>>;
+  /** Text summary of the resource, for human interpretation. */
+  text?: Maybe<Narrative>;
+};
+
+/** List of participants involved in the appointment. */
+export type AppointmentParticipant = {
+  actor?: Maybe<ResourceReference>;
+  /** Unique id for inter-element referencing. */
+  elementId?: Maybe<Scalars['String']>;
+  /** Additional content defined by implementations. */
+  extension?: Maybe<Array<Maybe<Extension>>>;
+  period?: Maybe<Period>;
+  required?: Maybe<AppointmentParticipantRequiredCode>;
+  status?: Maybe<AppointmentParticipantStatusCode>;
+  type?: Maybe<Array<Maybe<CodeableConcept>>>;
+};
+
+export enum AppointmentParticipantRequiredCode {
+  InformationOnly = 'INFORMATION_ONLY',
+  Optional = 'OPTIONAL',
+  Required = 'REQUIRED'
+}
+
+export enum AppointmentParticipantStatusCode {
+  Accepted = 'ACCEPTED',
+  Declined = 'DECLINED',
+  Draft = 'DRAFT',
+  Failed = 'FAILED'
+}
+
+export enum AppointmentStatusCode {
+  Abandoned = 'ABANDONED',
+  Accepted = 'ACCEPTED',
+  Arrived = 'ARRIVED',
+  Complete = 'COMPLETE',
+  Draft = 'DRAFT',
+  Error = 'ERROR',
+  Partial = 'PARTIAL',
+  Proposed = 'PROPOSED',
+  Suspended = 'SUSPENDED',
+  WaitListed = 'WAIT_LISTED'
+}
+
 /** Content in a format defined elsewhere. */
 export type Attachment = {
   /** Mime type of the content, with charset etc. */
@@ -1161,6 +1238,8 @@ export type Ehr = {
   allergyIntolerance?: Maybe<AllergyIntolerance>;
   /** Allergies and Intolerances */
   allergyIntolerances?: Maybe<AllergyIntoleranceContinuationType>;
+  /** Appointment Detail */
+  appointment?: Maybe<Appointment>;
   /** Timeline Events */
   auditEvents?: Maybe<AuditEventContinuation>;
   /** Available Care Plans */
@@ -1260,6 +1339,14 @@ export type EhrAllergyIntolerancesArgs = {
   fhirVersion: Scalars['String'];
   listScope?: Maybe<Scalars['String']>;
   listType: Scalars['String'];
+  patientGuid: Scalars['String'];
+};
+
+
+/** Queries the LTHT EHR. */
+export type EhrAppointmentArgs = {
+  id: Scalars['String'];
+  organisationGuid: Scalars['String'];
   patientGuid: Scalars['String'];
 };
 
@@ -3793,6 +3880,41 @@ export type SignatoryInputType = {
 export enum SignatoryType {
   Team = 'TEAM',
   User = 'USER'
+}
+
+/** A slot of time on a schedule that may be available for booking appointments. */
+export type Slot = {
+  appointmentType?: Maybe<CodeableConcept>;
+  comment?: Maybe<Scalars['String']>;
+  end?: Maybe<PartialDateTime>;
+  /** Additional content defined by implementations. */
+  extension?: Maybe<Array<Maybe<Extension>>>;
+  /** Logical Id of the resource. */
+  id: Scalars['ID'];
+  identifier?: Maybe<Array<Maybe<Identifier>>>;
+  /** Flag to state whether the resource should be displayed as entered in error in user interface */
+  isEnteredInError?: Maybe<Scalars['Boolean']>;
+  /** Metadata about the resource. */
+  metadata: Metadata;
+  overBooked?: Maybe<Scalars['Boolean']>;
+  /** Who, What, When for a set of resources. */
+  provenance?: Maybe<Array<Provenance>>;
+  schedule?: Maybe<ResourceReference>;
+  serviceCategory?: Maybe<Array<Maybe<CodeableConcept>>>;
+  serviceType?: Maybe<Array<Maybe<CodeableConcept>>>;
+  specialty?: Maybe<Array<Maybe<CodeableConcept>>>;
+  start?: Maybe<PartialDateTime>;
+  status?: Maybe<SlotStatusCode>;
+  /** Text summary of the resource, for human interpretation. */
+  text?: Maybe<Narrative>;
+};
+
+export enum SlotStatusCode {
+  Accepted = 'ACCEPTED',
+  BusyUnavailable = 'BUSY_UNAVAILABLE',
+  Error = 'ERROR',
+  Free = 'FREE',
+  Unconfirmed = 'UNCONFIRMED'
 }
 
 export enum SortOptionType {
