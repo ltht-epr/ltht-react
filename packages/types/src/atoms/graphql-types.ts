@@ -990,6 +990,34 @@ export type CountersignatureReviewInputType = {
   verificationMethod: VerificationMethod;
 };
 
+/** A specific variant of a given dashboard. */
+export type DashboardVariant = {
+  /** Display name of the dashboard variant. */
+  displayName: Scalars['String'];
+  /** The logical grouping of the dashboard variant. */
+  group?: Maybe<Scalars['String']>;
+  /** Logical Id of the resource. */
+  id: Scalars['ID'];
+  /** Whether the dashboard variant has been favourited by the user. */
+  isFavourite?: Maybe<Scalars['Boolean']>;
+  /** Metadata about the resource. */
+  metadata: Metadata;
+};
+
+/** A continuation of Dashboard Variant resources. */
+export type DashboardVariantContinuationType = {
+  /** The first cursor token. */
+  firstCursorToken?: Maybe<Scalars['String']>;
+  /** The next cursor token. */
+  nextCursorToken?: Maybe<Scalars['String']>;
+  /** The continuation of DashboardVariant resources. */
+  resources: Array<Maybe<DashboardVariant>>;
+  /** The self cursor token. */
+  selfCursorToken: Scalars['String'];
+  /** The total number of resources available (if known). */
+  totalResources?: Maybe<Scalars['Int']>;
+};
+
 /** Provides information on the availability of data from a given Provider for the current User. */
 export type DataAvailability = {
   /** The sources of the available data. */
@@ -1268,6 +1296,8 @@ export type Ehr = {
   countersignatureRequestsForUser?: Maybe<QuestionnaireResponseContinuation>;
   /** Gets all open countersignature requests for the user on a patient that match the provided filters */
   countersignatureRequestsForUserOnPatient?: Maybe<QuestionnaireResponseContinuation>;
+  /** Gets all dashboard variants available for a given dashboard. */
+  dashboardVariants?: Maybe<DashboardVariantContinuationType>;
   /** Documents */
   documentReferences?: Maybe<DocumentReferenceContinuation>;
   /** Alerts */
@@ -1496,6 +1526,14 @@ export type EhrCountersignatureRequestsForUserOnPatientArgs = {
 
 
 /** Queries the LTHT EHR. */
+export type EhrDashboardVariantsArgs = {
+  count?: Maybe<Scalars['Int']>;
+  cursorToken?: Maybe<Scalars['String']>;
+  dashboardId: Scalars['String'];
+};
+
+
+/** Queries the LTHT EHR. */
 export type EhrDocumentReferencesArgs = {
   patientGuid: Scalars['String'];
   template: Scalars['String'];
@@ -1659,6 +1697,8 @@ export type EhrMutation = {
   addCarePlan?: Maybe<CarePlan>;
   /** Add Multiple Diagnosis (Medical History) */
   addConditions?: Maybe<Array<Maybe<Condition>>>;
+  /** Add a favourite Dashboard variant. */
+  addDashboardVariantFavourite?: Maybe<Parameters>;
   /** Add a favourite plan definition */
   addPlanDefinitionFavourite?: Maybe<PlanDefinition>;
   /** Cancel an existing countersignature request */
@@ -1671,6 +1711,8 @@ export type EhrMutation = {
   documentCarePlan?: Maybe<Parameters>;
   /** Pause all Care Plan Expected Actions */
   pauseCarePlan?: Maybe<CarePlan>;
+  /** Remove a favourite Dashboard variant. */
+  removeDashboardVariantFavourite?: Maybe<Parameters>;
   /** Remove a patient from an existing patient group. */
   removePatientFromGroup?: Maybe<Group>;
   /** Remove a favourite plan definition */
@@ -1708,6 +1750,13 @@ export type EhrMutationAddConditionsArgs = {
   conditions: ConditionMinimalInputList;
   patientGuid: Scalars['String'];
   template: Scalars['String'];
+};
+
+
+/** Mutations of the LTHT EHR. */
+export type EhrMutationAddDashboardVariantFavouriteArgs = {
+  dashboardId: Scalars['String'];
+  variantId: Scalars['String'];
 };
 
 
@@ -1764,6 +1813,13 @@ export type EhrMutationPauseCarePlanArgs = {
   reasonText: Scalars['String'];
   signatories?: Maybe<Array<SignatoryInputType>>;
   template?: Maybe<Scalars['String']>;
+};
+
+
+/** Mutations of the LTHT EHR. */
+export type EhrMutationRemoveDashboardVariantFavouriteArgs = {
+  dashboardId: Scalars['String'];
+  variantId: Scalars['String'];
 };
 
 
