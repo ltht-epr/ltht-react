@@ -923,7 +923,6 @@ export type ConditionStage = {
 
 export enum ConditionVerificationStatus {
   Confirmed = 'CONFIRMED',
-  Differential = 'DIFFERENTIAL',
   EnteredInError = 'ENTERED_IN_ERROR',
   Provisional = 'PROVISIONAL',
   Refuted = 'REFUTED',
@@ -1480,6 +1479,7 @@ export type EhrConditionsArgs = {
   clinicalStatus?: Maybe<Array<Maybe<Scalars['String']>>>;
   count?: Maybe<Scalars['Int']>;
   cursorToken?: Maybe<Scalars['String']>;
+  loadSpec?: Maybe<InstanceDataLoadSpecType>;
   patientGuid: Scalars['String'];
   search?: Maybe<Scalars['String']>;
   severity?: Maybe<Array<Maybe<Scalars['String']>>>;
@@ -2689,6 +2689,10 @@ export enum IdentifierUseCode {
   Usual = 'USUAL'
 }
 
+export type InstanceDataLoadSpecType = {
+  templates: Array<Maybe<ParentTemplateLoadSpecType>>;
+};
+
 export enum IntentCode {
   Order = 'ORDER',
   Plan = 'PLAN',
@@ -3081,6 +3085,13 @@ export type Parameters = {
   /** Metadata about the resource. */
   metadata: Metadata;
   parameter?: Maybe<Array<Maybe<Parameter>>>;
+};
+
+export type ParentTemplateLoadSpecType = {
+  fieldCdsPaths?: Maybe<Array<Maybe<Scalars['String']>>>;
+  templateName: Scalars['String'];
+  templateVersionFrom?: Maybe<Scalars['Int']>;
+  templateVersionTo?: Maybe<Scalars['Int']>;
 };
 
 /** A Date + Time, Year, Year + Month, or just a Time. */
