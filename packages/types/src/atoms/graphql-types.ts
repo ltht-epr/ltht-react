@@ -923,6 +923,7 @@ export type ConditionStage = {
 
 export enum ConditionVerificationStatus {
   Confirmed = 'CONFIRMED',
+  Differential = 'DIFFERENTIAL',
   EnteredInError = 'ENTERED_IN_ERROR',
   Provisional = 'PROVISIONAL',
   Refuted = 'REFUTED',
@@ -1285,6 +1286,10 @@ export type Ehr = {
   clinicalDataHistoryForPatientByUser?: Maybe<QuestionnaireResponseContinuation>;
   /** Clinical data history for user */
   clinicalDataHistoryForUser?: Maybe<QuestionnaireResponseContinuation>;
+  /** Get template groups built from the history of an author's submissions. */
+  clinicalDataHistoryTemplateGroupsForAuthor?: Maybe<TemplateGroupContinuationType>;
+  /** Get template groups built from the history of an author's submissions for a given patient. */
+  clinicalDataHistoryTemplateGroupsForPatientByAuthor?: Maybe<TemplateGroupContinuationType>;
   /** Diagnosis Detail */
   condition?: Maybe<Condition>;
   /** Diagnosis */
@@ -1463,6 +1468,12 @@ export type EhrClinicalDataHistoryForUserArgs = {
   statuses?: Maybe<Array<ClinicalApprovalStatus>>;
   templateNames?: Maybe<Array<Scalars['String']>>;
   to?: Maybe<Scalars['DateTimeOffset']>;
+};
+
+
+/** Queries the LTHT EHR. */
+export type EhrClinicalDataHistoryTemplateGroupsForPatientByAuthorArgs = {
+  patientGuid: Scalars['Guid'];
 };
 
 
@@ -4060,6 +4071,32 @@ export enum TaskStatusCode {
   Skipped = 'SKIPPED',
   Suspended = 'SUSPENDED'
 }
+
+/** A group of associated templates with a given display name. */
+export type TemplateGroup = {
+  /** Display name of the Template Group. */
+  displayName: Scalars['String'];
+  /** Logical Id of the resource. */
+  id: Scalars['ID'];
+  /** Metadata about the resource. */
+  metadata: Metadata;
+  /** The associated templates in the group. */
+  templateNames: Array<Scalars['String']>;
+};
+
+/** A continuation of Template Groups. */
+export type TemplateGroupContinuationType = {
+  /** The first cursor token. */
+  firstCursorToken?: Maybe<Scalars['String']>;
+  /** The next cursor token. */
+  nextCursorToken?: Maybe<Scalars['String']>;
+  /** The continuation of Template Groups. */
+  resources: Array<Maybe<TemplateGroup>>;
+  /** The self cursor token. */
+  selfCursorToken: Scalars['String'];
+  /** The total number of resources available (if known). */
+  totalResources?: Maybe<Scalars['Int']>;
+};
 
 /** The terminology item resource represents the terminology for an item in a particular coding system and version for a particular organisation. */
 export type TerminologyItem = {
