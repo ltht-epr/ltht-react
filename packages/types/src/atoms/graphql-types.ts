@@ -1290,6 +1290,10 @@ export type Ehr = {
   clinicalDataHistoryTemplateGroupsForAuthor?: Maybe<TemplateGroupContinuationType>;
   /** Get template groups built from the history of an author's submissions for a given patient. */
   clinicalDataHistoryTemplateGroupsForPatientByAuthor?: Maybe<TemplateGroupContinuationType>;
+  /** Get template groups built from the history of countersignature requests of a signatory for a given patient. */
+  clinicalDataHistoryTemplateGroupsForPatientBySignatory?: Maybe<TemplateGroupContinuationType>;
+  /** Get template groups built from the history of countersignature requests of a signatory. */
+  clinicalDataHistoryTemplateGroupsForSignatory?: Maybe<TemplateGroupContinuationType>;
   /** Diagnosis Detail */
   condition?: Maybe<Condition>;
   /** Diagnosis */
@@ -1473,6 +1477,12 @@ export type EhrClinicalDataHistoryForUserArgs = {
 
 /** Queries the LTHT EHR. */
 export type EhrClinicalDataHistoryTemplateGroupsForPatientByAuthorArgs = {
+  patientGuid: Scalars['Guid'];
+};
+
+
+/** Queries the LTHT EHR. */
+export type EhrClinicalDataHistoryTemplateGroupsForPatientBySignatoryArgs = {
   patientGuid: Scalars['Guid'];
 };
 
