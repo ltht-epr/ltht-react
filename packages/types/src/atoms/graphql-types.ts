@@ -994,14 +994,18 @@ export type CountersignatureReviewInputType = {
 export type DashboardVariant = {
   /** Display name of the dashboard variant. */
   displayName: Scalars['String'];
-  /** The logical grouping of the dashboard variant. */
+  /** The logical grouping of the Dashboard Variant. */
   group?: Maybe<Scalars['String']>;
   /** Logical Id of the resource. */
   id: Scalars['ID'];
-  /** Whether the dashboard variant has been favourited by the user. */
+  /** Identifier for initial content that can be set for a Dashboard Variant. */
+  initialContentId?: Maybe<Scalars['String']>;
+  /** Whether the dashboard variant has been marked as a favourite by the user. */
   isFavourite?: Maybe<Scalars['Boolean']>;
   /** Metadata about the resource. */
   metadata: Metadata;
+  /** The template associated with this Dashboard Variant. */
+  template: Scalars['String'];
 };
 
 /** A continuation of Dashboard Variant resources. */
