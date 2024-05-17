@@ -884,6 +884,7 @@ export type ConditionEvidence = {
 };
 
 export type ConditionMinimalInput = {
+  assertedDate: PartialDateTimeInput;
   clinicalStatus?: Maybe<ConditionClinicalStatus>;
   code: CodeableConceptInput;
   extension?: Maybe<Array<Maybe<ExtensionInput>>>;
@@ -1344,8 +1345,6 @@ export type Ehr = {
   tasks?: Maybe<TaskContinuation>;
   /** Returns the available CDS extension template for a given base template and value */
   templateExtension?: Maybe<Questionnaire>;
-  /** Gets template details such as display name and approval info. */
-  templateMetadata?: Maybe<Questionnaire>;
   /** Terminology */
   terminologyItems?: Maybe<TerminologyItemContinuation>;
 };
@@ -1706,13 +1705,6 @@ export type EhrTemplateExtensionArgs = {
   baseTemplateName?: Maybe<Scalars['String']>;
   baseTemplateVersion?: Maybe<Scalars['Int']>;
   extensionValue?: Maybe<Scalars['String']>;
-};
-
-
-/** Queries the LTHT EHR. */
-export type EhrTemplateMetadataArgs = {
-  templateName: Scalars['String'];
-  templateVersion?: Maybe<Scalars['Int']>;
 };
 
 
