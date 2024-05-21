@@ -92,7 +92,7 @@ const DiagnosisSummary: FC<Props> = ({
       </StyledDescription>
 
       <StyledDate>
-        <DateSummary enteredInError={enteredInError} datetime={condition?.onset?.dateTime} />
+        <DateSummary enteredInError={enteredInError} datetime={condition?.assertedDate} />
         <OnsetDateEstimated enteredInError={enteredInError} condition={condition} />
         <Status enteredInError={enteredInError} condition={condition} />
       </StyledDate>
