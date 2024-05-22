@@ -1337,6 +1337,8 @@ export type Ehr = {
   questionnaireResponseLastCompleted?: Maybe<QuestionnaireResponse>;
   /** Questionnaires */
   questionnaireResponsesBySet?: Maybe<QuestionnaireResponseContinuation>;
+  /** Diagnosis */
+  relevantConditions?: Maybe<ConditionContinuation>;
   /** Summary View Definition Data */
   summaryViewDefinition?: Maybe<Questionnaire>;
   /** Summary View Entries Data */
@@ -1668,6 +1670,15 @@ export type EhrQuestionnaireResponsesBySetArgs = {
   patientGuid: Scalars['String'];
   setGuid: Scalars['String'];
   templateName: Scalars['String'];
+};
+
+
+/** Queries the LTHT EHR. */
+export type EhrRelevantConditionsArgs = {
+  count?: Maybe<Scalars['Int']>;
+  cursorToken?: Maybe<Scalars['String']>;
+  patientGuid: Scalars['String'];
+  scopeId: Scalars['String'];
 };
 
 
