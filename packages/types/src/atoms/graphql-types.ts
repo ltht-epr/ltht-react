@@ -1303,6 +1303,8 @@ export type Ehr = {
   condition?: Maybe<Condition>;
   /** Diagnosis */
   conditions?: Maybe<ConditionContinuation>;
+  /** Get a countersignature request by ID */
+  countersignatureRequest?: Maybe<QuestionnaireResponse>;
   /** Get countersignature requests raised against a specific document */
   countersignatureRequestsForDocument?: Maybe<ProvenanceContinuationType>;
   /** Gets all open countersignature requests for the user that match the provided filters */
@@ -1515,6 +1517,14 @@ export type EhrConditionsArgs = {
   severity?: Maybe<Array<Maybe<Scalars['String']>>>;
   sortBy?: Maybe<SortOptionType>;
   verificationStatus?: Maybe<Array<Maybe<ConditionVerificationStatus>>>;
+};
+
+
+/** Queries the LTHT EHR. */
+export type EhrCountersignatureRequestArgs = {
+  countersignatureId: Scalars['Guid'];
+  patientGuid: Scalars['Guid'];
+  templateName: Scalars['String'];
 };
 
 
