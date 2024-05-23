@@ -10,6 +10,7 @@ export type Scalars = {
   Int: number;
   Float: number;
   Date: string;
+  DateTime: string;
   DateTimeOffset: string;
   Decimal: number;
   Guid: any;
@@ -1688,6 +1689,7 @@ export type EhrRelevantConditionsArgs = {
   count?: Maybe<Scalars['Int']>;
   cursorToken?: Maybe<Scalars['String']>;
   patientGuid: Scalars['String'];
+  pointOfTime?: Maybe<Scalars['DateTime']>;
   scopeId: Scalars['String'];
 };
 
