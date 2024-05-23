@@ -884,7 +884,7 @@ export type ConditionEvidence = {
 };
 
 export type ConditionMinimalInput = {
-  assertedDate: PartialDateTimeInput;
+  assertedDate?: Maybe<PartialDateTimeInput>;
   clinicalStatus?: Maybe<ConditionClinicalStatus>;
   code: CodeableConceptInput;
   extension?: Maybe<Array<Maybe<ExtensionInput>>>;
