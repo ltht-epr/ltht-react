@@ -1688,6 +1688,7 @@ export type EhrRelevantConditionsArgs = {
   count?: Maybe<Scalars['Int']>;
   cursorToken?: Maybe<Scalars['String']>;
   patientGuid: Scalars['String'];
+  pointInTime?: Maybe<Scalars['DateTimeOffset']>;
   scopeId: Scalars['String'];
 };
 
