@@ -1717,6 +1717,7 @@ export type EhrTasksArgs = {
   patientGuid: Scalars['String'];
   processId?: Maybe<Scalars['String']>;
   processName?: Maybe<Scalars['String']>;
+  profession?: Maybe<Array<Maybe<TaskProfessionFilter>>>;
   sortBy?: Maybe<TaskSorting>;
   status?: Maybe<Array<Maybe<TaskStatusCode>>>;
   tags?: Maybe<Array<Maybe<Scalars['String']>>>;
@@ -4099,6 +4100,12 @@ export type TaskContinuation = {
   /** The total number of resources available (if known). */
   totalResources?: Maybe<Scalars['Int']>;
 };
+
+export enum TaskProfessionFilter {
+  Medical = 'MEDICAL',
+  Nursing = 'NURSING',
+  Other = 'OTHER'
+}
 
 export enum TaskSorting {
   AlphabeticalAsc = 'ALPHABETICAL_ASC',
