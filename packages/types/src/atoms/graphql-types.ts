@@ -1338,8 +1338,6 @@ export type Ehr = {
   questionnaireResponseLastCompleted?: Maybe<QuestionnaireResponse>;
   /** Questionnaires */
   questionnaireResponsesBySet?: Maybe<QuestionnaireResponseContinuation>;
-  /** Diagnosis */
-  relevantConditions?: Maybe<ConditionContinuation>;
   /** Summary View Definition Data */
   summaryViewDefinition?: Maybe<Questionnaire>;
   /** Summary View Entries Data */
@@ -1510,6 +1508,7 @@ export type EhrConditionsArgs = {
   clinicalStatus?: Maybe<Array<Maybe<Scalars['String']>>>;
   count?: Maybe<Scalars['Int']>;
   cursorToken?: Maybe<Scalars['String']>;
+  isRelevantToSession?: Maybe<Scalars['Boolean']>;
   loadSpec?: Maybe<InstanceDataLoadSpecType>;
   patientGuid: Scalars['String'];
   search?: Maybe<Scalars['String']>;
@@ -1679,16 +1678,6 @@ export type EhrQuestionnaireResponsesBySetArgs = {
   patientGuid: Scalars['String'];
   setGuid: Scalars['String'];
   templateName: Scalars['String'];
-};
-
-
-/** Queries the LTHT EHR. */
-export type EhrRelevantConditionsArgs = {
-  count?: Maybe<Scalars['Int']>;
-  cursorToken?: Maybe<Scalars['String']>;
-  patientGuid: Scalars['String'];
-  pointInTime?: Maybe<Scalars['DateTimeOffset']>;
-  scopeId: Scalars['String'];
 };
 
 
