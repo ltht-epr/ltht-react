@@ -1498,6 +1498,7 @@ export type EhrClinicalDataHistoryTemplateGroupsForPatientBySignatoryArgs = {
 /** Queries the LTHT EHR. */
 export type EhrConditionArgs = {
   id: Scalars['String'];
+  isRelevantToSession?: Maybe<Scalars['Boolean']>;
   patientGuid: Scalars['String'];
 };
 
