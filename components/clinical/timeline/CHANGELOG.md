@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.0.36 (2024-06-03)
+
+**Note:** Version bump only for package @ltht-react/timeline
+
 ## 2.0.35 (2024-05-30)
 
 **Note:** Version bump only for package @ltht-react/timeline
