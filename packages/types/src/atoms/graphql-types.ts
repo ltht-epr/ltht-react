@@ -2413,6 +2413,7 @@ export type ExtensionInput = {
 };
 
 export enum FeatureInstance {
+  EOutcomeDiagnosisWidgetEnabled = 'E_OUTCOME_DIAGNOSIS_WIDGET_ENABLED',
   FilterAssignedTasks = 'FILTER_ASSIGNED_TASKS',
   FilterInactiveTasks = 'FILTER_INACTIVE_TASKS',
   FormsForHealthLaunch = 'FORMS_FOR_HEALTH_LAUNCH',
