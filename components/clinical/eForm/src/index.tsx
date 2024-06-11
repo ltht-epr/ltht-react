@@ -34,6 +34,15 @@ const EForm: FC<Props> = ({ url, callback, checksum = 0, ...rest }) => {
         case 'form-submitted':
           callback?.handler(callback.name, event)
           break
+        case 'close-form':
+          iframeRef.current?.contentWindow?.postMessage(event.data, '*')
+          break
+        case undefined:
+          if (event.data === 'parent:closing') {
+            break
+          }
+          iframeRef.current?.contentWindow?.postMessage(event.data, '*')
+          break
         default:
           break
       }
