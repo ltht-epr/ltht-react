@@ -1700,17 +1700,18 @@ export type EhrSummaryViewEntriesArgs = {
 /** Queries the LTHT EHR. */
 export type EhrTasksArgs = {
   assignee?: Maybe<Array<Maybe<TaskAssigneeFilter>>>;
+  contextTags?: Maybe<Array<Maybe<TaskContextFilter>>>;
   count?: Maybe<Scalars['Int']>;
   cursorToken?: Maybe<Scalars['String']>;
+  domainTags?: Maybe<Array<Maybe<TaskDomainFilter>>>;
   pathwayId?: Maybe<Scalars['String']>;
   pathwayType?: Maybe<Scalars['String']>;
   patientGuid: Scalars['String'];
   processId?: Maybe<Scalars['String']>;
   processName?: Maybe<Scalars['String']>;
-  profession?: Maybe<Array<Maybe<TaskProfessionFilter>>>;
+  roleTags?: Maybe<Array<Maybe<TaskRoleFilter>>>;
   sortBy?: Maybe<TaskSorting>;
   status?: Maybe<Array<Maybe<TaskStatusCode>>>;
-  tags?: Maybe<Array<Maybe<Scalars['String']>>>;
 };
 
 
@@ -4078,6 +4079,16 @@ export enum TaskAssigneeFilter {
   MyTeams = 'MY_TEAMS'
 }
 
+/** The filter for the context tags associated with the task */
+export enum TaskContextFilter {
+  Appointment = 'APPOINTMENT',
+  Assessment = 'ASSESSMENT',
+  Audit = 'AUDIT',
+  Countersign = 'COUNTERSIGN',
+  PatientFlow = 'PATIENT_FLOW',
+  Safety = 'SAFETY'
+}
+
 /** A continuation of Task resources. */
 export type TaskContinuation = {
   /** The first cursor token. */
@@ -4092,10 +4103,31 @@ export type TaskContinuation = {
   totalResources?: Maybe<Scalars['Int']>;
 };
 
-export enum TaskProfessionFilter {
-  Medical = 'MEDICAL',
-  Nursing = 'NURSING',
-  Other = 'OTHER'
+/** The filter for the domain tags associated with the task */
+export enum TaskDomainFilter {
+  AdHocTasks = 'AD_HOC_TASKS',
+  CommunityPharmacy = 'COMMUNITY_PHARMACY',
+  CriteriaLedDischarge = 'CRITERIA_LED_DISCHARGE',
+  EDan = 'E_DAN',
+  InfectionPreventionControl = 'INFECTION_PREVENTION_CONTROL',
+  InitialNursingAssessment = 'INITIAL_NURSING_ASSESSMENT',
+  Observations = 'OBSERVATIONS',
+  PreAssessment = 'PRE_ASSESSMENT',
+  Sepsis = 'SEPSIS',
+  SuspiciousRadiologyFindings = 'SUSPICIOUS_RADIOLOGY_FINDINGS',
+  Vte = 'VTE'
+}
+
+/** The filter for the role tags associated with the task */
+export enum TaskRoleFilter {
+  Admin = 'ADMIN',
+  Ahp = 'AHP',
+  DischargeCoordinator = 'DISCHARGE_COORDINATOR',
+  Dispensary = 'DISPENSARY',
+  Doctor = 'DOCTOR',
+  Nurse = 'NURSE',
+  Pharmacist = 'PHARMACIST',
+  Radiologist = 'RADIOLOGIST'
 }
 
 export enum TaskSorting {
