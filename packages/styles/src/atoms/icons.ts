@@ -21,6 +21,7 @@ export const iconTypes = [
   'chevron-circle',
   'chevron',
   'circle',
+  'clock-rotate-left',
   'column',
   'comment',
   'counter',

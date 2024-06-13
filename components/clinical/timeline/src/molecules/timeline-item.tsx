@@ -63,7 +63,7 @@ const StyledTimelineDescription = styled(TimelineDescription)`
   font-size: small;
 `
 
-const TimelineItem: FC<IProps> = ({ timelineItem, domainResourceType }) => {
+const TimelineItem: FC<IProps> = ({ timelineItem, domainResourceType, pointInTimeClickHandler }) => {
   const { width } = useWindowSize()
   const isMobile = isMobileView(width)
 
@@ -84,7 +84,7 @@ const TimelineItem: FC<IProps> = ({ timelineItem, domainResourceType }) => {
           domainResourceType={domainResourceType}
         />
         {isMobile && (
-          <StyledTimelineTime domainResource={timelineItem.domainResource} domainResourceType={domainResourceType} />
+          <StyledTimelineTime domainResource={timelineItem.domainResource} domainResourceType={domainResourceType} pointInTimeClickHandler={pointInTimeClickHandler} />
         )}
       </StyledTimelineItemTop>
 
@@ -107,6 +107,7 @@ const TimelineItem: FC<IProps> = ({ timelineItem, domainResourceType }) => {
 interface IProps {
   timelineItem: Maybe<ITimelineItem>
   domainResourceType: TimelineDomainResourceType
+  pointInTimeClickHandler?: () => void
 }
 
 export interface ITimelineItem {
