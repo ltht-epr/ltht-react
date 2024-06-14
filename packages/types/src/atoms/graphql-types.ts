@@ -1533,7 +1533,7 @@ export type EhrCountersignatureRequestsForDocumentArgs = {
   countersignatureStatuses?: Maybe<Array<Maybe<ClinicalApprovalStatus>>>;
   cursorToken?: Maybe<Scalars['String']>;
   from?: Maybe<Scalars['DateTimeOffset']>;
-  instanceGuid: Scalars['Guid'];
+  instanceGuid?: Maybe<Scalars['Guid']>;
   patientGuid: Scalars['Guid'];
   setGuid: Scalars['Guid'];
   templateName: Scalars['String'];
