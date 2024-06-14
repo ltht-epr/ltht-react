@@ -6,9 +6,7 @@ import {
   QuestionnaireResponse,
   TimelineDomainResourceType,
 } from '@ltht-react/types'
-import TimeElement, {Orientation} from "./time-element";
-
-
+import TimeElement, { Orientation } from './time-element'
 
 const TimelineTime: FC<Props> = ({
   domainResource,
@@ -26,13 +24,21 @@ const TimelineTime: FC<Props> = ({
         return null
       }
       const date = new Date(qr?.authored.value)
-      return <div {...rest}><TimeElement orientation={orientation} date={date} pointInTimeClicked={pointInTimeClickHandler} /></div>
+      return (
+        <div {...rest}>
+          <TimeElement orientation={orientation} date={date} pointInTimeClicked={pointInTimeClickHandler} />
+        </div>
+      )
     }
     case TimelineDomainResourceType.DocumentReference: {
       const docRef = domainResource as DocumentReference
       if (docRef && docRef?.created?.value) {
         const date = new Date(docRef.created.value)
-        return <div {...rest}><TimeElement orientation={orientation} date={date} pointInTimeClicked={pointInTimeClickHandler} /></div>
+        return (
+          <div {...rest}>
+            <TimeElement orientation={orientation} date={date} pointInTimeClicked={pointInTimeClickHandler} />
+          </div>
+        )
       }
       return null
     }
@@ -40,7 +46,11 @@ const TimelineTime: FC<Props> = ({
       const audit = domainResource as AuditEvent
       if (audit && audit?.recorded?.value) {
         const date = new Date(audit.recorded.value)
-        return <div {...rest}><TimeElement orientation={orientation} date={date} pointInTimeClicked={pointInTimeClickHandler} /></div>
+        return (
+          <div {...rest}>
+            <TimeElement orientation={orientation} date={date} pointInTimeClicked={pointInTimeClickHandler} />
+          </div>
+        )
       }
       return null
     }
@@ -48,7 +58,6 @@ const TimelineTime: FC<Props> = ({
       return null
   }
 }
-
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   domainResource?: Maybe<AuditEvent | QuestionnaireResponse | DocumentReference>

@@ -63,7 +63,7 @@ const StyledTimelineDescription = styled(TimelineDescription)`
   font-size: small;
 `
 
-const TimelineItem: FC<IProps> = ({ timelineItem, domainResourceType}) => {
+const TimelineItem: FC<IProps> = ({ timelineItem, domainResourceType }) => {
   const { width } = useWindowSize()
   const isMobile = isMobileView(width)
 
