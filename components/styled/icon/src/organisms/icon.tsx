@@ -46,7 +46,8 @@ import {
   faToggleOff,
   faTrashAlt,
   faUser,
-  faUsers, faClockRotateLeft,
+  faUsers,
+  faClockRotateLeft,
 } from '@fortawesome/free-solid-svg-icons'
 import { Transform } from '@fortawesome/fontawesome-svg-core'
 import CounterIcon from '../molecules/counter-icon'

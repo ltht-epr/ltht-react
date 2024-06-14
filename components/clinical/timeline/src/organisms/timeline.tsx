@@ -155,7 +155,7 @@ const StyledFilter = styled.div`
   }
 `
 
-const Timeline: FC<IProps> = ({ timelineItems, domainResourceType, filters, onFilterChange}) => {
+const Timeline: FC<IProps> = ({ timelineItems, domainResourceType, filters, onFilterChange }) => {
   const { width } = useWindowSize()
   const isMobile = isMobileView(width)
   const timelineDates: { [date: string]: { item: Maybe<ITimelineItem>[]; formattedDate: string } } = {}
@@ -348,7 +348,7 @@ const Timeline: FC<IProps> = ({ timelineItems, domainResourceType, filters, onFi
                         <TimelineTime
                           domainResource={timelineItem?.domainResource}
                           domainResourceType={domainResourceType}
-                          orientation={"right"}
+                          orientation="right"
                         />
                       </StyledTimelineDayTimeRight>
                     </div>
@@ -361,7 +361,7 @@ const Timeline: FC<IProps> = ({ timelineItems, domainResourceType, filters, onFi
                         <TimelineTime
                           domainResource={timelineItem?.domainResource}
                           domainResourceType={domainResourceType}
-                          orientation={"left"}
+                          orientation="left"
                         />
                       </StyledTimelineDayTimeLeft>
                       <StyledTimelineDayLine>

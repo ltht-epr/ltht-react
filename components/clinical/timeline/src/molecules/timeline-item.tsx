@@ -63,7 +63,7 @@ const StyledTimelineDescription = styled(TimelineDescription)`
   font-size: small;
 `
 
-const TimelineItem: FC<IProps> = ({ timelineItem, domainResourceType, pointInTimeClickHandler }) => {
+const TimelineItem: FC<IProps> = ({ timelineItem, domainResourceType}) => {
   const { width } = useWindowSize()
   const isMobile = isMobileView(width)
 
@@ -84,7 +84,11 @@ const TimelineItem: FC<IProps> = ({ timelineItem, domainResourceType, pointInTim
           domainResourceType={domainResourceType}
         />
         {isMobile && (
-          <StyledTimelineTime domainResource={timelineItem.domainResource} domainResourceType={domainResourceType} pointInTimeClickHandler={pointInTimeClickHandler} />
+          <StyledTimelineTime
+            domainResource={timelineItem.domainResource}
+            domainResourceType={domainResourceType}
+            pointInTimeClickHandler={timelineItem.pointInTimeClickHandler}
+          />
         )}
       </StyledTimelineItemTop>
 
@@ -107,13 +111,13 @@ const TimelineItem: FC<IProps> = ({ timelineItem, domainResourceType, pointInTim
 interface IProps {
   timelineItem: Maybe<ITimelineItem>
   domainResourceType: TimelineDomainResourceType
-  pointInTimeClickHandler?: () => void
 }
 
 export interface ITimelineItem {
   domainResource?: Maybe<AuditEvent | QuestionnaireResponse | DocumentReference>
   buttonState: TimeLineItemButtonState
-  clickHandler?(): void
+  itemClickHandler?(): void
+  pointInTimeClickHandler?: (date: Date) => void
   buttonText?: string
 }
 
