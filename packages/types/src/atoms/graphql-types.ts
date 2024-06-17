@@ -2422,6 +2422,7 @@ export enum FeatureInstance {
   InteractWithCountersignature = 'INTERACT_WITH_COUNTERSIGNATURE',
   InteractWithDiagnosisDashboard = 'INTERACT_WITH_DIAGNOSIS_DASHBOARD',
   InterweavePortalLaunch = 'INTERWEAVE_PORTAL_LAUNCH',
+  PointInTimeEnabled = 'POINT_IN_TIME_ENABLED',
   ResourceAuthorization = 'RESOURCE_AUTHORIZATION',
   SepsisAdultEnabled = 'SEPSIS_ADULT_ENABLED',
   SepsisAdultFullWorkflowEnabled = 'SEPSIS_ADULT_FULL_WORKFLOW_ENABLED',
