@@ -6,44 +6,64 @@ import {
   QuestionnaireResponse,
   TimelineDomainResourceType,
 } from '@ltht-react/types'
-import { formatTime } from '@ltht-react/utils'
+import TimeElement, { Orientation } from './time-element'
 
-const TimelineTime: FC<Props> = ({ domainResource, domainResourceType, ...rest }) => {
+const TimelineTime: FC<Props> = ({
+  domainResource,
+  domainResourceType,
+  orientation,
+  pointInTimeClickHandler,
+  ...rest
+}) => {
   if (!domainResource) return <></>
 
   switch (domainResourceType) {
     case TimelineDomainResourceType.QuestionnaireResponse: {
       const qr = domainResource as QuestionnaireResponse
       if (!qr?.authored?.value) {
-        return <></>
+        return null
       }
-      const time = formatTime(new Date(qr?.authored.value))
-      return <div {...rest}>{time}</div>
+      const date = new Date(qr?.authored.value)
+      return (
+        <div {...rest}>
+          <TimeElement orientation={orientation} date={date} pointInTimeClicked={pointInTimeClickHandler} />
+        </div>
+      )
     }
     case TimelineDomainResourceType.DocumentReference: {
       const docRef = domainResource as DocumentReference
       if (docRef && docRef?.created?.value) {
-        const time = formatTime(new Date(docRef.created.value))
-        return <div {...rest}>{time}</div>
+        const date = new Date(docRef.created.value)
+        return (
+          <div {...rest}>
+            <TimeElement orientation={orientation} date={date} pointInTimeClicked={pointInTimeClickHandler} />
+          </div>
+        )
       }
-      return <></>
+      return null
     }
     case TimelineDomainResourceType.AuditEvent: {
       const audit = domainResource as AuditEvent
       if (audit && audit?.recorded?.value) {
-        const time = formatTime(new Date(audit.recorded.value))
-        return <div {...rest}>{time}</div>
+        const date = new Date(audit.recorded.value)
+        return (
+          <div {...rest}>
+            <TimeElement orientation={orientation} date={date} pointInTimeClicked={pointInTimeClickHandler} />
+          </div>
+        )
       }
-      return <></>
+      return null
     }
     default:
-      return <></>
+      return null
   }
 }
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   domainResource?: Maybe<AuditEvent | QuestionnaireResponse | DocumentReference>
   domainResourceType: TimelineDomainResourceType
+  orientation?: Orientation
+  pointInTimeClickHandler?: (date: Date) => void
 }
 
 export default TimelineTime

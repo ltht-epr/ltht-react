@@ -101,7 +101,7 @@ it.each([
   (timelineItems, domainResourceType) => {
     const alteredTimelineItems: ITimelineItem[] = timelineItems.map((x) => ({
       domainResource: x.domainResource,
-      clickHandler: () => {
+      itemClickHandler: () => {
         // eslint-disable-next-line no-console
         console.log('Clicked')
       },
@@ -121,7 +121,7 @@ it.each([
 ])('Renders With Click Handler', (timelineItems, domainResourceType) => {
   const alteredTimelineItems: ITimelineItem[] = timelineItems.map((x) => ({
     domainResource: x.domainResource,
-    clickHandler: () => {
+    itemClickHandler: () => {
       // eslint-disable-next-line no-console
       console.log('Clicked')
     },
@@ -139,7 +139,7 @@ it.each([
 ])('Shows the click prompt', (timelineItems, domainResourceType) => {
   const alteredTimelineItems: ITimelineItem[] = timelineItems.map((x) => ({
     domainResource: x.domainResource,
-    clickHandler: () => {
+    itemClickHandler: () => {
       // eslint-disable-next-line no-console
       console.log('Clicked')
     },

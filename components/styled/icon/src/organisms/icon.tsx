@@ -47,6 +47,7 @@ import {
   faTrashAlt,
   faUser,
   faUsers,
+  faClockRotateLeft,
 } from '@fortawesome/free-solid-svg-icons'
 import { Transform } from '@fortawesome/fontawesome-svg-core'
 import CounterIcon from '../molecules/counter-icon'
@@ -134,6 +135,11 @@ const Icon: FC<IconProps> = ({
     case 'circle': {
       icon = faCircle
       transform = { rotate: 180 }
+      break
+    }
+
+    case 'clock-rotate-left': {
+      icon = faClockRotateLeft
       break
     }
 

@@ -84,7 +84,11 @@ const TimelineItem: FC<IProps> = ({ timelineItem, domainResourceType }) => {
           domainResourceType={domainResourceType}
         />
         {isMobile && (
-          <StyledTimelineTime domainResource={timelineItem.domainResource} domainResourceType={domainResourceType} />
+          <StyledTimelineTime
+            domainResource={timelineItem.domainResource}
+            domainResourceType={domainResourceType}
+            pointInTimeClickHandler={timelineItem.pointInTimeClickHandler}
+          />
         )}
       </StyledTimelineItemTop>
 
@@ -112,7 +116,8 @@ interface IProps {
 export interface ITimelineItem {
   domainResource?: Maybe<AuditEvent | QuestionnaireResponse | DocumentReference>
   buttonState: TimeLineItemButtonState
-  clickHandler?(): void
+  itemClickHandler?(): void
+  pointInTimeClickHandler?: (date: Date) => void
   buttonText?: string
 }
 

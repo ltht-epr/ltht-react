@@ -51,7 +51,7 @@ export const AuditEventClickableTimeline: Story = () => {
       domainResource: ti as AuditEvent,
       // eslint-disable-next-line @typescript-eslint/no-empty-function
       buttonState: createSomeButtonStates(idx),
-      clickHandler:
+      itemClickHandler:
         idx % 2 === 0
           ? () => {
               // eslint-disable-next-line no-console
@@ -78,7 +78,7 @@ export const AuditEventRedactedTimeline: Story = () => {
   const timelineItems: ITimelineItem[] = RedactedAuditTrail.resources.map((ti) => ({
     domainResource: ti as AuditEvent,
     // eslint-disable-next-line @typescript-eslint/no-empty-function
-    clickHandler: () => {},
+    itemClickHandler: () => {},
     buttonState: 'selectable-button',
   }))
 
@@ -118,7 +118,7 @@ export const QuestionnaireClickableTimeline: Story = () => {
     domainResource: ti as QuestionnaireResponse,
     // eslint-disable-next-line @typescript-eslint/no-empty-function
     buttonState: idx % 2 === 0 ? 'selected-button' : 'no-button',
-    clickHandler:
+    itemClickHandler:
       idx % 2 === 0
         ? () => {
             // eslint-disable-next-line no-console
@@ -144,7 +144,7 @@ export const QuestionnaireRedactedTimeline: Story = () => {
   const timelineItems: ITimelineItem[] = RedactedQuestionnaireResponses.resources.map((ti) => ({
     domainResource: ti as QuestionnaireResponse,
     // eslint-disable-next-line @typescript-eslint/no-empty-function
-    clickHandler: () => {},
+    itemClickHandler: () => {},
     buttonState: 'selectable-button',
   }))
 
@@ -183,7 +183,7 @@ export const DocumentClickableTimeline: Story = () => {
     domainResource: ti as DocumentReference,
     // eslint-disable-next-line @typescript-eslint/no-empty-function
     buttonState: idx % 2 === 0 ? 'selectable-button' : 'no-button',
-    clickHandler:
+    itemClickHandler:
       idx % 2 === 0
         ? () => {
             // eslint-disable-next-line no-console
@@ -209,7 +209,7 @@ export const DocumentRedactedTimeline: Story = () => {
   const timelineItems: ITimelineItem[] = DocumentReferences.resources.map((ti) => ({
     domainResource: ti as DocumentReference,
     // eslint-disable-next-line @typescript-eslint/no-empty-function
-    clickHandler: () => {},
+    itemClickHandler: () => {},
     buttonState: 'selectable-button',
   }))
 

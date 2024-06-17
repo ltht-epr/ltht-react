@@ -4,7 +4,7 @@ import { FC, HTMLAttributes } from 'react'
 import { ITimelineItem } from '../molecules/timeline-item'
 
 const TimelineButton: FC<Props> = ({ timelineItem, className }) => {
-  const { clickHandler, buttonState, buttonText } = timelineItem
+  const { itemClickHandler, buttonState, buttonText } = timelineItem
 
   switch (buttonState) {
     case 'no-button':
@@ -17,7 +17,7 @@ const TimelineButton: FC<Props> = ({ timelineItem, className }) => {
       )
     case 'selectable-button':
       return (
-        <ButtonBanner className={className} type="info" onClick={clickHandler}>
+        <ButtonBanner className={className} type="info" onClick={itemClickHandler}>
           {buttonText ?? ''}
         </ButtonBanner>
       )
@@ -27,7 +27,7 @@ const TimelineButton: FC<Props> = ({ timelineItem, className }) => {
           className={className}
           type="highlight"
           icon={<Icon type="info-circle" color="info-blue" size="medium" />}
-          onClick={clickHandler}
+          onClick={itemClickHandler}
         >
           {buttonText ?? ''}
         </ButtonBanner>
