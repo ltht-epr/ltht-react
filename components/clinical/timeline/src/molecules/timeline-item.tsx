@@ -87,7 +87,6 @@ const TimelineItem: FC<IProps> = ({ timelineItem, domainResourceType }) => {
           <StyledTimelineTime
             domainResource={timelineItem.domainResource}
             domainResourceType={domainResourceType}
-            pointInTimeClickHandler={timelineItem.pointInTimeClickHandler}
           />
         )}
       </StyledTimelineItemTop>
