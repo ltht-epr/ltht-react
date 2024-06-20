@@ -348,6 +348,7 @@ const Timeline: FC<IProps> = ({ timelineItems, domainResourceType, filters, onFi
                         <TimelineTime
                           domainResource={timelineItem?.domainResource}
                           domainResourceType={domainResourceType}
+                          pointInTimeClickHandler={timelineItem?.pointInTimeClickHandler}
                           orientation="right"
                         />
                       </StyledTimelineDayTimeRight>
@@ -361,6 +362,7 @@ const Timeline: FC<IProps> = ({ timelineItems, domainResourceType, filters, onFi
                         <TimelineTime
                           domainResource={timelineItem?.domainResource}
                           domainResourceType={domainResourceType}
+                          pointInTimeClickHandler={timelineItem?.pointInTimeClickHandler}
                           orientation="left"
                         />
                       </StyledTimelineDayTimeLeft>
