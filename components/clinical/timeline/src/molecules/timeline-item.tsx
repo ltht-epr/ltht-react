@@ -84,10 +84,7 @@ const TimelineItem: FC<IProps> = ({ timelineItem, domainResourceType }) => {
           domainResourceType={domainResourceType}
         />
         {isMobile && (
-          <StyledTimelineTime
-            domainResource={timelineItem.domainResource}
-            domainResourceType={domainResourceType}
-          />
+          <StyledTimelineTime domainResource={timelineItem.domainResource} domainResourceType={domainResourceType} />
         )}
       </StyledTimelineItemTop>
 
