@@ -25,6 +25,7 @@
   "dependencies": {
     "@emotion/styled": "^11.0.0",
     "@ltht-react/banner": "^2.0.44",
+    "@ltht-react/button": "^2.0.44",
     "@ltht-react/hooks": "^2.0.44",
     "@ltht-react/icon": "^2.0.44",
     "@ltht-react/select": "^2.0.44",
