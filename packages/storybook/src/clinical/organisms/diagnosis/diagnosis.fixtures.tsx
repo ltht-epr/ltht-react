@@ -1,4 +1,4 @@
-import { ButtonProps } from '@ltht-react/button/src/atoms/button'
+import { ButtonProps } from '@ltht-react/button'
 import Icon from '@ltht-react/icon'
 import {
   Metadata,

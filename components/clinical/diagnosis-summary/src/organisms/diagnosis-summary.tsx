@@ -4,7 +4,7 @@ import styled from '@emotion/styled'
 import { Condition, ConditionVerificationStatus } from '@ltht-react/types'
 import { DateSummary } from '@ltht-react/type-summary'
 import Icon from '@ltht-react/icon'
-import { Button } from '@ltht-react/button'
+import { Button, ButtonProps } from '@ltht-react/button'
 
 import { BTN_COLOURS, MOBILE_MAXIMUM_MEDIA_QUERY, SMALL_SCREEN_MAXIMUM_MEDIA_QUERY } from '@ltht-react/styles'
 import Category from '../atoms/diagnosis-category'
@@ -12,7 +12,6 @@ import Status from '../atoms/diagnosis-status'
 import Title from '../atoms/diagnosis-title'
 import OnsetDateEstimated from '../atoms/diagnosis-onset-estimated'
 import Redacted from '../molecules/diagnosis-redacted'
-import { ButtonProps } from '@ltht-react/button/lib/atoms/button'
 
 const StyledTitle = styled.div`
   display: inline-block;
