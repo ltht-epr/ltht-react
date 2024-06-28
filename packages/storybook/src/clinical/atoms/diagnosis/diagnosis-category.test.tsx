@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import DiagnosisCategory from '@ltht-react/diagnosis-summary/src/atoms/diagnosis-category'
-import conditions from '../../organisms/diagnosis/diagnosis.fixtures'
+import { conditions } from '../../organisms/diagnosis/diagnosis.fixtures'
 
 describe('Diagnosis Category', () => {
   it('renders severity if severity is provided', () => {

@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import { PartialDateTimeKindCode } from '@ltht-react/types'
 import DiagnosisDetail from '@ltht-react/diagnosis-detail'
-import conditions, { NestedGroupWithDisplayExampleData } from './diagnosis.fixtures'
+import { conditions, NestedGroupWithDisplayExampleData } from './diagnosis.fixtures'
 
 describe('Diagnosis Detail', () => {
   it('Renders', () => {

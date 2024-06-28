@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import DiagnosisOnsetEstimated from '@ltht-react/diagnosis-summary/src/atoms/diagnosis-onset-estimated'
-import conditions from '../../organisms/diagnosis/diagnosis.fixtures'
+import { conditions } from '../../organisms/diagnosis/diagnosis.fixtures'
 
 const conditionWithEstimatedOnsetDate = conditions[0]
 conditionWithEstimatedOnsetDate.extension = [

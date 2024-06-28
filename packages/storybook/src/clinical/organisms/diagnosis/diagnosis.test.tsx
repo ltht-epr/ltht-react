@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react'
 import { ConditionVerificationStatus } from '@ltht-react/types'
 import DiagnosisSummary from '@ltht-react/diagnosis-summary'
 import userEvent from '@testing-library/user-event'
-import conditions from './diagnosis.fixtures'
+import { conditions } from './diagnosis.fixtures'
 
 describe('Diagnosis', () => {
   it('Renders', () => {
