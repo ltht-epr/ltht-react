@@ -136,8 +136,8 @@ const DiagnosisSummary: FC<Props> = ({
 
         {!isReadOnly && controls.length > 0 && (
           <StyledControlsContainer>
-            {controls.map((props) => (
-              <StyledButton {...props} />
+            {controls.map((props, index) => (
+              <StyledButton key={index} {...props} />
             ))}
           </StyledControlsContainer>
         )}

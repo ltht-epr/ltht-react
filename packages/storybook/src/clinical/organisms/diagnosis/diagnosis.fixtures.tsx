@@ -798,6 +798,7 @@ const controls: ButtonProps[] = [
   {
     icon: <Icon type="paper-clip" size="medium" />,
     value: 'Control 1',
+    title: 'Description of the button action can go here!!!',
     styling: {
       buttonStyle: 'workflow',
       padding: '20px',
