@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.0.47 (2024-07-01)
+
+**Note:** Version bump only for package @ltht-react/involved-team-summary
+
 ## 2.0.46 (2024-07-01)
 
 **Note:** Version bump only for package @ltht-react/involved-team-summary
