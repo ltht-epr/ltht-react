@@ -112,7 +112,10 @@ export const Dashboard: Story = () => {
               <StyledCardList>
                 {AdminActionsList.map((task) => (
                   <StyledCardListItem>
-                    <AdminActions task={task} actionClickHandler={yourFunction} />
+                    <AdminActions
+                      adminAction={{ task, isLoading: false, isSuccess: true, failText: '' }}
+                      actionClickHandler={yourFunction}
+                    />
                   </StyledCardListItem>
                 ))}
               </StyledCardList>

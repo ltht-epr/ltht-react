@@ -48,6 +48,10 @@ import {
   faUser,
   faUsers,
   faClockRotateLeft,
+  faPaperclip,
+  faUnlink,
+  faLink,
+  faLinkSlash,
 } from '@fortawesome/free-solid-svg-icons'
 import { Transform } from '@fortawesome/fontawesome-svg-core'
 import CounterIcon from '../molecules/counter-icon'
@@ -310,6 +314,26 @@ const Icon: FC<IconProps> = ({
 
     case 'users': {
       icon = faUsers
+      break
+    }
+
+    case 'paper-clip': {
+      icon = faPaperclip
+      break
+    }
+
+    case 'unlink': {
+      icon = faUnlink
+      break
+    }
+
+    case 'link': {
+      icon = faLink
+      break
+    }
+
+    case 'link-slash': {
+      icon = faLinkSlash
       break
     }
 

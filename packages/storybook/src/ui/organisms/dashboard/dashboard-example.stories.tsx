@@ -20,7 +20,7 @@ import communityOrders from '../../../clinical/organisms/community-treatment-ord
 import episodeOfCares from '../../../clinical/organisms/involved-teams/involved-teams.fixtures'
 import flags from '../../../clinical/organisms/flags/flags.fixtures'
 import hospitalStays from '../../../clinical/organisms/hospital-stays/hospital-stays.fixtures'
-import conditions from '../../../clinical/organisms/diagnosis/diagnosis.fixtures'
+import { conditions } from '../../../clinical/organisms/diagnosis/diagnosis.fixtures'
 import medications from '../../../clinical/organisms/medications/medications.fixture'
 
 import { Container, Column } from './dashboard'

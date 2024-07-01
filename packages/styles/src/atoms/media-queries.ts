@@ -1,3 +1,4 @@
+export const SMALL_SCREEN_MAXIMUM_MEDIA_QUERY = '@media only screen and (max-width: 400px)'
 export const MOBILE_MAXIMUM_MEDIA_QUERY = '@media only screen and (max-width: 767px)'
 export const TABLET_MINIMUM_MEDIA_QUERY = '@media only screen and (min-width: 768px)'
 export const TABLET_ONLY_MEDIA_QUERY = '@media only screen and (min-width: 768px) and (max-width: 1023px)'

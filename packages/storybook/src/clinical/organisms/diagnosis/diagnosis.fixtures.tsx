@@ -1,3 +1,5 @@
+import { ButtonProps } from '@ltht-react/button'
+import Icon from '@ltht-react/icon'
 import {
   Metadata,
   Condition,
@@ -790,6 +792,50 @@ const ConditionFive: Condition = {
   stage: null,
 }
 
-const conditions: Condition[] = [ConditionOne, ConditionThree, ConditionFive, ConditionFour, ConditionTwo]
+const conditions: Condition[] = [ConditionOne, ConditionThree, ConditionFive, ConditionFour, ConditionTwo, ConditionTwo]
 
-export default conditions
+const controls: ButtonProps[] = [
+  {
+    icon: <Icon type="paper-clip" size="medium" />,
+    value: 'Control 1',
+    styling: {
+      buttonStyle: 'workflow',
+      padding: '20px',
+    },
+  },
+  {
+    icon: <Icon type="link" size="medium" />,
+    value: 'Control 2',
+    styling: {
+      buttonStyle: 'standard',
+      padding: '2px 10px',
+    },
+  },
+  {
+    icon: <Icon type="trash" size="medium" />,
+    value: 'Control 3',
+    styling: {
+      buttonStyle: 'danger',
+      padding: '2px 10px',
+    },
+  },
+  {
+    icon: <Icon type="star" size="medium" />,
+    value: 'Control 4',
+    styling: {
+      buttonStyle: 'primary',
+      padding: '2px 10px',
+    },
+  },
+  {
+    icon: <Icon type="check" size="medium" />,
+    iconColour: 'black',
+    value: 'Control 5',
+    styling: {
+      buttonStyle: 'clear',
+      padding: '2px 10px',
+    },
+  },
+]
+
+export { conditions, controls }

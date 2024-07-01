@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import DiagnosisStatus from '@ltht-react/diagnosis-summary/src/atoms/diagnosis-status'
 import { ConditionClinicalStatus, ConditionVerificationStatus } from '@ltht-react/types'
-import conditions from '../../organisms/diagnosis/diagnosis.fixtures'
+import { conditions } from '../../organisms/diagnosis/diagnosis.fixtures'
 
 describe('Diagnosis Status', () => {
   it('renders clinical status and verification status', () => {

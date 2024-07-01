@@ -9,7 +9,7 @@ type FontAwesomeIconSize = 'xs' | 'lg' | 'sm' | '1x' | '2x' | '3x' | '4x' | '5x'
 
 export type IconSize = 'small' | 'medium' | 'large'
 
-export type IconColor = 'black' | 'dark-blue' | 'link-blue' | 'grey' | 'info-blue' | 'green' | 'amber' | 'red'
+export type IconColor = 'black' | 'dark-blue' | 'link-blue' | 'grey' | 'info-blue' | 'green' | 'amber' | 'red' | 'white'
 
 export type IconDirection = 'up' | 'down' | 'left' | 'right'
 
@@ -55,6 +55,10 @@ export const iconTypes = [
   'search',
   'checkbox',
   'square',
+  'paper-clip',
+  'unlink',
+  'link',
+  'link-slash',
   'do-not-use!',
 ] as const
 
@@ -73,13 +77,14 @@ export const calculateIconSize = (input: IconSize): FontAwesomeIconSize => {
   }
 }
 
-export const calculateIconColor = (status: IconColor): SerializedStyles => css`
-  ${status === 'black' && `color: ${ICON_COLOURS.PRIMARY};`}
-  ${status === 'dark-blue' && `color: ${ICON_COLOURS.SECONDARY};`}
-  ${status === 'link-blue' && `color: ${LINK_COLOURS.TEXT.DEFAULT};`}
-  ${status === 'grey' && `color: ${ICON_COLOURS.GREY.VALUE};`}
-  ${status === 'info-blue' && `color: ${ICON_COLOURS.INFO};`}
-  ${status === 'green' && `color: ${ICON_COLOURS.SUCCESS.VALUE};`}
-  ${status === 'amber' && `color: ${ICON_COLOURS.WARNING};`}
-  ${status === 'red' && `color: ${ICON_COLOURS.DANGER};`}
+export const calculateIconColor = (color: IconColor): SerializedStyles => css`
+  ${color === 'black' && `color: ${ICON_COLOURS.PRIMARY};`}
+  ${color === 'dark-blue' && `color: ${ICON_COLOURS.SECONDARY};`}
+  ${color === 'link-blue' && `color: ${LINK_COLOURS.TEXT.DEFAULT};`}
+  ${color === 'grey' && `color: ${ICON_COLOURS.GREY.VALUE};`}
+  ${color === 'info-blue' && `color: ${ICON_COLOURS.INFO};`}
+  ${color === 'green' && `color: ${ICON_COLOURS.SUCCESS.VALUE};`}
+  ${color === 'amber' && `color: ${ICON_COLOURS.WARNING};`}
+  ${color === 'red' && `color: ${ICON_COLOURS.DANGER};`}
+  ${color === 'white' && `color: ${ICON_COLOURS.WHITE};`}
 `

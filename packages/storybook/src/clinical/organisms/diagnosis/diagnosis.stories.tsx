@@ -6,7 +6,7 @@ import Card from '@ltht-react/card'
 import { Button } from '@ltht-react/button'
 import { DetailViewType } from '@ltht-react/types'
 import { useDetailViewType } from '../hooks/useDetailViewTypeHook'
-import conditions from './diagnosis.fixtures'
+import { conditions, controls } from './diagnosis.fixtures'
 
 const CODABLE_CONCEPT_LINK_MAP = {
   'Heel Pain': 'https://www.google.com',
@@ -28,6 +28,7 @@ export const Summary: Story = () => {
           <Card.ListItem key={condition.id} onClick={clickHandler}>
             {idx === 0 && (
               <DiagnosisSummary
+                isReadOnly
                 condition={condition}
                 extendedTemplateDisplayName="Diagnosis Generic Cancer Level Two"
               />
@@ -37,18 +38,30 @@ export const Summary: Story = () => {
                 condition={condition}
                 extensionTemplateDisplayName="Diagnosis Generic Cancer Level Two"
                 extensionClickHandler={clickHandler}
+                isReadOnly={false}
+                controls={controls}
               />
             )}
-            {idx === 2 && <DiagnosisSummary condition={condition} />}
+            {idx === 2 && <DiagnosisSummary condition={condition} isReadOnly={false} />}
             {idx === 3 && (
               <DiagnosisSummary
                 condition={condition}
                 extensionTemplateDisplayName="Diagnosis Generic Cancer Level Three"
                 extendedTemplateDisplayName="Diagnosis Generic Cancer Level Two"
                 extensionClickHandler={clickHandler}
+                isReadOnly={false}
               />
             )}
-            {idx === 4 && <DiagnosisSummary condition={condition} />}
+            {idx === 4 && <DiagnosisSummary condition={condition} isReadOnly={false} />}
+            {idx === 5 && (
+              <DiagnosisSummary
+                condition={condition}
+                extensionTemplateDisplayName="Diagnosis Generic Cancer Level Two"
+                extensionClickHandler={clickHandler}
+                isReadOnly
+                controls={controls}
+              />
+            )}
           </Card.ListItem>
         ))}
       </Card.List>
@@ -63,7 +76,7 @@ export const Redacted: Story = () => (
     </Card.Header>
     <Card.List>
       <Card.ListItem>
-        <DiagnosisSummary condition={conditions[0]} />
+        <DiagnosisSummary condition={conditions[0]} isReadOnly={false} />
       </Card.ListItem>
     </Card.List>
   </Card>
