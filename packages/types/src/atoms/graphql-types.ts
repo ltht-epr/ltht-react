@@ -884,11 +884,11 @@ export type ConditionEvidence = {
 };
 
 export type ConditionMinimalInput = {
+  assertedDate?: Maybe<PartialDateTimeInput>;
   clinicalStatus?: Maybe<ConditionClinicalStatus>;
   code: CodeableConceptInput;
   extension?: Maybe<Array<Maybe<ExtensionInput>>>;
   id: Scalars['String'];
-  onset?: Maybe<ConditionOnsetMinimalInput>;
   verificationStatus?: Maybe<ConditionVerificationStatus>;
 };
 
@@ -906,10 +906,6 @@ export type ConditionOnset = {
   period?: Maybe<Period>;
   range?: Maybe<Range>;
   string?: Maybe<Scalars['String']>;
-};
-
-export type ConditionOnsetMinimalInput = {
-  dateTime: PartialDateTimeInput;
 };
 
 export type ConditionStage = {
@@ -1692,6 +1688,7 @@ export type EhrSummaryViewDefinitionArgs = {
 export type EhrSummaryViewEntriesArgs = {
   count?: Maybe<Scalars['Int']>;
   cursorToken?: Maybe<Scalars['String']>;
+  filters?: Maybe<Array<Maybe<SummaryViewFilter>>>;
   name: Scalars['String'];
   patientGuid: Scalars['String'];
 };
@@ -1704,6 +1701,8 @@ export type EhrTasksArgs = {
   count?: Maybe<Scalars['Int']>;
   cursorToken?: Maybe<Scalars['String']>;
   domainTags?: Maybe<Array<Maybe<TaskDomainFilter>>>;
+  excludedTaskNames?: Maybe<Array<Maybe<Scalars['String']>>>;
+  includedTaskNames?: Maybe<Array<Maybe<Scalars['String']>>>;
   pathwayId?: Maybe<Scalars['String']>;
   pathwayType?: Maybe<Scalars['String']>;
   patientGuid: Scalars['String'];
@@ -4038,6 +4037,12 @@ export enum SortOptionType {
   Alphabetical = 'ALPHABETICAL',
   MostRecent = 'MOST_RECENT'
 }
+
+/** Filter values used to filter summary view entries */
+export type SummaryViewFilter = {
+  filterValues?: Maybe<Array<Maybe<Scalars['String']>>>;
+  name?: Maybe<Scalars['String']>;
+};
 
 /** https://www.hl7.org/fhir/STU3/task.html */
 export type Task = {
