@@ -1688,7 +1688,6 @@ export type EhrSummaryViewDefinitionArgs = {
 export type EhrSummaryViewEntriesArgs = {
   count?: Maybe<Scalars['Int']>;
   cursorToken?: Maybe<Scalars['String']>;
-  filters?: Maybe<Array<Maybe<SummaryViewFilter>>>;
   name: Scalars['String'];
   patientGuid: Scalars['String'];
 };
@@ -1701,8 +1700,6 @@ export type EhrTasksArgs = {
   count?: Maybe<Scalars['Int']>;
   cursorToken?: Maybe<Scalars['String']>;
   domainTags?: Maybe<Array<Maybe<TaskDomainFilter>>>;
-  excludedTaskNames?: Maybe<Array<Maybe<Scalars['String']>>>;
-  includedTaskNames?: Maybe<Array<Maybe<Scalars['String']>>>;
   pathwayId?: Maybe<Scalars['String']>;
   pathwayType?: Maybe<Scalars['String']>;
   patientGuid: Scalars['String'];
@@ -4037,12 +4034,6 @@ export enum SortOptionType {
   Alphabetical = 'ALPHABETICAL',
   MostRecent = 'MOST_RECENT'
 }
-
-/** Filter values used to filter summary view entries */
-export type SummaryViewFilter = {
-  filterValues?: Maybe<Array<Maybe<Scalars['String']>>>;
-  name?: Maybe<Scalars['String']>;
-};
 
 /** https://www.hl7.org/fhir/STU3/task.html */
 export type Task = {
