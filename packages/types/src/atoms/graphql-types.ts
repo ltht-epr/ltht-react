@@ -884,11 +884,11 @@ export type ConditionEvidence = {
 };
 
 export type ConditionMinimalInput = {
+  assertedDate?: Maybe<PartialDateTimeInput>;
   clinicalStatus?: Maybe<ConditionClinicalStatus>;
   code: CodeableConceptInput;
   extension?: Maybe<Array<Maybe<ExtensionInput>>>;
   id: Scalars['String'];
-  onset?: Maybe<ConditionOnsetMinimalInput>;
   verificationStatus?: Maybe<ConditionVerificationStatus>;
 };
 
@@ -906,10 +906,6 @@ export type ConditionOnset = {
   period?: Maybe<Period>;
   range?: Maybe<Range>;
   string?: Maybe<Scalars['String']>;
-};
-
-export type ConditionOnsetMinimalInput = {
-  dateTime: PartialDateTimeInput;
 };
 
 export type ConditionStage = {
