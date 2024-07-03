@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.0.48 (2024-07-03)
+
+**Note:** Version bump only for package @ltht-react/styles
+
 ## 2.0.47 (2024-07-01)
 
 **Note:** Version bump only for package @ltht-react/styles
