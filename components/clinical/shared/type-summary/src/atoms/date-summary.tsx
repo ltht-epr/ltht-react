@@ -12,7 +12,7 @@ const StyledDateSummary = styled.div<IStyledDateSummary>`
 `
 
 const formatAsDateOnly = (partialDateTime?: PartialDateTime | null): string => {
-  if (!partialDateTime || !partialDateTime.value) return ''
+  if (!partialDateTime?.value) return ''
 
   const date = new Date(partialDateTime.value)
   return date.toISOString().split('T')[0] ?? ''
