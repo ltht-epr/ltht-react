@@ -1,5 +1,6 @@
 import { HTMLAttributes, FC } from 'react'
 import styled from '@emotion/styled'
+import { format, parseISO } from 'date-fns'
 
 import { TEXT_COLOURS } from '@ltht-react/styles'
 import { PartialDateTime } from '@ltht-react/types'
@@ -11,16 +12,16 @@ const StyledDateSummary = styled.div<IStyledDateSummary>`
   display: inline-block;
 `
 
-const formatAsDateOnly = (partialDateTime?: PartialDateTime | null): string => {
+const formatAsISODate = (partialDateTime?: PartialDateTime | null): string => {
   if (!partialDateTime?.value) return ''
 
-  const date = new Date(partialDateTime.value)
-  return date.toISOString().split('T')[0] ?? ''
+  const date = parseISO(partialDateTime.value)
+  return format(date, 'dd-MMM-yyyy')
 }
 
 const DateSummary: FC<Props> = ({ datetime, enteredInError, dateOnlyView, ...rest }) => (
   <StyledDateSummary enteredInError={enteredInError} dateOnlyView={dateOnlyView} {...rest}>
-    {dateOnlyView ? formatAsDateOnly(datetime) : partialDateTimeText(datetime)}
+    {dateOnlyView ? formatAsISODate(datetime) : partialDateTimeText(datetime)}
   </StyledDateSummary>
 )
 
