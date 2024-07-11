@@ -1302,6 +1302,8 @@ export type Ehr = {
   countersignatureRequest?: Maybe<QuestionnaireResponse>;
   /** Get countersignature requests raised against a specific document */
   countersignatureRequestsForDocument?: Maybe<ProvenanceContinuationType>;
+  /** Gets all open countersignature requests for a patient */
+  countersignatureRequestsForPatient?: Maybe<QuestionnaireResponseContinuation>;
   /** Gets all open countersignature requests for the user that match the provided filters */
   countersignatureRequestsForUser?: Maybe<QuestionnaireResponseContinuation>;
   /** Gets all open countersignature requests for the user on a patient that match the provided filters */
@@ -1533,6 +1535,19 @@ export type EhrCountersignatureRequestsForDocumentArgs = {
   patientGuid: Scalars['Guid'];
   setGuid: Scalars['Guid'];
   templateName: Scalars['String'];
+  to?: Maybe<Scalars['DateTimeOffset']>;
+};
+
+
+/** Queries the LTHT EHR. */
+export type EhrCountersignatureRequestsForPatientArgs = {
+  count?: Maybe<Scalars['Int']>;
+  cursorToken?: Maybe<Scalars['String']>;
+  from?: Maybe<Scalars['DateTimeOffset']>;
+  patientGuid: Scalars['Guid'];
+  requesterGuids?: Maybe<Array<Scalars['Guid']>>;
+  signatories?: Maybe<Array<SignatoryInputType>>;
+  templateNames?: Maybe<Array<Scalars['String']>>;
   to?: Maybe<Scalars['DateTimeOffset']>;
 };
 
