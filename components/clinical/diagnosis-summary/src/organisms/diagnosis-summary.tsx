@@ -89,6 +89,7 @@ const DiagnosisSummary: FC<Props> = ({
   extensionTemplateDisplayName,
   extensionClickHandler,
   isReadOnly = false,
+  dateOnlyView = false,
   controls = [],
   ...rest
 }) => {
@@ -143,7 +144,7 @@ const DiagnosisSummary: FC<Props> = ({
         )}
       </StyledLeftContainer>
       <StyledDate>
-        <DateSummary enteredInError={enteredInError} datetime={condition?.assertedDate} />
+        <DateSummary enteredInError={enteredInError} datetime={condition?.assertedDate} dateOnlyView={dateOnlyView} />
         <OnsetDateEstimated enteredInError={enteredInError} condition={condition} />
         <Status enteredInError={enteredInError} condition={condition} />
       </StyledDate>
@@ -157,6 +158,7 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
   extensionTemplateDisplayName?: string | undefined
   extensionClickHandler?(): void
   isReadOnly?: boolean
+  dateOnlyView?: boolean
   controls?: ButtonProps[]
 }
 

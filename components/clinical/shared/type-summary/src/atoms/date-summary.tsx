@@ -11,19 +11,28 @@ const StyledDateSummary = styled.div<IStyledDateSummary>`
   display: inline-block;
 `
 
-const DateSummary: FC<Props> = ({ datetime, enteredInError, ...rest }) => (
-  <StyledDateSummary enteredInError={enteredInError} {...rest}>
-    {partialDateTimeText(datetime)}
+const formatAsDateOnly = (partialDateTime?: PartialDateTime | null): string => {
+  if (!partialDateTime?.value) return ''
+
+  const date = new Date(partialDateTime.value)
+  return date.toISOString().split('T')[0] ?? ''
+}
+
+const DateSummary: FC<Props> = ({ datetime, enteredInError, dateOnlyView, ...rest }) => (
+  <StyledDateSummary enteredInError={enteredInError} dateOnlyView={dateOnlyView} {...rest}>
+    {dateOnlyView ? formatAsDateOnly(datetime) : partialDateTimeText(datetime)}
   </StyledDateSummary>
 )
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   datetime?: PartialDateTime | null
   enteredInError?: boolean | undefined
+  dateOnlyView?: boolean
 }
 
 interface IStyledDateSummary {
   enteredInError?: boolean | undefined
+  dateOnlyView?: boolean
 }
 
 export default DateSummary
