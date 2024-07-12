@@ -908,6 +908,11 @@ export type ConditionOnset = {
   string?: Maybe<Scalars['String']>;
 };
 
+export enum ConditionScopeType {
+  Pathway = 'PATHWAY',
+  Patient = 'PATIENT'
+}
+
 export type ConditionStage = {
   assessment?: Maybe<Array<Maybe<ResourceReference>>>;
   /** Unique id for inter-element referencing. */
@@ -1507,12 +1512,13 @@ export type EhrConditionsArgs = {
   clinicalStatus?: Maybe<Array<Maybe<Scalars['String']>>>;
   count?: Maybe<Scalars['Int']>;
   cursorToken?: Maybe<Scalars['String']>;
-  isRelevantToSession?: Maybe<Scalars['Boolean']>;
   loadSpec?: Maybe<InstanceDataLoadSpecType>;
   patientGuid: Scalars['String'];
+  scopeType: ConditionScopeType;
   search?: Maybe<Scalars['String']>;
   severity?: Maybe<Array<Maybe<Scalars['String']>>>;
   sortBy?: Maybe<SortOptionType>;
+  usePointInTime?: Maybe<Scalars['Boolean']>;
   verificationStatus?: Maybe<Array<Maybe<ConditionVerificationStatus>>>;
 };
 
