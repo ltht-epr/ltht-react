@@ -30,7 +30,7 @@ const Seperator = styled.div`
   margin: 1rem 0;
 `
 
-const DiagnosisDetail: FC<Props> = ({ condition, links, viewType = DetailViewType.Compact }) => {
+const DiagnosisDetail: FC<Props> = ({ condition, links, viewType = DetailViewType.Compact, dateOnly = false }) => {
   const onsetDateEstimated = getBooleanExtension(
     condition.extension,
     'https://fhir.leedsth.nhs.uk/ValueSet/diagnosis-onset-date-estimated-1'
@@ -57,7 +57,7 @@ const DiagnosisDetail: FC<Props> = ({ condition, links, viewType = DetailViewTyp
         <StringDetail term="Verification Status" description={condition.verificationStatus?.toString()} />
         <CodeableConceptDetail term="Severity" concept={condition.severity} />
         <AsserterDetail asserter={condition.asserter} />
-        <DatetimeDetail term="Diagnosis Date" datetime={condition.assertedDate} />
+        <DatetimeDetail term="Diagnosis Date" datetime={condition.assertedDate} dateOnly={dateOnly} />
         <DatetimeDetail term="Abatement Date" datetime={condition.abatement?.dateTime} />
         <AnnotationListDetail term="Note(s)" notes={condition.note} />
       </CollapsibleDetailCollection>
@@ -70,6 +70,7 @@ interface Props extends CollapsibleDetailCollectionProps {
   // TODO: Define 'links?' type once code link config implementation has been done
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   links?: any
+  dateOnly?: boolean
 }
 
 export default DiagnosisDetail
