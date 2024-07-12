@@ -1,4 +1,5 @@
 import { PartialDateTime, PartialDateTimeKindCode } from '@ltht-react/types'
+import { format, parseISO } from 'date-fns'
 
 const locale = 'en-gb'
 const dayFormat = '2-digit'
@@ -42,4 +43,11 @@ export const partialDateTimeText = (partialDateTime?: PartialDateTime | null): s
     default:
       return ''
   }
+}
+
+export const formatPartialDateTimeAsDateOnly = (partialDateTime?: PartialDateTime | null): string => {
+  if (!partialDateTime?.value) return ''
+
+  const date = parseISO(partialDateTime.value)
+  return format(date, 'dd-MMM-yyyy')
 }
