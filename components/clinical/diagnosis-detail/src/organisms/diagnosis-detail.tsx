@@ -43,14 +43,6 @@ const DiagnosisDetail: FC<Props> = ({ condition, links, viewType = DetailViewTyp
         <CodingListDetail term="Data Source(s)" codings={condition.metadata.dataSources} />
       </TopSection>
       <Seperator />
-      {condition.extensionData &&
-        condition?.extensionData.map((item, index) => (
-          <div key={`diagnosis-detail-questionnaire-${index}`}>
-            <Questionnaire questionnaire={item} showTitle={false} viewType={viewType} />
-            <Seperator />
-          </div>
-        ))}
-
       <CollapsibleDetailCollection viewType={viewType}>
         <DatetimeDetail term="Onset Date" datetime={condition.onset?.dateTime} estimated={onsetDateEstimated} />
         <StringDetail term="Clinical Status" description={condition.clinicalStatus?.toString()} />
@@ -61,6 +53,14 @@ const DiagnosisDetail: FC<Props> = ({ condition, links, viewType = DetailViewTyp
         <DatetimeDetail term="Abatement Date" datetime={condition.abatement?.dateTime} />
         <AnnotationListDetail term="Note(s)" notes={condition.note} />
       </CollapsibleDetailCollection>
+
+      {condition.extensionData &&
+        condition?.extensionData.map((item, index) => (
+          <div key={`diagnosis-detail-questionnaire-${index}`}>
+            <Questionnaire questionnaire={item} showTitle={false} viewType={viewType} />
+            <Seperator />
+          </div>
+        ))}
     </>
   )
 }
