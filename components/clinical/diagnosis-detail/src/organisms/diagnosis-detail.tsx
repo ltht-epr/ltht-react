@@ -53,6 +53,7 @@ const DiagnosisDetail: FC<Props> = ({ condition, links, viewType = DetailViewTyp
         <DatetimeDetail term="Abatement Date" datetime={condition.abatement?.dateTime} />
         <AnnotationListDetail term="Note(s)" notes={condition.note} />
       </CollapsibleDetailCollection>
+      <Seperator />
 
       {condition.extensionData &&
         condition?.extensionData.map((item, index) => (
