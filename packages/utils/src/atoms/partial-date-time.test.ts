@@ -1,5 +1,5 @@
 import { PartialDateTime, PartialDateTimeKindCode } from '@ltht-react/types'
-import { formatDateTime, partialDateTimeText } from './partial-date-time'
+import { formatDateTime, partialDateTimeText, formatPartialDateTimeAsDateOnly } from './partial-date-time'
 
 describe('partialDateTimeText', () => {
   // it('formats date correctly', () => {
@@ -36,6 +36,11 @@ describe('partialDateTimeText', () => {
   it('formats DateTimes as midnight by default if no time is provided', () => {
     const date = new Date(2022, 0, 10)
     expect(formatDateTime(date)).toEqual('10 January 2022 : 00:00')
+  })
+
+  it('formats DateTimes to show date portion only in DD-MMM-YYYY format', () => {
+    const date = partialDateTime(PartialDateTimeKindCode.DateTime)
+    expect(formatPartialDateTimeAsDateOnly(date)).toEqual('03-Feb-2013')
   })
 })
 
