@@ -1345,6 +1345,8 @@ export type Ehr = {
   summaryViewDefinition?: Maybe<Questionnaire>;
   /** Summary View Entries Data */
   summaryViewEntries?: Maybe<QuestionnaireResponseContinuation>;
+  /** Summary View Filters Data */
+  summaryViewFilters?: Maybe<Filter>;
   /** Tasks */
   tasks?: Maybe<TaskContinuation>;
   /** Returns the available CDS extension template for a given base template and value */
@@ -1709,6 +1711,14 @@ export type EhrSummaryViewDefinitionArgs = {
 export type EhrSummaryViewEntriesArgs = {
   count?: Maybe<Scalars['Int']>;
   cursorToken?: Maybe<Scalars['String']>;
+  filters?: Maybe<Array<Maybe<SummaryViewFilter>>>;
+  name: Scalars['String'];
+  patientGuid: Scalars['String'];
+};
+
+
+/** Queries the LTHT EHR. */
+export type EhrSummaryViewFiltersArgs = {
   name: Scalars['String'];
   patientGuid: Scalars['String'];
 };
@@ -1721,6 +1731,8 @@ export type EhrTasksArgs = {
   count?: Maybe<Scalars['Int']>;
   cursorToken?: Maybe<Scalars['String']>;
   domainTags?: Maybe<Array<Maybe<TaskDomainFilter>>>;
+  excludedTaskNames?: Maybe<Array<Maybe<Scalars['String']>>>;
+  includedTaskNames?: Maybe<Array<Maybe<Scalars['String']>>>;
   pathwayId?: Maybe<Scalars['String']>;
   pathwayType?: Maybe<Scalars['String']>;
   patientGuid: Scalars['String'];
@@ -2459,6 +2471,16 @@ export type FeatureToggle = {
   featureFlag: FeatureInstance;
   /** The status of the feature toggle. */
   isEnabled: Scalars['Boolean'];
+};
+
+/** A set of filters that can be used to return a subset of the search results. */
+export type Filter = {
+  code?: Maybe<Array<Maybe<CodeableConcept>>>;
+  /** Logical Id of the resource. */
+  id: Scalars['ID'];
+  identifier?: Maybe<Array<Maybe<Identifier>>>;
+  /** Metadata about the resource. */
+  metadata: Metadata;
 };
 
 /** Prospective warnings of potential issues when providing care to the patient. */
@@ -4055,6 +4077,12 @@ export enum SortOptionType {
   Alphabetical = 'ALPHABETICAL',
   MostRecent = 'MOST_RECENT'
 }
+
+/** Filter values used to filter summary view entries */
+export type SummaryViewFilter = {
+  name?: Maybe<Scalars['String']>;
+  values?: Maybe<Array<Maybe<Scalars['String']>>>;
+};
 
 /** https://www.hl7.org/fhir/STU3/task.html */
 export type Task = {
