@@ -53,7 +53,7 @@ describe('Diagnosis Detail', () => {
     expect(screen.getByText('Asserter Relationship')).toBeVisible()
     expect(screen.getByText('Practitioner')).toBeVisible()
 
-    expect(screen.getByText('Asserted Date')).toBeVisible()
+    expect(screen.getByText('Diagnosis Date')).toBeVisible()
     expect(screen.getByText('07-Aug-2018')).toBeVisible()
 
     expect(screen.getByText('Note(s)')).toBeVisible()
