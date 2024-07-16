@@ -1346,7 +1346,7 @@ export type Ehr = {
   /** Summary View Entries Data */
   summaryViewEntries?: Maybe<QuestionnaireResponseContinuation>;
   /** Summary View Filters Data */
-  summaryViewFilters?: Maybe<Filter>;
+  summaryViewFilters?: Maybe<Array<Maybe<TerminologyItem>>>;
   /** Tasks */
   tasks?: Maybe<TaskContinuation>;
   /** Returns the available CDS extension template for a given base template and value */
@@ -2471,16 +2471,6 @@ export type FeatureToggle = {
   featureFlag: FeatureInstance;
   /** The status of the feature toggle. */
   isEnabled: Scalars['Boolean'];
-};
-
-/** A set of filters that can be used to return a subset of the search results. */
-export type Filter = {
-  code?: Maybe<Array<Maybe<CodeableConcept>>>;
-  /** Logical Id of the resource. */
-  id: Scalars['ID'];
-  identifier?: Maybe<Array<Maybe<Identifier>>>;
-  /** Metadata about the resource. */
-  metadata: Metadata;
 };
 
 /** Prospective warnings of potential issues when providing care to the patient. */
@@ -4223,6 +4213,8 @@ export type TemplateGroupContinuationType = {
 export type TerminologyItem = {
   /** Code for item */
   coding: Coding;
+  /** Display name for item */
+  display?: Maybe<Scalars['String']>;
   /** Logical Id of the resource. */
   id: Scalars['ID'];
   /** Metadata about the resource. */
