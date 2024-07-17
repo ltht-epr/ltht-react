@@ -908,11 +908,6 @@ export type ConditionOnset = {
   string?: Maybe<Scalars['String']>;
 };
 
-export enum ConditionScopeType {
-  Pathway = 'PATHWAY',
-  Patient = 'PATIENT'
-}
-
 export type ConditionStage = {
   assessment?: Maybe<Array<Maybe<ResourceReference>>>;
   /** Unique id for inter-element referencing. */
@@ -1516,7 +1511,7 @@ export type EhrConditionsArgs = {
   cursorToken?: Maybe<Scalars['String']>;
   loadSpec?: Maybe<InstanceDataLoadSpecType>;
   patientGuid: Scalars['String'];
-  scopeType: ConditionScopeType;
+  scopeType: ScopeType;
   search?: Maybe<Scalars['String']>;
   severity?: Maybe<Array<Maybe<Scalars['String']>>>;
   sortBy?: Maybe<SortOptionType>;
@@ -4014,6 +4009,11 @@ export type SampledData = {
   /** Upper limit of detection */
   upperLimit?: Maybe<Scalars['Decimal']>;
 };
+
+export enum ScopeType {
+  Pathway = 'PATHWAY',
+  Patient = 'PATIENT'
+}
 
 /** Users and / or teams that will be requested to sign a document */
 export type SignatoryInputType = {
