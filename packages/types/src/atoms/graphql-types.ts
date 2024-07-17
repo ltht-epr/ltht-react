@@ -890,11 +890,6 @@ export type ConditionMinimalInput = {
   extension?: Maybe<Array<Maybe<ExtensionInput>>>;
   id: Scalars['String'];
   verificationStatus?: Maybe<ConditionVerificationStatus>;
-  onset?: Maybe<ConditionOnsetMinimalInput>;
-};
-
-export type ConditionOnsetMinimalInput = {
-  dateTime: PartialDateTimeInput;
 };
 
 export type ConditionMinimalInputList = {
