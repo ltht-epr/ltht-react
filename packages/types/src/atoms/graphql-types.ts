@@ -4414,3 +4414,4 @@ export type YhcrHospitalStaysArgs = {
 export type YhcrObservationsArgs = {
   nhsNumber: Scalars['String'];
 };
+
