@@ -8,7 +8,6 @@ import { Button, ButtonProps } from '@ltht-react/button'
 
 import { BTN_COLOURS, MOBILE_MAXIMUM_MEDIA_QUERY, SMALL_SCREEN_MAXIMUM_MEDIA_QUERY } from '@ltht-react/styles'
 import Category from '../atoms/diagnosis-category'
-import Status from '../atoms/diagnosis-status'
 import Title from '../atoms/diagnosis-title'
 import OnsetDateEstimated from '../atoms/diagnosis-onset-estimated'
 import Redacted from '../molecules/diagnosis-redacted'
@@ -146,7 +145,6 @@ const DiagnosisSummary: FC<Props> = ({
       <StyledDate>
         <DateSummary enteredInError={enteredInError} datetime={condition?.assertedDate} dateOnlyView={dateOnlyView} />
         <OnsetDateEstimated enteredInError={enteredInError} condition={condition} />
-        <Status enteredInError={enteredInError} condition={condition} />
       </StyledDate>
     </StyledSummary>
   )
