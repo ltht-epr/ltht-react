@@ -6,7 +6,7 @@ import { conditions } from './diagnosis.fixtures'
 
 describe('Diagnosis', () => {
   it('Renders', () => {
-    render(<DiagnosisSummary condition={{ ...conditions[0] }} isReadOnly={false} />)
+    render(<DiagnosisSummary condition={{ ...conditions[0] }} launchPermissions={['View']} />)
 
     expect(screen.getByText('Heel Pain, Active, Confirmed')).toBeVisible()
   })
@@ -25,7 +25,7 @@ describe('Diagnosis', () => {
       },
     }
 
-    render(<DiagnosisSummary condition={redactedCondition} isReadOnly={false} />)
+    render(<DiagnosisSummary condition={redactedCondition} launchPermissions={['View']} />)
 
     expect(screen.getByText('Insufficient privileges')).toBeVisible()
   })
@@ -36,17 +36,17 @@ describe('Diagnosis', () => {
       verificationStatus: ConditionVerificationStatus.EnteredInError,
     }
 
-    render(<DiagnosisSummary condition={enteredInErrorCondition} isReadOnly={false} />)
+    render(<DiagnosisSummary condition={enteredInErrorCondition} launchPermissions={['View']} />)
 
     expect(screen.getByText('Heel Pain, Active, Entered In Error')).toHaveStyle('text-decoration: line-through')
   })
 
-  it('Displays a button for extending the diagnosis if a template name is provided and readonly is false', () => {
+  it('Displays a button for extending the diagnosis if a template name is provided and readonly is false and can edit extended', () => {
     render(
       <DiagnosisSummary
         condition={{ ...conditions[0] }}
         extensionTemplateDisplayName="Extension Template Name"
-        isReadOnly={false}
+        launchPermissions={['View', 'EditClone']}
       />
     )
 
@@ -62,7 +62,7 @@ describe('Diagnosis', () => {
       <DiagnosisSummary
         condition={{ ...conditions[0] }}
         extensionTemplateDisplayName="Extension Template Name"
-        isReadOnly
+        launchPermissions={undefined}
       />
     )
 
@@ -81,7 +81,7 @@ describe('Diagnosis', () => {
         condition={{ ...conditions[0] }}
         extensionTemplateDisplayName="Extension Template Name"
         extensionClickHandler={clickHandler}
-        isReadOnly={false}
+        launchPermissions={['View', 'EditClone']}
       />
     )
 
@@ -94,9 +94,9 @@ describe('Diagnosis', () => {
     expect(clickHandler).toHaveBeenCalledTimes(1)
   })
 
-  it.each([[false, ConditionVerificationStatus.Confirmed, 'ExtensionTemplateName']])(
+  it.each([[['View', 'EditClone'], ConditionVerificationStatus.Confirmed, 'ExtensionTemplateName']])(
     'Displays a button for extending the diagnosis',
-    (isReadOnly: boolean, verificationStatus: ConditionVerificationStatus, extensionTemplateName?: string) => {
+    (launchPermissions: string[], verificationStatus: ConditionVerificationStatus, extensionTemplateName?: string) => {
       const condition = {
         ...conditions[0],
         verificationStatus,
@@ -106,7 +106,7 @@ describe('Diagnosis', () => {
         <DiagnosisSummary
           condition={condition}
           extensionTemplateDisplayName={extensionTemplateName}
-          isReadOnly={isReadOnly}
+          launchPermissions={launchPermissions}
         />
       )
 
@@ -119,16 +119,16 @@ describe('Diagnosis', () => {
   )
 
   it.each([
-    [false, ConditionVerificationStatus.Confirmed, undefined],
-    [true, ConditionVerificationStatus.Confirmed, undefined],
-    [false, ConditionVerificationStatus.EnteredInError, undefined],
-    [true, ConditionVerificationStatus.EnteredInError, undefined],
-    [true, ConditionVerificationStatus.Confirmed, 'ExtensionTemplateName'],
-    [false, ConditionVerificationStatus.EnteredInError, 'ExtensionTemplateName'],
-    [true, ConditionVerificationStatus.EnteredInError, 'ExtensionTemplateName'],
+    [ConditionVerificationStatus.Confirmed, undefined, undefined],
+    [ConditionVerificationStatus.Confirmed, ['View'], undefined],
+    [ConditionVerificationStatus.EnteredInError, undefined, undefined],
+    [ConditionVerificationStatus.EnteredInError, ['View'], undefined],
+    [ConditionVerificationStatus.Confirmed, ['View'], 'ExtensionTemplateName'],
+    [ConditionVerificationStatus.EnteredInError, undefined, 'ExtensionTemplateName'],
+    [ConditionVerificationStatus.EnteredInError, ['View'], 'ExtensionTemplateName'],
   ])(
     'Does not a button for extending the diagnosis',
-    (isReadOnly: boolean, verificationStatus: ConditionVerificationStatus, extensionTemplateName?: string) => {
+    (verificationStatus: ConditionVerificationStatus, launchPermissions?: string[], extensionTemplateName?: string) => {
       const condition = {
         ...conditions[0],
         verificationStatus,
@@ -138,7 +138,7 @@ describe('Diagnosis', () => {
         <DiagnosisSummary
           condition={condition}
           extensionTemplateDisplayName={extensionTemplateName}
-          isReadOnly={isReadOnly}
+          launchPermissions={launchPermissions}
         />
       )
 
@@ -158,7 +158,6 @@ describe('Diagnosis', () => {
     render(
       <DiagnosisSummary
         condition={enteredInErrorCondition}
-        isReadOnly={false}
         extendedTemplateDisplayName="Extended template display name"
       />
     )

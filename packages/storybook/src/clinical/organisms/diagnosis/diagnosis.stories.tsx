@@ -28,7 +28,7 @@ export const Summary: Story = () => {
           <Card.ListItem key={condition.id} onClick={clickHandler}>
             {idx === 0 && (
               <DiagnosisSummary
-                isReadOnly
+                launchPermissions={['View']}
                 condition={condition}
                 extendedTemplateDisplayName="Diagnosis Generic Cancer Level Two"
               />
@@ -38,27 +38,25 @@ export const Summary: Story = () => {
                 condition={condition}
                 extensionTemplateDisplayName="Diagnosis Generic Cancer Level Two"
                 extensionClickHandler={clickHandler}
-                isReadOnly={false}
                 controls={controls}
               />
             )}
-            {idx === 2 && <DiagnosisSummary condition={condition} isReadOnly={false} />}
+            {idx === 2 && <DiagnosisSummary condition={condition} />}
             {idx === 3 && (
               <DiagnosisSummary
                 condition={condition}
                 extensionTemplateDisplayName="Diagnosis Generic Cancer Level Three"
                 extendedTemplateDisplayName="Diagnosis Generic Cancer Level Two"
                 extensionClickHandler={clickHandler}
-                isReadOnly={false}
               />
             )}
-            {idx === 4 && <DiagnosisSummary condition={condition} isReadOnly={false} />}
+            {idx === 4 && <DiagnosisSummary condition={condition} />}
             {idx === 5 && (
               <DiagnosisSummary
                 condition={condition}
                 extensionTemplateDisplayName="Diagnosis Generic Cancer Level Two"
                 extensionClickHandler={clickHandler}
-                isReadOnly
+                launchPermissions={['View']}
                 controls={controls}
               />
             )}
@@ -76,7 +74,7 @@ export const Redacted: Story = () => (
     </Card.Header>
     <Card.List>
       <Card.ListItem>
-        <DiagnosisSummary condition={conditions[0]} isReadOnly={false} />
+        <DiagnosisSummary condition={conditions[0]} />
       </Card.ListItem>
     </Card.List>
   </Card>

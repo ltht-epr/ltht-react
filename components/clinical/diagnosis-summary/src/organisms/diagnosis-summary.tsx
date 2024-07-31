@@ -87,7 +87,7 @@ const DiagnosisSummary: FC<Props> = ({
   extendedTemplateDisplayName,
   extensionTemplateDisplayName,
   extensionClickHandler,
-  isReadOnly = false,
+  launchPermissions,
   dateOnlyView = false,
   controls = [],
   ...rest
@@ -101,6 +101,8 @@ const DiagnosisSummary: FC<Props> = ({
   }
 
   const enteredInError = condition.verificationStatus === ConditionVerificationStatus.EnteredInError
+  const hasReadPermissions = launchPermissions?.includes('View')
+  const hasEditClonePermission = launchPermissions?.includes('EditClone')
 
   return (
     <StyledSummary {...rest}>
@@ -109,7 +111,7 @@ const DiagnosisSummary: FC<Props> = ({
           <StyledTitle>
             <Title enteredInError={enteredInError} condition={condition} />
           </StyledTitle>
-          {extensionTemplateDisplayName && !isReadOnly && !enteredInError && (
+          {extensionTemplateDisplayName && hasReadPermissions && hasEditClonePermission && !enteredInError && (
             <IconButtonWrapper
               onClick={extensionClickHandler}
               type="button"
@@ -134,7 +136,7 @@ const DiagnosisSummary: FC<Props> = ({
           <Category enteredInError={enteredInError} condition={condition} />
         </StyledDescription>
 
-        {!isReadOnly && controls.length > 0 && (
+        {!hasReadPermissions && controls.length > 0 && (
           <StyledControlsContainer>
             {controls.map((props, index) => (
               <StyledButton key={index} {...props} />
@@ -155,7 +157,7 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
   extendedTemplateDisplayName?: string | undefined
   extensionTemplateDisplayName?: string | undefined
   extensionClickHandler?(): void
-  isReadOnly?: boolean
+  launchPermissions?: string[]
   dateOnlyView?: boolean
   controls?: ButtonProps[]
 }
