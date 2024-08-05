@@ -4,7 +4,7 @@ import { DetailViewComponent, IDetailViewProps } from '../atoms/detail-view-comp
 
 const AsserterDetail: DetailViewComponent<IAsserterDetailProps> = ({ asserter, showIfEmpty = false }) => (
   <>
-    {(asserter || showIfEmpty) === true && (
+    {(asserter || showIfEmpty) && (
       <>
         <NestedListDetail term="Diagnosis Stated By" showIfEmpty={showIfEmpty}>
           {asserter?.asserterName}
