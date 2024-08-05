@@ -29,7 +29,7 @@ describe('Diagnosis Detail', () => {
 
     render(<DiagnosisDetail condition={levelOneData} />)
 
-    expect(screen.getByText('Diagnosis')).toBeVisible()
+    expect(screen.getByText('Diagnosis / Condition')).toBeVisible()
     expect(screen.getByText('Heel Pain')).toBeVisible()
 
     expect(screen.getByText('Data Source(s)')).toBeVisible()
@@ -47,10 +47,10 @@ describe('Diagnosis Detail', () => {
     expect(screen.getByText('Severity')).toBeVisible()
     expect(screen.getByText('Moderate')).toBeVisible()
 
-    expect(screen.getByText('Asserted By')).toBeVisible()
+    expect(screen.getByText('Diagnosis Stated By')).toBeVisible()
     expect(screen.getByText('BROWN, David (Dr)')).toBeVisible()
 
-    expect(screen.getByText('Asserter Relationship')).toBeVisible()
+    expect(screen.getByText('Relationship')).toBeVisible()
     expect(screen.getByText('Practitioner')).toBeVisible()
 
     expect(screen.getByText('Diagnosis Date')).toBeVisible()
@@ -82,7 +82,7 @@ describe('Diagnosis Detail', () => {
 
     render(<DiagnosisDetail condition={levelOneData} links={CODABLE_CONCEPT_LINK_MAP} />)
 
-    expect(screen.getByText('Diagnosis')).toBeVisible()
+    expect(screen.getByText('Diagnosis / Condition')).toBeVisible()
     expect(screen.getByText('Heel Pain').closest('a')).toHaveAttribute('href', 'https://www.google.com')
     expect(screen.getByText('Heel Pain').closest('a')?.children[1]).toHaveClass('icon__external-link')
   })
