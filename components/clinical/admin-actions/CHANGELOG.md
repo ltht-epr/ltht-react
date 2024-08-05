@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.0.66 (2024-08-05)
+
+**Note:** Version bump only for package @ltht-react/admin-actions
+
 ## 2.0.65 (2024-07-31)
 
 **Note:** Version bump only for package @ltht-react/admin-actions
