@@ -47,6 +47,7 @@ describe('Diagnosis', () => {
         condition={{ ...conditions[0] }}
         extensionTemplateDisplayName="Extension Template Name"
         isReadOnly={false}
+        canExtendDiagnosis
       />
     )
 
@@ -82,6 +83,7 @@ describe('Diagnosis', () => {
         extensionTemplateDisplayName="Extension Template Name"
         extensionClickHandler={clickHandler}
         isReadOnly={false}
+        canExtendDiagnosis
       />
     )
 
@@ -107,6 +109,7 @@ describe('Diagnosis', () => {
           condition={condition}
           extensionTemplateDisplayName={extensionTemplateName}
           isReadOnly={isReadOnly}
+          canExtendDiagnosis
         />
       )
 
