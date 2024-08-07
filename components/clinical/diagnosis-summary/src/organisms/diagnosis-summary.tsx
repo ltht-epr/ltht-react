@@ -89,7 +89,7 @@ const DiagnosisSummary: FC<Props> = ({
   extensionClickHandler,
   isReadOnly = false,
   dateOnlyView = false,
-  canEditExtension = false,
+  canExtendDiagnosis = false,
   controls = [],
   ...rest
 }) => {
@@ -110,7 +110,7 @@ const DiagnosisSummary: FC<Props> = ({
           <StyledTitle>
             <Title enteredInError={enteredInError} condition={condition} />
           </StyledTitle>
-          {extensionTemplateDisplayName && canEditExtension && !enteredInError && (
+          {extensionTemplateDisplayName && !isReadOnly && canExtendDiagnosis && !enteredInError && (
             <IconButtonWrapper
               onClick={extensionClickHandler}
               type="button"
@@ -156,10 +156,10 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
   extendedTemplateDisplayName?: string | undefined
   extensionTemplateDisplayName?: string | undefined
   extensionClickHandler?(): void
-  isReadOnly?: boolean
+  isReadOnly: boolean
   dateOnlyView?: boolean
-  canEditExtension?: boolean
   controls?: ButtonProps[]
+  canExtendDiagnosis?: boolean
 }
 
 export default DiagnosisSummary
