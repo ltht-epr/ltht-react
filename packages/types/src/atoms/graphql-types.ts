@@ -1728,8 +1728,6 @@ export type EhrTasksArgs = {
   domainTags?: Maybe<Array<Maybe<TaskDomainFilter>>>;
   excludedTaskNames?: Maybe<Array<Maybe<Scalars['String']>>>;
   includedTaskNames?: Maybe<Array<Maybe<Scalars['String']>>>;
-  pathwayId?: Maybe<Scalars['String']>;
-  pathwayType?: Maybe<Scalars['String']>;
   patientGuid: Scalars['String'];
   processId?: Maybe<Scalars['String']>;
   processName?: Maybe<Scalars['String']>;
@@ -2438,7 +2436,8 @@ export type ExtensionInput = {
 };
 
 export enum FeatureInstance {
-  ClinicOutcomeDiagnosisWidgetEnabled = 'CLINIC_OUTCOME_DIAGNOSIS_WIDGET_ENABLED',
+  ClinicOutcomePointInTime = 'CLINIC_OUTCOME_POINT_IN_TIME',
+  ClinicOutcomeRelevantDiagnoses = 'CLINIC_OUTCOME_RELEVANT_DIAGNOSES',
   FilterAssignedTasks = 'FILTER_ASSIGNED_TASKS',
   FilterInactiveTasks = 'FILTER_INACTIVE_TASKS',
   FormsForHealthLaunch = 'FORMS_FOR_HEALTH_LAUNCH',
@@ -4414,4 +4413,3 @@ export type YhcrHospitalStaysArgs = {
 export type YhcrObservationsArgs = {
   nhsNumber: Scalars['String'];
 };
-
