@@ -1324,6 +1324,8 @@ export type Ehr = {
   medications?: Maybe<MedicationRequestContinuationType>;
   /** Patient Demographics */
   patient?: Maybe<Patient>;
+  /** Patient's episodes of care */
+  patientEpisodesOfCare?: Maybe<Array<Maybe<EpisodeOfCare>>>;
   /** Patient Group and Membership */
   patientGroup?: Maybe<Group>;
   /** Patient Search by Free Text */
@@ -1511,6 +1513,8 @@ export type EhrConditionsArgs = {
   cursorToken?: Maybe<Scalars['String']>;
   loadSpec?: Maybe<InstanceDataLoadSpecType>;
   patientGuid: Scalars['String'];
+  scopeId?: Maybe<Scalars['String']>;
+  scopeName?: Maybe<Scalars['String']>;
   scopeType: ScopeType;
   search?: Maybe<Scalars['String']>;
   severity?: Maybe<Array<Maybe<Scalars['String']>>>;
@@ -1634,6 +1638,12 @@ export type EhrMedicationsArgs = {
 
 /** Queries the LTHT EHR. */
 export type EhrPatientArgs = {
+  patientGuid: Scalars['String'];
+};
+
+
+/** Queries the LTHT EHR. */
+export type EhrPatientEpisodesOfCareArgs = {
   patientGuid: Scalars['String'];
 };
 
@@ -2436,6 +2446,7 @@ export type ExtensionInput = {
 };
 
 export enum FeatureInstance {
+  AssessmentRecordRelevantDiagnoses = 'ASSESSMENT_RECORD_RELEVANT_DIAGNOSES',
   ClinicOutcomePointInTime = 'CLINIC_OUTCOME_POINT_IN_TIME',
   ClinicOutcomeRelevantDiagnoses = 'CLINIC_OUTCOME_RELEVANT_DIAGNOSES',
   FilterAssignedTasks = 'FILTER_ASSIGNED_TASKS',
