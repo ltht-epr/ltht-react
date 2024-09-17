@@ -10,6 +10,7 @@ export type Scalars = {
   Int: number;
   Float: number;
   Date: string;
+  DateTime: string;
   DateTimeOffset: string;
   Decimal: number;
   Guid: any;
@@ -732,6 +733,16 @@ export enum CarePlanStatusCode {
   Unknown = 'UNKNOWN'
 }
 
+/** The child process element represents a child process. */
+export type ChildProcess = {
+  /** Unique id for inter-element referencing. */
+  elementId?: Maybe<Scalars['String']>;
+  /** Additional content defined by implementations. */
+  extension?: Maybe<Array<Maybe<Extension>>>;
+  processId?: Maybe<Identifier>;
+  processType?: Maybe<Coding>;
+};
+
 export enum ClinicalApprovalStatus {
   Cancelled = 'CANCELLED',
   Expired = 'EXPIRED',
@@ -1045,6 +1056,7 @@ export enum DataSourceProfile {
 
 
 
+
 export enum DaysOfWeekType {
   /** Friday */
   Fri = 'FRI',
@@ -1322,6 +1334,8 @@ export type Ehr = {
   medication?: Maybe<MedicationRequest>;
   /** Medications */
   medications?: Maybe<MedicationRequestContinuationType>;
+  /** Pathway */
+  pathway?: Maybe<PathwayStatement>;
   /** Patient Demographics */
   patient?: Maybe<Patient>;
   /** Patient's episodes of care */
@@ -1633,6 +1647,17 @@ export type EhrMedicationsArgs = {
   listScope?: Maybe<Scalars['String']>;
   listType: Scalars['String'];
   patientGuid: Scalars['String'];
+};
+
+
+/** Queries the LTHT EHR. */
+export type EhrPathwayArgs = {
+  includeEndedLinks?: Maybe<Scalars['Boolean']>;
+  includeWithdrawnLinks?: Maybe<Scalars['Boolean']>;
+  pathwayId: Scalars['String'];
+  pathwayType: Scalars['String'];
+  patientGuid: Scalars['String'];
+  pointInTime?: Maybe<Scalars['DateTimeOffset']>;
 };
 
 
@@ -3199,6 +3224,46 @@ export enum PartialDateTimeKindCode {
   Year = 'YEAR',
   YearMonth = 'YEAR_MONTH'
 }
+
+/** The PathwayAction resource represents custom commands the pathway can handle. */
+export type PathwayAction = {
+  command?: Maybe<Coding>;
+  display?: Maybe<Scalars['String']>;
+  /** Unique id for inter-element referencing. */
+  elementId?: Maybe<Scalars['String']>;
+  /** Additional content defined by implementations. */
+  extension?: Maybe<Array<Maybe<Extension>>>;
+  resource?: Maybe<Scalars['String']>;
+  type?: Maybe<Coding>;
+};
+
+/** The PathwayLink element represents a pathway resource link. */
+export type PathwayLink = {
+  createdDate?: Maybe<Scalars['DateTime']>;
+  /** Unique id for inter-element referencing. */
+  elementId?: Maybe<Scalars['String']>;
+  /** Additional content defined by implementations. */
+  extension?: Maybe<Array<Maybe<Extension>>>;
+  identifier?: Maybe<Identifier>;
+  type?: Maybe<Coding>;
+  withdrawn?: Maybe<Scalars['Boolean']>;
+};
+
+/** The PathwayStatement resource represents the state of a patient pathway. */
+export type PathwayStatement = {
+  actions?: Maybe<Array<Maybe<PathwayAction>>>;
+  childProcesses?: Maybe<Array<Maybe<ChildProcess>>>;
+  /** Logical Id of the resource. */
+  id: Scalars['ID'];
+  lastModifiedDate?: Maybe<Scalars['DateTime']>;
+  links?: Maybe<Array<Maybe<PathwayLink>>>;
+  /** Metadata about the resource. */
+  metadata: Metadata;
+  pointInTime?: Maybe<Scalars['DateTime']>;
+  scopeType?: Maybe<Coding>;
+  state?: Maybe<Coding>;
+  viewableByOtherOrganisations?: Maybe<Scalars['Boolean']>;
+};
 
 /** The patient resource represents the patient involved in the provision of healthcare related services. */
 export type Patient = {
