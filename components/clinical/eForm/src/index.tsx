@@ -21,7 +21,7 @@ const StyledIframe = styled.div`
   }
 `
 
-const EForm: FC<Props> = ({ url, callback, checksum = 0, ...rest }) => {
+const EForm: FC<Props> = ({ url, callback, checksum = 0, id, ...rest }) => {
   const [iframeKey, setIframeKey] = useState(0)
   const iframeRef = useRef<HTMLIFrameElement | null>(null)
 
@@ -61,7 +61,14 @@ const EForm: FC<Props> = ({ url, callback, checksum = 0, ...rest }) => {
 
   return (
     <StyledIframe {...rest}>
-      <iframe key={iframeKey} ref={iframeRef} src={url} title="eForm" data-iframe-key={iframeKey} />
+      <iframe
+        key={iframeKey}
+        ref={iframeRef}
+        src={url}
+        title="eForm"
+        data-iframe-key={iframeKey}
+        id={id ?? 'f4h-eform-iframe'}
+      />
     </StyledIframe>
   )
 }

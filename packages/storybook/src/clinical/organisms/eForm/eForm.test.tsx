@@ -10,4 +10,16 @@ describe('eForm', () => {
 
     expect(initialIframeKey).toBe('1')
   })
+
+  it('should put the id on the iframe', () => {
+    render(<EForm url="https://localhost" id="test-iframe" />)
+
+    expect(screen.getByTitle('eForm')).toHaveAttribute('id', 'test-iframe')
+  })
+
+  it('should have a default iframe id', () => {
+    render(<EForm url="https://localhost" />)
+
+    expect(screen.getByTitle('eForm')).toHaveAttribute('id', 'f4h-eform-iframe')
+  })
 })
