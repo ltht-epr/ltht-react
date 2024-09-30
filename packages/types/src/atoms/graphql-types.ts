@@ -2475,6 +2475,7 @@ export enum FeatureInstance {
   ClinicOutcomePointInTime = 'CLINIC_OUTCOME_POINT_IN_TIME',
   ClinicOutcomeRelevantDiagnoses = 'CLINIC_OUTCOME_RELEVANT_DIAGNOSES',
   DecisionContextAlwaysCreateEnabled = 'DECISION_CONTEXT_ALWAYS_CREATE_ENABLED',
+  DiagnosisRelevancyButtonsEnabled = 'DIAGNOSIS_RELEVANCY_BUTTONS_ENABLED',
   FilterAssignedTasks = 'FILTER_ASSIGNED_TASKS',
   FilterInactiveTasks = 'FILTER_INACTIVE_TASKS',
   FormsForHealthLaunch = 'FORMS_FOR_HEALTH_LAUNCH',
