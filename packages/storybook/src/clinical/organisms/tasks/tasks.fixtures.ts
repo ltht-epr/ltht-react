@@ -44,7 +44,7 @@ export const Task1: Task = {
   },
 }
 
-export const Task2: Task = {
+const Task2: Task = {
   id: 'task-2',
   isEnteredInError: false,
   intent: IntentCode.Plan,
@@ -62,7 +62,7 @@ export const Task2: Task = {
   },
 }
 
-export const Task3: Task = {
+const Task3: Task = {
   id: 'task-3',
   isEnteredInError: false,
   intent: IntentCode.Plan,
@@ -82,7 +82,7 @@ export const Task3: Task = {
   },
 }
 
-export const Task4: Task = {
+const Task4: Task = {
   id: 'task-4',
   isEnteredInError: false,
   intent: IntentCode.Plan,
@@ -102,7 +102,7 @@ export const Task4: Task = {
   },
 }
 
-export const Task5: Task = {
+const Task5: Task = {
   id: 'task-5',
   isEnteredInError: false,
   intent: IntentCode.Plan,
@@ -122,7 +122,7 @@ export const Task5: Task = {
   },
 }
 
-export const Task6: Task = {
+const Task6: Task = {
   id: 'task-6',
   isEnteredInError: false,
   intent: IntentCode.Plan,
@@ -140,7 +140,7 @@ export const Task6: Task = {
   },
 }
 
-export const Task7: Task = {
+const Task7: Task = {
   id: 'task-7',
   isEnteredInError: false,
   intent: IntentCode.Order,
