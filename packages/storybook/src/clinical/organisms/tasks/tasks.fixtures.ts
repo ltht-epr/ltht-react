@@ -1,5 +1,6 @@
 import { ActionMenuOption } from '@ltht-react/menu'
 import { Task, IntentCode, TaskStatusCode, Metadata } from '@ltht-react/types'
+import moment from 'moment'
 
 const mockMetadata: Metadata = {
   dataSources: [
@@ -23,7 +24,7 @@ const redactedMetadata: Metadata = {
 
 const now = new Date()
 now.setMinutes(now.getMinutes() - 20)
-const Task1: Task = {
+export const Task1: Task = {
   id: 'task-1',
   isEnteredInError: false,
   intent: IntentCode.Order,
@@ -43,47 +44,45 @@ const Task1: Task = {
   },
 }
 
-const Task2: Task = {
+export const Task2: Task = {
   id: 'task-2',
   isEnteredInError: false,
   intent: IntentCode.Plan,
   metadata: mockMetadata,
-  status: TaskStatusCode.Overdue,
-  description: 'Task 2 Description',
+  status: TaskStatusCode.NotYetDue,
+  description: 'Obs Due',
   performerType: {
     text: 'Forms',
   },
   executionPeriod: {
-    start: {
-      value: '2021-04-15T00:00:00',
-    },
+    start: null,
     end: {
-      value: '2021-10-20T12:41:00+01:00',
+      value: moment().add(15, 'minutes').toString(),
     },
   },
 }
 
-const Task3: Task = {
+export const Task3: Task = {
   id: 'task-3',
   isEnteredInError: false,
-  intent: IntentCode.Order,
+  intent: IntentCode.Plan,
   metadata: mockMetadata,
-  status: TaskStatusCode.Overdue,
-  description: 'Task 3 Description',
+  status: TaskStatusCode.NotYetDue,
+  description: 'Task 5 Description',
   performerType: {
     text: 'Forms',
   },
   executionPeriod: {
     start: {
-      value: '2021-04-18T00:00:00',
+      value: moment().add(30, 'minutes').toString(),
     },
     end: {
-      value: '2021-04-20T10:00:00',
+      value: moment().add(40, 'minutes').toString(),
     },
   },
 }
 
-const Task4: Task = {
+export const Task4: Task = {
   id: 'task-4',
   isEnteredInError: false,
   intent: IntentCode.Plan,
@@ -95,30 +94,66 @@ const Task4: Task = {
   },
   executionPeriod: {
     start: {
-      value: '2021-02-23T13:18:00+00:00',
+      value: moment().subtract(20, 'minutes').toString(),
     },
     end: {
-      value: '2021-04-23T00:00:00',
+      value: moment().add(5, 'hours').toString(),
     },
   },
 }
 
-const Task5: Task = {
+export const Task5: Task = {
   id: 'task-5',
   isEnteredInError: false,
   intent: IntentCode.Plan,
   metadata: mockMetadata,
-  status: TaskStatusCode.NotYetDue,
-  description: 'Task 5 Description',
+  status: TaskStatusCode.Overdue,
+  description: 'Task 7 Description',
   performerType: {
     text: 'Forms',
   },
   executionPeriod: {
     start: {
-      value: '2021-10-22T14:21:07.869968+01:00',
+      value: moment().subtract(30, 'hours').toString(),
     },
     end: {
-      value: '2021-04-23T00:00:00',
+      value: moment().subtract(10, 'minutes').toString(),
+    },
+  },
+}
+
+export const Task6: Task = {
+  id: 'task-6',
+  isEnteredInError: false,
+  intent: IntentCode.Plan,
+  metadata: mockMetadata,
+  status: TaskStatusCode.Overdue,
+  description: 'Obs Overdue',
+  performerType: {
+    text: 'Forms',
+  },
+  executionPeriod: {
+    start: null,
+    end: {
+      value: moment().subtract(15, 'minutes').toString(),
+    },
+  },
+}
+
+export const Task7: Task = {
+  id: 'task-7',
+  isEnteredInError: false,
+  intent: IntentCode.Order,
+  metadata: mockMetadata,
+  status: TaskStatusCode.Due,
+  description: 'Start the eDAN',
+  performerType: {
+    text: 'Forms',
+  },
+  executionPeriod: {
+    start: null,
+    end: {
+      value: moment().add(5, 'hours').toString(),
     },
   },
 }
@@ -188,4 +223,4 @@ export const TaskActions: ActionMenuOption[] = [
   { text: 'Reassign', clickHandler: () => undefined, leftIcon: { type: 'edit', size: 'medium', color: 'info-blue' } },
 ]
 
-export const Tasks: Task[] = [Task1, Task2, Task3, Task4, Task5, CompletedTask, CancelledTask]
+export const Tasks: Task[] = [Task1, Task2, Task3, Task4, Task5, Task6, Task7, CompletedTask, CancelledTask]
