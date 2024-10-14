@@ -1334,6 +1334,8 @@ export type Ehr = {
   medication?: Maybe<MedicationRequest>;
   /** Medications */
   medications?: Maybe<MedicationRequestContinuationType>;
+  /** Get all non-withdrawn observations for a patient */
+  observationsForPatient?: Maybe<Array<Maybe<Observation>>>;
   /** Pathway */
   pathway?: Maybe<PathwayStatement>;
   /** Patient Demographics */
@@ -1647,6 +1649,14 @@ export type EhrMedicationsArgs = {
   listScope?: Maybe<Scalars['String']>;
   listType: Scalars['String'];
   patientGuid: Scalars['String'];
+};
+
+
+/** Queries the LTHT EHR. */
+export type EhrObservationsForPatientArgs = {
+  from?: Maybe<Scalars['DateTimeOffset']>;
+  patientGuid: Scalars['Guid'];
+  to?: Maybe<Scalars['DateTimeOffset']>;
 };
 
 
