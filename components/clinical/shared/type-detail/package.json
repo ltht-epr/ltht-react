@@ -1,6 +1,6 @@
 {
   "name": "@ltht-react/type-detail",
-  "version": "2.0.76",
+  "version": "2.0.77",
   "description": "ltht-react clinical Detail component.",
   "author": "LTHT",
   "homepage": "",
@@ -28,12 +28,12 @@
   "dependencies": {
     "@emotion/react": "^11.0.0",
     "@emotion/styled": "^11.0.0",
-    "@ltht-react/description-list": "^2.0.76",
-    "@ltht-react/icon": "^2.0.76",
-    "@ltht-react/list": "^2.0.76",
-    "@ltht-react/styles": "^2.0.76",
-    "@ltht-react/types": "^2.0.76",
-    "@ltht-react/utils": "^2.0.76",
+    "@ltht-react/description-list": "^2.0.77",
+    "@ltht-react/icon": "^2.0.77",
+    "@ltht-react/list": "^2.0.77",
+    "@ltht-react/styles": "^2.0.77",
+    "@ltht-react/types": "^2.0.77",
+    "@ltht-react/utils": "^2.0.77",
     "ent": "^2.2.0",
     "html-react-parser": "^5.0.6",
     "react": "^18.2.0"
