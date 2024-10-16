@@ -1421,8 +1421,8 @@ export type EhrAuditEventsArgs = {
   count?: Maybe<Scalars['Int']>;
   cursorToken?: Maybe<Scalars['String']>;
   from?: Maybe<Scalars['DateTimeOffset']>;
-  pathwayId: Scalars['String'];
-  pathwayType: Scalars['String'];
+  pathwayIds: Array<Maybe<Scalars['String']>>;
+  pathwayTypes: Array<Maybe<Scalars['String']>>;
   patientGuid: Scalars['String'];
   tags?: Maybe<Array<Maybe<Scalars['String']>>>;
   to?: Maybe<Scalars['DateTimeOffset']>;
@@ -2250,10 +2250,12 @@ export enum EntityType {
   Consultation = 'CONSULTATION',
   Contact = 'CONTACT',
   CustomListAdmittedPatient = 'CUSTOM_LIST_ADMITTED_PATIENT',
+  CustomListAdmittedPatientTasks = 'CUSTOM_LIST_ADMITTED_PATIENT_TASKS',
   CustomListAssignedTasks = 'CUSTOM_LIST_ASSIGNED_TASKS',
   CustomListClinicAppointments = 'CUSTOM_LIST_CLINIC_APPOINTMENTS',
   CustomListCommunityPharmacy = 'CUSTOM_LIST_COMMUNITY_PHARMACY',
   CustomListDischargedPatient = 'CUSTOM_LIST_DISCHARGED_PATIENT',
+  CustomListDischargedPatientTasks = 'CUSTOM_LIST_DISCHARGED_PATIENT_TASKS',
   CustomListEdan = 'CUSTOM_LIST_EDAN',
   CustomListInfectionPreventionControl = 'CUSTOM_LIST_INFECTION_PREVENTION_CONTROL',
   CustomListOutpatientClinicRecentlyDispensed = 'CUSTOM_LIST_OUTPATIENT_CLINIC_RECENTLY_DISPENSED',
@@ -2360,6 +2362,7 @@ export enum EntityType {
   Ward = 'WARD',
   WardAttender = 'WARD_ATTENDER',
   WardConfig = 'WARD_CONFIG',
+  WardRound = 'WARD_ROUND',
   WardStay = 'WARD_STAY',
   WatchListManagement = 'WATCH_LIST_MANAGEMENT',
   WinDipCaseNotes = 'WIN_DIP_CASE_NOTES',
