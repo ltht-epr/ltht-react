@@ -4,8 +4,8 @@ import { Task as ITask, TaskStatusCode } from '@ltht-react/types'
 import ActionMenu, { ActionMenuOption } from '@ltht-react/menu'
 import Icon from '@ltht-react/icon'
 import { BTN_COLOURS } from '@ltht-react/styles'
+import { getStringExtension } from '@ltht-react/utils'
 import Description from '../atoms/task-description'
-import Date from '../atoms/task-date'
 import Status from '../atoms/task-status'
 import Redacted from '../molecules/task-redacted'
 import Assignee from '../atoms/task-assignee'
@@ -35,6 +35,8 @@ const LeftSection = styled.div`
   margin-right: 0.4rem;
 `
 
+const DisplayDueTime = styled.div``
+
 const RightSection = styled.div`
   flex-basis: fit-content;
   text-align: right;
@@ -54,13 +56,13 @@ const Task: FC<IProps> = ({
     status,
     description,
     metadata: { isRedacted },
-    executionPeriod,
+    extension,
   },
   assignedTeam,
   assignedUser,
   actions,
 }) => {
-  if (isRedacted) return <Redacted executionPeriod={executionPeriod} status={status} />
+  if (isRedacted) return <Redacted />
 
   return (
     <StyledTask status={status}>
@@ -71,7 +73,9 @@ const Task: FC<IProps> = ({
 
       <RightSection>
         {![TaskStatusCode.Complete, TaskStatusCode.Cancelled].includes(status) && (
-          <Date executionPeriod={executionPeriod} status={status} />
+          <DisplayDueTime>
+            {getStringExtension(extension, 'https://leedsth.nhs.uk/task/display-due-time')}
+          </DisplayDueTime>
         )}
         <Status status={status} />
       </RightSection>
