@@ -1,6 +1,5 @@
 import { ActionMenuOption } from '@ltht-react/menu'
 import { Task, IntentCode, TaskStatusCode, Metadata } from '@ltht-react/types'
-import moment from 'moment'
 
 const mockMetadata: Metadata = {
   dataSources: [
@@ -40,14 +39,6 @@ export const Task1: Task = {
       valueString: '20 mins ago',
     },
   ],
-  executionPeriod: {
-    start: {
-      value: now.toDateString(),
-    },
-    end: {
-      value: now.toDateString(),
-    },
-  },
 }
 
 const Task2: Task = {
@@ -66,12 +57,6 @@ const Task2: Task = {
       valueString: '30 mins ago',
     },
   ],
-  executionPeriod: {
-    start: null,
-    end: {
-      value: moment().add(15, 'minutes').toString(),
-    },
-  },
 }
 
 const Task3: Task = {
@@ -90,14 +75,6 @@ const Task3: Task = {
       valueString: 'an hour ago',
     },
   ],
-  executionPeriod: {
-    start: {
-      value: moment().add(30, 'minutes').toString(),
-    },
-    end: {
-      value: moment().add(40, 'minutes').toString(),
-    },
-  },
 }
 
 const Task4: Task = {
@@ -116,14 +93,6 @@ const Task4: Task = {
       valueString: 'a few seconds ago',
     },
   ],
-  executionPeriod: {
-    start: {
-      value: moment().subtract(20, 'minutes').toString(),
-    },
-    end: {
-      value: moment().add(5, 'hours').toString(),
-    },
-  },
 }
 
 const Task5: Task = {
@@ -142,14 +111,6 @@ const Task5: Task = {
       valueString: '20 mins',
     },
   ],
-  executionPeriod: {
-    start: {
-      value: moment().subtract(30, 'hours').toString(),
-    },
-    end: {
-      value: moment().subtract(10, 'minutes').toString(),
-    },
-  },
 }
 
 const Task6: Task = {
@@ -168,12 +129,6 @@ const Task6: Task = {
       valueString: '50 mins',
     },
   ],
-  executionPeriod: {
-    start: null,
-    end: {
-      value: moment().subtract(15, 'minutes').toString(),
-    },
-  },
 }
 
 const Task7: Task = {
@@ -192,12 +147,6 @@ const Task7: Task = {
       valueString: '34 hours ago',
     },
   ],
-  executionPeriod: {
-    start: null,
-    end: {
-      value: moment().add(5, 'hours').toString(),
-    },
-  },
 }
 
 export const CompletedTask: Task = {

@@ -4,11 +4,11 @@ import { Task as ITask, TaskStatusCode } from '@ltht-react/types'
 import ActionMenu, { ActionMenuOption } from '@ltht-react/menu'
 import Icon from '@ltht-react/icon'
 import { BTN_COLOURS } from '@ltht-react/styles'
+import { getStringExtension } from '@ltht-react/utils'
 import Description from '../atoms/task-description'
 import Status from '../atoms/task-status'
 import Redacted from '../molecules/task-redacted'
 import Assignee from '../atoms/task-assignee'
-import { getStringExtension } from '@ltht-react/utils'
 
 const StyledTask = styled.div<IStyledTask>`
   display: flex;
