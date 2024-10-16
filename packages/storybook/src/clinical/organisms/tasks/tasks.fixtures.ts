@@ -34,6 +34,12 @@ export const Task1: Task = {
   performerType: {
     text: 'Forms',
   },
+  extension: [
+    {
+      url: 'https://leedsth.nhs.uk/task/display-due-time',
+      valueString: '20 mins ago',
+    },
+  ],
   executionPeriod: {
     start: {
       value: now.toDateString(),
@@ -54,6 +60,12 @@ const Task2: Task = {
   performerType: {
     text: 'Forms',
   },
+  extension: [
+    {
+      url: 'https://leedsth.nhs.uk/task/display-due-time',
+      valueString: '30 mins ago',
+    },
+  ],
   executionPeriod: {
     start: null,
     end: {
@@ -72,6 +84,12 @@ const Task3: Task = {
   performerType: {
     text: 'Forms',
   },
+  extension: [
+    {
+      url: 'https://leedsth.nhs.uk/task/display-due-time',
+      valueString: 'an hour ago',
+    },
+  ],
   executionPeriod: {
     start: {
       value: moment().add(30, 'minutes').toString(),
@@ -92,6 +110,12 @@ const Task4: Task = {
   performerType: {
     text: 'Forms',
   },
+  extension: [
+    {
+      url: 'https://leedsth.nhs.uk/task/display-due-time',
+      valueString: 'a few seconds ago',
+    },
+  ],
   executionPeriod: {
     start: {
       value: moment().subtract(20, 'minutes').toString(),
@@ -112,6 +136,12 @@ const Task5: Task = {
   performerType: {
     text: 'Forms',
   },
+  extension: [
+    {
+      url: 'https://leedsth.nhs.uk/task/display-due-time',
+      valueString: '20 mins',
+    },
+  ],
   executionPeriod: {
     start: {
       value: moment().subtract(30, 'hours').toString(),
@@ -132,6 +162,12 @@ const Task6: Task = {
   performerType: {
     text: 'Forms',
   },
+  extension: [
+    {
+      url: 'https://leedsth.nhs.uk/task/display-due-time',
+      valueString: '50 mins',
+    },
+  ],
   executionPeriod: {
     start: null,
     end: {
@@ -150,6 +186,12 @@ const Task7: Task = {
   performerType: {
     text: 'Forms',
   },
+  extension: [
+    {
+      url: 'https://leedsth.nhs.uk/task/display-due-time',
+      valueString: '34 hours ago',
+    },
+  ],
   executionPeriod: {
     start: null,
     end: {
@@ -168,6 +210,12 @@ export const CompletedTask: Task = {
   performerType: {
     text: 'Forms',
   },
+  extension: [
+    {
+      url: 'https://leedsth.nhs.uk/task/display-due-time',
+      valueString: '2 mins ago',
+    },
+  ],
   executionPeriod: {
     start: {
       value: '2021-04-20T09:00:00',
@@ -188,6 +236,12 @@ export const CancelledTask: Task = {
   performerType: {
     text: 'Forms',
   },
+  extension: [
+    {
+      url: 'https://leedsth.nhs.uk/task/display-due-time',
+      valueString: '7 mins ago',
+    },
+  ],
   executionPeriod: {
     start: {
       value: '2021-04-20T09:00:00',
@@ -207,6 +261,12 @@ export const RedactedTask: Task = {
   performerType: {
     text: 'Forms',
   },
+  extension: [
+    {
+      url: 'https://leedsth.nhs.uk/task/display-due-time',
+      valueString: '20 mins ago',
+    },
+  ],
   executionPeriod: {
     start: {
       value: '2021-04-20T09:00:00',
