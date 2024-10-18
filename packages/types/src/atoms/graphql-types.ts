@@ -3257,6 +3257,7 @@ export type PathwayLink = {
   createdDate?: Maybe<Scalars['DateTime']>;
   /** Unique id for inter-element referencing. */
   elementId?: Maybe<Scalars['String']>;
+  endDate?: Maybe<Scalars['DateTime']>;
   /** Additional content defined by implementations. */
   extension?: Maybe<Array<Maybe<Extension>>>;
   identifier?: Maybe<Identifier>;
