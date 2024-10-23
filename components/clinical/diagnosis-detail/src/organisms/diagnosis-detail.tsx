@@ -45,7 +45,11 @@ const DiagnosisDetail: FC<Props> = ({ condition, links, viewType = DetailViewTyp
       <CollapsibleDetailCollection viewType={viewType}>
         <CodeableConceptDetail term="Diagnosis / Condition" concept={condition.code} links={links} />
         <DatetimeDetail term="Diagnosis Date" datetime={condition.assertedDate} dateOnly={dateOnly} />
-        <DatetimeDetail term="Onset Date" datetime={condition.onset?.dateTime} estimated={onsetDateEstimated} />
+        <DatetimeDetail
+          term="Onset Date (Symptoms)"
+          datetime={condition.onset?.dateTime}
+          estimated={onsetDateEstimated}
+        />
         <StringDetail term="Clinical Status" description={condition.clinicalStatus?.toString()} />
         <StringDetail term="Verification Status" description={condition.verificationStatus?.toString()} />
         <DatetimeDetail term="Remission/Resolution (Abatement)" datetime={condition.abatement?.dateTime} />

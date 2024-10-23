@@ -35,7 +35,7 @@ describe('Diagnosis Detail', () => {
     expect(screen.getByText('Data Source(s)')).toBeVisible()
     expect(screen.getByText('Mock')).toBeVisible()
 
-    expect(screen.getByText('Onset Date')).toBeVisible()
+    expect(screen.getByText('Onset Date (Symptoms)')).toBeVisible()
     expect(screen.getByText('Sept-2016')).toBeVisible()
 
     expect(screen.getByText('Clinical Status')).toBeVisible()
