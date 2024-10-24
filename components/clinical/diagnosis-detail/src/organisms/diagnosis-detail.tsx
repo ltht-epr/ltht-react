@@ -49,6 +49,7 @@ const DiagnosisDetail: FC<Props> = ({ condition, links, viewType = DetailViewTyp
           term="Onset Date (Symptoms)"
           datetime={condition.onset?.dateTime}
           estimated={onsetDateEstimated}
+          dateOnly={dateOnly}
         />
         <StringDetail term="Clinical Status" description={condition.clinicalStatus?.toString()} />
         <StringDetail term="Verification Status" description={condition.verificationStatus?.toString()} />
