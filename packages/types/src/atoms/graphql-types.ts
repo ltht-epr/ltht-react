@@ -1360,6 +1360,8 @@ export type Ehr = {
   summaryViewEntries?: Maybe<QuestionnaireResponseContinuation>;
   /** Summary View Filters Data */
   summaryViewFilters?: Maybe<Array<Maybe<TerminologyItem>>>;
+  /** Get tags that can be applied to tasks. */
+  taskTags: Array<TerminologyItem>;
   /** Tasks */
   tasks?: Maybe<TaskContinuation>;
   /** Returns the available CDS extension template for a given base template and value */
@@ -1761,6 +1763,12 @@ export type EhrSummaryViewEntriesArgs = {
 export type EhrSummaryViewFiltersArgs = {
   name: Scalars['String'];
   patientGuid: Scalars['String'];
+};
+
+
+/** Queries the LTHT EHR. */
+export type EhrTaskTagsArgs = {
+  tagType?: Maybe<TaskTagType>;
 };
 
 
@@ -4272,6 +4280,13 @@ export enum TaskStatusCode {
   Overdue = 'OVERDUE',
   Skipped = 'SKIPPED',
   Suspended = 'SUSPENDED'
+}
+
+export enum TaskTagType {
+  All = 'ALL',
+  Context = 'CONTEXT',
+  Domain = 'DOMAIN',
+  Role = 'ROLE'
 }
 
 /** A group of associated templates with a given display name. */
