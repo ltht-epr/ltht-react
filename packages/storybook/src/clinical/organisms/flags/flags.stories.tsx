@@ -7,7 +7,7 @@ import Card from '@ltht-react/card'
 import { Button } from '@ltht-react/button'
 import { DetailViewType } from '@ltht-react/types'
 import { useDetailViewType } from '../hooks/useDetailViewTypeHook'
-import flags from './flags.fixtures'
+import { flags, controls } from './flags.fixtures'
 
 export const Detail: Story = () => (
   <Card>

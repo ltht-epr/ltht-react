@@ -1,3 +1,5 @@
+import { ButtonProps } from '@ltht-react/button'
+import Icon from '@ltht-react/icon'
 import { Flag, FlagStatusCode, PartialDateTimeKindCode, Metadata } from '@ltht-react/types'
 
 const mockMetadata: Metadata = {
@@ -410,7 +412,7 @@ const FlagEleven: Flag = {
   },
 }
 
-const flagsCombined: Flag[] = [
+const flags: Flag[] = [
   FlagOne,
   FlagThree,
   FlagTwo,
@@ -424,4 +426,49 @@ const flagsCombined: Flag[] = [
   FlagEleven,
 ]
 
-export default flagsCombined
+const controls: ButtonProps[] = [
+  {
+    icon: <Icon type="paper-clip" size="medium" />,
+    value: 'Control 1',
+    title: 'Description of the button action can go here!!!',
+    styling: {
+      buttonStyle: 'workflow',
+      padding: '20px',
+    },
+  },
+  {
+    icon: <Icon type="link" size="medium" />,
+    value: 'Control 2',
+    styling: {
+      buttonStyle: 'standard',
+      padding: '2px 10px',
+    },
+  },
+  {
+    icon: <Icon type="trash" size="medium" />,
+    value: 'Control 3',
+    styling: {
+      buttonStyle: 'danger',
+      padding: '2px 10px',
+    },
+  },
+  {
+    icon: <Icon type="star" size="medium" />,
+    value: 'Control 4',
+    styling: {
+      buttonStyle: 'primary',
+      padding: '2px 10px',
+    },
+  },
+  {
+    icon: <Icon type="check" size="medium" />,
+    iconColour: 'black',
+    value: 'Control 5',
+    styling: {
+      buttonStyle: 'clear',
+      padding: '2px 10px',
+    },
+  },
+]
+
+export { flags, controls }

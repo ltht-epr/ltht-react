@@ -28,6 +28,7 @@
   "dependencies": {
     "@emotion/react": "^11.0.0",
     "@emotion/styled": "^11.0.0",
+    "@ltht-react/button": "^2.0.84",
     "@ltht-react/styles": "^2.0.84",
     "@ltht-react/type-detail": "^2.0.84",
     "@ltht-react/types": "^2.0.84",

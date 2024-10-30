@@ -1,9 +1,9 @@
 import { FC } from 'react'
-// import styled from '@emotion/styled'
+import styled from '@emotion/styled'
 import { DetailViewType, Flag } from '@ltht-react/types'
 import { getStringExtension } from '@ltht-react/utils'
-// import { Button, ButtonProps } from '@ltht-react/button'
-// import { MOBILE_MAXIMUM_MEDIA_QUERY, SMALL_SCREEN_MAXIMUM_MEDIA_QUERY } from '@ltht-react/styles'
+import { ButtonProps } from '@ltht-react/button'
+import { MOBILE_MAXIMUM_MEDIA_QUERY, SMALL_SCREEN_MAXIMUM_MEDIA_QUERY } from '@ltht-react/styles'
 
 import {
   CodeableConceptDetail,
@@ -15,21 +15,21 @@ import {
   CollapsibleDetailCollection,
 } from '@ltht-react/type-detail'
 
-// const StyledControlsContainer = styled.div`
-//   display: flex;
-//   margin: auto 10px auto 10px;
-//   flex-direction: column;
+const StyledControlsContainer = styled.div`
+  display: flex;
+  margin: auto 10px auto 10px;
+  flex-direction: column;
 
-//   ${MOBILE_MAXIMUM_MEDIA_QUERY} {
-//     margin: 10px 0 0 0;
-//     flex-flow: row wrap;
-//   }
+  ${MOBILE_MAXIMUM_MEDIA_QUERY} {
+    margin: 10px 0 0 0;
+    flex-flow: row wrap;
+  }
 
-//   ${SMALL_SCREEN_MAXIMUM_MEDIA_QUERY} {
-//     margin: 10px 5px 0 0;
-//     flex-direction: column;
-//   }
-// `
+  ${SMALL_SCREEN_MAXIMUM_MEDIA_QUERY} {
+    margin: 10px 5px 0 0;
+    flex-direction: column;
+  }
+`
 // const StyledButton = styled(Button)`
 //   margin: 2px 0 2px 0;
 //   font-size: 0.8em !important;
@@ -69,6 +69,7 @@ const FlagDetail: FC<Props> = ({ flag, viewType = DetailViewType.Compact }) => {
           parse={false}
         />
       )}
+      <StyledControlsContainer />
       {/* {controls.length > 0 && (
         <StyledControlsContainer>
           {controls.map((props, index) => (
@@ -83,7 +84,7 @@ const FlagDetail: FC<Props> = ({ flag, viewType = DetailViewType.Compact }) => {
 
 interface Props extends CollapsibleDetailCollectionProps {
   flag: Flag
-  // controls?: ButtonProps[]
+  controls?: ButtonProps[]
 }
 
 export default FlagDetail
