@@ -1361,7 +1361,7 @@ export type Ehr = {
   /** Summary View Filters Data */
   summaryViewFilters?: Maybe<Array<Maybe<TerminologyItem>>>;
   /** Get tags that can be applied to tasks. */
-  taskTags: Array<TerminologyItem>;
+  taskTags?: Maybe<Array<TerminologyItem>>;
   /** Tasks */
   tasks?: Maybe<TaskContinuation>;
   /** Returns the available CDS extension template for a given base template and value */
