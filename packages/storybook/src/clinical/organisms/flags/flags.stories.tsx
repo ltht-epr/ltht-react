@@ -15,7 +15,7 @@ export const Detail: Story = () => (
       <Card.Title>Flag</Card.Title>
     </Card.Header>
     <Card.Body>
-      <FlagDetail flag={flags[1]} />
+      <FlagDetail flag={flags[0]} />
     </Card.Body>
   </Card>
 )

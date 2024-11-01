@@ -48,7 +48,6 @@ const StyledButton = styled(Button)`
 `
 
 const FlagDetail: FC<Props> = ({ flag, controls = [], viewType = DetailViewType.Compact }) => {
-  const linkedDocumentSource = getStringExtension(flag?.extension, 'https://leedsth.nhs.uk/alert/linkeddocumentsource')
   let buttons = <></>
   if (controls.length) {
     buttons = (
@@ -74,13 +73,6 @@ const FlagDetail: FC<Props> = ({ flag, controls = [], viewType = DetailViewType.
       />
       {buttons}
       <ResourceReferenceDetail term="Author" resourceReference={flag?.author} />
-      {linkedDocumentSource && (
-        <StringDetail
-          term="DEBUG: LinkedDoc"
-          description={getStringExtension(flag?.extension, 'https://leedsth.nhs.uk/alert/linkeddocumentsource')}
-          parse={false}
-        />
-      )}
     </CollapsibleDetailCollection>
   )
 }
