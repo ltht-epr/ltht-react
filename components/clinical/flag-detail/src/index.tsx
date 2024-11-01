@@ -2,7 +2,7 @@ import { FC } from 'react'
 import styled from '@emotion/styled'
 import { DetailViewType, Flag } from '@ltht-react/types'
 import { getStringExtension } from '@ltht-react/utils'
-import { ButtonProps } from '@ltht-react/button'
+import { Button, ButtonProps } from '@ltht-react/button'
 import { MOBILE_MAXIMUM_MEDIA_QUERY, SMALL_SCREEN_MAXIMUM_MEDIA_QUERY } from '@ltht-react/styles'
 
 import {
@@ -30,25 +30,35 @@ const StyledControlsContainer = styled.div`
     flex-direction: column;
   }
 `
-// const StyledButton = styled(Button)`
-//   margin: 2px 0 2px 0;
-//   font-size: 0.8em !important;
-//   padding: 1px 5px;
+const StyledButton = styled(Button)`
+  margin: 2px 0 2px 0;
+  font-size: 0.8em !important;
+  padding: 1px 5px;
 
-//   ${MOBILE_MAXIMUM_MEDIA_QUERY} {
-//     margin: 2px 5px 2px 0;
-//     width: fit-content;
-//   }
+  ${MOBILE_MAXIMUM_MEDIA_QUERY} {
+    margin: 2px 5px 2px 0;
+    width: fit-content;
+  }
 
-//   ${SMALL_SCREEN_MAXIMUM_MEDIA_QUERY} {
-//     margin: 2px 0 2px 0;
-//     width: 100%;
-//     max-width: 200px;
-//   }
-// `
+  ${SMALL_SCREEN_MAXIMUM_MEDIA_QUERY} {
+    margin: 2px 0 2px 0;
+    width: 100%;
+    max-width: 200px;
+  }
+`
 
-const FlagDetail: FC<Props> = ({ flag, viewType = DetailViewType.Compact }) => {
+const FlagDetail: FC<Props> = ({ flag, controls = [], viewType = DetailViewType.Compact }) => {
   const linkedDocumentSource = getStringExtension(flag?.extension, 'https://leedsth.nhs.uk/alert/linkeddocumentsource')
+  let buttons = <></>
+  if (controls.length) {
+    buttons = (
+      <StyledControlsContainer>
+        {controls.map((props, index) => (
+          <StyledButton key={index} {...props} />
+        ))}
+      </StyledControlsContainer>
+    )
+  }
 
   return (
     <CollapsibleDetailCollection viewType={viewType}>
@@ -62,22 +72,15 @@ const FlagDetail: FC<Props> = ({ flag, viewType = DetailViewType.Compact }) => {
         description={getStringExtension(flag?.extension, 'https://leedsth.nhs.uk/alert/advice')}
         parse={false}
       />
+      {buttons}
+      <ResourceReferenceDetail term="Author" resourceReference={flag?.author} />
       {linkedDocumentSource && (
         <StringDetail
-          term="LinkedDocTempUI (BETTER TO PASS BUTTONS...)"
+          term="DEBUG: LinkedDoc"
           description={getStringExtension(flag?.extension, 'https://leedsth.nhs.uk/alert/linkeddocumentsource')}
           parse={false}
         />
       )}
-      <StyledControlsContainer />
-      {/* {controls.length > 0 && (
-        <StyledControlsContainer>
-          {controls.map((props, index) => (
-            <StyledButton key={index} {...props} />
-          ))}
-        </StyledControlsContainer>
-      )} */}
-      <ResourceReferenceDetail term="Author" resourceReference={flag?.author} />
     </CollapsibleDetailCollection>
   )
 }

@@ -36,7 +36,7 @@ export const DetailsCollapsibleView: Story = () => {
         </Card.Title>
       </Card.Header>
       <Card.Body>
-        <FlagDetail flag={flags[1]} viewType={viewType} />
+        <FlagDetail flag={flags[1]} controls={controls} viewType={viewType} />
       </Card.Body>
     </Card>
   )

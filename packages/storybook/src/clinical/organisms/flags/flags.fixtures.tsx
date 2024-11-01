@@ -469,6 +469,18 @@ const controls: ButtonProps[] = [
       padding: '2px 10px',
     },
   },
+  {
+    value: 'Click Me!',
+    styling: {
+      buttonStyle: 'standard',
+      padding: '2px 10px',
+    },
+    onClick: (e) => {
+      e.stopPropagation()
+      // eslint-disable-next-line no-alert
+      alert('clicked me!')
+    },
+  },
 ]
 
 export { flags, controls }
