@@ -1,3 +1,5 @@
+import { ButtonProps } from '@ltht-react/button'
+import Icon from '@ltht-react/icon'
 import { Flag, FlagStatusCode, PartialDateTimeKindCode, Metadata } from '@ltht-react/types'
 
 const mockMetadata: Metadata = {
@@ -130,6 +132,10 @@ const FlagThree: Flag = {
       url: 'https://leedsth.nhs.uk/alert/advice',
       valueString:
         'This patient has adrenal insufficiency and is steroid dependent. Any serious injury or illness may precipitate an adrenal crisis. In the event of a serious illness/accident they require the following age-related doses of Hydrocortisone immediately by IM or IV injection: Age <1 year: Hydrocortisone 25 mg Age 1-5 years: Hydrocortisone 50 mg Age > 6 years: Hydrocortisone 100 mg The usual oral steroids should be doubled or tripled. Please seek advice from the on-call endocrinologist',
+    },
+    {
+      url: 'https://leedsth.nhs.uk/alert/linkeddocumentsource',
+      valueString: 'https://www.edge.nhs.uk/#/project/100005/site/198655/details',
     },
   ],
 }
@@ -406,7 +412,7 @@ const FlagEleven: Flag = {
   },
 }
 
-const flagsCombined: Flag[] = [
+const flags: Flag[] = [
   FlagOne,
   FlagThree,
   FlagTwo,
@@ -420,4 +426,61 @@ const flagsCombined: Flag[] = [
   FlagEleven,
 ]
 
-export default flagsCombined
+const controls: ButtonProps[] = [
+  {
+    icon: <Icon type="paper-clip" size="medium" />,
+    value: 'Control 1',
+    title: 'Description of the button action can go here!!!',
+    styling: {
+      buttonStyle: 'workflow',
+      padding: '20px',
+    },
+  },
+  {
+    icon: <Icon type="link" size="medium" />,
+    value: 'Control 2',
+    styling: {
+      buttonStyle: 'standard',
+      padding: '2px 10px',
+    },
+  },
+  {
+    icon: <Icon type="trash" size="medium" />,
+    value: 'Control 3',
+    styling: {
+      buttonStyle: 'danger',
+      padding: '2px 10px',
+    },
+  },
+  {
+    icon: <Icon type="star" size="medium" />,
+    value: 'Control 4',
+    styling: {
+      buttonStyle: 'primary',
+      padding: '2px 10px',
+    },
+  },
+  {
+    icon: <Icon type="check" size="medium" />,
+    iconColour: 'black',
+    value: 'Control 5',
+    styling: {
+      buttonStyle: 'clear',
+      padding: '2px 10px',
+    },
+  },
+  {
+    value: 'Click Me!',
+    styling: {
+      buttonStyle: 'standard',
+      padding: '2px 10px',
+    },
+    onClick: (e) => {
+      e.stopPropagation()
+      // eslint-disable-next-line no-alert
+      alert('clicked me!')
+    },
+  },
+]
+
+export { flags, controls }

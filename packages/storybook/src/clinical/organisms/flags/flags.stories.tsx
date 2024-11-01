@@ -7,7 +7,7 @@ import Card from '@ltht-react/card'
 import { Button } from '@ltht-react/button'
 import { DetailViewType } from '@ltht-react/types'
 import { useDetailViewType } from '../hooks/useDetailViewTypeHook'
-import flags from './flags.fixtures'
+import { flags, controls } from './flags.fixtures'
 
 export const Detail: Story = () => (
   <Card>
@@ -15,7 +15,7 @@ export const Detail: Story = () => (
       <Card.Title>Flag</Card.Title>
     </Card.Header>
     <Card.Body>
-      <FlagDetail flag={flags[1]} />
+      <FlagDetail flag={flags[0]} />
     </Card.Body>
   </Card>
 )
@@ -36,7 +36,7 @@ export const DetailsCollapsibleView: Story = () => {
         </Card.Title>
       </Card.Header>
       <Card.Body>
-        <FlagDetail flag={flags[1]} viewType={viewType} />
+        <FlagDetail flag={flags[1]} controls={controls} viewType={viewType} />
       </Card.Body>
     </Card>
   )
