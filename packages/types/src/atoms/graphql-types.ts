@@ -4219,8 +4219,12 @@ export enum TaskContextFilter {
   Appointment = 'APPOINTMENT',
   Assessment = 'ASSESSMENT',
   Audit = 'AUDIT',
-  Countersign = 'COUNTERSIGN',
+  CarePlan = 'CARE_PLAN',
+  Correspondence = 'CORRESPONDENCE',
+  InterventionsProcedures = 'INTERVENTIONS_PROCEDURES',
+  Medications = 'MEDICATIONS',
   PatientFlow = 'PATIENT_FLOW',
+  ResearchStudy = 'RESEARCH_STUDY',
   Safety = 'SAFETY'
 }
 
@@ -4240,14 +4244,19 @@ export type TaskContinuation = {
 
 /** The filter for the domain tags associated with the task */
 export enum TaskDomainFilter {
-  AdHocTasks = 'AD_HOC_TASKS',
+  ClinicalGenetics = 'CLINICAL_GENETICS',
   CommunityPharmacy = 'COMMUNITY_PHARMACY',
   CriteriaLedDischarge = 'CRITERIA_LED_DISCHARGE',
-  EDan = 'E_DAN',
+  Edan = 'EDAN',
+  General = 'GENERAL',
   InfectionPreventionControl = 'INFECTION_PREVENTION_CONTROL',
   InitialNursingAssessment = 'INITIAL_NURSING_ASSESSMENT',
+  NursingCarePlans = 'NURSING_CARE_PLANS',
   Observations = 'OBSERVATIONS',
+  Outpatient = 'OUTPATIENT',
+  PatientPathwayPlanning = 'PATIENT_PATHWAY_PLANNING',
   PreAssessment = 'PRE_ASSESSMENT',
+  Sdec = 'SDEC',
   Sepsis = 'SEPSIS',
   SuspiciousRadiologyFindings = 'SUSPICIOUS_RADIOLOGY_FINDINGS',
   Vte = 'VTE'
@@ -4255,14 +4264,38 @@ export enum TaskDomainFilter {
 
 /** The filter for the role tags associated with the task */
 export enum TaskRoleFilter {
-  Admin = 'ADMIN',
-  Ahp = 'AHP',
+  AdminClerical = 'ADMIN_CLERICAL',
+  CaseManager = 'CASE_MANAGER',
+  Chaplaincy = 'CHAPLAINCY',
+  Dietetics = 'DIETETICS',
   DischargeCoordinator = 'DISCHARGE_COORDINATOR',
   Dispensary = 'DISPENSARY',
-  Doctor = 'DOCTOR',
+  DoctorConsultant = 'DOCTOR_CONSULTANT',
+  DoctorCore = 'DOCTOR_CORE',
+  DoctorFy_1 = 'DOCTOR_FY_1',
+  DoctorRegistrar = 'DOCTOR_REGISTRAR',
+  DoctorSeniorRegistrar = 'DOCTOR_SENIOR_REGISTRAR',
+  GeneticCounsellor = 'GENETIC_COUNSELLOR',
+  GenomicsAssociate = 'GENOMICS_ASSOCIATE',
+  Midwife = 'MIDWIFE',
   Nurse = 'NURSE',
-  Pharmacist = 'PHARMACIST',
-  Radiologist = 'RADIOLOGIST'
+  OccupationalTherapy = 'OCCUPATIONAL_THERAPY',
+  Orthoptics = 'ORTHOPTICS',
+  Orthotics = 'ORTHOTICS',
+  Paramedic = 'PARAMEDIC',
+  Pharmacy = 'PHARMACY',
+  PhysicianAssociate = 'PHYSICIAN_ASSOCIATE',
+  Physiotherapy = 'PHYSIOTHERAPY',
+  Podiatry = 'PODIATRY',
+  Prosthetics = 'PROSTHETICS',
+  Psychology = 'PSYCHOLOGY',
+  Radiography = 'RADIOGRAPHY',
+  ResuscitationOfficer = 'RESUSCITATION_OFFICER',
+  SocialWorker = 'SOCIAL_WORKER',
+  SpeechLanguageTherapy = 'SPEECH_LANGUAGE_THERAPY',
+  Student = 'STUDENT',
+  WheelchairService = 'WHEELCHAIR_SERVICE',
+  YouthWorker = 'YOUTH_WORKER'
 }
 
 export enum TaskSorting {
