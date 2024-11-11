@@ -1775,16 +1775,16 @@ export type EhrTaskTagsArgs = {
 /** Queries the LTHT EHR. */
 export type EhrTasksArgs = {
   assignee?: Maybe<Array<Maybe<TaskAssigneeFilter>>>;
-  contextTags?: Maybe<Array<Maybe<TaskContextFilter>>>;
+  contextTags?: Maybe<Array<Maybe<Scalars['String']>>>;
   count?: Maybe<Scalars['Int']>;
   cursorToken?: Maybe<Scalars['String']>;
-  domainTags?: Maybe<Array<Maybe<TaskDomainFilter>>>;
+  domainTags?: Maybe<Array<Maybe<Scalars['String']>>>;
   excludedTaskNames?: Maybe<Array<Maybe<Scalars['String']>>>;
   includedTaskNames?: Maybe<Array<Maybe<Scalars['String']>>>;
   patientGuid: Scalars['String'];
   processId?: Maybe<Scalars['String']>;
   processName?: Maybe<Scalars['String']>;
-  roleTags?: Maybe<Array<Maybe<TaskRoleFilter>>>;
+  roleTags?: Maybe<Array<Maybe<Scalars['String']>>>;
   sortBy?: Maybe<TaskSorting>;
   status?: Maybe<Array<Maybe<TaskStatusCode>>>;
 };
@@ -2509,6 +2509,7 @@ export enum FeatureInstance {
   SepsisAdultEnabled = 'SEPSIS_ADULT_ENABLED',
   SepsisAdultFullWorkflowEnabled = 'SEPSIS_ADULT_FULL_WORKFLOW_ENABLED',
   SepsisObservationsWidgetEnabled = 'SEPSIS_OBSERVATIONS_WIDGET_ENABLED',
+  TaskTagFiltering = 'TASK_TAG_FILTERING',
   YhcrDataProvider = 'YHCR_DATA_PROVIDER'
 }
 
@@ -4214,20 +4215,6 @@ export enum TaskAssigneeFilter {
   MyTeams = 'MY_TEAMS'
 }
 
-/** The filter for the context tags associated with the task */
-export enum TaskContextFilter {
-  Appointment = 'APPOINTMENT',
-  Assessment = 'ASSESSMENT',
-  Audit = 'AUDIT',
-  CarePlan = 'CARE_PLAN',
-  Correspondence = 'CORRESPONDENCE',
-  InterventionsProcedures = 'INTERVENTIONS_PROCEDURES',
-  Medications = 'MEDICATIONS',
-  PatientFlow = 'PATIENT_FLOW',
-  ResearchStudy = 'RESEARCH_STUDY',
-  Safety = 'SAFETY'
-}
-
 /** A continuation of Task resources. */
 export type TaskContinuation = {
   /** The first cursor token. */
@@ -4241,62 +4228,6 @@ export type TaskContinuation = {
   /** The total number of resources available (if known). */
   totalResources?: Maybe<Scalars['Int']>;
 };
-
-/** The filter for the domain tags associated with the task */
-export enum TaskDomainFilter {
-  ClinicalGenetics = 'CLINICAL_GENETICS',
-  CommunityPharmacy = 'COMMUNITY_PHARMACY',
-  CriteriaLedDischarge = 'CRITERIA_LED_DISCHARGE',
-  Edan = 'EDAN',
-  General = 'GENERAL',
-  InfectionPreventionControl = 'INFECTION_PREVENTION_CONTROL',
-  InitialNursingAssessment = 'INITIAL_NURSING_ASSESSMENT',
-  NursingCarePlans = 'NURSING_CARE_PLANS',
-  Observations = 'OBSERVATIONS',
-  Outpatient = 'OUTPATIENT',
-  PatientPathwayPlanning = 'PATIENT_PATHWAY_PLANNING',
-  PreAssessment = 'PRE_ASSESSMENT',
-  Sdec = 'SDEC',
-  Sepsis = 'SEPSIS',
-  SuspiciousRadiologyFindings = 'SUSPICIOUS_RADIOLOGY_FINDINGS',
-  Vte = 'VTE'
-}
-
-/** The filter for the role tags associated with the task */
-export enum TaskRoleFilter {
-  AdminClerical = 'ADMIN_CLERICAL',
-  CaseManager = 'CASE_MANAGER',
-  Chaplaincy = 'CHAPLAINCY',
-  Dietetics = 'DIETETICS',
-  DischargeCoordinator = 'DISCHARGE_COORDINATOR',
-  Dispensary = 'DISPENSARY',
-  DoctorConsultant = 'DOCTOR_CONSULTANT',
-  DoctorCore = 'DOCTOR_CORE',
-  DoctorFy_1 = 'DOCTOR_FY_1',
-  DoctorRegistrar = 'DOCTOR_REGISTRAR',
-  DoctorSeniorRegistrar = 'DOCTOR_SENIOR_REGISTRAR',
-  GeneticCounsellor = 'GENETIC_COUNSELLOR',
-  GenomicsAssociate = 'GENOMICS_ASSOCIATE',
-  Midwife = 'MIDWIFE',
-  Nurse = 'NURSE',
-  OccupationalTherapy = 'OCCUPATIONAL_THERAPY',
-  Orthoptics = 'ORTHOPTICS',
-  Orthotics = 'ORTHOTICS',
-  Paramedic = 'PARAMEDIC',
-  Pharmacy = 'PHARMACY',
-  PhysicianAssociate = 'PHYSICIAN_ASSOCIATE',
-  Physiotherapy = 'PHYSIOTHERAPY',
-  Podiatry = 'PODIATRY',
-  Prosthetics = 'PROSTHETICS',
-  Psychology = 'PSYCHOLOGY',
-  Radiography = 'RADIOGRAPHY',
-  ResuscitationOfficer = 'RESUSCITATION_OFFICER',
-  SocialWorker = 'SOCIAL_WORKER',
-  SpeechLanguageTherapy = 'SPEECH_LANGUAGE_THERAPY',
-  Student = 'STUDENT',
-  WheelchairService = 'WHEELCHAIR_SERVICE',
-  YouthWorker = 'YOUTH_WORKER'
-}
 
 export enum TaskSorting {
   AlphabeticalAsc = 'ALPHABETICAL_ASC',
