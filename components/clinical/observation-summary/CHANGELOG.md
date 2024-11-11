@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.0.87 (2024-11-11)
+
+**Note:** Version bump only for package @ltht-react/observation-summary
+
 ## 2.0.86 (2024-11-08)
 
 **Note:** Version bump only for package @ltht-react/observation-summary
