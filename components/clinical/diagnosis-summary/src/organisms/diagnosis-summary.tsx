@@ -7,10 +7,11 @@ import Icon from '@ltht-react/icon'
 import { Button, ButtonProps } from '@ltht-react/button'
 
 import { BTN_COLOURS, MOBILE_MAXIMUM_MEDIA_QUERY, SMALL_SCREEN_MAXIMUM_MEDIA_QUERY } from '@ltht-react/styles'
-import Category from '../atoms/diagnosis-category'
 import Title from '../atoms/diagnosis-title'
+import SubHeader from '../atoms/diagnosis-sub-header'
 import OnsetDateEstimated from '../atoms/diagnosis-onset-estimated'
 import Redacted from '../molecules/diagnosis-redacted'
+import SNIPPET_TEXT from '../constants'
 
 const StyledTitle = styled.div`
   display: inline-block;
@@ -78,7 +79,9 @@ const IconButtonWrapper = styled(Button)`
   width: auto;
 `
 const IconWrapper = styled.div`
-  margin-left: 0.5rem;
+  align-items: start;
+  justify-content: center;
+  margin: 0.5rem;
   display: inline-block;
 `
 
@@ -103,12 +106,15 @@ const DiagnosisSummary: FC<Props> = ({
 
   const enteredInError = condition.verificationStatus === ConditionVerificationStatus.EnteredInError
 
+  const snippetText = condition?.metadata.tag?.find((coding) => coding?.system === SNIPPET_TEXT)?.display ?? ''
+
   return (
     <StyledSummary {...rest}>
       <StyledLeftContainer>
         <StyledDescription>
           <StyledTitle>
             <Title enteredInError={enteredInError} condition={condition} />
+            <SubHeader enteredInError={enteredInError} text={snippetText} />
           </StyledTitle>
           {extensionTemplateDisplayName && !isReadOnly && canExtendDiagnosis && !enteredInError && (
             <IconButtonWrapper
@@ -132,7 +138,6 @@ const DiagnosisSummary: FC<Props> = ({
               />
             </IconWrapper>
           )}
-          <Category enteredInError={enteredInError} condition={condition} />
         </StyledDescription>
 
         {!isReadOnly && controls.length > 0 && (

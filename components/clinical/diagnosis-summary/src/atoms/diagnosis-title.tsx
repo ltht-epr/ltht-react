@@ -3,7 +3,7 @@ import styled from '@emotion/styled'
 
 import { TEXT_COLOURS } from '@ltht-react/styles'
 import { Condition } from '@ltht-react/types'
-import { codeableConceptTextSummary, titleCase } from '@ltht-react/utils'
+import { codeableConceptTextSummary } from '@ltht-react/utils'
 
 const StyledConditionTitle = styled.div<IStyledDescription>`
   color: ${TEXT_COLOURS.PRIMARY};
@@ -17,8 +17,6 @@ const DiagnosisTitle: FC<Props> = ({ condition, enteredInError, ...rest }) => {
 
   if (condition.code) codes.push(condition.code)
   snippets.push(codeableConceptTextSummary(codes))
-  if (condition.clinicalStatus) snippets.push(titleCase(condition.clinicalStatus))
-  if (condition.verificationStatus) snippets.push(titleCase(condition.verificationStatus))
 
   return (
     <StyledConditionTitle enteredInError={enteredInError} {...rest}>
