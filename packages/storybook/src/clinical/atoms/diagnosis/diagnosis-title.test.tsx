@@ -11,14 +11,12 @@ describe('Diagnosis Title', () => {
   it('Renders clinical code text summaries', () => {
     render(<DiagnosisTitle condition={conditionWithClinicalCode} enteredInError={false} />)
 
-    expect(screen.getByText('This is a clinical coding text summary, Active, Confirmed')).toBeVisible()
+    expect(screen.getByText('This is a clinical coding text summary')).toBeVisible()
   })
 
   it('Adds the strikethrough property to code summaries if entered in error', () => {
     render(<DiagnosisTitle condition={conditionWithClinicalCode} enteredInError />)
 
-    expect(screen.getByText('This is a clinical coding text summary, Active, Confirmed')).toHaveStyle(
-      'text-decoration: line-through'
-    )
+    expect(screen.getByText('This is a clinical coding text summary')).toHaveStyle('text-decoration: line-through')
   })
 })
