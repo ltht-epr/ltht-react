@@ -112,7 +112,6 @@ const DiagnosisSummary: FC<Props> = ({
         <StyledDescription>
           <StyledTitle>
             <Title enteredInError={enteredInError} condition={condition} />
-            <SubHeader enteredInError={enteredInError} text={snippetText} />
           </StyledTitle>
           {extensionTemplateDisplayName && !isReadOnly && canExtendDiagnosis && !enteredInError && (
             <IconButtonWrapper
@@ -136,6 +135,7 @@ const DiagnosisSummary: FC<Props> = ({
               />
             </IconWrapper>
           )}
+          <SubHeader enteredInError={enteredInError} text={snippetText} />
         </StyledDescription>
 
         {!isReadOnly && controls.length > 0 && (
