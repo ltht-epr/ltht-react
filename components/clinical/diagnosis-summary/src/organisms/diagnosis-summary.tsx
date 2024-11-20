@@ -79,9 +79,7 @@ const IconButtonWrapper = styled(Button)`
   width: auto;
 `
 const IconWrapper = styled.div`
-  align-items: start;
-  justify-content: center;
-  margin: 0.5rem;
+  margin-left: 0.5rem;
   display: inline-block;
 `
 
