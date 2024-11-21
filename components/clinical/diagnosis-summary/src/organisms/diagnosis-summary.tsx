@@ -11,7 +11,7 @@ import Title from '../atoms/diagnosis-title'
 import SubHeader from '../atoms/diagnosis-sub-header'
 import OnsetDateEstimated from '../atoms/diagnosis-onset-estimated'
 import Redacted from '../molecules/diagnosis-redacted'
-import SNIPPET_TEXT from '../constants'
+import SNIPPET_HOVER_TEXT from '../constants'
 
 const StyledTitle = styled.div`
   display: inline-block;
@@ -104,7 +104,7 @@ const DiagnosisSummary: FC<Props> = ({
 
   const enteredInError = condition.verificationStatus === ConditionVerificationStatus.EnteredInError
 
-  const snippetText = condition?.metadata.tag?.find((coding) => coding?.system === SNIPPET_TEXT)?.display ?? ''
+  const snippetText = condition?.metadata.tag?.find((coding) => coding?.system === SNIPPET_HOVER_TEXT)?.display ?? ''
 
   return (
     <StyledSummary {...rest}>
