@@ -6,7 +6,6 @@ import {
   AnnotationListDetail,
   CodeableConceptDetail,
   DatetimeDetail,
-  CodingListDetail,
   CollapsibleDetailCollection,
   CollapsibleDetailCollectionProps,
   AsserterDetail,
@@ -15,6 +14,8 @@ import {
 import { getBooleanExtension } from '@ltht-react/utils'
 
 import Questionnaire from '@ltht-react/questionnaire'
+import CodingDetail from '@ltht-react/type-detail/lib/molecules/coding-detail'
+import SNIPPET_HOVER_TEXT from '../constants'
 
 const TopSection = styled.div`
   display: flex;
@@ -23,7 +24,7 @@ const TopSection = styled.div`
   margin-bottom: 1rem;
 `
 
-const Seperator = styled.div`
+const Separator = styled.div`
   height: 1px;
   background: rgba(0, 0, 0, 0.125);
   width: calc(100% + 12px);
@@ -36,12 +37,14 @@ const DiagnosisDetail: FC<Props> = ({ condition, links, viewType = DetailViewTyp
     'https://fhir.leedsth.nhs.uk/ValueSet/diagnosis-onset-date-estimated-1'
   )
 
+  const snippetTextCoding = condition?.metadata.tag?.find((coding) => coding?.system === SNIPPET_HOVER_TEXT) ?? null
+
   return (
     <>
       <TopSection>
-        <CodingListDetail term="Data Source(s)" codings={condition.metadata.dataSources} />
+        <CodingDetail term="Diagnosis Snippet" coding={snippetTextCoding} />
       </TopSection>
-      <Seperator />
+      <Separator />
       <CollapsibleDetailCollection viewType={viewType}>
         <CodeableConceptDetail term="Diagnosis / Condition" concept={condition.code} links={links} />
         <DatetimeDetail term="Diagnosis Date" datetime={condition.assertedDate} dateOnly={dateOnly} />
@@ -58,13 +61,13 @@ const DiagnosisDetail: FC<Props> = ({ condition, links, viewType = DetailViewTyp
         <AnnotationListDetail term="Note(s)" notes={condition.note} />
         <AsserterDetail asserter={condition.asserter} />
       </CollapsibleDetailCollection>
-      <Seperator />
+      <Separator />
 
       {condition.extensionData &&
         condition?.extensionData.map((item, index) => (
           <div key={`diagnosis-detail-questionnaire-${index}`}>
             <Questionnaire questionnaire={item} showTitle={false} viewType={viewType} />
-            <Seperator />
+            <Separator />
           </div>
         ))}
     </>
