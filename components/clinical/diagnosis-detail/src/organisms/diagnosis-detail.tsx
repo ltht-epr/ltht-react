@@ -15,7 +15,7 @@ import { getBooleanExtension } from '@ltht-react/utils'
 
 import Questionnaire from '@ltht-react/questionnaire'
 import CodingDetail from '@ltht-react/type-detail/lib/molecules/coding-detail'
-import SNIPPET_TEXT from '../constants'
+import SNIPPET_HOVER_TEXT from '../constants'
 
 const TopSection = styled.div`
   display: flex;
@@ -37,7 +37,7 @@ const DiagnosisDetail: FC<Props> = ({ condition, links, viewType = DetailViewTyp
     'https://fhir.leedsth.nhs.uk/ValueSet/diagnosis-onset-date-estimated-1'
   )
 
-  const snippetTextCoding = condition?.metadata.tag?.find((coding) => coding?.system === SNIPPET_TEXT) ?? null
+  const snippetTextCoding = condition?.metadata.tag?.find((coding) => coding?.system === SNIPPET_HOVER_TEXT) ?? null
 
   return (
     <>

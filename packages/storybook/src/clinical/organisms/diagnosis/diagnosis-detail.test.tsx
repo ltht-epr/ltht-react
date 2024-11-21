@@ -33,7 +33,7 @@ describe('Diagnosis Detail', () => {
     expect(screen.getByText('Heel Pain')).toBeVisible()
 
     expect(screen.getByText('Diagnosis Snippet')).toBeVisible()
-    expect(screen.getByText('Mock snippet text value')).toBeVisible()
+    expect(screen.getByText('Mock snippet hover text value')).toBeVisible()
 
     expect(screen.getByText('Onset Date (Symptoms)')).toBeVisible()
     expect(screen.getByText('Sept-2016')).toBeVisible()

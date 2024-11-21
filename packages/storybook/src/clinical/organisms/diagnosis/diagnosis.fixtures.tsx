@@ -23,6 +23,10 @@ const mockMetadata: Metadata = {
       system: 'https://leedsth.nhs.uk/cds/snippet-text',
       display: 'Mock snippet text value',
     },
+    {
+      system: 'https://leedsth.nhs.uk/cds/snippet-hover-text',
+      display: 'Mock snippet hover text value',
+    },
   ],
   isRedacted: false,
   requestedWhen: '',
@@ -535,6 +539,10 @@ const ConditionOne: Condition = {
       {
         system: 'https://leedsth.nhs.uk/cds/snippet-text',
         display: 'Mock snippet text value',
+      },
+      {
+        system: 'https://leedsth.nhs.uk/cds/snippet-hover-text',
+        display: 'Mock snippet hover text value',
       },
     ],
   },
