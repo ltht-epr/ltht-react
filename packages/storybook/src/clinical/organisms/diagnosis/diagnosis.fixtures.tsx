@@ -538,11 +538,11 @@ const ConditionOne: Condition = {
       },
       {
         system: 'https://leedsth.nhs.uk/cds/snippet-text',
-        display: 'Mock snippet text value',
+        display: 'Confirmed, Heel Pain: Adenocarcinoma, no subtype, Active',
       },
       {
         system: 'https://leedsth.nhs.uk/cds/snippet-hover-text',
-        display: 'Mock snippet hover text value',
+        display: 'Confirmed, Heel Pain: Adenocarcinoma, no subtype, Active',
       },
     ],
   },
@@ -649,7 +649,25 @@ const ConditionOne: Condition = {
 const ConditionTwo: Condition = {
   id: '345ha927-34e0-e911-a2c7-005087226er3|condition',
   isEnteredInError: false,
-  metadata: mockMetadata,
+  metadata: {
+    dataSources: [
+      {
+        display: 'Mock',
+      },
+    ],
+    tag: [
+      {
+        system: 'https://leedsth.nhs.uk/cds/snippet-text',
+        display: 'Refuted, Diabetes mellitus type 2: Remission',
+      },
+      {
+        system: 'https://leedsth.nhs.uk/cds/snippet-hover-text',
+        display: 'Refuted, Diabetes mellitus type 2: Remission',
+      },
+    ],
+    isRedacted: false,
+    requestedWhen: '',
+  },
   category: [
     {
       coding: [
@@ -698,7 +716,25 @@ const ConditionTwo: Condition = {
 const ConditionThree: Condition = {
   isEnteredInError: false,
   abatement: null,
-  metadata: mockMetadata,
+  metadata: {
+    dataSources: [
+      {
+        display: 'Mock',
+      },
+    ],
+    tag: [
+      {
+        system: 'https://leedsth.nhs.uk/cds/snippet-text',
+        display: 'Confirmed, Otitis externa: Active',
+      },
+      {
+        system: 'https://leedsth.nhs.uk/cds/snippet-hover-text',
+        display: 'Confirmed, Otitis externa: Active',
+      },
+    ],
+    isRedacted: false,
+    requestedWhen: '',
+  },
   assertedDate: {
     kind: PartialDateTimeKindCode.Date,
     value: '2022-03-18T00:00:00+00:00',
@@ -734,7 +770,25 @@ const ConditionThree: Condition = {
 const ConditionFour: Condition = {
   id: '345ha927-34e0-e911-a2c7-005087246er3|condition',
   isEnteredInError: false,
-  metadata: mockMetadata,
+  metadata: {
+    dataSources: [
+      {
+        display: 'Mock',
+      },
+    ],
+    tag: [
+      {
+        system: 'https://leedsth.nhs.uk/cds/snippet-text',
+        display: 'Entered In Error, Diabetes mellitus type 2: Remission',
+      },
+      {
+        system: 'https://leedsth.nhs.uk/cds/snippet-hover-text',
+        display: 'Entered In Error, Diabetes mellitus type 2: Remission',
+      },
+    ],
+    isRedacted: false,
+    requestedWhen: '',
+  },
   category: [
     {
       coding: [
@@ -783,7 +837,25 @@ const ConditionFour: Condition = {
 const ConditionFive: Condition = {
   isEnteredInError: false,
   abatement: null,
-  metadata: mockMetadata,
+  metadata: {
+    dataSources: [
+      {
+        display: 'Mock',
+      },
+    ],
+    tag: [
+      {
+        system: 'https://leedsth.nhs.uk/cds/snippet-text',
+        display: 'Entered In Error, Transient ischemic attack: Active',
+      },
+      {
+        system: 'https://leedsth.nhs.uk/cds/snippet-hover-text',
+        display: 'Entered In Error, Transient ischemic attack: Active',
+      },
+    ],
+    isRedacted: false,
+    requestedWhen: '',
+  },
   assertedDate: {
     kind: PartialDateTimeKindCode.Date,
     value: '2022-03-18T00:00:00+00:00',

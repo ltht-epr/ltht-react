@@ -8,7 +8,7 @@ describe('Diagnosis', () => {
   it('Renders', () => {
     render(<DiagnosisSummary condition={{ ...conditions[0] }} isReadOnly={false} />)
 
-    expect(screen.getByText('Heel Pain')).toBeVisible()
+    expect(screen.getByText('Confirmed, Heel Pain: Adenocarcinoma, no subtype, Active')).toBeVisible()
   })
 
   it('Does not diplay redacted data', () => {
@@ -38,7 +38,9 @@ describe('Diagnosis', () => {
 
     render(<DiagnosisSummary condition={enteredInErrorCondition} isReadOnly={false} />)
 
-    expect(screen.getByText('Heel Pain')).toHaveStyle('text-decoration: line-through')
+    expect(screen.getByText('Confirmed, Heel Pain: Adenocarcinoma, no subtype, Active')).toHaveStyle(
+      'text-decoration: line-through'
+    )
   })
 
   it('Displays a button for extending the diagnosis if a template name is provided and readonly is false', () => {
