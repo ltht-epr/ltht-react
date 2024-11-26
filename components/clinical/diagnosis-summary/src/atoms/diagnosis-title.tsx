@@ -2,8 +2,7 @@ import { FC, HTMLAttributes } from 'react'
 import styled from '@emotion/styled'
 
 import { TEXT_COLOURS } from '@ltht-react/styles'
-import { Condition } from '@ltht-react/types'
-import { codeableConceptTextSummary } from '@ltht-react/utils'
+import { Maybe, Scalars } from '@ltht-react/types'
 
 const StyledConditionTitle = styled.div<IStyledDescription>`
   color: ${TEXT_COLOURS.PRIMARY};
@@ -11,22 +10,14 @@ const StyledConditionTitle = styled.div<IStyledDescription>`
   text-decoration: ${({ enteredInError }) => (enteredInError ? 'line-through' : 'none')};
 `
 
-const DiagnosisTitle: FC<Props> = ({ condition, enteredInError, ...rest }) => {
-  const codes = []
-  const snippets = []
-
-  if (condition.code) codes.push(condition.code)
-  snippets.push(codeableConceptTextSummary(codes))
-
-  return (
-    <StyledConditionTitle enteredInError={enteredInError} {...rest}>
-      {snippets.length > 0 ? snippets.join(', ') : 'Insufficient data provided'}
-    </StyledConditionTitle>
-  )
-}
+const DiagnosisTitle: FC<Props> = ({ text, enteredInError, ...rest }) => (
+  <StyledConditionTitle enteredInError={enteredInError} {...rest}>
+    {text || 'Insufficient data provided.'}
+  </StyledConditionTitle>
+)
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
-  condition: Condition
+  text?: Maybe<Scalars['String']>
   enteredInError: boolean
 }
 

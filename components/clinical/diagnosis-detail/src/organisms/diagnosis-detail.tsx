@@ -42,7 +42,7 @@ const DiagnosisDetail: FC<Props> = ({ condition, links, viewType = DetailViewTyp
   return (
     <>
       <TopSection>
-        <CodingDetail term="Diagnosis Snippet" coding={snippetTextCoding} />
+        <CodingDetail term="Diagnosis Summary" coding={snippetTextCoding} />
       </TopSection>
       <Separator />
       <CollapsibleDetailCollection viewType={viewType}>

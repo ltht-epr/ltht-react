@@ -32,8 +32,8 @@ describe('Diagnosis Detail', () => {
     expect(screen.getByText('Diagnosis / Condition')).toBeVisible()
     expect(screen.getByText('Heel Pain')).toBeVisible()
 
-    expect(screen.getByText('Diagnosis Snippet')).toBeVisible()
-    expect(screen.getByText('Mock snippet hover text value')).toBeVisible()
+    expect(screen.getByText('Diagnosis Summary')).toBeVisible()
+    expect(screen.getByText('Confirmed, Heel Pain: Adenocarcinoma, no subtype, Active')).toBeVisible()
 
     expect(screen.getByText('Onset Date (Symptoms)')).toBeVisible()
     expect(screen.getByText('Sept-2016')).toBeVisible()
