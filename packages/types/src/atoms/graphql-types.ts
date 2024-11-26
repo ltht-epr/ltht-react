@@ -900,6 +900,7 @@ export type ConditionMinimalInput = {
   code: CodeableConceptInput;
   extension?: Maybe<Array<Maybe<ExtensionInput>>>;
   id: Scalars['String'];
+  identifier?: Maybe<Array<Maybe<IdentifierInputType>>>;
   verificationStatus?: Maybe<ConditionVerificationStatus>;
 };
 
