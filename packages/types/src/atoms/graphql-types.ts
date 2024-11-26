@@ -2486,10 +2486,14 @@ export type Extension = {
 };
 
 export type ExtensionInput = {
+  /** String array value of extension */
+  multiValueString?: Maybe<Array<Maybe<Scalars['String']>>>;
   /** Identifies the meaning of the extension */
   url: Scalars['String'];
   /** Boolean value of extension */
   valueBoolean?: Maybe<Scalars['Boolean']>;
+  /** String value of extension */
+  valueString?: Maybe<Scalars['String']>;
 };
 
 export enum FeatureInstance {
