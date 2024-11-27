@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import styled from '@emotion/styled'
-import { Condition, DetailViewType } from '@ltht-react/types'
+import { Condition, DetailViewType, CodingDetail } from '@ltht-react/types'
 import {
   StringDetail,
   AnnotationListDetail,
@@ -14,7 +14,6 @@ import {
 import { getBooleanExtension } from '@ltht-react/utils'
 
 import Questionnaire from '@ltht-react/questionnaire'
-import CodingDetail from '@ltht-react/type-detail/lib/molecules/coding-detail'
 import SNIPPET_HOVER_TEXT from '../constants'
 
 const TopSection = styled.div`

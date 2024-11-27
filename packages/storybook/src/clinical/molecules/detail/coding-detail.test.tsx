@@ -1,4 +1,4 @@
-import CodingDetail from '@ltht-react/type-detail/lib/molecules/coding-detail'
+import { CodingDetail } from '@ltht-react/types'
 import { Coding } from '@ltht-react/types'
 import { render, screen } from '@testing-library/react'
 
