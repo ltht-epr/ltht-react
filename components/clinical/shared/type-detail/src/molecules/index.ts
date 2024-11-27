@@ -1,6 +1,7 @@
 export { default as AnnotationListDetail } from './annotation-list-detail'
 export { default as CodeableConceptDetail } from './codeable-concept-detail'
 export { default as CodeableConceptListDetail } from './codeable-concept-list-detail'
+export { default as CodingDetail } from './coding-detail'
 export { default as CodingListDetail } from './coding-list-detail'
 export { default as DatetimeDetail } from './datetime-detail'
 export { default as NarrativeDetail } from './narrative-detail'

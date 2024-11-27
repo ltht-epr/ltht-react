@@ -9,12 +9,12 @@ import {
   CollapsibleDetailCollection,
   CollapsibleDetailCollectionProps,
   AsserterDetail,
+  CodingDetail,
 } from '@ltht-react/type-detail'
 
 import { getBooleanExtension } from '@ltht-react/utils'
 
 import Questionnaire from '@ltht-react/questionnaire'
-import CodingDetail from '@ltht-react/type-detail/lib/molecules/coding-detail'
 import SNIPPET_HOVER_TEXT from '../constants'
 
 const TopSection = styled.div`
