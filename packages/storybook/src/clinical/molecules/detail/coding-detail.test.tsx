@@ -1,6 +1,6 @@
-import { CodingDetail } from '@ltht-react/types'
 import { Coding } from '@ltht-react/types'
 import { render, screen } from '@testing-library/react'
+import { CodingDetail } from '@ltht-react/type-detail'
 
 describe('CodingDetail', () => {
   const coding: Coding = {

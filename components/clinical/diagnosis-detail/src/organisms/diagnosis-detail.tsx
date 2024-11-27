@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import styled from '@emotion/styled'
-import { Condition, DetailViewType, CodingDetail } from '@ltht-react/types'
+import { Condition, DetailViewType } from '@ltht-react/types'
 import {
   StringDetail,
   AnnotationListDetail,
@@ -9,6 +9,7 @@ import {
   CollapsibleDetailCollection,
   CollapsibleDetailCollectionProps,
   AsserterDetail,
+  CodingDetail,
 } from '@ltht-react/type-detail'
 
 import { getBooleanExtension } from '@ltht-react/utils'
