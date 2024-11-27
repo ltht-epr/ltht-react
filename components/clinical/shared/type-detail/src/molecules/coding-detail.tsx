@@ -5,7 +5,9 @@ import NestedListDetail from './nested-list-detail'
 
 const CodingDetail: DetailViewComponent<IProps> = ({ term, coding, showIfEmpty = false }) => (
   <NestedListDetail term={term} showIfEmpty={showIfEmpty} wrapDescription={false}>
-    {coding?.display ? <DescriptionList.Description key={term}>{coding.display}</DescriptionList.Description> : <></>}
+    <DescriptionList.Description key={term}>
+      {coding?.display || 'Insufficient data provided.'}
+    </DescriptionList.Description>
   </NestedListDetail>
 )
 
