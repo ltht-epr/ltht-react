@@ -1,36 +1,40 @@
 import { render, screen } from '@testing-library/react'
 import DiagnosisTitle from '@ltht-react/diagnosis-summary/src/atoms/diagnosis-title'
-
-const validTitle = 'Diagnosis Title Example'
+import {
+  conditionWithNoMissingValues,
+  conditionWithEmptySnippetHoverText,
+  conditionWithNullSnippetHoverText,
+  conditionWithUndefinedSnippetHoverText,
+} from './title.fixtures'
 
 describe('Diagnosis Title', () => {
   it('Renders clinical code text summaries', () => {
-    render(<DiagnosisTitle text={validTitle} enteredInError={false} />)
+    render(<DiagnosisTitle condition={conditionWithNoMissingValues} enteredInError={false} />)
 
-    expect(screen.getByText('Diagnosis Title Example')).toBeVisible()
+    expect(screen.getByText('Mock snippet hover text')).toBeVisible()
   })
 
   it('Adds the strikethrough property to code summaries if entered in error', () => {
-    render(<DiagnosisTitle text={validTitle} enteredInError />)
+    render(<DiagnosisTitle condition={conditionWithNoMissingValues} enteredInError />)
 
-    expect(screen.getByText('Diagnosis Title Example')).toHaveStyle('text-decoration: line-through')
+    expect(screen.getByText('Mock snippet hover text')).toHaveStyle('text-decoration: line-through')
   })
 
-  it('Displays missing data message when title text is empty', () => {
-    render(<DiagnosisTitle text="" enteredInError />)
+  it('Displays condition display name as fallback value when snippet text is empty', () => {
+    render(<DiagnosisTitle condition={conditionWithEmptySnippetHoverText} enteredInError />)
 
-    expect(screen.getByText('Insufficient data provided.')).toBeVisible()
+    expect(screen.getByText('Mock condition display name')).toBeVisible()
   })
 
-  it('Displays missing data message when title text is null', () => {
-    render(<DiagnosisTitle text={null} enteredInError />)
+  it('Displays condition display name as fallback value when snippet text is null', () => {
+    render(<DiagnosisTitle condition={conditionWithNullSnippetHoverText} enteredInError />)
 
-    expect(screen.getByText('Insufficient data provided.')).toBeVisible()
+    expect(screen.getByText('Mock condition display name')).toBeVisible()
   })
 
-  it('Displays missing data message when title text is undefined', () => {
-    render(<DiagnosisTitle text={undefined} enteredInError />)
+  it('Displays condition display name as fallback value when snippet text is undefined', () => {
+    render(<DiagnosisTitle condition={conditionWithUndefinedSnippetHoverText} enteredInError />)
 
-    expect(screen.getByText('Insufficient data provided.')).toBeVisible()
+    expect(screen.getByText('Mock condition display name')).toBeVisible()
   })
 })
