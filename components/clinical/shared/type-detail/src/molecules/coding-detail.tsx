@@ -3,7 +3,12 @@ import { Coding, Maybe } from '@ltht-react/types'
 import { DetailViewComponent, IDetailViewProps } from '../atoms/detail-view-component'
 import NestedListDetail from './nested-list-detail'
 
-const CodingDetail: DetailViewComponent<IProps> = ({ term, coding, showIfEmpty = false }) => {
+const CodingDetail: DetailViewComponent<IProps> = ({
+  term,
+  coding,
+  showIfEmpty = false,
+  fallbackMessage = 'Insufficient data provided.',
+}) => {
   let description
 
   if (coding?.display) {
@@ -11,7 +16,7 @@ const CodingDetail: DetailViewComponent<IProps> = ({ term, coding, showIfEmpty =
   } else if (showIfEmpty) {
     description = <></>
   } else {
-    description = <DescriptionList.Description key={term}>Insufficient data provided.</DescriptionList.Description>
+    description = <DescriptionList.Description key={term}>{fallbackMessage}</DescriptionList.Description>
   }
 
   return (
@@ -24,6 +29,7 @@ const CodingDetail: DetailViewComponent<IProps> = ({ term, coding, showIfEmpty =
 interface IProps extends IDetailViewProps {
   term: string
   coding?: Maybe<Coding>
+  fallbackMessage?: string
 }
 
 export default CodingDetail

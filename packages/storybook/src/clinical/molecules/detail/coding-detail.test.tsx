@@ -24,11 +24,18 @@ describe('CodingDetail', () => {
     expect(screen.getByText('Insufficient data provided.')).toBeVisible()
   })
 
-  it('should show insufficient data message if the codings list is empty', () => {
+  it('should show default fallback message if none provided and the codings list is empty', () => {
     render(<CodingDetail term="Coding" coding={emptyCoding} />)
 
     expect(screen.getByText('Coding')).toBeVisible()
     expect(screen.getByText('Insufficient data provided.')).toBeVisible()
+  })
+
+  it('should show custom fallback message if provided and the codings list is empty', async () => {
+    render(<CodingDetail term="Coding" coding={emptyCoding} fallbackMessage="Unable to read value from coding" />)
+
+    expect(screen.getByText('Coding')).toBeVisible()
+    expect(screen.getByText('Unable to read value from coding')).toBeVisible()
   })
 
   it('should show the term and no value if told to do so', async () => {
