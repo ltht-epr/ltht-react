@@ -1,4 +1,4 @@
-import { FC, HTMLAttributes } from 'react'
+import { cloneElement, FC, HTMLAttributes, ReactElement } from 'react'
 import styled from '@emotion/styled'
 
 import { Condition, ConditionVerificationStatus } from '@ltht-react/types'
@@ -25,43 +25,55 @@ const StyledLeftContainer = styled.div`
   display: flex;
   flex-grow: 1;
   flex-direction: row;
+  gap: 0.3rem;
 
   ${MOBILE_MAXIMUM_MEDIA_QUERY} {
     flex-direction: column;
   }
 `
-const StyledControlsContainer = styled.div`
+const StyledResponsiveContainer = styled.div`
   display: flex;
-  margin: auto 10px auto 10px;
+  margin: 0 10px 0 10px;
   flex-direction: column;
+  gap: 0.3rem;
+  align-items: center;
+  justify-content: center;
 
   ${MOBILE_MAXIMUM_MEDIA_QUERY} {
-    margin: 10px 0 0 0;
+    margin: 0;
     flex-flow: row wrap;
+    justify-content: start;
+
+    & > * {
+      width: fit-content;
+    }
   }
 
   ${SMALL_SCREEN_MAXIMUM_MEDIA_QUERY} {
-    margin: 10px 5px 0 0;
-    flex-direction: column;
+    margin: 0;
+    flex-direction: column wrap;
+
+    & > * {
+      width: 100%;
+      max-width: 200px;
+      display: flex;
+      justify-content: center;
+    }
   }
 `
 const StyledButton = styled(Button)`
-  margin: 2px 0 2px 0;
   font-size: 0.8em !important;
   padding: 1px 5px;
 
   ${MOBILE_MAXIMUM_MEDIA_QUERY} {
-    margin: 2px 5px 2px 0;
     width: fit-content;
   }
 
   ${SMALL_SCREEN_MAXIMUM_MEDIA_QUERY} {
-    margin: 2px 0 2px 0;
     width: 100%;
     max-width: 200px;
   }
 `
-
 const StyledDate = styled.div`
   text-align: left;
   width: 15%;
@@ -90,6 +102,7 @@ const DiagnosisSummary: FC<Props> = ({
   dateOnlyView = false,
   canExtendDiagnosis = false,
   controls = [],
+  tags = [],
   ...rest
 }) => {
   if (condition.metadata.isRedacted) {
@@ -133,12 +146,18 @@ const DiagnosisSummary: FC<Props> = ({
           )}
         </StyledDescription>
 
+        {tags.length > 0 && (
+          <StyledResponsiveContainer>
+            {tags?.map((tag, index) => (tag.key ? tag : cloneElement(tag, { key: index })))}
+          </StyledResponsiveContainer>
+        )}
+
         {!isReadOnly && controls.length > 0 && (
-          <StyledControlsContainer>
+          <StyledResponsiveContainer>
             {controls.map((props, index) => (
               <StyledButton key={index} {...props} />
             ))}
-          </StyledControlsContainer>
+          </StyledResponsiveContainer>
         )}
       </StyledLeftContainer>
       <StyledDate>
@@ -157,6 +176,7 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
   isReadOnly: boolean
   dateOnlyView?: boolean
   controls?: ButtonProps[]
+  tags?: ReactElement[]
   canExtendDiagnosis?: boolean
 }
 

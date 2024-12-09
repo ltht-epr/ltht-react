@@ -14,6 +14,9 @@ export const TEXT_COLOURS = {
   SECONDARY: colours.NHS_MID_GREY,
   DANGER: colours.NHS_DARK_RED,
   INFO: colours.NHS_DARK_BLUE.VALUE,
+  INDICATORS: {
+    WARN: '#926100',
+  },
 }
 
 export const ICON_COLOURS = {
@@ -43,6 +46,7 @@ export const BADGE_COLOURS = {
   STANDARD: colours.NHS_LIGHT_BLUE.VALUE,
   WORKFLOW: colours.NHS_GREEN.VALUE,
   DANGER: colours.NHS_EMERGENCY_SERVICES_RED.VALUE,
+  WARNING: colours.NHS_ORANGE,
 }
 
 export const TABLE_COLOURS = {
