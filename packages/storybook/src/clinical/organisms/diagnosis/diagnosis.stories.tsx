@@ -6,7 +6,7 @@ import Card from '@ltht-react/card'
 import { Button } from '@ltht-react/button'
 import { DetailViewType } from '@ltht-react/types'
 import { useDetailViewType } from '../hooks/useDetailViewTypeHook'
-import { conditions, controls } from './diagnosis.fixtures'
+import { conditions, controls, tags } from './diagnosis.fixtures'
 
 const CODABLE_CONCEPT_LINK_MAP = {
   'Heel Pain': 'https://www.google.com',
@@ -39,6 +39,7 @@ export const Summary: Story = () => {
                 extensionTemplateDisplayName="Diagnosis Generic Cancer Level Two"
                 extensionClickHandler={clickHandler}
                 isReadOnly={false}
+                tags={tags}
                 controls={controls}
               />
             )}
@@ -50,6 +51,8 @@ export const Summary: Story = () => {
                 extendedTemplateDisplayName="Diagnosis Generic Cancer Level Two"
                 extensionClickHandler={clickHandler}
                 isReadOnly={false}
+                controls={[controls[0]]}
+                tags={[tags[0]]}
               />
             )}
             {idx === 4 && <DiagnosisSummary condition={condition} isReadOnly={false} />}
@@ -60,6 +63,7 @@ export const Summary: Story = () => {
                 extensionClickHandler={clickHandler}
                 isReadOnly
                 controls={controls}
+                tags={[tags[0]]}
               />
             )}
           </Card.ListItem>

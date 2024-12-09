@@ -1,5 +1,7 @@
+import Badge, { BadgeTypes } from '@ltht-react/badge'
 import { ButtonProps } from '@ltht-react/button'
 import Icon from '@ltht-react/icon'
+import { TEXT_COLOURS } from '@ltht-react/styles'
 import {
   Metadata,
   Condition,
@@ -11,6 +13,7 @@ import {
   QuestionnaireItemTypeCode,
   QuestionnairePublicationStatus,
 } from '@ltht-react/types'
+import { ReactElement } from 'react'
 
 const mockMetadata: Metadata = {
   dataSources: [
@@ -929,4 +932,21 @@ const controls: ButtonProps[] = [
   },
 ]
 
-export { conditions, controls }
+const createTag = (name: string, style: BadgeTypes) => (
+  <Badge style={{ textAlign: 'center' }} type={style}>
+    {name}
+  </Badge>
+)
+
+const tags: ReactElement[] = [
+  <div style={{ color: TEXT_COLOURS.INDICATORS.WARN, display: 'flex', gap: '0.2rem', alignItems: 'center' }}>
+    <Icon type="exclamation" size="medium" color="amber" />
+    <small>Recommended</small>
+  </div>,
+  createTag('some tag 1', 'danger'),
+  createTag('in-progress', 'standard'),
+  createTag('tag 2', 'primary'),
+  createTag('warning', 'warning'),
+]
+
+export { conditions, controls, tags }

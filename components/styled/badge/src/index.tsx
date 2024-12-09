@@ -12,6 +12,8 @@ const setBackgroundColor = (type: BadgeTypes) => {
       return `${BADGE_COLOURS.WORKFLOW}`
     case 'danger':
       return `${BADGE_COLOURS.DANGER}`
+    case 'warning':
+      return `${BADGE_COLOURS.WARNING}`
     default:
       return ``
   }
@@ -51,6 +53,6 @@ interface IStyledBadgeProps {
   type: BadgeTypes
 }
 
-type BadgeTypes = 'primary' | 'standard' | 'workflow' | 'danger'
+export type BadgeTypes = 'primary' | 'standard' | 'workflow' | 'danger' | 'warning'
 
 export default Badge
