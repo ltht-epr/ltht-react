@@ -20,26 +20,26 @@ const StyledIcon = styled(Icon)`
   margin-right: 0.3rem;
 `
 
-const Assignee: FC<IProps> = ({ assignedUser, assignedTeam }) => (
+const Users: FC<IProps> = ({ user, users }) => (
   <StyledTextRow>
-    {assignedUser && (
+    {user && (
       <span>
         <StyledIcon type="user" size="small" color="grey" />
-        <StyledDescription>{assignedUser}</StyledDescription>
+        <StyledDescription>{user}</StyledDescription>
       </span>
     )}
-    {assignedTeam && (
+    {users && (
       <span>
         <StyledIcon type="users" size="small" color="grey" />
-        <StyledDescription>{assignedTeam}</StyledDescription>
+        <StyledDescription>{users}</StyledDescription>
       </span>
     )}
   </StyledTextRow>
 )
 
 interface IProps {
-  assignedUser?: string
-  assignedTeam?: string
+  users?: string
+  user?: string
 }
 
-export default Assignee
+export default Users
