@@ -1781,6 +1781,7 @@ export type EhrTasksArgs = {
   cursorToken?: Maybe<Scalars['String']>;
   domainTags?: Maybe<Array<Maybe<Scalars['String']>>>;
   excludedTaskNames?: Maybe<Array<Maybe<Scalars['String']>>>;
+  includeAllOrganisations?: Maybe<Scalars['Boolean']>;
   includedTaskNames?: Maybe<Array<Maybe<Scalars['String']>>>;
   patientGuid: Scalars['String'];
   processId?: Maybe<Scalars['String']>;
