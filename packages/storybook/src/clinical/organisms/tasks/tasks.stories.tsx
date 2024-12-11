@@ -90,8 +90,8 @@ export const WithActions: Story = () => (
         <Card.ListItem>
           <Task
             task={task}
-            assignedTeam={index % 2 === 0 ? 'Clinical Genetics' : undefined}
-            assignedUser={index % 3 === 0 ? 'Dr. Reginald Berkeley (MRI)' : undefined}
+            users={index % 2 === 0 ? 'Clinical Genetics' : undefined}
+            user={index % 3 === 0 ? 'Dr. Reginald Berkeley (MRI)' : undefined}
             actions={index % 2 === 0 ? TaskActions : undefined}
           />
         </Card.ListItem>
@@ -127,10 +127,61 @@ export const WithActionsAndInteraction: Story = () => {
             <Card.ListItem {...props}>
               <Task
                 task={task}
-                assignedTeam={index % 2 === 0 ? 'Clinical Genetics' : undefined}
-                assignedUser={index % 3 === 0 ? 'Dr. Reginald Berkeley (MRI)' : undefined}
+                users={index % 2 === 0 ? 'Clinical Genetics' : undefined}
+                user={index % 3 === 0 ? 'Dr. Reginald Berkeley (MRI)' : undefined}
                 actions={index % 2 === 0 ? TaskActions : undefined}
               />
+            </Card.ListItem>
+          )
+        })}
+      </Card.List>
+    </Card>
+  )
+}
+
+export const WithProfessions: Story = () => {
+  const [selectedTaskId, setSelectedTaskId] = useState('')
+
+  const handleSelectTask = (taskId: string) => {
+    // eslint-disable-next-line no-console
+    console.log(`${taskId} Clicked!`)
+    setSelectedTaskId(taskId)
+  }
+  return (
+    <Card>
+      <Card.Header>
+        <Card.Title>Tasks</Card.Title>
+      </Card.Header>
+      <Card.List>
+        {Tasks.map((task, index) => {
+          const canPerformAction = !['COMPLETE', 'CANCELLED'].includes(task.status) && !task.metadata.isRedacted
+
+          const props = {
+            key: task.id,
+            selected: task.id === selectedTaskId,
+            ...(canPerformAction && { onClick: () => handleSelectTask(task.id) }),
+          }
+
+          let users = ''
+
+          switch (index % 4) {
+            case 0:
+              users = 'Doctor - Consultant, Doctor - Other Resident'
+              break
+            case 1:
+              users = 'Physician Associate, Nurse'
+              break
+            case 2:
+              users = 'Orthotics'
+              break
+            case 3:
+              users = 'Clinical Genetics Associate, Nurse, Psychology'
+              break
+          }
+
+          return (
+            <Card.ListItem {...props}>
+              <Task task={task} user={users} actions={index % 2 === 0 ? TaskActions : undefined} />
             </Card.ListItem>
           )
         })}

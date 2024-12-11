@@ -8,7 +8,7 @@ import { getStringExtension } from '@ltht-react/utils'
 import Description from '../atoms/task-description'
 import Status from '../atoms/task-status'
 import Redacted from '../molecules/task-redacted'
-import Assignee from '../atoms/task-assignee'
+import Users from '../atoms/task-users'
 
 const StyledTask = styled.div<IStyledTask>`
   display: flex;
@@ -58,8 +58,8 @@ const Task: FC<IProps> = ({
     metadata: { isRedacted },
     extension,
   },
-  assignedTeam,
-  assignedUser,
+  users,
+  user,
   actions,
 }) => {
   if (isRedacted) return <Redacted />
@@ -68,7 +68,7 @@ const Task: FC<IProps> = ({
     <StyledTask status={status}>
       <LeftSection>
         <Description cancelled={status === TaskStatusCode.Cancelled} description={description} />
-        <Assignee assignedUser={assignedUser} assignedTeam={assignedTeam} />
+        <Users user={user} users={users} />
       </LeftSection>
 
       <RightSection>
@@ -106,8 +106,8 @@ const Task: FC<IProps> = ({
 
 interface IProps {
   task: ITask
-  assignedTeam?: string
-  assignedUser?: string
+  users?: string
+  user?: string
   actions?: ActionMenuOption[]
 }
 
