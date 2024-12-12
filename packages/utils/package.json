@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "@ltht-react/types": "^2.0.101",
+    "@ltht-react/styles": "^2.0.101",
     "date-fns": "^2.22.1",
     "html-react-parser": "^5.0.6"
   },
