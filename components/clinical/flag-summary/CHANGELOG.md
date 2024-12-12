@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.0.100 (2024-12-12)
+
+**Note:** Version bump only for package @ltht-react/flag-summary
+
 ## 2.0.99 (2024-12-11)
 
 **Note:** Version bump only for package @ltht-react/flag-summary
