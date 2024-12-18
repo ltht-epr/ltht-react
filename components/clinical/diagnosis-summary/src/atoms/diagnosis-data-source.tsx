@@ -3,7 +3,6 @@ import styled from '@emotion/styled'
 
 import { TEXT_COLOURS } from '@ltht-react/styles'
 import { Condition } from '@ltht-react/types'
-import { titleCase } from '@ltht-react/utils'
 
 const StyledConditionStatus = styled.div<IStyledDescription>`
   color: ${TEXT_COLOURS.SECONDARY.VALUE};
@@ -13,15 +12,17 @@ const StyledConditionStatus = styled.div<IStyledDescription>`
   text-decoration: ${({ enteredInError }) => (enteredInError ? 'line-through' : 'none')};
 `
 
-const DiagnosisStatus: FC<Props> = ({ condition, enteredInError, ...rest }) => {
-  const values = []
-
-  if (condition.clinicalStatus) values.push(titleCase(condition.clinicalStatus))
-  if (condition.verificationStatus) values.push(titleCase(condition.verificationStatus))
+const DiagnosisDataSource: FC<Props> = ({ condition, enteredInError, ...rest }) => {
+  const dataSourceDisplayNames: string[] = []
+  condition.metadata.dataSources.forEach((dataSource, _) => {
+    if(dataSource?.display) {
+      dataSourceDisplayNames.push(dataSource.display)
+    }
+  }) 
 
   return (
     <StyledConditionStatus enteredInError={enteredInError} {...rest}>
-      {values.length > 0 ? values.join(' - ') : 'Insufficient data provided'}
+      {dataSourceDisplayNames.length > 0 ? dataSourceDisplayNames.join(' - ') : ''}
     </StyledConditionStatus>
   )
 }
@@ -35,4 +36,4 @@ interface IStyledDescription {
   enteredInError: boolean
 }
 
-export default DiagnosisStatus
+export default DiagnosisDataSource
