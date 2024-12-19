@@ -21,7 +21,7 @@ const extractDataSourceDisplayNames = (condition: Condition) => {
     }
   })
 
-  return dataSourceDisplayNames
+  return dataSourceDisplayNames.join(', ')
 }
 
 const DiagnosisDataSource: FC<Props> = ({ condition, enteredInError, ...rest }) => {
@@ -29,7 +29,7 @@ const DiagnosisDataSource: FC<Props> = ({ condition, enteredInError, ...rest }) 
 
   return (
     <StyledConditionStatus enteredInError={enteredInError} {...rest}>
-      {dataSourceDisplayNames.length > 0 ? dataSourceDisplayNames.join(', ') : ''}
+      {`Source: ${dataSourceDisplayNames}`}
     </StyledConditionStatus>
   )
 }

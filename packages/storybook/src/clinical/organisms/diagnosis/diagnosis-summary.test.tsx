@@ -40,7 +40,7 @@ describe('Diagnosis Summary', () => {
 
       render(<DiagnosisSummary condition={condition} displaySource isReadOnly />)
 
-      expect(screen.getByText('Humber Teaching NHS Foundation Trust')).toBeVisible()
+      expect(screen.getByText('Source: Humber Teaching NHS Foundation Trust')).toBeVisible()
     })
   })
 
@@ -51,7 +51,7 @@ describe('Diagnosis Summary', () => {
 
       render(<DiagnosisSummary condition={condition} displaySource={false} isReadOnly />)
 
-      expect(screen.queryByText('Humber Teaching NHS Foundation Trust')).toBeNull()
+      expect(screen.queryByText('Source: Humber Teaching NHS Foundation Trust')).toBeNull()
     })
   })
 })

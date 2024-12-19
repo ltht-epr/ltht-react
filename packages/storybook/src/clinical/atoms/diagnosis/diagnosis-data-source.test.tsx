@@ -21,7 +21,7 @@ describe('Diagnosis Data Source', () => {
 
     render(<DiagnosisDataSource condition={condition} enteredInError={false} />)
 
-    expect(screen.getByText('Humber Teaching NHS Foundation Trust')).toBeVisible()
+    expect(screen.getByText('Source: Humber Teaching NHS Foundation Trust')).toBeVisible()
   })
 
   it('renders data source display if multiple data sources are present', () => {
@@ -30,7 +30,7 @@ describe('Diagnosis Data Source', () => {
 
     render(<DiagnosisDataSource condition={condition} enteredInError={false} />)
 
-    expect(screen.getByText('Humber Teaching NHS Foundation Trust, Yorkshire Ambulance Service')).toBeVisible()
+    expect(screen.getByText('Source: Humber Teaching NHS Foundation Trust, Yorkshire Ambulance Service')).toBeVisible()
   })
 
   it('renders data source display with a strike through if the diagnosis is entered in error', () => {
@@ -38,7 +38,9 @@ describe('Diagnosis Data Source', () => {
 
     render(<DiagnosisDataSource condition={condition} enteredInError />)
 
-    expect(screen.getByText('Humber Teaching NHS Foundation Trust')).toBeVisible()
-    expect(screen.getByText('Humber Teaching NHS Foundation Trust')).toHaveStyle('text-decoration: line-through')
+    expect(screen.getByText('Source: Humber Teaching NHS Foundation Trust')).toBeVisible()
+    expect(screen.getByText('Source: Humber Teaching NHS Foundation Trust')).toHaveStyle(
+      'text-decoration: line-through'
+    )
   })
 })
