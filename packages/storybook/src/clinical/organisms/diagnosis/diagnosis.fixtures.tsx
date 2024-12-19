@@ -933,9 +933,9 @@ const controls: ButtonProps[] = [
 ]
 
 const createTag = (name: string, style: BadgeTypes) => (
-    <Badge style={{ textAlign: 'center' }} type={style}>
-      {name}
-    </Badge>
+  <Badge style={{ textAlign: 'center' }} type={style}>
+    {name}
+  </Badge>
 )
 
 const tags: ReactElement[] = [

@@ -14,19 +14,19 @@ const StyledConditionStatus = styled.div<IStyledDescription>`
 
 const extractDataSourceDisplayNames = (condition: Condition) => {
   const dataSourceDisplayNames: string[] = []
-  
+
   condition.metadata.dataSources.forEach((dataSource, _) => {
-    if(dataSource?.display) {
+    if (dataSource?.display) {
       dataSourceDisplayNames.push(dataSource.display)
     }
   })
-  
-  return dataSourceDisplayNames  
+
+  return dataSourceDisplayNames
 }
 
 const DiagnosisDataSource: FC<Props> = ({ condition, enteredInError, ...rest }) => {
   const dataSourceDisplayNames = extractDataSourceDisplayNames(condition)
-  
+
   return (
     <StyledConditionStatus enteredInError={enteredInError} {...rest}>
       {dataSourceDisplayNames.length > 0 ? dataSourceDisplayNames.join(', ') : ''}
