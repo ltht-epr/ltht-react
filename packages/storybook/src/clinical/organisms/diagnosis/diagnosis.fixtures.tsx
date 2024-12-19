@@ -887,80 +887,6 @@ const ConditionFive: Condition = {
 
 const conditions: Condition[] = [ConditionOne, ConditionThree, ConditionFive, ConditionFour, ConditionTwo, ConditionTwo]
 
-const conditionExternalSchizophreniaHumber: Condition = {
-  "id": "FCE87.00d2929a-7449-4f09-b2b7-bcea0957b224",
-  "code": {
-    "coding": [
-      {
-        "system": "http://snomed.info/sct",
-        "code": "58214004",
-        "display": "Schizophrenia"
-      }
-    ],
-    "text": "Schizophrenia"
-  },
-  "metadata": {
-    "dataSources": [
-      {
-        "code": "RV9",
-        "display": "Humber Teaching NHS Foundation Trust"
-      }
-    ],
-    "tag": [
-      {
-        "code": "RV9",
-        "display": "Humber Teaching NHS Foundation Trust",
-        "system": "https://yhcr.nhs.uk/Source"
-      },
-      {
-        "code": "RV9",
-        "display": "Humber Teaching NHS Foundation Trust",
-        "system": "https://yhcr.nhs.uk/Provenance"
-      }
-    ],
-    isRedacted: false,
-    requestedWhen: ''     
-  }
-}
-
-const conditionExternalProblemsWithSightDoncaster: Condition = {
-  "id": "FCE87.ffe50aa5-02c0-45f2-911a-3bccc45e8053",
-  "code": {
-    "coding": [
-      {
-        "system": "http://snomed.info/sct",
-        "code": "452071000000109",
-        "display": "Problems with sight"
-      }
-    ],
-    "text": "Problems with sight"
-  },
-  "metadata": {
-    "dataSources": [
-      {
-        "code": "RP5",
-        "display": "Doncaster and Bassetlaw Hospitals NHS Trust"
-      }
-    ],
-    "tag": [
-      {
-        "code": "RP5",
-        "display": "Doncaster and Bassetlaw Hospitals NHS Trust",
-        "system": "https://yhcr.nhs.uk/Source"
-      },
-      {
-        "code": "RP5",
-        "display": "DONCASTER AND BASSETLAW TEACHING HOSPITALS NHS FOUNDATION TRUST",
-        "system": "https://yhcr.nhs.uk/Provenance"
-      }
-    ],
-    isRedacted: false,
-    requestedWhen: ''
-  }
-}
-
-const conditionsExternal = [conditionExternalSchizophreniaHumber, conditionExternalProblemsWithSightDoncaster]
-
 const controls: ButtonProps[] = [
   {
     icon: <Icon type="paper-clip" size="medium" />,
@@ -1007,9 +933,9 @@ const controls: ButtonProps[] = [
 ]
 
 const createTag = (name: string, style: BadgeTypes) => (
-  <Badge style={{ textAlign: 'center' }} type={style}>
-    {name}
-  </Badge>
+    <Badge style={{ textAlign: 'center' }} type={style}>
+      {name}
+    </Badge>
 )
 
 const tags: ReactElement[] = [
@@ -1023,4 +949,4 @@ const tags: ReactElement[] = [
   createTag('warning', 'warning'),
 ]
 
-export { conditions, conditionsExternal, controls, tags }
+export { conditions, controls, tags }
