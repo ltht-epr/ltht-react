@@ -15,7 +15,7 @@ const StyledConditionStatus = styled.div<IStyledDescription>`
 const extractDataSourceDisplayNames = (condition: Condition) => {
   const dataSourceDisplayNames: string[] = []
 
-  condition.metadata.dataSources.forEach((dataSource, _) => {
+  condition?.metadata?.dataSources?.forEach((dataSource, _) => {
     if (dataSource?.display) {
       dataSourceDisplayNames.push(dataSource.display)
     }
