@@ -1,5 +1,4 @@
 import { render, screen } from '@testing-library/react'
-// import { PartialDateTimeKindCode } from '@ltht-react/types'
 import DiagnosisSummary from '@ltht-react/diagnosis-summary'
 import { Coding, Condition, Maybe } from '@ltht-react/types'
 import {
@@ -32,5 +31,27 @@ describe('Diagnosis Summary', () => {
 
     expect(screen.getByText('Confirmed, Heel Pain: Adenocarcinoma, no subtype, Active')).toBeVisible()
     expect(screen.getByText('07-Aug-2018')).toBeVisible()
+  })
+
+  describe('Display data source when present and displaySource is true', () => {
+    it('Renders', () => {
+      const condition = conditions[0]
+      condition.metadata.dataSources[0] = { display: 'Humber Teaching NHS Foundation Trust' }
+
+      render(<DiagnosisSummary condition={condition} displaySource isReadOnly />)
+
+      expect(screen.getByText('Source: Humber Teaching NHS Foundation Trust')).toBeVisible()
+    })
+  })
+
+  describe('Hides data source when present and displaySource is false', () => {
+    it('Renders', () => {
+      const condition = conditions[0]
+      condition.metadata.dataSources[0] = { display: 'Humber Teaching NHS Foundation Trust' }
+
+      render(<DiagnosisSummary condition={condition} displaySource={false} isReadOnly />)
+
+      expect(screen.queryByText('Source: Humber Teaching NHS Foundation Trust')).toBeNull()
+    })
   })
 })

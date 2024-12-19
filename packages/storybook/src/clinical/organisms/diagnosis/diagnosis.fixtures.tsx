@@ -518,7 +518,8 @@ const ConditionOne: Condition = {
     requestedWhen: '2016-09-01T00:00:00+00:00',
     dataSources: [
       {
-        display: 'Mock',
+        code: 'ppm-plus',
+        display: 'PPM+',
       },
     ],
     isRedacted: false,

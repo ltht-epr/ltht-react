@@ -31,6 +31,7 @@ export const Summary: Story = () => {
                 isReadOnly
                 condition={condition}
                 extendedTemplateDisplayName="Diagnosis Generic Cancer Level Two"
+                displaySource
               />
             )}
             {idx === 1 && (

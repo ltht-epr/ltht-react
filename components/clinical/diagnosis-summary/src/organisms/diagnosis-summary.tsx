@@ -10,6 +10,7 @@ import { BTN_COLOURS, MOBILE_MAXIMUM_MEDIA_QUERY, SMALL_SCREEN_MAXIMUM_MEDIA_QUE
 import Title from '../atoms/diagnosis-title'
 import OnsetDateEstimated from '../atoms/diagnosis-onset-estimated'
 import Redacted from '../molecules/diagnosis-redacted'
+import DiagnosisDataSource from '../atoms/diagnosis-data-source'
 
 const StyledTitle = styled.div`
   display: inline-block;
@@ -101,6 +102,7 @@ const DiagnosisSummary: FC<Props> = ({
   isReadOnly = false,
   dateOnlyView = false,
   canExtendDiagnosis = false,
+  displaySource = false,
   controls = [],
   tags = [],
   ...rest
@@ -144,6 +146,8 @@ const DiagnosisSummary: FC<Props> = ({
               />
             </IconWrapper>
           )}
+
+          {displaySource && <DiagnosisDataSource condition={condition} enteredInError={enteredInError} />}
         </StyledDescription>
 
         {tags.length > 0 && (
@@ -172,12 +176,14 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
   condition: Condition
   extendedTemplateDisplayName?: string | undefined
   extensionTemplateDisplayName?: string | undefined
-  extensionClickHandler?(): void
   isReadOnly: boolean
   dateOnlyView?: boolean
+  displaySource?: boolean
   controls?: ButtonProps[]
   tags?: ReactElement[]
   canExtendDiagnosis?: boolean
+
+  extensionClickHandler?(): void
 }
 
 export default DiagnosisSummary
