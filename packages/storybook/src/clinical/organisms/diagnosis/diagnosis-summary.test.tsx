@@ -36,7 +36,7 @@ describe('Diagnosis Summary', () => {
   describe('Display data source when present and displaySource is true', () => {
     it('Renders', () => {
       const condition = conditions[0]
-      condition!.metadata!.dataSources[0] = { display: 'Humber Teaching NHS Foundation Trust' }
+      condition.metadata.dataSources[0] = { display: 'Humber Teaching NHS Foundation Trust' }
 
       render(<DiagnosisSummary condition={condition} displaySource isReadOnly />)
 
@@ -47,7 +47,7 @@ describe('Diagnosis Summary', () => {
   describe('Hides data source when present and displaySource is false', () => {
     it('Renders', () => {
       const condition = conditions[0]
-      condition!.metadata!.dataSources[0] = { display: 'Humber Teaching NHS Foundation Trust' }
+      condition.metadata.dataSources[0] = { display: 'Humber Teaching NHS Foundation Trust' }
 
       render(<DiagnosisSummary condition={condition} displaySource={false} isReadOnly />)
 
