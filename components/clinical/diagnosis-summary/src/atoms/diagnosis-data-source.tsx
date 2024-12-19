@@ -12,17 +12,24 @@ const StyledConditionStatus = styled.div<IStyledDescription>`
   text-decoration: ${({ enteredInError }) => (enteredInError ? 'line-through' : 'none')};
 `
 
-const DiagnosisDataSource: FC<Props> = ({ condition, enteredInError, ...rest }) => {
+const extractDataSourceDisplayNames = (condition: Condition) => {
   const dataSourceDisplayNames: string[] = []
+  
   condition.metadata.dataSources.forEach((dataSource, _) => {
     if(dataSource?.display) {
       dataSourceDisplayNames.push(dataSource.display)
     }
-  }) 
+  })
+  
+  return dataSourceDisplayNames  
+}
 
+const DiagnosisDataSource: FC<Props> = ({ condition, enteredInError, ...rest }) => {
+  const dataSourceDisplayNames = extractDataSourceDisplayNames(condition)
+  
   return (
     <StyledConditionStatus enteredInError={enteredInError} {...rest}>
-      {dataSourceDisplayNames.length > 0 ? dataSourceDisplayNames.join(' - ') : ''}
+      {dataSourceDisplayNames.length > 0 ? dataSourceDisplayNames.join(', ') : ''}
     </StyledConditionStatus>
   )
 }
