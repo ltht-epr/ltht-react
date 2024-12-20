@@ -29,7 +29,7 @@ const DiagnosisDataSource: FC<Props> = ({ condition, enteredInError, ...rest }) 
 
   return (
     <StyledConditionStatus enteredInError={enteredInError} {...rest}>
-      {`Source: ${dataSourceDisplayNames}`}
+      {dataSourceDisplayNames ? `Source: ${dataSourceDisplayNames}` : `Source: Unknown`}
     </StyledConditionStatus>
   )
 }

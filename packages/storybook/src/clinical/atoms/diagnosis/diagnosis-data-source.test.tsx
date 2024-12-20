@@ -43,4 +43,12 @@ describe('Diagnosis Data Source', () => {
       'text-decoration: line-through'
     )
   })
+
+  it('renders data source as unknown if the diagnosis has no data source', () => {
+    condition.metadata.dataSources = []
+
+    render(<DiagnosisDataSource condition={condition} enteredInError={false} />)
+
+    expect(screen.getByText('Source: Unknown')).toBeVisible()
+  })
 })

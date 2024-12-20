@@ -721,11 +721,7 @@ const ConditionThree: Condition = {
   isEnteredInError: false,
   abatement: null,
   metadata: {
-    dataSources: [
-      {
-        display: 'Mock',
-      },
-    ],
+    dataSources: [],
     tag: [
       {
         system: 'https://leedsth.nhs.uk/cds/snippet-text',

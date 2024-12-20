@@ -42,6 +42,7 @@ export const Summary: Story = () => {
                 isReadOnly={false}
                 tags={tags}
                 controls={controls}
+                displaySource
               />
             )}
             {idx === 2 && <DiagnosisSummary condition={condition} isReadOnly={false} />}
