@@ -1,5 +1,6 @@
 import { FC, HTMLAttributes } from 'react'
 import styled from '@emotion/styled'
+import { titleCase } from '@ltht-react/utils'
 
 import { TEXT_COLOURS } from '@ltht-react/styles'
 import { Condition } from '@ltht-react/types'
@@ -11,16 +12,48 @@ const StyledConditionTitle = styled.div<IStyledDescription>`
   text-decoration: ${({ enteredInError }) => (enteredInError ? 'line-through' : 'none')};
 `
 
-const DiagnosisTitle: FC<Props> = ({ condition, enteredInError, ...rest }) => {
-  const snippetMetadataTag = condition?.metadata.tag?.find((coding) => coding?.system === SNIPPET_HOVER_TEXT)
-  const conditionCoding = condition?.code
+const DiagnosisTitle: FC<Props> = ({ condition, enteredInError }) => {
+  const snippetTagText = extractSnippetTagDisplayValue(condition)
 
-  return (
-    <StyledConditionTitle enteredInError={enteredInError} {...rest}>
-      {snippetMetadataTag?.display || conditionCoding?.text}
-    </StyledConditionTitle>
-  )
+  if (snippetTagText) {
+    return renderTitle(snippetTagText, enteredInError)
+  }
+
+  const conditionText = extractConditionOrFallbackText(condition)
+  const conditionStatusText = extractConditionStatusText(condition)
+  const title = conditionStatusText ? `${conditionText}, ${conditionStatusText}` : conditionText
+
+  return renderTitle(title, enteredInError)
 }
+
+const extractConditionOrFallbackText = (condition: Condition) => {
+  const codeText = condition?.code?.text
+  const codeDisplay = condition?.code?.coding?.find((coding) => coding?.display !== null)?.display
+  return titleCase(codeText ?? codeDisplay ?? 'Unknown Condition')
+}
+
+const extractConditionStatusText = (condition: Condition): string => {
+  const statusParts: string[] = []
+
+  if (condition?.clinicalStatus) {
+    statusParts.push(condition.clinicalStatus)
+  }
+
+  if (condition?.verificationStatus) {
+    statusParts.push(condition.verificationStatus)
+  }
+
+  const statusText = statusParts.length > 0 ? statusParts.join(', ') : ''
+
+  return titleCase(statusText)
+}
+
+const extractSnippetTagDisplayValue = (condition: Condition) =>
+  condition?.metadata.tag?.find((coding) => coding?.system === SNIPPET_HOVER_TEXT)?.display
+
+const renderTitle = (title: string, enteredInError: boolean) => (
+  <StyledConditionTitle enteredInError={enteredInError}>{title}</StyledConditionTitle>
+)
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   condition: Condition
