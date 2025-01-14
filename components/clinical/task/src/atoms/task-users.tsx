@@ -5,15 +5,7 @@ import Icon from '@ltht-react/icon'
 
 const StyledDescription = styled.small`
   color: ${TEXT_COLOURS.SECONDARY.VALUE};
-  flex: 1;
   margin-right: 0.5rem;
-`
-
-const StyledTextRow = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  text-align: left;
 `
 
 const StyledIcon = styled(Icon)`
@@ -21,20 +13,20 @@ const StyledIcon = styled(Icon)`
 `
 
 const Users: FC<IProps> = ({ user, users }) => (
-  <StyledTextRow>
+  <>
     {user && (
-      <span>
+      <div>
         <StyledIcon type="user" size="small" color="grey" />
         <StyledDescription>{user}</StyledDescription>
-      </span>
+      </div>
     )}
     {users && (
-      <span>
+      <div>
         <StyledIcon type="users" size="small" color="grey" />
         <StyledDescription>{users}</StyledDescription>
-      </span>
+      </div>
     )}
-  </StyledTextRow>
+  </>
 )
 
 interface IProps {

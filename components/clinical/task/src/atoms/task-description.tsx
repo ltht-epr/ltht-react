@@ -3,12 +3,13 @@ import styled from '@emotion/styled'
 import { Maybe } from '@ltht-react/types'
 
 const StyledDescription = styled.div<IStyledDescription>`
-  flex: 1;
   text-decoration: ${({ cancelled }) => (cancelled ? 'line-through' : 'none')};
 `
 
 const Description: FC<IProps> = ({ description, cancelled }) => {
-  if (description) return <StyledDescription cancelled={cancelled}>{description}</StyledDescription>
+  if (description) {
+    return <StyledDescription cancelled={cancelled}>{description}</StyledDescription>
+  }
 
   return null
 }
