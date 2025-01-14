@@ -43,15 +43,15 @@ const DiagnosisDetail: FC<Props> = ({ condition, links, viewType = DetailViewTyp
 
   return (
     <>
-      <TopSection>
-        {snippetMetadataTag && (
+      {snippetMetadataTag && (
+        <TopSection>
           <CodingDetail
             term="Diagnosis Summary"
             coding={snippetMetadataTag}
             fallbackMessage="Unable to calculate diagnosis summary"
           />
-        )}
-      </TopSection>
+        </TopSection>
+      )}
       <Separator />
       <CollapsibleDetailCollection viewType={viewType}>
         <CodeableConceptDetail term="Diagnosis / Condition" concept={condition.code} links={links} />
