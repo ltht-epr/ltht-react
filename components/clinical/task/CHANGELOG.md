@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.0.111 (2025-01-14)
+
+**Note:** Version bump only for package @ltht-react/task
+
 ## 2.0.110 (2025-01-14)
 
 **Note:** Version bump only for package @ltht-react/task
