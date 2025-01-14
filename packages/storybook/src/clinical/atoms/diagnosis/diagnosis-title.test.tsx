@@ -71,7 +71,7 @@ describe('Diagnosis Title', () => {
       expect(screen.getByText('Code Text')).toBeVisible()
     })
 
-    it('Displays first condition code display value if condition code text is not present', () => {
+    it('Displays a comma separated list of condition code display values when multiple code present', () => {
       const condition = getCondition({
         code: { coding: [{ display: 'Code Display 1' }, { display: 'Code Display 2' }] },
       })
