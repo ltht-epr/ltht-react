@@ -2,12 +2,91 @@ import { render, screen } from '@testing-library/react'
 import { PartialDateTimeKindCode } from '@ltht-react/types'
 import DiagnosisDetail from '@ltht-react/diagnosis-detail'
 import { conditions, NestedGroupWithDisplayExampleData } from './diagnosis.fixtures'
+import SNIPPET_HOVER_TEXT from '@ltht-react/diagnosis-detail/lib/constants'
 
 describe('Diagnosis Detail', () => {
   it('Renders', () => {
     render(<DiagnosisDetail condition={conditions[0]} />)
 
     expect(screen.getByText('Heel Pain')).toBeVisible()
+  })
+
+  it('Does not render diagnosis snippet when no matching system found', () => {
+    const levelOneData = {
+      ...conditions[0],
+      metadata: {
+        dataSources: [],
+        isRedacted: false,
+        requestedWhen: '',
+        tag: [
+          {
+            display: 'Confirmed, Heel Pain: Adenocarcinoma, no subtype, Active',
+          },
+        ],
+      },
+    }
+
+    render(<DiagnosisDetail condition={levelOneData} />)
+
+    expect(screen.queryByText('Diagnosis Summary')).toBeNull()
+    expect(screen.queryByText('Confirmed, Heel Pain: Adenocarcinoma, no subtype, Active')).toBeNull()
+  })
+
+  it('Does not render diagnosis snippet when system is matched but display is not present', () => {
+    const levelOneData = {
+      ...conditions[0],
+      metadata: {
+        dataSources: [],
+        isRedacted: false,
+        requestedWhen: '',
+        tag: [
+          {
+            system: SNIPPET_HOVER_TEXT,
+          },
+        ],
+      },
+    }
+
+    render(<DiagnosisDetail condition={levelOneData} />)
+
+    expect(screen.queryByText('Diagnosis Summary')).toBeNull()
+  })
+
+  it('Does not render diagnosis snippet when system is matched but display is empty', () => {
+    const levelOneData = {
+      ...conditions[0],
+      metadata: {
+        dataSources: [],
+        isRedacted: false,
+        requestedWhen: '',
+        tag: [
+          {
+            display: '',
+            system: SNIPPET_HOVER_TEXT,
+          },
+        ],
+      },
+    }
+
+    render(<DiagnosisDetail condition={levelOneData} />)
+
+    expect(screen.queryByText('Diagnosis Summary')).toBeNull()
+  })
+
+  it('Does not render diagnosis snippet when no tag is found', () => {
+    const levelOneData = {
+      ...conditions[0],
+      metadata: {
+        dataSources: [],
+        isRedacted: false,
+        requestedWhen: '',
+        tag: [],
+      },
+    }
+
+    render(<DiagnosisDetail condition={levelOneData} />)
+
+    expect(screen.queryByText('Diagnosis Summary')).toBeNull()
   })
 
   it('Renders all necessary data', () => {
