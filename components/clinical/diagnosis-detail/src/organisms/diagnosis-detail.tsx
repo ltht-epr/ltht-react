@@ -37,16 +37,20 @@ const DiagnosisDetail: FC<Props> = ({ condition, links, viewType = DetailViewTyp
     'https://fhir.leedsth.nhs.uk/ValueSet/diagnosis-onset-date-estimated-1'
   )
 
-  const snippetMetadataTag = condition?.metadata.tag?.find((coding) => coding?.system === SNIPPET_HOVER_TEXT)
+  const snippetMetadataTag = condition?.metadata.tag?.find(
+    (coding) => coding?.system === SNIPPET_HOVER_TEXT && coding?.display
+  )
 
   return (
     <>
       <TopSection>
-        <CodingDetail
-          term="Diagnosis Summary"
-          coding={snippetMetadataTag}
-          fallbackMessage="Unable to calculate diagnosis summary"
-        />
+        {snippetMetadataTag && (
+          <CodingDetail
+            term="Diagnosis Summary"
+            coding={snippetMetadataTag}
+            fallbackMessage="Unable to calculate diagnosis summary"
+          />
+        )}
       </TopSection>
       <Separator />
       <CollapsibleDetailCollection viewType={viewType}>
