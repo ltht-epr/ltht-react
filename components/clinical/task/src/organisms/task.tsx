@@ -14,7 +14,6 @@ const StyledTask = styled.div<IStyledTask>`
   display: flex;
   flex-direction: row;
   align-items: center;
-  min-height: 35px;
 
   ${({ status }) =>
     status === TaskStatusCode.Overdue &&
@@ -29,7 +28,6 @@ const StyledTask = styled.div<IStyledTask>`
 `
 
 const LeftSection = styled.div`
-  flex-basis: fit-content;
   flex-grow: 1;
   text-align: left;
   margin-right: 0.4rem;
@@ -38,14 +36,12 @@ const LeftSection = styled.div`
 const DisplayDueTime = styled.div``
 
 const RightSection = styled.div`
-  flex-basis: fit-content;
   text-align: right;
   margin-left: 0.1rem;
   min-width: 100px;
 `
 
 const ActionMenuSection = styled.div`
-  flex-basis: fit-content;
   text-align: right;
   margin-left: 0.6rem;
   min-width: 28px;
