@@ -1,6 +1,6 @@
 import { FC, HTMLAttributes } from 'react'
 import styled from '@emotion/styled'
-import { titleCase } from '@ltht-react/utils'
+import { titleCase, codeableConceptDisplaySummary } from '@ltht-react/utils'
 
 import { TEXT_COLOURS } from '@ltht-react/styles'
 import { Condition } from '@ltht-react/types'
@@ -26,26 +26,28 @@ const DiagnosisTitle: FC<Props> = ({ condition, enteredInError }) => {
   return renderTitle(title, enteredInError)
 }
 
-const extractConditionOrFallbackText = (condition: Condition) => {
-  const codeText = condition?.code?.text
-  const codeDisplay = condition?.code?.coding?.find((coding) => coding?.display !== null)?.display
-  return titleCase(codeText ?? codeDisplay ?? 'Unknown Condition')
+const extractConditionOrFallbackText = (condition: Condition): string => {
+  if (!condition?.code) {
+    return titleCase('Unknown Condition')
+  }
+
+  const diagnosisTitle = codeableConceptDisplaySummary(condition.code)
+
+  return titleCase(diagnosisTitle || 'Unknown Condition')
 }
 
 const extractConditionStatusText = (condition: Condition): string => {
   const statusParts: string[] = []
 
   if (condition?.clinicalStatus) {
-    statusParts.push(condition.clinicalStatus)
+    statusParts.push(condition?.clinicalStatus)
   }
 
   if (condition?.verificationStatus) {
     statusParts.push(condition.verificationStatus)
   }
 
-  const statusText = statusParts.length > 0 ? statusParts.join(', ') : ''
-
-  return titleCase(statusText)
+  return titleCase(statusParts.join(', '))
 }
 
 const extractSnippetTagDisplayValue = (condition: Condition) =>

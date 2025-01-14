@@ -51,9 +51,9 @@ describe('Diagnosis Title', () => {
   })
 
   describe('Snippet text when metadata tag missing', () => {
-    it('Displays condition code text when a condition display value is present', () => {
+    it('Displays condition code text when a condition display is missing', () => {
       const condition = getCondition({
-        code: { coding: [{ display: 'Code Display' }], text: 'Code Text' },
+        code: { coding: [], text: 'Code Text' },
       })
 
       render(<DiagnosisTitle condition={condition} enteredInError={false} />)
@@ -73,12 +73,12 @@ describe('Diagnosis Title', () => {
 
     it('Displays first condition code display value if condition code text is not present', () => {
       const condition = getCondition({
-        code: { coding: [{ display: 'Code Display' }] },
+        code: { coding: [{ display: 'Code Display 1' }, { display: 'Code Display 2' }] },
       })
 
       render(<DiagnosisTitle condition={condition} enteredInError={false} />)
 
-      expect(screen.getByText('Code Display')).toBeVisible()
+      expect(screen.getByText('Code Display 1, Code Display 2')).toBeVisible()
     })
 
     it('Displays unknown if both condition code text and display values are missing', () => {
