@@ -99,6 +99,17 @@ export const LevelOneDetail: Story = () => (
   </Card>
 )
 
+export const LevelOneDetailNoSnippet: Story = () => (
+  <Card>
+    <Card.Header>
+      <Card.Title style={{ textAlign: 'center' }}>Diagnosis</Card.Title>
+    </Card.Header>
+    <Card.Body>
+      <DiagnosisDetail condition={conditions[6]} links={CODABLE_CONCEPT_LINK_MAP} />
+    </Card.Body>
+  </Card>
+)
+
 export const LevelOneDetailsCollapsibleView: Story = () => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { viewType, toggle } = useDetailViewType()
