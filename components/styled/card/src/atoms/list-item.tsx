@@ -33,9 +33,10 @@ const StyledListItem = styled.li`
   border: 1px solid #d6d6d6;
   border-width: 1px 0 0 0;
   background: ${(props: Props): string => background(props)};
+  flex: 1 0 auto;
 
   .card__list-item-container {
-    flex: 1;
+    flex: 1 1 auto;
   }
 
   .card__list-item-selected&:before,
