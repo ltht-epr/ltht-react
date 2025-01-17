@@ -1332,7 +1332,7 @@ export type Ehr = {
   /** Guidance */
   guidance?: Maybe<Array<Maybe<Guidance>>>;
   /** Mapped Active Disorders */
-  mappedActiveDisorders: Array<Maybe<MappedActiveDisorder>>;
+  mappedActiveDisorders?: Maybe<Array<Maybe<MappedActiveDisorder>>>;
   /** Medication Detail */
   medication?: Maybe<MedicationRequest>;
   /** Medications */
@@ -1641,7 +1641,7 @@ export type EhrGuidanceArgs = {
 
 /** Queries the LTHT EHR. */
 export type EhrMappedActiveDisordersArgs = {
-  originalCodes?: Maybe<Array<Maybe<Scalars['String']>>>;
+  originalCodes: Array<Maybe<Scalars['String']>>;
 };
 
 
@@ -2974,10 +2974,14 @@ export type LypftCommunityTreatmentOrder = {
 
 /** The mapped active disorder represents a conversion of a terminology value e.g. a snomed code for one that is acceptable locally, this mapped code could be the same, a parent or a grandparent code */
 export type MappedActiveDisorder = {
+  /** Logical Id of the resource. */
+  id: Scalars['ID'];
   /** Mapped condition code */
   mappedCode: Scalars['String'];
   /** Mapped condition name */
   mappedName: Scalars['String'];
+  /** Metadata about the resource. */
+  metadata: Metadata;
   /** Original condition code used in lookup */
   originalCode: Scalars['String'];
   /** Original condition name used in lookup */
