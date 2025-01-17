@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.0.115 (2025-01-17)
+
+**Note:** Version bump only for package @ltht-react/storybook
+
 ## 2.0.114 (2025-01-15)
 
 **Note:** Version bump only for package @ltht-react/storybook
