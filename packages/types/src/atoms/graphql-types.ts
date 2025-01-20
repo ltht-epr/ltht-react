@@ -2499,8 +2499,8 @@ export type ExtensionInput = {
 };
 
 export enum FeatureInstance {
-  AssessmentRecordRelevantDiagnoses = 'ASSESSMENT_RECORD_RELEVANT_DIAGNOSES',
   AssessmentRecordExternalDiagnoses = 'ASSESSMENT_RECORD_EXTERNAL_DIAGNOSES',
+  AssessmentRecordRelevantDiagnoses = 'ASSESSMENT_RECORD_RELEVANT_DIAGNOSES',
   ClinicOutcomePointInTime = 'CLINIC_OUTCOME_POINT_IN_TIME',
   ClinicOutcomeRelevantDiagnoses = 'CLINIC_OUTCOME_RELEVANT_DIAGNOSES',
   DecisionContextAlwaysCreateEnabled = 'DECISION_CONTEXT_ALWAYS_CREATE_ENABLED',
