@@ -2519,6 +2519,7 @@ export enum FeatureInstance {
   SepsisAdultFullWorkflowEnabled = 'SEPSIS_ADULT_FULL_WORKFLOW_ENABLED',
   SepsisObservationsWidgetEnabled = 'SEPSIS_OBSERVATIONS_WIDGET_ENABLED',
   TaskTagFiltering = 'TASK_TAG_FILTERING',
+  WardRoundLabTestResultsEnabled = 'WARD_ROUND_LAB_TEST_RESULTS_ENABLED',
   YhcrDataProvider = 'YHCR_DATA_PROVIDER'
 }
 
