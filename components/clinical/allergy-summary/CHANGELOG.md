@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.0.120 (2025-01-29)
+
+**Note:** Version bump only for package @ltht-react/allergy-summary
+
 ## 2.0.119 (2025-01-22)
 
 **Note:** Version bump only for package @ltht-react/allergy-summary
