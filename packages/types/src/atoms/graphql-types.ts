@@ -877,6 +877,8 @@ export type ConditionContinuation = {
   firstCursorToken?: Maybe<Scalars['String']>;
   /** The next cursor token. */
   nextCursorToken?: Maybe<Scalars['String']>;
+  /** Additional data related to resources */
+  properties?: Maybe<StringDictionary>;
   /** The continuation of Condition resources. */
   resources: Array<Maybe<Condition>>;
   /** The self cursor token. */
@@ -1532,6 +1534,7 @@ export type EhrConditionsArgs = {
   cursorToken?: Maybe<Scalars['String']>;
   loadSpec?: Maybe<InstanceDataLoadSpecType>;
   patientGuid: Scalars['String'];
+  recommended?: Maybe<Scalars['Boolean']>;
   scopeId?: Maybe<Scalars['String']>;
   scopeName?: Maybe<Scalars['String']>;
   scopeType: ScopeType;
@@ -2360,6 +2363,7 @@ export enum EntityType {
   SelfClaim = 'SELF_CLAIM',
   Sepsis = 'SEPSIS',
   Spine = 'SPINE',
+  Spondyloarthritis = 'SPONDYLOARTHRITIS',
   SummaryViewPilot = 'SUMMARY_VIEW_PILOT',
   Surgery = 'SURGERY',
   Team = 'TEAM',
@@ -4177,6 +4181,19 @@ export enum SortOptionType {
   Alphabetical = 'ALPHABETICAL',
   MostRecent = 'MOST_RECENT'
 }
+
+/** A dictionary with string keys and string values. */
+export type StringDictionary = {
+  items?: Maybe<Array<Maybe<StringKeyValuePair>>>;
+};
+
+/** A key-value pair with string key and value. */
+export type StringKeyValuePair = {
+  /** The key of the pair. */
+  key: Scalars['String'];
+  /** The value of the pair. */
+  value: Scalars['String'];
+};
 
 /** Filter values used to filter summary view entries */
 export type SummaryViewFilter = {
