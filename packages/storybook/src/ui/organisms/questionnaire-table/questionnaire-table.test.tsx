@@ -283,7 +283,6 @@ describe('Questionnaire Table Methods', () => {
       'y',
       mockAdminActionsForForms
     )
-
     expect(JSON.stringify(result)).toEqual(JSON.stringify(expectedResultOfMappingWithHeadersOnYAxis))
   })
 

@@ -12,6 +12,23 @@ import {
   QuestionnaireResponse,
   QuestionnaireResponseStatus,
 } from '@ltht-react/types'
+import { CSSProperties } from 'react'
+
+const defaultVerticalHeaderCellStyle: CSSProperties = {
+  maxWidth: '15rem',
+  textWrap: 'wrap',
+  textAlign: 'left',
+}
+
+const normalVerticalHeaderCellStyle: CSSProperties = {
+  ...defaultVerticalHeaderCellStyle,
+  fontWeight: 'normal',
+}
+
+const boldVerticalHeaderCellStyle: CSSProperties = {
+  ...defaultVerticalHeaderCellStyle,
+  fontWeight: 'bold',
+}
 
 const withdrawnWrapper = (text: string): JSX.Element => <QuestionnaireWithdrawnTableCell text={text} />
 
@@ -314,7 +331,7 @@ export const expectedResultOfMappingWithHeadersOnYAxis: TableData = {
   ],
   rows: [
     {
-      property: { text: 'Actions' },
+      property: { text: 'Actions', parentStyle: defaultVerticalHeaderCellStyle },
       '1': {
         adminActions: [
           {
@@ -356,43 +373,52 @@ export const expectedResultOfMappingWithHeadersOnYAxis: TableData = {
       },
     },
     {
-      property: { text: 'Score' },
+      property: { text: 'Score', parentStyle: normalVerticalHeaderCellStyle },
       '1': { text: '5 NEWS' },
       '2': { text: '40 NEWS' },
       '3': { text: '17 NEWS' },
     },
     {
-      property: { text: 'Intervention' },
+      property: { text: 'Intervention', parentStyle: normalVerticalHeaderCellStyle },
       '1': { text: 'ICON' },
       '2': { text: 'ICON' },
       '3': { text: 'ICON' },
     },
     {
-      property: { text: 'Partial Indication' },
+      property: {
+        text: 'Partial Indication',
+        parentStyle: normalVerticalHeaderCellStyle,
+      },
       '1': { text: 'No' },
       '2': { text: 'Yes' },
       '3': { text: 'No' },
     },
     {
-      property: { text: 'Standard Observations' },
+      property: {
+        text: 'Standard Observations',
+        parentStyle: boldVerticalHeaderCellStyle,
+      },
       '1': { iconProps: { type: 'checkbox', size: 'medium' } },
       '2': { iconProps: { type: 'checkbox', size: 'medium' } },
       '3': { iconProps: { type: 'checkbox', size: 'medium' } },
       subRows: [
         {
-          property: { text: 'RR (breaths/min)' },
+          property: {
+            text: 'RR (breaths/min)',
+            parentStyle: boldVerticalHeaderCellStyle,
+          },
           '1': { text: '25' },
           '2': { text: '31' },
           '3': { text: '17' },
           subRows: [
             {
-              property: { text: 'RR Part 1 (breaths/min)' },
+              property: { text: 'RR Part 1 (breaths/min)', parentStyle: normalVerticalHeaderCellStyle },
               '1': { text: '25(1)' },
               '2': { text: '31(1)' },
               '3': { text: '17(1)' },
             },
             {
-              property: { text: 'RR Part 2 (breaths/min)' },
+              property: { text: 'RR Part 2 (breaths/min)', parentStyle: normalVerticalHeaderCellStyle },
               '1': { text: '25(2)' },
               '2': { text: '31(2)' },
               '3': { text: '17(2)' },
@@ -400,67 +426,67 @@ export const expectedResultOfMappingWithHeadersOnYAxis: TableData = {
           ],
         },
         {
-          property: { text: 'O2 Sat (%)' },
+          property: { text: 'O2 Sat (%)', parentStyle: normalVerticalHeaderCellStyle },
           '1': { text: '92 (Target 94-98 %)' },
           '2': { text: '81 (Target 94-98 %)' },
           '3': { text: '95 (Target 94-98 %)' },
         },
         {
-          property: { text: 'Supp O2' },
+          property: { text: 'Supp O2', parentStyle: normalVerticalHeaderCellStyle },
           '1': { text: '93' },
           '2': { text: '95' },
           '3': { text: '103' },
         },
         {
-          property: { text: 'Blood Pressure' },
+          property: { text: 'Blood Pressure', parentStyle: normalVerticalHeaderCellStyle },
           '1': { text: '144 / 122' },
           '2': { text: '160 / 140' },
           '3': { text: '125 / 115' },
         },
         {
-          property: { text: 'Standing 1 Minute BP' },
+          property: { text: 'Standing 1 Minute BP', parentStyle: normalVerticalHeaderCellStyle },
           '1': { text: '120' },
           '2': { text: '140' },
           '3': { text: '129' },
         },
         {
-          property: { text: 'Standing 3 Minute BP' },
+          property: { text: 'Standing 3 Minute BP', parentStyle: normalVerticalHeaderCellStyle },
           '1': { text: '143' },
           '2': { text: '132' },
           '3': { text: '123' },
         },
         {
-          property: { text: 'HR (BPM)' },
+          property: { text: 'HR (BPM)', parentStyle: normalVerticalHeaderCellStyle },
           '1': { text: '88' },
           '2': { text: '74' },
           '3': { text: '120' },
         },
         {
-          property: { text: 'Temp (°C)' },
+          property: { text: 'Temp (°C)', parentStyle: normalVerticalHeaderCellStyle },
           '1': { text: '37' },
           '2': { text: '64' },
           '3': { text: '23' },
         },
         {
-          property: { text: 'Consciousness' },
+          property: { text: 'Consciousness', parentStyle: normalVerticalHeaderCellStyle },
           '1': { text: 'Alert' },
           '2': { text: 'Alert' },
           '3': { text: 'Confusion' },
         },
         {
-          property: { text: 'Pain Score' },
+          property: { text: 'Pain Score', parentStyle: normalVerticalHeaderCellStyle },
           '1': { text: '8' },
           '2': { text: '3' },
           '3': { text: '5' },
         },
         {
-          property: { text: 'Blood Glucose (mmol/L)' },
+          property: { text: 'Blood Glucose (mmol/L)', parentStyle: normalVerticalHeaderCellStyle },
           '1': { text: '75' },
           '2': { text: '65' },
           '3': { text: '102' },
         },
         {
-          property: { text: 'Spine Pain (VAS)' },
+          property: { text: 'Spine Pain (VAS)', parentStyle: normalVerticalHeaderCellStyle },
           '1': { text: 'No' },
           '2': { text: '20.5' },
           '3': { text: '45' },
@@ -468,7 +494,7 @@ export const expectedResultOfMappingWithHeadersOnYAxis: TableData = {
       ],
     },
     {
-      property: { text: 'Average BASFI Score' },
+      property: { text: 'Average BASFI Score', parentStyle: normalVerticalHeaderCellStyle },
       '1': { text: '70.5' },
       '2': { text: 'Yes' },
       '3': { text: '12.5' },
@@ -489,7 +515,7 @@ export const expectedResultOfMappingWithHeadersOnWithdrawnYAxis: TableData = {
   ],
   rows: [
     {
-      property: { text: 'Actions' },
+      property: { text: 'Actions', parentStyle: defaultVerticalHeaderCellStyle },
       '1': {
         adminActions: [
           {
@@ -531,25 +557,28 @@ export const expectedResultOfMappingWithHeadersOnWithdrawnYAxis: TableData = {
       },
     },
     {
-      property: { text: 'Score' },
+      property: { text: 'Score', parentStyle: normalVerticalHeaderCellStyle },
       '1': { text: '5 NEWS' },
       '2': { text: '40 NEWS' },
       '3': { customComponentOverride: withdrawnWrapper('17 NEWS'), text: '17 NEWS' },
     },
     {
-      property: { text: 'Intervention' },
+      property: { text: 'Intervention', parentStyle: normalVerticalHeaderCellStyle },
       '1': { text: 'ICON' },
       '2': { text: 'ICON' },
       '3': { customComponentOverride: withdrawnWrapper('ICON'), text: 'ICON' },
     },
     {
-      property: { text: 'Partial Indication' },
+      property: { text: 'Partial Indication', parentStyle: normalVerticalHeaderCellStyle },
       '1': { text: 'No' },
       '2': { text: 'Yes' },
       '3': { customComponentOverride: withdrawnWrapper('No'), text: 'No' },
     },
     {
-      property: { text: 'Standard Observations' },
+      property: {
+        text: 'Standard Observations',
+        parentStyle: boldVerticalHeaderCellStyle,
+      },
       '1': { iconProps: { type: 'checkbox', size: 'medium' } },
       '2': { iconProps: { type: 'checkbox', size: 'medium' } },
       '3': {
@@ -557,19 +586,19 @@ export const expectedResultOfMappingWithHeadersOnWithdrawnYAxis: TableData = {
       },
       subRows: [
         {
-          property: { text: 'RR (breaths/min)' },
+          property: { text: 'RR (breaths/min)', parentStyle: boldVerticalHeaderCellStyle },
           '1': { text: '25' },
           '2': { text: '31' },
           '3': { customComponentOverride: withdrawnWrapper('17'), text: '17' },
           subRows: [
             {
-              property: { text: 'RR Part 1 (breaths/min)' },
+              property: { text: 'RR Part 1 (breaths/min)', parentStyle: normalVerticalHeaderCellStyle },
               '1': { text: '25(1)' },
               '2': { text: '31(1)' },
               '3': { customComponentOverride: withdrawnWrapper('17(1)'), text: '17(1)' },
             },
             {
-              property: { text: 'RR Part 2 (breaths/min)' },
+              property: { text: 'RR Part 2 (breaths/min)', parentStyle: normalVerticalHeaderCellStyle },
               '1': { text: '25(2)' },
               '2': { text: '31(2)' },
               '3': { customComponentOverride: withdrawnWrapper('17(2)'), text: '17(2)' },
@@ -577,67 +606,67 @@ export const expectedResultOfMappingWithHeadersOnWithdrawnYAxis: TableData = {
           ],
         },
         {
-          property: { text: 'O2 Sat (%)' },
+          property: { text: 'O2 Sat (%)', parentStyle: normalVerticalHeaderCellStyle },
           '1': { text: '92 (Target 94-98 %)' },
           '2': { text: '81 (Target 94-98 %)' },
           '3': { customComponentOverride: withdrawnWrapper('95 (Target 94-98 %)'), text: '95 (Target 94-98 %)' },
         },
         {
-          property: { text: 'Supp O2' },
+          property: { text: 'Supp O2', parentStyle: normalVerticalHeaderCellStyle },
           '1': { text: '93' },
           '2': { text: '95' },
           '3': { customComponentOverride: withdrawnWrapper('103'), text: '103' },
         },
         {
-          property: { text: 'Blood Pressure' },
+          property: { text: 'Blood Pressure', parentStyle: normalVerticalHeaderCellStyle },
           '1': { text: '144 / 122' },
           '2': { text: '160 / 140' },
           '3': { customComponentOverride: withdrawnWrapper('125 / 115'), text: '125 / 115' },
         },
         {
-          property: { text: 'Standing 1 Minute BP' },
+          property: { text: 'Standing 1 Minute BP', parentStyle: normalVerticalHeaderCellStyle },
           '1': { text: '120' },
           '2': { text: '140' },
           '3': { customComponentOverride: withdrawnWrapper('129'), text: '129' },
         },
         {
-          property: { text: 'Standing 3 Minute BP' },
+          property: { text: 'Standing 3 Minute BP', parentStyle: normalVerticalHeaderCellStyle },
           '1': { text: '143' },
           '2': { text: '132' },
           '3': { customComponentOverride: withdrawnWrapper('123'), text: '123' },
         },
         {
-          property: { text: 'HR (BPM)' },
+          property: { text: 'HR (BPM)', parentStyle: normalVerticalHeaderCellStyle },
           '1': { text: '88' },
           '2': { text: '74' },
           '3': { customComponentOverride: withdrawnWrapper('120'), text: '120' },
         },
         {
-          property: { text: 'Temp (°C)' },
+          property: { text: 'Temp (°C)', parentStyle: normalVerticalHeaderCellStyle },
           '1': { text: '37' },
           '2': { text: '64' },
           '3': { customComponentOverride: withdrawnWrapper('23'), text: '23' },
         },
         {
-          property: { text: 'Consciousness' },
+          property: { text: 'Consciousness', parentStyle: normalVerticalHeaderCellStyle },
           '1': { text: 'Alert' },
           '2': { text: 'Alert' },
           '3': { customComponentOverride: withdrawnWrapper('Confusion'), text: 'Confusion' },
         },
         {
-          property: { text: 'Pain Score' },
+          property: { text: 'Pain Score', parentStyle: normalVerticalHeaderCellStyle },
           '1': { text: '8' },
           '2': { text: '3' },
           '3': { customComponentOverride: withdrawnWrapper('5'), text: '5' },
         },
         {
-          property: { text: 'Blood Glucose (mmol/L)' },
+          property: { text: 'Blood Glucose (mmol/L)', parentStyle: normalVerticalHeaderCellStyle },
           '1': { text: '75' },
           '2': { text: '65' },
           '3': { customComponentOverride: withdrawnWrapper('102'), text: '102' },
         },
         {
-          property: { text: 'Spine Pain (VAS)' },
+          property: { text: 'Spine Pain (VAS)', parentStyle: normalVerticalHeaderCellStyle },
           '1': { text: 'No' },
           '2': { text: '20.5' },
           '3': { customComponentOverride: withdrawnWrapper('45'), text: '45' },
@@ -645,7 +674,7 @@ export const expectedResultOfMappingWithHeadersOnWithdrawnYAxis: TableData = {
       ],
     },
     {
-      property: { text: 'Average BASFI Score' },
+      property: { text: 'Average BASFI Score', parentStyle: normalVerticalHeaderCellStyle },
       '1': { text: '70.5' },
       '2': { text: 'Yes' },
       '3': { customComponentOverride: withdrawnWrapper('12.5'), text: '12.5' },

@@ -5,3 +5,4 @@ import { AdminActionsForQuestionnaire } from './organisms/questionnaire-table-me
 
 export default Table
 export { Header, TableData, DataEntity, CellProps, GenericTable, QuestionnaireTable, AdminActionsForQuestionnaire }
+export { default as mapQuestionnaireToTableData } from './organisms/questionnaire-table-methods'
