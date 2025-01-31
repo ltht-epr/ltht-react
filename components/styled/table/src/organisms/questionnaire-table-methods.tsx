@@ -248,7 +248,7 @@ const buildVerticalCellRowsRecursive = (
     }
 
     if (definitionItem.item && definitionItem.item.length > 0) {
-      updatedDataEntity.property = setBoldHeaderPropertyStyle(updatedDataEntity.property)
+      updatedDataEntity.property = setHeaderPropertyCellBoldFontStyle(updatedDataEntity.property)
       updatedDataEntity.subRows = buildVerticalCellRows(
         EnsureMaybeArray<QuestionnaireItem>(definitionItem.item),
         records
@@ -259,16 +259,13 @@ const buildVerticalCellRowsRecursive = (
   return updatedDataEntity
 }
 
-const setBoldHeaderPropertyStyle = (cell: CellProps): CellProps => {
-  if (!cell.parentStyle) cell.parentStyle = DEFAULT_VERTICAL_HEADER_CELL_STYLE
+const setHeaderPropertyCellBoldFontStyle = (cell: CellProps): CellProps => {
+  const cellProps = cell
+  if (!cellProps.parentStyle) cellProps.parentStyle = DEFAULT_VERTICAL_HEADER_CELL_STYLE
 
-  return {
-    ...cell,
-    parentStyle: {
-      ...cell.parentStyle,
-      fontWeight: 'bold',
-    },
-  }
+  cellProps.parentStyle.fontWeight = 'bold'
+
+  return cellProps
 }
 
 const getRecordItemByLinkId = (
