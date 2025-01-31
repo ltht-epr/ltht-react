@@ -15,7 +15,7 @@ import {
 import { CSSProperties } from 'react'
 
 const defaultVerticalHeaderCellStyle: CSSProperties = {
-  maxWidth: '10rem',
+  maxWidth: '15rem',
   textWrap: 'wrap',
   textAlign: 'left',
 }
