@@ -17,7 +17,7 @@ import { CellProps } from '../molecules/table-cell'
 import QuestionnaireWithdrawnTableCell from '../atoms/questionnaire-withdrawn-table-cell'
 
 const DEFAULT_VERTICAL_HEADER_CELL_STYLE: CSSProperties = {
-  maxWidth: '10rem',
+  maxWidth: '15rem',
   textWrap: 'wrap',
   textAlign: 'left',
 }
