@@ -255,9 +255,9 @@ const buildVerticalCellRowsRecursive = (
       })
     }
 
-    if (containsChildItems) {
+    if (definitionItem.item && definitionItem.item.length > 0) {
       updatedDataEntity.subRows = buildVerticalCellRows(
-        EnsureMaybeArray<QuestionnaireItem>(definitionItem.item!),
+        EnsureMaybeArray<QuestionnaireItem>(definitionItem.item),
         records
       )
     }
