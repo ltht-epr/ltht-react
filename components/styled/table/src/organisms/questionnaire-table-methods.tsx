@@ -233,7 +233,15 @@ const buildVerticalCellRowsRecursive = (
 ): DataEntity => {
   let updatedDataEntity = { ...dataEntity }
   definitionItems.forEach((definitionItem) => {
-    updatedDataEntity.property = { text: definitionItem.text ?? '', parentStyle: DEFAULT_VERTICAL_HEADER_CELL_STYLE }
+    const containsChildItems = !!definitionItem.item && definitionItem.item.length > 0
+
+    updatedDataEntity.property = {
+      text: definitionItem.text ?? '',
+      parentStyle: {
+        ...DEFAULT_VERTICAL_HEADER_CELL_STYLE,
+        fontWeight: containsChildItems ? 'bold' : 'normal',
+      },
+    }
 
     if (definitionItem.linkId) {
       records.forEach((record) => {
@@ -247,25 +255,15 @@ const buildVerticalCellRowsRecursive = (
       })
     }
 
-    if (definitionItem.item && definitionItem.item.length > 0) {
-      updatedDataEntity.property = setHeaderPropertyCellBoldFontStyle(updatedDataEntity.property)
+    if (containsChildItems) {
       updatedDataEntity.subRows = buildVerticalCellRows(
-        EnsureMaybeArray<QuestionnaireItem>(definitionItem.item),
+        EnsureMaybeArray<QuestionnaireItem>(definitionItem.item!),
         records
       )
     }
   })
 
   return updatedDataEntity
-}
-
-const setHeaderPropertyCellBoldFontStyle = (cell: CellProps): CellProps => {
-  const cellProps = cell
-  if (!cellProps.parentStyle) cellProps.parentStyle = DEFAULT_VERTICAL_HEADER_CELL_STYLE
-
-  cellProps.parentStyle.fontWeight = 'bold'
-
-  return cellProps
 }
 
 const getRecordItemByLinkId = (
