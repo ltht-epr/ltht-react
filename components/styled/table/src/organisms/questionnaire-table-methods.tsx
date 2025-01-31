@@ -1,3 +1,4 @@
+import { CSSProperties } from 'react'
 import { ActionMenuOption } from '@ltht-react/menu'
 import {
   Axis,
@@ -14,6 +15,12 @@ import { getZIndex, TableDataWithPopUp } from '@ltht-react/styles'
 import { DataEntity, Header, TableData } from '../molecules/table'
 import { CellProps } from '../molecules/table-cell'
 import QuestionnaireWithdrawnTableCell from '../atoms/questionnaire-withdrawn-table-cell'
+
+const DEFAULT_VERTICAL_HEADER_CELL_STYLE: CSSProperties = {
+  maxWidth: '10rem',
+  textWrap: 'wrap',
+  textAlign: 'left',
+}
 
 const withdrawnWrapper = (text: string): JSX.Element => <QuestionnaireWithdrawnTableCell text={text} />
 
@@ -199,7 +206,7 @@ const buildVerticalCellRows = (
 
   if (adminActions) {
     const actionsDataEntity: DataEntity = {}
-    actionsDataEntity.property = { text: 'Actions' }
+    actionsDataEntity.property = { text: 'Actions', parentStyle: DEFAULT_VERTICAL_HEADER_CELL_STYLE }
 
     records.forEach((record) => {
       const adminActionsForThisDataEntity = adminActions.find(
@@ -226,7 +233,7 @@ const buildVerticalCellRowsRecursive = (
 ): DataEntity => {
   let updatedDataEntity = { ...dataEntity }
   definitionItems.forEach((definitionItem) => {
-    updatedDataEntity.property = { text: definitionItem.text ?? '' }
+    updatedDataEntity.property = { text: definitionItem.text ?? '', parentStyle: DEFAULT_VERTICAL_HEADER_CELL_STYLE }
 
     if (definitionItem.linkId) {
       records.forEach((record) => {
@@ -241,6 +248,7 @@ const buildVerticalCellRowsRecursive = (
     }
 
     if (definitionItem.item && definitionItem.item.length > 0) {
+      updatedDataEntity.property = setBoldHeaderPropertyStyle(updatedDataEntity.property)
       updatedDataEntity.subRows = buildVerticalCellRows(
         EnsureMaybeArray<QuestionnaireItem>(definitionItem.item),
         records
@@ -249,6 +257,18 @@ const buildVerticalCellRowsRecursive = (
   })
 
   return updatedDataEntity
+}
+
+const setBoldHeaderPropertyStyle = (cell: CellProps): CellProps => {
+  if (!cell.parentStyle) cell.parentStyle = DEFAULT_VERTICAL_HEADER_CELL_STYLE
+
+  return {
+    ...cell,
+    parentStyle: {
+      ...cell.parentStyle,
+      fontWeight: 'bold',
+    },
+  }
 }
 
 const getRecordItemByLinkId = (
