@@ -912,7 +912,7 @@ export type ConditionMinimalInput = {
   id: Scalars['String'];
   identifier?: Maybe<Array<Maybe<IdentifierInputType>>>;
   note?: Maybe<Array<Maybe<AnnotationInput>>>;
-  onset?: Maybe<PartialDateTimeInput>;
+  onset?: Maybe<ConditionOnsetInput>;
   verificationStatus?: Maybe<ConditionVerificationStatus>;
 };
 
@@ -929,6 +929,20 @@ export type ConditionOnset = {
   extension?: Maybe<Array<Maybe<Extension>>>;
   period?: Maybe<Period>;
   range?: Maybe<Range>;
+  string?: Maybe<Scalars['String']>;
+};
+
+/** Estimated or actual date or date-time the condition began, in the opinion of the clinician. */
+export type ConditionOnsetInput = {
+  /** A duration of time during which an organism (or a process) has existed */
+  age?: Maybe<QuantityInput>;
+  /** A date, date-time or partial date as used in human communication */
+  dateTime?: Maybe<PartialDateTimeInput>;
+  /** A time period defined by a start and end date/time */
+  period?: Maybe<PeriodInputGraphType>;
+  /** A set of ordered Quantity values defined by a low and high limit. */
+  range?: Maybe<RangeInput>;
+  /** A sequence of Unicode characters */
   string?: Maybe<Scalars['String']>;
 };
 
@@ -3762,6 +3776,27 @@ export enum QuantityComparatorCode {
   LessThan = 'LESS_THAN'
 }
 
+export enum QuantityComparatorCodeInput {
+  GreaterOrEqualTo = 'GREATER_OR_EQUAL_TO',
+  GreaterThan = 'GREATER_THAN',
+  LessOrEqualTo = 'LESS_OR_EQUAL_TO',
+  LessThan = 'LESS_THAN'
+}
+
+/** A measured amount (or an amount that can potentially be measured). */
+export type QuantityInput = {
+  /** Coded form of the unit. */
+  code?: Maybe<Scalars['String']>;
+  /** < | <= | >= | > - how to understand the value. */
+  comparator?: Maybe<QuantityComparatorCodeInput>;
+  /** System that defines coded unit form. */
+  system?: Maybe<Scalars['String']>;
+  /** Unit representation. */
+  unit?: Maybe<Scalars['String']>;
+  /** yyyy-MM-dd'T'HH:mm:ss.FFFFFFFK, yyyy-MM-dd HH:mm:ss, yyyy-MM-dd, yyyy-MM, or yyyy. */
+  value?: Maybe<Scalars['Decimal']>;
+};
+
 export type Query = {
   /** EHR Platform (Data Provider) */
   ehr?: Maybe<Ehr>;
@@ -4035,6 +4070,14 @@ export type Range = {
   high?: Maybe<Quantity>;
   /** High limit. */
   low?: Maybe<Quantity>;
+};
+
+/** A set of ordered Quantity values defined by a low and high limit. */
+export type RangeInput = {
+  /** Low limit. */
+  high?: Maybe<QuantityInput>;
+  /** High limit. */
+  low?: Maybe<QuantityInput>;
 };
 
 /** A relationship between two Quantity values expressed as a numerator and a denominator. */
