@@ -906,6 +906,7 @@ export type ConditionEvidence = {
 
 export type ConditionMinimalInput = {
   assertedDate?: Maybe<PartialDateTimeInput>;
+  asserter?: Maybe<ResourceReferenceInputType>;
   clinicalStatus?: Maybe<ConditionClinicalStatus>;
   code: CodeableConceptInput;
   extension?: Maybe<Array<Maybe<ExtensionInput>>>;
@@ -4153,6 +4154,18 @@ export type ResourceReference = {
   reference?: Maybe<Scalars['String']>;
   /** Type the reference refers to (e.g. Patient. */
   typeName: Scalars['String'];
+};
+
+/** A reference from one resource to another. */
+export type ResourceReferenceInputType = {
+  /** Text alternative for the resource. */
+  display?: Maybe<Scalars['String']>;
+  /** Logical reference, when literal reference is not known. */
+  identifier?: Maybe<IdentifierInputType>;
+  /** Literal reference, Relative, internal or absolute URL. */
+  reference?: Maybe<Scalars['String']>;
+  /** Type the reference refers to (e.g. "Patient") - must be a resource in resources. */
+  typeName?: Maybe<Scalars['String']>;
 };
 
 /** Data that comes from a series of measurements taken by a device, which may have upper and lower limits. The data type also supports more than one dimension in the data. */
