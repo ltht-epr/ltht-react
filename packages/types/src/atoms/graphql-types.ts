@@ -212,6 +212,14 @@ export type Annotation = {
   time?: Maybe<PartialDateTime>;
 };
 
+/** A text note which also contains information about who made the statement and when. */
+export type AnnotationInput = {
+  /** The annotation - text content */
+  text: Scalars['String'];
+  /** When the annotation was made */
+  time?: Maybe<PartialDateTimeInput>;
+};
+
 /** A record of an event among a patient or practitioner for a specific date/time. */
 export type Appointment = {
   appointmentType?: Maybe<CodeableConcept>;
@@ -903,6 +911,8 @@ export type ConditionMinimalInput = {
   extension?: Maybe<Array<Maybe<ExtensionInput>>>;
   id: Scalars['String'];
   identifier?: Maybe<Array<Maybe<IdentifierInputType>>>;
+  note?: Maybe<Array<Maybe<AnnotationInput>>>;
+  onset?: Maybe<PartialDateTimeInput>;
   verificationStatus?: Maybe<ConditionVerificationStatus>;
 };
 
