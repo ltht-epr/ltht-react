@@ -27,6 +27,8 @@ const EForm: FC<Props> = ({ url, callback, checksum = 0, id, ...rest }) => {
 
   useLayoutEffect(() => {
     function handleEvent(event: MessageEvent): void {
+      if (iframeRef.current?.contentWindow !== event.source) return // Ignore messages from other iframes
+
       switch (event.data.eventType) {
         case 'form-cancelled':
         case 'form-closed':
