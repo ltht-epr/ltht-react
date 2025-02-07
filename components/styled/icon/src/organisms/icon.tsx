@@ -52,6 +52,10 @@ import {
   faUnlink,
   faLink,
   faLinkSlash,
+  faMinus,
+  faSquareMinus,
+  faCircleMinus,
+  faCircleXmark,
 } from '@fortawesome/free-solid-svg-icons'
 import { Transform } from '@fortawesome/fontawesome-svg-core'
 import CounterIcon from '../molecules/counter-icon'
@@ -334,6 +338,23 @@ const Icon: FC<IconProps> = ({
 
     case 'link-slash': {
       icon = faLinkSlash
+      break
+    }
+
+    case 'minus': {
+      icon = faMinus
+      break
+    }
+    case 'minus-square': {
+      icon = faSquareMinus
+      break
+    }
+    case 'minus-circle': {
+      icon = faCircleMinus
+      break
+    }
+    case 'cross-circle': {
+      icon = faCircleXmark
       break
     }
 

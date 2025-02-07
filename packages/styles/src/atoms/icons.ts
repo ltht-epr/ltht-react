@@ -60,6 +60,10 @@ export const iconTypes = [
   'link',
   'link-slash',
   'do-not-use!',
+  'minus',
+  'minus-square',
+  'minus-circle',
+  'cross-circle',
 ] as const
 
 export type IconType = (typeof iconTypes)[number]
