@@ -28,9 +28,15 @@ const StyledLink = styled.a`
   }
 `
 
-const CodeableConceptDetail: DetailViewComponent<IProps> = ({ term, concept, links = {}, showIfEmpty = false }) => {
+const CodeableConceptDetail: DetailViewComponent<IProps> = ({
+  term,
+  concept,
+  links = {},
+  showIfEmpty = false,
+  systemExclusionsFilter = [],
+}) => {
   if (concept || showIfEmpty === true) {
-    const displaySummary = codeableConceptDisplaySummary(concept)
+    const displaySummary = codeableConceptDisplaySummary(concept, systemExclusionsFilter)
     const linkUrl = links[displaySummary]
 
     return (
@@ -55,6 +61,7 @@ interface IProps extends IDetailViewProps {
   // TODO: Define 'links?' type once code link config implementation has been done
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   links?: any
+  systemExclusionsFilter?: string[]
 }
 
 export default CodeableConceptDetail

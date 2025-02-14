@@ -866,13 +866,7 @@ const ConditionFive: Condition = {
   bodySite: [],
   category: [],
   clinicalStatus: ConditionClinicalStatus.Active,
-  code: {
-    coding: [
-      { code: '3135009', display: 'Transient ischemic attack' },
-      { code: '62914000', display: 'Cerebrovascular disease', system: 'http://snomed.info/sct' },
-    ],
-    text: 'Transient ischemic attack',
-  },
+  code: { coding: [{ code: '3135009', display: 'Transient ischemic attack' }], text: 'Transient ischemic attack' },
   evidence: [],
   extensionData: null,
   id: 'R3|cce08927-b95b-4d16-89e7-f92bd7853058',

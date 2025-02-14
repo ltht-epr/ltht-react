@@ -2,7 +2,7 @@ import { CodeableConcept, Maybe } from '@ltht-react/types'
 
 const codeableConceptDisplaySummary = (
   codeableConcept: Maybe<CodeableConcept> = {},
-  codingSystemFilter?: string
+  systemExclusionsFilter?: string[]
 ): string => {
   const codings = codeableConcept?.coding || []
 
@@ -10,9 +10,12 @@ const codeableConceptDisplaySummary = (
   // An empty array, or array of codings that don't have the display property set will return empty string
   let display = codings.map((coding) => coding?.display).join(', ')
 
-  if (codingSystemFilter) {
-    const filteredCodings = codings.filter((coding) => coding?.system === codingSystemFilter)
-    display = filteredCodings.map((coding) => coding?.display).join(', ')
+  if (systemExclusionsFilter && systemExclusionsFilter.length > 0) {
+    const filteredCodings = codings.filter(
+      (coding) => !coding?.system || !systemExclusionsFilter.includes(coding.system)
+    )
+
+    display = filteredCodings.map((coding) => coding?.display ?? '').join(', ')
   }
 
   // Check to see if anything was generated, if not default to the concept's text or empty string if that doesnt exist
