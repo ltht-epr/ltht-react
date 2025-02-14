@@ -12,26 +12,26 @@ const StyledConditionTitle = styled.div<IStyledDescription>`
   text-decoration: ${({ enteredInError }) => (enteredInError ? 'line-through' : 'none')};
 `
 
-const DiagnosisTitle: FC<Props> = ({ condition, enteredInError, codingSystem }) => {
+const DiagnosisTitle: FC<Props> = ({ condition, enteredInError, codingSystemFilter }) => {
   const snippetTagText = extractSnippetTagDisplayValue(condition)
 
   if (snippetTagText) {
     return renderTitle(snippetTagText, enteredInError)
   }
 
-  const conditionText = extractConditionOrFallbackText(condition, codingSystem)
+  const conditionText = extractConditionOrFallbackText(condition, codingSystemFilter)
   const conditionStatusText = extractConditionStatusText(condition)
   const title = conditionStatusText ? `${conditionText}, ${conditionStatusText}` : conditionText
 
   return renderTitle(title, enteredInError)
 }
 
-const extractConditionOrFallbackText = (condition: Condition, codingSystem?: string): string => {
+const extractConditionOrFallbackText = (condition: Condition, codingSystemFilter?: string): string => {
   if (!condition?.code) {
     return titleCase('Unknown Condition')
   }
 
-  const diagnosisTitle = codeableConceptDisplaySummary(condition.code, codingSystem)
+  const diagnosisTitle = codeableConceptDisplaySummary(condition.code, codingSystemFilter)
 
   return titleCase(diagnosisTitle || 'Unknown Condition')
 }
@@ -60,7 +60,7 @@ const renderTitle = (title: string, enteredInError: boolean) => (
 interface Props extends HTMLAttributes<HTMLDivElement> {
   condition: Condition
   enteredInError: boolean
-  codingSystem?: string
+  codingSystemFilter?: string
 }
 
 interface IStyledDescription {

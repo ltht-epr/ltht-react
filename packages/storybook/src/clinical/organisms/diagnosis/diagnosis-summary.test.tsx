@@ -63,7 +63,7 @@ describe('Diagnosis Summary', () => {
           condition={condition}
           displaySource={false}
           isReadOnly
-          codingSystem="http://snomed.info/sct"
+          codingSystemFilter="http://snomed.info/sct"
         />
       )
 

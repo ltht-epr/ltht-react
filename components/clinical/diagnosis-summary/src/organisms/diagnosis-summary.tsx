@@ -105,7 +105,7 @@ const DiagnosisSummary: FC<Props> = ({
   displaySource = false,
   controls = [],
   tags = [],
-  codingSystem = '',
+  codingSystemFilter = '',
   ...rest
 }) => {
   if (condition.metadata.isRedacted) {
@@ -123,7 +123,7 @@ const DiagnosisSummary: FC<Props> = ({
       <StyledLeftContainer>
         <StyledDescription>
           <StyledTitle>
-            <Title enteredInError={enteredInError} condition={condition} codingSystem={codingSystem} />
+            <Title enteredInError={enteredInError} condition={condition} codingSystemFilter={codingSystemFilter} />
           </StyledTitle>
           {extensionTemplateDisplayName && !isReadOnly && canExtendDiagnosis && !enteredInError && (
             <IconButtonWrapper
@@ -184,7 +184,7 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
   tags?: ReactElement[]
   canExtendDiagnosis?: boolean
   extensionClickHandler?(): void
-  codingSystem?: string
+  codingSystemFilter?: string
 }
 
 export default DiagnosisSummary
