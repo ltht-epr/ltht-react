@@ -54,4 +54,29 @@ describe('Diagnosis Summary', () => {
       expect(screen.queryByText('Source: Humber Teaching NHS Foundation Trust')).toBeNull()
     })
   })
+
+  describe('Allow filtering by coding system for conditions displayed in summary', () => {
+    it('Renders only the text for the condition code with a system matching the provided coding system', () => {
+      const condition = conditions[2]
+      render(
+        <DiagnosisSummary
+          condition={condition}
+          displaySource={false}
+          isReadOnly
+          codingSystem="http://snomed.info/sct"
+        />
+      )
+
+      expect(screen.getByText('Cerebrovascular Disease, Active, Entered In Error')).toBeVisible()
+    })
+
+    it('Renders all condition code texts when no coding system is specified', () => {
+      const condition = conditions[2]
+      render(<DiagnosisSummary condition={condition} displaySource={false} isReadOnly />)
+
+      expect(
+        screen.getByText('Transient Ischemic Attack, Cerebrovascular Disease, Active, Entered In Error')
+      ).toBeVisible()
+    })
+  })
 })

@@ -35,6 +35,12 @@ describe('CodeableConceptText', () => {
       }
       expect(codeableConceptDisplaySummary(codeable)).toEqual('Test, Another')
     })
+    it('only displays codings that match the coding system if one is provided', () => {
+      const codeable: CodeableConcept = {
+        coding: [{ display: 'Test', system: 'http://coding.system' }, { display: 'Another' }],
+      }
+      expect(codeableConceptDisplaySummary(codeable, 'http://coding.system')).toEqual('Test')
+    })
   })
 
   describe('codeableConceptCodeSummary', () => {
