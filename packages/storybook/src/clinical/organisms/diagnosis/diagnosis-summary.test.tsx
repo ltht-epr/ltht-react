@@ -56,7 +56,7 @@ describe('Diagnosis Summary', () => {
   })
 
   describe('Allow filtering by coding system for conditions displayed in summary', () => {
-    it('Renders only the text for the condition code with a system matching the provided coding system', () => {
+    it('Filters out condition codes from the Diagnosis Summary text that match a given coding system to filter', () => {
       const condition = conditions[2]
       render(
         <DiagnosisSummary
@@ -67,10 +67,10 @@ describe('Diagnosis Summary', () => {
         />
       )
 
-      expect(screen.getByText('Cerebrovascular Disease, Active, Entered In Error')).toBeVisible()
+      expect(screen.getByText('Transient Ischemic Attack, Active, Entered In Error')).toBeVisible()
     })
 
-    it('Renders all condition code texts when no coding system is specified', () => {
+    it('Renders all condition code texts when no coding system filter is specified', () => {
       const condition = conditions[2]
       render(<DiagnosisSummary condition={condition} displaySource={false} isReadOnly />)
 

@@ -11,7 +11,7 @@ const codeableConceptDisplaySummary = (
   let display = codings.map((coding) => coding?.display).join(', ')
 
   if (codingSystemFilter) {
-    const filteredCodings = codings.filter((coding) => coding?.system === codingSystemFilter)
+    const filteredCodings = codings.filter((coding) => coding?.system !== codingSystemFilter)
     display = filteredCodings.map((coding) => coding?.display).join(', ')
   }
 
