@@ -1,11 +1,19 @@
 import { CodeableConcept, Maybe } from '@ltht-react/types'
 
-const codeableConceptDisplaySummary = (codeableConcept: Maybe<CodeableConcept> = {}): string => {
+const codeableConceptDisplaySummary = (
+  codeableConcept: Maybe<CodeableConcept> = {},
+  codingSystemFilter?: string
+): string => {
   const codings = codeableConcept?.coding || []
 
   // Get a list of codings if are available
   // An empty array, or array of codings that don't have the display property set will return empty string
   let display = codings.map((coding) => coding?.display).join(', ')
+
+  if (codingSystemFilter) {
+    const filteredCodings = codings.filter((coding) => coding?.system !== codingSystemFilter)
+    display = filteredCodings.map((coding) => coding?.display).join(', ')
+  }
 
   // Check to see if anything was generated, if not default to the concept's text or empty string if that doesnt exist
   if (display?.length === 0) {
