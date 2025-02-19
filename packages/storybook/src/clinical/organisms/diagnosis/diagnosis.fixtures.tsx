@@ -843,7 +843,16 @@ const ConditionFive: Condition = {
         display: 'Mock',
       },
     ],
-    tag: [],
+    tag: [
+      {
+        system: 'https://leedsth.nhs.uk/cds/snippet-text',
+        display: 'Entered In Error, Transient ischemic attack: Active',
+      },
+      {
+        system: 'https://leedsth.nhs.uk/cds/snippet-hover-text',
+        display: 'Entered In Error, Transient ischemic attack: Active',
+      },
+    ],
     isRedacted: false,
     requestedWhen: '',
   },
