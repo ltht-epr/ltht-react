@@ -54,4 +54,47 @@ describe('Diagnosis Summary', () => {
       expect(screen.queryByText('Source: Humber Teaching NHS Foundation Trust')).toBeNull()
     })
   })
+
+  describe('Allow filtering by coding system for conditions displayed in summary', () => {
+    it('Filters out condition codes from the Diagnosis Summary text that match a given coding system to filter', () => {
+      const condition = conditionWithMultipleConditionCodesAndNoSnippets()
+
+      const codingSystemExclusions = ['http://alternate-snomed-code']
+
+      render(
+        <DiagnosisSummary
+          condition={condition}
+          displaySource={false}
+          isReadOnly
+          systemExclusionsFilter={codingSystemExclusions}
+        />
+      )
+
+      expect(screen.getByText('Transient Ischemic Attack, Active, Entered In Error')).toBeVisible()
+    })
+
+    it('Renders all condition code texts when no coding system filter is specified', () => {
+      const condition = conditions[2]
+      render(<DiagnosisSummary condition={condition} displaySource={false} isReadOnly />)
+
+      expect(
+        screen.getByText('Transient Ischemic Attack, Cerebrovascular Disease, Active, Entered In Error')
+      ).toBeVisible()
+    })
+  })
+
+  const conditionWithMultipleConditionCodesAndNoSnippets = () => {
+    const condition = conditions[2]
+    condition.code = {
+      coding: [
+        { code: '3135009', display: 'Transient ischemic attack', system: 'http://snomed.info/sct' },
+        { code: '62914000', display: 'Cerebrovascular disease', system: 'http://alternate-snomed-code' },
+      ],
+      text: 'Transient ischemic attack',
+    }
+
+    condition.metadata.tag = []
+
+    return condition
+  }
 })
