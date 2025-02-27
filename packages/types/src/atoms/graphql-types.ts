@@ -2376,6 +2376,7 @@ export enum EntityType {
   Pathology = 'PATHOLOGY',
   Patient = 'PATIENT',
   PatientGroups = 'PATIENT_GROUPS',
+  PatientHistory = 'PATIENT_HISTORY',
   PatientProduct = 'PATIENT_PRODUCT',
   PatientTasks = 'PATIENT_TASKS',
   ProcedureNote = 'PROCEDURE_NOTE',
