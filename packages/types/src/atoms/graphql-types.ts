@@ -1372,6 +1372,8 @@ export type Ehr = {
   patientEpisodesOfCare?: Maybe<Array<Maybe<EpisodeOfCare>>>;
   /** Patient Group and Membership */
   patientGroup?: Maybe<Group>;
+  /** Patient History */
+  patientHistory?: Maybe<PatientHistoryContinuation>;
   /** Patient Search by Free Text */
   patientSearchByFreeText?: Maybe<PatientContinuationType>;
   /** Patient Search by Search Criteria */
@@ -1718,6 +1720,14 @@ export type EhrPatientEpisodesOfCareArgs = {
 export type EhrPatientGroupArgs = {
   groupNumber: Scalars['String'];
   groupType: Scalars['String'];
+};
+
+
+/** Queries the LTHT EHR. */
+export type EhrPatientHistoryArgs = {
+  count?: Maybe<Scalars['Int']>;
+  cursorToken?: Maybe<Scalars['String']>;
+  patientGuid: Scalars['String'];
 };
 
 
@@ -3422,6 +3432,46 @@ export type PatientDeceased = {
   elementId?: Maybe<Scalars['String']>;
   /** Additional content defined by implementations. */
   extension?: Maybe<Array<Maybe<Extension>>>;
+};
+
+/** The patient history resource represents the patient historic procedures comments by clinicians */
+export type PatientHistory = {
+  comment?: Maybe<Scalars['String']>;
+  created?: Maybe<PartialDateTime>;
+  /** Additional content defined by implementations. */
+  extension?: Maybe<Array<Maybe<Extension>>>;
+  /** The formatted comment of the patient history. */
+  formattedComment?: Maybe<Scalars['String']>;
+  /** Logical Id of the resource. */
+  id: Scalars['ID'];
+  /** An identifier for this patient. */
+  identifier?: Maybe<Array<Maybe<Identifier>>>;
+  /** Flag to state whether the resource should be displayed as entered in error in user interface */
+  isEnteredInError?: Maybe<Scalars['Boolean']>;
+  /** Metadata about the resource. */
+  metadata: Metadata;
+  patientName?: Maybe<HumanName>;
+  /** Who, What, When for a set of resources. */
+  provenance?: Maybe<Array<Provenance>>;
+  /** Text summary of the resource, for human interpretation. */
+  text?: Maybe<Narrative>;
+  /** The title of the patient history. */
+  title?: Maybe<Scalars['String']>;
+  updated?: Maybe<PartialDateTime>;
+};
+
+/** A continuation of PatientHistory resources. */
+export type PatientHistoryContinuation = {
+  /** The first cursor token. */
+  firstCursorToken?: Maybe<Scalars['String']>;
+  /** The next cursor token. */
+  nextCursorToken?: Maybe<Scalars['String']>;
+  /** The continuation of PatientHistory resources. */
+  resources: Array<Maybe<PatientHistory>>;
+  /** The self cursor token. */
+  selfCursorToken: Scalars['String'];
+  /** The total number of resources available (if known). */
+  totalResources?: Maybe<Scalars['Int']>;
 };
 
 /** Patient identifier. */
