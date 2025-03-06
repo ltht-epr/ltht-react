@@ -1,6 +1,6 @@
 {
   "name": "@ltht-react/flag-detail",
-  "version": "2.0.131",
+  "version": "2.0.132",
   "description": "ltht-react clinical FlagDetail component.",
   "author": "LTHT",
   "homepage": "",
@@ -28,11 +28,11 @@
   "dependencies": {
     "@emotion/react": "^11.0.0",
     "@emotion/styled": "^11.0.0",
-    "@ltht-react/button": "^2.0.131",
-    "@ltht-react/styles": "^2.0.131",
-    "@ltht-react/type-detail": "^2.0.131",
-    "@ltht-react/types": "^2.0.131",
-    "@ltht-react/utils": "^2.0.131",
+    "@ltht-react/button": "^2.0.132",
+    "@ltht-react/styles": "^2.0.132",
+    "@ltht-react/type-detail": "^2.0.132",
+    "@ltht-react/types": "^2.0.132",
+    "@ltht-react/utils": "^2.0.132",
     "react": "^18.2.0"
   },
   "gitHead": "4d364556bb11e294d86697c2dac66742f7aabc7f"
