@@ -33,6 +33,10 @@ const StyledLeftContainer = styled.div`
   flex-direction: row;
   gap: 0.3rem;
 
+  ${TABLET_ONLY_MEDIA_QUERY} {
+    flex-direction: column;
+  }
+
   ${MOBILE_MAXIMUM_MEDIA_QUERY} {
     flex-direction: column;
   }
