@@ -6,7 +6,12 @@ import { DateSummary } from '@ltht-react/type-summary'
 import Icon from '@ltht-react/icon'
 import { Button, ButtonProps } from '@ltht-react/button'
 
-import { BTN_COLOURS, MOBILE_MAXIMUM_MEDIA_QUERY, SMALL_SCREEN_MAXIMUM_MEDIA_QUERY } from '@ltht-react/styles'
+import {
+  BTN_COLOURS,
+  MOBILE_MAXIMUM_MEDIA_QUERY,
+  SMALL_SCREEN_MAXIMUM_MEDIA_QUERY,
+  TABLET_ONLY_MEDIA_QUERY,
+} from '@ltht-react/styles'
 import Title from '../atoms/diagnosis-title'
 import OnsetDateEstimated from '../atoms/diagnosis-onset-estimated'
 import Redacted from '../molecules/diagnosis-redacted'
@@ -39,6 +44,16 @@ const StyledResponsiveContainer = styled.div`
   gap: 0.3rem;
   align-items: center;
   justify-content: center;
+
+  ${TABLET_ONLY_MEDIA_QUERY} {
+    margin: 0;
+    flex-flow: row wrap;
+    justify-content: start;
+
+    & > * {
+      width: fit-content;
+    }
+  }
 
   ${MOBILE_MAXIMUM_MEDIA_QUERY} {
     margin: 0;
