@@ -27,8 +27,7 @@ const TopSection = styled.div`
 const Separator = styled.div`
   height: 1px;
   background: rgba(0, 0, 0, 0.125);
-  width: calc(100% + 12px);
-  margin: 1rem 0;
+  margin: 0.75rem -0.75rem 0 -0.75rem;
 `
 
 const DiagnosisDetail: FC<Props> = ({
