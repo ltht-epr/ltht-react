@@ -34,7 +34,13 @@ const StyledLeftContainer = styled.div`
   gap: 0.3rem;
 
   ${TABLET_ONLY_MEDIA_QUERY} {
-    flex-direction: column;
+    margin: 0;
+    flex-flow: row wrap;
+    justify-content: start;
+
+    & > * {
+      width: 80%;
+    }
   }
 
   ${MOBILE_MAXIMUM_MEDIA_QUERY} {
@@ -71,7 +77,7 @@ const StyledResponsiveContainer = styled.div`
 
   ${SMALL_SCREEN_MAXIMUM_MEDIA_QUERY} {
     margin: 0;
-    flex-direction: column wrap;
+    flex-direction: column;
 
     & > * {
       width: 100%;
@@ -84,6 +90,10 @@ const StyledResponsiveContainer = styled.div`
 const StyledButton = styled(Button)`
   font-size: 0.8em !important;
   padding: 1px 5px;
+
+  ${TABLET_ONLY_MEDIA_QUERY} {
+    width: fit-content;
+  }
 
   ${MOBILE_MAXIMUM_MEDIA_QUERY} {
     width: fit-content;
