@@ -5,8 +5,8 @@ import styled from '@emotion/styled'
 const StyledBody = styled.div`
   flex: 1 1 auto;
   min-height: 1px;
-  padding: 0.5rem 0.75rem 0.5rem 0;
-  margin: 0 0 0 0.75rem;
+  padding: 0.5rem 0.75rem;
+  margin: 0;
   border-top: 1px solid rgba(0, 0, 0, 0.125);
 `
 
