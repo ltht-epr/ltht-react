@@ -16,11 +16,10 @@ import { FC } from 'react'
 
 const TopSection = styled.div``
 
-const Seperator = styled.div`
+const Separator = styled.div`
   height: 1px;
   background: rgba(0, 0, 0, 0.125);
-  width: calc(100% + 12px);
-  margin: 1rem 0;
+  margin: 0.75rem -0.75rem 0 -0.75rem;
 `
 
 const MedicationDetail: FC<IProps> = ({ medication, viewType = DetailViewType.Compact }) => {
@@ -48,7 +47,7 @@ const MedicationDetail: FC<IProps> = ({ medication, viewType = DetailViewType.Co
         <StringDetail term="Status at Discharge" description={status} />
         <AnnotationListDetail term="Changes / Comments" notes={medication?.note} />
       </TopSection>
-      <Seperator />
+      <Separator />
       <CollapsibleDetailCollection viewType={viewType}>
         <CodeableConceptDetail term="Medication" concept={medication?.medicationReference?.code} />
         <NestedListDetail term="Dosage" className={medicationClasses}>

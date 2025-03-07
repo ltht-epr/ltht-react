@@ -25,11 +25,10 @@ const TopSection = styled.div`
   }
 `
 
-const Seperator = styled.div`
+const Separator = styled.div`
   height: 1px;
   background: rgba(0, 0, 0, 0.125);
-  width: calc(100% + 12px);
-  margin: 1rem 0;
+  margin: 0.75rem -0.75rem 0 -0.75rem;
 `
 
 const AllergyDetail: FC<Props> = ({ allergy, showDates = true, viewType = DetailViewType.Compact }) => (
@@ -38,7 +37,7 @@ const AllergyDetail: FC<Props> = ({ allergy, showDates = true, viewType = Detail
       <StringDetail term="Type" description={allergy.type?.toString()} />
       <CodingListDetail term="Data Source(s)" codings={allergy.metadata.dataSources} />
     </TopSection>
-    <Seperator />
+    <Separator />
     <CollapsibleDetailCollection viewType={viewType}>
       <StringDetail term="Category" description={allergy?.category?.toString()} />
       <CodeableConceptDetail term="Allergy" concept={allergy.code} />
