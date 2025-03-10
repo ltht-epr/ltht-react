@@ -1373,7 +1373,7 @@ export type Ehr = {
   /** Patient Group and Membership */
   patientGroup?: Maybe<Group>;
   /** Patient History */
-  patientHistory?: Maybe<PatientHistoryContinuation>;
+  patientHistory?: Maybe<PatientHistoryArticleContinuation>;
   /** Patient Search by Free Text */
   patientSearchByFreeText?: Maybe<PatientContinuationType>;
   /** Patient Search by Search Criteria */
@@ -3435,7 +3435,7 @@ export type PatientDeceased = {
 };
 
 /** The patient history resource represents the patient historic procedures comments by clinicians */
-export type PatientHistory = {
+export type PatientHistoryArticle = {
   comment?: Maybe<Scalars['String']>;
   created?: Maybe<PartialDateTime>;
   /** Additional content defined by implementations. */
@@ -3461,13 +3461,13 @@ export type PatientHistory = {
 };
 
 /** A continuation of PatientHistory resources. */
-export type PatientHistoryContinuation = {
+export type PatientHistoryArticleContinuation = {
   /** The first cursor token. */
   firstCursorToken?: Maybe<Scalars['String']>;
   /** The next cursor token. */
   nextCursorToken?: Maybe<Scalars['String']>;
   /** The continuation of PatientHistory resources. */
-  resources: Array<Maybe<PatientHistory>>;
+  resources: Array<Maybe<PatientHistoryArticle>>;
   /** The self cursor token. */
   selfCursorToken: Scalars['String'];
   /** The total number of resources available (if known). */
