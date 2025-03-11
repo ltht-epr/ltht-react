@@ -6,12 +6,7 @@ import { DateSummary } from '@ltht-react/type-summary'
 import Icon from '@ltht-react/icon'
 import { Button, ButtonProps } from '@ltht-react/button'
 
-import {
-  BTN_COLOURS,
-  MOBILE_MAXIMUM_MEDIA_QUERY,
-  SMALL_SCREEN_MAXIMUM_MEDIA_QUERY,
-  TABLET_ONLY_MEDIA_QUERY,
-} from '@ltht-react/styles'
+import { BTN_COLOURS, SMALL_SCREEN_MAXIMUM_MEDIA_QUERY, WIDESCREEN_MINIMUM_MEDIA_QUERY } from '@ltht-react/styles'
 import Title from '../atoms/diagnosis-title'
 import OnsetDateEstimated from '../atoms/diagnosis-onset-estimated'
 import Redacted from '../molecules/diagnosis-redacted'
@@ -30,83 +25,52 @@ const StyledDescription = styled.div`
 const StyledLeftContainer = styled.div`
   display: flex;
   flex-grow: 1;
-  flex-direction: row;
+  flex-direction: column;
   gap: 0.3rem;
 
-  ${TABLET_ONLY_MEDIA_QUERY} {
-    margin: 0;
-    flex-flow: row wrap;
-    justify-content: start;
-
-    & > * {
-      width: 80%;
-    }
-  }
-
-  ${MOBILE_MAXIMUM_MEDIA_QUERY} {
-    flex-direction: column;
+  ${WIDESCREEN_MINIMUM_MEDIA_QUERY} {
+    flex-direction: row;
   }
 `
 const StyledResponsiveContainer = styled.div`
   display: flex;
-  margin: 0 10px 0 10px;
-  flex-direction: column;
+  margin: 0;
+  flex-flow: row wrap;
   gap: 0.3rem;
-  align-items: center;
-  justify-content: center;
+  align-content: center;
 
-  ${TABLET_ONLY_MEDIA_QUERY} {
-    margin: 0;
-    flex-flow: row wrap;
-    justify-content: start;
-
-    & > * {
-      width: fit-content;
-    }
-  }
-
-  ${MOBILE_MAXIMUM_MEDIA_QUERY} {
-    margin: 0;
-    flex-flow: row wrap;
-    justify-content: start;
-
-    & > * {
-      width: fit-content;
-    }
+  ${WIDESCREEN_MINIMUM_MEDIA_QUERY} {
+    margin: 0 10px 0 10px;
   }
 
   ${SMALL_SCREEN_MAXIMUM_MEDIA_QUERY} {
     margin: 0;
     flex-direction: column;
+    align-content: flex-start;
 
     & > * {
       width: 100%;
-      max-width: 200px;
-      display: flex;
-      justify-content: center;
+      max-width: 10rem;
     }
   }
 `
+
 const StyledButton = styled(Button)`
-  font-size: 0.8em !important;
+  font-size: 0.8rem !important;
   padding: 1px 5px;
-
-  ${TABLET_ONLY_MEDIA_QUERY} {
-    width: fit-content;
-  }
-
-  ${MOBILE_MAXIMUM_MEDIA_QUERY} {
-    width: fit-content;
-  }
+  max-height: 1.5rem;
+  width: fit-content;
 
   ${SMALL_SCREEN_MAXIMUM_MEDIA_QUERY} {
     width: 100%;
-    max-width: 200px;
+    max-width: 10rem;
   }
 `
 const StyledDate = styled.div`
-  text-align: left;
-  width: 15%;
+  display: flex;
+  flex-flow: column nowrap;
+  text-align: right;
+  min-width: 6rem;
 `
 const IconButtonWrapper = styled(Button)`
   -webkit-box-align: center;
