@@ -2,11 +2,11 @@ import { Narrative } from '@ltht-react/types'
 import { DetailViewComponent, IDetailViewProps } from '../atoms/detail-view-component'
 import NestedListDetail from './nested-list-detail'
 
-const NarrativeDetail: DetailViewComponent<IProps> = ({ narrative, showIfEmpty = false }) => {
+const NarrativeDetail: DetailViewComponent<IProps> = ({ term, narrative, showIfEmpty = false }) => {
   if ((narrative && narrative.text.length > 0) || showIfEmpty === true) {
     return (
       <NestedListDetail
-        term="Text"
+        term={term || 'Text'}
         showIfEmpty={showIfEmpty}
         className={(narrative?.text ?? '').length > 150 ? 'narrative-detail--full-width' : 'narrative-detail'}
       >
@@ -18,6 +18,7 @@ const NarrativeDetail: DetailViewComponent<IProps> = ({ narrative, showIfEmpty =
 }
 
 interface IProps extends IDetailViewProps {
+  term?: string
   narrative?: Narrative | null
 }
 

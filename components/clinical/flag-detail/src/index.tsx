@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import styled from '@emotion/styled'
 import { DetailViewType, Flag } from '@ltht-react/types'
-import { getStringExtension } from '@ltht-react/utils'
+import { codeableConceptCodeSummary, getStringExtension } from '@ltht-react/utils'
 import { Button, ButtonProps } from '@ltht-react/button'
 import { MOBILE_MAXIMUM_MEDIA_QUERY, SMALL_SCREEN_MAXIMUM_MEDIA_QUERY } from '@ltht-react/styles'
 
@@ -61,11 +61,12 @@ const FlagDetail: FC<Props> = ({ flag, controls = [], viewType = DetailViewType.
 
   return (
     <CollapsibleDetailCollection viewType={viewType}>
-      <CodeableConceptDetail term="Code" concept={flag?.code} />
+      <StringDetail term="Code" description={codeableConceptCodeSummary(flag?.code)} />
+      <CodeableConceptDetail term="Name" concept={flag?.code} />
       <StringDetail term="Status" description={flag.status.toString()} />
       <CodeableConceptDetail term="Category" concept={flag?.category} />
       <PeriodDetail period={flag?.period} />
-      <NarrativeDetail narrative={flag?.text} />
+      <NarrativeDetail term="Description" narrative={flag?.text} />
       <StringDetail
         term="Advice"
         description={getStringExtension(flag?.extension, 'https://leedsth.nhs.uk/alert/advice')}
