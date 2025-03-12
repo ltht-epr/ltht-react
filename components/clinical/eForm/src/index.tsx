@@ -27,26 +27,26 @@ const EForm: FC<Props> = ({ url, callback, checksum = 0, id, ...rest }) => {
 
   useLayoutEffect(() => {
     function handleEvent(event: MessageEvent): void {
-      if (iframeRef.current?.contentWindow !== event.source) return // Ignore messages from other iframes
-
-      switch (event.data.eventType) {
-        case 'form-cancelled':
-        case 'form-closed':
-        case 'form-discarded':
-        case 'form-submitted':
+      const forwardFormsForHealthMessage = (event: MessageEvent) => {
+        if (
+          ['form-cancelled', 'form-closed', 'form-discarded', 'form-submitted', 'form-keep-alive'].includes(
+            event.data.eventType
+          )
+        ) {
           callback?.handler(callback.name, event)
-          break
-        case 'close-form':
+        }
+      }
+
+      const forwardParentMessage = (event: MessageEvent) => {
+        if (event.data.eventType === 'close-form' || event.data === 'parent:closing') {
           iframeRef.current?.contentWindow?.postMessage(event.data, '*')
-          break
-        case undefined:
-          if (event.data === 'parent:closing') {
-            break
-          }
-          iframeRef.current?.contentWindow?.postMessage(event.data, '*')
-          break
-        default:
-          break
+        }
+      }
+
+      if (event.source === iframeRef.current?.contentWindow) {
+        forwardFormsForHealthMessage(event)
+      } else if (event.source === window.top) {
+        forwardParentMessage(event)
       }
     }
 
