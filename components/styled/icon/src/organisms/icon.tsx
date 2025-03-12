@@ -42,6 +42,7 @@ import {
   faStar,
   faStop,
   faTable,
+  faThumbsUp,
   faToggleOn,
   faToggleOff,
   faTrashAlt,
@@ -56,6 +57,7 @@ import {
   faSquareMinus,
   faCircleMinus,
   faCircleXmark,
+  faThumbsDown,
 } from '@fortawesome/free-solid-svg-icons'
 import { Transform } from '@fortawesome/fontawesome-svg-core'
 import CounterIcon from '../molecules/counter-icon'
@@ -290,6 +292,16 @@ const Icon: FC<IconProps> = ({
     case 'table': {
       icon = faTable
       transform = { rotate: 180 }
+      break
+    }
+
+    case 'thumbs-down': {
+      icon = faThumbsDown
+      break
+    }
+
+    case 'thumbs-up': {
+      icon = faThumbsUp
       break
     }
 
