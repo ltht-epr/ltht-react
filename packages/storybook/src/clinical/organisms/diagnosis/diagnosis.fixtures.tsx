@@ -940,7 +940,6 @@ const controls: ButtonProps[] = [
     title: 'Description of the button action can go here!!!',
     styling: {
       buttonStyle: 'workflow',
-      padding: '20px',
     },
   },
   {
@@ -948,7 +947,6 @@ const controls: ButtonProps[] = [
     value: 'Control 2',
     styling: {
       buttonStyle: 'standard',
-      padding: '2px 10px',
     },
   },
   {
@@ -956,7 +954,6 @@ const controls: ButtonProps[] = [
     value: 'Control 3',
     styling: {
       buttonStyle: 'danger',
-      padding: '2px 10px',
     },
   },
   {
@@ -964,7 +961,6 @@ const controls: ButtonProps[] = [
     value: 'Control 4',
     styling: {
       buttonStyle: 'primary',
-      padding: '2px 10px',
     },
   },
   {
@@ -973,7 +969,6 @@ const controls: ButtonProps[] = [
     value: 'Control 5',
     styling: {
       buttonStyle: 'clear',
-      padding: '2px 10px',
     },
   },
 ]

@@ -11,6 +11,7 @@ const StyledOnsetEstimated = styled.div<IStyledDescription>`
   font-size: x-small;
   white-space: pre-wrap;
   display: inline-block;
+  text-align: right;
   text-decoration: ${({ enteredInError }) => (enteredInError ? 'line-through' : 'none')};
 `
 
@@ -22,7 +23,7 @@ const DiagnosisOnsetEstimated: FC<Props> = ({ condition, enteredInError, ...rest
 
   return (
     <StyledOnsetEstimated enteredInError={enteredInError} {...rest}>
-      {onsetDateEstimated ? ' (estimated)' : ''}
+      {onsetDateEstimated ? '(estimated)' : ''}
     </StyledOnsetEstimated>
   )
 }
