@@ -33,8 +33,23 @@ const FlagOne: Flag = {
     typeName: 'Practitioner',
     identifier: undefined,
   },
+  amendedBy: {
+    display: 'Smith, David (Dr)',
+    reference:
+      'https://phoenixqa.careworks.ie/Services/api/fhir/v3/practitioner/9c1ad2c0-ec34-e911-a2c5-005056926fe4|systemuser',
+    typeName: 'Practitioner',
+    identifier: undefined,
+  },
+  createdOn: {
+    value: '2013-01-01T15:26:26+00:00',
+    kind: PartialDateTimeKindCode.DateTime,
+  },
+  amendedOn: {
+    value: '2013-02-01T19:29:16+00:00',
+    kind: PartialDateTimeKindCode.DateTime,
+  },
   code: {
-    coding: [{ display: 'DNACPR', code: '109007' }],
+    coding: [{ display: 'DNACPR', code: 'DNACPR-CODE' }],
   },
   category: {
     coding: [

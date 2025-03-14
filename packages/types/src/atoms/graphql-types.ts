@@ -2579,12 +2579,18 @@ export type FeatureToggle = {
 
 /** Prospective warnings of potential issues when providing care to the patient. */
 export type Flag = {
+  /** Flag amended by. */
+  amendedBy?: Maybe<ResourceReference>;
+  /** Flag last amended datetime. */
+  amendedOn?: Maybe<PartialDateTime>;
   /** Flag creator. */
   author?: Maybe<ResourceReference>;
   /** http://hl7.org/fhir/stu3/valueset-flag-category.html */
   category?: Maybe<CodeableConcept>;
   /** http://hl7.org/fhir/stu3/valueset-flag-code.html */
   code: CodeableConcept;
+  /** Flag created datetime. */
+  createdOn?: Maybe<PartialDateTime>;
   /** Additional content defined by implementations. */
   extension?: Maybe<Array<Maybe<Extension>>>;
   /** Logical Id of the resource. */
@@ -3867,7 +3873,7 @@ export type Query = {
 
 export type QueryYhcrArgs = {
   dataSourceProfile?: Maybe<DataSourceProfile>;
-  reasonForAccess: ReasonForAccessCode;
+  reasonForAccess?: Maybe<ReasonForAccessCode>;
 };
 
 /** A structured set of questions intended to guide the collection of answers from end-users. Questionnaires provide detailed control over order, presentation, phraseology and grouping to allow coherent, consistent data collection. */
@@ -4598,6 +4604,7 @@ export type YhcrConditionArgs = {
 
 /** Queries the YHCR System-of-Systems. */
 export type YhcrConditionsArgs = {
+  clinicalStatusFilter?: Maybe<Array<Maybe<Scalars['String']>>>;
   nhsNumber: Scalars['String'];
 };
 

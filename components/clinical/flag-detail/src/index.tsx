@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import styled from '@emotion/styled'
 import { DetailViewType, Flag } from '@ltht-react/types'
-import { codeableConceptCodeSummary, getStringExtension } from '@ltht-react/utils'
+import { getStringExtension } from '@ltht-react/utils'
 import { Button, ButtonProps } from '@ltht-react/button'
 import { MOBILE_MAXIMUM_MEDIA_QUERY, SMALL_SCREEN_MAXIMUM_MEDIA_QUERY } from '@ltht-react/styles'
 
@@ -13,6 +13,7 @@ import {
   ResourceReferenceDetail,
   CollapsibleDetailCollectionProps,
   CollapsibleDetailCollection,
+  DatetimeDetail,
 } from '@ltht-react/type-detail'
 
 const StyledControlsContainer = styled.div`
@@ -46,6 +47,27 @@ const StyledButton = styled(Button)`
     max-width: 200px;
   }
 `
+const FullWidthSection = styled.div`
+  padding: 0.5rem 0 !important;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  gap: 1rem;
+
+  ${MOBILE_MAXIMUM_MEDIA_QUERY} {
+    flex-direction: column;
+  }
+
+  & > dl {
+    display: flex;
+    flex-direction: column;
+  }
+
+  & > div:last-child > dl {
+    text-align: right;
+  }
+`
 
 const FlagDetail: FC<Props> = ({ flag, controls = [], viewType = DetailViewType.Compact }) => {
   let buttons = <></>
@@ -61,7 +83,7 @@ const FlagDetail: FC<Props> = ({ flag, controls = [], viewType = DetailViewType.
 
   return (
     <CollapsibleDetailCollection viewType={viewType}>
-      <StringDetail term="Code" description={codeableConceptCodeSummary(flag?.code)} />
+      <CodeableConceptDetail term="Code" concept={flag?.code} displayCode />
       <CodeableConceptDetail term="Name" concept={flag?.code} />
       <StringDetail term="Status" description={flag.status.toString()} />
       <CodeableConceptDetail term="Category" concept={flag?.category} />
@@ -72,8 +94,17 @@ const FlagDetail: FC<Props> = ({ flag, controls = [], viewType = DetailViewType.
         description={getStringExtension(flag?.extension, 'https://leedsth.nhs.uk/alert/advice')}
         parse={false}
       />
+      <FullWidthSection>
+        <div>
+          <ResourceReferenceDetail term="Author" resourceReference={flag?.author} />
+          <DatetimeDetail term="Authored On" datetime={flag?.createdOn} />
+        </div>
+        <div>
+          <ResourceReferenceDetail term="Amended By" resourceReference={flag?.amendedBy} showIfEmpty={false} />
+          <DatetimeDetail term="Amended On" datetime={flag?.amendedOn} />
+        </div>
+      </FullWidthSection>
       {buttons}
-      <ResourceReferenceDetail term="Author" resourceReference={flag?.author} />
     </CollapsibleDetailCollection>
   )
 }

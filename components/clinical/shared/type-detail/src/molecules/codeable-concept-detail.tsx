@@ -2,7 +2,7 @@ import styled from '@emotion/styled'
 import { CodeableConcept } from '@ltht-react/types'
 import Icon from '@ltht-react/icon'
 import { LINK_COLOURS } from '@ltht-react/styles'
-import { codeableConceptDisplaySummary } from '@ltht-react/utils'
+import { codeableConceptCodeSummary, codeableConceptDisplaySummary } from '@ltht-react/utils'
 import DescriptionList from '@ltht-react/description-list'
 import { DetailViewComponent, IDetailViewProps } from '../atoms/detail-view-component'
 import NestedListDetail from './nested-list-detail'
@@ -34,9 +34,12 @@ const CodeableConceptDetail: DetailViewComponent<IProps> = ({
   links = {},
   showIfEmpty = false,
   systemExclusionsFilter = [],
+  displayCode = false,
 }) => {
   if (concept || showIfEmpty === true) {
-    const displaySummary = codeableConceptDisplaySummary(concept, systemExclusionsFilter)
+    const displaySummary = displayCode
+      ? codeableConceptCodeSummary(concept)
+      : codeableConceptDisplaySummary(concept, systemExclusionsFilter)
     const linkUrl = links[displaySummary]
 
     return (
@@ -62,6 +65,7 @@ interface IProps extends IDetailViewProps {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   links?: any
   systemExclusionsFilter?: string[]
+  displayCode?: boolean
 }
 
 export default CodeableConceptDetail
