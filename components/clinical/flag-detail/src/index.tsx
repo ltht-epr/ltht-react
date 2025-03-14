@@ -79,7 +79,7 @@ const TopSection = styled(FullWidthSection)`
 `
 const AuthorSection = styled(FullWidthSection)`
   ${TABLET_MINIMUM_MEDIA_QUERY} {
-    & > div:last-child > dl {
+    & > div:last-of-type > dl {
       text-align: right;
     }
   }
