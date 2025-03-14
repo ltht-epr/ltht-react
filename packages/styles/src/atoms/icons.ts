@@ -46,6 +46,8 @@ export const iconTypes = [
   'star',
   'stop',
   'table',
+  'thumbs-down',
+  'thumbs-up',
   'toggle-off',
   'toggle-on',
   'trash',
