@@ -3,7 +3,11 @@ import styled from '@emotion/styled'
 import { DetailViewType, Flag } from '@ltht-react/types'
 import { getStringExtension } from '@ltht-react/utils'
 import { Button, ButtonProps } from '@ltht-react/button'
-import { MOBILE_MAXIMUM_MEDIA_QUERY, SMALL_SCREEN_MAXIMUM_MEDIA_QUERY } from '@ltht-react/styles'
+import {
+  MOBILE_MAXIMUM_MEDIA_QUERY,
+  SMALL_SCREEN_MAXIMUM_MEDIA_QUERY,
+  TABLET_MINIMUM_MEDIA_QUERY,
+} from '@ltht-react/styles'
 
 import {
   CodeableConceptDetail,
@@ -63,9 +67,21 @@ const FullWidthSection = styled.div`
     display: flex;
     flex-direction: column;
   }
+`
 
-  & > div:last-child > dl {
-    text-align: right;
+const TopSection = styled(FullWidthSection)`
+  ${TABLET_MINIMUM_MEDIA_QUERY} {
+    & dl:last-of-type {
+      margin-top: 0;
+      text-align: right;
+    }
+  }
+`
+const AuthorSection = styled(FullWidthSection)`
+  ${TABLET_MINIMUM_MEDIA_QUERY} {
+    & > div:last-child > dl {
+      text-align: right;
+    }
   }
 `
 
@@ -83,10 +99,14 @@ const FlagDetail: FC<Props> = ({ flag, controls = [], viewType = DetailViewType.
 
   return (
     <CollapsibleDetailCollection viewType={viewType}>
-      <CodeableConceptDetail term="Code" concept={flag?.code} displayCode />
-      <CodeableConceptDetail term="Name" concept={flag?.code} />
-      <StringDetail term="Status" description={flag.status.toString()} />
-      <CodeableConceptDetail term="Category" concept={flag?.category} />
+      <TopSection>
+        <CodeableConceptDetail term="Code" concept={flag?.code} displayCode />
+        <CodeableConceptDetail term="Name" concept={flag?.code} />
+      </TopSection>
+      <TopSection>
+        <StringDetail term="Status" description={flag.status.toString()} />
+        <CodeableConceptDetail term="Category" concept={flag?.category} />
+      </TopSection>
       <PeriodDetail period={flag?.period} />
       <NarrativeDetail term="Description" narrative={flag?.text} />
       <StringDetail
@@ -94,7 +114,7 @@ const FlagDetail: FC<Props> = ({ flag, controls = [], viewType = DetailViewType.
         description={getStringExtension(flag?.extension, 'https://leedsth.nhs.uk/alert/advice')}
         parse={false}
       />
-      <FullWidthSection>
+      <AuthorSection>
         <div>
           <ResourceReferenceDetail term="Author" resourceReference={flag?.author} />
           <DatetimeDetail term="Authored On" datetime={flag?.createdOn} />
@@ -103,7 +123,7 @@ const FlagDetail: FC<Props> = ({ flag, controls = [], viewType = DetailViewType.
           <ResourceReferenceDetail term="Amended By" resourceReference={flag?.amendedBy} showIfEmpty={false} />
           <DatetimeDetail term="Amended On" datetime={flag?.amendedOn} />
         </div>
-      </FullWidthSection>
+      </AuthorSection>
       {buttons}
     </CollapsibleDetailCollection>
   )
