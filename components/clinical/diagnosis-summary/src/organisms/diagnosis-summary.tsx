@@ -6,59 +6,120 @@ import { DateSummary } from '@ltht-react/type-summary'
 import Icon from '@ltht-react/icon'
 import { Button, ButtonProps } from '@ltht-react/button'
 
-import { BTN_COLOURS, SMALL_SCREEN_MAXIMUM_MEDIA_QUERY, WIDESCREEN_MINIMUM_MEDIA_QUERY } from '@ltht-react/styles'
+import { BTN_COLOURS, SMALL_SCREEN_MAXIMUM_MEDIA_QUERY, TABLET_MINIMUM_MEDIA_QUERY } from '@ltht-react/styles'
 import Title from '../atoms/diagnosis-title'
 import OnsetDateEstimated from '../atoms/diagnosis-onset-estimated'
 import Redacted from '../molecules/diagnosis-redacted'
 import DiagnosisDataSource from '../atoms/diagnosis-data-source'
 
 const StyledTitle = styled.div`
-  display: inline-block;
+  display: flex;
 `
+
 const StyledSummary = styled.div`
   display: flex;
   justify-content: center;
+  flex-direction: column;
 `
+
 const StyledDescription = styled.div`
   flex-grow: 1;
 `
-const StyledLeftContainer = styled.div`
+
+const StyledTitleAndDateContainer = styled.div`
   display: flex;
   flex-grow: 1;
-  flex-direction: column;
-  gap: 0.3rem;
+  flex-direction: row;
+  gap: 5px;
 
-  ${WIDESCREEN_MINIMUM_MEDIA_QUERY} {
-    flex-direction: row;
+  ${SMALL_SCREEN_MAXIMUM_MEDIA_QUERY} {
+    flex-flow: column nowrap;
+    align-items: flex-start;
+    div {
+      text-align: left;
+    }
   }
 `
-const StyledResponsiveContainer = styled.div`
-  display: flex;
-  margin: 0;
-  flex-flow: row wrap;
-  gap: 0.3rem;
-  align-content: center;
 
-  ${WIDESCREEN_MINIMUM_MEDIA_QUERY} {
-    margin: 0 10px 0 10px;
+const StyledButtonAndTagContainer = styled.div`
+  display: flex;
+  flex-grow: 1;
+  flex-direction: row;
+  gap: 5px;
+  margin-top: 0.5rem;
+
+  ${SMALL_SCREEN_MAXIMUM_MEDIA_QUERY} {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+`
+
+const StyledResponsiveButtonContainer = styled.div`
+  display: flex;
+  margin-right: auto;
+  flex-flow: row wrap;
+  gap: 5px;
+  height: fit-content;
+  flex-grow: 1;
+
+  & > * {
+    height: 1.5rem;
+    padding: 0 5px;
+
+    ${TABLET_MINIMUM_MEDIA_QUERY} {
+      font-size: 0.9rem !important;
+    }
   }
 
   ${SMALL_SCREEN_MAXIMUM_MEDIA_QUERY} {
     margin: 0;
     flex-direction: column;
-    align-content: flex-start;
 
-    & > * {
+    span {
       width: 100%;
       max-width: 10rem;
     }
   }
 `
 
+const StyledResponsiveTagContainer = styled.div`
+  display: flex;
+  margin-left: auto;
+  flex-flow: row wrap;
+  gap: 5px;
+  height: fit-content;
+  justify-content: flex-end;
+  flex-grow: 1;
+
+  & > * {
+    display: flex;
+    align-items: center;
+    height: 1.5rem;
+    margin: 0 !important;
+    font-size: 0.8rem !important;
+    padding: 0 10px;
+    justify-content: center;
+
+    ${TABLET_MINIMUM_MEDIA_QUERY} {
+      font-size: 0.9rem !important;
+    }
+  }
+
+  ${SMALL_SCREEN_MAXIMUM_MEDIA_QUERY} {
+    flex-direction: column;
+    margin: 0;
+
+    & > * {
+      margin: 0;
+      width: 100%;
+      max-width: 10rem;
+      padding: 0 10px;
+    }
+  }
+`
+
 const StyledButton = styled(Button)`
-  font-size: 0.8rem !important;
-  padding: 1px 5px;
-  max-height: 1.5rem;
+  padding: 0 5px;
   width: fit-content;
 
   ${SMALL_SCREEN_MAXIMUM_MEDIA_QUERY} {
@@ -71,6 +132,7 @@ const StyledDate = styled.div`
   flex-flow: column nowrap;
   text-align: right;
   min-width: 6rem;
+  justify-content: start;
 `
 const IconButtonWrapper = styled(Button)`
   -webkit-box-align: center;
@@ -113,7 +175,7 @@ const DiagnosisSummary: FC<Props> = ({
 
   return (
     <StyledSummary {...rest}>
-      <StyledLeftContainer>
+      <StyledTitleAndDateContainer>
         <StyledDescription>
           <StyledTitle>
             <Title
@@ -121,51 +183,50 @@ const DiagnosisSummary: FC<Props> = ({
               condition={condition}
               systemExclusionsFilter={systemExclusionsFilter}
             />
-          </StyledTitle>
-          {extensionTemplateDisplayName && !isReadOnly && canExtendDiagnosis && !enteredInError && (
-            <IconButtonWrapper
-              onClick={extensionClickHandler}
-              type="button"
-              styling={{ buttonStyle: 'clear' }}
-              value=""
-              icon={<Icon type="folder-plus" size="medium" />}
-              iconPlacement="center"
-              iconColour={BTN_COLOURS.PRIMARY.VALUE}
-              title={`This diagnosis can be extended further using form '${extensionTemplateDisplayName}' by clicking here`}
-            />
-          )}
-          {extendedTemplateDisplayName && (
-            <IconWrapper>
-              <Icon
-                type="comment"
-                size="medium"
-                title={`This diagnosis has been extended beyond standard diagnosis with form '${extendedTemplateDisplayName}'.
-           To view these extra details, click into the full diagnosis detail or edit the existing form.`}
+            {extensionTemplateDisplayName && !isReadOnly && canExtendDiagnosis && !enteredInError && (
+              <IconButtonWrapper
+                onClick={extensionClickHandler}
+                type="button"
+                styling={{ buttonStyle: 'clear' }}
+                value=""
+                icon={<Icon type="folder-plus" size="medium" />}
+                iconPlacement="center"
+                iconColour={BTN_COLOURS.PRIMARY.VALUE}
+                title={`This diagnosis can be extended further using form '${extensionTemplateDisplayName}' by clicking here`}
               />
-            </IconWrapper>
-          )}
-
+            )}
+            {extendedTemplateDisplayName && (
+              <IconWrapper>
+                <Icon
+                  type="comment"
+                  size="medium"
+                  title={`This diagnosis has been extended beyond standard diagnosis with form '${extendedTemplateDisplayName}'.
+           To view these extra details, click into the full diagnosis detail or edit the existing form.`}
+                />
+              </IconWrapper>
+            )}
+          </StyledTitle>
           {displaySource && <DiagnosisDataSource condition={condition} enteredInError={enteredInError} />}
         </StyledDescription>
+        <StyledDate>
+          <DateSummary enteredInError={enteredInError} datetime={condition?.assertedDate} dateOnlyView={dateOnlyView} />
+          <OnsetDateEstimated enteredInError={enteredInError} condition={condition} />
+        </StyledDate>
+      </StyledTitleAndDateContainer>
 
-        {tags.length > 0 && (
-          <StyledResponsiveContainer>
-            {tags?.map((tag, index) => (tag.key ? tag : cloneElement(tag, { key: index })))}
-          </StyledResponsiveContainer>
-        )}
-
-        {!isReadOnly && controls.length > 0 && (
-          <StyledResponsiveContainer>
+      {!isReadOnly && (controls.length > 0 || tags.length > 0) && (
+        <StyledButtonAndTagContainer>
+          <StyledResponsiveButtonContainer>
             {controls.map((props, index) => (
               <StyledButton key={index} {...props} />
             ))}
-          </StyledResponsiveContainer>
-        )}
-      </StyledLeftContainer>
-      <StyledDate>
-        <DateSummary enteredInError={enteredInError} datetime={condition?.assertedDate} dateOnlyView={dateOnlyView} />
-        <OnsetDateEstimated enteredInError={enteredInError} condition={condition} />
-      </StyledDate>
+          </StyledResponsiveButtonContainer>
+
+          <StyledResponsiveTagContainer>
+            {tags?.map((tag, index) => (tag.key ? tag : cloneElement(tag, { key: index })))}
+          </StyledResponsiveTagContainer>
+        </StyledButtonAndTagContainer>
+      )}
     </StyledSummary>
   )
 }
