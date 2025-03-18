@@ -81,4 +81,4 @@ Your code must be reviewed and merged into `main`. A short while after this, an 
 
 ## GraphQL type generation
 
-GraphQL types can be updated by running `yarn run type:gen`. This assumes that you have the appropriate GraphQL endpoint up and running. Running ehr-client in mock mode is sufficient for this purpose.
+GraphQL types can be updated by running `yarn run type:gen`. This assumes that you have the appropriate GraphQL endpoint up and running. Running ehr-client in mock mode is sufficient for this purpose. 
