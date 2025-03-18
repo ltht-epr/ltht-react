@@ -46,7 +46,7 @@ const StyledButtonAndTagContainer = styled.div`
   flex-grow: 1;
   flex-direction: row;
   gap: 5px;
-  margin-top: 0.5rem;
+  margin-top: 5px;
 
   ${SMALL_SCREEN_MAXIMUM_MEDIA_QUERY} {
     flex-direction: row;
@@ -63,11 +63,11 @@ const StyledResponsiveButtonContainer = styled.div`
   flex-grow: 1;
 
   & > * {
-    height: 1.5rem;
+    height: 1.2rem;
     padding: 0 5px;
 
     ${TABLET_MINIMUM_MEDIA_QUERY} {
-      font-size: 0.9rem !important;
+      font-size: 0.8rem !important;
     }
   }
 
@@ -94,14 +94,14 @@ const StyledResponsiveTagContainer = styled.div`
   & > * {
     display: flex;
     align-items: center;
-    height: 1.5rem;
+    height: 1.2rem;
     margin: 0 !important;
     font-size: 0.8rem !important;
     padding: 0 10px;
     justify-content: center;
 
     ${TABLET_MINIMUM_MEDIA_QUERY} {
-      font-size: 0.9rem !important;
+      font-size: 0.8rem !important;
     }
   }
 
@@ -143,6 +143,7 @@ const IconButtonWrapper = styled(Button)`
   display: inline-block !important;
   margin-left: 0.5rem;
   width: auto;
+  padding: 0 5px;
 `
 const IconWrapper = styled.div`
   margin-left: 0.5rem;

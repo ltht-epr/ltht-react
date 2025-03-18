@@ -37,6 +37,7 @@ export const Summary: Story = () => {
             {idx === 1 && (
               <DiagnosisSummary
                 condition={condition}
+                canExtendDiagnosis
                 extensionTemplateDisplayName="Diagnosis Generic Cancer Level Two"
                 extensionClickHandler={clickHandler}
                 isReadOnly={false}
