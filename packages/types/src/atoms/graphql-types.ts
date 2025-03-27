@@ -2540,6 +2540,7 @@ export type ExtensionInput = {
 
 export enum FeatureInstance {
   AssessmentRecordExternalDiagnoses = 'ASSESSMENT_RECORD_EXTERNAL_DIAGNOSES',
+  AssessmentRecordLabTestResultsEnabled = 'ASSESSMENT_RECORD_LAB_TEST_RESULTS_ENABLED',
   AssessmentRecordRelevantDiagnoses = 'ASSESSMENT_RECORD_RELEVANT_DIAGNOSES',
   ClinicOutcomePointInTime = 'CLINIC_OUTCOME_POINT_IN_TIME',
   ClinicOutcomeRelevantDiagnoses = 'CLINIC_OUTCOME_RELEVANT_DIAGNOSES',
