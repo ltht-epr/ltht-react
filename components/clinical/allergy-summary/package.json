@@ -1,6 +1,6 @@
 {
   "name": "@ltht-react/allergy-summary",
-  "version": "2.0.147",
+  "version": "2.0.148",
   "description": "> TODO: description",
   "author": "Jonny Smith <jonny.asmith@gmail.com>",
   "homepage": "",
@@ -25,12 +25,12 @@
   "dependencies": {
     "@emotion/react": "^11.0.0",
     "@emotion/styled": "^11.0.0",
-    "@ltht-react/icon": "^2.0.147",
-    "@ltht-react/list": "^2.0.147",
-    "@ltht-react/styles": "^2.0.147",
-    "@ltht-react/type-summary": "^2.0.147",
-    "@ltht-react/types": "^2.0.147",
-    "@ltht-react/utils": "^2.0.147",
+    "@ltht-react/icon": "^2.0.148",
+    "@ltht-react/list": "^2.0.148",
+    "@ltht-react/styles": "^2.0.148",
+    "@ltht-react/type-summary": "^2.0.148",
+    "@ltht-react/types": "^2.0.148",
+    "@ltht-react/utils": "^2.0.148",
     "react": "^18.2.0"
   },
   "gitHead": "4d364556bb11e294d86697c2dac66742f7aabc7f"
