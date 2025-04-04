@@ -2291,6 +2291,7 @@ export enum EntityType {
   ChildrenSocialCare = 'CHILDREN_SOCIAL_CARE',
   Clinic = 'CLINIC',
   ClinicalAlerts = 'CLINICAL_ALERTS',
+  ClinicalNote = 'CLINICAL_NOTE',
   ClinicalTrial = 'CLINICAL_TRIAL',
   ClinicalTrialDocument = 'CLINICAL_TRIAL_DOCUMENT',
   ClinicOutcome = 'CLINIC_OUTCOME',
