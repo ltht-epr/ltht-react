@@ -36,6 +36,8 @@ const ScrollableContainer = styled.div<IScrollableContainer>`
 const StyledTable = styled.table`
   border-spacing: 0px;
   border-radius: 6px;
+  display: flex;
+  flex-direction: column;
 `
 const StyledTableHeader = styled.th<IStyledTableCell>`
   background-color: ${TABLE_COLOURS.HEADER};
