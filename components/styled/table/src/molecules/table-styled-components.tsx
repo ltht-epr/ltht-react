@@ -33,12 +33,17 @@ const ScrollableContainer = styled.div<IScrollableContainer>`
     border-radius: 10px;
   }
 `
-const StyledTable = styled.table`
+const StyledTable = styled.table<{ $flex?: boolean; }>`
   border-spacing: 0px;
   border-radius: 6px;
-  display: flex;
-  flex-direction: column;
+  ${(props: { flex: any }) =>
+    props.flex &&
+    `
+    display: flex;
+    flex-direction: column;
+  `}
 `
+
 const StyledTableHeader = styled.th<IStyledTableCell>`
   background-color: ${TABLE_COLOURS.HEADER};
   border: thin solid ${TABLE_COLOURS.BORDER};
