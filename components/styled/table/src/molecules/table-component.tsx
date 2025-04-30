@@ -15,7 +15,7 @@ import useDimensionsRef from './useDimensionRef'
 import { CellProps } from './table-cell'
 import { ITableConfig } from './table'
 
-const TableComponent = <T,>({ table, staticColumns = 0, headerAxis}: ITableHeadProps<T>): JSX.Element => {
+const TableComponent = <T,>({ table, staticColumns = 0, headerAxis }: ITableHeadProps<T>): JSX.Element => {
   const firstColumn = useRef(null)
   const secondColumn = useRef(null)
   const tableElement = useRef(null)
@@ -64,11 +64,11 @@ const TableComponent = <T,>({ table, staticColumns = 0, headerAxis}: ITableHeadP
       role="columnheader"
       {...(header.column.id !== 'expander'
         ? {
-          style: {
-            cursor: header.column.getCanSort() ? 'pointer' : '',
-          },
-          onClick: header.column.getToggleSortingHandler(),
-        }
+            style: {
+              cursor: header.column.getCanSort() ? 'pointer' : '',
+            },
+            onClick: header.column.getToggleSortingHandler(),
+          }
         : {})}
     >
       {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}

@@ -17,20 +17,18 @@ const setScrollableDisplay = (tableHeaderAxis: Axis, isFlex: boolean) => {
   if (isFlex) {
     return 'flex'
   }
-  else {
-    if(tableHeaderAxis == 'y') {
-      return 'inline-flex'
-    }
-    else {
-      return 'inline-block'
-    }    
+
+  if (tableHeaderAxis === 'y') {
+    return 'inline-flex'
   }
+
+  return 'inline-block'
 }
 
 const ScrollableContainer = styled.div<IScrollableContainer>`
   ${CSS_RESET};
   background-color: white;
-  ${({ tableHeaderAxis, maxWidth, maxHeight, isFlex}) => `
+  ${({ tableHeaderAxis, maxWidth, maxHeight, isFlex }) => `
     display: ${setScrollableDisplay(tableHeaderAxis, isFlex)}
     ${isFlex && 'flex-direction: column'}
     max-width: ${maxWidth ?? '100%'};
