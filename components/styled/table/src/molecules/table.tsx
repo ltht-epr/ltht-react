@@ -30,6 +30,7 @@ const Table: FC<IProps> = ({
   keepPreviousData = false,
   maxHeight,
   maxWidth,
+  isFlex = false,
   enableSorting = true,
   sortingFunctions = undefined,
 }) => {
@@ -101,7 +102,7 @@ const Table: FC<IProps> = ({
 
   return (
     <ScrollableContainer ref={scrollableDivElement} tableHeaderAxis={headerAxis} {...{ maxHeight, maxWidth }}>
-      <TableComponent table={table} staticColumns={staticColumns} headerAxis={headerAxis} />
+      <TableComponent table={table} staticColumns={staticColumns} headerAxis={headerAxis} isFlex={isFlex} />
       {manualPagination ? (
         <TableSpinner position={headerAxis === 'x' ? 'bottom' : 'right'} hidden={!isFetching} />
       ) : null}
@@ -139,6 +140,7 @@ export interface IPaginationProps {
 export interface ITableDimensionProps {
   maxWidth?: string
   maxHeight?: string
+  isFlex?: boolean
 }
 
 type DataEntity = Record<string, CellProps | DataEntity[]> & {
