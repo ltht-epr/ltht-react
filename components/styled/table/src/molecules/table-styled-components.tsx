@@ -13,11 +13,26 @@ import styled from '@emotion/styled'
 import Icon, { IconButton } from '@ltht-react/icon'
 import { Axis } from '@ltht-react/types'
 
+const setScrollableDisplay = (tableHeaderAxis: Axis, isFlex: boolean) => {
+  if (isFlex) {
+    return 'flex'
+  }
+  else {
+    if(tableHeaderAxis == 'y') {
+      return 'inline-flex'
+    }
+    else {
+      return 'inline-block'
+    }    
+  }
+}
+
 const ScrollableContainer = styled.div<IScrollableContainer>`
   ${CSS_RESET};
   background-color: white;
-  ${({ tableHeaderAxis, maxWidth, maxHeight }) => `
-    display: ${tableHeaderAxis === 'y' ? 'inline-flex' : 'inline-block'};
+  ${({ tableHeaderAxis, maxWidth, maxHeight, isFlex}) => `
+    display: ${setScrollableDisplay(tableHeaderAxis, isFlex)}
+    ${isFlex && 'flex-direction: column'}
     max-width: ${maxWidth ?? '100%'};
     max-height: ${maxHeight ?? '100%'};
   `}
@@ -34,11 +49,9 @@ const ScrollableContainer = styled.div<IScrollableContainer>`
   }
 `
 
-const StyledTable = styled.table<IStyledTable>`
+const StyledTable = styled.table`
   border-spacing: 0;
   border-radius: 6px;
-  ${({ isFlex }) => isFlex && 'display: flex'};
-  ${({ isFlex }) => isFlex && 'flex-direction: column'};
 `
 
 const StyledTableHeader = styled.th<IStyledTableCell>`
@@ -214,10 +227,7 @@ interface IScrollableContainer {
   tableHeaderAxis: Axis
   maxHeight?: string
   maxWidth?: string
-}
-
-interface IStyledTable {
-  isFlex?: boolean
+  isFlex: boolean
 }
 
 export {

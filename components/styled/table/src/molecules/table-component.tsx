@@ -15,7 +15,7 @@ import useDimensionsRef from './useDimensionRef'
 import { CellProps } from './table-cell'
 import { ITableConfig } from './table'
 
-const TableComponent = <T,>({ table, staticColumns = 0, headerAxis, isFlex }: ITableHeadProps<T>): JSX.Element => {
+const TableComponent = <T,>({ table, staticColumns = 0, headerAxis}: ITableHeadProps<T>): JSX.Element => {
   const firstColumn = useRef(null)
   const secondColumn = useRef(null)
   const tableElement = useRef(null)
@@ -76,7 +76,7 @@ const TableComponent = <T,>({ table, staticColumns = 0, headerAxis, isFlex }: IT
   )
 
   return (
-    <StyledTable ref={tableElement} isFlex={isFlex}>
+    <StyledTable ref={tableElement}>
       <StyledTHead>
         {table.getHeaderGroups().map((headerGroup) => (
           <tr key={headerGroup.id} role="row">
@@ -140,7 +140,6 @@ interface ITableSpinnerProps {
 
 interface ITableHeadProps<T> extends ITableConfig {
   table: Table<T>
-  isFlex?: boolean
 }
 
 export default TableComponent

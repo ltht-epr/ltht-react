@@ -101,8 +101,8 @@ const Table: FC<IProps> = ({
   }
 
   return (
-    <ScrollableContainer ref={scrollableDivElement} tableHeaderAxis={headerAxis} {...{ maxHeight, maxWidth }}>
-      <TableComponent table={table} staticColumns={staticColumns} headerAxis={headerAxis} isFlex={isFlex} />
+    <ScrollableContainer ref={scrollableDivElement} tableHeaderAxis={headerAxis} {...{ maxHeight, maxWidth }} isFlex={isFlex}>
+      <TableComponent table={table} staticColumns={staticColumns} headerAxis={headerAxis}/>
       {manualPagination ? (
         <TableSpinner position={headerAxis === 'x' ? 'bottom' : 'right'} hidden={!isFetching} />
       ) : null}
