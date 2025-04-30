@@ -33,15 +33,12 @@ const ScrollableContainer = styled.div<IScrollableContainer>`
     border-radius: 10px;
   }
 `
-const StyledTable = styled.table<{ $flex?: boolean; }>`
-  border-spacing: 0px;
+
+const StyledTable = styled.table<IStyledTable>`
+  border-spacing: 0;
   border-radius: 6px;
-  ${(props: { flex: any }) =>
-    props.flex &&
-    `
-    display: flex;
-    flex-direction: column;
-  `}
+  ${({ flex }) => flex && 'display: flex'};
+  ${({ flex }) => flex && 'flex-direction: column'};
 `
 
 const StyledTableHeader = styled.th<IStyledTableCell>`
@@ -217,6 +214,10 @@ interface IScrollableContainer {
   tableHeaderAxis: Axis
   maxHeight?: string
   maxWidth?: string
+}
+
+interface IStyledTable {
+  flex?: boolean
 }
 
 export {
