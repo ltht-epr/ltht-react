@@ -29,8 +29,8 @@ const ScrollableContainer = styled.div<IScrollableContainer>`
   ${CSS_RESET};
   background-color: white;
   ${({ tableHeaderAxis, maxWidth, maxHeight, isFlex }) => `
-    display: ${setScrollableDisplay(tableHeaderAxis, isFlex)}
-    ${isFlex && 'flex-direction: column'}
+    display: ${setScrollableDisplay(tableHeaderAxis, isFlex)};
+    ${isFlex && 'flex-direction: column'};
     max-width: ${maxWidth ?? '100%'};
     max-height: ${maxHeight ?? '100%'};
   `}
