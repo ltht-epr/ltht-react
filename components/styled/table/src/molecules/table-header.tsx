@@ -1,6 +1,6 @@
+import { forwardRef, Ref } from 'react'
 import { flexRender, Header as ReactTableHeader } from '@tanstack/react-table'
 import { StyledTableHeader } from './table-styled-components'
-import { forwardRef, Ref } from 'react'
 
 interface TableHeaderProps<TData, TValue> {
   header: ReactTableHeader<TData, TValue>
