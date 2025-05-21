@@ -1,6 +1,6 @@
 {
   "name": "@ltht-react/diagnosis-detail",
-  "version": "2.0.153",
+  "version": "2.0.154",
   "description": "ltht-react clinical ConditionDetail component.",
   "author": "LTHT",
   "homepage": "",
@@ -28,12 +28,12 @@
   "dependencies": {
     "@emotion/react": "^11.0.0",
     "@emotion/styled": "^11.0.0",
-    "@ltht-react/hooks": "^2.0.153",
-    "@ltht-react/questionnaire": "^2.0.153",
-    "@ltht-react/styles": "^2.0.153",
-    "@ltht-react/type-detail": "^2.0.153",
-    "@ltht-react/types": "^2.0.153",
-    "@ltht-react/utils": "^2.0.153",
+    "@ltht-react/hooks": "^2.0.154",
+    "@ltht-react/questionnaire": "^2.0.154",
+    "@ltht-react/styles": "^2.0.154",
+    "@ltht-react/type-detail": "^2.0.154",
+    "@ltht-react/types": "^2.0.154",
+    "@ltht-react/utils": "^2.0.154",
     "react": "^18.2.0"
   },
   "gitHead": "4d364556bb11e294d86697c2dac66742f7aabc7f"
