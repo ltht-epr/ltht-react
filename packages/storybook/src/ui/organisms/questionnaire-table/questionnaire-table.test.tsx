@@ -297,3 +297,24 @@ describe('Questionnaire Table Methods', () => {
     expect(JSON.stringify(result)).toEqual(JSON.stringify(expectedResultOfMappingWithHeadersOnWithdrawnYAxis))
   })
 })
+
+describe('Questionnaire Table with id prop', () => {
+  it('Renders with id prop', () => {
+    render(
+      <QuestionnaireTable
+        definition={summaryDefinition}
+        records={summaryRecordsList}
+        headerAxis="x"
+        id="questionnaire-table"
+      />
+    )
+
+    expect(screen.getByRole('table')).toHaveAttribute('id', 'questionnaire-table')
+  })
+
+  it('Renders without id prop', () => {
+    render(<QuestionnaireTable definition={summaryDefinition} records={summaryRecordsList} headerAxis="x" />)
+
+    expect(screen.getByRole('table')).not.toHaveAttribute('id')
+  })
+})

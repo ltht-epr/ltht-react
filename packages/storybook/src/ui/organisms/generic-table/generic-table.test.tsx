@@ -1,4 +1,4 @@
-import { render } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import Table, { GenericTable } from '@ltht-react/table'
 import { mockMapper, mockSummaryDefinition, mockSummaryRecordsList } from './generic-table.mockdata'
 
@@ -47,5 +47,28 @@ describe('Generic Table', () => {
     ).asFragment()
 
     expect(tableRenderedWithMapper).toEqual(tableRenderedWithTableData)
+  })
+})
+
+describe('Generic Table with id prop', () => {
+  it('Renders with id prop', () => {
+    render(
+      <GenericTable
+        columnData={mockSummaryDefinition}
+        rowData={mockSummaryRecordsList}
+        mapToTableData={mockMapper}
+        id="generic-table"
+      />
+    )
+
+    expect(screen.getByRole('table')).toHaveAttribute('id', 'generic-table')
+  })
+
+  it('Renders without id prop', () => {
+    render(
+      <GenericTable columnData={mockSummaryDefinition} rowData={mockSummaryRecordsList} mapToTableData={mockMapper} />
+    )
+
+    expect(screen.getByRole('table')).not.toHaveAttribute('id')
   })
 })

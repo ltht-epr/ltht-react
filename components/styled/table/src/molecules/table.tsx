@@ -1,4 +1,4 @@
-import { FC, useEffect, useMemo, useRef, useState } from 'react'
+import { FC, HTMLAttributes, useEffect, useMemo, useRef, useState } from 'react'
 import {
   getCoreRowModel,
   useReactTable,
@@ -33,6 +33,7 @@ const Table: FC<IProps> = ({
   isFlex = false,
   enableSorting = true,
   sortingFunctions = undefined,
+  ...rest
 }) => {
   const scrollableDivElement = useRef(null)
   const scrollState = useScrollRef(scrollableDivElement)
@@ -107,7 +108,7 @@ const Table: FC<IProps> = ({
       {...{ maxHeight, maxWidth }}
       isFlex={isFlex}
     >
-      <TableComponent table={table} staticColumns={staticColumns} headerAxis={headerAxis} />
+      <TableComponent table={table} staticColumns={staticColumns} headerAxis={headerAxis} {...rest} />
       {manualPagination ? (
         <TableSpinner position={headerAxis === 'x' ? 'bottom' : 'right'} hidden={!isFetching} />
       ) : null}
@@ -120,7 +121,7 @@ const Table: FC<IProps> = ({
   )
 }
 
-interface IProps extends ITableConfig, IPaginationProps, ITableDimensionProps {
+interface IProps extends ITableConfig, IPaginationProps, ITableDimensionProps, HTMLAttributes<HTMLTableElement> {
   tableData: TableData
 }
 

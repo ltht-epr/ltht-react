@@ -47,6 +47,7 @@ const QuestionnaireTable: FC<IProps> = ({
 }
 
 interface IProps extends ITableConfig, IPaginationProps, ITableDimensionProps {
+  id?: string
   definition: Questionnaire
   records: QuestionnaireResponse[]
   adminActions?: AdminActionsForQuestionnaire[]

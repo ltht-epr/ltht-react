@@ -1,6 +1,6 @@
 import Icon from '@ltht-react/icon'
 import { flexRender, Header as ReactTableHeader, Table } from '@tanstack/react-table'
-import React, { useMemo, useRef } from 'react'
+import { HTMLAttributes, useMemo, useRef } from 'react'
 import { calculateStaticColumnOffset } from './table-methods'
 import {
   StyledNextPageButtonContainer,
@@ -8,14 +8,14 @@ import {
   StyledTable,
   StyledTableRow,
   StyledTableData,
-  StyledTableHeader,
   StyledTHead,
 } from './table-styled-components'
 import useDimensionsRef from './useDimensionRef'
 import { CellProps } from './table-cell'
 import { ITableConfig } from './table'
+import TableHeader from './table-header'
 
-const TableComponent = <T,>({ table, staticColumns = 0, headerAxis }: ITableHeadProps<T>): JSX.Element => {
+const TableComponent = <T,>({ table, staticColumns = 0, headerAxis, ...rest }: ITableHeadProps<T>): JSX.Element => {
   const firstColumn = useRef(null)
   const secondColumn = useRef(null)
   const tableElement = useRef(null)
@@ -29,54 +29,28 @@ const TableComponent = <T,>({ table, staticColumns = 0, headerAxis }: ITableHead
   )
 
   const getHeaderColumn = <TData, TValue>(header: ReactTableHeader<TData, TValue>, headerIndex: number) => {
+    const stickyWidth = calculateStaticColumnOffset(
+      headerIndex,
+      totalStaticColumns,
+      firstColumnWidth,
+      secondColumnWidth
+    )
+    const headerProps = {
+      header,
+      stickyWidth,
+    }
     switch (headerIndex) {
       case 0:
-        return getHeaderElement(
-          header,
-          calculateStaticColumnOffset(headerIndex, totalStaticColumns, firstColumnWidth, secondColumnWidth),
-          firstColumn
-        )
+        return <TableHeader ref={firstColumn} {...headerProps} />
       case 1:
-        return getHeaderElement(
-          header,
-          calculateStaticColumnOffset(headerIndex, totalStaticColumns, firstColumnWidth, secondColumnWidth),
-          secondColumn
-        )
-
+        return <TableHeader ref={secondColumn} {...headerProps} />
       default:
-        return getHeaderElement(
-          header,
-          calculateStaticColumnOffset(headerIndex, totalStaticColumns, firstColumnWidth, secondColumnWidth)
-        )
+        return <TableHeader {...headerProps} />
     }
   }
 
-  const getHeaderElement = <TData, TValue>(
-    header: ReactTableHeader<TData, TValue>,
-    stickyWidth?: number,
-    elementRef?: React.MutableRefObject<null>
-  ) => (
-    <StyledTableHeader
-      stickyWidth={stickyWidth}
-      key={header.id}
-      colSpan={header.colSpan}
-      ref={elementRef}
-      role="columnheader"
-      {...(header.column.id !== 'expander'
-        ? {
-            style: {
-              cursor: header.column.getCanSort() ? 'pointer' : '',
-            },
-            onClick: header.column.getToggleSortingHandler(),
-          }
-        : {})}
-    >
-      {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
-    </StyledTableHeader>
-  )
-
   return (
-    <StyledTable ref={tableElement}>
+    <StyledTable ref={tableElement} {...rest}>
       <StyledTHead>
         {table.getHeaderGroups().map((headerGroup) => (
           <tr key={headerGroup.id} role="row">
@@ -138,7 +112,7 @@ interface ITableSpinnerProps {
   hidden: boolean
 }
 
-interface ITableHeadProps<T> extends ITableConfig {
+interface ITableHeadProps<T> extends ITableConfig, HTMLAttributes<HTMLTableElement> {
   table: Table<T>
 }
 

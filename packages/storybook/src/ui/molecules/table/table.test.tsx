@@ -364,3 +364,56 @@ describe('Table with infinite scroll pagination (y) [MANUAL]', () => {
     expect(mockNextPageHandler).toHaveBeenCalled()
   })
 })
+
+describe('Table renders correctly with HTML props', () => {
+  it('Renders with id', () => {
+    render(<Table tableData={mockTableData} id="my-table-id" />)
+    expect(screen.getByRole('table')).toBeVisible()
+    expect(screen.getByRole('table')).toHaveAttribute('id', 'my-table-id')
+  })
+
+  it('Renders with className', () => {
+    render(<Table tableData={mockTableData} className="my-table-class" />)
+    expect(screen.getByRole('table')).toBeVisible()
+    expect(screen.getByRole('table')).toHaveClass('my-table-class')
+  })
+
+  it('Renders with data attributes', () => {
+    render(<Table tableData={mockTableData} data-qa="my-table-data" />)
+    expect(screen.getByRole('table')).toBeVisible()
+    expect(screen.getByRole('table')).toHaveAttribute('data-qa', 'my-table-data')
+  })
+
+  it('Renders with role', () => {
+    render(<Table tableData={mockTableData} role="my-table-role" />)
+    expect(screen.getByRole('my-table-role')).toBeVisible()
+  })
+
+  it('Renders with aria-label', () => {
+    render(<Table tableData={mockTableData} aria-label="my-table-aria-label" />)
+    expect(screen.getByRole('table')).toBeVisible()
+    expect(screen.getByRole('table')).toHaveAttribute('aria-label', 'my-table-aria-label')
+  })
+
+  it('Renders with style', () => {
+    render(<Table tableData={mockTableData} style={{ backgroundColor: 'red' }} />)
+    expect(screen.getByRole('table')).toBeVisible()
+    expect(screen.getByRole('table')).toHaveStyle({ backgroundColor: 'red' })
+  })
+
+  it('Renders with onClick', () => {
+    const handleClick = jest.fn()
+    render(<Table tableData={mockTableData} onClick={handleClick} />)
+    expect(screen.getByRole('table')).toBeVisible()
+    fireEvent.click(screen.getByRole('table'))
+    expect(handleClick).toHaveBeenCalled()
+  })
+
+  it('Renders with onMouseEnter', () => {
+    const handleMouseEnter = jest.fn()
+    render(<Table tableData={mockTableData} onMouseEnter={handleMouseEnter} />)
+    expect(screen.getByRole('table')).toBeVisible()
+    fireEvent.mouseEnter(screen.getByRole('table'))
+    expect(handleMouseEnter).toHaveBeenCalled()
+  })
+})
