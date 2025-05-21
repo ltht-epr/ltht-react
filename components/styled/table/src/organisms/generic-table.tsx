@@ -25,6 +25,7 @@ const GenericTable = <TColumn, TRow>({
 }
 
 interface IProps<TColumn, TRow> extends ITableConfig, IPaginationProps, ITableDimensionProps {
+  id?: string
   columnData: TColumn
   rowData: TRow
   mapToTableData: (colData: TColumn, rowData: TRow) => TableData
