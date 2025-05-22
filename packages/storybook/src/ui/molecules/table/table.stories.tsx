@@ -117,7 +117,7 @@ export const TableWithManualPaginationAndInfiniteScroll: Story = () => {
     setTimeout(() => {
       setIsFetching(false)
       setData(getPaginatedData(pageIndex, pageSize))
-    }, 500)
+    }, 1000)
   }, [pageIndex, pageSize])
 
   const nextPage = () => {

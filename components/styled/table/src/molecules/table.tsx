@@ -84,27 +84,18 @@ const Table: FC<IProps> = ({
     ...(!manualPagination ? { onPaginationChange: setPagination } : {}),
   })
 
+  const getNextPage = () => (manualPagination ? nextPage() : table.nextPage())
+  const hasNextPage = () => (manualPagination ? getCanNextPage() : table.getCanNextPage())
+
   useEffect(() => {
-    if (!scrollState) {
+    if (!scrollState || !infiniteScrollEnabled || isFetching) {
       return
     }
 
-    const props = manualPagination
-      ? { getCanNextPage, nextPage }
-      : { getCanNextPage: table.getCanNextPage, nextPage: table.nextPage }
+    handleScrollEvent({ getCanNextPage: hasNextPage, nextPage: getNextPage }, headerAxis, scrollState)
 
-    if (infiniteScrollEnabled) {
-      handleScrollEvent(props, headerAxis, scrollState)
-    }
-  }, [scrollState, table, headerAxis, manualPagination])
-
-  const getNextPage = () => {
-    if (manualPagination) {
-      nextPage()
-    } else {
-      table.nextPage()
-    }
-  }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [scrollState])
 
   return (
     <ScrollableContainer
