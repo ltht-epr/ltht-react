@@ -1,4 +1,4 @@
-import { ColumnDef, ColumnHelper, createColumnHelper, HeaderContext, Table } from '@tanstack/react-table'
+import { ColumnDef, ColumnHelper, createColumnHelper, HeaderContext } from '@tanstack/react-table'
 import { IconProps } from '@ltht-react/icon'
 import { Axis } from '@ltht-react/types'
 import React from 'react'

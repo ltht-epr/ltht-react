@@ -236,7 +236,7 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
   condition: Condition
   extendedTemplateDisplayName?: string | undefined
   extensionTemplateDisplayName?: string | undefined
-  isReadOnly: boolean
+  isReadOnly?: boolean
   dateOnlyView?: boolean
   displaySource?: boolean
   controls?: ButtonProps[]

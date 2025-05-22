@@ -12,10 +12,7 @@ export const MenuWithCustomIcon: Story = () => (
 )
 
 export const MenuWithColouredCustomIcon: Story = () => (
-  <ActionMenu
-    actions={mockActions}
-    menuButtonOptions={{ type: 'icon', iconProps: { type: 'cross', size: 'large', status: 'red' } }}
-  />
+  <ActionMenu actions={mockActions} menuButtonOptions={{ type: 'icon', iconProps: { type: 'cross', size: 'large' } }} />
 )
 
 export const MenuWithButton: Story = () => (

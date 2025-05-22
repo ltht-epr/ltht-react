@@ -77,12 +77,14 @@ describe('Component overrride', () => {
 })
 
 describe('Table with infinite scroll pagination (x)', () => {
-  it('navigates to next page using the scroll when scroll is available', () => {
+  it('navigates to next page using the scroll when scroll is available', async () => {
     render(
-      <div style={{ maxHeight: '200px' }}>
+      <div style={{ height: '200px' }}>
         <Table tableData={mockTableDataForPagination} infiniteScrollEnabled />
       </div>
     )
+
+    await screen.findByRole('table')
 
     expect(screen.getAllByRole('row').length).toEqual(31)
 
@@ -99,7 +101,7 @@ describe('Table with infinite scroll pagination (x)', () => {
 describe('Table with infinite scroll pagination (y)', () => {
   it('navigates to next page using the scroll when scroll is available', () => {
     render(
-      <div style={{ maxWidth: '1050px' }}>
+      <div style={{ width: '1050px' }}>
         <Table tableData={mockTableDataForVerticalPagination} headerAxis="y" infiniteScrollEnabled />
       </div>
     )
@@ -303,7 +305,7 @@ describe('Table with infinite scroll pagination (y) [MANUAL]', () => {
     const mockGetCanNextPageHandler = jest.fn(() => true)
 
     const getTable = (pageIndex: number) => (
-      <div style={{ maxWidth: '1050px' }}>
+      <div style={{ width: '1050px' }}>
         <Table
           tableData={getPaginatedData(pageIndex, 10)}
           nextPage={mockNextPageHandler}
