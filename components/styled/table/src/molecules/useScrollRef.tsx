@@ -5,6 +5,10 @@ const useScrollRef = (elementRef: React.RefObject<HTMLElement>) => {
   const element = elementRef.current
 
   useEffect(() => {
+    if (!element) {
+      return
+    }
+
     const getScrollState = (): ScrollState => ({
       scrollWidth: element?.scrollWidth ?? 0,
       scrollHeight: element?.scrollHeight ?? 0,

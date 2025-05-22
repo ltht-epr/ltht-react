@@ -86,15 +86,15 @@ describe('Table with infinite scroll pagination (x)', () => {
 
     await screen.findByRole('table')
 
+    expect(screen.getAllByRole('row').length).toEqual(21)
+
+    fireEvent.scroll(screen.getByRole('table').parentElement as HTMLElement, { target: { scrollY: 100 } })
+
     expect(screen.getAllByRole('row').length).toEqual(31)
 
     fireEvent.scroll(screen.getByRole('table').parentElement as HTMLElement, { target: { scrollY: 100 } })
 
     expect(screen.getAllByRole('row').length).toEqual(41)
-
-    fireEvent.scroll(screen.getByRole('table').parentElement as HTMLElement, { target: { scrollY: 100 } })
-
-    expect(screen.getAllByRole('row').length).toEqual(51)
   })
 })
 
@@ -106,15 +106,15 @@ describe('Table with infinite scroll pagination (y)', () => {
       </div>
     )
 
+    expect(screen.getAllByRole('columnheader').length).toEqual(21)
+
+    fireEvent.scroll(screen.getByRole('table').parentElement as HTMLElement, { target: { scrollX: 100 } })
+
     expect(screen.getAllByRole('columnheader').length).toEqual(31)
 
     fireEvent.scroll(screen.getByRole('table').parentElement as HTMLElement, { target: { scrollX: 100 } })
 
     expect(screen.getAllByRole('columnheader').length).toEqual(41)
-
-    fireEvent.scroll(screen.getByRole('table').parentElement as HTMLElement, { target: { scrollX: 100 } })
-
-    expect(screen.getAllByRole('columnheader').length).toEqual(51)
   })
 })
 
