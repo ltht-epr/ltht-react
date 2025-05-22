@@ -16,6 +16,8 @@ const useScrollRef = (elementRef: React.RefObject<HTMLElement>) => {
       setScrollState(getScrollState())
     }
 
+    handleScroll() // Set initial scroll state
+
     element?.addEventListener('scroll', handleScroll)
 
     return () => {
