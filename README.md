@@ -77,8 +77,18 @@ Your code must be reviewed and merged into `main`. A short while after this, an 
 4. Install dependencies `yarn install`
 5. Build with `yarn build` or `yarn build:slow`
 6. Authenticate with `npm login`, if you haven't already.
-8. Publish to npm with `yarn run deploy:npm`.
+7. Publish to npm with `yarn run deploy:npm`.
+
+## Deploying Storybook
+
+1. Switch to `main` and `git pull`
+2. Wipe your local build with `yarn clean`
+3. Install dependencies `yarn install`
+4. Run Pre-Deployment Script `yarn predeploy:storybook`
+5. Run Deployment Script `yarn deploy:storybook`
+
+   Once the script finishes and pushes to the `gh-pages` branch, you should see the `pages build and deployment` action trigger in github actions. The latest Storybook should then be deployed to: [ltht-epr.github.io/ltht-react](ltht-epr.github.io/ltht-react)
 
 ## GraphQL type generation
 
-GraphQL types can be updated by running `yarn run type:gen`. This assumes that you have the appropriate GraphQL endpoint up and running. Running ehr-client in mock mode is sufficient for this purpose. 
+GraphQL types can be updated by running `yarn run type:gen`. This assumes that you have the appropriate GraphQL endpoint up and running. Running ehr-client in mock mode is sufficient for this purpose.
