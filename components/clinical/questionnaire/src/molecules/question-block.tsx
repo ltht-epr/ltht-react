@@ -172,7 +172,7 @@ const generateAnswer = (
           <NestedListDetail term={question || '-'} showIfEmpty={showIfEmpty}>
             {responseItem?.answer?.map((answerItem, index) => (
               <div key={`${question}-${answerItem?.valueDecimal ?? answerItem?.valueInteger}-${index + 1}`}>
-                {parseHtml(`${answerItem?.valueDecimal ?? answerItem?.valueInteger}` ?? '')}
+                {parseHtml(`${answerItem?.valueDecimal ?? answerItem?.valueInteger}`)}
               </div>
             ))}
           </NestedListDetail>
@@ -188,7 +188,7 @@ const generateAnswer = (
               <div key={`${question}-${answerItem?.valueInteger}-${index + 1}`}>
                 {`${answerItem?.valueInteger} Day${
                   answerItem?.valueInteger && answerItem?.valueInteger > 1 ? 's' : ''
-                }` ?? ''}
+                }`}
               </div>
             ))}
           </NestedListDetail>

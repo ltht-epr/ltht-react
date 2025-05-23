@@ -1,4 +1,4 @@
-import { ColumnDef, ColumnHelper, createColumnHelper, HeaderContext, Table } from '@tanstack/react-table'
+import { ColumnDef, ColumnHelper, createColumnHelper, HeaderContext } from '@tanstack/react-table'
 import { IconProps } from '@ltht-react/icon'
 import { Axis } from '@ltht-react/types'
 import React from 'react'
@@ -138,24 +138,28 @@ const calculateStaticColumnOffset = (
   }
 }
 
-const handleScrollEvent = (table: Table<DataEntity>, headerAxis: Axis, scrollState: ScrollState) => {
+const handleScrollEvent = (
+  pagination: { getCanNextPage: () => boolean; nextPage: VoidFunction },
+  headerAxis: Axis,
+  scrollState: ScrollState
+) => {
   const { scrollWidth, scrollHeight, currentXScroll, currentYScroll } = scrollState
   if (
     headerAxis === 'x' &&
     currentYScroll >= scrollHeight - getPercentageOfMax(5, scrollHeight) &&
     currentYScroll <= scrollHeight &&
-    table.getCanNextPage()
+    pagination.getCanNextPage()
   ) {
-    table.nextPage()
+    pagination.nextPage()
   }
 
   if (
     headerAxis === 'y' &&
     currentXScroll >= scrollWidth - getPercentageOfMax(5, scrollWidth) &&
     currentXScroll <= scrollWidth &&
-    table.getCanNextPage()
+    pagination.getCanNextPage()
   ) {
-    table.nextPage()
+    pagination.nextPage()
   }
 }
 

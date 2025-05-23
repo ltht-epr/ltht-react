@@ -24,6 +24,7 @@ const Table: FC<IProps> = ({
   pageSize: pageSizeParam = 10,
   headerAxis = 'x',
   manualPagination = false,
+  infiniteScrollEnabled = false,
   getCanNextPage = () => false,
   nextPage = () => null,
   isFetching = false,
@@ -35,7 +36,7 @@ const Table: FC<IProps> = ({
   sortingFunctions = undefined,
   ...rest
 }) => {
-  const scrollableDivElement = useRef(null)
+  const scrollableDivElement = useRef<HTMLDivElement>(null)
   const scrollState = useScrollRef(scrollableDivElement)
 
   const [expanded, setExpanded] = useState<ExpandedState>({})
@@ -83,23 +84,18 @@ const Table: FC<IProps> = ({
     ...(!manualPagination ? { onPaginationChange: setPagination } : {}),
   })
 
+  const getNextPage = () => (manualPagination ? nextPage() : table.nextPage())
+  const hasNextPage = () => (manualPagination ? getCanNextPage() : table.getCanNextPage())
+
   useEffect(() => {
-    if (!scrollState) {
+    if (!scrollState || !infiniteScrollEnabled || isFetching) {
       return
     }
 
-    if (!manualPagination) {
-      handleScrollEvent(table, headerAxis, scrollState)
-    }
-  }, [scrollState, table, headerAxis, manualPagination])
+    handleScrollEvent({ getCanNextPage: hasNextPage, nextPage: getNextPage }, headerAxis, scrollState)
 
-  const getNextPage = () => {
-    if (manualPagination) {
-      nextPage()
-    } else {
-      table.nextPage()
-    }
-  }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [scrollState])
 
   return (
     <ScrollableContainer
@@ -137,6 +133,7 @@ export interface IPaginationProps {
   currentPage?: number
   pageSize?: number
   manualPagination?: boolean
+  infiniteScrollEnabled?: boolean
   nextPage?: () => void
   getCanNextPage?: () => boolean
   isFetching?: boolean

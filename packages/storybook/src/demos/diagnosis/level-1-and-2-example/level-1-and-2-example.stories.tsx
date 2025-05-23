@@ -18,7 +18,7 @@ import conditions, { AdminActionsList } from './diagnosis.fixtures'
 
 import allergies from '../../../clinical/organisms/allergies/allergies.fixtures'
 import appointments from '../../../clinical/organisms/appointments/appointments.fixtures'
-import flags from '../../../clinical/organisms/flags/flags.fixtures'
+import { flags } from '../../../clinical/organisms/flags/flags.fixtures'
 import hospitalStays from '../../../clinical/organisms/hospital-stays/hospital-stays.fixtures'
 
 const CODABLE_CONCEPT_LINK_MAP = {

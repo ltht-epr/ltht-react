@@ -76,73 +76,45 @@ describe('Component overrride', () => {
   })
 })
 
-// TODO: move these test to cypress testing when its setup
 describe('Table with infinite scroll pagination (x)', () => {
-  it('navigates to next page using the button when scroll is not available', async () => {
+  it('navigates to next page using the scroll when scroll is available', async () => {
     render(
-      <div style={{ maxHeight: '400px' }}>
-        <Table tableData={mockTableDataForPagination} />
+      <div style={{ height: '200px' }}>
+        <Table tableData={mockTableDataForPagination} infiniteScrollEnabled />
       </div>
     )
 
-    expect(screen.getAllByRole('row').length).toEqual(11)
-
-    await userEvent.click(screen.getByRole('button'))
-
-    expect(screen.getAllByRole('row').length).toEqual(21)
-  })
-
-  it('navigates to next page using the scroll when scroll is available', () => {
-    render(
-      <div style={{ maxHeight: '200px' }}>
-        <Table tableData={mockTableDataForPagination} />
-      </div>
-    )
-
-    expect(screen.getAllByRole('row').length).toEqual(11)
-
-    fireEvent.scroll(screen.getByRole('table').parentElement as HTMLElement, { target: { scrollY: 100 } })
+    await screen.findByRole('table')
 
     expect(screen.getAllByRole('row').length).toEqual(21)
 
     fireEvent.scroll(screen.getByRole('table').parentElement as HTMLElement, { target: { scrollY: 100 } })
 
     expect(screen.getAllByRole('row').length).toEqual(31)
+
+    fireEvent.scroll(screen.getByRole('table').parentElement as HTMLElement, { target: { scrollY: 100 } })
+
+    expect(screen.getAllByRole('row').length).toEqual(41)
   })
 })
 
-// TODO: move these test to cypress testing when its setup
 describe('Table with infinite scroll pagination (y)', () => {
-  it('navigates to next page using the button when scroll is not available', async () => {
-    render(
-      <div style={{ maxWidth: '100%' }}>
-        <Table tableData={mockTableDataForVerticalPagination} headerAxis="y" />
-      </div>
-    )
-
-    expect(screen.getAllByRole('columnheader').length).toEqual(11)
-
-    await userEvent.click(screen.getByRole('button'))
-
-    expect(screen.getAllByRole('columnheader').length).toEqual(21)
-  })
-
   it('navigates to next page using the scroll when scroll is available', () => {
     render(
-      <div style={{ maxWidth: '1050px' }}>
-        <Table tableData={mockTableDataForVerticalPagination} headerAxis="y" />
+      <div style={{ width: '1050px' }}>
+        <Table tableData={mockTableDataForVerticalPagination} headerAxis="y" infiniteScrollEnabled />
       </div>
     )
-
-    expect(screen.getAllByRole('columnheader').length).toEqual(11)
-
-    fireEvent.scroll(screen.getByRole('table').parentElement as HTMLElement, { target: { scrollX: 100 } })
 
     expect(screen.getAllByRole('columnheader').length).toEqual(21)
 
     fireEvent.scroll(screen.getByRole('table').parentElement as HTMLElement, { target: { scrollX: 100 } })
 
     expect(screen.getAllByRole('columnheader').length).toEqual(31)
+
+    fireEvent.scroll(screen.getByRole('table').parentElement as HTMLElement, { target: { scrollX: 100 } })
+
+    expect(screen.getAllByRole('columnheader').length).toEqual(41)
   })
 })
 
@@ -215,7 +187,7 @@ describe('Table with infinite scroll pagination (x) [MANUAL]', () => {
     expect(mockNextPageHandler).toHaveBeenCalled()
   })
 
-  it.skip('navigates to next page using the scroll when scroll is available', () => {
+  it('navigates to next page using the scroll when scroll is available', () => {
     const mockNextPageHandler = jest.fn(() => null)
     const mockGetCanNextPageHandler = jest.fn(() => true)
 
@@ -228,6 +200,7 @@ describe('Table with infinite scroll pagination (x) [MANUAL]', () => {
           headerAxis="x"
           manualPagination
           keepPreviousData
+          infiniteScrollEnabled
         />
       </div>
     )
@@ -327,12 +300,12 @@ describe('Table with infinite scroll pagination (y) [MANUAL]', () => {
     expect(mockNextPageHandler).toHaveBeenCalled()
   })
 
-  it.skip('navigates to next page using the scroll when scroll is available', () => {
+  it('navigates to next page using the scroll when scroll is available', () => {
     const mockNextPageHandler = jest.fn(() => null)
     const mockGetCanNextPageHandler = jest.fn(() => true)
 
     const getTable = (pageIndex: number) => (
-      <div style={{ maxWidth: '1050px' }}>
+      <div style={{ width: '1050px' }}>
         <Table
           tableData={getPaginatedData(pageIndex, 10)}
           nextPage={mockNextPageHandler}
@@ -340,6 +313,7 @@ describe('Table with infinite scroll pagination (y) [MANUAL]', () => {
           headerAxis="y"
           manualPagination
           keepPreviousData
+          infiniteScrollEnabled
         />
       </div>
     )
