@@ -41,11 +41,11 @@ const TableComponent = <T,>({ table, staticColumns = 0, headerAxis, ...rest }: I
     }
     switch (headerIndex) {
       case 0:
-        return <TableHeader ref={firstColumn} {...headerProps} />
+        return <TableHeader key={header.id} ref={firstColumn} {...headerProps} />
       case 1:
-        return <TableHeader ref={secondColumn} {...headerProps} />
+        return <TableHeader key={header.id} ref={secondColumn} {...headerProps} />
       default:
-        return <TableHeader {...headerProps} />
+        return <TableHeader key={header.id} {...headerProps} />
     }
   }
 

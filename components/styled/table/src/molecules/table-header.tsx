@@ -14,7 +14,6 @@ export const Wrapper = <TData, TValue>(
   <StyledTableHeader
     ref={ref}
     stickyWidth={stickyWidth}
-    key={header.id}
     colSpan={header.colSpan}
     role="columnheader"
     {...(header.column.id !== 'expander'
