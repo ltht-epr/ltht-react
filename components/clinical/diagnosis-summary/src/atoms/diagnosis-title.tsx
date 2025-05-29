@@ -1,6 +1,7 @@
 import { FC, HTMLAttributes } from 'react'
 import styled from '@emotion/styled'
 import { titleCase, codeableConceptDisplaySummary } from '@ltht-react/utils'
+import parseHtml from 'html-react-parser'
 
 import { TEXT_COLOURS } from '@ltht-react/styles'
 import { Condition } from '@ltht-react/types'
@@ -12,18 +13,18 @@ const StyledConditionTitle = styled.div<IStyledDescription>`
   text-decoration: ${({ enteredInError }) => (enteredInError ? 'line-through' : 'none')};
 `
 
-const DiagnosisTitle: FC<Props> = ({ condition, enteredInError, systemExclusionsFilter }) => {
+const DiagnosisTitle: FC<Props> = ({ condition, enteredInError, systemExclusionsFilter, isRichText = false }) => {
   const snippetTagText = extractSnippetTagDisplayValue(condition)
 
   if (snippetTagText) {
-    return renderTitle(snippetTagText, enteredInError)
+    return renderTitle(snippetTagText, enteredInError, isRichText)
   }
 
   const conditionText = extractConditionOrFallbackText(condition, systemExclusionsFilter)
   const conditionStatusText = extractConditionStatusText(condition)
   const title = conditionStatusText ? `${conditionText}, ${conditionStatusText}` : conditionText
 
-  return renderTitle(title, enteredInError)
+  return renderTitle(title, enteredInError, isRichText)
 }
 
 const extractConditionOrFallbackText = (condition: Condition, systemExclusionsFilter?: string[]): string => {
@@ -53,14 +54,15 @@ const extractConditionStatusText = (condition: Condition): string => {
 const extractSnippetTagDisplayValue = (condition: Condition) =>
   condition?.metadata.tag?.find((coding) => coding?.system === SNIPPET_HOVER_TEXT)?.display
 
-const renderTitle = (title: string, enteredInError: boolean) => (
-  <StyledConditionTitle enteredInError={enteredInError}>{title}</StyledConditionTitle>
+const renderTitle = (title: string, enteredInError: boolean, isRichText?: boolean) => (
+  <StyledConditionTitle enteredInError={enteredInError}>{isRichText ? parseHtml(title) : title}</StyledConditionTitle>
 )
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   condition: Condition
   enteredInError: boolean
   systemExclusionsFilter?: string[]
+  isRichText?: boolean
 }
 
 interface IStyledDescription {
