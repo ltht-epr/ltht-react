@@ -4,6 +4,7 @@ import Icon from '@ltht-react/icon'
 import { LINK_COLOURS } from '@ltht-react/styles'
 import { codeableConceptCodeSummary, codeableConceptDisplaySummary } from '@ltht-react/utils'
 import DescriptionList from '@ltht-react/description-list'
+import parseHtml from 'html-react-parser'
 import { DetailViewComponent, IDetailViewProps } from '../atoms/detail-view-component'
 import NestedListDetail from './nested-list-detail'
 
@@ -35,6 +36,7 @@ const CodeableConceptDetail: DetailViewComponent<IProps> = ({
   showIfEmpty = false,
   systemExclusionsFilter = [],
   displayCode = false,
+  isRichText = false,
 }) => {
   if (concept || showIfEmpty === true) {
     const displaySummary = displayCode
@@ -50,7 +52,9 @@ const CodeableConceptDetail: DetailViewComponent<IProps> = ({
             <Icon type="external-link" size="small" />
           </StyledLink>
         ) : (
-          <DescriptionList.Description>{displaySummary}</DescriptionList.Description>
+          <DescriptionList.Description>
+            {isRichText ? parseHtml(displaySummary) : displaySummary}
+          </DescriptionList.Description>
         )}
       </NestedListDetail>
     )
@@ -66,6 +70,7 @@ interface IProps extends IDetailViewProps {
   links?: any
   systemExclusionsFilter?: string[]
   displayCode?: boolean
+  isRichText?: boolean
 }
 
 export default CodeableConceptDetail

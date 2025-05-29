@@ -162,6 +162,7 @@ const DiagnosisSummary: FC<Props> = ({
   controls = [],
   tags = [],
   systemExclusionsFilter = [],
+  isRichText = false,
   ...rest
 }) => {
   if (condition.metadata.isRedacted) {
@@ -183,6 +184,7 @@ const DiagnosisSummary: FC<Props> = ({
               enteredInError={enteredInError}
               condition={condition}
               systemExclusionsFilter={systemExclusionsFilter}
+              isRichText={isRichText}
             />
             {extensionTemplateDisplayName && !isReadOnly && canExtendDiagnosis && !enteredInError && (
               <IconButtonWrapper
@@ -234,8 +236,8 @@ const DiagnosisSummary: FC<Props> = ({
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   condition: Condition
-  extendedTemplateDisplayName?: string | undefined
-  extensionTemplateDisplayName?: string | undefined
+  extendedTemplateDisplayName?: string
+  extensionTemplateDisplayName?: string
   isReadOnly?: boolean
   dateOnlyView?: boolean
   displaySource?: boolean
@@ -244,6 +246,7 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
   canExtendDiagnosis?: boolean
   extensionClickHandler?(): void
   systemExclusionsFilter?: string[]
+  isRichText?: boolean
 }
 
 export default DiagnosisSummary

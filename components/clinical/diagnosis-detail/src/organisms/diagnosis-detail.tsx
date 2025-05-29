@@ -36,6 +36,7 @@ const DiagnosisDetail: FC<Props> = ({
   viewType = DetailViewType.Compact,
   dateOnly = false,
   systemExclusionsFilter = [],
+  isRichText = false,
 }) => {
   const onsetDateEstimated = getBooleanExtension(
     condition.extension,
@@ -66,6 +67,7 @@ const DiagnosisDetail: FC<Props> = ({
           concept={condition.code}
           links={links}
           systemExclusionsFilter={systemExclusionsFilter}
+          isRichText={isRichText}
         />
         <DatetimeDetail term="Diagnosis Date" datetime={condition.assertedDate} dateOnly={dateOnly} />
         <DatetimeDetail
@@ -101,6 +103,7 @@ interface Props extends CollapsibleDetailCollectionProps {
   links?: any
   dateOnly?: boolean
   systemExclusionsFilter?: string[]
+  isRichText?: boolean
 }
 
 export default DiagnosisDetail

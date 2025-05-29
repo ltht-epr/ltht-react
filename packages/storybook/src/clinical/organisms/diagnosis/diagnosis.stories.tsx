@@ -69,6 +69,8 @@ export const Summary: Story = () => {
                 tags={[tags[0]]}
               />
             )}
+            {idx === 6 && <DiagnosisSummary condition={condition} isReadOnly={false} isRichText />}
+            {idx === 7 && <DiagnosisSummary condition={condition} isReadOnly={false} isRichText />}
           </Card.ListItem>
         ))}
       </Card.List>
@@ -140,6 +142,17 @@ export const LevelOneDetail2: Story = () => (
     </Card.Header>
     <Card.Body>
       <DiagnosisDetail condition={conditions[2]} />
+    </Card.Body>
+  </Card>
+)
+
+export const LevelOneDetailWithRichText = () => (
+  <Card>
+    <Card.Header>
+      <Card.Title style={{ textAlign: 'center' }}>Diagnosis</Card.Title>
+    </Card.Header>
+    <Card.Body>
+      <DiagnosisDetail condition={conditions[7]} links={CODABLE_CONCEPT_LINK_MAP} isRichText />
     </Card.Body>
   </Card>
 )

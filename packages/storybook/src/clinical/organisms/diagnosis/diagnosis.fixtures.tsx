@@ -923,6 +923,50 @@ const ConditionSix: Condition = {
   ],
 }
 
+const ConditionSeven: Condition = {
+  isEnteredInError: false,
+  abatement: null,
+  metadata: {
+    dataSources: [],
+    tag: [],
+    isRedacted: false,
+    requestedWhen: '',
+  },
+  assertedDate: {
+    kind: PartialDateTimeKindCode.Date,
+    value: '2022-03-18T00:00:00+00:00',
+  },
+  verificationStatus: ConditionVerificationStatus.Confirmed,
+  severity: {
+    coding: [{ code: '2448402', display: 'Severe' }],
+    text: 'Severe',
+  },
+  onset: {
+    dateTime: {
+      value: '2016-09-01T00:00:00+00:00',
+      kind: PartialDateTimeKindCode.YearMonth,
+    },
+  },
+  asserter: null,
+  bodySite: [],
+  category: [],
+  clinicalStatus: ConditionClinicalStatus.Active,
+  code: {
+    coding: [{ code: '3135009', display: 'Physical Support; Access &amp; mobility only' }],
+    text: 'Physical Support; Access &amp; mobility only',
+  },
+  evidence: [],
+  extensionData: null,
+  id: 'R3|cce08927-b95b-4d16-89e7-f92bd7853059',
+  stage: null,
+  extension: [
+    {
+      url: 'https://fhir.leedsth.nhs.uk/ValueSet/diagnosis-onset-date-estimated-1',
+      valueBoolean: true,
+    },
+  ],
+}
+
 const conditions: Condition[] = [
   ConditionOne,
   ConditionThree,
@@ -931,6 +975,7 @@ const conditions: Condition[] = [
   ConditionTwo,
   ConditionTwo,
   ConditionSix,
+  ConditionSeven,
 ]
 
 const controls: ButtonProps[] = [
