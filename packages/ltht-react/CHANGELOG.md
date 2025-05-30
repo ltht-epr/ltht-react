@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.0.159 (2025-05-30)
+
+**Note:** Version bump only for package @ltht-react/root
+
 ## 2.0.158 (2025-05-29)
 
 **Note:** Version bump only for package @ltht-react/root
