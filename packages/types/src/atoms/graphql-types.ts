@@ -1352,6 +1352,8 @@ export type Ehr = {
   dashboardVariants?: Maybe<DashboardVariantContinuationType>;
   /** Documents */
   documentReferences?: Maybe<DocumentReferenceContinuation>;
+  /** Medications of patient retrieved via episode of care with a valid eDan link */
+  episodeOfCareMedications?: Maybe<MedicationRequestContinuationType>;
   /** Alerts */
   flags?: Maybe<Array<Maybe<Flag>>>;
   /** All PatientGroups a certain patient belongs to */
@@ -1647,6 +1649,15 @@ export type EhrDocumentReferencesArgs = {
 
 
 /** Queries the LTHT EHR. */
+export type EhrEpisodeOfCareMedicationsArgs = {
+  count?: Maybe<Scalars['Int']>;
+  cursorToken?: Maybe<Scalars['String']>;
+  patientGuid: Scalars['String'];
+  scopeId: Scalars['String'];
+};
+
+
+/** Queries the LTHT EHR. */
 export type EhrFlagsArgs = {
   patientGuid: Scalars['String'];
 };
@@ -1792,9 +1803,14 @@ export type EhrSummaryViewDefinitionArgs = {
 export type EhrSummaryViewEntriesArgs = {
   count?: Maybe<Scalars['Int']>;
   cursorToken?: Maybe<Scalars['String']>;
+  dateFrom?: Maybe<Scalars['DateTime']>;
+  dateTo?: Maybe<Scalars['DateTime']>;
   filters?: Maybe<Array<Maybe<SummaryViewFilter>>>;
   name: Scalars['String'];
+  nonAdmissionOnly?: Maybe<Scalars['Boolean']>;
   patientGuid: Scalars['String'];
+  showUsersOnly?: Maybe<Scalars['Boolean']>;
+  withdrawnSearch?: Maybe<Scalars['Int']>;
 };
 
 
@@ -2399,6 +2415,7 @@ export enum EntityType {
   Review = 'REVIEW',
   SelfClaim = 'SELF_CLAIM',
   Sepsis = 'SEPSIS',
+  ServiceRequest = 'SERVICE_REQUEST',
   Spine = 'SPINE',
   Spondyloarthritis = 'SPONDYLOARTHRITIS',
   SummaryViewPilot = 'SUMMARY_VIEW_PILOT',
