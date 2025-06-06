@@ -25,7 +25,7 @@
   "dependencies": {
     "@ltht-react/styles": "^2.0.159",
     "@ltht-react/types": "^2.0.159",
-    "date-fns": "^4.1.0",
+    "date-fns": "^3.6.0",
     "html-react-parser": "^5.0.6"
   },
   "gitHead": "4d364556bb11e294d86697c2dac66742f7aabc7f"
