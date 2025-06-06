@@ -1,9 +1,9 @@
 import { HTMLAttributes, FC } from 'react'
 import styled from '@emotion/styled'
+import { formatDistance } from 'date-fns'
 
 import { TEXT_COLOURS } from '@ltht-react/styles'
 import { Encounter } from '@ltht-react/types'
-import * as moment from 'moment'
 
 const StyledLengthOfStayText = styled.div`
   color: ${TEXT_COLOURS.INFO};
@@ -15,11 +15,8 @@ const StyledLengthOfStayText = styled.div`
 
 const AdmissionLengthOfStay: FC<Props> = ({ encounter, ...rest }) => {
   if (encounter.length?.value) {
-    return (
-      <StyledLengthOfStayText {...rest}>
-        Length of Stay: {moment.duration(encounter.length?.value ?? 0, 'minutes').humanize()}
-      </StyledLengthOfStayText>
-    )
+    const milliseconds = (encounter?.length?.value ?? 0) * 60000
+    return <StyledLengthOfStayText {...rest}>Length of Stay: {formatDistance(milliseconds, 0)}</StyledLengthOfStayText>
   }
 
   return null
