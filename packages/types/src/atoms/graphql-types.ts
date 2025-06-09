@@ -2416,6 +2416,7 @@ export enum EntityType {
   SelfClaim = 'SELF_CLAIM',
   Sepsis = 'SEPSIS',
   ServiceRequest = 'SERVICE_REQUEST',
+  ServiceRequestTriage = 'SERVICE_REQUEST_TRIAGE',
   Spine = 'SPINE',
   Spondyloarthritis = 'SPONDYLOARTHRITIS',
   SummaryViewPilot = 'SUMMARY_VIEW_PILOT',
