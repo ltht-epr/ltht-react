@@ -2573,6 +2573,7 @@ export enum FeatureInstance {
   InteractWithCountersignature = 'INTERACT_WITH_COUNTERSIGNATURE',
   InteractWithDiagnosisDashboard = 'INTERACT_WITH_DIAGNOSIS_DASHBOARD',
   InterweavePortalLaunch = 'INTERWEAVE_PORTAL_LAUNCH',
+  NursingSpecialistAssessmentDashboard = 'NURSING_SPECIALIST_ASSESSMENT_DASHBOARD',
   PointInTimeEnabled = 'POINT_IN_TIME_ENABLED',
   ResourceAuthorization = 'RESOURCE_AUTHORIZATION',
   SepsisAdultEnabled = 'SEPSIS_ADULT_ENABLED',
