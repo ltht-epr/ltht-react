@@ -26,7 +26,7 @@ export const MockVerticalTable: Story = () => (
 )
 
 export const ObservationsVerticalTable: Story = () => (
-  <QuestionnaireTable definition={obsDefinition} records={obsRecordsList} staticColumns={2} />
+  <QuestionnaireTable id="observation-table" definition={obsDefinition} records={obsRecordsList} staticColumns={2} />
 )
 
 export const AxialVerticalTable: Story = () => (

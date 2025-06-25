@@ -324,7 +324,7 @@ describe('Questionnaire Table with id prop', () => {
 })
 
 describe('Questionnaire Table with expanding rows have id prop', () => {
-  it('Renders with id prop', () => {
+  it('Renders expander cells with id prop', () => {
     render(
       <QuestionnaireTable
         definition={summaryDefinition}
@@ -341,7 +341,8 @@ describe('Questionnaire Table with expanding rows have id prop', () => {
 
     expanderCells.forEach((id) => {
       expect(id).toBeDefined()
-      expect(id).toContain('expander')
+      expect(id?.endsWith('expander')).toBeTruthy()
+      expect(id?.startsWith('questionnaire-table')).toBeTruthy()
     })
   })
 })

@@ -16,6 +16,8 @@ import { ITableConfig } from './table'
 import TableHeader from './table-header'
 
 const TableComponent = <T,>({ table, staticColumns = 0, headerAxis, ...rest }: ITableHeadProps<T>): JSX.Element => {
+  const tableId = rest.id ? `${rest.id}-` : ''
+
   const firstColumn = useRef(null)
   const secondColumn = useRef(null)
   const tableElement = useRef(null)
@@ -41,11 +43,11 @@ const TableComponent = <T,>({ table, staticColumns = 0, headerAxis, ...rest }: I
     }
     switch (headerIndex) {
       case 0:
-        return <TableHeader key={header.id} ref={firstColumn} {...headerProps} />
+        return <TableHeader key={header.id} tableId={tableId} ref={firstColumn} {...headerProps} />
       case 1:
-        return <TableHeader key={header.id} ref={secondColumn} {...headerProps} />
+        return <TableHeader key={header.id} tableId={tableId} ref={secondColumn} {...headerProps} />
       default:
-        return <TableHeader key={header.id} {...headerProps} />
+        return <TableHeader key={header.id} tableId={tableId} {...headerProps} />
     }
   }
 
@@ -53,7 +55,7 @@ const TableComponent = <T,>({ table, staticColumns = 0, headerAxis, ...rest }: I
     <StyledTable ref={tableElement} {...rest}>
       <StyledTHead>
         {table.getHeaderGroups().map((headerGroup) => (
-          <tr key={headerGroup.id} id={headerGroup.id} role="row">
+          <tr key={headerGroup.id} id={`${tableId}${headerGroup.id}`} role="row">
             {headerGroup.headers.map((header, headerIndex) => getHeaderColumn(header, headerIndex))}
           </tr>
         ))}
@@ -71,7 +73,7 @@ const TableComponent = <T,>({ table, staticColumns = 0, headerAxis, ...rest }: I
                   secondColumnWidth
                 )}
                 key={cell.id}
-                id={cell.id}
+                id={`${tableId}${cell.id}`}
                 role="cell"
                 style={(cell.getValue() as CellProps)?.parentStyle}
               >
