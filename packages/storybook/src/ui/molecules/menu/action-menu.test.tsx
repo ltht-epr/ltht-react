@@ -22,9 +22,9 @@ describe('Action menu', () => {
 
     await userEvent.click(screen.getByRole('button'))
 
-    expect(screen.getByTestId('action-menu-item-view-0')).toBeVisible()
-    expect(screen.getByTestId('action-menu-item-edit-1')).toBeVisible()
-    expect(screen.getByTestId('action-menu-item-delete-2')).toBeVisible()
+    expect(screen.getByTestId('custom-action-menu-id-action-menu-item-view-0')).toBeVisible()
+    expect(screen.getByTestId('custom-action-menu-id-action-menu-item-edit-1')).toBeVisible()
+    expect(screen.getByTestId('custom-action-menu-id-action-menu-item-delete-2')).toBeVisible()
   })
 
   it('Renders with an ellipsis by default', () => {

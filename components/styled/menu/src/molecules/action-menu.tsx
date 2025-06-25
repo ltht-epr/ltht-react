@@ -78,6 +78,7 @@ const ActionMenu: FC<IProps> = ({
   popupPlacement = 'bottom-start',
   ...rest
 }) => {
+  const menuItemIdPrefix = id ? `${id}-` : ''
   const popperRef = useRef<HTMLDivElement>(null)
   const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(null)
   const [containerElement, setContainerElement] = useState<HTMLDivElement | null>(null)
@@ -157,7 +158,8 @@ const ActionMenu: FC<IProps> = ({
               <StyledUnorderedList role="menu" aria-labelledby={id}>
                 {actions.map((action, idx) => (
                   <StyledListItem
-                    data-testid={`action-menu-item-${stringToId(action.text)}-${idx}`}
+                    data-testid={`${menuItemIdPrefix}action-menu-item-${stringToId(action.text)}-${idx}`}
+                    id={`${menuItemIdPrefix}action-menu-item-${stringToId(action.text)}-${idx}`}
                     role="menuitem"
                     key={`menu-action-${idx}`}
                     onClick={(e) => {
