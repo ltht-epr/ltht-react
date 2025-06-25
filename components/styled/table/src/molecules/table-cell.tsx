@@ -15,6 +15,7 @@ const StyledIconText = styled.span`
 // It will need to facilitate the Actions list capability Jonny Dyson has requested
 // Betters ways of handling the customComponentOverride will be considered too
 const TableCell: FC<CellProps> = ({
+  id,
   adminActions,
   isButton = false,
   text,
@@ -33,6 +34,7 @@ const TableCell: FC<CellProps> = ({
     }
     return (
       <ActionMenu
+        id={`${`${id ?? ''}-`}action-menu-button`}
         actions={adminActions}
         menuButtonOptions={{
           type: 'button',
@@ -56,11 +58,11 @@ const TableCell: FC<CellProps> = ({
   }
 
   if (isButton) {
-    return <Button value={text} icon={iconProps && <Icon {...iconProps} />} onClick={clickHandler} />
+    return <Button id={id} value={text} icon={iconProps && <Icon {...iconProps} />} onClick={clickHandler} />
   }
 
   if (clickHandler && iconProps) {
-    return <IconButton iconProps={iconProps} text={text} onClick={clickHandler} />
+    return <IconButton id={id} iconProps={iconProps} text={text} onClick={clickHandler} />
   }
 
   if (iconProps) {
@@ -73,7 +75,7 @@ const TableCell: FC<CellProps> = ({
   }
 
   if (text) {
-    return <div>{text ?? ''}</div>
+    return <div id={id}>{text ?? ''}</div>
   }
 
   return <></>
@@ -88,6 +90,7 @@ export interface CellProps {
   customComponentOverride?: JSX.Element
   parentStyle?: React.CSSProperties
   headerAxis?: Axis
+  id?: string
 }
 
 export default TableCell

@@ -106,6 +106,7 @@ const mapQuestionnaireResponsesIntoDataEntities = (
         )
         if (adminActionsForThisDataEntity) {
           dataEntity.adminactions = {
+            id: record.id,
             adminActions: adminActionsForThisDataEntity.adminActions,
             parentStyle: { zIndex: getZIndex(TableDataWithPopUp) },
           }
@@ -215,6 +216,7 @@ const buildVerticalCellRows = (
 
       if (adminActionsForThisDataEntity) {
         actionsDataEntity[record.id] = {
+          id: record.id,
           adminActions: adminActionsForThisDataEntity.adminActions,
           parentStyle: { zIndex: getZIndex(TableDataWithPopUp) },
         }

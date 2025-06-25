@@ -71,4 +71,21 @@ describe('Generic Table with id prop', () => {
 
     expect(screen.getByRole('table')).not.toHaveAttribute('id')
   })
+
+  it('Renders header and row cells with id attributes when id prop is set', () => {
+    render(
+      <GenericTable
+        columnData={mockSummaryDefinition}
+        rowData={mockSummaryRecordsList}
+        mapToTableData={mockMapper}
+        id="generic-table"
+      />
+    )
+
+    const headers = screen.getAllByRole('columnheader')
+    const cells = screen.getAllByRole('cell')
+
+    expect(headers.every((header) => header.hasAttribute('id'))).toBe(true)
+    expect(cells.every((cell) => cell.hasAttribute('id'))).toBe(true)
+  })
 })

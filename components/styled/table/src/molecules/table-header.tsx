@@ -12,6 +12,7 @@ export const Wrapper = <TData, TValue>(
   ref?: Ref<HTMLTableCellElement>
 ) => (
   <StyledTableHeader
+    id={header.id}
     ref={ref}
     stickyWidth={stickyWidth}
     colSpan={header.colSpan}

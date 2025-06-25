@@ -53,7 +53,7 @@ const TableComponent = <T,>({ table, staticColumns = 0, headerAxis, ...rest }: I
     <StyledTable ref={tableElement} {...rest}>
       <StyledTHead>
         {table.getHeaderGroups().map((headerGroup) => (
-          <tr key={headerGroup.id} role="row">
+          <tr key={headerGroup.id} id={headerGroup.id} role="row">
             {headerGroup.headers.map((header, headerIndex) => getHeaderColumn(header, headerIndex))}
           </tr>
         ))}
@@ -71,6 +71,7 @@ const TableComponent = <T,>({ table, staticColumns = 0, headerAxis, ...rest }: I
                   secondColumnWidth
                 )}
                 key={cell.id}
+                id={cell.id}
                 role="cell"
                 style={(cell.getValue() as CellProps)?.parentStyle}
               >

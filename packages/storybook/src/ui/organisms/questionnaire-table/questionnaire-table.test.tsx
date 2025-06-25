@@ -206,7 +206,9 @@ describe('Questionnaire Table (using mock Monty Python data)', () => {
       />
     )
 
-    expect(screen.getAllByTestId('action-menu-button')).toHaveLength(2)
+    mockSummaryAdminActionsForForms.forEach((action) => {
+      expect(screen.getByTestId(`${action.questionnaire}-action-menu-button`)).toBeVisible()
+    })
   })
 
   it('Renders horizontal table containing subheaders', () => {
@@ -249,7 +251,9 @@ describe('Questionnaire Table (using mock Monty Python data)', () => {
       />
     )
 
-    expect(screen.getAllByTestId('action-menu-button')).toHaveLength(2)
+    mockSummaryAdminActionsForForms.forEach((action) => {
+      expect(screen.getByTestId(`${action.questionnaire}-action-menu-button`)).toBeVisible()
+    })
   })
 })
 
@@ -316,5 +320,28 @@ describe('Questionnaire Table with id prop', () => {
     render(<QuestionnaireTable definition={summaryDefinition} records={summaryRecordsList} headerAxis="x" />)
 
     expect(screen.getByRole('table')).not.toHaveAttribute('id')
+  })
+})
+
+describe('Questionnaire Table with expanding rows have id prop', () => {
+  it('Renders with id prop', () => {
+    render(
+      <QuestionnaireTable
+        definition={summaryDefinition}
+        records={summaryRecordsList}
+        headerAxis="y"
+        id="questionnaire-table"
+      />
+    )
+    const expanderCells = screen
+      .getAllByRole('img', { hidden: true })
+      .filter((img) => img.classList.contains('fa-chevron-right'))
+      .map((img) => img.parentElement?.parentElement?.id)
+      .filter(Boolean)
+
+    expanderCells.forEach((id) => {
+      expect(id).toBeDefined()
+      expect(id).toContain('expander')
+    })
   })
 })

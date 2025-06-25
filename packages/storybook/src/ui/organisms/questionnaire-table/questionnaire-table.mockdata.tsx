@@ -72,6 +72,7 @@ export const expectedResultOfMappingWithHeadersOnXAxis: TableData = {
     {
       date: { text: '17-Feb-2022 17:23' },
       adminactions: {
+        id: '1',
         adminActions: [
           {
             text: 'View',
@@ -107,6 +108,7 @@ export const expectedResultOfMappingWithHeadersOnXAxis: TableData = {
     {
       date: { text: '12-Feb-2022 12:33' },
       adminactions: {
+        id: '2',
         adminActions: [
           {
             text: 'View',
@@ -142,6 +144,7 @@ export const expectedResultOfMappingWithHeadersOnXAxis: TableData = {
     {
       date: { text: '01-Jan-2022 16:02' },
       adminactions: {
+        id: '3',
         adminActions: [
           {
             text: 'View',
@@ -217,6 +220,7 @@ export const expectedResultOfMappingWithHeadersOnWithdrawnXAxis: TableData = {
     {
       date: { text: '17-Feb-2022 17:23' },
       adminactions: {
+        id: '1',
         adminActions: [
           {
             text: 'View',
@@ -252,6 +256,7 @@ export const expectedResultOfMappingWithHeadersOnWithdrawnXAxis: TableData = {
     {
       date: { text: '12-Feb-2022 12:33' },
       adminactions: {
+        id: '2',
         adminActions: [
           {
             text: 'View',
@@ -287,6 +292,7 @@ export const expectedResultOfMappingWithHeadersOnWithdrawnXAxis: TableData = {
     {
       date: { customComponentOverride: withdrawnWrapper('01-Jan-2022 16:02'), text: '01-Jan-2022 16:02' },
       adminactions: {
+        id: '3',
         adminActions: [
           {
             text: 'View',
@@ -333,6 +339,7 @@ export const expectedResultOfMappingWithHeadersOnYAxis: TableData = {
     {
       property: { text: 'Actions', parentStyle: defaultVerticalHeaderCellStyle },
       '1': {
+        id: '1',
         adminActions: [
           {
             text: 'View',
@@ -346,6 +353,7 @@ export const expectedResultOfMappingWithHeadersOnYAxis: TableData = {
         parentStyle: { zIndex: 200 },
       },
       '2': {
+        id: '2',
         adminActions: [
           {
             text: 'View',
@@ -359,6 +367,7 @@ export const expectedResultOfMappingWithHeadersOnYAxis: TableData = {
         parentStyle: { zIndex: 200 },
       },
       '3': {
+        id: '3',
         adminActions: [
           {
             text: 'View',
@@ -517,6 +526,7 @@ export const expectedResultOfMappingWithHeadersOnWithdrawnYAxis: TableData = {
     {
       property: { text: 'Actions', parentStyle: defaultVerticalHeaderCellStyle },
       '1': {
+        id: '1',
         adminActions: [
           {
             text: 'View',
@@ -530,6 +540,7 @@ export const expectedResultOfMappingWithHeadersOnWithdrawnYAxis: TableData = {
         parentStyle: { zIndex: 200 },
       },
       '2': {
+        id: '2',
         adminActions: [
           {
             text: 'View',
@@ -543,6 +554,7 @@ export const expectedResultOfMappingWithHeadersOnWithdrawnYAxis: TableData = {
         parentStyle: { zIndex: 200 },
       },
       '3': {
+        id: '3',
         adminActions: [
           {
             text: 'View',
