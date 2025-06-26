@@ -11,6 +11,22 @@ describe('Action menu', () => {
     expect(screen.getByRole('button')).toBeVisible()
   })
 
+  it('Renders with id', () => {
+    render(<ActionMenu id="custom-action-menu-id" actions={mockActions} />)
+
+    expect(screen.getByTestId('custom-action-menu-id')).toBeVisible()
+  })
+
+  it('Renders each menu item with id', async () => {
+    render(<ActionMenu id="custom-action-menu-id" actions={mockActions} />)
+
+    await userEvent.click(screen.getByRole('button'))
+
+    expect(screen.getByTestId('custom-action-menu-id-action-menu-item-view-0')).toBeVisible()
+    expect(screen.getByTestId('custom-action-menu-id-action-menu-item-edit-1')).toBeVisible()
+    expect(screen.getByTestId('custom-action-menu-id-action-menu-item-delete-2')).toBeVisible()
+  })
+
   it('Renders with an ellipsis by default', () => {
     render(<ActionMenu actions={mockActions} />)
 

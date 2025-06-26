@@ -3,15 +3,17 @@ import { flexRender, Header as ReactTableHeader } from '@tanstack/react-table'
 import { StyledTableHeader } from './table-styled-components'
 
 interface TableHeaderProps<TData, TValue> {
+  tableId?: string
   header: ReactTableHeader<TData, TValue>
   stickyWidth?: number
 }
 
 export const Wrapper = <TData, TValue>(
-  { header, stickyWidth }: TableHeaderProps<TData, TValue>,
+  { tableId, header, stickyWidth }: TableHeaderProps<TData, TValue>,
   ref?: Ref<HTMLTableCellElement>
 ) => (
   <StyledTableHeader
+    id={`${tableId}${header.id}`}
     ref={ref}
     stickyWidth={stickyWidth}
     colSpan={header.colSpan}
