@@ -13,7 +13,7 @@
  * @param input - The string to be parsed into an ID.
  * @returns The normalized ID string.
  */
-const stringToId = (input: string): string => {
+const stringToHtmlId = (input: string): string => {
   if (typeof input !== 'string') {
     throw new TypeError('Input must be a string')
   }
@@ -33,4 +33,4 @@ const stringToId = (input: string): string => {
 }
 
 // eslint-disable-next-line import/prefer-default-export
-export { stringToId }
+export { stringToHtmlId }

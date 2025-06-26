@@ -5,7 +5,7 @@ import { BTN_COLOURS, CSS_RESET, PopUp, TableDataWithPopUp, getZIndex } from '@l
 import FocusTrap from 'focus-trap-react'
 import { FC, HTMLAttributes, useRef, useState, useEffect } from 'react'
 import { usePopper } from 'react-popper'
-import { stringToId } from '@ltht-react/utils'
+import { stringToHtmlId } from '@ltht-react/utils'
 
 const defaultMenuButtonProps: IconButtonMenuProps = {
   type: 'icon',
@@ -156,27 +156,32 @@ const ActionMenu: FC<IProps> = ({
               {...popper.attributes.popper}
             >
               <StyledUnorderedList role="menu" aria-labelledby={id}>
-                {actions.map((action, idx) => (
-                  <StyledListItem
-                    data-testid={`${menuItemIdPrefix}action-menu-item-${stringToId(action.text)}-${idx}`}
-                    id={`${menuItemIdPrefix}action-menu-item-${stringToId(action.text)}-${idx}`}
-                    role="menuitem"
-                    key={`menu-action-${idx}`}
-                    onClick={(e) => {
-                      e.stopPropagation()
-                      menuButtonClickHandler()
-                      action.clickHandler()
-                    }}
-                  >
-                    <StyledListItemIcon>
-                      {action.leftIcon && <StyledLeftIcon {...action.leftIcon} />}
-                    </StyledListItemIcon>
-                    <StyledListItemContent>{action.text}</StyledListItemContent>
-                    <StyledListItemIcon>
-                      {action.rightIcon && <StyledRightIcon {...action.rightIcon} />}
-                    </StyledListItemIcon>
-                  </StyledListItem>
-                ))}
+                {actions.map((action, idx) => {
+                  const textId = stringToHtmlId(action.text)
+                  const actionMenuItemId = `${menuItemIdPrefix}action-menu-item-${textId}-${idx}`
+
+                  return (
+                    <StyledListItem
+                      data-testid={actionMenuItemId}
+                      id={actionMenuItemId}
+                      role="menuitem"
+                      key={`menu-action-${idx}`}
+                      onClick={(e) => {
+                        e.stopPropagation()
+                        menuButtonClickHandler()
+                        action.clickHandler()
+                      }}
+                    >
+                      <StyledListItemIcon>
+                        {action.leftIcon && <StyledLeftIcon {...action.leftIcon} />}
+                      </StyledListItemIcon>
+                      <StyledListItemContent>{action.text}</StyledListItemContent>
+                      <StyledListItemIcon>
+                        {action.rightIcon && <StyledRightIcon {...action.rightIcon} />}
+                      </StyledListItemIcon>
+                    </StyledListItem>
+                  )
+                })}
               </StyledUnorderedList>
             </StyledCard>
           )}
