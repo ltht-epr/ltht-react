@@ -57,13 +57,14 @@ const Task: FC<IProps> = ({
   users,
   user,
   actions,
+  hoverText,
 }) => {
   if (isRedacted) return <Redacted />
 
   return (
     <StyledTask status={status}>
       <LeftSection>
-        <Description cancelled={status === TaskStatusCode.Cancelled} description={description} />
+        <Description cancelled={status === TaskStatusCode.Cancelled} hoverText={hoverText} description={description} />
         <Users user={user} users={users} />
       </LeftSection>
 
@@ -105,6 +106,7 @@ interface IProps {
   users?: string
   user?: string
   actions?: ActionMenuOption[]
+  hoverText?: string
 }
 
 interface IStyledTask {

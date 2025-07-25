@@ -6,9 +6,13 @@ const StyledDescription = styled.div<IStyledDescription>`
   text-decoration: ${({ cancelled }) => (cancelled ? 'line-through' : 'none')};
 `
 
-const Description: FC<IProps> = ({ description, cancelled }) => {
+const Description: FC<IProps> = ({ description, hoverText, cancelled }) => {
   if (description) {
-    return <StyledDescription cancelled={cancelled}>{description}</StyledDescription>
+    return (
+      <StyledDescription cancelled={cancelled} title={hoverText ?? description}>
+        {description}
+      </StyledDescription>
+    )
   }
 
   return null
@@ -16,6 +20,7 @@ const Description: FC<IProps> = ({ description, cancelled }) => {
 
 interface IProps {
   description?: Maybe<string>
+  hoverText?: string
   cancelled: boolean
 }
 
