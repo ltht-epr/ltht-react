@@ -80,6 +80,20 @@ export const Cancelled: Story = () => (
   </Card>
 )
 
+export const TaskWithHoverText: Story = () => (
+  <Card>
+    <Card.Header>
+      <Card.Title>Tasks</Card.Title>
+    </Card.Header>
+    <Card.List>
+      <Card.ListItem>
+        <Task task={Tasks[0]} hoverText="something to show in title" />
+        <Task task={Tasks[1]} />
+      </Card.ListItem>
+    </Card.List>
+  </Card>
+)
+
 export const WithActions: Story = () => (
   <Card>
     <Card.Header>
