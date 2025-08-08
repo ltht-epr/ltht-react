@@ -2581,6 +2581,7 @@ export enum FeatureInstance {
   SepsisObservationsWidgetEnabled = 'SEPSIS_OBSERVATIONS_WIDGET_ENABLED',
   TaskTagFiltering = 'TASK_TAG_FILTERING',
   WardRoundLabTestResultsEnabled = 'WARD_ROUND_LAB_TEST_RESULTS_ENABLED',
+  XFormsLaunch = 'X_FORMS_LAUNCH',
   YhcrDataProvider = 'YHCR_DATA_PROVIDER'
 }
 
@@ -2991,7 +2992,8 @@ export type LypftHospitalStaysArgs = {
 
 export enum LaunchApp {
   FormsForHealth = 'FORMS_FOR_HEALTH',
-  InterweavePortal = 'INTERWEAVE_PORTAL'
+  InterweavePortal = 'INTERWEAVE_PORTAL',
+  XForms = 'X_FORMS'
 }
 
 /** Permission to launch one or more Apps with the given Intents. */
