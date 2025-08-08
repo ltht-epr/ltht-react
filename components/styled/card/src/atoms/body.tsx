@@ -1,4 +1,4 @@
-import { HTMLAttributes, FC } from 'react'
+import { HTMLAttributes, forwardRef } from 'react'
 import classNames from 'classnames'
 import styled from '@emotion/styled'
 
@@ -10,11 +10,11 @@ const StyledBody = styled.div`
   border-top: 1px solid rgba(0, 0, 0, 0.125);
 `
 
-const Body: FC<Props> = ({ classes, children, ...rest }) => (
-  <StyledBody className={classNames('card__body', classes)} {...rest}>
+const Body = forwardRef<HTMLDivElement, Props>(({ classes, children, ...rest }, ref) => (
+  <StyledBody ref={ref} className={classNames('card__body', classes)} {...rest}>
     {children}
   </StyledBody>
-)
+))
 
 export interface Props extends HTMLAttributes<HTMLDivElement> {
   classes?: string

@@ -58,6 +58,9 @@ import {
   faCircleMinus,
   faCircleXmark,
   faThumbsDown,
+  faExpand,
+  faExpandAlt,
+  faExpandArrowsAlt,
 } from '@fortawesome/free-solid-svg-icons'
 import { Transform } from '@fortawesome/fontawesome-svg-core'
 import CounterIcon from '../molecules/counter-icon'
@@ -367,6 +370,18 @@ const Icon: FC<IconProps> = ({
     }
     case 'cross-circle': {
       icon = faCircleXmark
+      break
+    }
+    case 'expand': {
+      icon = faExpand
+      break
+    }
+    case 'expand-alt': {
+      icon = faExpandAlt
+      break
+    }
+    case 'expand-arrows-alt': {
+      icon = faExpandArrowsAlt
       break
     }
 

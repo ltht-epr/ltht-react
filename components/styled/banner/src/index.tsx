@@ -1,4 +1,4 @@
-import { FC, HTMLAttributes, ReactNode } from 'react'
+import { FC, forwardRef, HTMLAttributes, ReactNode } from 'react'
 import styled from '@emotion/styled'
 import { BANNER_COLOURS, CSS_RESET } from '@ltht-react/styles'
 import Icon from '@ltht-react/icon'
@@ -90,8 +90,8 @@ const StyledIcon = styled.div`
 
 const canClick = (props: IBannerProps): boolean => props.onClick !== undefined
 
-const Banner: FC<IBannerProps> = ({ type = 'info', icon, children, ...rest }) => (
-  <StyledBanner {...rest} type={type} canClick={canClick(rest)}>
+const Banner = forwardRef<HTMLDivElement, IBannerProps>(({ type = 'info', icon, children, ...rest }, ref) => (
+  <StyledBanner ref={ref} {...rest} type={type} canClick={canClick(rest)}>
     {icon ? (
       <StyledIcon>{icon}</StyledIcon>
     ) : (
@@ -104,7 +104,7 @@ const Banner: FC<IBannerProps> = ({ type = 'info', icon, children, ...rest }) =>
     <BannerContent>{children}</BannerContent>
     {canClick(rest) && <Icon type="chevron" size="medium" direction="right" />}
   </StyledBanner>
-)
+))
 
 export const ButtonBanner: FC<IButtonBannerProps> = ({
   type = 'info',
