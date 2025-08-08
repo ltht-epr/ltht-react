@@ -1,4 +1,4 @@
-import { FC, HTMLAttributes } from 'react'
+import { forwardRef, HTMLAttributes } from 'react'
 import classNames from 'classnames'
 import styled from '@emotion/styled'
 
@@ -13,11 +13,11 @@ const StyledList = styled.ul`
   list-style-type: none;
 `
 
-const List: FC<Props> = ({ classes, children, ...rest }) => (
-  <StyledList className={classNames('card__list', classes)} {...rest}>
+const List = forwardRef<HTMLUListElement, Props>(({ classes, children, ...rest }, ref) => (
+  <StyledList ref={ref} className={classNames('card__list', classes)} {...rest}>
     {children}
   </StyledList>
-)
+))
 
 export interface Props extends HTMLAttributes<HTMLUListElement> {
   classes?: string

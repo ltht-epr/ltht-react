@@ -1,4 +1,4 @@
-import { FC, HTMLAttributes } from 'react'
+import { FC, forwardRef, HTMLAttributes } from 'react'
 import classNames from 'classnames'
 import styled from '@emotion/styled'
 import { CSS_RESET, TEXT_COLOURS, CARD_BACKGROUND_COLOUR } from '@ltht-react/styles'
@@ -34,11 +34,11 @@ const StyledCard = styled.div`
   }
 `
 
-const Card: FC<CardProps> & CardComposition = ({ textAlign = 'left', classes, children, ...rest }) => (
-  <StyledCard textAlign={textAlign} className={classNames('card', classes)} {...rest}>
+const Card = forwardRef<HTMLDivElement, CardProps>(({ textAlign = 'left', classes, children, ...rest }, ref) => (
+  <StyledCard ref={ref} textAlign={textAlign} className={classNames('card', classes)} {...rest}>
     {children}
   </StyledCard>
-)
+)) as ForwardRefReturn<HTMLDivElement, CardProps> & CardComposition
 
 Card.Banner = Banner
 Card.Body = Body
@@ -50,13 +50,15 @@ Card.Subtitle = Subtitle
 Card.Text = Text
 Card.Title = Title
 
+type ForwardRefReturn<Element extends HTMLElement, Props> = ReturnType<typeof forwardRef<Element, Props>>
+
 interface CardComposition {
-  Banner: FC<BannerProps>
-  Body: FC<BodyProps>
-  Footer: FC<FooterProps>
-  Header: FC<HeaderProps>
-  ListItem: FC<ListItemProps>
-  List: FC<ListProps>
+  Banner: ForwardRefReturn<HTMLDivElement, BannerProps>
+  Body: ForwardRefReturn<HTMLDivElement, BodyProps>
+  Footer: ForwardRefReturn<HTMLDivElement, FooterProps>
+  Header: ForwardRefReturn<HTMLDivElement, HeaderProps>
+  ListItem: ForwardRefReturn<HTMLLIElement, ListItemProps>
+  List: ForwardRefReturn<HTMLUListElement, ListProps>
   Subtitle: FC<SubtitleProps>
   Text: FC<TextProps>
   Title: FC<TitleProps>
