@@ -1,4 +1,4 @@
-import { FC, HTMLAttributes } from 'react'
+import { forwardRef, HTMLAttributes } from 'react'
 import classNames from 'classnames'
 import styled from '@emotion/styled'
 import Icon from '@ltht-react/icon'
@@ -69,16 +69,16 @@ const StyledListItem = styled.li`
   }
 `
 
-const ListItem: FC<Props> = (props) => {
+const ListItem = forwardRef<HTMLLIElement, Props>((props, ref) => {
   const { classes, children, ...rest } = props
   const suffix = props?.selected === true ? '-selected' : ''
   return (
-    <StyledListItem className={classNames(`card__list-item${suffix}`, classes)} {...rest}>
+    <StyledListItem ref={ref} className={classNames(`card__list-item${suffix}`, classes)} {...rest}>
       <div className="card__list-item-container">{children}</div>
       {shouldClick(props) && <Icon type="chevron" size="medium" direction="right" />}
     </StyledListItem>
   )
-}
+})
 
 export interface Props extends HTMLAttributes<HTMLLIElement> {
   classes?: string
