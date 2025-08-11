@@ -1,4 +1,4 @@
-import { FC, forwardRef, HTMLAttributes } from 'react'
+import { FC, forwardRef, ForwardRefExoticComponent, HTMLAttributes, PropsWithoutRef, RefAttributes } from 'react'
 import classNames from 'classnames'
 import styled from '@emotion/styled'
 import { CSS_RESET, TEXT_COLOURS, CARD_BACKGROUND_COLOUR } from '@ltht-react/styles'
@@ -50,7 +50,9 @@ Card.Subtitle = Subtitle
 Card.Text = Text
 Card.Title = Title
 
-type ForwardRefReturn<Element extends HTMLElement, Props> = ReturnType<typeof forwardRef<Element, Props>>
+export type ForwardRefReturn<Element extends HTMLElement, Props> = ForwardRefExoticComponent<
+  PropsWithoutRef<Props> & RefAttributes<Element>
+>
 
 interface CardComposition {
   Banner: ForwardRefReturn<HTMLDivElement, BannerProps>
