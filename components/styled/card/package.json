@@ -1,6 +1,6 @@
 {
   "name": "@ltht-react/card",
-  "version": "2.0.167",
+  "version": "2.0.168",
   "description": "ltht-react styled Card component.",
   "author": "LTHT",
   "homepage": "",
@@ -28,15 +28,15 @@
   "dependencies": {
     "@emotion/react": "^11.0.0",
     "@emotion/styled": "^11.0.0",
-    "@ltht-react/banner": "^2.0.167",
-    "@ltht-react/icon": "^2.0.167",
-    "@ltht-react/styles": "^2.0.167",
-    "@ltht-react/types": "^2.0.167",
-    "@ltht-react/utils": "^2.0.167",
-    "@ltht-react/tooltip": "^2.0.167",
-    "screenfull": "5.2.0",
+    "@ltht-react/banner": "^2.0.168",
+    "@ltht-react/icon": "^2.0.168",
+    "@ltht-react/styles": "^2.0.168",
+    "@ltht-react/tooltip": "^2.0.168",
+    "@ltht-react/types": "^2.0.168",
+    "@ltht-react/utils": "^2.0.168",
     "classnames": "^2.2.6",
-    "react": "^18.2.0"
+    "react": "^18.2.0",
+    "screenfull": "5.2.0"
   },
   "gitHead": "4d364556bb11e294d86697c2dac66742f7aabc7f"
 }

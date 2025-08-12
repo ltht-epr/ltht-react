@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.0.168 (2025-08-12)
+
+**Note:** Version bump only for package @ltht-react/icon
+
 ## 2.0.167 (2025-08-11)
 
 **Note:** Version bump only for package @ltht-react/icon
