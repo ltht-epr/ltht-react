@@ -69,6 +69,7 @@
     "@ltht-react/table": "^2.0.167",
     "@ltht-react/task": "^2.0.167",
     "@ltht-react/timeline": "^2.0.167",
+    "@ltht-react/tooltip": "^2.0.167",
     "@ltht-react/type-detail": "^2.0.167",
     "@ltht-react/type-summary": "^2.0.167",
     "@ltht-react/types": "^2.0.167",

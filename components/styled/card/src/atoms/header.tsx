@@ -4,6 +4,9 @@ import styled from '@emotion/styled'
 
 const StyledHeader = styled.div`
   padding: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 `
 
 const Header = forwardRef<HTMLDivElement, Props>(({ classes, children, ...rest }, ref) => (

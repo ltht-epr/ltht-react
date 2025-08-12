@@ -61,6 +61,9 @@ import {
   faExpand,
   faExpandAlt,
   faExpandArrowsAlt,
+  faCompress,
+  faCompressAlt,
+  faCompressArrowsAlt,
 } from '@fortawesome/free-solid-svg-icons'
 import { Transform } from '@fortawesome/fontawesome-svg-core'
 import CounterIcon from '../molecules/counter-icon'
@@ -382,6 +385,18 @@ const Icon: FC<IconProps> = ({
     }
     case 'expand-arrows-alt': {
       icon = faExpandArrowsAlt
+      break
+    }
+    case 'compress': {
+      icon = faCompress
+      break
+    }
+    case 'compress-alt': {
+      icon = faCompressAlt
+      break
+    }
+    case 'compress-arrows-alt': {
+      icon = faCompressArrowsAlt
       break
     }
 
