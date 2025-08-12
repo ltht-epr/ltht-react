@@ -3,6 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import Tooltip from '@ltht-react/tooltip'
 
 const meta: Meta<typeof Tooltip> = {
+  title: 'UI/Atoms/Tooltip',
   component: Tooltip,
 }
 

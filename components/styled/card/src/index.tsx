@@ -11,7 +11,7 @@ import ListItem, { Props as ListItemProps } from './atoms/list-item'
 import Subtitle, { Props as SubtitleProps } from './atoms/subtitle'
 import Text, { Props as TextProps } from './atoms/text'
 import Title, { Props as TitleProps } from './atoms/title'
-import FullScreenControl, { FullScreenControlProps } from './atoms/fullscreen-control'
+import FullScreenControl, { FullScreenControlProps } from './molecules/fullscreen-control'
 
 const StyledCard = styled.div`
   ${CSS_RESET}
