@@ -27,7 +27,8 @@
   },
   "dependencies": {
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "screenfull": "5.2.0"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^6.2.0",

@@ -1,6 +1,8 @@
 import { useRef } from 'react'
 import { Story } from '@storybook/react'
+import styled from '@emotion/styled'
 import Card from '@ltht-react/card'
+import { Button } from '@ltht-react/button'
 import AllergySummary from '@ltht-react/allergy-summary'
 import { InfoSummary, WarningSummary, ErrorSummary, MissingDataSummary } from '@ltht-react/type-summary'
 import allergies from '../../../clinical/organisms/allergies/allergies.fixtures'
@@ -146,12 +148,44 @@ export const NoData: Story = () => (
 export const CardWithFullScreenControl: Story = () => {
   const widgetRef = useRef<HTMLDivElement>(null)
 
+  const StyledHeader = styled(Card.Header)`
+    justify-content: space-between;
+  `
+
   return (
     <Card ref={widgetRef}>
-      <Card.Header>
+      <StyledHeader>
         <Card.Title>Full Screen Widget</Card.Title>
-        <Card.FullScreenControl widgetRef={widgetRef} />
-      </Card.Header>
+        <Card.FullScreenControl elementRef={widgetRef} />
+      </StyledHeader>
+      <Card.List>
+        <Card.ListItem>Item 1</Card.ListItem>
+        <Card.ListItem>Item 2</Card.ListItem>
+      </Card.List>
+    </Card>
+  )
+}
+
+export const CardWithMultipleButtonsAndFullScreenControl: Story = () => {
+  const widgetRef = useRef<HTMLDivElement>(null)
+
+  const StyledHeader = styled(Card.Header)`
+    justify-content: space-between;
+  `
+  const ButtonGroup = styled.div`
+    display: flex;
+    flex-direction: row;
+  `
+
+  return (
+    <Card ref={widgetRef}>
+      <StyledHeader>
+        <Card.Title>Full Screen Widget</Card.Title>
+        <ButtonGroup>
+          <Button>Withdraw</Button>
+          <Card.FullScreenControl elementRef={widgetRef} />
+        </ButtonGroup>
+      </StyledHeader>
       <Card.List>
         <Card.ListItem>Item 1</Card.ListItem>
         <Card.ListItem>Item 2</Card.ListItem>

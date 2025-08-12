@@ -12,6 +12,7 @@ interface TooltipProps {
 const Wrapper = styled.div`
   position: relative;
   display: inline-block;
+  align-content: center;
 `
 
 const TooltipBubble = styled.div<{
