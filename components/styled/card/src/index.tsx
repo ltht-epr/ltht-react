@@ -11,6 +11,7 @@ import ListItem, { Props as ListItemProps } from './atoms/list-item'
 import Subtitle, { Props as SubtitleProps } from './atoms/subtitle'
 import Text, { Props as TextProps } from './atoms/text'
 import Title, { Props as TitleProps } from './atoms/title'
+import FullScreenControl, { FullScreenControlProps } from './molecules/fullscreen-control'
 
 const StyledCard = styled.div`
   ${CSS_RESET}
@@ -49,6 +50,7 @@ Card.List = List
 Card.Subtitle = Subtitle
 Card.Text = Text
 Card.Title = Title
+Card.FullScreenControl = FullScreenControl
 
 export type ForwardRefReturn<Element extends HTMLElement, Props> = ForwardRefExoticComponent<
   PropsWithoutRef<Props> & RefAttributes<Element>
@@ -64,6 +66,7 @@ interface CardComposition {
   Subtitle: FC<SubtitleProps>
   Text: FC<TextProps>
   Title: FC<TitleProps>
+  FullScreenControl: FC<FullScreenControlProps>
 }
 
 type TextAlignValues = 'left' | 'center' | 'right'

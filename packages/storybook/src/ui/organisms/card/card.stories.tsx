@@ -1,5 +1,5 @@
+import { useRef } from 'react'
 import { Story } from '@storybook/react'
-
 import Card from '@ltht-react/card'
 import AllergySummary from '@ltht-react/allergy-summary'
 import { InfoSummary, WarningSummary, ErrorSummary, MissingDataSummary } from '@ltht-react/type-summary'
@@ -142,5 +142,22 @@ export const NoData: Story = () => (
     </Card.Header>
   </Card>
 )
+
+export const CardWithFullScreenControl: Story = () => {
+  const widgetRef = useRef<HTMLDivElement>(null)
+
+  return (
+    <Card ref={widgetRef}>
+      <Card.Header>
+        <Card.Title>Full Screen Widget</Card.Title>
+        <Card.FullScreenControl widgetRef={widgetRef} />
+      </Card.Header>
+      <Card.List>
+        <Card.ListItem>Item 1</Card.ListItem>
+        <Card.ListItem>Item 2</Card.ListItem>
+      </Card.List>
+    </Card>
+  )
+}
 
 export default { title: 'UI/Organisms/Card' }
