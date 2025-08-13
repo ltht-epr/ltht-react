@@ -24,8 +24,17 @@ import {
   useTypeahead,
 } from '@floating-ui/react'
 import * as React from 'react'
-import { ReactNode } from 'react'
-import { StyledRootMenu, StyledMenu, StyledMenuItem } from './dropdown-menu.style'
+import { forwardRef, ReactNode } from 'react'
+import {
+  StyledRootMenu,
+  StyledMenu,
+  StyledMenuItem,
+  TextWrapper,
+  LeftIconWrapper,
+  RightIconWrapper,
+} from './dropdown-menu.style'
+import { IconButton, IconProps } from '@ltht-react/icon'
+import { Button, ButtonProps } from '@ltht-react/button'
 
 const MenuContext = React.createContext<{
   getItemProps: (userProps?: React.HTMLProps<HTMLElement>) => Record<string, unknown>
@@ -41,16 +50,43 @@ const MenuContext = React.createContext<{
   isOpen: false,
 })
 
+/**
+ * Props for the Dropdown Menu component.
+ *
+ * @property {string} [label] - The text label displayed for the menu trigger.
+ * @property {ReactNode} [leftIcon] - Optional icon to display alongside the label.
+ * @property {ReactNode} [rightIcon] - Optional icon to display alongside the label.
+ * @property {boolean} [nested] - Indicates if this menu is nested within another menu.
+ * @property {ReactNode} [children] - The menu items or nested menus to render inside the dropdown.
+ * @property {RootMenuTrigger} [rootTrigger] - Optional trigger configuration for the root menu.
+ */
 interface MenuProps {
   label?: string
-  icon?: ReactNode
-  iconPlacement?: 'left' | 'right'
+  leftIcon?: ReactNode
+  rightIcon?: ReactNode
   nested?: boolean
   children?: ReactNode
+  rootTrigger?: RootMenuTrigger
+  disabled?: boolean
 }
 
-export const MenuComponent = React.forwardRef<HTMLButtonElement, MenuProps & React.HTMLAttributes<HTMLButtonElement>>(
-  ({ children, label, icon, iconPlacement = 'left', ...props }, forwardedRef) => {
+type RootMenuTrigger = IconButtonMenuProps | ButtonMenuProps
+
+interface IconButtonMenuProps {
+  type: 'icon'
+  iconProps: IconProps
+  text?: string
+  disabled?: boolean
+}
+
+interface ButtonMenuProps {
+  type: 'button'
+  buttonProps: ButtonProps
+  text: string
+}
+
+export const MenuComponent = forwardRef<HTMLButtonElement, MenuProps & React.HTMLAttributes<HTMLButtonElement>>(
+  ({ children, label, leftIcon, rightIcon, ...props }, forwardedRef) => {
     const [isOpen, setIsOpen] = React.useState(false)
     const [hasFocusInside, setHasFocusInside] = React.useState(false)
     const [activeIndex, setActiveIndex] = React.useState<number | null>(null)
@@ -139,38 +175,62 @@ export const MenuComponent = React.forwardRef<HTMLButtonElement, MenuProps & Rea
       }
     }, [tree, isOpen, nodeId, parentId])
 
+    const triggerProps = {
+      tabIndex: !isNested ? undefined : parent.activeIndex === item.index ? 0 : -1,
+      role: isNested ? 'menuitem' : undefined,
+      'data-open': isOpen ? '' : undefined,
+      'data-nested': isNested ? '' : undefined,
+      'data-focus-inside': hasFocusInside ? '' : undefined,
+      style: isNested ? undefined : props.style,
+      ...getReferenceProps(
+        parent.getItemProps({
+          ...props,
+          onFocus(event: React.FocusEvent<HTMLButtonElement>) {
+            props.onFocus?.(event)
+            setHasFocusInside(false)
+            parent.setHasFocusInside(true)
+          },
+        })
+      ),
+    }
+
     return (
       <FloatingNode id={nodeId}>
-        <StyledRootMenu
-          {...props}
-          ref={useMergeRefs([refs.setReference, item.ref, forwardedRef])}
-          tabIndex={!isNested ? undefined : parent.activeIndex === item.index ? 0 : -1}
-          role={isNested ? 'menuitem' : undefined}
-          data-open={isOpen ? '' : undefined}
-          data-nested={isNested ? '' : undefined}
-          data-focus-inside={hasFocusInside ? '' : undefined}
-          isNested={isNested}
-          style={isNested ? undefined : props.style}
-          {...getReferenceProps(
-            parent.getItemProps({
-              ...props,
-              onFocus(event: React.FocusEvent<HTMLButtonElement>) {
-                props.onFocus?.(event)
-                setHasFocusInside(false)
-                parent.setHasFocusInside(true)
-              },
-            })
-          )}
-        >
-          {iconPlacement === 'left' && icon}
-          {label && <span>{label}</span>}
-          {iconPlacement === 'right' && icon}
-          {isNested && (
-            <span aria-hidden style={{ marginLeft: 10, fontSize: 10 }}>
-              ▶
-            </span>
-          )}
-        </StyledRootMenu>
+        {!props.rootTrigger && (
+          <StyledRootMenu
+            ref={useMergeRefs([refs.setReference, item.ref, forwardedRef])}
+            {...props}
+            {...triggerProps}
+            isNested={isNested}
+          >
+            {leftIcon && <LeftIconWrapper>{leftIcon}</LeftIconWrapper>}
+            {label && <TextWrapper>{label}</TextWrapper>}
+            {!isNested && rightIcon && <RightIconWrapper>{leftIcon}</RightIconWrapper>}
+            {isNested && <RightIconWrapper>▶</RightIconWrapper>}
+          </StyledRootMenu>
+        )}
+
+        {!isNested && props.rootTrigger?.type === 'icon' && (
+          <IconButton
+            ref={useMergeRefs([refs.setReference, item.ref, forwardedRef])}
+            iconProps={props.rootTrigger.iconProps}
+            disabled={props.rootTrigger.disabled}
+            text={props.rootTrigger.text}
+            {...props}
+            {...triggerProps}
+          />
+        )}
+
+        {!isNested && props.rootTrigger?.type === 'button' && (
+          <Button
+            ref={useMergeRefs([refs.setReference, item.ref, forwardedRef])}
+            {...props.rootTrigger.buttonProps}
+            {...triggerProps}
+          >
+            {props.rootTrigger?.text}
+          </Button>
+        )}
+
         <MenuContext.Provider
           value={{
             activeIndex,
@@ -204,13 +264,13 @@ export const MenuComponent = React.forwardRef<HTMLButtonElement, MenuProps & Rea
 
 interface MenuItemProps {
   label?: string
-  icon?: ReactNode
-  iconPlacement?: 'left' | 'right'
+  leftIcon?: ReactNode
+  rightIcon?: ReactNode
   disabled?: boolean
 }
 
-export const MenuItem = React.forwardRef<HTMLButtonElement, MenuItemProps & React.HTMLAttributes<HTMLButtonElement>>(
-  ({ label, icon, iconPlacement = 'left', disabled, ...props }, forwardedRef) => {
+export const MenuItem = forwardRef<HTMLButtonElement, MenuItemProps & React.HTMLAttributes<HTMLButtonElement>>(
+  ({ label, leftIcon, rightIcon, disabled, ...props }, forwardedRef) => {
     const menu = React.useContext(MenuContext)
     const item = useListItem({ label: disabled ? null : label })
     const tree = useFloatingTree()
@@ -235,9 +295,9 @@ export const MenuItem = React.forwardRef<HTMLButtonElement, MenuItemProps & Reac
           },
         })}
       >
-        {iconPlacement === 'left' && icon}
-        {label}
-        {iconPlacement === 'right' && icon}
+        {leftIcon && <LeftIconWrapper>{leftIcon}</LeftIconWrapper>}
+        <TextWrapper>{label}</TextWrapper>
+        {rightIcon && <RightIconWrapper>{rightIcon}</RightIconWrapper>}
       </StyledMenuItem>
     )
   }
@@ -255,6 +315,6 @@ export const Menu = React.forwardRef<HTMLButtonElement, MenuProps & React.HTMLAt
       )
     }
 
-    return <MenuComponent {...props} ref={ref} />
+    return <MenuComponent {...props} rootTrigger={undefined} ref={ref} />
   }
 )

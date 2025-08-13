@@ -1,8 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import ActionMenu from '@ltht-react/menu'
+import ActionMenu, { DefaultTrigger } from '@ltht-react/menu'
 import mockActions from './action-menu-mockdata'
 import { BTN_COLOURS } from '@ltht-react/styles'
+import Icon from '@ltht-react/icon'
 
 const meta: Meta<typeof ActionMenu> = {
   title: 'UI/Molecules/Menu',
@@ -23,18 +24,31 @@ export const MenuItemsWithIcons: Story = {
     actions: [
       {
         text: 'Item 1',
-        icon: { type: 'expand', size: 'medium' },
+        leftIcon: { type: 'expand', size: 'medium' },
+        rightIcon: { type: 'external-link', size: 'medium' },
         clickHandler: () => console.log('Item 1 Clicked'),
       },
       {
         text: 'Item 2',
-        icon: { type: 'expand-alt', size: 'medium' },
+        leftIcon: { type: 'expand-alt', size: 'medium' },
+        rightIcon: { type: 'external-link', size: 'medium' },
         clickHandler: () => console.log('Item 2 Clicked'),
       },
       {
-        text: 'Item 3',
-        icon: { type: 'compress', size: 'medium' },
+        text: 'Item 3 Long Text',
+        leftIcon: { type: 'compress', size: 'medium' },
+        rightIcon: { type: 'external-link', size: 'medium' },
         clickHandler: () => console.log('Item 3 Clicked'),
+      },
+      {
+        text: 'Item 4 With SubMenu',
+        leftIcon: { type: 'compress', size: 'medium' },
+        rightIcon: { type: 'external-link', size: 'medium' },
+        actions: [
+          { text: 'Sub Item 1', rightIcon: { type: 'external-link', size: 'medium' } },
+          { text: 'Sub Item 2', rightIcon: { type: 'external-link', size: 'medium' } },
+          { text: 'Sub Item 3', rightIcon: { type: 'external-link', size: 'medium' } },
+        ],
       },
     ],
   },
@@ -43,8 +57,10 @@ export const MenuItemsWithIcons: Story = {
 export const CustomisedMenuTrigger: Story = {
   args: {
     actions: mockActions,
-    icon: { type: 'hamburger', size: 'large', color: 'info-blue' },
-    style: { backgroundColor: '#d3d3' },
+    menuButtonOptions: {
+      type: 'icon',
+      iconProps: { type: 'hamburger', size: 'large', color: 'info-blue' },
+    },
   },
 }
 
@@ -70,15 +86,69 @@ export const NestedMenu: Story = {
   },
 }
 
-export const MenuTriggerWithoutIcon: Story = {
+export const MenuTriggerWithButton: Story = {
   args: {
     actions: mockActions,
-    text: 'Actions',
-    style: {
-      backgroundColor: BTN_COLOURS.PRIMARY.VALUE,
-      color: BTN_COLOURS.PRIMARY.TEXT,
+    menuButtonOptions: {
+      type: 'button',
+      text: '',
+      buttonProps: {
+        styling: {
+          buttonStyle: 'standard',
+          padding: '0.4rem',
+        },
+        icon: <Icon {...{ type: 'ellipsis-horizontal', size: 'medium' }} />,
+        iconPlacement: 'center',
+      },
     },
   },
+  render: (props) => (
+    <div style={{ width: '30px' }}>
+      <ActionMenu {...props} />
+    </div>
+  ),
+}
+
+export const MenuTriggerWithButtonText: Story = {
+  args: {
+    actions: mockActions,
+    menuButtonOptions: {
+      type: 'button',
+      text: 'Actions',
+      buttonProps: {
+        styling: {
+          buttonStyle: 'standard',
+          padding: '0.4rem',
+        },
+        icon: <Icon {...{ type: 'edit', size: 'medium' }} />,
+      },
+    },
+  },
+  render: (props) => (
+    <div style={{ width: '100px' }}>
+      <ActionMenu {...props} />
+    </div>
+  ),
+}
+
+export const MenuTriggerClearButton: Story = {
+  args: {
+    actions: mockActions,
+    menuButtonOptions: {
+      type: 'button',
+      text: 'Actions',
+      buttonProps: {
+        styling: {
+          buttonStyle: 'clear',
+        },
+      },
+    },
+  },
+  render: (props) => (
+    <div style={{ width: '100px' }}>
+      <ActionMenu {...props} />
+    </div>
+  ),
 }
 
 export const ActionMenuDisabled: Story = {
@@ -93,7 +163,7 @@ export const MenuItemsDisabled: Story = {
     actions: [
       {
         text: 'Print',
-        icon: { type: 'paper-clip', size: 'medium' },
+        leftIcon: { type: 'paper-clip', size: 'medium' },
         disabled: true,
       },
       ...mockActions,

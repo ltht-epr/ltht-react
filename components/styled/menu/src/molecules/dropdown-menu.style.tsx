@@ -1,6 +1,6 @@
 import { css } from '@emotion/react'
 import styled from '@emotion/styled'
-import { BTN_COLOURS } from '@ltht-react/styles'
+import { BTN_COLOURS, getZIndex, PopUp } from '@ltht-react/styles'
 
 const nestedStyles = css`
   display: flex;
@@ -34,11 +34,15 @@ const nestedStyles = css`
     border-bottom: 1px solid #e0e6ef;
   }
 
-  &:hover > svg {
+  &:hover > div > svg {
     color: ${BTN_COLOURS.PRIMARY.TEXT};
   }
 
-  &[disabled] > svg {
+  &[data-focus-inside][data-open] > div > svg {
+    color: ${BTN_COLOURS.PRIMARY.TEXT};
+  }
+
+  &[disabled] > div > svg {
     color: rgba(16, 16, 16, 0.3);
   }
 
@@ -49,6 +53,23 @@ const nestedStyles = css`
   &:hover {
     cursor: pointer;
   }
+`
+
+export const RightIconWrapper = styled.div`
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+`
+
+export const LeftIconWrapper = styled.div`
+  width: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+
+export const TextWrapper = styled.span`
+  flex: 1;
 `
 
 const rootStyles = css`
@@ -68,7 +89,7 @@ const rootStyles = css`
     cursor: not-allowed;
   }
 
-  &[disabled]:hover > svg {
+  &[disabled]:hover > div > svg {
     color: ${BTN_COLOURS.PRIMARY.DISABLED};
   }
 
@@ -78,9 +99,9 @@ const rootStyles = css`
     color: ${BTN_COLOURS.PRIMARY.TEXT};
   }
 
-  &[data-open] > svg,
-  &:focus > svg,
-  &:hover > svg {
+  &[data-open] > div > svg,
+  &:focus > div > svg,
+  &:hover > div > svg {
     color: ${BTN_COLOURS.PRIMARY.TEXT};
   }
 `
@@ -95,6 +116,7 @@ export const StyledMenu = styled.div`
   backdrop-filter: blur(10px);
   box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.1);
   outline: 0;
+  z-index: ${getZIndex(PopUp)};
 `
 
 export const StyledMenuItem = styled.button`

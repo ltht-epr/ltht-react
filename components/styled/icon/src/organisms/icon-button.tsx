@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 import { CSS_RESET } from '@ltht-react/styles'
-import { FC, ButtonHTMLAttributes } from 'react'
+import { ButtonHTMLAttributes, forwardRef } from 'react'
 import Icon, { IconProps } from './icon'
 
 const StyledInvisibleButton = styled.button`
@@ -11,6 +11,15 @@ const StyledInvisibleButton = styled.button`
   &:hover {
     opacity: 0.8;
   }
+
+  &:hover:not([disabled]) {
+    cursor: pointer;
+  }
+
+  &:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+  }
 `
 
 const StyledIcon = styled(Icon)`
@@ -18,23 +27,25 @@ const StyledIcon = styled(Icon)`
   margin-left: 0.4rem;
 `
 
-const IconButton: FC<IconButtonProps> = ({ iconProps, text, iconPosition = 'left', ...rest }: IconButtonProps) => {
-  if (iconPosition === 'left') {
+const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
+  ({ iconProps, text, iconPosition = 'left', ...rest }: IconButtonProps, ref) => {
+    if (iconPosition === 'left') {
+      return (
+        <StyledInvisibleButton ref={ref} {...rest} role="button">
+          <StyledIcon {...iconProps} />
+          {text}
+        </StyledInvisibleButton>
+      )
+    }
+
     return (
-      <StyledInvisibleButton {...rest} role="button">
-        <StyledIcon {...iconProps} />
+      <StyledInvisibleButton ref={ref} {...rest} role="button">
         {text}
+        <StyledIcon {...iconProps} />
       </StyledInvisibleButton>
     )
   }
-
-  return (
-    <StyledInvisibleButton {...rest} role="button">
-      {text}
-      <StyledIcon {...iconProps} />
-    </StyledInvisibleButton>
-  )
-}
+)
 
 export interface IconButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   iconProps: IconProps
