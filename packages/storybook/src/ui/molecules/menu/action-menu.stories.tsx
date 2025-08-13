@@ -1,32 +1,3 @@
-// import ActionMenu from '@ltht-react/menu'
-// import { Story } from '@storybook/react'
-// import mockActions from './action-menu-mockdata'
-// import { BTN_COLOURS } from '@ltht-react/styles'
-
-// export const DefaultActionMenu: Story = () => <ActionMenu actions={mockActions} />
-
-// export const MenuWithCustomIcon: Story = () => (
-//   <ActionMenu actions={mockActions} icon={{ type: 'hamburger', size: 'large' }} />
-// )
-
-// export const MenuWithColouredCustomIcon: Story = () => (
-//   <ActionMenu actions={mockActions} icon={{ type: 'cross', size: 'large', color: 'info-blue' }} />
-// )
-
-// export const MenuWithButton: Story = () => (
-//   <ActionMenu
-//     actions={mockActions}
-//     text="Actions"
-//     icon={{ type: 'hamburger', size: 'medium', color: 'white' }}
-//     style={{
-//       backgroundColor: BTN_COLOURS.PRIMARY.VALUE,
-//       color: BTN_COLOURS.PRIMARY.TEXT,
-//     }}
-//   />
-// )
-
-// export default { title: 'UI/Molecules/Menu' }
-
 import type { Meta, StoryObj } from '@storybook/react'
 
 import ActionMenu from '@ltht-react/menu'
