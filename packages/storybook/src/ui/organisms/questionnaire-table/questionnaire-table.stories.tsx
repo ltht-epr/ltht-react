@@ -1,7 +1,8 @@
 import { Story } from '@storybook/react'
 import { QuestionnaireTable } from '@ltht-react/table'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { QuestionnaireResponse } from '@ltht-react/types'
+import Card from '@ltht-react/card'
 import {
   obsDefinition,
   obsRecordsList,
@@ -12,18 +13,32 @@ import {
   axialPaginatedRecordsList,
 } from './questionnaire-table.fixtures'
 import {
-  mockSummaryAdminActionsForForms,
+  buildActionsForQuestionnaire,
   mockSummaryDefinition,
   mockSummaryRecordsList,
 } from '../generic-table/generic-table.mockdata'
 
-export const MockVerticalTable: Story = () => (
-  <QuestionnaireTable
-    definition={mockSummaryDefinition}
-    records={mockSummaryRecordsList}
-    adminActions={mockSummaryAdminActionsForForms}
-  />
-)
+export const MockVerticalTableInCard: Story = () => {
+  const ref = useRef<HTMLDivElement>(null)
+  return (
+    <Card ref={ref}>
+      <Card.Header style={{ justifyContent: 'space-between' }}>
+        <Card.Title>Questionnaire Table</Card.Title>
+        <Card.FullScreenControl elementRef={ref} />
+      </Card.Header>
+      <Card.Body>
+        <QuestionnaireTable
+          definition={mockSummaryDefinition}
+          records={mockSummaryRecordsList}
+          adminActions={mockSummaryRecordsList.map((x, i) =>
+            buildActionsForQuestionnaire(x.id, i % 2 ? ['View', 'Edit', 'Withdraw'] : ['View'])
+          )}
+          isFlex
+        />
+      </Card.Body>
+    </Card>
+  )
+}
 
 export const ObservationsVerticalTable: Story = () => (
   <QuestionnaireTable id="observation-table" definition={obsDefinition} records={obsRecordsList} staticColumns={2} />

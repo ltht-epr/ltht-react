@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, useRef } from 'react'
 import styled from '@emotion/styled'
 import { Task as ITask, TaskStatusCode } from '@ltht-react/types'
 import ActionMenu, { ActionMenuOption } from '@ltht-react/menu'
@@ -49,6 +49,7 @@ const ActionMenuSection = styled.div`
 
 const Task: FC<IProps> = ({
   task: {
+    id,
     status,
     description,
     metadata: { isRedacted },
@@ -59,6 +60,8 @@ const Task: FC<IProps> = ({
   actions,
   hoverText,
 }) => {
+  const actionMenuRootElementRef = useRef<HTMLDivElement>(null)
+
   if (isRedacted) return <Redacted />
 
   return (
@@ -77,9 +80,11 @@ const Task: FC<IProps> = ({
         <Status status={status} />
       </RightSection>
 
-      <ActionMenuSection>
+      <ActionMenuSection ref={actionMenuRootElementRef}>
         {actions && (
           <ActionMenu
+            root={actionMenuRootElementRef}
+            id={`${id}_action_menu`}
             actions={actions}
             menuButtonOptions={{
               type: 'button',

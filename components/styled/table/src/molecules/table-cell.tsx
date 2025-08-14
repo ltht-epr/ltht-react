@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, useRef } from 'react'
 import { Button } from '@ltht-react/button'
 import styled from '@emotion/styled'
 import Icon, { IconButton, IconProps } from '@ltht-react/icon'
@@ -28,6 +28,13 @@ const TableCell: FC<CellProps> = ({
   clickHandler,
   customComponentOverride,
 }) => {
+  /*
+   * Ensures the action menu popup is rendered within the table’s DOM.
+   * Needed for Fullscreen API, since only elements inside the fullscreen subtree are visible.
+   * Using this ref as the portal root keeps the popup visible on top of the table in fullscreen.
+   */
+  const actionMenuRootElementRef = useRef<HTMLDivElement>(null)
+
   if (customComponentOverride) {
     return customComponentOverride
   }
@@ -37,8 +44,9 @@ const TableCell: FC<CellProps> = ({
       return <></>
     }
     return (
-      <StyledActionMenuContainer>
+      <StyledActionMenuContainer ref={actionMenuRootElementRef}>
         <ActionMenu
+          root={actionMenuRootElementRef}
           id={`${`${id ?? ''}-`}action-menu-button`}
           actions={adminActions}
           menuButtonOptions={{

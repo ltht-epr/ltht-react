@@ -224,6 +224,18 @@ export const mockSummaryAdminActionsForForms: AdminActionsForQuestionnaire[] = [
   },
 ]
 
+export const buildActionsForQuestionnaire = (id: string, actions: string[]): AdminActionsForQuestionnaire => ({
+  questionnaire: id,
+  adminActions: actions.map((x) => ({
+    text: x,
+    clickHandler: () => {
+      // eslint-disable-next-line no-console
+      console.log(`${id}: ${x} action clicked!`)
+    },
+    leftIcon: { type: 'info-circle', size: 'medium', color: 'info-blue' },
+  })),
+})
+
 export const mockMapper = (colData: Questionnaire, rowData: QuestionnaireResponse[]): TableData => {
   const mappedData = mapQuestionnaireDefinitionAndResponsesToTableData(colData, rowData, 'x')
   if (!mappedData) {

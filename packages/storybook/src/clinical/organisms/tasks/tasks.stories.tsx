@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { Story } from '@storybook/react'
 import Card from '@ltht-react/card'
 import Task from '@ltht-react/task'
@@ -209,6 +209,30 @@ export const WithProfessions: Story = () => {
             </Card.ListItem>
           )
         })}
+      </Card.List>
+    </Card>
+  )
+}
+
+export const WithFullScreenControl: Story = () => {
+  const ref = useRef<HTMLDivElement>(null)
+  return (
+    <Card ref={ref}>
+      <Card.Header style={{ justifyContent: 'space-between' }}>
+        <Card.Title>Tasks with Full Screen Control</Card.Title>
+        <Card.FullScreenControl elementRef={ref} />
+      </Card.Header>
+      <Card.List>
+        {Tasks.map((task, index) => (
+          <Card.ListItem>
+            <Task
+              task={task}
+              users={index % 2 === 0 ? 'Clinical Genetics' : undefined}
+              user={index % 3 === 0 ? 'Dr. Reginald Berkeley (MRI)' : undefined}
+              actions={index % 2 === 0 ? TaskActions : undefined}
+            />
+          </Card.ListItem>
+        ))}
       </Card.List>
     </Card>
   )

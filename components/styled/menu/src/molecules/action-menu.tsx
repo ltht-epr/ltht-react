@@ -5,10 +5,11 @@ import { ButtonProps } from '@ltht-react/button'
 
 import { Menu, MenuItem } from './menu'
 
-interface IProps extends HTMLAttributes<HTMLButtonElement> {
+interface IProps<T extends HTMLElement = HTMLElement> extends HTMLAttributes<HTMLButtonElement> {
   actions: ActionMenuOption[]
   menuButtonOptions?: IconButtonMenuProps | ButtonMenuProps
   disabled?: boolean
+  root?: React.MutableRefObject<T | null>
 }
 
 interface IconButtonMenuProps {
