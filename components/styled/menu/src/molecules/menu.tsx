@@ -223,11 +223,9 @@ export const MenuComponent = forwardRef<HTMLButtonElement, MenuProps & React.HTM
     useEffect(() => {
       if (!tree) return undefined
 
-      function handleTreeClick() {
-        setIsOpen(false)
-      }
+      const handleTreeClick = () => setIsOpen(false)
 
-      function onSubMenuOpen(event: { nodeId: string; parentId: string }) {
+      const onSubMenuOpen = (event: { nodeId: string; parentId: string }) => {
         if (event.nodeId !== nodeId && event.parentId === parentId) {
           setIsOpen(false)
         }
@@ -248,25 +246,6 @@ export const MenuComponent = forwardRef<HTMLButtonElement, MenuProps & React.HTM
 
     const activeItem = parent.activeIndex === item.index ? 0 : -1
 
-    const triggerProps = {
-      tabIndex: !isNested ? undefined : activeItem,
-      role: isNested ? 'menuitem' : undefined,
-      'data-open': isOpen ? '' : undefined,
-      'data-nested': isNested ? '' : undefined,
-      'data-focus-inside': hasFocusInside ? '' : undefined,
-      style: isNested ? undefined : props.style,
-      ...getReferenceProps(
-        parent.getItemProps({
-          ...props,
-          onFocus(event: React.FocusEvent<HTMLButtonElement>) {
-            props.onFocus?.(event)
-            setHasFocusInside(false)
-            parent.setHasFocusInside(true)
-          },
-        })
-      ),
-    }
-
     return (
       <FloatingNode id={nodeId}>
         <MenuTrigger
@@ -277,8 +256,23 @@ export const MenuComponent = forwardRef<HTMLButtonElement, MenuProps & React.HTM
           leftIcon={leftIcon}
           rightIcon={rightIcon}
           rootTrigger={rootTrigger}
+          tabIndex={!isNested ? undefined : activeItem}
+          role={isNested ? 'menuitem' : undefined}
+          data-open={isOpen ? '' : undefined}
+          data-nested={isNested ? '' : undefined}
+          data-focus-inside={hasFocusInside ? '' : undefined}
+          style={isNested ? undefined : props.style}
+          {...getReferenceProps(
+            parent.getItemProps({
+              ...props,
+              onFocus(event: React.FocusEvent<HTMLButtonElement>) {
+                props.onFocus?.(event)
+                setHasFocusInside(false)
+                parent.setHasFocusInside(true)
+              },
+            })
+          )}
           {...props}
-          {...triggerProps}
         />
 
         <MenuContext.Provider
@@ -336,7 +330,6 @@ interface MenuTriggerProps extends React.HTMLAttributes<HTMLElement> {
  * @param props.rightIcon - Optional icon to display on the right of the label.
  * @param props.label - Optional label text for the trigger.
  * @param props.rootTrigger - Configuration for the root menu trigger (icon or button).
- * @param props.triggerProps - Additional props to apply to the trigger element.
  * @param forwardedRef - Ref to the trigger element.
  * @returns The trigger element for the menu or submenu.
  */
