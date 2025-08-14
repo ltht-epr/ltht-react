@@ -70,6 +70,7 @@ export const LeftIconWrapper = styled.div`
 
 export const TextWrapper = styled.span`
   flex: 1;
+  padding: 0.2rem 0.3rem;
 `
 
 const rootStyles = css`
@@ -106,7 +107,6 @@ const rootStyles = css`
   }
 
   &[data-open] > svg,
-  &:focus > svg,
   &:hover > svg {
     color: ${BTN_COLOURS.PRIMARY.TEXT};
   }

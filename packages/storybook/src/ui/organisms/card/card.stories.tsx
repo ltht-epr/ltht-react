@@ -4,6 +4,7 @@ import styled from '@emotion/styled'
 import Card from '@ltht-react/card'
 import { Button } from '@ltht-react/button'
 import AllergySummary from '@ltht-react/allergy-summary'
+import { Menu, MenuItem } from '@ltht-react/menu'
 import { InfoSummary, WarningSummary, ErrorSummary, MissingDataSummary } from '@ltht-react/type-summary'
 import allergies from '../../../clinical/organisms/allergies/allergies.fixtures'
 
@@ -187,8 +188,40 @@ export const CardWithMultipleButtonsAndFullScreenControl: Story = () => {
         </ButtonGroup>
       </StyledHeader>
       <Card.List>
-        <Card.ListItem>Item 1</Card.ListItem>
-        <Card.ListItem>Item 2</Card.ListItem>
+        <Card.ListItem>
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'row',
+              justifyContent: 'start',
+              alignItems: 'center',
+              gap: '1rem',
+            }}
+          >
+            <Menu id="item-1" root={widgetRef}>
+              <MenuItem>Item 1</MenuItem>
+              <MenuItem>Item 2</MenuItem>
+            </Menu>
+            <span>Item 1</span>
+          </div>
+        </Card.ListItem>
+        <Card.ListItem>
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'row',
+              justifyContent: 'start',
+              alignItems: 'center',
+              gap: '1rem',
+            }}
+          >
+            <Menu id="item-2" root={widgetRef}>
+              <MenuItem>Item 1</MenuItem>
+              <MenuItem>Item 2</MenuItem>
+            </Menu>
+            <span>Item 2</span>
+          </div>
+        </Card.ListItem>
       </Card.List>
     </Card>
   )

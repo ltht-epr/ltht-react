@@ -3,7 +3,14 @@ import { Story } from '@storybook/react'
 import Card from '@ltht-react/card'
 import Task from '@ltht-react/task'
 
-import { RedactedTask, CompletedTask, CancelledTask, Tasks, TaskActions } from './tasks.fixtures'
+import {
+  RedactedTask,
+  CompletedTask,
+  CancelledTask,
+  Tasks,
+  TaskActions,
+  TaskActionsWithoutIcons,
+} from './tasks.fixtures'
 
 export const TasksStory: Story = () => {
   const [selectedTaskId, setSelectedTaskId] = useState('')
@@ -148,6 +155,9 @@ export const WithActionsAndInteraction: Story = () => {
             </Card.ListItem>
           )
         })}
+        <Card.ListItem>
+          <Task task={Tasks[0]} actions={TaskActionsWithoutIcons} />
+        </Card.ListItem>
       </Card.List>
     </Card>
   )

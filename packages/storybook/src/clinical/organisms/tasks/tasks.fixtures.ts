@@ -232,4 +232,9 @@ export const TaskActions: ActionMenuOption[] = [
   { text: 'Reassign', clickHandler: () => undefined, leftIcon: { type: 'edit', size: 'medium', color: 'info-blue' } },
 ]
 
+export const TaskActionsWithoutIcons: ActionMenuOption[] = [
+  { text: 'Close', clickHandler: () => undefined },
+  { text: 'Reassign', clickHandler: () => undefined },
+]
+
 export const Tasks: Task[] = [Task1, Task2, Task3, Task4, Task5, Task6, Task7, CompletedTask, CancelledTask]

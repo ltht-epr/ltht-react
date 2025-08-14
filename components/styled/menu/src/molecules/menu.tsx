@@ -108,7 +108,7 @@ const MenuContext = React.createContext<MenuContextState>({
  * @property rootTrigger - The trigger component for the root menu (icon or button).
  * @property disabled - If true, disables the menu trigger.
  */
-interface MenuProps {
+interface MenuProps<T extends HTMLElement = HTMLElement> {
   label?: string
   leftIcon?: ReactNode
   rightIcon?: ReactNode
@@ -116,6 +116,7 @@ interface MenuProps {
   children?: ReactNode
   rootTrigger?: RootMenuTrigger
   disabled?: boolean
+  root?: React.MutableRefObject<T | null>
 }
 
 /**
@@ -159,7 +160,7 @@ interface ButtonMenuProps {
  * @returns The menu trigger and its floating menu.
  */
 export const MenuComponent = forwardRef<HTMLButtonElement, MenuProps & React.HTMLAttributes<HTMLButtonElement>>(
-  ({ children, label, leftIcon, rightIcon, rootTrigger, ...props }, forwardedRef) => {
+  ({ children, label, leftIcon, rightIcon, rootTrigger, root, ...props }, forwardedRef) => {
     const [isOpen, setIsOpen] = React.useState(false)
     const [hasFocusInside, setHasFocusInside] = React.useState(false)
     const [activeIndex, setActiveIndex] = React.useState<number | null>(null)
@@ -286,7 +287,7 @@ export const MenuComponent = forwardRef<HTMLButtonElement, MenuProps & React.HTM
         >
           <FloatingList elementsRef={elementsRef} labelsRef={labelsRef}>
             {isOpen && (
-              <FloatingPortal>
+              <FloatingPortal root={root}>
                 <FloatingFocusManager
                   context={context}
                   modal={false}
