@@ -3,11 +3,15 @@ import { Button } from '@ltht-react/button'
 import styled from '@emotion/styled'
 import Icon, { IconButton, IconProps } from '@ltht-react/icon'
 import ActionMenu, { ActionMenuOption } from '@ltht-react/menu'
-import { PopUp, getZIndex, BTN_COLOURS } from '@ltht-react/styles'
+import { BTN_COLOURS } from '@ltht-react/styles'
 import { Axis } from '@ltht-react/types'
 
 const StyledIconText = styled.span`
   margin-left: 0.4rem;
+`
+const StyledActionMenuContainer = styled.div`
+  display: flex;
+  justify-content: center;
 `
 
 // TODO: This component is still a WIP and will be re-factored soon!
@@ -33,27 +37,30 @@ const TableCell: FC<CellProps> = ({
       return <></>
     }
     return (
-      <ActionMenu
-        id={`${`${id ?? ''}-`}action-menu-button`}
-        actions={adminActions}
-        menuButtonOptions={{
-          type: 'button',
-          text: '',
-          buttonProps: {
-            styling: {
-              buttonStyle: 'standard',
-              padding: headerAxis === 'x' ? '0.3rem 0.5rem' : '0.15rem 0.3rem',
+      <StyledActionMenuContainer>
+        <ActionMenu
+          id={`${`${id ?? ''}-`}action-menu-button`}
+          actions={adminActions}
+          menuButtonOptions={{
+            type: 'button',
+            text: '',
+            buttonProps: {
+              styling: {
+                buttonStyle: 'standard',
+                padding: headerAxis === 'x' ? '0.3rem 0.5rem' : '0.15rem 0.3rem',
+              },
+              icon: (
+                <Icon {...{ type: headerAxis === 'x' ? 'ellipsis-vertical' : 'ellipsis-horizontal', size: 'medium' }} />
+              ),
+              iconPlacement: 'center',
+              color: `${BTN_COLOURS.DANGER.VALUE}`,
             },
-            icon: (
-              <Icon {...{ type: headerAxis === 'x' ? 'ellipsis-vertical' : 'ellipsis-horizontal', size: 'medium' }} />
-            ),
-            iconPlacement: 'center',
-            color: `${BTN_COLOURS.DANGER.VALUE}`,
-          },
-        }}
-        popupStyle={{ zIndex: getZIndex(PopUp) }}
-        popupPlacement={headerAxis === 'x' ? 'bottom-start' : 'right-start'}
-      />
+          }}
+          style={{
+            width: 'fit-content',
+          }}
+        />
+      </StyledActionMenuContainer>
     )
   }
 

@@ -1617,7 +1617,7 @@ export const axialAdminActionsForForms: AdminActionsForQuestionnaire[] = [
       {
         text: 'View',
         clickHandler: () => {
-          console.log('Viewing submission 3')
+          console.log('Viewing submission 4')
         },
         leftIcon: { type: 'info-circle', size: 'medium' },
         rightIcon: { type: 'external-link', size: 'medium' },
@@ -1625,7 +1625,7 @@ export const axialAdminActionsForForms: AdminActionsForQuestionnaire[] = [
       {
         text: 'Edit',
         clickHandler: () => {
-          console.log('Editing submission 3')
+          console.log('Editing submission 4')
         },
         leftIcon: { type: 'edit', size: 'medium' },
         rightIcon: { type: 'external-link', size: 'medium' },
@@ -1633,7 +1633,7 @@ export const axialAdminActionsForForms: AdminActionsForQuestionnaire[] = [
       {
         text: 'Delete',
         clickHandler: () => {
-          console.log('Deleting submission 3')
+          console.log('Deleting submission 4')
         },
         leftIcon: { type: 'exclamation', size: 'medium' },
       },

@@ -1,4 +1,4 @@
-import { FC, ReactNode, HTMLAttributes } from 'react'
+import { ReactNode, HTMLAttributes, forwardRef } from 'react'
 import styled from '@emotion/styled'
 import { css, SerializedStyles } from '@emotion/react'
 import { DESKTOP_MINIMUM_MEDIA_QUERY, BTN_COLOURS } from '@ltht-react/styles'
@@ -131,36 +131,41 @@ const ButtonIcon = styled.div<ButtonIconProps>`
   }
 `
 
-const Button: FC<ButtonProps> = ({
-  type = 'button',
-  value,
-  styling,
-  disabled = false,
-  icon,
-  iconPlacement = 'left',
-  iconColour = 'white',
-  children,
-  ...rest
-}) => (
-  <StyledButton {...styling} type={type} disabled={disabled} {...rest}>
-    {icon && iconPlacement === 'left' && (
-      <ButtonIcon placement={iconPlacement} iconColour={iconColour}>
-        {icon}
-      </ButtonIcon>
-    )}
-    {value}
-    {children}
-    {icon && iconPlacement === 'right' && (
-      <ButtonIcon placement={iconPlacement} iconColour={iconColour}>
-        {icon}
-      </ButtonIcon>
-    )}
-    {!value && icon && iconPlacement === 'center' && (
-      <ButtonIcon placement={iconPlacement} iconColour={iconColour}>
-        {icon}
-      </ButtonIcon>
-    )}
-  </StyledButton>
+const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+  (
+    {
+      type = 'button',
+      value,
+      styling,
+      disabled = false,
+      icon,
+      iconPlacement = 'left',
+      iconColour = 'white',
+      children,
+      ...rest
+    },
+    ref
+  ) => (
+    <StyledButton ref={ref} {...styling} type={type} disabled={disabled} {...rest}>
+      {icon && iconPlacement === 'left' && (
+        <ButtonIcon placement={iconPlacement} iconColour={iconColour}>
+          {icon}
+        </ButtonIcon>
+      )}
+      {value}
+      {children}
+      {icon && iconPlacement === 'right' && (
+        <ButtonIcon placement={iconPlacement} iconColour={iconColour}>
+          {icon}
+        </ButtonIcon>
+      )}
+      {!value && icon && iconPlacement === 'center' && (
+        <ButtonIcon placement={iconPlacement} iconColour={iconColour}>
+          {icon}
+        </ButtonIcon>
+      )}
+    </StyledButton>
+  )
 )
 
 type ButtonStyle = 'primary' | 'standard' | 'workflow' | 'danger' | 'clear'

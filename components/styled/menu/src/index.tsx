@@ -1,4 +1,6 @@
-import ActionMenu, { ActionMenuOption } from './molecules/action-menu'
+import ActionMenu, { ActionMenuOption, DefaultTrigger } from './molecules/action-menu'
+import { Menu, MenuItem } from './molecules/menu'
 
 export default ActionMenu
-export { ActionMenuOption }
+export { Menu, MenuItem }
+export { ActionMenuOption, DefaultTrigger }
