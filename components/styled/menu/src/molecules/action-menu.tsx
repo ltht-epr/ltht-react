@@ -1,8 +1,9 @@
-import Icon, { IconProps } from '@ltht-react/icon'
 import { FC, HTMLAttributes, ReactNode } from 'react'
+import Icon, { IconProps } from '@ltht-react/icon'
 import { stringToHtmlId } from '@ltht-react/utils'
-import { Menu, MenuItem } from './dropdown-menu'
 import { ButtonProps } from '@ltht-react/button'
+
+import { Menu, MenuItem } from './menu'
 
 interface IProps extends HTMLAttributes<HTMLButtonElement> {
   actions: ActionMenuOption[]
@@ -50,7 +51,7 @@ const ActionMenu: FC<IProps> = ({
   const menuItemIdPrefix = id ? `${id}-` : ''
 
   return (
-    <Menu rootTrigger={menuButtonOptions} {...rest}>
+    <Menu rootTrigger={menuButtonOptions} data-testid={id} {...rest}>
       {actions.map((action, index) => renderAction(menuItemIdPrefix, action, index))}
     </Menu>
   )
@@ -69,6 +70,7 @@ const renderAction = (
       <Menu
         key={actionMenuItemId}
         id={actionMenuItemId}
+        data-testid={actionMenuItemId}
         label={text}
         leftIcon={leftIcon ? <Icon {...leftIcon} /> : null}
         rightIcon={rightIcon ? <Icon {...rightIcon} /> : null}
@@ -83,6 +85,7 @@ const renderAction = (
     <MenuItem
       key={actionMenuItemId}
       id={actionMenuItemId}
+      data-testid={actionMenuItemId}
       label={text}
       leftIcon={leftIcon ? <Icon {...leftIcon} /> : null}
       rightIcon={rightIcon ? <Icon {...rightIcon} /> : null}

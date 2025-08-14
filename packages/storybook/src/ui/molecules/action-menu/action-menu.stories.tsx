@@ -1,12 +1,11 @@
+/* eslint-disable no-console */
 import type { Meta, StoryObj } from '@storybook/react'
-
-import ActionMenu, { DefaultTrigger } from '@ltht-react/menu'
-import mockActions from './action-menu-mockdata'
-import { BTN_COLOURS } from '@ltht-react/styles'
 import Icon from '@ltht-react/icon'
+import ActionMenu from '@ltht-react/menu'
+import mockActions from './action-menu-mockdata'
 
 const meta: Meta<typeof ActionMenu> = {
-  title: 'UI/Molecules/Menu',
+  title: 'UI/Molecules/ActionMenu',
   component: ActionMenu,
 }
 

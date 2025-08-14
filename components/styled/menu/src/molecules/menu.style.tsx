@@ -104,6 +104,12 @@ const rootStyles = css`
   &:hover > div > svg {
     color: ${BTN_COLOURS.PRIMARY.TEXT};
   }
+
+  &[data-open] > svg,
+  &:focus > svg,
+  &:hover > svg {
+    color: ${BTN_COLOURS.PRIMARY.TEXT};
+  }
 `
 
 export const StyledRootMenu = styled.button<{ isNested?: boolean }>`
