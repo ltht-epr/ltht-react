@@ -59,7 +59,7 @@ import {
   useTypeahead,
 } from '@floating-ui/react'
 import * as React from 'react'
-import { FC, forwardRef, HTMLAttributes, ReactNode, useEffect } from 'react'
+import { forwardRef, HTMLAttributes, ReactNode, useEffect } from 'react'
 import Icon, { IconButton, IconProps } from '@ltht-react/icon'
 import { Button, ButtonProps } from '@ltht-react/button'
 import {
@@ -249,7 +249,6 @@ export const MenuComponent = forwardRef<HTMLButtonElement, MenuProps & React.HTM
     const activeItem = parent.activeIndex === item.index ? 0 : -1
 
     const triggerProps = {
-      ref: useMergeRefs([refs.setReference, item.ref, forwardedRef]),
       tabIndex: !isNested ? undefined : activeItem,
       role: isNested ? 'menuitem' : undefined,
       'data-open': isOpen ? '' : undefined,
@@ -271,14 +270,15 @@ export const MenuComponent = forwardRef<HTMLButtonElement, MenuProps & React.HTM
     return (
       <FloatingNode id={nodeId}>
         <MenuTrigger
+          ref={forwardedRef}
           refs={refs}
           isNested={isNested}
-          triggerProps={triggerProps}
           label={label}
           leftIcon={leftIcon}
           rightIcon={rightIcon}
           rootTrigger={rootTrigger}
           {...props}
+          {...triggerProps}
         />
 
         <MenuContext.Provider
@@ -321,7 +321,6 @@ interface MenuTriggerProps extends React.HTMLAttributes<HTMLElement> {
   rightIcon?: React.ReactNode
   label?: string
   rootTrigger?: RootMenuTrigger
-  triggerProps?: Record<string, unknown>
 }
 
 /**
@@ -341,46 +340,44 @@ interface MenuTriggerProps extends React.HTMLAttributes<HTMLElement> {
  * @param forwardedRef - Ref to the trigger element.
  * @returns The trigger element for the menu or submenu.
  */
-export const MenuTrigger: FC<MenuTriggerProps & HTMLAttributes<HTMLButtonElement>> = (
-  { refs, isNested, leftIcon, rightIcon, label, rootTrigger, triggerProps, ...props },
-  forwardedRef
-) => {
-  const item = useListItem()
+export const MenuTrigger = forwardRef<HTMLButtonElement, MenuTriggerProps & HTMLAttributes<HTMLButtonElement>>(
+  ({ refs, isNested, leftIcon, rightIcon, label, rootTrigger, ...props }, forwardedRef) => {
+    const item = useListItem()
 
-  const mergedRefs = useMergeRefs([refs.setReference, item.ref, forwardedRef])
+    const mergedRefs = useMergeRefs([refs.setReference, item.ref, forwardedRef])
 
-  if (isNested || !rootTrigger) {
-    // check if no label or icons provided thus use default icon
-    const finalLeftIconValue = !label && !leftIcon && !rightIcon ? <DefaultTriggerIcon /> : leftIcon
-    return (
-      <StyledRootMenu ref={mergedRefs} {...props} {...triggerProps} isNested={isNested}>
-        <MenuLabel leftIcon={finalLeftIconValue} rightIcon={rightIcon} label={label} isNested={isNested} />
-      </StyledRootMenu>
-    )
-  }
-
-  switch (rootTrigger.type) {
-    case 'icon':
+    if (isNested || !rootTrigger) {
+      // check if no label or icons provided thus use default icon
+      const finalLeftIconValue = !label && !leftIcon && !rightIcon ? <DefaultTriggerIcon /> : leftIcon
       return (
-        <IconButton
-          ref={mergedRefs}
-          iconProps={rootTrigger.iconProps}
-          disabled={rootTrigger.disabled}
-          text={rootTrigger.text}
-          {...props}
-          {...triggerProps}
-        />
+        <StyledRootMenu ref={mergedRefs} {...props} isNested={isNested}>
+          <MenuLabel leftIcon={finalLeftIconValue} rightIcon={rightIcon} label={label} isNested={isNested} />
+        </StyledRootMenu>
       )
-    case 'button':
-      return (
-        <Button ref={mergedRefs} {...props} {...rootTrigger.buttonProps} {...triggerProps}>
-          {rootTrigger.text}
-        </Button>
-      )
-    default:
-      return null
+    }
+
+    switch (rootTrigger.type) {
+      case 'icon':
+        return (
+          <IconButton
+            ref={mergedRefs}
+            iconProps={rootTrigger.iconProps}
+            disabled={rootTrigger.disabled}
+            text={rootTrigger.text}
+            {...props}
+          />
+        )
+      case 'button':
+        return (
+          <Button ref={mergedRefs} {...props} {...rootTrigger.buttonProps}>
+            {rootTrigger.text}
+          </Button>
+        )
+      default:
+        return null
+    }
   }
-}
+)
 
 /**
  * Props for the MenuLabel component.
