@@ -398,7 +398,7 @@ const MenuLabel = ({ leftIcon, rightIcon, label, isNested }: MenuLabelProps) => 
     return (
       <>
         {leftIcon && <LeftIconWrapper>{leftIcon}</LeftIconWrapper>}
-        {label && <TextWrapper>{label}</TextWrapper>}
+        <TextWrapper>{label}</TextWrapper>
         {isNested && <RightIconWrapper>▶</RightIconWrapper>}
       </>
     )

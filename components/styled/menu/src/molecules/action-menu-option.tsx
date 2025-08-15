@@ -1,5 +1,5 @@
-import { useMemo, MouseEvent, memo, FC, useCallback } from 'react'
-import Icon, { IconProps } from '@ltht-react/icon'
+import { useMemo, MouseEvent, FC, useCallback } from 'react'
+import Icon from '@ltht-react/icon'
 import { stringToHtmlId } from '@ltht-react/utils'
 import { useFullScreen } from '@ltht-react/hooks'
 import { ActionMenuOption as IActionMenuOption } from './action-menu'
@@ -15,14 +15,6 @@ const generateActionId = (idPrefix: string, text: string, index: number): string
   const textId = stringToHtmlId(text)
   return `${idPrefix}action-menu-item-${textId}-${index}`
 }
-
-// Memoized icon renderer to prevent unnecessary re-renders
-const IconRenderer = memo<{ icon?: IconProps }>(({ icon }) => {
-  if (!icon) return null
-  return <Icon {...icon} />
-})
-
-IconRenderer.displayName = 'IconRenderer'
 
 const ActionMenuOption: FC<Props> = ({
   idPrefix,
@@ -43,9 +35,9 @@ const ActionMenuOption: FC<Props> = ({
   const actionMenuItemId = useMemo(() => generateActionId(idPrefix, text, index), [idPrefix, text, index])
 
   // Memoize icons to prevent unnecessary re-renders
-  const leftIconElement = useMemo(() => <IconRenderer icon={leftIcon} />, [leftIcon])
+  const leftIconElement = useMemo(() => leftIcon && <Icon {...leftIcon} />, [leftIcon])
 
-  const rightIconElement = useMemo(() => <IconRenderer icon={rightIcon} />, [rightIcon])
+  const rightIconElement = useMemo(() => rightIcon && <Icon {...rightIcon} />, [rightIcon])
 
   const handleOnClick = useCallback(
     async (e: MouseEvent<HTMLButtonElement>) => {
