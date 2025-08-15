@@ -1,9 +1,9 @@
-import { FC, HTMLAttributes, ReactNode } from 'react'
-import Icon, { IconProps } from '@ltht-react/icon'
-import { stringToHtmlId } from '@ltht-react/utils'
+import { FC, HTMLAttributes } from 'react'
+import { IconProps } from '@ltht-react/icon'
 import { ButtonProps } from '@ltht-react/button'
 
-import { Menu, MenuItem } from './menu'
+import { Menu } from './menu'
+import MenuOption from './action-menu-option'
 
 interface IProps<T extends HTMLElement = HTMLElement> extends HTMLAttributes<HTMLButtonElement> {
   actions: ActionMenuOption[]
@@ -31,6 +31,7 @@ export interface ActionMenuOption extends HTMLAttributes<HTMLButtonElement> {
   leftIcon?: IconProps
   rightIcon?: IconProps
   disabled?: boolean
+  exitFullScreenOnClick?: boolean
   actions?: ActionMenuOption[]
 }
 
@@ -53,46 +54,15 @@ const ActionMenu: FC<IProps> = ({
 
   return (
     <Menu rootTrigger={menuButtonOptions} data-testid={id} {...rest}>
-      {actions.map((action, index) => renderAction(menuItemIdPrefix, action, index))}
+      {actions.map((action, index) => (
+        <MenuOption
+          key={`${menuItemIdPrefix}_menu_item_${index}`}
+          idPrefix={menuItemIdPrefix}
+          index={index}
+          {...action}
+        />
+      ))}
     </Menu>
-  )
-}
-
-const renderAction = (
-  idPrefix: string,
-  { text, leftIcon, rightIcon, clickHandler, onClick, actions, ...rest }: ActionMenuOption,
-  index: number
-): ReactNode => {
-  const textId = stringToHtmlId(text)
-  const actionMenuItemId = `${idPrefix}action-menu-item-${textId}-${index}`
-
-  if (!!actions?.length && actions.length > 0) {
-    return (
-      <Menu
-        key={actionMenuItemId}
-        id={actionMenuItemId}
-        data-testid={actionMenuItemId}
-        label={text}
-        leftIcon={leftIcon ? <Icon {...leftIcon} /> : null}
-        rightIcon={rightIcon ? <Icon {...rightIcon} /> : null}
-        {...rest}
-      >
-        {actions.map((action, index) => renderAction(actionMenuItemId, action, index))}
-      </Menu>
-    )
-  }
-
-  return (
-    <MenuItem
-      key={actionMenuItemId}
-      id={actionMenuItemId}
-      data-testid={actionMenuItemId}
-      label={text}
-      leftIcon={leftIcon ? <Icon {...leftIcon} /> : null}
-      rightIcon={rightIcon ? <Icon {...rightIcon} /> : null}
-      onClick={clickHandler ?? onClick}
-      {...rest}
-    />
   )
 }
 

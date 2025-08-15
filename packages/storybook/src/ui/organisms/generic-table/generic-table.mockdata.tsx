@@ -233,6 +233,7 @@ export const buildActionsForQuestionnaire = (id: string, actions: string[]): Adm
       console.log(`${id}: ${x} action clicked!`)
     },
     leftIcon: { type: 'info-circle', size: 'medium', color: 'info-blue' },
+    exitFullScreenOnClick: true,
   })),
 })
 
