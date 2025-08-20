@@ -2999,7 +2999,7 @@ export enum LaunchApp {
 /** Permission to launch one or more Apps with the given Intents. */
 export type LaunchPermission = {
   /** The App the user can launch. */
-  application: LaunchApp;
+  applications: Array<LaunchApp>;
   /** Unique id for inter-element referencing. */
   elementId?: Maybe<Scalars['String']>;
   /** Additional content defined by implementations. */
