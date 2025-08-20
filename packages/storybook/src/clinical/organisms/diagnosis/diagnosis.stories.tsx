@@ -1,4 +1,4 @@
-import { Story } from '@storybook/react'
+import { Story, StoryObj } from '@storybook/react'
 
 import DiagnosisSummary from '@ltht-react/diagnosis-summary'
 import DiagnosisDetail from '@ltht-react/diagnosis-detail'
@@ -76,6 +76,21 @@ export const Summary: Story = () => {
       </Card.List>
     </Card>
   )
+}
+
+export const SummaryDateOnly: StoryObj = {
+  render: () => (
+    <Card>
+      <Card.Header>
+        <Card.Title>Problems & Diagnosis</Card.Title>
+      </Card.Header>
+      <Card.List>
+        <Card.ListItem>
+          <DiagnosisSummary condition={conditions[8]} isReadOnly={false} dateOnlyView />
+        </Card.ListItem>
+      </Card.List>
+    </Card>
+  ),
 }
 
 export const Redacted: Story = () => (

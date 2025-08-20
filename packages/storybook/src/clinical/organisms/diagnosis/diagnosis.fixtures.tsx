@@ -967,6 +967,85 @@ const ConditionSeven: Condition = {
   ],
 }
 
+const ConditionEight: Condition = {
+  id: 'R3|b8612fe0-a596-4fbd-a4c9-5be4e8bfb2b3',
+  abatement: null,
+  assertedDate: {
+    kind: PartialDateTimeKindCode.DateTime,
+    value: '1753-01-01T00:00:15+00:00',
+  },
+  category: [],
+  bodySite: [],
+  identifier: [
+    {
+      system: 'https://leedsth.nhs.uk/cds/instance-identifier',
+      value: 'ce89b057-6d53-4335-885f-d02e70a60b4a',
+      extension: null,
+    },
+    {
+      system: 'https://leedsth.nhs.uk/cds/instance-set-identifier',
+      value: 'b8612fe0-a596-4fbd-a4c9-5be4e8bfb2b3',
+      extension: null,
+    },
+    {
+      system: 'https://leedsth.nhs.uk/cds/root-instance-identifier',
+      value: 'a2568b3c-eb37-49bf-b73a-6b4e304ae28b',
+      extension: null,
+    },
+  ],
+  extensionData: null,
+  note: [],
+  evidence: null,
+  asserter: null,
+  stage: null,
+  code: {
+    coding: [
+      {
+        code: '27031003',
+        display: 'African trypanosomiasis',
+      },
+    ],
+    text: 'African trypanosomiasis',
+  },
+  clinicalStatus: ConditionClinicalStatus.Active,
+  metadata: {
+    isRedacted: false,
+    dataSources: [
+      {
+        code: 'EHR',
+        display: 'PPM+',
+      },
+    ],
+    tag: [
+      {
+        code: null,
+        display: 'diagnosis-level-one',
+        system: 'https://leedsth.nhs.uk/cds/root-template-name',
+      },
+      {
+        code: null,
+        display: 'Problems & Diagnosis',
+        system: 'https://leedsth.nhs.uk/cds/root-template-display-name',
+      },
+      {
+        code: null,
+        display: 'Provisional, African trypanosomiasis: Active',
+        system: 'https://leedsth.nhs.uk/cds/snippet-text',
+      },
+      {
+        code: null,
+        display: 'Provisional, African trypanosomiasis: Active',
+        system: 'https://leedsth.nhs.uk/cds/snippet-hover-text',
+      },
+    ],
+    requestedWhen: '',
+  },
+  onset: null,
+  severity: null,
+  verificationStatus: ConditionVerificationStatus.Provisional,
+  extension: [],
+}
+
 const conditions: Condition[] = [
   ConditionOne,
   ConditionThree,
@@ -976,6 +1055,7 @@ const conditions: Condition[] = [
   ConditionTwo,
   ConditionSix,
   ConditionSeven,
+  ConditionEight,
 ]
 
 const controls: ButtonProps[] = [
