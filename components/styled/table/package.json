@@ -1,6 +1,6 @@
 {
   "name": "@ltht-react/table",
-  "version": "2.0.174",
+  "version": "2.0.175",
   "description": "ltht-react Table component.",
   "author": "LTHT",
   "homepage": "",
@@ -28,12 +28,12 @@
   "dependencies": {
     "@emotion/react": "^11.0.0",
     "@emotion/styled": "^11.0.0",
-    "@ltht-react/button": "^2.0.174",
-    "@ltht-react/icon": "^2.0.174",
-    "@ltht-react/menu": "^2.0.174",
-    "@ltht-react/styles": "^2.0.174",
-    "@ltht-react/types": "^2.0.174",
-    "@ltht-react/utils": "^2.0.174",
+    "@ltht-react/button": "^2.0.175",
+    "@ltht-react/icon": "^2.0.175",
+    "@ltht-react/menu": "^2.0.175",
+    "@ltht-react/styles": "^2.0.175",
+    "@ltht-react/types": "^2.0.175",
+    "@ltht-react/utils": "^2.0.175",
     "@tanstack/react-table": "^8.10.7",
     "react": "^18.2.0",
     "react-uuid": "^2.0.0"
