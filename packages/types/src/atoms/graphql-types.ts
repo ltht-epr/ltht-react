@@ -2579,6 +2579,7 @@ export enum FeatureInstance {
   SepsisAdultEnabled = 'SEPSIS_ADULT_ENABLED',
   SepsisAdultFullWorkflowEnabled = 'SEPSIS_ADULT_FULL_WORKFLOW_ENABLED',
   SepsisObservationsWidgetEnabled = 'SEPSIS_OBSERVATIONS_WIDGET_ENABLED',
+  ShowWidgetHeaderButtonsInDropdownMenu = 'SHOW_WIDGET_HEADER_BUTTONS_IN_DROPDOWN_MENU',
   TaskTagFiltering = 'TASK_TAG_FILTERING',
   WardRoundLabTestResultsEnabled = 'WARD_ROUND_LAB_TEST_RESULTS_ENABLED',
   XFormsLaunch = 'X_FORMS_LAUNCH',
