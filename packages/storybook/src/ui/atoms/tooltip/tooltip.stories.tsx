@@ -57,29 +57,29 @@ export const TooltipAutoPlacementOnEdge: Story = {
   },
 }
 
-export const TooltipWithColour: Story = {
+export const PrimaryTooltip: Story = {
   args: {
-    content: 'This is a tooltip with colour',
+    content: 'This is a tooltip with type',
     placement: 'right',
-    colour: 'primary',
+    type: 'primary',
     children: 'Tooltip on right',
   },
 }
 
 export const TooltipWarning: Story = {
   args: {
-    content: 'This is a tooltip with colour',
+    content: 'This is a tooltip with type',
     placement: 'right',
-    colour: 'warning',
+    type: 'warning',
     children: 'Tooltip on right',
   },
 }
 
 export const TooltipError: Story = {
   args: {
-    content: 'This is a tooltip with colour',
+    content: 'This is a tooltip with type',
     placement: 'right',
-    colour: 'error',
+    type: 'error',
     children: 'Tooltip on right',
   },
 }
@@ -89,7 +89,7 @@ export const TooltipCardExample: Story = {
     content: 'This is a tooltip',
   },
   render: (args) => (
-    <Card>
+    <Card style={{ width: '300px', height: '400px', overflowY: 'scroll', overflowX: 'hidden' }}>
       <Card.Header>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>
           <h3 style={{ margin: 0 }}>Example Summary</h3>
@@ -98,13 +98,30 @@ export const TooltipCardExample: Story = {
           </Tooltip>
         </div>
       </Card.Header>
-      <Card.Body>
-        This is an example of a card with a tooltip. Lorem ipsum dolor sit amet, consectetur adipiscing elit.{' '}
-        <Tooltip {...args}>
-          <button type="button">Hover over me</button>
-        </Tooltip>
-        . Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-      </Card.Body>
+      <Card.List>
+        <Card.ListItem>Item 1</Card.ListItem>
+        <Card.ListItem>Item 2</Card.ListItem>
+        <Card.ListItem>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+          magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          consequat.
+          <Tooltip
+            content="lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+            placement="top"
+          >
+            <button type="button">Hover over me</button>
+          </Tooltip>
+        </Card.ListItem>
+        <Card.ListItem>Item 2</Card.ListItem>
+        <Card.ListItem>Item 2</Card.ListItem>
+        <Card.ListItem>Item 2</Card.ListItem>
+        <Card.ListItem>Item 2</Card.ListItem>
+        <Card.ListItem>Item 2</Card.ListItem>
+        <Card.ListItem>Item 2</Card.ListItem>
+        <Card.ListItem>Item 2</Card.ListItem>
+        <Card.ListItem>Item 2</Card.ListItem>
+        <Card.ListItem>Item 2</Card.ListItem>
+      </Card.List>
     </Card>
   ),
 }

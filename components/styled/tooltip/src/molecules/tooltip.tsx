@@ -16,16 +16,17 @@ import {
 import styled from '@emotion/styled'
 import { BADGE_COLOURS } from '@ltht-react/styles'
 
-const TooltipBubble = styled.div<{ colour?: TooltipColour }>`
+const TooltipBubble = styled.div<{ type?: TooltipType }>`
   padding: 4px 8px;
   font-size: 0.875rem;
 
   border-radius: 4px;
   box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
   white-space: nowrap;
+  z-index: 9999;
 
-  background-color: ${({ colour }) => {
-    switch (colour) {
+  background-color: ${({ type }) => {
+    switch (type) {
       case 'warning':
         return BADGE_COLOURS.WARNING
       case 'error':
@@ -36,8 +37,8 @@ const TooltipBubble = styled.div<{ colour?: TooltipColour }>`
         return 'black'
     }
   }};
-  color: ${({ colour }) => {
-    switch (colour) {
+  color: ${({ type }) => {
+    switch (type) {
       case 'warning':
         return 'white'
       case 'error':
@@ -54,7 +55,13 @@ const TooltipTrigger = styled.div`
   width: fit-content;
 `
 
-const Tooltip: FC<TooltipProps & PropsWithChildren> = ({ content, placement = 'top', colour, children }) => {
+const Tooltip: FC<TooltipProps & PropsWithChildren> = ({
+  content,
+  placement = 'top',
+  type,
+  localPortal = false,
+  children,
+}) => {
   const [isOpen, setIsOpen] = useState(false)
   const [reference, setReference] = useState<HTMLDivElement | null>(null)
 
@@ -91,9 +98,9 @@ const Tooltip: FC<TooltipProps & PropsWithChildren> = ({ content, placement = 't
       <TooltipTrigger ref={setReference} {...getReferenceProps()}>
         {children}
       </TooltipTrigger>
-      <FloatingPortal root={reference}>
+      <FloatingPortal root={localPortal ? reference : undefined}>
         {isOpen && (
-          <TooltipBubble colour={colour} ref={refs.setFloating} style={floatingStyles} {...getFloatingProps()}>
+          <TooltipBubble type={type} ref={refs.setFloating} style={floatingStyles} {...getFloatingProps()}>
             {content}
           </TooltipBubble>
         )}
@@ -102,12 +109,21 @@ const Tooltip: FC<TooltipProps & PropsWithChildren> = ({ content, placement = 't
   )
 }
 
-type TooltipColour = 'warning' | 'error' | 'primary'
+type TooltipType = 'warning' | 'error' | 'primary'
 
+/**
+ * Properties for the Tooltip component
+ * @interface TooltipProps
+ * @property {string} content - The text content to display in the tooltip
+ * @property {Placement} [placement] - The preferred placement of the tooltip relative to its trigger element
+ * @property {TooltipType} [type] - The theme of the tooltip
+ * @property {boolean} [localPortal] - If true, renders the tooltip in a portal at the end of the trigger node. Useful for avoiding fullscreen issues.
+ */
 export interface TooltipProps {
   content: string
   placement?: Placement
-  colour?: TooltipColour
+  type?: TooltipType
+  localPortal?: boolean
 }
 
 export default Tooltip
