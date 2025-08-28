@@ -1,6 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
 import Tooltip from '@ltht-react/tooltip'
+import Card from '@ltht-react/card'
+import { IconButton } from '@ltht-react/icon'
 
 const meta: Meta<typeof Tooltip> = {
   title: 'UI/Atoms/Tooltip',
@@ -49,8 +51,60 @@ export const TooltipRight: Story = {
 
 export const TooltipAutoPlacementOnEdge: Story = {
   args: {
-    content: 'This is a tooltip is auto placed on the right due to edge proximity',
+    content: 'This is a tooltip is auto placed due to edge proximity',
     placement: 'left',
     children: 'Tooltip on left',
   },
+}
+
+export const TooltipWithColour: Story = {
+  args: {
+    content: 'This is a tooltip with colour',
+    placement: 'right',
+    colour: 'primary',
+    children: 'Tooltip on right',
+  },
+}
+
+export const TooltipWarning: Story = {
+  args: {
+    content: 'This is a tooltip with colour',
+    placement: 'right',
+    colour: 'warning',
+    children: 'Tooltip on right',
+  },
+}
+
+export const TooltipError: Story = {
+  args: {
+    content: 'This is a tooltip with colour',
+    placement: 'right',
+    colour: 'error',
+    children: 'Tooltip on right',
+  },
+}
+
+export const TooltipCardExample: Story = {
+  args: {
+    content: 'This is a tooltip',
+  },
+  render: (args) => (
+    <Card>
+      <Card.Header>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>
+          <h3 style={{ margin: 0 }}>Example Summary</h3>
+          <Tooltip {...args}>
+            <IconButton type="button" iconProps={{ type: 'expand', size: 'medium' }} text="Hover over me" />
+          </Tooltip>
+        </div>
+      </Card.Header>
+      <Card.Body>
+        This is an example of a card with a tooltip. Lorem ipsum dolor sit amet, consectetur adipiscing elit.{' '}
+        <Tooltip {...args}>
+          <button type="button">Hover over me</button>
+        </Tooltip>
+        . Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      </Card.Body>
+    </Card>
+  ),
 }

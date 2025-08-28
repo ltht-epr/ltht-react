@@ -1,0 +1,113 @@
+import { FC, PropsWithChildren, useState } from 'react'
+import {
+  useFloating,
+  autoUpdate,
+  offset,
+  flip,
+  shift,
+  useHover,
+  useFocus,
+  useDismiss,
+  useRole,
+  useInteractions,
+  FloatingPortal,
+  Placement,
+} from '@floating-ui/react'
+import styled from '@emotion/styled'
+import { BADGE_COLOURS } from '@ltht-react/styles'
+
+const TooltipBubble = styled.div<{ colour?: TooltipColour }>`
+  padding: 4px 8px;
+  font-size: 0.875rem;
+
+  border-radius: 4px;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+  white-space: nowrap;
+
+  background-color: ${({ colour }) => {
+    switch (colour) {
+      case 'warning':
+        return BADGE_COLOURS.WARNING
+      case 'error':
+        return BADGE_COLOURS.DANGER
+      case 'primary':
+        return BADGE_COLOURS.PRIMARY
+      default:
+        return 'black'
+    }
+  }};
+  color: ${({ colour }) => {
+    switch (colour) {
+      case 'warning':
+        return 'white'
+      case 'error':
+        return 'white'
+      case 'primary':
+        return 'white'
+      default:
+        return 'white'
+    }
+  }};
+`
+
+const TooltipTrigger = styled.div`
+  width: fit-content;
+`
+
+const Tooltip: FC<TooltipProps & PropsWithChildren> = ({ content, placement = 'top', colour, children }) => {
+  const [isOpen, setIsOpen] = useState(false)
+  const [reference, setReference] = useState<HTMLDivElement | null>(null)
+
+  const { refs, floatingStyles, context } = useFloating({
+    elements: {
+      reference,
+    },
+    open: isOpen,
+    onOpenChange: setIsOpen,
+    placement,
+    // Make sure the tooltip stays on the screen
+    whileElementsMounted: autoUpdate,
+    middleware: [
+      offset(5),
+      flip({
+        fallbackAxisSideDirection: 'start',
+      }),
+      shift(),
+    ],
+  })
+
+  // Event listeners to change the open state
+  const hover = useHover(context, { move: false })
+  const focus = useFocus(context)
+  const dismiss = useDismiss(context)
+  // Role props for screen readers
+  const role = useRole(context, { role: 'tooltip' })
+
+  // Merge all the interactions into prop getters
+  const { getReferenceProps, getFloatingProps } = useInteractions([hover, focus, dismiss, role])
+
+  return (
+    <>
+      <TooltipTrigger ref={setReference} {...getReferenceProps()}>
+        {children}
+      </TooltipTrigger>
+      <FloatingPortal root={reference}>
+        {isOpen && (
+          <TooltipBubble colour={colour} ref={refs.setFloating} style={floatingStyles} {...getFloatingProps()}>
+            {content}
+          </TooltipBubble>
+        )}
+      </FloatingPortal>
+    </>
+  )
+}
+
+type TooltipColour = 'warning' | 'error' | 'primary'
+
+export interface TooltipProps {
+  content: string
+  placement?: Placement
+  colour?: TooltipColour
+}
+
+export default Tooltip
