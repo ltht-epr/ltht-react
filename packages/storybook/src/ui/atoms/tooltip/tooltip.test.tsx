@@ -43,4 +43,37 @@ describe('Tooltip', () => {
 
     expect(await screen.getByText('Tooltip content')).toBeInTheDocument()
   })
+
+  it('should render tooltip within trigger element when localPortal is true', async () => {
+    render(
+      <Tooltip content="Tooltip content" localPortal>
+        <button type="button">Hover me</button>
+      </Tooltip>
+    )
+
+    const triggerElement = screen.getByText('Hover me')
+    await userEvent.hover(triggerElement)
+
+    const tooltip = screen.getByText('Tooltip content')
+
+    expect(tooltip).toBeInTheDocument()
+    expect(triggerElement.parentElement?.contains(tooltip)).toBeTruthy()
+  })
+
+  it('should render tooltip in global scope when localPortal is false', async () => {
+    render(
+      <Tooltip content="Tooltip content" localPortal={false}>
+        <button type="button">Hover me</button>
+      </Tooltip>
+    )
+
+    const triggerElement = screen.getByText('Hover me')
+    await userEvent.hover(triggerElement)
+
+    const tooltip = screen.getByText('Tooltip content')
+
+    expect(tooltip).toBeInTheDocument()
+    expect(triggerElement.parentElement?.contains(tooltip)).toBeFalsy()
+    expect(document.body.contains(tooltip)).toBeTruthy()
+  })
 })
