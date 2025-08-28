@@ -1376,6 +1376,8 @@ export type Ehr = {
   patientGroup?: Maybe<Group>;
   /** Patient History */
   patientHistory?: Maybe<PatientHistoryArticleContinuation>;
+  /** Patient Record Events */
+  patientRecordEvents?: Maybe<PatientRecordEventContinuation>;
   /** Patient Search by Free Text */
   patientSearchByFreeText?: Maybe<PatientContinuationType>;
   /** Patient Search by Search Criteria */
@@ -1743,6 +1745,15 @@ export type EhrPatientHistoryArgs = {
 
 
 /** Queries the LTHT EHR. */
+export type EhrPatientRecordEventsArgs = {
+  count?: Maybe<Scalars['Int']>;
+  cursorToken?: Maybe<Scalars['String']>;
+  patientGuid: Scalars['String'];
+  statusCodes?: Maybe<Array<PatientRecordStatusCode>>;
+};
+
+
+/** Queries the LTHT EHR. */
 export type EhrPatientSearchByFreeTextArgs = {
   count?: Maybe<Scalars['Int']>;
   cursorToken?: Maybe<Scalars['String']>;
@@ -1927,6 +1938,7 @@ export type EhrMutationAddCarePlanArgs = {
 /** Mutations of the LTHT EHR. */
 export type EhrMutationAddConditionsArgs = {
   conditions: ConditionMinimalInputList;
+  isExternalDiagnosis?: Maybe<Scalars['Boolean']>;
   patientGuid: Scalars['String'];
   template: Scalars['String'];
 };
@@ -3549,6 +3561,71 @@ export type PatientMultipleBirth = {
   /** Whether patient is part of a multiple birth. */
   multipleBirthInteger?: Maybe<Scalars['Int']>;
 };
+
+/** A record associated with a patient, such as a pathway, file link, or other type of healthcare-related record. */
+export type PatientRecordEvent = {
+  /** Categorisation of the patient record. */
+  category?: Maybe<CodeableConcept>;
+  /** The date associated with the patient record. */
+  date: PartialDateTime;
+  /** Narrative details about the patient record. */
+  description?: Maybe<Narrative>;
+  /** The period during which the record is effective. */
+  effectivePeriod?: Maybe<Period>;
+  /** Additional content defined by implementations. */
+  extension?: Maybe<Array<Maybe<Extension>>>;
+  /** Logical Id of the resource. */
+  id: Scalars['ID'];
+  /** identifiers for the patient record. */
+  identifier?: Maybe<Array<Maybe<Identifier>>>;
+  /** Flag to state whether the resource should be displayed as entered in error in user interface */
+  isEnteredInError?: Maybe<Scalars['Boolean']>;
+  /** Metadata about the resource. */
+  metadata: Metadata;
+  /** Who, What, When for a set of resources. */
+  provenance?: Maybe<Array<Provenance>>;
+  /** A reference to the related resource. */
+  resource?: Maybe<ResourceReference>;
+  /** The status of the patient record (e.g. Delivered, Cancelled, Booked, etc). */
+  status: PatientRecordStatusCode;
+  /** Text summary of the resource, for human interpretation. */
+  text?: Maybe<Narrative>;
+  /** The type of record (e.g. FileLink, Pathway, Other). */
+  type: PatientRecordTypeCode;
+};
+
+/** A continuation of PatientRecordEvent resources. */
+export type PatientRecordEventContinuation = {
+  /** The first cursor token. */
+  firstCursorToken?: Maybe<Scalars['String']>;
+  /** The next cursor token. */
+  nextCursorToken?: Maybe<Scalars['String']>;
+  /** The continuation of PatientRecord resources. */
+  resources: Array<Maybe<PatientRecordEvent>>;
+  /** The self cursor token. */
+  selfCursorToken: Scalars['String'];
+  /** The total number of resources available (if known). */
+  totalResources?: Maybe<Scalars['Int']>;
+};
+
+/** Enumeration of possible statuses for a patient record. */
+export enum PatientRecordStatusCode {
+  Booked = 'BOOKED',
+  Cancelled = 'CANCELLED',
+  Deleted = 'DELETED',
+  Delivered = 'DELIVERED',
+  Draft = 'DRAFT',
+  EnteredInError = 'ENTERED_IN_ERROR',
+  Unknown = 'UNKNOWN'
+}
+
+/** Enumeration of possible record types for a patient record. */
+export enum PatientRecordTypeCode {
+  ClinicalView = 'CLINICAL_VIEW',
+  FileLink = 'FILE_LINK',
+  Pathway = 'PATHWAY',
+  Unsupported = 'UNSUPPORTED'
+}
 
 /** A time period defined by a start and end date/time. */
 export type Period = {
