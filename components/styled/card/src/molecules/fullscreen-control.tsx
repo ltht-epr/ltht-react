@@ -7,7 +7,7 @@ const FullScreenControl: FC<FullScreenControlProps> = ({ elementRef }) => {
   const { isFullscreen, toggleFullScreen } = useFullScreen(elementRef)
 
   return (
-    <Tooltip content={isFullscreen ? 'Exit Full Screen' : 'Full Screen'} placement="left">
+    <Tooltip content={isFullscreen ? 'Exit Full Screen' : 'Full Screen'} placement="left" localPortal={isFullscreen}>
       <IconButton
         iconProps={{ type: isFullscreen ? 'compress' : 'expand', size: 'medium' }}
         onClick={toggleFullScreen}
