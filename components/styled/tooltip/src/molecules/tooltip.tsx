@@ -55,6 +55,26 @@ const TooltipTrigger = styled.div`
   width: fit-content;
 `
 
+/**
+ * A tooltip component that displays content in a floating bubble when hovering or focusing on children elements
+ *
+ * @component
+ * @example usage
+ * ```tsx
+ *    <Tooltip content="Tooltip text" placement="top">
+ *      <button>Hover me</button>
+ *    </Tooltip>
+ * ```
+ *
+ * @param props - Component props
+ * @param {string} props.content - The text content to display in the tooltip
+ * @param {Placement} [props.placement="top"] - The preferred placement of the tooltip relative to its trigger element
+ * @param {TooltipType} [props.type] - The theme of the tooltip (warning, error, or primary)
+ * @param {boolean} [props.localPortal=false] - If true, renders the tooltip in a portal at the end of the trigger node
+ * @param {ReactNode} props.children - The trigger element that the tooltip will be attached to
+ *
+ * @returns A tooltip component that wraps the provided children
+ */
 const Tooltip: FC<TooltipProps & PropsWithChildren> = ({
   content,
   placement = 'top',
