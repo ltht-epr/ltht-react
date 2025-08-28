@@ -1376,8 +1376,8 @@ export type Ehr = {
   patientGroup?: Maybe<Group>;
   /** Patient History */
   patientHistory?: Maybe<PatientHistoryArticleContinuation>;
-  /** Patient Records */
-  patientRecords?: Maybe<PatientRecordContinuation>;
+  /** Patient Record Events */
+  patientRecordEvents?: Maybe<PatientRecordEventContinuation>;
   /** Patient Search by Free Text */
   patientSearchByFreeText?: Maybe<PatientContinuationType>;
   /** Patient Search by Search Criteria */
@@ -1745,11 +1745,11 @@ export type EhrPatientHistoryArgs = {
 
 
 /** Queries the LTHT EHR. */
-export type EhrPatientRecordsArgs = {
+export type EhrPatientRecordEventsArgs = {
   count?: Maybe<Scalars['Int']>;
   cursorToken?: Maybe<Scalars['String']>;
   patientGuid: Scalars['String'];
-  statusCodes?: Maybe<Array<Maybe<PatientRecordStatusCode>>>;
+  statusCodes?: Maybe<Array<PatientRecordStatusCode>>;
 };
 
 
@@ -3563,7 +3563,7 @@ export type PatientMultipleBirth = {
 };
 
 /** A record associated with a patient, such as a pathway, file link, or other type of healthcare-related record. */
-export type PatientRecord = {
+export type PatientRecordEvent = {
   /** Categorisation of the patient record. */
   category?: Maybe<CodeableConcept>;
   /** The date associated with the patient record. */
@@ -3594,14 +3594,14 @@ export type PatientRecord = {
   type: PatientRecordTypeCode;
 };
 
-/** A continuation of PatientRecord resources. */
-export type PatientRecordContinuation = {
+/** A continuation of PatientRecordEvent resources. */
+export type PatientRecordEventContinuation = {
   /** The first cursor token. */
   firstCursorToken?: Maybe<Scalars['String']>;
   /** The next cursor token. */
   nextCursorToken?: Maybe<Scalars['String']>;
   /** The continuation of PatientRecord resources. */
-  resources: Array<Maybe<PatientRecord>>;
+  resources: Array<Maybe<PatientRecordEvent>>;
   /** The self cursor token. */
   selfCursorToken: Scalars['String'];
   /** The total number of resources available (if known). */
@@ -3623,8 +3623,8 @@ export enum PatientRecordStatusCode {
 export enum PatientRecordTypeCode {
   ClinicalView = 'CLINICAL_VIEW',
   FileLink = 'FILE_LINK',
-  Other = 'OTHER',
-  Pathway = 'PATHWAY'
+  Pathway = 'PATHWAY',
+  Unsupported = 'UNSUPPORTED'
 }
 
 /** A time period defined by a start and end date/time. */
