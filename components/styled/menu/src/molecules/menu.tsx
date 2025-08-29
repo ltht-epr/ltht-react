@@ -263,17 +263,20 @@ export const MenuComponent = forwardRef<HTMLButtonElement, MenuProps & React.HTM
           data-nested={isNested ? '' : undefined}
           data-focus-inside={hasFocusInside ? '' : undefined}
           style={isNested ? undefined : props.style}
-          {...getReferenceProps(
-            parent.getItemProps({
+          {...props}
+          {...getReferenceProps({
+            ...parent.getItemProps({
               ...props,
               onFocus(event: React.FocusEvent<HTMLButtonElement>) {
                 props.onFocus?.(event)
                 setHasFocusInside(false)
                 parent.setHasFocusInside(true)
               },
-            })
-          )}
-          {...props}
+            }),
+            onClick(e) {
+              e.stopPropagation()
+            },
+          })}
         />
 
         <MenuContext.Provider

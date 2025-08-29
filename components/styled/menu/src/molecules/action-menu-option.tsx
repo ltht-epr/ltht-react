@@ -41,8 +41,9 @@ const ActionMenuOption: FC<Props> = ({
 
   const handleOnClick = useCallback(
     async (e: MouseEvent<HTMLButtonElement>) => {
+      e.stopPropagation()
+
       if (disabled) {
-        e.preventDefault()
         return
       }
 

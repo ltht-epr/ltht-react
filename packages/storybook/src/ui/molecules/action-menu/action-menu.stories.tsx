@@ -1,6 +1,7 @@
 /* eslint-disable no-console */
 import type { Meta, StoryObj } from '@storybook/react'
 import Icon from '@ltht-react/icon'
+import Card from '@ltht-react/card'
 import ActionMenu from '@ltht-react/menu'
 import mockActions from './action-menu-mockdata'
 
@@ -155,6 +156,27 @@ export const ActionMenuDisabled: Story = {
     actions: mockActions,
     disabled: true,
   },
+}
+
+export const ActionMenuWithinListItem: Story = {
+  args: {
+    actions: mockActions,
+  },
+  render: (props) => (
+    <Card>
+      <Card.Header>Summary</Card.Header>
+      <Card.List>
+        {/* eslint-disable-next-line no-alert */}
+        <Card.ListItem onClick={() => alert('List Item 1 Clicked')}>
+          <ActionMenu {...props} /> List Item 1
+        </Card.ListItem>
+        <Card.ListItem>List Item 2</Card.ListItem>
+        <Card.ListItem>List Item 3</Card.ListItem>
+        <Card.ListItem>List Item 4</Card.ListItem>
+        <Card.ListItem>List Item 5</Card.ListItem>
+      </Card.List>
+    </Card>
+  ),
 }
 
 export const MenuItemsDisabled: Story = {

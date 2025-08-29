@@ -2,6 +2,7 @@ import ActionMenu from '@ltht-react/menu'
 import { render, screen } from '@testing-library/react'
 import { ICON_COLOURS } from '@ltht-react/styles'
 import userEvent from '@testing-library/user-event'
+import Card from '@ltht-react/card'
 import mockActions from './action-menu-mockdata'
 
 describe('Action menu', () => {
@@ -120,5 +121,32 @@ describe('Action menu', () => {
 
     await userEvent.click(screen.getByText('This is a different element'))
     expect(screen.queryByText('View')).toBeNull()
+  })
+
+  it('click handler is not propogated to other elements', async () => {
+    const mockClickerHandler = jest.fn()
+
+    render(
+      <Card>
+        <Card.Header>Summary</Card.Header>
+        <Card.List>
+          <Card.ListItem data-testid="item1" onClick={mockClickerHandler}>
+            <ActionMenu actions={mockActions} /> List Item 1
+          </Card.ListItem>
+          <Card.ListItem>List Item 2</Card.ListItem>
+          <Card.ListItem>List Item 3</Card.ListItem>
+          <Card.ListItem>List Item 4</Card.ListItem>
+          <Card.ListItem>List Item 5</Card.ListItem>
+        </Card.List>
+      </Card>
+    )
+
+    await userEvent.click(screen.getByRole('button'))
+    expect(screen.queryByText('View')).toBeInTheDocument()
+
+    await userEvent.click(screen.getByText('View'))
+    expect(screen.queryByText('View')).not.toBeInTheDocument()
+
+    expect(mockClickerHandler).not.toHaveBeenCalled()
   })
 })
