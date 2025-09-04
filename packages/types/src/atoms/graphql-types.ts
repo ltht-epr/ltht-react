@@ -2581,6 +2581,7 @@ export enum FeatureInstance {
   FilterAssignedTasks = 'FILTER_ASSIGNED_TASKS',
   FilterInactiveTasks = 'FILTER_INACTIVE_TASKS',
   FormsForHealthLaunch = 'FORMS_FOR_HEALTH_LAUNCH',
+  FullScreenModeEnabled = 'FULL_SCREEN_MODE_ENABLED',
   GpConnectDataProvider = 'GP_CONNECT_DATA_PROVIDER',
   InteractWithCountersignature = 'INTERACT_WITH_COUNTERSIGNATURE',
   InteractWithDiagnosisDashboard = 'INTERACT_WITH_DIAGNOSIS_DASHBOARD',
