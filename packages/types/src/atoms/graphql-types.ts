@@ -3624,9 +3624,8 @@ export type PatientRecordEventContinuation = {
 export enum PatientRecordLaunchTypeCode {
   Cds = 'CDS',
   Cito = 'CITO',
-  ClinicalView = 'CLINICAL_VIEW',
+  Document = 'DOCUMENT',
   Pathway = 'PATHWAY',
-  PpmDocStore = 'PPM_DOC_STORE',
   Unknown = 'UNKNOWN',
   XForm = 'X_FORM'
 }
