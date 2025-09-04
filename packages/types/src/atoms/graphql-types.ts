@@ -1376,6 +1376,8 @@ export type Ehr = {
   patientGroup?: Maybe<Group>;
   /** Patient History */
   patientHistory?: Maybe<PatientHistoryArticleContinuation>;
+  /** Patient Record Event */
+  patientRecordEvent?: Maybe<PatientRecordEvent>;
   /** Patient Record Events */
   patientRecordEvents?: Maybe<PatientRecordEventContinuation>;
   /** Patient Search by Free Text */
@@ -1740,6 +1742,13 @@ export type EhrPatientGroupArgs = {
 export type EhrPatientHistoryArgs = {
   count?: Maybe<Scalars['Int']>;
   cursorToken?: Maybe<Scalars['String']>;
+  patientGuid: Scalars['String'];
+};
+
+
+/** Queries the LTHT EHR. */
+export type EhrPatientRecordEventArgs = {
+  eventGuid: Scalars['String'];
   patientGuid: Scalars['String'];
 };
 
@@ -3581,6 +3590,8 @@ export type PatientRecordEvent = {
   identifier?: Maybe<Array<Maybe<Identifier>>>;
   /** Flag to state whether the resource should be displayed as entered in error in user interface */
   isEnteredInError?: Maybe<Scalars['Boolean']>;
+  /** The launch type of this patient record. e.g. (Cds, XForm, PPMDocStore, Cito, etc) */
+  launchType?: Maybe<PatientRecordLaunchTypeCode>;
   /** Metadata about the resource. */
   metadata: Metadata;
   /** Who, What, When for a set of resources. */
@@ -3608,6 +3619,17 @@ export type PatientRecordEventContinuation = {
   /** The total number of resources available (if known). */
   totalResources?: Maybe<Scalars['Int']>;
 };
+
+/** Enumeration of possible record launch types for a patient record. */
+export enum PatientRecordLaunchTypeCode {
+  Cds = 'CDS',
+  Cito = 'CITO',
+  ClinicalView = 'CLINICAL_VIEW',
+  Pathway = 'PATHWAY',
+  PpmDocStore = 'PPM_DOC_STORE',
+  Unknown = 'UNKNOWN',
+  XForm = 'X_FORM'
+}
 
 /** Enumeration of possible statuses for a patient record. */
 export enum PatientRecordStatusCode {
