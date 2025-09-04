@@ -1,6 +1,6 @@
 {
   "name": "@ltht-react/medication",
-  "version": "2.0.180",
+  "version": "2.0.181",
   "description": "ltht-react clinical Medication component.",
   "author": "LTHT",
   "homepage": "",
@@ -28,12 +28,12 @@
   "dependencies": {
     "@emotion/react": "^11.0.0",
     "@emotion/styled": "^11.0.0",
-    "@ltht-react/hooks": "^2.0.180",
-    "@ltht-react/problem": "^2.0.180",
-    "@ltht-react/styles": "^2.0.180",
-    "@ltht-react/type-summary": "^2.0.180",
-    "@ltht-react/types": "^2.0.180",
-    "@ltht-react/utils": "^2.0.180",
+    "@ltht-react/hooks": "^2.0.181",
+    "@ltht-react/problem": "^2.0.181",
+    "@ltht-react/styles": "^2.0.181",
+    "@ltht-react/type-summary": "^2.0.181",
+    "@ltht-react/types": "^2.0.181",
+    "@ltht-react/utils": "^2.0.181",
     "react": "^18.2.0"
   }
 }
