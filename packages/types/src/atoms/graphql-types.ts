@@ -2664,8 +2664,17 @@ export enum FlagStatusCode {
 
 /** Queries the GP Connect system. */
 export type GpConnect = {
+  /** Diagnosis */
+  conditions?: Maybe<Array<Maybe<Condition>>>;
   /** Data Availability Check */
   dataAvailability?: Maybe<DataAvailability>;
+};
+
+
+/** Queries the GP Connect system. */
+export type GpConnectConditionsArgs = {
+  nhsNumber: Scalars['String'];
+  patientGuid: Scalars['String'];
 };
 
 
@@ -3586,8 +3595,6 @@ export type PatientRecordEvent = {
   extension?: Maybe<Array<Maybe<Extension>>>;
   /** Logical Id of the resource. */
   id: Scalars['ID'];
-  /** identifiers for the patient record. */
-  identifier?: Maybe<Array<Maybe<Identifier>>>;
   /** Flag to state whether the resource should be displayed as entered in error in user interface */
   isEnteredInError?: Maybe<Scalars['Boolean']>;
   /** The launch type of this patient record. e.g. (Cds, XForm, PPMDocStore, Cito, etc) */
@@ -3602,8 +3609,6 @@ export type PatientRecordEvent = {
   status: PatientRecordStatusCode;
   /** Text summary of the resource, for human interpretation. */
   text?: Maybe<Narrative>;
-  /** The type of record (e.g. FileLink, Pathway, Other). */
-  type: PatientRecordTypeCode;
 };
 
 /** A continuation of PatientRecordEvent resources. */
@@ -3639,14 +3644,6 @@ export enum PatientRecordStatusCode {
   Draft = 'DRAFT',
   EnteredInError = 'ENTERED_IN_ERROR',
   Unknown = 'UNKNOWN'
-}
-
-/** Enumeration of possible record types for a patient record. */
-export enum PatientRecordTypeCode {
-  ClinicalView = 'CLINICAL_VIEW',
-  FileLink = 'FILE_LINK',
-  Pathway = 'PATHWAY',
-  Unsupported = 'UNSUPPORTED'
 }
 
 /** A time period defined by a start and end date/time. */
