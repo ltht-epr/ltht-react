@@ -3597,6 +3597,8 @@ export type PatientRecordEvent = {
   id: Scalars['ID'];
   /** Flag to state whether the resource should be displayed as entered in error in user interface */
   isEnteredInError?: Maybe<Scalars['Boolean']>;
+  /** Indicates whether record category is viewable */
+  isViewable: Scalars['Boolean'];
   /** The launch type of this patient record. e.g. (Cds, XForm, PPMDocStore, Cito, etc) */
   launchType?: Maybe<PatientRecordLaunchTypeCode>;
   /** Metadata about the resource. */
