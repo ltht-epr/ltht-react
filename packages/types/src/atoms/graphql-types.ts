@@ -3437,6 +3437,8 @@ export type Patient = {
   multipleBirth?: Maybe<PatientMultipleBirth>;
   /** A name associated with the patient. */
   name: Array<Maybe<HumanName>>;
+  /** The primary identifier of a patient. */
+  nhsNumber?: Maybe<Coding>;
   /** Image of the patient. */
   photo?: Maybe<Array<Maybe<Attachment>>>;
   /** Who, What, When for a set of resources. */
