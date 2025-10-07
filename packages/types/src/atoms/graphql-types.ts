@@ -2594,6 +2594,7 @@ export enum FeatureInstance {
   GpConnectDataProvider = 'GP_CONNECT_DATA_PROVIDER',
   InteractWithCountersignature = 'INTERACT_WITH_COUNTERSIGNATURE',
   InteractWithDiagnosisDashboard = 'INTERACT_WITH_DIAGNOSIS_DASHBOARD',
+  InteractWithExternalDiagnoses = 'INTERACT_WITH_EXTERNAL_DIAGNOSES',
   InterweavePortalLaunch = 'INTERWEAVE_PORTAL_LAUNCH',
   NursingSpecialistAssessmentDashboard = 'NURSING_SPECIALIST_ASSESSMENT_DASHBOARD',
   PointInTimeEnabled = 'POINT_IN_TIME_ENABLED',
