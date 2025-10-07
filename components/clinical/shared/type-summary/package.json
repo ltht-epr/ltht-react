@@ -1,6 +1,6 @@
 {
   "name": "@ltht-react/type-summary",
-  "version": "2.0.187",
+  "version": "2.0.188",
   "description": "ltht-react clinical Summary component.",
   "author": "LTHT",
   "homepage": "",
@@ -28,12 +28,12 @@
   "dependencies": {
     "@emotion/react": "^11.0.0",
     "@emotion/styled": "^11.0.0",
-    "@ltht-react/card": "^2.0.187",
-    "@ltht-react/icon": "^2.0.187",
-    "@ltht-react/list": "^2.0.187",
-    "@ltht-react/styles": "^2.0.187",
-    "@ltht-react/types": "^2.0.187",
-    "@ltht-react/utils": "^2.0.187",
+    "@ltht-react/card": "^2.0.188",
+    "@ltht-react/icon": "^2.0.188",
+    "@ltht-react/list": "^2.0.188",
+    "@ltht-react/styles": "^2.0.188",
+    "@ltht-react/types": "^2.0.188",
+    "@ltht-react/utils": "^2.0.188",
     "date-fns": "^3.6.0",
     "react": "^18.2.0"
   },
