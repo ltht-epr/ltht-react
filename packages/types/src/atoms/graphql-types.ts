@@ -1522,7 +1522,7 @@ export type EhrClinicalDataHistoryForPatientByUserArgs = {
   cursorToken?: Maybe<Scalars['String']>;
   from?: Maybe<Scalars['DateTimeOffset']>;
   patientGuid: Scalars['Guid'];
-  professionTagGroup?: ProfessionTagGroup;
+  professionTagGroup?: Maybe<ProfessionTagGroup>;
   statuses?: Maybe<Array<ClinicalApprovalStatus>>;
   templateNames?: Maybe<Array<Scalars['String']>>;
   to?: Maybe<Scalars['DateTimeOffset']>;
@@ -1534,7 +1534,7 @@ export type EhrClinicalDataHistoryForUserArgs = {
   count?: Maybe<Scalars['Int']>;
   cursorToken?: Maybe<Scalars['String']>;
   from?: Maybe<Scalars['DateTimeOffset']>;
-  professionTagGroup?: ProfessionTagGroup;
+  professionTagGroup?: Maybe<ProfessionTagGroup>;
   statuses?: Maybe<Array<ClinicalApprovalStatus>>;
   templateNames?: Maybe<Array<Scalars['String']>>;
   to?: Maybe<Scalars['DateTimeOffset']>;
@@ -1609,7 +1609,7 @@ export type EhrCountersignatureRequestsForPatientArgs = {
   cursorToken?: Maybe<Scalars['String']>;
   from?: Maybe<Scalars['DateTimeOffset']>;
   patientGuid: Scalars['Guid'];
-  professionTagGroup?: ProfessionTagGroup;
+  professionTagGroup?: Maybe<ProfessionTagGroup>;
   requesterGuids?: Maybe<Array<Scalars['Guid']>>;
   signatories?: Maybe<Array<SignatoryInputType>>;
   templateNames?: Maybe<Array<Scalars['String']>>;
@@ -3855,7 +3855,7 @@ export enum PriorityCode {
   Urgent = 'URGENT'
 }
 
-export enum ProfessionTagGroup {
+export enum ProfessionGroup {
   Doctor = 'DOCTOR',
   Nurse = 'NURSE',
   Other = 'OTHER'
