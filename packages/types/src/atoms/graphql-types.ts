@@ -2607,6 +2607,7 @@ export enum FeatureInstance {
   SepsisObservationsWidgetEnabled = 'SEPSIS_OBSERVATIONS_WIDGET_ENABLED',
   ShowWidgetHeaderButtonsInDropdownMenu = 'SHOW_WIDGET_HEADER_BUTTONS_IN_DROPDOWN_MENU',
   TaskTagFiltering = 'TASK_TAG_FILTERING',
+  UseLegacyGuidance = 'USE_LEGACY_GUIDANCE',
   WardRoundLabTestResultsEnabled = 'WARD_ROUND_LAB_TEST_RESULTS_ENABLED',
   XFormsLaunch = 'X_FORMS_LAUNCH',
   YhcrDataProvider = 'YHCR_DATA_PROVIDER'
@@ -2847,6 +2848,8 @@ export type Guidance = {
   reasonCode?: Maybe<CodeableConcept>;
   /** The identifier of the request associated with this response, if any. */
   requestIdentifier?: Maybe<Identifier>;
+  /** Proposed actions, if any. Requires V2 Guidance API. */
+  result?: Maybe<RequestGroup>;
   /** http://hl7.org/fhir/ValueSet/guidance-response-status */
   status: GuidanceStatusCode;
   /** Text summary of the resource, for human interpretation. */
@@ -4328,6 +4331,134 @@ export enum RelatedArtifactType {
   Predecessor = 'PREDECESSOR',
   Successor = 'SUCCESSOR'
 }
+
+/** https://r4.fhir.space/guidanceresponse.html */
+export type RequestGroup = {
+  /** Proposed actions, if any. */
+  action?: Maybe<Array<Maybe<RequestGroupAction>>>;
+  /** Device or practitioner that authored the request group. */
+  author?: Maybe<ResourceReference>;
+  /** When the request was authored. */
+  authoredOn?: Maybe<PartialDateTime>;
+  /** Fulfills plan, proposal, or order. */
+  basedOn?: Maybe<Array<Maybe<ResourceReference>>>;
+  /** What's being requested/ordered. */
+  code?: Maybe<CodeableConcept>;
+  /** Created as part of. */
+  encounter?: Maybe<ResourceReference>;
+  /** Additional content defined by implementations. */
+  extension?: Maybe<Array<Maybe<Extension>>>;
+  /** Composite request this is part of. */
+  groupIdentifier?: Maybe<Identifier>;
+  /** Logical Id of the resource. */
+  id: Scalars['ID'];
+  /** Business identifier. */
+  identifier?: Maybe<Array<Maybe<Identifier>>>;
+  /** Indicates the level of authority/intentionality associated with the request and where the request fits into the workflow chain. */
+  intent: Coding;
+  /** Flag to state whether the resource should be displayed as entered in error in user interface */
+  isEnteredInError?: Maybe<Scalars['Boolean']>;
+  /** Metadata about the resource. */
+  metadata: Metadata;
+  /** Additional notes about the response. */
+  note?: Maybe<Array<Maybe<Annotation>>>;
+  /** Indicates how quickly the request should be addressed with respect to other requests. */
+  priority?: Maybe<Coding>;
+  /** Who, What, When for a set of resources. */
+  provenance?: Maybe<Array<Provenance>>;
+  /** Why the request group is needed. */
+  reasonCode?: Maybe<Array<Maybe<CodeableConcept>>>;
+  /** Why the resource group is needed. */
+  reasonReference?: Maybe<Array<Maybe<ResourceReference>>>;
+  /** Request(s) replaced by this request. */
+  replaces?: Maybe<Array<Maybe<ResourceReference>>>;
+  /** The current state of the request. For request groups, the status reflects the status of all the requests in the group. */
+  status: Coding;
+  /** Who the request group is about. */
+  subject?: Maybe<ResourceReference>;
+  /** Text summary of the resource, for human interpretation. */
+  text?: Maybe<Narrative>;
+};
+
+/** https://r4.fhir.space/requestgroup-definitions.html#RequestGroup.action */
+export type RequestGroupAction = {
+  /** Defines whether the action can be selected multiple times. */
+  cardinalityBehaviour?: Maybe<Coding>;
+  /** Code representing the meaning of the action or sub-actions. */
+  code?: Maybe<Array<Maybe<CodeableConcept>>>;
+  /** An expression that describes applicability criteria, or start/stop conditions for the action. */
+  condition?: Maybe<Array<Maybe<RequestGroupActionCondition>>>;
+  /** Short description of the action. */
+  description?: Maybe<Scalars['String']>;
+  /** Supporting documentation for the intended performer of the action. */
+  documentation?: Maybe<Array<Maybe<RelatedArtifact>>>;
+  /** Unique id for inter-element referencing. */
+  elementId?: Maybe<Scalars['String']>;
+  /** Additional content defined by implementations. */
+  extension?: Maybe<Array<Maybe<Extension>>>;
+  /** Defines the grouping behavior for the action and its children. */
+  groupingBehaviour?: Maybe<Coding>;
+  /** The type of action to perform (create, update, remove). */
+  participant?: Maybe<Array<Maybe<ResourceReference>>>;
+  /** Defines whether the action should usually be preselected. */
+  precheckBehaviour?: Maybe<Coding>;
+  /** User-visible prefix for the action (e.g. 1. or A.). */
+  prefix?: Maybe<Scalars['String']>;
+  /** Indicates how quickly the request should be addressed with respect to other requests. */
+  priority?: Maybe<Coding>;
+  /** A relationship to another action such as 'before' or '30-60 minutes after start of'. */
+  relatedAction?: Maybe<Array<Maybe<RequestGroupActionRelatedAction>>>;
+  /** Defines expectations around whether an action is required. */
+  requiredBehaviour?: Maybe<Coding>;
+  /** Defines the selection behavior for the action and its children. */
+  selectionBehaviour?: Maybe<Coding>;
+  /** Sub action. */
+  subAction?: Maybe<RequestGroupAction>;
+  /** Static text equivalent of the action, used if the dynamic aspects cannot be interpreted by the receiving system. */
+  textEquivalent?: Maybe<Scalars['String']>;
+  /** When the action should take place. */
+  timingAge?: Maybe<Scalars['Int']>;
+  /** When the action should take place. */
+  timingDuration?: Maybe<Scalars['Decimal']>;
+  /** When the action should take place. */
+  timingPartialDateTime?: Maybe<PartialDateTime>;
+  /** When the action should take place. */
+  timingPeriod?: Maybe<Period>;
+  /** When the action should take place. */
+  timingRange?: Maybe<Range>;
+  /** When the action should take place. */
+  timingTiming?: Maybe<TimingType>;
+  /** User-visible title. */
+  title?: Maybe<Scalars['String']>;
+  /** The type of action to perform (create, update, remove). */
+  type?: Maybe<CodeableConcept>;
+};
+
+/** https://r4.fhir.space/requestgroup-definitions.html#RequestGroup.action.condition */
+export type RequestGroupActionCondition = {
+  /** Unique id for inter-element referencing. */
+  elementId?: Maybe<Scalars['String']>;
+  /** Additional content defined by implementations. */
+  extension?: Maybe<Array<Maybe<Extension>>>;
+  /** The kind of condition. */
+  kind: Coding;
+};
+
+/** https://r4.fhir.space/requestgroup-definitions.html#RequestGroup.action.relatedAction */
+export type RequestGroupActionRelatedAction = {
+  /** What action this is related to. */
+  actionId: Scalars['String'];
+  /** Unique id for inter-element referencing. */
+  elementId?: Maybe<Scalars['String']>;
+  /** Additional content defined by implementations. */
+  extension?: Maybe<Array<Maybe<Extension>>>;
+  /** Time offset for the relationship. */
+  offsetDuration: Scalars['Decimal'];
+  /** Time offset for the relationship. */
+  offsetRange: Range;
+  /** The relationship of this action to the related action. */
+  relationship: Coding;
+};
 
 /** General references between resources. */
 export type ResourceReference = {
