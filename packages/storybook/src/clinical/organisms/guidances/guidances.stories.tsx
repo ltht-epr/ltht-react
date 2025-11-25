@@ -1,10 +1,9 @@
-import { Story } from '@storybook/react'
-
+/* eslint-disable no-console */
 import GuidanceSummary from '@ltht-react/guidance-summary'
 import Card from '@ltht-react/card'
-import guidances from './guidances.fixture'
+import guidances, { guidanceWithActions } from './guidances.fixture'
 
-export const Summary: Story = () => (
+export const Summary = () => (
   <Card>
     <Card.Header>
       <Card.Title>Guidance</Card.Title>
@@ -19,7 +18,7 @@ export const Summary: Story = () => (
   </Card>
 )
 
-export const Redacted: Story = () => (
+export const Redacted = () => (
   <Card>
     <Card.Header>
       <Card.Title>Guidance</Card.Title>
@@ -27,6 +26,21 @@ export const Redacted: Story = () => (
     <Card.List>
       <Card.ListItem>
         <GuidanceSummary guidance={guidances[1]} />
+      </Card.ListItem>
+    </Card.List>
+  </Card>
+)
+
+export const WithActions = () => (
+  <Card>
+    <Card.Header>
+      <Card.Title>Guidance</Card.Title>
+    </Card.Header>
+    <Card.List>
+      <Card.ListItem>
+        {guidanceWithActions.map((g) => (
+          <GuidanceSummary guidance={g} onActionClick={console.log} />
+        ))}
       </Card.ListItem>
     </Card.List>
   </Card>
