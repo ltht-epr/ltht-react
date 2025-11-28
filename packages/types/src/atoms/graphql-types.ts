@@ -1039,6 +1039,8 @@ export type DashboardVariant = {
   isFavourite?: Maybe<Scalars['Boolean']>;
   /** Metadata about the resource. */
   metadata: Metadata;
+  /** The prepopulated values associated with this Dashboard Variant. */
+  prepopulatedValues: StringDictionary;
   /** The template associated with this Dashboard Variant. */
   template: Scalars['String'];
 };
