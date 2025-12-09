@@ -69,7 +69,6 @@ const GuidanceSummaryV2: FC<Props> = ({ guidance, onActionClick }) => {
               const actions = guidance.result?.action?.filter((x) => x?.elementId === note?.elementId)
               return (
                 <ListItem key={index}>
-                  {note?.text}{' '}
                   {onActionClick && (actions ?? []).length > 0
                     ? actions?.map(
                         (action) =>
@@ -84,7 +83,7 @@ const GuidanceSummaryV2: FC<Props> = ({ guidance, onActionClick }) => {
                             </StyledActionButton>
                           )
                       )
-                    : null}
+                    : note?.text}
                 </ListItem>
               )
             })}
