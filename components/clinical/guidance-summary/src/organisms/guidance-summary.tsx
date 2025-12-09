@@ -2,7 +2,6 @@ import { FC } from 'react'
 import styled from '@emotion/styled'
 import { Guidance, RequestGroupAction } from '@ltht-react/types'
 import { UnorderedList, ListItem } from '@ltht-react/list'
-import { Button } from '@ltht-react/button'
 import Icon from '@ltht-react/icon'
 
 import { LINK_COLOURS } from '@ltht-react/styles'
@@ -22,11 +21,14 @@ const StyledUnorderedList = styled(UnorderedList)`
   padding-top: 0.5rem;
 `
 
-const StyledActionButton = styled(Button)`
+const StyledActionButton = styled.button`
+  all: unset;
+  cursor: pointer;
   display: inline-flex !important;
   font-size: 0.8rem !important;
   text-decoration: underline;
   color: ${LINK_COLOURS.TEXT.DEFAULT};
+  align-items: anchor-center;
 `
 
 const ActionTypeIcon = ({ action, ...rest }: { action: RequestGroupAction }) => {
@@ -75,7 +77,6 @@ const GuidanceSummaryV2: FC<Props> = ({ guidance, onActionClick }) => {
                           action && (
                             <StyledActionButton
                               key={action?.elementId}
-                              styling={{ buttonStyle: 'clear' }}
                               type="button"
                               onClick={() => action && onActionClick(action)}
                             >
