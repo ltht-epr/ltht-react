@@ -1,58 +1,22 @@
 import { FC } from 'react'
 import styled from '@emotion/styled'
+import Card from '@ltht-react/card'
 import { Guidance, RequestGroupAction } from '@ltht-react/types'
-import { UnorderedList, ListItem } from '@ltht-react/list'
-import Icon from '@ltht-react/icon'
 
-import { LINK_COLOURS } from '@ltht-react/styles'
+import { TABLE_COLOURS, TRANSLUCENT_DARK_BLUE } from '@ltht-react/styles'
 
 import Redacted from '../molecules/guidance-redacted'
+import GuidanceNotes from '../molecules/guidance-notes'
 
-const StyledTitle = styled.h4``
-
-const StyledBody = styled.div``
-
-const StyledText = styled.span`
-  display: block;
-  padding-top: 0.5rem;
+const StyledCardHeader = styled(Card.Header)`
+  padding: 0.5rem;
+  background: ${TRANSLUCENT_DARK_BLUE};
+  border: 1px solid ${TABLE_COLOURS.BORDER};
+  margin: 0;
 `
 
-const StyledUnorderedList = styled(UnorderedList)`
-  padding-top: 0.5rem;
-`
-
-const StyledActionButton = styled.button`
-  all: unset;
-  cursor: pointer;
-  display: inline-flex !important;
-  font-size: 0.8rem !important;
-  text-decoration: underline;
-  color: ${LINK_COLOURS.TEXT.DEFAULT};
-  align-items: anchor-center;
-`
-
-const ActionTypeIcon = ({ action, ...rest }: { action: RequestGroupAction }) => {
-  const actionCode = action?.code?.find((x) =>
-    x?.coding?.some((y) => y?.system === 'https://leedsth.nhs.uk/ehr/guidance-action')
-  )?.coding?.[0]
-
-  if (!actionCode?.code) {
-    return <Icon type="link" size="small" {...rest} />
-  }
-
-  const parts = actionCode.code.split('/')
-
-  switch (parts[1]) {
-    case 'form':
-    case 'care-plan':
-      return <Icon type="folder-plus" size="small" {...rest} />
-    default:
-      return <Icon type="link" size="small" {...rest} />
-  }
-}
-
-const StyledActionTypeIcon = styled(ActionTypeIcon)`
-  margin-right: 0.2rem;
+const BoldCardText = styled(Card.Text)`
+  font-weight: bold;
 `
 
 const GuidanceSummaryV2: FC<Props> = ({ guidance, onActionClick }) => {
@@ -61,37 +25,15 @@ const GuidanceSummaryV2: FC<Props> = ({ guidance, onActionClick }) => {
   }
 
   return (
-    <>
-      <StyledTitle>{guidance.reasonCode?.text}</StyledTitle>
-      <StyledBody>
-        <StyledText>{guidance.text?.text}</StyledText>
-        {!!guidance.note && (
-          <StyledUnorderedList bullet="disc">
-            {guidance.note?.map((note, index) => {
-              const actions = guidance.result?.action?.filter((x) => x?.elementId === note?.elementId)
-              return (
-                <ListItem key={index}>
-                  {onActionClick && (actions ?? []).length > 0
-                    ? actions?.map(
-                        (action) =>
-                          action && (
-                            <StyledActionButton
-                              key={action?.elementId}
-                              type="button"
-                              onClick={() => action && onActionClick(action)}
-                            >
-                              <StyledActionTypeIcon action={action} /> {action?.title}
-                            </StyledActionButton>
-                          )
-                      )
-                    : note?.text}
-                </ListItem>
-              )
-            })}
-          </StyledUnorderedList>
-        )}
-      </StyledBody>
-    </>
+    <Card>
+      <StyledCardHeader>
+        <Card.Title>{guidance.reasonCode?.text}</Card.Title>
+      </StyledCardHeader>
+      <Card.Body>
+        <BoldCardText> {guidance.text?.text} </BoldCardText>
+        {!!guidance.note && <GuidanceNotes guidance={guidance} onActionClick={onActionClick} />}
+      </Card.Body>
+    </Card>
   )
 }
 
