@@ -30,7 +30,7 @@ const GuidanceSummaryV2: FC<Props> = ({ guidance, onActionClick }) => {
         <Card.Title>{guidance.reasonCode?.text}</Card.Title>
       </StyledCardHeader>
       <Card.Body>
-        <BoldCardText> {guidance.text?.text} </BoldCardText>
+        <BoldCardText>{guidance.text?.text}</BoldCardText>
         {!!guidance.note && <GuidanceNotes guidance={guidance} onActionClick={onActionClick} />}
       </Card.Body>
     </Card>
