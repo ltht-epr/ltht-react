@@ -9,6 +9,8 @@ const NoteCell = styled.div`
   flex-grow: 1;
 `
 
-const GuidanceNoteCell: FC<{ note: Annotation }> = ({ note }) => <NoteCell>{note.text}</NoteCell>
+type GuidanceNoteCell = { note: Annotation }
+
+const GuidanceNoteCell: FC<GuidanceNoteCell> = ({ note }) => <NoteCell>{note.text}</NoteCell>
 
 export default GuidanceNoteCell
