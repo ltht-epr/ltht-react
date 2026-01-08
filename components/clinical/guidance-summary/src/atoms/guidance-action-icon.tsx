@@ -7,7 +7,7 @@ const StyledIcon = styled(Icon)`
   padding-right: 0.5rem;
 `
 
-const GuidanceActionTypeIcon: FC<GuidanceActionTypeIcon> = ({ action, ...rest }) => {
+const GuidanceActionTypeIcon: FC<Props> = ({ action, ...rest }) => {
   const actionCode = action?.code?.find((x) =>
     x?.coding?.some((y) => y?.system === 'https://leedsth.nhs.uk/ehr/guidance-action')
   )?.coding?.[0]
@@ -27,7 +27,7 @@ const GuidanceActionTypeIcon: FC<GuidanceActionTypeIcon> = ({ action, ...rest })
   }
 }
 
-type GuidanceActionTypeIcon = {
+interface Props {
   action: RequestGroupAction
 }
 

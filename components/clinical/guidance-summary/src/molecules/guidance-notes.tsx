@@ -11,10 +11,14 @@ const StyledRow = styled.div`
 const GuidanceNotes: FC<Props> = ({ guidance, onActionClick }) =>
   guidance.note?.map((note) => {
     const actions = guidance.result?.action?.filter((x) => x?.elementId === note?.elementId)
-    return (!!note && <StyledRow>
-        <GuidanceNoteCell note={note} /> 
-        {!!onActionClick && !!actions && <GuidanceActionCell actions={actions} onActionClick={onActionClick} />}
-      </StyledRow>)
+    return (
+      !!note && (
+        <StyledRow>
+          <GuidanceNoteCell note={note} />
+          {!!onActionClick && !!actions && <GuidanceActionCell actions={actions} onActionClick={onActionClick} />}
+        </StyledRow>
+      )
+    )
   })
 
 interface Props {
