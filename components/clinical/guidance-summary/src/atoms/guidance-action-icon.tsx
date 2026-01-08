@@ -1,12 +1,13 @@
 import styled from '@emotion/styled'
 import Icon from '@ltht-react/icon'
 import { RequestGroupAction } from '@ltht-react/types'
+import { FC } from 'react'
 
 const StyledIcon = styled(Icon)`
   padding-right: 0.5rem;
 `
 
-const GuidanceActionTypeIcon = ({ action, ...rest }: { action: RequestGroupAction }) => {
+const GuidanceActionTypeIcon: FC<GuidanceActionTypeIcon> = ({ action, ...rest }) => {
   const actionCode = action?.code?.find((x) =>
     x?.coding?.some((y) => y?.system === 'https://leedsth.nhs.uk/ehr/guidance-action')
   )?.coding?.[0]
@@ -24,6 +25,10 @@ const GuidanceActionTypeIcon = ({ action, ...rest }: { action: RequestGroupActio
     default:
       return <StyledIcon type="link" size="large" {...rest} color="white" />
   }
+}
+
+type GuidanceActionTypeIcon = {
+  action: RequestGroupAction
 }
 
 export default GuidanceActionTypeIcon
