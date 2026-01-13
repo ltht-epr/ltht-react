@@ -1,6 +1,6 @@
 {
   "name": "@ltht-react/tooltip",
-  "version": "2.0.193",
+  "version": "2.0.194",
   "description": "ltht-react styled Tooltip component.",
   "author": "M Saqib <muhammad.saqib@airelogic.com>",
   "homepage": "",
@@ -29,7 +29,7 @@
     "@emotion/react": "^11.0.0",
     "@emotion/styled": "^11.0.0",
     "@floating-ui/react": "^0.27.15",
-    "@ltht-react/styles": "^2.0.193",
+    "@ltht-react/styles": "^2.0.194",
     "react": "^18.2.0"
   }
 }

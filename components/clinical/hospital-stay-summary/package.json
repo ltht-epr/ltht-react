@@ -1,6 +1,6 @@
 {
   "name": "@ltht-react/hospital-stay-summary",
-  "version": "2.0.193",
+  "version": "2.0.194",
   "description": "ltht-react clinical HospitalStaySummary component.",
   "author": "LTHT",
   "homepage": "",
@@ -24,11 +24,11 @@
   "dependencies": {
     "@emotion/react": "^11.0.0",
     "@emotion/styled": "^11.0.0",
-    "@ltht-react/list": "^2.0.193",
-    "@ltht-react/styles": "^2.0.193",
-    "@ltht-react/type-summary": "^2.0.193",
-    "@ltht-react/types": "^2.0.193",
-    "@ltht-react/utils": "^2.0.193",
+    "@ltht-react/list": "^2.0.194",
+    "@ltht-react/styles": "^2.0.194",
+    "@ltht-react/type-summary": "^2.0.194",
+    "@ltht-react/types": "^2.0.194",
+    "@ltht-react/utils": "^2.0.194",
     "date-fns": "^3.6.0",
     "react": "^18.2.0"
   },
