@@ -29,6 +29,7 @@
     "@emotion/react": "^11.0.0",
     "@emotion/styled": "^11.0.0",
     "@ltht-react/button": "^2.0.193",
+    "@ltht-react/card": "^2.0.193",
     "@ltht-react/icon": "^2.0.193",
     "@ltht-react/list": "^2.0.193",
     "@ltht-react/styles": "^2.0.193",
