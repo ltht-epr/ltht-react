@@ -79,6 +79,13 @@ Your code must be reviewed and merged into `main`. A short while after this, an 
 6. Authenticate with `npm login`, if you haven't already.
 7. Publish to npm with `yarn run deploy:npm`.
 
+  You may have issues with the final step prompting you for a one-time password. If you cannot generate one (npm appears to have deprecated them in favour of security keys), then you will need to: 
+  
+  1. Create an access token for your account on npmjs.com. Make sure it has read/write permissions for `@ltht-react`, and select the option `Bypass two-factor authentication (2FA)`
+  2. Save the access token to an `.npmrc` file (in the format below), either in the project root or your home directory.
+  ```.npmrc
+//registry.npmjs.org/:_authToken=YOUR_ACCESS_TOKEN_HERE
+  ```
 ## Deploying Storybook
 
 1. Switch to `main` and `git pull`
