@@ -2680,6 +2680,7 @@ export type GpConnect = {
 
 /** Queries the GP Connect system. */
 export type GpConnectConditionsArgs = {
+  clinicalStatusFilter?: Maybe<Array<ConditionClinicalStatus>>;
   nhsNumber: Scalars['String'];
   patientGuid: Scalars['String'];
 };
