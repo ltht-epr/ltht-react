@@ -15,13 +15,8 @@ const GuidanceActionCell: FC<Props> = ({ actions, onActionClick }) =>
   actions?.map(
     (action) =>
       action && (
-        <ActionCell>
-          <Button
-            styling={{ buttonStyle: 'standard' }}
-            key={action?.elementId}
-            type="button"
-            onClick={() => action && onActionClick(action)}
-          >
+        <ActionCell key={action?.elementId}>
+          <Button styling={{ buttonStyle: 'standard' }} type="button" onClick={() => action && onActionClick(action)}>
             <GuidanceActionTypeIcon action={action} /> {action?.title}
           </Button>
         </ActionCell>
