@@ -1,19 +1,22 @@
+import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 import Icon from '@ltht-react/icon'
 import { TABLE_COLOURS } from '@ltht-react/styles'
 import { Annotation } from '@ltht-react/types'
 import { FC } from 'react'
 
-const NoteCell = styled.div`
+const baseStyles = css`
   padding: 0.5rem;
   border: 1px solid ${TABLE_COLOURS.BORDER};
   flex-grow: 1;
 `
 
+const NoteCell = styled.div`
+  ${baseStyles};
+`
+
 const ClickableNoteCell = styled.a`
-  padding: 0.5rem;
-  border: 1px solid ${TABLE_COLOURS.BORDER};
-  flex-grow: 1;
+  ${baseStyles};
   pointer: cursor;
 `
 
