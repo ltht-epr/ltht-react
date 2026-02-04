@@ -256,10 +256,21 @@ export const guidanceWithActions: Guidance[] = [
   guidanceOne,
 ]
 
-// const guidanceList: GuidanceList = {
-//   id: '88686ed1-ac86-4e14-8c73-fc020f1b0e5b',
-//   metadata: mockMetadata,
-//   guidance: [guidanceOne, guidanceTwo, guidanceThree],
-// }
+export const guidanceWithExternalLink: Guidance = {
+  ...guidanceOne,
+  note: [
+    ...(guidanceOne.note ?? []),
+    {
+      text: 'Think SUPPORT and TALK on Intranet',
+      extension: [
+        {
+          url: 'https://leedsth.nhs.uk/ehr/guidance/additional-guidance-uri',
+          valueString:
+            'https://intranet.leedsth.nhs.uk/departments/oncology/specialist-palliative-care/care-of-the-dying-person/',
+        },
+      ],
+    },
+  ],
+}
 
 export default guidanceList
