@@ -956,7 +956,7 @@ const QuestionnaireResponse2: QuestionnaireResponse = {
           },
           {
             system: 'https://leedsth.nhs.uk/cds/clinical-approval/completed-on',
-            code: '2024-01-15T10:30:00Z',
+            code: '2021-08-21T13:13:56.9755581+01:00',
           },
           {
             system: 'https://leedsth.nhs.uk/cds/clinical-approval/completed-by-display-name',
@@ -1034,7 +1034,7 @@ const QuestionnaireResponse3: QuestionnaireResponse = {
             },
             {
               system: 'https://leedsth.nhs.uk/cds/clinical-approval/completed-on',
-              code: '2024-01-15T10:30:00Z',
+              code: '2021-08-21T13:13:56.9755581+01:00',
             },
             {
               system: 'https://leedsth.nhs.uk/cds/clinical-approval/completed-by-display-name',
@@ -1094,7 +1094,7 @@ const QuestionnaireResponse4: QuestionnaireResponse = {
           },
           {
             system: 'https://leedsth.nhs.uk/cds/clinical-approval/completed-on',
-            code: '2024-01-15T10:30:00Z',
+            code: '2021-08-21T13:13:56.9755581+01:00',
           },
           {
             system: 'https://leedsth.nhs.uk/cds/clinical-approval/completed-by-display-name',

@@ -53,6 +53,11 @@ const StyledTimelineItemMiddle = styled.div`
   margin: 0.5rem;
 `
 
+const StyledTimelineCountersignature = styled.div`
+  color: black;
+  margin: 0.5rem;
+`
+
 const StyledTimelineItemBottom = styled.div`
   color: grey;
   display: flex;
@@ -95,11 +100,13 @@ const getCountersignatureProps = (
         (coding: Maybe<Coding>) => coding?.system === 'https://leedsth.nhs.uk/cds/clinical-approval/status'
       )?.code
       status = statusCode ? (statusCode.toUpperCase() as ClinicalApprovalStatus) : undefined
+      console.log(statusCode)
 
       const completedOnCode = cdsExtension?.valueCodeableConcept?.coding?.find(
         (coding: Maybe<Coding>) => coding?.system === 'https://leedsth.nhs.uk/cds/clinical-approval/completed-on'
       )?.code
       completedOn = completedOnCode ? { value: completedOnCode } : null
+      console.log(completedOnCode)
 
       const completedByCode = cdsExtension?.valueCodeableConcept?.coding?.find(
         (coding: Maybe<Coding>) =>
@@ -162,10 +169,12 @@ const TimelineItem: FC<IProps> = ({ timelineItem, domainResourceType }) => {
       </StyledTimelineItemMiddle>{' '}
       <StyledTimelineItemBottom>
         <StyledTimelineAuthor domainResource={timelineItem.domainResource} domainResourceType={domainResourceType} />
+      </StyledTimelineItemBottom>
+      <StyledTimelineCountersignature>
         <StyledCountersignatureIconAndStatus
           {...getCountersignatureProps(timelineItem.domainResource, domainResourceType)}
         />
-      </StyledTimelineItemBottom>
+      </StyledTimelineCountersignature>
       <TimelineButton timelineItem={timelineItem} />
     </StyledTimelineItem>
   )

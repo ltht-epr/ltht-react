@@ -30,13 +30,13 @@ const Badge = styled.span<{ backgroundColour: string; status: ClinicalApprovalSt
 const getBadgeBackgroundColour = (status: ClinicalApprovalStatus): string => {
   switch (status) {
     case ClinicalApprovalStatus.Requested:
-      return '#eb3434'
+      return '#f35656'
     case ClinicalApprovalStatus.Reviewed:
       return '#46eb34'
     case ClinicalApprovalStatus.Cancelled:
-      return '#808080'
+      return '#cfcaca'
     case ClinicalApprovalStatus.Expired:
-      return '#808080'
+      return '#cfcaca'
     default:
       return '#fff3cd'
   }
@@ -71,7 +71,7 @@ const renderBadge = (
 
   return (
     <Container>
-      <Badge backgroundColour={backgroundColour} status={status} title="countersign-icon-and-status-badge">
+      <Badge backgroundColour={backgroundColour} status={status} title={displayText}>
         {displayText}
       </Badge>
     </Container>
