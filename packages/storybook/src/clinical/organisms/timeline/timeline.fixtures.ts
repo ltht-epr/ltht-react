@@ -956,7 +956,7 @@ const QuestionnaireResponse2: QuestionnaireResponse = {
           },
           {
             system: 'https://leedsth.nhs.uk/cds/clinical-approval/completed-on',
-            code: '2021-08-21T13:13:56.9755581+01:00',
+            code: '17th August 2021, 19:30',
           },
           {
             system: 'https://leedsth.nhs.uk/cds/clinical-approval/completed-by-display-name',
@@ -1005,7 +1005,7 @@ const QuestionnaireResponse3: QuestionnaireResponse = {
       system: 'http://leedsth.nhs.uk/user/guid',
       value: 'cfe6a9d7-f23d-4bb9-a28d-8a3895bee48a',
     },
-    display: 'Jonny Dyson',
+    display: 'Jonny Dyson DR',
   },
   questionnaire: {
     id: '14720227-b1f7-4cc5-a0d0-403938cf710e',
@@ -1023,29 +1023,29 @@ const QuestionnaireResponse3: QuestionnaireResponse = {
     description: 'Submission 1',
     status: QuestionnairePublicationStatus.Active,
     item: [],
-    extension: [
-      {
-        url: 'https://leedsth.nhs.uk/cds',
-        valueCodeableConcept: {
-          coding: [
-            {
-              system: 'https://leedsth.nhs.uk/cds/clinical-approval/status',
-              code: 'Expired',
-            },
-            {
-              system: 'https://leedsth.nhs.uk/cds/clinical-approval/completed-on',
-              code: '2021-08-21T13:13:56.9755581+01:00',
-            },
-            {
-              system: 'https://leedsth.nhs.uk/cds/clinical-approval/completed-by-display-name',
-              code: 'Dr. Jane Smith',
-            },
-          ],
-        },
-      },
-    ],
   },
   item: [],
+  extension: [
+    {
+      url: 'https://leedsth.nhs.uk/cds',
+      valueCodeableConcept: {
+        coding: [
+          {
+            system: 'https://leedsth.nhs.uk/cds/clinical-approval/status',
+            code: 'Expired',
+          },
+          {
+            system: 'https://leedsth.nhs.uk/cds/clinical-approval/completed-on',
+            code: '17th August 2021, 19:30',
+          },
+          {
+            system: 'https://leedsth.nhs.uk/cds/clinical-approval/completed-by-display-name',
+            code: 'Dr. Jane Smith',
+          },
+        ],
+      },
+    },
+  ],
 }
 
 const QuestionnaireResponse4: QuestionnaireResponse = {
@@ -1094,7 +1094,7 @@ const QuestionnaireResponse4: QuestionnaireResponse = {
           },
           {
             system: 'https://leedsth.nhs.uk/cds/clinical-approval/completed-on',
-            code: '2021-08-21T13:13:56.9755581+01:00',
+            code: '17th August 2021, 19:30',
           },
           {
             system: 'https://leedsth.nhs.uk/cds/clinical-approval/completed-by-display-name',
@@ -1104,6 +1104,43 @@ const QuestionnaireResponse4: QuestionnaireResponse = {
       },
     },
   ],
+}
+
+const QuestionnaireResponse5: QuestionnaireResponse = {
+  id: '435d2aca-7776-43e7-a33f-1ba481bd2897',
+  isEnteredInError: false,
+  metadata: mockMetadata,
+  status: QuestionnaireResponseStatus.Completed,
+  authored: {
+    kind: PartialDateTimeKindCode.DateTime,
+    value: '2021-08-21T13:13:56.9755581+01:00',
+  },
+  author: {
+    typeName: 'EhrUser',
+    identifier: {
+      system: 'http://leedsth.nhs.uk/user/guid',
+      value: 'cfe6a9d7-f23d-4bb9-a28d-8a3895bee48a',
+    },
+    display: 'Jonny Dyson',
+  },
+  questionnaire: {
+    id: '14720227-b1f7-4cc5-a0d0-403938cf710e',
+    isEnteredInError: false,
+    identifier: [
+      {
+        system: 'http://leedsth.nhs.uk/user/guid',
+        value: 'cfe6a9d7-f23d-4bb9-a28d-8a3895bee48a',
+      },
+    ],
+    metadata: mockMetadata,
+    url: 'http://ehr.leedsth.nhs.uk/questionnaire/Right-To-Reside',
+    version: '1',
+    title: 'Surgical Pre-assessment (Created)',
+    description: 'Submission 1',
+    status: QuestionnairePublicationStatus.Active,
+    item: [],
+  },
+  item: [],
 }
 
 export const TextTitleResponse: QuestionnaireResponse = {
@@ -1185,7 +1222,13 @@ export const TitleResponse: QuestionnaireResponse = {
 }
 
 const QuestionnaireResponses: QuestionnaireResponseContinuation = {
-  resources: [QuestionnaireResponse1, QuestionnaireResponse2, QuestionnaireResponse3, QuestionnaireResponse4],
+  resources: [
+    QuestionnaireResponse1,
+    QuestionnaireResponse2,
+    QuestionnaireResponse3,
+    QuestionnaireResponse4,
+    QuestionnaireResponse5,
+  ],
   selfCursorToken: '',
 }
 

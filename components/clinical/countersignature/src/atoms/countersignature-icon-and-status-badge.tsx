@@ -1,6 +1,5 @@
 import styled from '@emotion/styled'
-import { ClinicalApprovalStatus, Maybe, PartialDateTime } from '@ltht-react/types'
-import { partialDateTimeText } from '@ltht-react/utils'
+import { ClinicalApprovalStatus } from '@ltht-react/types'
 import { FC } from 'react'
 
 const Container = styled.div`
@@ -10,7 +9,6 @@ const Container = styled.div`
 
 const Badge = styled.span<{ backgroundColour: string; status: ClinicalApprovalStatus }>`
   background-color: ${({ backgroundColour }) => backgroundColour};
-  border: 1px solid #e0b632;
   color: #664d03;
   padding: 2px 8px;
   font-size: 0.75rem;
@@ -42,16 +40,12 @@ const getBadgeBackgroundColour = (status: ClinicalApprovalStatus): string => {
   }
 }
 
-const getBadgeDisplayText = (
-  status: ClinicalApprovalStatus,
-  completedOn?: Maybe<PartialDateTime>,
-  completedByDisplayName?: string
-) => {
+const getBadgeDisplayText = (status: ClinicalApprovalStatus, completedOn?: string, completedByDisplayName?: string) => {
   switch (status) {
     case ClinicalApprovalStatus.Requested:
       return 'Countersignature Requested'
     case ClinicalApprovalStatus.Reviewed:
-      return `Countersigned at ${partialDateTimeText(completedOn)} by ${completedByDisplayName}`
+      return `Countersigned at ${completedOn} by ${completedByDisplayName}`
     case ClinicalApprovalStatus.Cancelled:
       return 'Countersign Request Withdrawn'
     case ClinicalApprovalStatus.Expired:
@@ -61,11 +55,7 @@ const getBadgeDisplayText = (
   }
 }
 
-const renderBadge = (
-  status: ClinicalApprovalStatus,
-  completedOn?: Maybe<PartialDateTime>,
-  completedByDisplayName?: string
-) => {
+const renderBadge = (status: ClinicalApprovalStatus, completedOn?: string, completedByDisplayName?: string) => {
   const displayText = getBadgeDisplayText(status, completedOn, completedByDisplayName)
   const backgroundColour = getBadgeBackgroundColour(status)
 
@@ -86,7 +76,7 @@ const CountersignatureIconAndStatusBadge: FC<ICountersignatureIconAndStatusBadge
 
 interface ICountersignatureIconAndStatusBadge {
   status?: ClinicalApprovalStatus
-  completedOn?: Maybe<PartialDateTime>
+  completedOn?: string
   completedByDisplayName?: string
 }
 

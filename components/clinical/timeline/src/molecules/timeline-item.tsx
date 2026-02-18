@@ -8,7 +8,6 @@ import {
   DocumentReference,
   Extension,
   Maybe,
-  PartialDateTime,
   QuestionnaireResponse,
   TimelineDomainResourceType,
 } from '@ltht-react/types'
@@ -81,36 +80,37 @@ const StyledTimelineDescription = styled(TimelineDescription)`
 const getCountersignatureProps = (
   domainResource?: Maybe<AuditEvent | QuestionnaireResponse | DocumentReference>,
   domainResourceType?: TimelineDomainResourceType
-): { status?: ClinicalApprovalStatus; completedOn?: Maybe<PartialDateTime>; completedByDisplayName?: string } => {
+): { status?: ClinicalApprovalStatus; completedOn?: string; completedByDisplayName?: string } => {
   if (!domainResource || !domainResourceType) {
     return {}
   }
 
+  const cdsExtensionValue = 'https://leedsth.nhs.uk/cds'
+  const clinicalApprovalStatusSystemValue = 'https://leedsth.nhs.uk/cds/clinical-approval/status'
+  const clinicalApprovalCompletedOnSystemValue = 'https://leedsth.nhs.uk/cds/clinical-approval/completed-on'
+  const clinicalApprovalCompletedByDisplayNameSystemValue =
+    'https://leedsth.nhs.uk/cds/clinical-approval/completed-by-display-name'
+
   let status: ClinicalApprovalStatus | undefined
-  let completedOn: Maybe<PartialDateTime>
+  let completedOn: string | undefined
   let completedByDisplayName: string | undefined
 
   switch (domainResourceType) {
     case TimelineDomainResourceType.QuestionnaireResponse: {
-      const cdsExtension = domainResource.extension?.find(
-        (ext: Maybe<Extension>) => ext?.url === 'https://leedsth.nhs.uk/cds'
-      )
+      const cdsExtension = domainResource.extension?.find((ext: Maybe<Extension>) => ext?.url === cdsExtensionValue)
 
       const statusCode = cdsExtension?.valueCodeableConcept?.coding?.find(
-        (coding: Maybe<Coding>) => coding?.system === 'https://leedsth.nhs.uk/cds/clinical-approval/status'
+        (coding: Maybe<Coding>) => coding?.system === clinicalApprovalStatusSystemValue
       )?.code
       status = statusCode ? (statusCode.toUpperCase() as ClinicalApprovalStatus) : undefined
-      console.log(statusCode)
 
       const completedOnCode = cdsExtension?.valueCodeableConcept?.coding?.find(
-        (coding: Maybe<Coding>) => coding?.system === 'https://leedsth.nhs.uk/cds/clinical-approval/completed-on'
+        (coding: Maybe<Coding>) => coding?.system === clinicalApprovalCompletedOnSystemValue
       )?.code
-      completedOn = completedOnCode ? { value: completedOnCode } : null
-      console.log(completedOnCode)
+      completedOn = completedOnCode || undefined
 
       const completedByCode = cdsExtension?.valueCodeableConcept?.coding?.find(
-        (coding: Maybe<Coding>) =>
-          coding?.system === 'https://leedsth.nhs.uk/cds/clinical-approval/completed-by-display-name'
+        (coding: Maybe<Coding>) => coding?.system === clinicalApprovalCompletedByDisplayNameSystemValue
       )?.code
       completedByDisplayName = completedByCode || undefined
       break
@@ -118,13 +118,13 @@ const getCountersignatureProps = (
 
     case TimelineDomainResourceType.AuditEvent: {
       status = undefined
-      completedOn = null
+      completedOn = undefined
       completedByDisplayName = undefined
       break
     }
     default: {
       status = undefined
-      completedOn = null
+      completedOn = undefined
       completedByDisplayName = undefined
       break
     }
