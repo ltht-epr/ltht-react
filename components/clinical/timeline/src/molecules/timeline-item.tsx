@@ -3,17 +3,16 @@ import styled from '@emotion/styled'
 import { HIGHLIGHT_GREEN, TRANSLUCENT_DARK_BLUE } from '@ltht-react/styles'
 import {
   AuditEvent,
-  ClinicalApprovalStatus,
-  Coding,
   DocumentReference,
-  Extension,
   Maybe,
   QuestionnaireResponse,
   TimelineDomainResourceType,
 } from '@ltht-react/types'
 import { useWindowSize } from '@ltht-react/hooks'
 import { isMobileView } from '@ltht-react/utils'
-import CountersignatureIconAndStatusBadge from '@ltht-react/countersignature'
+import CountersignatureIconAndStatusBadge, {
+  GetCountersignaturePropsFromTimelineItem,
+} from '@ltht-react/countersignature'
 import TimelineDescription from '../atoms/timeline-description'
 import TimelineAuthor from '../atoms/timeline-author'
 import TimelineTitle from '../atoms/timeline-title'
@@ -77,66 +76,6 @@ const StyledTimelineDescription = styled(TimelineDescription)`
   font-size: small;
 `
 
-const getCountersignatureProps = (
-  domainResource?: Maybe<AuditEvent | QuestionnaireResponse | DocumentReference>,
-  domainResourceType?: TimelineDomainResourceType
-): { status?: ClinicalApprovalStatus; completedOn?: string; completedByDisplayName?: string } => {
-  if (!domainResource || !domainResourceType) {
-    return {}
-  }
-
-  const cdsExtensionValue = 'https://leedsth.nhs.uk/cds'
-  const clinicalApprovalStatusSystemValue = 'https://leedsth.nhs.uk/cds/clinical-approval/status'
-  const clinicalApprovalCompletedOnSystemValue = 'https://leedsth.nhs.uk/cds/clinical-approval/completed-on'
-  const clinicalApprovalCompletedByDisplayNameSystemValue =
-    'https://leedsth.nhs.uk/cds/clinical-approval/completed-by-display-name'
-
-  let status: ClinicalApprovalStatus | undefined
-  let completedOn: string | undefined
-  let completedByDisplayName: string | undefined
-
-  switch (domainResourceType) {
-    case TimelineDomainResourceType.QuestionnaireResponse: {
-      const cdsExtension = domainResource.extension?.find((ext: Maybe<Extension>) => ext?.url === cdsExtensionValue)
-
-      const statusCode = cdsExtension?.valueCodeableConcept?.coding?.find(
-        (coding: Maybe<Coding>) => coding?.system === clinicalApprovalStatusSystemValue
-      )?.code
-      status = statusCode ? (statusCode.toUpperCase() as ClinicalApprovalStatus) : undefined
-
-      const completedOnCode = cdsExtension?.valueCodeableConcept?.coding?.find(
-        (coding: Maybe<Coding>) => coding?.system === clinicalApprovalCompletedOnSystemValue
-      )?.code
-      completedOn = completedOnCode || undefined
-
-      const completedByCode = cdsExtension?.valueCodeableConcept?.coding?.find(
-        (coding: Maybe<Coding>) => coding?.system === clinicalApprovalCompletedByDisplayNameSystemValue
-      )?.code
-      completedByDisplayName = completedByCode || undefined
-      break
-    }
-
-    case TimelineDomainResourceType.AuditEvent: {
-      status = undefined
-      completedOn = undefined
-      completedByDisplayName = undefined
-      break
-    }
-    default: {
-      status = undefined
-      completedOn = undefined
-      completedByDisplayName = undefined
-      break
-    }
-  }
-
-  return {
-    status,
-    completedOn,
-    completedByDisplayName,
-  }
-}
-
 const TimelineItem: FC<IProps> = ({ timelineItem, domainResourceType }) => {
   const { width } = useWindowSize()
   const isMobile = isMobileView(width)
@@ -160,19 +99,19 @@ const TimelineItem: FC<IProps> = ({ timelineItem, domainResourceType }) => {
         {isMobile && (
           <StyledTimelineTime domainResource={timelineItem.domainResource} domainResourceType={domainResourceType} />
         )}
-      </StyledTimelineItemTop>{' '}
+      </StyledTimelineItemTop>
       <StyledTimelineItemMiddle>
         <StyledTimelineDescription
           domainResource={timelineItem.domainResource}
           domainResourceType={domainResourceType}
         />
-      </StyledTimelineItemMiddle>{' '}
+      </StyledTimelineItemMiddle>
       <StyledTimelineItemBottom>
         <StyledTimelineAuthor domainResource={timelineItem.domainResource} domainResourceType={domainResourceType} />
       </StyledTimelineItemBottom>
       <StyledTimelineCountersignature>
         <StyledCountersignatureIconAndStatus
-          {...getCountersignatureProps(timelineItem.domainResource, domainResourceType)}
+          {...GetCountersignaturePropsFromTimelineItem(timelineItem.domainResource, domainResourceType)}
         />
       </StyledTimelineCountersignature>
       <TimelineButton timelineItem={timelineItem} />
