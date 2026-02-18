@@ -895,6 +895,19 @@ const QuestionnaireResponse1: QuestionnaireResponse = {
     item: [],
   },
   item: [],
+  extension: [
+    {
+      url: 'https://leedsth.nhs.uk/cds',
+      valueCodeableConcept: {
+        coding: [
+          {
+            system: 'https://leedsth.nhs.uk/cds/clinical-approval/status',
+            code: 'Requested',
+          },
+        ],
+      },
+    },
+  ],
 }
 
 const QuestionnaireResponse2: QuestionnaireResponse = {
@@ -932,6 +945,27 @@ const QuestionnaireResponse2: QuestionnaireResponse = {
     item: [],
   },
   item: [],
+  extension: [
+    {
+      url: 'https://leedsth.nhs.uk/cds',
+      valueCodeableConcept: {
+        coding: [
+          {
+            system: 'https://leedsth.nhs.uk/cds/clinical-approval/status',
+            code: 'Reviewed',
+          },
+          {
+            system: 'https://leedsth.nhs.uk/cds/clinical-approval/completed-on',
+            code: '2024-01-15T10:30:00Z',
+          },
+          {
+            system: 'https://leedsth.nhs.uk/cds/clinical-approval/completed-by-display-name',
+            code: 'Dr. Jane Smith',
+          },
+        ],
+      },
+    },
+  ],
 }
 
 export const RedactedQuestionnaireResponse1: QuestionnaireResponse = {
@@ -989,6 +1023,27 @@ const QuestionnaireResponse3: QuestionnaireResponse = {
     description: 'Submission 1',
     status: QuestionnairePublicationStatus.Active,
     item: [],
+    extension: [
+      {
+        url: 'https://leedsth.nhs.uk/cds',
+        valueCodeableConcept: {
+          coding: [
+            {
+              system: 'https://leedsth.nhs.uk/cds/clinical-approval/status',
+              code: 'Expired',
+            },
+            {
+              system: 'https://leedsth.nhs.uk/cds/clinical-approval/completed-on',
+              code: '2024-01-15T10:30:00Z',
+            },
+            {
+              system: 'https://leedsth.nhs.uk/cds/clinical-approval/completed-by-display-name',
+              code: 'Dr. Jane Smith',
+            },
+          ],
+        },
+      },
+    ],
   },
   item: [],
 }
@@ -1028,6 +1083,27 @@ const QuestionnaireResponse4: QuestionnaireResponse = {
     item: [],
   },
   item: [],
+  extension: [
+    {
+      url: 'https://leedsth.nhs.uk/cds',
+      valueCodeableConcept: {
+        coding: [
+          {
+            system: 'https://leedsth.nhs.uk/cds/clinical-approval/status',
+            code: 'Cancelled',
+          },
+          {
+            system: 'https://leedsth.nhs.uk/cds/clinical-approval/completed-on',
+            code: '2024-01-15T10:30:00Z',
+          },
+          {
+            system: 'https://leedsth.nhs.uk/cds/clinical-approval/completed-by-display-name',
+            code: 'Dr. Jane Smith',
+          },
+        ],
+      },
+    },
+  ],
 }
 
 export const TextTitleResponse: QuestionnaireResponse = {
