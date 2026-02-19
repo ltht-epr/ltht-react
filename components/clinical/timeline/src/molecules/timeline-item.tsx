@@ -112,6 +112,7 @@ const TimelineItem: FC<IProps> = ({ timelineItem, domainResourceType }) => {
       <StyledTimelineCountersignature>
         <StyledCountersignatureIconAndStatus
           {...GetCountersignaturePropsFromTimelineItem(timelineItem.domainResource, domainResourceType)}
+          clickHandler={timelineItem.countersignatureClickHandler}
         />
       </StyledTimelineCountersignature>
       <TimelineButton timelineItem={timelineItem} />
@@ -130,6 +131,7 @@ export interface ITimelineItem {
   itemClickHandler?(): void
   pointInTimeClickHandler?: (date: Date) => void
   buttonText?: string
+  countersignatureClickHandler?(): void
 }
 
 type TimeLineItemButtonState = 'no-button' | 'selectable-button' | 'selected-button' | 'permission-denied-button'
