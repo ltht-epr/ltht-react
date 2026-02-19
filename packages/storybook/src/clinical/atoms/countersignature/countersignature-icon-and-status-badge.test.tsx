@@ -26,7 +26,7 @@ describe('CountersignatureIconAndStatusBadge', () => {
       render(
         <CountersignatureIconAndStatusBadge
           status={ClinicalApprovalStatus.Reviewed}
-          completedOn="2026-02-19 10:30"
+          completedOnDisplay="2026-02-19 10:30"
           completedByDisplayName="Dr. Smith"
         />
       )
@@ -139,7 +139,7 @@ describe('CountersignatureIconAndStatusBadge', () => {
       render(
         <CountersignatureIconAndStatusBadge
           status={ClinicalApprovalStatus.Reviewed}
-          completedOn="2026-02-19 10:30"
+          completedOnDisplay="2026-02-19 10:30"
           completedByDisplayName="Dr. Smith"
         />
       )

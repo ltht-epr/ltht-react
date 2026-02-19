@@ -354,7 +354,7 @@ const Audit6: AuditEvent = {
         },
         {
           type: 'https://leedsth.nhs.uk/cds/clinical-approval/completed-on',
-          value: '17th August 2021, 19:30',
+          value: '2024-02-19T14:30:00Z',
         },
         {
           type: 'https://leedsth.nhs.uk/cds/clinical-approval/completed-by-display-name',
@@ -424,7 +424,7 @@ const Audit7: AuditEvent = {
         },
         {
           type: 'https://leedsth.nhs.uk/cds/clinical-approval/completed-on',
-          value: '17th August 2021, 19:30',
+          value: '2024-02-19T14:30:00Z',
         },
         {
           type: 'https://leedsth.nhs.uk/cds/clinical-approval/completed-by-display-name',
@@ -495,7 +495,7 @@ const Audit8: AuditEvent = {
         },
         {
           type: 'https://leedsth.nhs.uk/cds/clinical-approval/completed-on',
-          value: '17th August 2021, 19:30',
+          value: '2024-02-19T14:30:00Z',
         },
         {
           type: 'https://leedsth.nhs.uk/cds/clinical-approval/completed-by-display-name',
@@ -1020,7 +1020,7 @@ const QuestionnaireResponse2: QuestionnaireResponse = {
           },
           {
             system: 'https://leedsth.nhs.uk/cds/clinical-approval/completed-on',
-            code: '17th August 2021, 19:30',
+            code: '2024-02-19T14:35:00Z',
           },
           {
             system: 'https://leedsth.nhs.uk/cds/clinical-approval/completed-by-display-name',
@@ -1100,7 +1100,7 @@ const QuestionnaireResponse3: QuestionnaireResponse = {
           },
           {
             system: 'https://leedsth.nhs.uk/cds/clinical-approval/completed-on',
-            code: '17th August 2021, 19:30',
+            code: '2024-02-19T14:30:00Z',
           },
           {
             system: 'https://leedsth.nhs.uk/cds/clinical-approval/completed-by-display-name',
@@ -1158,7 +1158,7 @@ const QuestionnaireResponse4: QuestionnaireResponse = {
           },
           {
             system: 'https://leedsth.nhs.uk/cds/clinical-approval/completed-on',
-            code: '17th August 2021, 19:30',
+            code: '2024-02-19T14:30:00Z',
           },
           {
             system: 'https://leedsth.nhs.uk/cds/clinical-approval/completed-by-display-name',

@@ -50,12 +50,16 @@ const getBadgeBackgroundColour = (status: ClinicalApprovalStatus): string => {
   }
 }
 
-const getBadgeDisplayText = (status: ClinicalApprovalStatus, completedOn?: string, completedByDisplayName?: string) => {
+const getBadgeDisplayText = (
+  status: ClinicalApprovalStatus,
+  completedOnDisplay?: string,
+  completedByDisplayName?: string
+) => {
   switch (status) {
     case ClinicalApprovalStatus.Requested:
       return 'Countersignature Requested'
     case ClinicalApprovalStatus.Reviewed:
-      return `Countersigned at ${completedOn} by ${completedByDisplayName}`
+      return `Countersigned at ${completedOnDisplay} by ${completedByDisplayName}`
     case ClinicalApprovalStatus.Cancelled:
       return 'Countersign Request Withdrawn'
     case ClinicalApprovalStatus.Expired:
@@ -67,11 +71,11 @@ const getBadgeDisplayText = (status: ClinicalApprovalStatus, completedOn?: strin
 
 const renderBadge = (
   status: ClinicalApprovalStatus,
-  completedOn?: string,
+  completedOnDisplay?: string,
   completedByDisplayName?: string,
   clickHandler?: () => void
 ) => {
-  const displayText = getBadgeDisplayText(status, completedOn, completedByDisplayName)
+  const displayText = getBadgeDisplayText(status, completedOnDisplay, completedByDisplayName)
   const backgroundColour = getBadgeBackgroundColour(status)
 
   return (
@@ -91,15 +95,15 @@ const renderBadge = (
 
 const CountersignatureIconAndStatusBadge: FC<ICountersignatureIconAndStatusBadge> = ({
   status,
-  completedOn,
+  completedOnDisplay,
   completedByDisplayName,
   clickHandler,
 }: ICountersignatureIconAndStatusBadge) =>
-  status ? renderBadge(status, completedOn, completedByDisplayName, clickHandler) : null
+  status ? renderBadge(status, completedOnDisplay, completedByDisplayName, clickHandler) : null
 
 interface ICountersignatureIconAndStatusBadge {
   status?: ClinicalApprovalStatus
-  completedOn?: string
+  completedOnDisplay?: string
   completedByDisplayName?: string
   clickHandler?: () => void
 }
