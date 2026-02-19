@@ -354,7 +354,7 @@ const Audit6: AuditEvent = {
         },
         {
           type: 'https://leedsth.nhs.uk/cds/clinical-approval/completed-on',
-          value: '2024-02-19T14:30:00Z',
+          value: '19/02/2026 13:52:30',
         },
         {
           type: 'https://leedsth.nhs.uk/cds/clinical-approval/completed-by-display-name',
@@ -424,7 +424,7 @@ const Audit7: AuditEvent = {
         },
         {
           type: 'https://leedsth.nhs.uk/cds/clinical-approval/completed-on',
-          value: '2024-02-19T14:30:00Z',
+          value: '19/02/2026 13:52:30',
         },
         {
           type: 'https://leedsth.nhs.uk/cds/clinical-approval/completed-by-display-name',
@@ -495,7 +495,7 @@ const Audit8: AuditEvent = {
         },
         {
           type: 'https://leedsth.nhs.uk/cds/clinical-approval/completed-on',
-          value: '2024-02-19T14:30:00Z',
+          value: '19/02/2026 14:30:00',
         },
         {
           type: 'https://leedsth.nhs.uk/cds/clinical-approval/completed-by-display-name',
@@ -1020,7 +1020,7 @@ const QuestionnaireResponse2: QuestionnaireResponse = {
           },
           {
             system: 'https://leedsth.nhs.uk/cds/clinical-approval/completed-on',
-            code: '2024-02-19T14:35:00Z',
+            code: '19/02/2026 13:52:30',
           },
           {
             system: 'https://leedsth.nhs.uk/cds/clinical-approval/completed-by-display-name',
@@ -1100,7 +1100,7 @@ const QuestionnaireResponse3: QuestionnaireResponse = {
           },
           {
             system: 'https://leedsth.nhs.uk/cds/clinical-approval/completed-on',
-            code: '2024-02-19T14:30:00Z',
+            code: '19/02/2026 13:52:30',
           },
           {
             system: 'https://leedsth.nhs.uk/cds/clinical-approval/completed-by-display-name',
@@ -1158,7 +1158,7 @@ const QuestionnaireResponse4: QuestionnaireResponse = {
           },
           {
             system: 'https://leedsth.nhs.uk/cds/clinical-approval/completed-on',
-            code: '2024-02-19T14:30:00Z',
+            code: '19/02/2026 13:52:30',
           },
           {
             system: 'https://leedsth.nhs.uk/cds/clinical-approval/completed-by-display-name',

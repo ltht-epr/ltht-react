@@ -8,7 +8,7 @@ import {
   QuestionnaireResponse,
   TimelineDomainResourceType,
 } from '@ltht-react/types'
-import { format as dateFormat } from 'date-fns'
+import { format as dateFormat, parse as dateParse } from 'date-fns'
 import Constants from './system-value-constants'
 
 const formatDateForDisplay = (date: Date, showSeconds = false): string =>
@@ -18,7 +18,12 @@ const parseAndFormatDate = (dateString?: string): string | undefined => {
   if (!dateString) return undefined
 
   try {
-    const date = new Date(dateString)
+    let date = dateParse(dateString, 'dd/MM/yyyy HH:mm:ss', new Date())
+
+    if (isNaN(date.getTime())) {
+      date = new Date(dateString)
+    }
+
     return isNaN(date.getTime()) ? dateString : formatDateForDisplay(date)
   } catch {
     return dateString
