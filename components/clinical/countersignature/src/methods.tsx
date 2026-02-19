@@ -47,9 +47,26 @@ export const GetCountersignaturePropsFromTimelineItem = (
     }
 
     case TimelineDomainResourceType.AuditEvent: {
-      status = undefined
-      completedOn = undefined
-      completedByDisplayName = undefined
+      const auditEvent = domainResource as AuditEvent
+
+      const clinicalApprovalEntity = auditEvent.entity?.find((entity) =>
+        entity?.detail?.some((detail) => detail?.type === Constants.CLINICAL_APPROVAL_STATUS)
+      )
+
+      const statusDetail = clinicalApprovalEntity?.detail?.find(
+        (detail) => detail?.type === Constants.CLINICAL_APPROVAL_STATUS
+      )
+      status = statusDetail?.value ? (statusDetail.value.toUpperCase() as ClinicalApprovalStatus) : undefined
+
+      const completedOnDetail = clinicalApprovalEntity?.detail?.find(
+        (detail) => detail?.type === Constants.CLINICAL_APPROVAL_COMPLETED_ON
+      )
+      completedOn = completedOnDetail?.value || undefined
+
+      const completedByDetail = clinicalApprovalEntity?.detail?.find(
+        (detail) => detail?.type === Constants.CLINICAL_APPROVAL_COMPLETED_BY_DISPLAY_NAME
+      )
+      completedByDisplayName = completedByDetail?.value || undefined
       break
     }
     default: {

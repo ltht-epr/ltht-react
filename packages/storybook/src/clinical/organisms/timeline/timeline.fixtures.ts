@@ -283,6 +283,16 @@ const Audit5: AuditEvent = {
       },
     },
   ],
+  entity: [
+    {
+      detail: [
+        {
+          type: 'https://leedsth.nhs.uk/cds/clinical-approval/status',
+          value: 'Requested',
+        },
+      ],
+    },
+  ],
 }
 
 const Audit6: AuditEvent = {
@@ -333,6 +343,24 @@ const Audit6: AuditEvent = {
         display: 'DYSON, Jonny (Dr) Transplant Surgeon',
         typeName: '',
       },
+    },
+  ],
+  entity: [
+    {
+      detail: [
+        {
+          type: 'https://leedsth.nhs.uk/cds/clinical-approval/status',
+          value: 'Reviewed',
+        },
+        {
+          type: 'https://leedsth.nhs.uk/cds/clinical-approval/completed-on',
+          value: '17th August 2021, 19:30',
+        },
+        {
+          type: 'https://leedsth.nhs.uk/cds/clinical-approval/completed-by-display-name',
+          value: 'DYSON, Jonny (Dr) Transplant Surgeon',
+        },
+      ],
     },
   ],
 }
@@ -387,6 +415,24 @@ const Audit7: AuditEvent = {
       },
     },
   ],
+  entity: [
+    {
+      detail: [
+        {
+          type: 'https://leedsth.nhs.uk/cds/clinical-approval/status',
+          value: 'Expired',
+        },
+        {
+          type: 'https://leedsth.nhs.uk/cds/clinical-approval/completed-on',
+          value: '17th August 2021, 19:30',
+        },
+        {
+          type: 'https://leedsth.nhs.uk/cds/clinical-approval/completed-by-display-name',
+          value: 'DYSON, Jonny (Dr) Transplant Surgeon',
+        },
+      ],
+    },
+  ],
 }
 
 const Audit8: AuditEvent = {
@@ -438,6 +484,24 @@ const Audit8: AuditEvent = {
         display: 'DYSON, Jonny (Dr) Transplant Surgeon',
         typeName: '',
       },
+    },
+  ],
+  entity: [
+    {
+      detail: [
+        {
+          type: 'https://leedsth.nhs.uk/cds/clinical-approval/status',
+          value: 'Cancelled',
+        },
+        {
+          type: 'https://leedsth.nhs.uk/cds/clinical-approval/completed-on',
+          value: '17th August 2021, 19:30',
+        },
+        {
+          type: 'https://leedsth.nhs.uk/cds/clinical-approval/completed-by-display-name',
+          value: 'DYSON, Jonny (Dr) Transplant Surgeon',
+        },
+      ],
     },
   ],
 }
