@@ -2603,6 +2603,7 @@ export enum FeatureInstance {
   InteractWithDiagnosisDashboard = 'INTERACT_WITH_DIAGNOSIS_DASHBOARD',
   InteractWithExternalDiagnoses = 'INTERACT_WITH_EXTERNAL_DIAGNOSES',
   InterweavePortalLaunch = 'INTERWEAVE_PORTAL_LAUNCH',
+  NsaCfaEnabled = 'NSA_CFA_ENABLED',
   NursingSpecialistAssessmentDashboard = 'NURSING_SPECIALIST_ASSESSMENT_DASHBOARD',
   PointInTimeEnabled = 'POINT_IN_TIME_ENABLED',
   ResourceAuthorization = 'RESOURCE_AUTHORIZATION',
