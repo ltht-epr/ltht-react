@@ -58,8 +58,19 @@ const getBadgeDisplayText = (
   switch (status) {
     case ClinicalApprovalStatus.Requested:
       return 'Countersignature Requested'
-    case ClinicalApprovalStatus.Reviewed:
-      return `Countersigned at ${completedOnDisplay} by ${completedByDisplayName}`
+    case ClinicalApprovalStatus.Reviewed: {
+      const parts = ['Countersigned']
+
+      if (completedOnDisplay) {
+        parts.push(`at ${completedOnDisplay}`)
+      }
+
+      if (completedByDisplayName) {
+        parts.push(`by ${completedByDisplayName}`)
+      }
+
+      return parts.join(' ')
+    }
     case ClinicalApprovalStatus.Cancelled:
       return 'Countersign Request Withdrawn'
     case ClinicalApprovalStatus.Expired:

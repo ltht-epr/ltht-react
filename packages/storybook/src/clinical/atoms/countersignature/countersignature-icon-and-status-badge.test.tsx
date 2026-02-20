@@ -42,6 +42,31 @@ describe('CountersignatureIconAndStatusBadge', () => {
       render(<CountersignatureIconAndStatusBadge status={ClinicalApprovalStatus.Expired} />)
       expect(screen.getByText('Countersign Request Closed by system')).toBeInTheDocument()
     })
+
+    it('should display correct text for Reviewed status with only completion date', () => {
+      render(
+        <CountersignatureIconAndStatusBadge
+          status={ClinicalApprovalStatus.Reviewed}
+          completedOnDisplay="2026-02-19 10:30"
+        />
+      )
+      expect(screen.getByText('Countersigned at 2026-02-19 10:30')).toBeInTheDocument()
+    })
+
+    it('should display correct text for Reviewed status with only completed by name', () => {
+      render(
+        <CountersignatureIconAndStatusBadge
+          status={ClinicalApprovalStatus.Reviewed}
+          completedByDisplayName="Dr. Smith"
+        />
+      )
+      expect(screen.getByText('Countersigned by Dr. Smith')).toBeInTheDocument()
+    })
+
+    it('should display correct text for Reviewed status with no completion details', () => {
+      render(<CountersignatureIconAndStatusBadge status={ClinicalApprovalStatus.Reviewed} />)
+      expect(screen.getByText('Countersigned')).toBeInTheDocument()
+    })
   })
 
   describe('Background Colors', () => {
@@ -53,7 +78,7 @@ describe('CountersignatureIconAndStatusBadge', () => {
 
     it('should apply correct background color for Reviewed status', () => {
       render(<CountersignatureIconAndStatusBadge status={ClinicalApprovalStatus.Reviewed} />)
-      const badge = screen.getByText(/Countersigned at/)
+      const badge = screen.getByText('Countersigned')
       expect(badge).toHaveStyle('background-color: #46eb34')
     })
 
@@ -146,6 +171,25 @@ describe('CountersignatureIconAndStatusBadge', () => {
 
       const badge = screen.getByText('Countersigned at 2026-02-19 10:30 by Dr. Smith')
       expect(badge).toHaveAttribute('title', 'Countersigned at 2026-02-19 10:30 by Dr. Smith')
+    })
+
+    it('should set title attribute for Reviewed status with partial completion details', () => {
+      render(
+        <CountersignatureIconAndStatusBadge
+          status={ClinicalApprovalStatus.Reviewed}
+          completedOnDisplay="2026-02-19 10:30"
+        />
+      )
+
+      const badge = screen.getByText('Countersigned at 2026-02-19 10:30')
+      expect(badge).toHaveAttribute('title', 'Countersigned at 2026-02-19 10:30')
+    })
+
+    it('should set title attribute for Reviewed status with no completion details', () => {
+      render(<CountersignatureIconAndStatusBadge status={ClinicalApprovalStatus.Reviewed} />)
+
+      const badge = screen.getByText('Countersigned')
+      expect(badge).toHaveAttribute('title', 'Countersigned')
     })
   })
 })
