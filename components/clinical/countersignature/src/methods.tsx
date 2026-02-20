@@ -8,27 +8,8 @@ import {
   QuestionnaireResponse,
   TimelineDomainResourceType,
 } from '@ltht-react/types'
-import { format as dateFormat, parse as dateParse } from 'date-fns'
 import Constants from './system-value-constants'
-
-const formatDateForDisplay = (date: Date, showSeconds = false): string =>
-  showSeconds ? dateFormat(date, 'dd-MMM-yyyy, HH:mm:ss') : dateFormat(date, 'dd-MMM-yyyy, HH:mm')
-
-const parseAndFormatDate = (dateString?: string): string | undefined => {
-  if (!dateString) return undefined
-
-  try {
-    let date = dateParse(dateString, 'dd/MM/yyyy HH:mm:ss', new Date())
-
-    if (isNaN(date.getTime())) {
-      date = new Date(dateString)
-    }
-
-    return isNaN(date.getTime()) ? dateString : formatDateForDisplay(date)
-  } catch {
-    return dateString
-  }
-}
+import { parseAndFormatDateStringForDisplay } from '@ltht-react/utils'
 
 // eslint-disable-next-line import/prefer-default-export
 export const GetCountersignaturePropsFromTimelineItem = (
@@ -57,7 +38,7 @@ export const GetCountersignaturePropsFromTimelineItem = (
       const completedOnCode = cdsExtension?.valueCodeableConcept?.coding?.find(
         (coding: Maybe<Coding>) => coding?.system === Constants.CLINICAL_APPROVAL_COMPLETED_ON
       )?.code
-      completedOnDisplay = parseAndFormatDate(completedOnCode ?? undefined)
+      completedOnDisplay = parseAndFormatDateStringForDisplay(completedOnCode ?? undefined)
 
       const completedByCode = cdsExtension?.valueCodeableConcept?.coding?.find(
         (coding: Maybe<Coding>) => coding?.system === Constants.CLINICAL_APPROVAL_COMPLETED_BY_DISPLAY_NAME
@@ -81,7 +62,7 @@ export const GetCountersignaturePropsFromTimelineItem = (
       const completedOnDetail = clinicalApprovalEntity?.detail?.find(
         (detail) => detail?.type === Constants.CLINICAL_APPROVAL_COMPLETED_ON
       )
-      completedOnDisplay = parseAndFormatDate(completedOnDetail?.value ?? undefined)
+      completedOnDisplay = parseAndFormatDateStringForDisplay(completedOnDetail?.value ?? undefined)
 
       const completedByDetail = clinicalApprovalEntity?.detail?.find(
         (detail) => detail?.type === Constants.CLINICAL_APPROVAL_COMPLETED_BY_DISPLAY_NAME

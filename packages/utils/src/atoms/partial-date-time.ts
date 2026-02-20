@@ -1,5 +1,5 @@
 import { PartialDateTime, PartialDateTimeKindCode } from '@ltht-react/types'
-import { format, parseISO, isMatch } from 'date-fns'
+import { format, parseISO, isMatch, parse } from 'date-fns'
 
 const locale = 'en-gb'
 const dayFormat = '2-digit'
@@ -138,4 +138,20 @@ export const formatLegacyIsoDate = (isoString: string): string => {
   const date = parseISO(datePart)
   // parse the date part and format it as "dd-MMM-yyyy"
   return format(date, 'dd-MMM-yyyy')
+}
+
+export const parseAndFormatDateStringForDisplay = (dateString?: string): string | undefined => {
+  if (!dateString) return undefined
+
+  try {
+    let date = parse(dateString, 'dd/MM/yyyy HH:mm:ss', new Date())
+
+    if (isNaN(date.getTime())) {
+      date = new Date(dateString)
+    }
+
+    return isNaN(date.getTime()) ? dateString : formatDateTime(date)
+  } catch {
+    return dateString
+  }
 }
