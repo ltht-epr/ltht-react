@@ -1377,7 +1377,7 @@ export type Ehr = {
   /** Patient Group and Membership */
   patientGroup?: Maybe<Group>;
   /** Patient History */
-  patientHistory?: Maybe<PatientHistoryArticleContinuation>;
+  clinicalSummary?: Maybe<ClinicalSummaryArticleContinuation>;
   /** Patient Record Event */
   patientRecordEvent?: Maybe<PatientRecordEvent>;
   /** Patient Record Events */
@@ -2430,7 +2430,7 @@ export enum EntityType {
   Pathology = 'PATHOLOGY',
   Patient = 'PATIENT',
   PatientGroups = 'PATIENT_GROUPS',
-  PatientHistory = 'PATIENT_HISTORY',
+  ClinicalSummary = 'CLINICAL_SUMMARY',
   PatientProduct = 'PATIENT_PRODUCT',
   PatientTasks = 'PATIENT_TASKS',
   ProcedureNote = 'PROCEDURE_NOTE',
@@ -3509,7 +3509,7 @@ export type PatientDeceased = {
 };
 
 /** The patient history resource represents the patient historic procedures comments by clinicians */
-export type PatientHistoryArticle = {
+export type ClinicalSummaryArticle = {
   comment?: Maybe<Scalars['String']>;
   created?: Maybe<PartialDateTime>;
   /** Additional content defined by implementations. */
@@ -3534,14 +3534,14 @@ export type PatientHistoryArticle = {
   updated?: Maybe<PartialDateTime>;
 };
 
-/** A continuation of PatientHistory resources. */
-export type PatientHistoryArticleContinuation = {
+/** A continuation of ClinicalSummary resources. */
+export type ClinicalSummaryArticleContinuation = {
   /** The first cursor token. */
   firstCursorToken?: Maybe<Scalars['String']>;
   /** The next cursor token. */
   nextCursorToken?: Maybe<Scalars['String']>;
-  /** The continuation of PatientHistory resources. */
-  resources: Array<Maybe<PatientHistoryArticle>>;
+  /** The continuation of ClinicalSummary resources. */
+  resources: Array<Maybe<ClinicalSummaryArticle>>;
   /** The self cursor token. */
   selfCursorToken: Scalars['String'];
   /** The total number of resources available (if known). */
