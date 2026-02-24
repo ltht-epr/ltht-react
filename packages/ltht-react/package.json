@@ -36,6 +36,7 @@
     "@ltht-react/care-plan-summary": "^2.0.199",
     "@ltht-react/community-treatment-order-detail": "^2.0.199",
     "@ltht-react/community-treatment-order-summary": "^2.0.199",
+    "@ltht-react/countersignature": "^2.0.199",
     "@ltht-react/description-list": "^2.0.199",
     "@ltht-react/diagnosis-detail": "^2.0.199",
     "@ltht-react/diagnosis-summary": "^2.0.199",

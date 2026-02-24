@@ -10,6 +10,9 @@ import {
 } from '@ltht-react/types'
 import { useWindowSize } from '@ltht-react/hooks'
 import { isMobileView } from '@ltht-react/utils'
+import CountersignatureIconAndStatusBadge, {
+  GetCountersignaturePropsFromTimelineItem,
+} from '@ltht-react/countersignature'
 import TimelineDescription from '../atoms/timeline-description'
 import TimelineAuthor from '../atoms/timeline-author'
 import TimelineTitle from '../atoms/timeline-title'
@@ -22,6 +25,11 @@ const StyledTimelineItem = styled.div<IStyledTimelineItem>`
 `
 
 const StyledTimelineAuthor = styled(TimelineAuthor)`
+  flex-grow: 1;
+  margin-bottom: 0.5rem;
+`
+
+const StyledCountersignatureIconAndStatus = styled(CountersignatureIconAndStatusBadge)`
   flex-grow: 1;
   margin-bottom: 0.5rem;
 `
@@ -40,6 +48,11 @@ const StyledTimelineItemTop = styled.div`
 const StyledTimelineItemMiddle = styled.div`
   color: black;
   padding-bottom: 1rem;
+  margin: 0.5rem;
+`
+
+const StyledTimelineCountersignature = styled.div`
+  color: black;
   margin: 0.5rem;
 `
 
@@ -87,18 +100,21 @@ const TimelineItem: FC<IProps> = ({ timelineItem, domainResourceType }) => {
           <StyledTimelineTime domainResource={timelineItem.domainResource} domainResourceType={domainResourceType} />
         )}
       </StyledTimelineItemTop>
-
       <StyledTimelineItemMiddle>
         <StyledTimelineDescription
           domainResource={timelineItem.domainResource}
           domainResourceType={domainResourceType}
         />
       </StyledTimelineItemMiddle>
-
       <StyledTimelineItemBottom>
         <StyledTimelineAuthor domainResource={timelineItem.domainResource} domainResourceType={domainResourceType} />
       </StyledTimelineItemBottom>
-
+      <StyledTimelineCountersignature>
+        <StyledCountersignatureIconAndStatus
+          {...GetCountersignaturePropsFromTimelineItem(timelineItem.domainResource, domainResourceType)}
+          clickHandler={timelineItem.countersignatureClickHandler}
+        />
+      </StyledTimelineCountersignature>
       <TimelineButton timelineItem={timelineItem} />
     </StyledTimelineItem>
   )
@@ -115,6 +131,7 @@ export interface ITimelineItem {
   itemClickHandler?(): void
   pointInTimeClickHandler?: (date: Date) => void
   buttonText?: string
+  countersignatureClickHandler?(): void
 }
 
 type TimeLineItemButtonState = 'no-button' | 'selectable-button' | 'selected-button' | 'permission-denied-button'

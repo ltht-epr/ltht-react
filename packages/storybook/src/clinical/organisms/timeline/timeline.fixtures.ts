@@ -283,6 +283,16 @@ const Audit5: AuditEvent = {
       },
     },
   ],
+  entity: [
+    {
+      detail: [
+        {
+          type: 'https://leedsth.nhs.uk/cds/clinical-approval/status',
+          value: 'Requested',
+        },
+      ],
+    },
+  ],
 }
 
 const Audit6: AuditEvent = {
@@ -333,6 +343,24 @@ const Audit6: AuditEvent = {
         display: 'DYSON, Jonny (Dr) Transplant Surgeon',
         typeName: '',
       },
+    },
+  ],
+  entity: [
+    {
+      detail: [
+        {
+          type: 'https://leedsth.nhs.uk/cds/clinical-approval/status',
+          value: 'Reviewed',
+        },
+        {
+          type: 'https://leedsth.nhs.uk/cds/clinical-approval/completed-on',
+          value: '19/02/2026 13:52:30',
+        },
+        {
+          type: 'https://leedsth.nhs.uk/cds/clinical-approval/completed-by-display-name',
+          value: 'DYSON, Jonny (Dr) Transplant Surgeon',
+        },
+      ],
     },
   ],
 }
@@ -387,6 +415,24 @@ const Audit7: AuditEvent = {
       },
     },
   ],
+  entity: [
+    {
+      detail: [
+        {
+          type: 'https://leedsth.nhs.uk/cds/clinical-approval/status',
+          value: 'Expired',
+        },
+        {
+          type: 'https://leedsth.nhs.uk/cds/clinical-approval/completed-on',
+          value: '19/02/2026 13:52:30',
+        },
+        {
+          type: 'https://leedsth.nhs.uk/cds/clinical-approval/completed-by-display-name',
+          value: 'DYSON, Jonny (Dr) Transplant Surgeon',
+        },
+      ],
+    },
+  ],
 }
 
 const Audit8: AuditEvent = {
@@ -438,6 +484,24 @@ const Audit8: AuditEvent = {
         display: 'DYSON, Jonny (Dr) Transplant Surgeon',
         typeName: '',
       },
+    },
+  ],
+  entity: [
+    {
+      detail: [
+        {
+          type: 'https://leedsth.nhs.uk/cds/clinical-approval/status',
+          value: 'Cancelled',
+        },
+        {
+          type: 'https://leedsth.nhs.uk/cds/clinical-approval/completed-on',
+          value: '19/02/2026 14:30:00',
+        },
+        {
+          type: 'https://leedsth.nhs.uk/cds/clinical-approval/completed-by-display-name',
+          value: 'DYSON, Jonny (Dr) Transplant Surgeon',
+        },
+      ],
     },
   ],
 }
@@ -895,6 +959,19 @@ const QuestionnaireResponse1: QuestionnaireResponse = {
     item: [],
   },
   item: [],
+  extension: [
+    {
+      url: 'https://leedsth.nhs.uk/cds',
+      valueCodeableConcept: {
+        coding: [
+          {
+            system: 'https://leedsth.nhs.uk/cds/clinical-approval/status',
+            code: 'Requested',
+          },
+        ],
+      },
+    },
+  ],
 }
 
 const QuestionnaireResponse2: QuestionnaireResponse = {
@@ -932,6 +1009,27 @@ const QuestionnaireResponse2: QuestionnaireResponse = {
     item: [],
   },
   item: [],
+  extension: [
+    {
+      url: 'https://leedsth.nhs.uk/cds',
+      valueCodeableConcept: {
+        coding: [
+          {
+            system: 'https://leedsth.nhs.uk/cds/clinical-approval/status',
+            code: 'Reviewed',
+          },
+          {
+            system: 'https://leedsth.nhs.uk/cds/clinical-approval/completed-on',
+            code: '19/02/2026 13:52:30',
+          },
+          {
+            system: 'https://leedsth.nhs.uk/cds/clinical-approval/completed-by-display-name',
+            code: 'Dr. Jane Smith',
+          },
+        ],
+      },
+    },
+  ],
 }
 
 export const RedactedQuestionnaireResponse1: QuestionnaireResponse = {
@@ -971,7 +1069,7 @@ const QuestionnaireResponse3: QuestionnaireResponse = {
       system: 'http://leedsth.nhs.uk/user/guid',
       value: 'cfe6a9d7-f23d-4bb9-a28d-8a3895bee48a',
     },
-    display: 'Jonny Dyson',
+    display: 'Jonny Dyson DR',
   },
   questionnaire: {
     id: '14720227-b1f7-4cc5-a0d0-403938cf710e',
@@ -991,6 +1089,27 @@ const QuestionnaireResponse3: QuestionnaireResponse = {
     item: [],
   },
   item: [],
+  extension: [
+    {
+      url: 'https://leedsth.nhs.uk/cds',
+      valueCodeableConcept: {
+        coding: [
+          {
+            system: 'https://leedsth.nhs.uk/cds/clinical-approval/status',
+            code: 'Expired',
+          },
+          {
+            system: 'https://leedsth.nhs.uk/cds/clinical-approval/completed-on',
+            code: '19/02/2026 13:52:30',
+          },
+          {
+            system: 'https://leedsth.nhs.uk/cds/clinical-approval/completed-by-display-name',
+            code: 'Dr. Jane Smith',
+          },
+        ],
+      },
+    },
+  ],
 }
 
 const QuestionnaireResponse4: QuestionnaireResponse = {
@@ -1023,6 +1142,64 @@ const QuestionnaireResponse4: QuestionnaireResponse = {
     url: 'http://ehr.leedsth.nhs.uk/questionnaire/Right-To-Reside',
     version: '1',
     title: 'Clinical Note (Edited)',
+    description: 'Submission 1',
+    status: QuestionnairePublicationStatus.Active,
+    item: [],
+  },
+  item: [],
+  extension: [
+    {
+      url: 'https://leedsth.nhs.uk/cds',
+      valueCodeableConcept: {
+        coding: [
+          {
+            system: 'https://leedsth.nhs.uk/cds/clinical-approval/status',
+            code: 'Cancelled',
+          },
+          {
+            system: 'https://leedsth.nhs.uk/cds/clinical-approval/completed-on',
+            code: '19/02/2026 13:52:30',
+          },
+          {
+            system: 'https://leedsth.nhs.uk/cds/clinical-approval/completed-by-display-name',
+            code: 'Dr. Jane Smith',
+          },
+        ],
+      },
+    },
+  ],
+}
+
+const QuestionnaireResponse5: QuestionnaireResponse = {
+  id: '435d2aca-7776-43e7-a33f-1ba481bd2897',
+  isEnteredInError: false,
+  metadata: mockMetadata,
+  status: QuestionnaireResponseStatus.Completed,
+  authored: {
+    kind: PartialDateTimeKindCode.DateTime,
+    value: '2021-08-21T13:13:56.9755581+01:00',
+  },
+  author: {
+    typeName: 'EhrUser',
+    identifier: {
+      system: 'http://leedsth.nhs.uk/user/guid',
+      value: 'cfe6a9d7-f23d-4bb9-a28d-8a3895bee48a',
+    },
+    display: 'Jonny Dyson',
+  },
+  questionnaire: {
+    id: '14720227-b1f7-4cc5-a0d0-403938cf710e',
+    isEnteredInError: false,
+    identifier: [
+      {
+        system: 'http://leedsth.nhs.uk/user/guid',
+        value: 'cfe6a9d7-f23d-4bb9-a28d-8a3895bee48a',
+      },
+    ],
+    metadata: mockMetadata,
+    url: 'http://ehr.leedsth.nhs.uk/questionnaire/Right-To-Reside',
+    version: '1',
+    title: 'Surgical Pre-assessment (Created)',
     description: 'Submission 1',
     status: QuestionnairePublicationStatus.Active,
     item: [],
@@ -1109,7 +1286,13 @@ export const TitleResponse: QuestionnaireResponse = {
 }
 
 const QuestionnaireResponses: QuestionnaireResponseContinuation = {
-  resources: [QuestionnaireResponse1, QuestionnaireResponse2, QuestionnaireResponse3, QuestionnaireResponse4],
+  resources: [
+    QuestionnaireResponse1,
+    QuestionnaireResponse2,
+    QuestionnaireResponse3,
+    QuestionnaireResponse4,
+    QuestionnaireResponse5,
+  ],
   selfCursorToken: '',
 }
 
