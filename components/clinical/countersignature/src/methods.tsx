@@ -1,5 +1,7 @@
 import {
   AuditEvent,
+  AuditEventEntity,
+  AuditEventEntityDetail,
   ClinicalApprovalStatus,
   Coding,
   DocumentReference,
@@ -50,22 +52,25 @@ export const GetCountersignaturePropsFromTimelineItem = (
     case TimelineDomainResourceType.AuditEvent: {
       const auditEvent = domainResource as AuditEvent
 
-      const clinicalApprovalEntity = auditEvent.entity?.find((entity) =>
-        entity?.detail?.some((detail) => detail?.type === Constants.CLINICAL_APPROVAL_STATUS)
+      const clinicalApprovalEntity = auditEvent.entity?.find((entity: Maybe<AuditEventEntity>) =>
+        entity?.detail?.some(
+          (detail: Maybe<AuditEventEntityDetail>) => detail?.type === Constants.CLINICAL_APPROVAL_STATUS
+        )
       )
 
       const statusDetail = clinicalApprovalEntity?.detail?.find(
-        (detail) => detail?.type === Constants.CLINICAL_APPROVAL_STATUS
+        (detail: Maybe<AuditEventEntityDetail>) => detail?.type === Constants.CLINICAL_APPROVAL_STATUS
       )
       status = statusDetail?.value ? (statusDetail.value.toUpperCase() as ClinicalApprovalStatus) : undefined
 
       const completedOnDetail = clinicalApprovalEntity?.detail?.find(
-        (detail) => detail?.type === Constants.CLINICAL_APPROVAL_COMPLETED_ON
+        (detail: Maybe<AuditEventEntityDetail>) => detail?.type === Constants.CLINICAL_APPROVAL_COMPLETED_ON
       )
       completedOnDisplay = parseAndFormatDateStringForDisplay(completedOnDetail?.value ?? undefined)
 
       const completedByDetail = clinicalApprovalEntity?.detail?.find(
-        (detail) => detail?.type === Constants.CLINICAL_APPROVAL_COMPLETED_BY_DISPLAY_NAME
+        (detail: Maybe<AuditEventEntityDetail>) =>
+          detail?.type === Constants.CLINICAL_APPROVAL_COMPLETED_BY_DISPLAY_NAME
       )
       completedByDisplayName = completedByDetail?.value || undefined
       break
