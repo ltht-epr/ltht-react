@@ -10,8 +10,8 @@ import {
   QuestionnaireResponse,
   TimelineDomainResourceType,
 } from '@ltht-react/types'
-import Constants from './system-value-constants'
 import { parseAndFormatDateStringForDisplay } from '@ltht-react/utils'
+import Constants from './system-value-constants'
 
 // eslint-disable-next-line import/prefer-default-export
 export const GetCountersignaturePropsFromTimelineItem = (
