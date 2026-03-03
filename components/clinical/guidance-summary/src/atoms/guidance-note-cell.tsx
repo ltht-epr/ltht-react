@@ -9,7 +9,7 @@ const baseStyles = css`
   padding: 0.5rem;
   border: 1px solid ${TABLE_COLOURS.BORDER};
   flex-grow: 1;
-  white-space: pre-wrap;
+  white-space: pre-wrap; // Respect whitespace in text that is displayed
 `
 
 const NoteCell = styled.div`

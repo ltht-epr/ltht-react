@@ -76,8 +76,9 @@ Your code must be reviewed and merged into `main`. A short while after this, an 
 3. Wipe your local build with `yarn clean`
 4. Install dependencies `yarn install`
 5. Build with `yarn build` or `yarn build:slow`
-6. Authenticate with `npm login`, if you haven't already.
-7. Publish to npm with `yarn run deploy:npm`.
+6. Test with `yarn test` to ensure build was successful
+7. Authenticate with `npm login`, if you haven't already.
+8. Publish to npm with `yarn run deploy:npm`.
 
 ## Deploying Storybook
 
