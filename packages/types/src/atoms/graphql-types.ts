@@ -2605,6 +2605,7 @@ export enum FeatureInstance {
   InterweavePortalLaunch = 'INTERWEAVE_PORTAL_LAUNCH',
   NsaCfaEnabled = 'NSA_CFA_ENABLED',
   NursingSpecialistAssessmentDashboard = 'NURSING_SPECIALIST_ASSESSMENT_DASHBOARD',
+  OutstandingOrderListsEnabled = 'OUTSTANDING_ORDER_LISTS_ENABLED',
   PointInTimeEnabled = 'POINT_IN_TIME_ENABLED',
   ResourceAuthorization = 'RESOURCE_AUTHORIZATION',
   SepsisAdultEnabled = 'SEPSIS_ADULT_ENABLED',
