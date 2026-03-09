@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.0.203 (2026-03-09)
+
+**Note:** Version bump only for package @ltht-react/questionnaire
+
 ## 2.0.202 (2026-03-03)
 
 **Note:** Version bump only for package @ltht-react/questionnaire
