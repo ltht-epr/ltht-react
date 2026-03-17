@@ -2616,7 +2616,8 @@ export enum FeatureInstance {
   UseLegacyGuidance = 'USE_LEGACY_GUIDANCE',
   WardRoundLabTestResultsEnabled = 'WARD_ROUND_LAB_TEST_RESULTS_ENABLED',
   XFormsLaunch = 'X_FORMS_LAUNCH',
-  YhcrDataProvider = 'YHCR_DATA_PROVIDER'
+  YhcrDataProvider = 'YHCR_DATA_PROVIDER',
+  RespectPlanningAheadDashboard = 'RESPECT_PLANNING_AHEAD_DASHBOARD'
 }
 
 /** An instance of a feature that is controlled via a toggle. */
